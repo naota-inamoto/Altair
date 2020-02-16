@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Command Line of Altair</TITLE>
+</HEAD>
+
+<BODY>
+<H1>コマンドラインからの実行</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.12版 1998年11月23日<BR>
+
+<HR>
+<H4>概要</H4>
+コマンドラインから引数を与えることによりプロジェクトの読み込みと<BR>
+関数の実行を指定できます。
+
+<HR>
+<H4>書式</H4>
+<PRE>
+altair [[-hide] [-dir &lt;dir&gt;] -file &lt;filename&gt; [-class &lt;class&gt; -method &lt;memberfunc&gt;]] &lt;argument&gt; ...
+</PRE>
+<H4>説明</H4>
+ディレクトリdirにあるプロジェクトファイルfilename(拡張子.apr)をaltair起動時に<BR>
+読み込みます。dirのデフォルトはカレントディレクトリです。<BR>
+さらにクラス名classとメンバー関数名memberfuncを指定するとaltair起動後にただちに実行に入ります。<BR>
+-hideオプションがついているとAltairメインウィンドウがhide状態でAltairが起動します。<BR>
+コマンド引数argumentはAPに渡り、APの中からal_misc("get_cmd_line", null, null);で参照することができます。<BR>
+
+<HR>
+</BODY>
+</HTML>

@@ -1,0 +1,40 @@
+
+<!-- Process Defnition Name -->
+<!ELEMENT ProcDef (ProcessDefName, ProcessDefinition*, ProcessDefaultProperties*)>
+
+<!ELEMENT ProcessDefName (#PCDATA)>
+<!ATTLIST ProcessDefName primary-key CDATA #IMPLIED>
+<!ATTLIST ProcessDefName ProcessDefName CDATA #IMPLIED>
+
+<!-- Process Definition -->
+<!ELEMENT ProcessDefinition (ProcessDefName,
+        ActivityId, ActivityName, ActivityKind, PropertyValue,
+        NextActivityId, NextActivityName, NextActivityKind, NextPropertyName,
+        Time, ClassName, AndJoinCount)>
+
+<!ELEMENT ActivityId (#PCDATA)>
+<!ATTLIST ActivityId primary-key CDATA #IMPLIED>
+<!ELEMENT ActivityName   (#PCDATA)>
+<!ELEMENT ActivityKind   (#PCDATA)>
+
+<!ELEMENT NextActivityId (#PCDATA)>
+<!ELEMENT NextActivityName   (#PCDATA)>
+<!ELEMENT NextActivityKind   (#PCDATA)>
+
+<!ELEMENT PropertyValue (#PCDATA)>
+<!ATTLIST PropertyValue primary-key   CDATA #IMPLIED>
+<!ELEMENT NextPropertyName (#PCDATA)>
+
+<!ELEMENT Time (#PCDATA)>
+<!ELEMENT ClassName (#PCDATA)>
+<!ELEMENT AndJoinCount (#PCDATA)>
+
+<!-- Process Default Properties -->
+<!ELEMENT ProcessDefaultProperties (ProcessDefName, Name, Value)>
+
+<!ELEMENT Name  (#PCDATA)>
+<!ATTLIST Name  primary-key   CDATA #IMPLIED>
+
+<!ELEMENT Value  (#PCDATA)>
+
+

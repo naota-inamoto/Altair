@@ -1,0 +1,5 @@
+test_loop: 6msec
+test_int_add: 9msec
+test_string_add: 382188msec
+test_new: 2519msec
+test_all: 384730msec

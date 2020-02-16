@@ -1,0 +1,119 @@
+$END_LIB
+TEXT
+AlObject
+class GuiSetup
+end_class
+$END_CLASS
+TEXT
+AlObject
+class GuiSetup
+member
+public: static void main();
+member
+public: list setup_sample();
+member
+public: list setup_ocx();
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class GuiSetup
+member
+public: static void main();
+body
+{
+	var GuiSetup inst;
+	inst = new GuiSetup;
+	if (inst.setup_sample()) {
+		al_print("An error occurs during setup of samples.\n");
+		al_print("Stop setup.\n");
+		return;
+	} else {
+	}
+	if (inst.setup_ocx()) {
+		al_print("An error occurs while  registering OCX.\n");
+		al_print("Stop setup.\n");
+		return;
+	} else {
+	}
+	al_print("Setup nomarlly finisned.\n");
+}
+end_body
+member
+public: list setup_sample();
+body
+{
+	var variant al;
+	var integer r;
+	al = al_ole_misc("create_object", "Altair.Document", null);
+	if (al == null) {
+		al_print("can't execute Altair by OLE automation.\n");
+		return 1;
+	} else {
+	}
+	al_print("==== Step (1): loading file 'guicore.apr' ...\n");
+	r = al.Open(".", "guicore.apr");
+	if (r != 0) {
+		al_print("Can't open file 'guicore.apr'.\n");
+		return 2;
+	} else {
+	}
+	al_print("==== Step (2): createing library 'guicore.alb' ...\n");
+	r = al.MakeGraphLibrary("GUI", "guicore.alb");
+	if (r != 0) {
+		al_print("Fail to create library 'guicore.alb'.\n");
+		return 3;
+	} else {
+	}
+	al_print("==== Step (3): loading file 'gbgpt.apr' ...\n");
+	r = al.Open(".", "gbgpt.apr");
+	if (r != 0) {
+		al_print("Can' open file 'gbgpt.apr'.\n");
+		return 4;
+	} else {
+	}
+	al_print("==== Step (4): creating library 'gbgp.alb' ...\n");
+	r = al.MakeGraphLibrary("GUI", "gbgp.alb");
+	if (r != 0) {
+		al_print("Fail to create library 'gbgp.alb'.\n");
+		return 5;
+	} else {
+	}
+	return null;
+}
+end_body
+member
+public: list setup_ocx();
+body
+{
+	var string cmd;
+	var integer r;
+	al_print("==== Step (5): registering AlCtrl.ocx ...\n");
+	cmd = "regsvr32 /s alctrl.ocx";
+	r = al_exec(cmd, ".", null, 1);
+	if (r != 0) {
+		al_print("Fail to register AlCtrl.ocx.\n");
+		return 1;
+	} else {
+	}
+	al_print("==== Step (6): registering AlMm.ocx ...\n");
+	cmd = "regsvr32 /s almm.ocx";
+	r = al_exec(cmd, ".", null, 1);
+	if (r != 0) {
+		al_print("Fail to register AlMm.ocx.\n");
+		return 2;
+	} else {
+	}
+	al_print("==== Step (7): registering AlReg.ocx ...\n");
+	cmd = "regsvr32 /s alreg.ocx";
+	r = al_exec(cmd, ".", null, 1);
+	if (r != 0) {
+		al_print("Fail to register AlReg.ocx.\n");
+		return 3;
+	} else {
+	}
+	return null;
+}
+end_body
+end_class
+$END_BODY

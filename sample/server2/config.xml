@@ -1,0 +1,52 @@
+<AltairServer>
+
+  <MaxLogSize>1000</MaxLogSize>
+
+  <SystemLog>./log/system.log</SystemLog>
+  <SystemLogDb>true</SystemLogDb>
+
+  <GcInterval>3600</GcInterval>
+
+  <WebServer name="PublicHttpServer">
+    <Port>8080</Port>
+    <DocumentRoot>./html</DocumentRoot>
+    <AccessLog>./log/access.log</AccessLog>
+    <AccessLogDb>true</AccessLogDb>
+    <MaxMessageSize>2000</MaxMessageSize>
+    <ConnectionTimeout>300</ConnectionTimeout>
+    <SessionTimeout>600</SessionTimeout>
+
+    <Servlet>
+      <Path>/admin/ebiz</Path>
+      <Class>WebUIServlet</Class>
+    </Servlet>
+    <UploadServlet>
+      <Path>/admin/upload</Path>
+      <Class>WebUIServlet</Class>
+    </UploadServlet>
+
+  </WebServer>
+
+  <XmlUtility>
+    <DtdBase>./dtd</DtdBase>
+    <XslBase>./xsl</XslBase>
+    <DbObjectMaxValueLength>3000</DbObjectMaxValueLength>
+    <ContentValidationBase>./validation</ContentValidationBase>
+  </XmlUtility>
+
+  <DbConnectionPool name="ebizPool">
+<!--
+    <SqlTraceLog>./log/sql_trace.log</SqlTraceLog>
+-->
+    <DbType>postgresql</DbType>
+    <Host>localhost</Host>
+    <Port>5432</Port>
+    <DbName>testdb</DbName>
+    <DbUser>inamoto</DbUser>
+    <DbPassword>naota</DbPassword>
+
+    <InitialCapacity>1</InitialCapacity>
+    <MaxCapacity>15</MaxCapacity>
+  </DbConnectionPool>
+
+</AltairServer>

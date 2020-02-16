@@ -1,0 +1,19 @@
+count	total	average	class	func
+	(msec)	(msec)		
+279	57	0	HttpConnection	received
+28	52	1	HttpConnection	DoGet
+223	17	0	HttpConnection	Send
+279	16	0	HttpConnection	Start
+28	12	0	HttpConnectionMgr	accepted
+56	4	0	HttpConnection	Send
+28	4	0	HttpConnection	Close
+28	3	0	HttpConnection	GetAbsolutePath
+28	2	0	HttpConnection	Create
+28	2	0	HttpServer	GetContentType
+1	0	0	HttpConnectionMgr	Close
+1	0	0	HttpConnectionMgr	Create
+1	0	0	HttpServer	Close
+1	0	0	HttpServer	Start
+1	0	0	HttpServer	Create
+1	0	0	HttpServer	stop
+1	0	0	HttpServer	start

@@ -1,0 +1,105 @@
+
+depend_to_model(depend, model) .
+var("model", model) == 1, write(dump(model, 1)) == 1 .
+
+depend_to_model(depend, model) :- var("depend", depend) == 1, var("model", model) == 1, 
+                                  g == cons(null, null), init(g, depend, model), class(depend, model) .
+
+init(g, depend, model) :-
+  pm_rep(g, depend, model)
+
+    before := {
+      invariant,
+      g
+    }
+    after := {
+      depend:("program") -/"body"/-> scls:("classes"),
+                    scls -/1/-> scl:("class_def"),
+                                scl -/"name"/-> ("AlObject"),
+                                scl -/"sub_class"/->scls2:("classes"),
+                                     scls2-/1/->scl2:("class_def"),
+                                         scl2-/"name"/->("TP"),
+                                         scl2-/"sub_class"/->("classes"),
+
+      model:("class_defs") -/(null, "AlObject")/-> alobj:("class_def"),
+                                  alobj -/"name"/-> ("AlObject"),
+
+      model                -/(null, "AlException")/-> alexcp:("class_def"),
+                                  alexcp -/"name"/-> ("AlException"),
+                                  alexcp -/"super"/-> alobj
+    }
+    common := {
+      where .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+class(depend, model) :- 
+  pm_rep(depend, model)
+
+    before := {
+      invariant,
+      depend:("program") -/"body"/-> scls:("classes"),
+      <<<1
+                    scls -/i/=> scl:("class_def"),
+                                scl -/"name"/-> (name),
+                                scl -/"sub_class"/->scls2:("classes")
+      >>>1
+    }
+    after := {
+      model:("class_defs")
+    }
+    common := {
+      where next_if_false(is_type(i, "integer") == null),
+            class2(scls2, dst_node(model, (null, name)), model) .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* -------------------------------- class2 -------------------------------- */
+class2(scls, super, model) :- 
+  pm_rep(scls, super, model)
+
+    before := {
+      invariant,
+      <<<1
+        scls:("classes") -/i/=> scl:("class_def") ,
+                              scl -/"name"/-> (name),
+                              scl -/"sub_class"/->scls2:("classes")
+      >>>1
+    }
+    after := {
+      <<<1
+        model:("class_defs") -/(null, name)/=> dcl:("class_def"),
+                                  dcl -/"name"/-> (name),
+                                  dcl -/"super"/-> super,
+        scl -/"$refer"/-> dcl
+      >>>1
+    }
+    common := {
+      where next_if_false(is_type(i, "integer") == null) .
+    }
+    tail := {
+      where class2(scls2, dcl, model) .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+

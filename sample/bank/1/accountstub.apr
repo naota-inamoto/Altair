@@ -1,0 +1,62 @@
+orb.alb
+account.alb
+$END_LIB
+TEXT
+Account
+class AccountStub
+end_class
+$END_CLASS
+TEXT
+Account
+class AccountStub
+member
+public: ObjRef ref;
+member
+public: integer diposit(integer amount);
+member
+public: integer withdraw(integer amount);
+end_class
+$END_MEMBER
+TEXT
+Account
+class AccountStub
+member
+public: ObjRef ref;
+member
+public: integer diposit(integer amount);
+body
+{
+	var string method;
+	var list arg_dcl, arg_list;
+	method = al_gp("method_name", null, null, null, null);
+	arg_dcl = al_gp("arg_dcl", null, null, null, null);
+	arg_list = al_gp("arg_list", null, null, null, null);
+	var ReqResult result;
+	result = request(ref, method, arg_dcl, arg_list);
+	if (result.exception) {
+		return result.exception;
+	} else {
+	}
+	return result.ret_val;
+}
+end_body
+member
+public: integer withdraw(integer amount);
+body
+{
+	var string method;
+	var list arg_dcl, arg_list;
+	method = al_gp("method_name", null, null, null, null);
+	arg_dcl = al_gp("arg_dcl", null, null, null, null);
+	arg_list = al_gp("arg_list", null, null, null, null);
+	var ReqResult result;
+	result = request(ref, method, arg_dcl, arg_list);
+	if (result.exception) {
+		return result.exception;
+	} else {
+	}
+	return result.ret_val;
+}
+end_body
+end_class
+$END_BODY

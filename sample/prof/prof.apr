@@ -1,0 +1,489 @@
+$END_LIB
+TEXT
+AlObject
+class Test
+end_class
+$END_CLASS
+TEXT
+AlObject
+class Test
+member
+public: static void main();
+member
+public: static void main_out_log();
+member
+public: integer count;
+member
+public: void test_loop();
+member
+public: void test_int_add();
+member
+public: void test_string_add();
+member
+public: void test_new();
+member
+public: void test_all();
+member
+public: static void main2();
+member
+public: static void main2_a();
+member
+public: void init();
+member
+public: void test_parse(string xml);
+member
+public: void test_parse_a(string xml);
+member
+public: list start_element(string tag_name, list attrs);
+member
+public: list end_element(string tag_name);
+member
+public: list characters(string text);
+member
+public: static void main3();
+member
+public: void test_parse2(string filename);
+member
+public: static void main4();
+member
+public: void test_parse3(string filename);
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class Test
+member
+public: static void main();
+body
+{
+	al_prof("set", "prof", null);
+	al_prof("start", "prof", al_list2(1, null));
+	var Test test;
+	test = new Test;
+	test.count = 100;
+	test.test_all();
+	al_prof("stop", "prof", null);
+	var list result, itr, rec;
+	result = al_prof("result", "prof", null);
+	var file out;
+	out = al_file_open("altair_prof.txt", "w");
+	al_file_write(out, "string", "count\ttotal\taverage\tclass\tfunc\n");
+	al_file_write(out, "string", "\t(msec)\t(msec)\t\t\n");
+	itr = al_dst_itr(result);
+	loop {
+		if (rec = al_next(itr)) {
+		} else {
+			break;
+		}
+		al_file_write(out, "string", (string)rec.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.tail.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.head + "\n");
+	}
+	al_prof("clear", "prof", null);
+	al_print("end\n");
+}
+end_body
+member
+public: static void main_out_log();
+body
+{
+	al_prof("set", "prof", null);
+	al_prof("start", "prof", al_list2(2, "log.txt"));
+	var Test test;
+	test = new Test;
+	test.count = 10;
+	test.test_all();
+	al_prof("stop", "prof", null);
+	al_print("end\n");
+}
+end_body
+member
+public: integer count;
+member
+public: void test_loop();
+body
+{
+	var integer i;
+	i = 0;
+	loop {
+		if (i < count) {
+		} else {
+			break;
+		}
+		var integer j;
+		j = 0;
+		loop {
+			if (j < 10000) {
+			} else {
+				break;
+			}
+			j = j + 1;
+		}
+		i = i + 1;
+	}
+}
+end_body
+member
+public: void test_int_add();
+body
+{
+	var integer i;
+	i = 0;
+	loop {
+		if (i < count) {
+		} else {
+			break;
+		}
+		var integer s;
+		s = 0;
+		var integer j;
+		j = 0;
+		loop {
+			if (j < 10000) {
+			} else {
+				break;
+			}
+			s = s + j;
+			j = j + 1;
+		}
+		i = i + 1;
+	}
+}
+end_body
+member
+public: void test_string_add();
+body
+{
+	var integer i;
+	i = 0;
+	loop {
+		if (i < count) {
+		} else {
+			break;
+		}
+		var string s;
+		s = "";
+		var integer j;
+		j = 0;
+		loop {
+			if (j < 10000) {
+			} else {
+				break;
+			}
+			s = s + "abcd";
+			j = j + 1;
+		}
+		i = i + 1;
+	}
+}
+end_body
+member
+public: void test_new();
+body
+{
+	var integer i;
+	i = 0;
+	loop {
+		if (i < count) {
+		} else {
+			break;
+		}
+		var Test test;
+		var integer j;
+		j = 0;
+		loop {
+			if (j < 10000) {
+			} else {
+				break;
+			}
+			test = new Test;
+			j = j + 1;
+		}
+		i = i + 1;
+	}
+}
+end_body
+member
+public: void test_all();
+body
+{
+	test_loop();
+	test_int_add();
+	test_string_add();
+	test_new();
+}
+end_body
+member
+public: static void main2();
+body
+{
+	var string filename;
+	var integer len;
+	var file in;
+	var list binary;
+	var string xml;
+	filename = "test.xml";
+	len = al_file_manip("get_size", filename, null);
+	binary = al_misc("binary", len, null);
+	in = al_file_open(filename, "rb");
+	al_file_read(in, al_list3(binary, 0, len));
+	xml = al_misc("binary_to_string", al_list3(binary, 0, len), null);
+	al_prof("set", "prof2", null);
+	al_prof("start", "prof2", al_list2(1, null));
+	var Test test;
+	test = new Test;
+	test.init();
+	test.test_parse(xml);
+	al_prof("stop", "prof2", null);
+	var list result, itr, rec;
+	result = al_prof("result", "prof2", null);
+	var file out;
+	out = al_file_open("altair_xml_parser.txt", "w");
+	al_file_write(out, "string", "count\ttotal\taverage\tclass\tfunc\n");
+	al_file_write(out, "string", "\t(msec)\t(msec)\t\t\n");
+	itr = al_dst_itr(result);
+	loop {
+		if (rec = al_next(itr)) {
+		} else {
+			break;
+		}
+		al_file_write(out, "string", (string)rec.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.tail.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.head + "\n");
+	}
+	al_prof("clear", "prof2", null);
+	al_print("end\n");
+}
+end_body
+member
+public: static void main2_a();
+body
+{
+	var string filename;
+	var integer len;
+	var file in;
+	var list binary;
+	var string xml;
+	filename = "test.xml";
+	len = al_file_manip("get_size", filename, null);
+	binary = al_misc("binary", len, null);
+	in = al_file_open(filename, "rb");
+	al_file_read(in, al_list3(binary, 0, len));
+	xml = al_misc("binary_to_string", al_list3(binary, 0, len), null);
+	al_prof("set", "prof2", null);
+	al_prof("start", "prof2", al_list2(1, null));
+	var Test test;
+	test = new Test;
+	test.init();
+	test.test_parse_a(xml);
+	al_prof("stop", "prof2", null);
+	var list result, itr, rec;
+	result = al_prof("result", "prof2", null);
+	var file out;
+	out = al_file_open("altair_xml_parser2.txt", "w");
+	al_file_write(out, "string", "count\ttotal\taverage\tclass\tfunc\n");
+	al_file_write(out, "string", "\t(msec)\t(msec)\t\t\n");
+	itr = al_dst_itr(result);
+	loop {
+		if (rec = al_next(itr)) {
+		} else {
+			break;
+		}
+		al_file_write(out, "string", (string)rec.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.tail.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.head + "\n");
+	}
+	al_prof("clear", "prof2", null);
+	al_print("end\n");
+}
+end_body
+member
+public: void init();
+body
+{
+	count = 100;
+}
+end_body
+member
+public: void test_parse(string xml);
+body
+{
+	var integer i;
+	var file inXml;
+	i = 0;
+	loop {
+		if (i < count) {
+		} else {
+			break;
+		}
+		inXml = al_file_open(xml, "sr");
+		al_xml("parse", inXml, null, null);
+		i = i + 1;
+	}
+}
+end_body
+member
+public: void test_parse_a(string xml);
+body
+{
+	var integer i;
+	var file inXml;
+	i = 0;
+	loop {
+		if (i < count) {
+		} else {
+			break;
+		}
+		var list listener;
+		listener = al_list4(this, Test::start_element, Test::end_element, Test::characters);
+		inXml = al_file_open(xml, "sr");
+		al_xml("parse", inXml, listener, null);
+		i = i + 1;
+	}
+}
+end_body
+member
+public: list start_element(string tag_name, list attrs);
+body
+{
+	return null;
+}
+end_body
+member
+public: list end_element(string tag_name);
+body
+{
+	return null;
+}
+end_body
+member
+public: list characters(string text);
+body
+{
+	return null;
+}
+end_body
+member
+public: static void main3();
+body
+{
+	var string filename;
+	var file out;
+	filename = "test.xml";
+	var Test test;
+	test = new Test;
+	al_prof("set", "prof3", null);
+	al_prof("start", "prof3", al_list2(1, null));
+	test.init();
+	test.test_parse2(filename);
+	al_prof("stop", "prof3", null);
+	var list result, itr, rec;
+	result = al_prof("result", "prof4", null);
+	var file out;
+	out = al_file_open("altair_xml_parser3.txt", "w");
+	al_file_write(out, "string", "count\ttotal\taverage\tclass\tfunc\n");
+	al_file_write(out, "string", "\t(msec)\t(msec)\t\t\n");
+	itr = al_dst_itr(result);
+	loop {
+		if (rec = al_next(itr)) {
+		} else {
+			break;
+		}
+		al_file_write(out, "string", (string)rec.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.tail.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.head + "\n");
+	}
+	al_prof("clear", "prof3", null);
+	al_print("end\n");
+}
+end_body
+member
+public: void test_parse2(string filename);
+body
+{
+	var integer i;
+	var file in;
+	i = 0;
+	loop {
+		if (i < count) {
+		} else {
+			break;
+		}
+		in = al_file_open(filename, "r");
+		al_xml("parse", in, null, null);
+		i = i + 1;
+	}
+}
+end_body
+member
+public: static void main4();
+body
+{
+	var string filename, filename2;
+	var file in, out;
+	var list tree;
+	filename = "test.xml";
+	filename2 = "test.dat";
+	in = al_file_open(filename, "r");
+	out = al_file_open(filename2, "w");
+	tree = al_xml("parse", in, null, null);
+	tree = tree.head;
+	al_file_write(out, "graph", tree);
+	in = out = null;
+	var Test test;
+	test = new Test;
+	al_prof("set", "prof4", null);
+	al_prof("start", "prof4", al_list2(1, null));
+	test.init();
+	test.test_parse3(filename2);
+	al_prof("stop", "prof4", null);
+	var list result, itr, rec;
+	result = al_prof("result", "prof4", null);
+	var file out;
+	out = al_file_open("altair_xml_parser3.txt", "w");
+	al_file_write(out, "string", "count\ttotal\taverage\tclass\tfunc\n");
+	al_file_write(out, "string", "\t(msec)\t(msec)\t\t\n");
+	itr = al_dst_itr(result);
+	loop {
+		if (rec = al_next(itr)) {
+		} else {
+			break;
+		}
+		al_file_write(out, "string", (string)rec.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.tail.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.head + "\n");
+	}
+	al_prof("clear", "prof4", null);
+	al_print("end\n");
+}
+end_body
+member
+public: void test_parse3(string filename);
+body
+{
+	var integer i;
+	var file in;
+	i = 0;
+	loop {
+		if (i < count) {
+		} else {
+			break;
+		}
+		in = al_file_open(filename, "r");
+		al_file_read(in, "graph");
+		i = i + 1;
+	}
+}
+end_body
+end_class
+$END_BODY

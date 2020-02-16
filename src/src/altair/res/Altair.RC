@@ -1,0 +1,278 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 日本語 (日本) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""res\\altair.rc2""  // App Studio では編集できないリソース\r\n"
+    "\r\n"
+    "#include ""afxres.rc""\t\t\t// リソースの標準的な構成要素\r\n"
+    "#include ""afxprint.rc""\t\t// 印刷／印刷プレビュー用リソース\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "RES\\ALTAIR.ICO"
+IDR_ALTAIRTYPE          ICON                    "RES\\ALTAIDOC.ICO"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU
+BEGIN
+    POPUP "ﾌｧｲﾙ(&F)"
+    BEGIN
+        MENUITEM "プリンタの設定(&R)...",              ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "終了(&X)",                      ID_APP_EXIT
+    END
+    POPUP "ﾌﾟﾛｼｪﾞｸﾄ(&P)"
+    BEGIN
+        MENUITEM "ｳｨﾝﾄﾞｳ(&W)",                  ID_PROJ_WND
+    END
+    POPUP "表示(&V)"
+    BEGIN
+        MENUITEM "ステータス バー(&S)",                ID_VIEW_STATUS_BAR
+    END
+    POPUP "ﾍﾙﾌﾟ(&H)"
+    BEGIN
+        MENUITEM "オンラインマニュアル(&M)",              ID_HELP_ONLINE_MANUAL2
+        MENUITEM "バージョン情報(&A)...",              ID_APP_ABOUT
+    END
+END
+
+IDR_ALTAIRTYPE MENU
+BEGIN
+    POPUP "ﾌｧｲﾙ(&F)"
+    BEGIN
+        MENUITEM "閉じる(&C)",                     ID_FILE_CLOSE
+        MENUITEM SEPARATOR
+        MENUITEM "印刷(&P)...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "印刷プレビュー(&V)",                 ID_FILE_PRINT_PREVIEW
+        MENUITEM "プリンタの設定(&R)...",              ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "終了(&X)",                      ID_APP_EXIT
+    END
+    POPUP "ﾌﾟﾛｼｪﾞｸﾄ(&P)"
+    BEGIN
+        MENUITEM "ｳｨﾝﾄﾞｳ(&W)",                  ID_PROJ_WND
+    END
+    POPUP "表示(&V)"
+    BEGIN
+        MENUITEM "ステータス バー(&S)",                ID_VIEW_STATUS_BAR
+    END
+    POPUP "ｳｨﾝﾄﾞｳ(&W)"
+    BEGIN
+        MENUITEM "重ねて表示(&C)",                   ID_WINDOW_CASCADE
+        MENUITEM "並べて表示(&T)",                   ID_WINDOW_TILE_HORZ
+        MENUITEM "アイコンの整列(&A)",                 ID_WINDOW_ARRANGE
+    END
+    POPUP "ﾍﾙﾌﾟ(&H)"
+    BEGIN
+        MENUITEM "オンラインマニュアル(&M)",              ID_HELP_ONLINE_MANUAL
+        MENUITEM "バージョン情報(&A)...",              ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 34, 22, 205, 72
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "ALTAIR のバージョン情報"
+FONT 10, "System", 0, 0, 0x0
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,9,14,20,20
+    LTEXT           "ALTAIR Version 0.44",IDC_STATIC,43,9,72,8
+    LTEXT           "Copyright (C) 1995-2020 Naota Inamoto",IDC_STATIC,42,24,149,8
+    DEFPUSHBUTTON   "OK",IDOK,161,50,32,14,WS_GROUP
+    LTEXT           "mailto:altair1984jp@yahoo.co.jp",IDC_STATIC,15,51,128,9
+    LTEXT           "http://www5f.biglobe.ne.jp/~inamoto/altair/",IDC_STATIC,15,39,168,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 0,0,44,0
+ PRODUCTVERSION 0,0,44,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041104b0"
+        BEGIN
+            VALUE "Comments", "by Naota Inamoto"
+            VALUE "FileDescription", "Altair"
+            VALUE "FileVersion", "0, 0, 44, 0"
+            VALUE "InternalName", "Altair"
+            VALUE "LegalCopyright", "Copyright (C) 1995-2020"
+            VALUE "OriginalFilename", "altair.exe"
+            VALUE "ProductName", "Altair"
+            VALUE "ProductVersion", "0, 0, 44, 0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x411, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDR_MAINFRAME           "Altair"
+    IDR_ALTAIRTYPE          "\nAltair\nAltair\n\n\nAltair.Document\nAltair Document"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_APP_TITLE       "Altair"
+    AFX_IDS_IDLEMESSAGE     "ﾚﾃﾞｨ"
+END
+
+STRINGTABLE
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+    ID_INDICATOR_KANA       "KANA"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_CLOSE           "作業中のｳｨﾝﾄﾞｳを閉じる"
+    ID_FILE_PRINT_SETUP     "ﾌﾟﾘﾝﾀと印刷の設定変更"
+    ID_FILE_PRINT           "作業中の文書を印刷"
+    ID_FILE_PRINT_PREVIEW   "ﾍﾟｰｼﾞ全体を表示して印刷前に確認"
+END
+
+STRINGTABLE
+BEGIN
+    ID_APP_ABOUT            "ﾌﾟﾛｸﾞﾗﾑ情報､ﾊﾞｰｼﾞｮﾝ､版権の表示"
+    ID_APP_EXIT             "ALTAIR を終了"
+END
+
+STRINGTABLE
+BEGIN
+    ID_NEXT_PANE            "次のｳｨﾝﾄﾞｳに切り替える"
+    ID_PREV_PANE            "前のｳｨﾝﾄﾞｳに切り替える"
+END
+
+STRINGTABLE
+BEGIN
+    ID_WINDOW_ARRANGE       "ｳｨﾝﾄﾞｳの下部にｱｲｺﾝを整列"
+    ID_WINDOW_CASCADE       "ｳｨﾝﾄﾞｳを重ねて表示"
+    ID_WINDOW_TILE_HORZ     "ｳｨﾝﾄﾞｳを水平に並べて表示"
+    ID_WINDOW_TILE_VERT     "ｳｨﾝﾄﾞｳを垂直に並べて表示"
+    ID_WINDOW_SPLIT         "作業中のｳｨﾝﾄﾞｳを分割"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_STATUS_BAR      "ｽﾃｰﾀｽﾊﾞｰの表示または非表示"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCSIZE          "ｳｨﾝﾄﾞｳのｻｲｽﾞを変更"
+    AFX_IDS_SCMOVE          "ｳｨﾝﾄﾞｳを移動"
+    AFX_IDS_SCMINIMIZE      "ｳｨﾝﾄﾞｳのｱｲｺﾝ化"
+    AFX_IDS_SCMAXIMIZE      "ｳｨﾝﾄﾞｳの最大表示"
+    AFX_IDS_SCNEXTWINDOW    "次の文書ｳｨﾝﾄﾞｳに切り替え"
+    AFX_IDS_SCPREVWINDOW    "前の文書ｳｨﾝﾄﾞｳに切り替え"
+    AFX_IDS_SCCLOSE         "作業中のｳｨﾝﾄﾞｳを閉じ文書保管を確認"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCRESTORE       "ｳｨﾝﾄﾞｳを通常のｻｲｽﾞに戻す"
+    AFX_IDS_SCTASKLIST      "作業中のｱﾌﾟﾘｹｰｼｮﾝﾘｽﾄ"
+    AFX_IDS_MDICHILD        "このｳｨﾝﾄﾞｳをｱｸﾃｨﾌﾞ化"
+END
+
+#endif    // 日本語 (日本) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "res\altair.rc2"  // App Studio では編集できないリソース
+
+#include "afxres.rc"			// リソースの標準的な構成要素
+#include "afxprint.rc"		// 印刷／印刷プレビュー用リソース
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

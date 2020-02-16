@@ -1,0 +1,188 @@
+<!--
+
+   RosettaNet XML Message Guideline.
+   http://www.rosettanet.org
+   PIP 2 A5 Technical Information Query
+   Version 1.0
+   
+   Created using Edifecs Commerce SpecBuilder. 
+   http://www.edifecs.com
+   http://www.commercedesk.com
+   Build # 9
+-->
+
+
+<!ENTITY % common-attributes "id  CDATA #IMPLIED" >
+ 
+<!ELEMENT Pip2A5TechnicalInformationQuery ( 
+          ComponentTechnicalSpecificationQuery ,
+          fromRole ,
+          toRole ,
+          thisDocumentGenerationDateTime ,
+          thisDocumentIdentifier ,
+          GlobalDocumentFunctionCode ) > 
+
+<!ELEMENT ComponentTechnicalSpecificationQuery ( 
+          ComponentTechnicalSpecification ,
+          QueryConstraint? ) > 
+
+<!ELEMENT ComponentTechnicalSpecification ( (
+          SubComponent* ,
+          GlobalProductIdentifier? ,
+          TextualDescription? ,
+          manufacturerName? ,
+          GlobalComponentNameCode?,
+(           Quantity |
+           Quality )* ) | Association ) > 
+<!ATTLIST ComponentTechnicalSpecification
+           %common-attributes; > 
+
+<!ELEMENT SubComponent ( 
+          GlobalSubComponentRelationshipCode ,
+          externalComponentSpecification? ,
+          subComponentSpecification* ,
+          atLeast ,
+          atMost ) > 
+
+<!ELEMENT GlobalSubComponentRelationshipCode
+           ( #PCDATA ) >
+
+<!ELEMENT externalComponentSpecification
+           ( UniversalResourceIdentifier ) > 
+
+<!ELEMENT UniversalResourceIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT subComponentSpecification
+            ( ComponentTechnicalSpecification ) > 
+
+<!ELEMENT atLeast
+           ( Cardinality ) > 
+
+<!ELEMENT Cardinality
+           ( #PCDATA ) >
+
+<!ELEMENT atMost
+            ( Cardinality ) > 
+
+<!ELEMENT Quantity ( 
+          Magnitude ,
+          GlobalSpecificationNameCode ) > 
+
+<!ELEMENT Magnitude
+           ( #PCDATA ) >
+<!ATTLIST Magnitude
+           unit-of-measure    CDATA #REQUIRED>
+
+<!ELEMENT GlobalSpecificationNameCode
+           ( #PCDATA ) >
+
+<!ELEMENT Quality ( 
+          GlobalSpecificationNameCode,
+(           GlobalSpecificationValueCode |
+           Value ) ) > 
+
+<!ELEMENT GlobalSpecificationValueCode
+           ( #PCDATA ) >
+
+<!ELEMENT Value
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalProductIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT TextualDescription ( 
+          primary ,
+          detail ,
+          summary ) > 
+
+<!ELEMENT primary
+           ( FreeFormText ) > 
+
+<!ELEMENT FreeFormText
+           ( #PCDATA ) >
+<!ATTLIST FreeFormText
+           xml:lang CDATA #IMPLIED >
+
+<!ELEMENT detail
+            ( FreeFormText ) > 
+
+<!ELEMENT summary
+            ( FreeFormText ) > 
+
+<!ELEMENT manufacturerName
+            ( FreeFormText ) > 
+
+<!ELEMENT GlobalComponentNameCode
+           ( #PCDATA ) >
+
+<!ELEMENT QueryConstraint
+           ( #PCDATA ) >
+
+<!ELEMENT fromRole
+            ( PartnerRoleDescription ) > 
+
+<!ELEMENT PartnerRoleDescription ( 
+          GlobalPartnerRoleClassificationCode ,
+          PartnerDescription ,
+          ContactInformation? ) > 
+
+<!ELEMENT ContactInformation ( 
+          contactName ,
+          telephoneNumber ,
+          EmailAddress ) > 
+
+<!ELEMENT contactName
+            ( FreeFormText ) > 
+
+<!ELEMENT telephoneNumber
+           ( CommunicationsNumber ) > 
+
+<!ELEMENT CommunicationsNumber
+           ( #PCDATA ) >
+
+<!ELEMENT EmailAddress
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalPartnerRoleClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT PartnerDescription ( 
+          GlobalPartnerClassificationCode ,
+          BusinessDescription ) > 
+
+<!ELEMENT GlobalPartnerClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT BusinessDescription ( 
+          GlobalBusinessIdentifier ,
+          GlobalSupplyChainCode ) > 
+
+<!ELEMENT GlobalBusinessIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalSupplyChainCode
+           ( #PCDATA ) >
+
+<!ELEMENT toRole
+            ( PartnerRoleDescription ) > 
+
+<!ELEMENT thisDocumentGenerationDateTime
+           ( DateTimeStamp ) > 
+
+<!ELEMENT DateTimeStamp
+           ( #PCDATA ) >
+
+<!ELEMENT thisDocumentIdentifier
+           ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT ProprietaryDocumentIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalDocumentFunctionCode
+           ( #PCDATA ) >
+
+<!ELEMENT Association 	EMPTY>
+<!ATTLIST Association
+          reference   ID  #REQUIRED>
+

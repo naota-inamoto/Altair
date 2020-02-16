@@ -1,0 +1,142 @@
+
+split_ident ;
+
+post newline indent ";" ;
+post space "," ;
+
+indent+ "    " <create_tbl:4> ;
+-indent <create_tbl:7> ;
+post newline indent <create_tbl:4> ;
+pre  newline indent <create_tbl:7> ;
+post newline indent <ct_constraint_n:1> ;
+post newline indent <ct_col_n:1> ;
+pre  space <create_tbl:4> ;
+pre  space <default:1> ;
+post space <default:1> ;
+pre  space <null:1> ;
+pre  space <not_null:1> ;
+pre  space <ct_pkey:3> ;
+pre  space <ct_fkey:3> ;
+post space <ct_fkey:5> ;
+pre  space <ct_fkey:8> ;
+pre  space <ct_uniq:2> ;
+pre  space <create_idx:6> ;
+
+pre  space <insert:4> ;
+pre  space <ins_val:1> ;
+post space <ins_val:1> ;
+
+pre  space <e_or_n:1> ;
+post space <e_or_n:1> ;
+pre  space <e_and_n:1> ;
+post space <e_and_n:1> ;
+pre  space <e_not_1:1> ;
+post space <e_not_1:1> ;
+pre  space <like:1> ;
+post space <like:1> ;
+pre  space <in:1> ;
+post space <in:1> ;
+pre  space <del_wh:1> ;
+pre  space <upd_wh:1> ;
+pre  space <sel_wh:1> ;
+pre  space <sel_grp:1> ;
+pre  space <sel_hv:1> ;
+pre  space <sel_odrby:1> ;
+
+<comment_1>  = comment_begin_end     "/*" "*/" ;
+<comment_2>  = comment_until_newline "--"      ;
+
+<program> = program { sql_stat_n <sql_stat> ";" }* EOF ;
+
+<sql_statement> = sql_stat <sql_stat> EOF ;
+
+<sql_stat> = sql_create <create> |
+             sql_drop   <drop>   |
+             sql_insert <insert> |
+             sql_update <update> |
+             sql_delete <delete> |
+             sql_select <select> ;
+
+<create> = create_tbl i"CREATE" i"TABLE" <ident> "("
+                { ct_constraint       <tbl_constraint> | ct_col       <tbl_column> }
+                { ct_constraint_n "," <tbl_constraint> | ct_col_n "," <tbl_column> }*
+           ")" |
+           create_idx i"CREATE" i"INDEX" <ident> i"ON" <ident> "(" <ident_ls> ")" |
+           create_seq i"CREATE" i"SEQUENCE" <ident> ;
+
+      <tbl_constraint> = tbl_constraint { tbl_constraint_name i"CONSTRAINT" <ident> }?
+          {
+             ct_pkey i"PRIMARY" i"KEY" "(" <ident_ls> ")" |
+             ct_fkey i"FOREIGN" i"KEY" "(" <ident_ls> ")" i"REFERENCES" <ident> "(" <ident_ls> ")" |
+             ct_uniq i"UNIQUE" "(" <ident_ls> ")"
+          } ;
+
+      <tbl_column> = tbl_column <ident>
+          <ident> { col_size "(" <exp_ls> ")" }?
+              { default i"DEFAULT" <exp> }?
+              { nullable { null i"NULL" | not_null i"NOT" i"NULL" } }? ;
+
+<drop>   = drop_table i"DROP" i"TABLE" <ident> |
+           drop_index i"DROP" i"INDEX" <ident> |
+           drop_seq   i"DROP" i"SEQUENCE" <ident> ;
+
+<insert> = insert i"INSERT" { ins_into i"INTO" }? <ident> "(" <ident_ls> ")"
+               { ins_val i"VALUES" "(" <exp_ls> ")" | ins_sel <exp> };
+
+<delete> = delete i"DELETE" { del_from i"FROM" }? <ident> { del_wh i"WHERE" <exp> }? ;
+
+<update> = update i"UPDATE" <ident> i"SET" <exp_ls> { upd_wh i"WHERE" <exp> }? ;
+
+<select> = select i"SELECT" { sel_all i"ALL" | sel_distinct i"DISTINCT" }? <exp_ls> 
+                            i"FROM" <exp_ls>
+                { sel_join
+                    { j_cross i"CROSS" | j_left i"LEFT" | j_right i"RIGHT" | j_full i"FULL" }?
+                      i"JOIN" <exp_ls> 
+                    { j_on i"ON" <exp> }?
+                }*
+                { sel_wh    i"WHERE"       <exp>    }?
+                { sel_grp   i"GROUP" i"BY" <exp_ls> }?
+                { sel_hv    i"HAVING"      <exp>    }?
+                { sel_odrby i"ORDER" i"BY" <exp_ls> }? ;
+
+<exp>    = exp <e_or> ;
+
+<e_or>   = e_or  <e_and> { e_or_n   i"OR"   <e_and> }* ;
+<e_and>  = e_and <e_not> { e_and_n  i"AND"  <e_not>  }* ;
+<e_not>  = e_not { e_not_1 i"NOT" }? <e_op> ;
+<e_op>   = e_cmp <e_add> { e_cmp_n <op> <e_add> }? ;
+
+      <op> = eq "="  | ne { ne_1 "#" | ne_2 "<>" } |
+             ge ">=" | gt ">" | le "<=" | lt "<"  |
+             like i"LIKE" | in  i"IN" ;
+
+<e_add>  = e_add <e_mul> { e_add_n  { add "+" | sub "-" } <e_mul>  }* ;
+<e_mul>  = e_mul <e_prim> { e_mul_n  { mul "*" | div "/" | mod "%" } <e_prim>  }* ;
+<e_prim> = e_list "(" <exp> { e_list_n "," <exp> }+ ")" |
+           e_bracket "(" <exp> ")" |
+           e_wc "*" |
+           e_question "?" |
+           e_select <select> |
+           e_default i"DEFAULT" |
+           e_null i"NULL" |
+           e_func <ident> "(" { func_arg_ls <exp_ls> }? ")" |
+           e_var { tbl_name <ident> "." }? <ident>
+                { e_asc i"ASC" | e_desc i"DESC" }?
+                { e_alias { e_as i"AS" }?
+                    i!"FROM"
+                    i!"CROSS" i!"LEFT" i!"RIGHT" i!"FULL" i!"JOIN" i!"ON"
+                    i!"WHERE" i!"GROUP" i!"HAVING" i!"ORDER"
+                    i!"OR" i!"AND" i!"NOT" i!"LIKE" i!"IN"
+                    <ident>
+                }? |
+           e_string <string> | e_real <real> | e_integer <integer> ;
+
+<exp_ls> = exp_ls <exp> { exp_ls_n "," <exp> }* ;
+
+<ident_ls> = ident_ls <ident> { ident_ls_n "," <ident> }* ;
+
+<ident>   = regex [A-Za-z_\M][A-Za-z0-9_\M]* string ;
+<integer> = regex  \-?[0-9]+ integer ;
+<real>    = regex \-?(([0-9]+\.[0-9]*|[0-9]*\.[0-9]+)((e|E)(\+|\-)?[0-9]+)?|[0-9]+(e|E)(\+|\-)?[0-9]+)(f|F|d|D)? real ;
+<string>  = regex '(''|[^\\']|\\.)*' single_quote_string ;
+

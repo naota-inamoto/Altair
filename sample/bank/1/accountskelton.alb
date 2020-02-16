@@ -1,0 +1,61 @@
+TEXT
+Account
+class AccountSkelton
+end_class
+class AccountSkelton
+member
+public: void create();
+member
+public: integer diposit(integer amount);
+member
+public: integer withdraw(integer amount);
+end_class
+class AccountSkelton
+member
+public: void create();
+body
+{
+    balance = 0;
+}
+end_body
+member
+public: integer diposit(integer amount);
+body
+{
+    if (amount < 0) {
+        return "deposit amount must be positive value.";
+    } else {
+    }
+    if (amount > 1000000) {
+        return "deposit amount must be lowler than 1 million yen.";
+    } else {
+    }
+    if (balance + amount > 10000000) {
+        return "deposit total become higher than 10 million yen.";
+    } else {
+    }
+    balance = balance + amount;
+    return balance;
+}
+end_body
+member
+public: integer withdraw(integer amount);
+body
+{
+    if (amount < 0) {
+        return "withdraw amount must be positive.";
+    } else {
+    }
+    if (amount > 1000000) {
+        return "withdraw amount must be lower than 1 million yen.";
+    } else {
+    }
+    if (balance - amount < 0) {
+        return "withdraw amount is greater than diposit total.";
+    } else {
+    }
+    balance = balance - amount;
+    return balance;
+}
+end_body
+end_class

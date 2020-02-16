@@ -1,0 +1,170 @@
+
+split_ident ;
+
+indent+ "    " "{" ;
+-indent "}" ;
+post newline indent "{" ;
+post newline indent "}" ;
+post newline indent ";" ;
+
+indent+ "    " "case" ;
+-indent "case" ;
+indent+ "    " "default" ;
+-indent "default" ;
+post newline indent <js_switch_case_1:3> ;
+post newline indent <js_switch_case_2:3> ;
+post newline indent <js_switch_default:2> ;
+
+pre  space "{" ;
+post space "," ;
+
+post space "js_if" ;
+post space <js_if:4> ;
+post space "js_for" ;
+post space <js_for:7> ;
+post space "js_while" ;
+post space <js_while:4> ;
+post space "js_do" ;
+post space "js_switch" ;
+
+post space <js_dcl_var:1> ;
+post space <js_dcl_var:1> ;
+pre  space <js_var_init:1> ;
+post space <js_var_init:1> ;
+
+pre  space <js_e_asgn_n:2> ;
+post space <js_e_asgn_n:2> ;
+pre  space <js_e_cond_1:1> ;
+post space <js_e_cond_1:1> ;
+pre  space <js_e_cond_1:3> ;
+post space <js_e_cond_1:3> ;
+pre  space <js_e_oror_n:1> ;
+post space <js_e_oror_n:1> ;
+pre  space <js_e_andand_n:1> ;
+post space <js_e_andand_n:1> ;
+pre  space <js_e_or_n:1> ;
+post space <js_e_or_n:1> ;
+pre  space <js_e_xor_n:1> ;
+post space <js_e_xor_n:1> ;
+pre  space <js_e_and_n:1> ;
+post space <js_e_and_n:1> ;
+pre  space <js_e_eq_1:1> ;
+post space <js_e_eq_1:1> ;
+pre  space <js_e_cmp_1:1> ;
+post space <js_e_cmp_1:1> ;
+pre  space <js_e_sft_n:1> ;
+post space <js_e_sft_n:1> ;
+pre  space <js_e_add_n:1> ;
+post space <js_e_add_n:1> ;
+pre  space <js_e_mul_n:1> ;
+post space <js_e_mul_n:1> ;
+
+<js_func_def> = js_func_def "function" <js_ident> "(" { js_m_p_ls <js_param_ls> }? ")" <js_stat> ;
+
+<js_param_ls> = js_param_ls <js_ident> { js_param_ls_n "," <js_ident> }* ;
+
+<js_stat> = js_stat_var_dcl <js_var_dcl> |
+            js_block "{" { js_block_n <js_stat> }* "}" |
+            js_if "if" "(" <js_exp> ")" <js_stat> { js_if_else "else" <js_stat> }? |
+            js_switch "switch" "(" <js_exp> ")" "{"
+                { js_switch_case_1  "case" <js_exp> ":" { js_sw_case_1_stat  <js_stat> }* }*
+                { js_switch_default "default"       ":" { js_sw_default_stat <js_stat> }* }?
+                { js_switch_case_2  "case" <js_exp> ":" { js_sw_case_2_stat  <js_stat> }* }*
+            "}" |
+            js_label <js_ident> ":" |
+            js_for "for" "("
+                { js_for_init_var <js_var_dcl> | js_for_init_exp <js_exp> ";" | js_for_no_init ";" } 
+                { js_for_cond <js_exp> }? ";"
+                { js_for_next <js_exp>  }?  ")" <js_stat> |
+            js_while "while" "(" <js_exp> ")" <js_stat> |
+            js_do "do" <js_stat> "while" "(" <js_exp> ")" ";" |
+            js_continue "continue" { js_cont_lab <js_ident> }? ";" |
+            js_break    "break"    { js_brk_lab  <js_ident> }? ";" |
+            js_return "return" { js_ret_exp <js_exp> }? ";" |
+            js_delete "delete" <js_exp> ";" |
+            js_stat_exp <js_exp> ";" |
+            js_stat_colon ";" |
+            extension <js_stat_block> ;
+
+<js_var_dcl> = js_var_dcl "var" <js_dcl_var> { js_var_dcl_n "," <js_dcl_var> }* { js_var_dcl_term ";" }? ;
+<js_dcl_var> = js_dcl_var <js_ident> { js_var_init "=" <js_exp> }? ;
+
+<js_exp> = js_exp <js_e_asgn> ;
+
+<js_op_asgn> = js_asgn "=" !'=' | js_asgn_add "+=" | js_asgn_sub "-=" |
+               js_asgn_mul "*="  | js_asgn_div "/=" | js_asgn_mod "%=" |
+               js_asgn_sr0 ">>>=" | js_asgn_sr ">>=" | js_asgn_sl "<<=" |
+               js_asgn_and "&=" | js_asgn_xor "^=" | js_asgn_or "|=" ;
+
+<js_op_eq>  = js_eq2 "===" | js_eq "==" | js_ne2 "!==" | js_ne "!=" ;
+<js_op_cmp> = js_ge ">=" | js_gt ">" | js_le "<=" | js_lt "<" | js_instanceof "instanceof" ;
+<js_op_sft> = js_sr0 ">>>" | js_sr ">>" | js_sl "<<" ;
+<js_op_add> = js_add "+" | js_sub "-" ;
+<js_op_mul> = js_mul "*" | js_div "/" | js_mod "%" !'>' ;
+<js_op_u_left>  = js_pre_inc  "++" | js_pre_dec  "--" | js_plus "+" | js_minus "-" | js_bit_not "~" | js_logic_not "!" ;
+<js_op_u_right> = js_post_inc "++" | js_post_dec "--" ;
+
+<js_e_asgn>   = js_e_asgn_1 { js_e_asgn_n <js_lhs> <js_op_asgn> }* <js_e_cond> ;
+<js_e_cond>   = js_e_cond <js_e_oror>   { js_e_cond_1   "?"   <js_e_cond> ":" <js_e_cond> }? ;
+<js_e_oror>   = js_e_oror <js_e_andand> { js_e_oror_n   "||"  <js_e_andand> }* ;
+<js_e_andand> = js_e_andand <js_e_or>   { js_e_andand_n "&&"  <js_e_or> }* ;
+<js_e_or>     = js_e_or  <js_e_xor>     { js_e_or_n     "|"   <js_e_xor> }* ;
+<js_e_xor>    = js_e_xor <js_e_and>     { js_e_xor_n    "^"   <js_e_and> }* ;
+<js_e_and>    = js_e_and <js_e_eq>      { js_e_and_n    "&"   <js_e_eq> }* ;
+<js_e_eq>     = js_e_eq  <js_e_cmp>     { js_e_eq_1  <js_op_eq>  <js_e_cmp> }? ;
+<js_e_cmp>    = js_e_cmp <js_e_sft>     { js_e_cmp_1 <js_op_cmp> <js_e_sft> }? ;
+<js_e_sft>    = js_e_sft <js_e_add>     { js_e_sft_n <js_op_sft> <js_e_add> }? ;
+<js_e_add>    = js_e_add <js_e_mul>     { js_e_add_n <js_op_add> <js_e_mul> }* ;
+<js_e_mul>    = js_e_mul <js_u_left>     { js_e_mul_n <js_op_mul> <js_u_left> }* ;
+<js_u_left>   = js_u_left { js_u_left_1 <js_op_u_left>  }? <js_u_right> ;
+<js_u_right>  = js_u_right <js_prim> { js_u_right_1 <js_op_u_right> }? ;
+
+<js_prim> = js_prim
+         {
+            js_new_obj "new" <js_ident> <js_arg_ls> |
+            js_func { js_call_func <js_ident> | js_call_this "this" } <js_arg_ls> |
+            js_this "this" |
+            js_constant <js_const> | js_var <js_ident> |
+            js_braket "(" <js_exp> ")" |
+            js_prim_hash <js_hash>
+         }
+         {
+            js_ary "[" <js_exp> "]" |
+            js_mem "." <js_ident> { js_call_a_ls <js_arg_ls> }?
+         }* ;
+
+<js_lhs> = js_lhs
+         {
+            js_lhs_new_obj "new" <js_ident> <js_arg_ls> |
+            js_lhs_func { js_lhs_call_func <js_ident> | js_lhs_call_this "this" } <js_arg_ls> |
+            js_lhs_this "this" |
+             js_lhs_constant <js_const> | js_lhs_var <js_ident> |
+            js_lhs_braket "(" <js_exp> ")" |
+            js_lhs_hash <js_hash>
+         }
+         {
+            js_lhs_ary "[" <js_exp> "]" |
+            js_lhs_mem "." <js_ident> { js_lhs_call_a_ls <js_arg_ls> }?
+         }* ;
+
+
+<js_arg_ls> = js_a_ls "(" { js_a_ls_1 <js_exp> { js_a_ls_n "," <js_exp> }* }? ")" ;
+
+<js_hash> =  js_hash  "{" { js_hash_kv  <js_ident> ":" <js_exp> { js_hash_trem "," }? }* "}" ;
+
+<js_const> =  js_null "null" | js_true "true" | js_false "false" | js_hexa_int <js_hexa_int> |
+              js_float_real <js_float_real> | js_decimal_real <js_decimal_real> |
+              js_decimal_int <js_decimal_int> | js_octed_int <js_octed_int> |
+              js_regexp <js_regexp> |
+              extension <jsp_dstr> | extension <jsp_sstr> |
+              extension <jsp_exp> | extension <js_code> ;
+
+<js_ident> = regex [a-zA-Z_][a-zA-Z_0-9]*  string ;
+
+<js_hexa_int>     = regex 0x[0-9a-fA-F]+(l|L)?          string ;
+<js_float_real>   = regex \-?(([0-9]+\.[0-9]*|[0-9]*\.[0-9]+)((e|E)(\+|\-)?[0-9]+)?|[0-9]+(e|E)(\+|\-)?[0-9]+)(f|F|d|D)? string ;
+<js_decimal_real> = regex \-?(0|[1-9][0-9]*)(f|F|d|D)   string ;
+<js_decimal_int>  = regex \-?(0|[1-9][0-9]*)(l|L)?      string ;
+<js_octed_int>    = regex 0[0-7]*                       string ;
+<js_regexp>       = regex /(\\/|[^/\n])*/[ig]*          string ;
+

@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Alcore1d", "Alcore1d.vcproj", "{D169ACA7-36EF-41EB-BCA0-70793409D1BA}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{D169ACA7-36EF-41EB-BCA0-70793409D1BA}.Debug.ActiveCfg = Debug|Win32
+		{D169ACA7-36EF-41EB-BCA0-70793409D1BA}.Debug.Build.0 = Debug|Win32
+		{D169ACA7-36EF-41EB-BCA0-70793409D1BA}.Release.ActiveCfg = Release|Win32
+		{D169ACA7-36EF-41EB-BCA0-70793409D1BA}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

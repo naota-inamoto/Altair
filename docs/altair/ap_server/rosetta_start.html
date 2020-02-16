@@ -1,0 +1,385 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>RosettaNet Server Setup and Sample</TITLE>
+</HEAD>
+
+<BODY>
+<H1>初期設定とサンプルの動かし方</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.27版 2002年 6月19日<BR>
+
+<HR>
+<H3><A NAME="db_create_table">DBテーブルの作成</A></H3>
+まず、サーバがDBを使用するときの接続ユーザを決め、DBテーブルを作成します。<BR>
+DBユーザは使用できる任意のユーザで構いません。<BR>
+<BR>
+<H4>PostgresQLの場合</H4>
+psqlコマンドで、./sql/postgresql/create_table.sqlを実行します。<BR>
+
+<H4>MySQLの場合</H4>
+mysqlを起動し、./sql/mysql/create_table.sqlを実行します。<BR>
+
+<HR>
+<H3><A NAME="db_conn_info">DB接続設定</A></H3>
+次に、./config.xmlにDB接続情報を設定します。<BR>
+<BR>
+config.xmlの以下の部分を使用するDBの環境に合わせて書き換えます。<BR>
+<PRE>
+    &lt;DbType&gt;DBタイプ&lt;/DbType&gt;
+    &lt;Host&gt;DBサーバマシン名&lt;/Host&gt;
+    &lt;Port&gt;DBサーバ接続ポート番号&lt;/Port&gt;
+    &lt;DbName&gt;DB名&lt;/DbName&gt;
+    &lt;DbUser&gt;DB接続のユーザID&lt;/DbUser&gt;
+    &lt;DbPassword&gt;DB接続のパスワード&lt;/DbPassword&gt;
+</PRE>
+
+<H4>Windows版</H4>
+<PRE>
+  DBタイプ:               postgresql or mysql
+  DBサーバマシン名:       ODBCドライバによっては省略可。
+  DBサーバ接続ポート番号: ODBCドライバによっては省略可。
+  DB名:                   ODBCのデータソース名
+  DB接続のユーザID:       DB接続ユーザID
+  DB接続のパスワード:     DB接続パスワード
+
+例：
+    &lt;DbType&gt;oracle&lt;/DbType&gt;
+    &lt;Host&gt;&lt;/Host&gt;
+    &lt;Port&gt;&lt;/Port&gt;
+    &lt;DbName&gt;ORCL&lt;/DbName&gt;
+    &lt;DbUser&gt;scott&lt;/DbUser&gt;
+    &lt;DbPassword&gt;tiger&lt;/DbPassword&gt;
+</PRE>
+
+<H4>Linux版PostgresQL</H4>
+<PRE>
+  DBタイプ:               postgresql
+  DBサーバマシン名:       DBサーバマシン名。
+  DBサーバ接続ポート番号: デフォルトの5432なら省略可。
+  DB名:                   PostgresQLのDBの名前
+  DB接続のユーザID:       DB接続ユーザID
+  DB接続のパスワード:     DB接続パスワード
+
+例：
+    &lt;DbType&gt;postgresql&lt;/DbType&gt;
+    &lt;Host&gt;ecsvr&lt;/Host&gt;
+    &lt;Port&gt;&lt;/Port&gt;
+    &lt;DbName&gt;ebizdb&lt;/DbName&gt;
+    &lt;DbUser&gt;ebizuser&lt;/DbUser&gt;
+    &lt;DbPassword&gt;ebizpass&lt;/DbPassword&gt;
+</PRE>
+
+<H4>Linux版MySQL</H4>
+<PRE>
+  DBタイプ:               mysql
+  DBサーバマシン名:       DBサーバマシン名
+  DBサーバ接続ポート番号: ポート番号
+  DB名:                   MySQLのDBの名前
+  DB接続のユーザID:       DB接続ユーザID
+  DB接続のパスワード:     DB接続パスワード
+
+例：
+    &lt;DbType&gt;mysql&lt;/DbType&gt;
+    &lt;Host&gt;localhost&lt;/Host&gt;
+    &lt;Port&gt;3069&lt;/Port&gt;
+    &lt;DbName&gt;mda&lt;/DbName&gt;
+    &lt;DbUser&gt;mda&lt;/DbUser&gt;
+    &lt;DbPassword&gt;mda&lt;/DbPassword&gt;
+</PRE>
+
+<HR>
+<H3><A NAME="db_init">DB初期化</A></H3>
+altairを起動し、プロジェクトウィンドウで右クリック、「ファイル」-「開く」 で<BR>
+./server.aprを開きます。<BR>
+クラスウィンドウのAltairServerをダブルクリックし、static void start();の行に<BR>
+キャレットを置き右クリック、「インタプリタ」-「テスト実行」でサーバを起動します。<BR>
+<BR>
+クラスウィンドウのInitWebServiceDBをダブルクリックし、static void init_all();の行に<BR>
+キャレットを置き右クリック、「インタプリタ」-「実行」でDB初期化を実行します。<BR>
+<BR>
+設定に問題がなければDBの初期化が行われ、以下のメッセージが<BR>
+アウトプットウィンドウに表示されます。<BR>
+550MHzのマシンでDBの初期化にOracleで約１分、PostgresQLで約30秒かかります。<BR>
+
+<BR>
+<IMG SRC="image/init_db.jpg"><BR>
+
+<HR>
+<H3><A NAME="login">画面からログイン</A></H3>
+ブラウザで http://localhost/admin を開きます。<BR>
+以下のユーザのどれかでログインして画面が表示されれば初期セットアップは終了です。<BR>
+<BR>
+RosettaNet以外のプロトコルにも対応できるようにするため、<BR>
+rosettaのユーザとsysytemユーザに分かれています。<BR>
+<PRE>
+  // サーバ管理ユーザ
+  Target: system,                ユーザID: admin,      パスワード: admin
+
+  // サーバ管理画面のカスタマイズユーザ
+  Target: system,                ユーザID: webuiadmin, パスワード: webuiadmin
+
+  // RosettaNetサーバ管理ユーザ
+  Target: rosetta,               ユーザID: admin,      パスワード: admin
+
+  // RosettaNetサーバ管理画面のカスタマイズユーザ
+  Target: rosetta,               ユーザID: webuiadmin, パスワード: webuiadmin
+
+  // サンプルBuyerサイト管理ユーザ
+  Target: rosettaSampleBuyer,    ユーザID: admin,      パスワード: admin
+
+  // サンプルBuyerサイト管理画面のカスタマイズユーザ
+  Target: rosettaSampleBuyer,    ユーザID: webuiadmin, パスワード: webuiadmin
+
+  // サンプルBuyerサイト業務ユーザ
+  Target: rosettaSampleBuyer,    ユーザID: buyer,      パスワード: buyer
+
+  // サンプルSellerサイト管理ユーザ
+  Target: rosettaSampleSupplier, ユーザID: admin,      パスワード: admin
+
+  // サンプルSellerサイト管理画面のカスタマイズユーザ
+  Target: rosettaSampleSupplier, ユーザID: webuiadmin, パスワード: webuiadmin
+
+  // サンプルSellerサイト業務ユーザ
+  Target: rosettaSampleSupplier, ユーザID: supplier,   パスワード: supplier
+</PRE>
+
+<HR>
+<H3><A NAME="sample_overview">サンプル概要</A></H3>
+デモサンプルは、BuyerサイトのWeb画面と、SellerサイトのWeb画面から構成され、<BR>
+以下を行います。<BR>
+	<UL>
+	<LI>BuyerサイトのにBuyerでログイン。
+	<LI>Buyerサイトで発注内容の登録。（Pip3A4PurcharseOrderRequestメッセージ作成）
+	<LI>Buyerサイトで発注内容の承認。
+	<LI>BuyerサイトからSellerサイトにPip3A4PurcharseOrderRequestメッセージ送信。（発注）
+	<LI>
+	<LI>SellerサイトにSellerでログイン
+	<LI>Buyerから送られたPip3A4PurcharseOrderを受付。<BR>
+		(Pip3A4PurchaseOrderAcceptanceメッセージ返信)
+	<LI>Sellerサイトで在庫の確認。
+	<LI>SellerサイトからBuyerサイトに配送(Pip3B2AdvanceShipmentNotification)メッセージ送信。
+	<LI>SellerサイトからBuyerサイトに請求(Pip3C3InvoiceNotification)メッセージ送信。
+	</UL>
+
+<HR>
+<H3><A NAME="buyer_login">バイヤーログイン</A></H3>
+BuyerサイトへのBuyerでのログインは、<BR>
+URL http://localhost/admin/ を開き、<BR>
+Target: rosettaSampleBuyer、ユーザID: buyer、パスワード: buyerでログインします。<BR>
+<BR>
+<IMG SRC="image/buyer_login.jpg"><BR>
+
+<HR>
+<H3><A NAME="buyer_catalog">バイヤー購買登録</A></H3>
+購買情報の登録は、まずメニューのCatalogを選択します。<BR>
+MyInfoで buyerを選択し、PartnerInfoで 000000000: supplierを選択し、<BR>
+Registerボタンを押すと、発注業務プロセスが起動され、<BR>
+この中からbuyerから supplierへのPurchaseOrderRequestメッセージが作成され、<BR>
+発注プロセスが承認待ちになります。<BR>
+<BR>
+<IMG SRC="image/buyer_catalog.jpg"><BR>
+
+<HR>
+<H3><A NAME="buyer_approval">バイヤー購買承認</A></H3>
+メニューのApprovalを選択すると、承認待ちになっている発注プロセスが<BR>
+表形式で表示されます。<BR>
+Radioボタンでプロセスを選択し、Approvalボタンを押すと発注プロセスが<BR>
+承認済み、発注待ちに変わります。<BR>
+<BR>
+<IMG SRC="image/buyer_approval.jpg"><BR>
+
+<HR>
+<H3><A NAME="buyer_transmit">バイヤー発注</A></H3>
+メニューのTransmitを選択すると、発注待ちになっている発注プロセスが<BR>
+表形式で表示されます。<BR>
+Radioボタンでプロセスを選択し、Transmitボタンを押すと発注メッセージが<BR>
+Sellerサイトに送信されます。<BR>
+<BR>
+<IMG SRC="image/buyer_transmit.jpg"><BR>
+
+<HR>
+<H3><A NAME="po_comm_log1">発注メッセージ通信ログ</A></H3>
+メッセージの送受信が完了後、管理画面で通信ログを参照すると、<BR>
+PurchaseOrderRequestの送信と受信、Ackの送信と受信、<BR>
+Sellerサイトでの受信プロセスの起動のログが表示されます。<BR>
+（自分から自分に送信しているので同じメッセージの送信ログと受信ログが現れています）<BR>
+<BR>
+<IMG SRC="image/admin_comm_log1.jpg"><BR>
+
+<HR>
+<H3><A NAME="supplier_login">サプライヤーログイン</A></H3>
+SellerサイトへのSellerでのログインは、<BR>
+URL http://localhost/admin/ を開き、<BR>
+Target: rosettaSampleSupplier、ユーザID: supplier、パスワード: supplierでログインします。<BR>
+<BR>
+<IMG SRC="image/supplier_login.jpg"><BR>
+
+<HR>
+<H3><A NAME="supplier_catalog">サプライヤー受付</A></H3>
+メニューのReceiptを選択すると、受付待ちになっている受注プロセスが<BR>
+表形式で表示されます。<BR>
+Radioボタンでプロセスを選択し、Receiptボタンを押すと受注メッセージが<BR>
+Buyerサイトに送信されると同時に受注プロセスが<BR>
+受付済み、在庫確認待ちに変わります。<BR>
+<BR>
+<IMG SRC="image/supplier_receipt.jpg"><BR>
+
+<HR>
+<H3><A NAME="supplier_inventory">サプライヤー在庫確認</A></H3>
+メニューのInventoryを選択すると、在庫確認待ちになっている受注プロセスが<BR>
+表形式で表示されます。<BR>
+Radioボタンでプロセスを選択し、Inventoryボタンを押すと受注プロセスが<BR>
+在庫確認済み、配送待ちに変わります。<BR>
+<BR>
+<IMG SRC="image/supplier_inventory.jpg"><BR>
+
+<HR>
+<H3><A NAME="supplier_fulfill">サプライヤー配送</A></H3>
+メニューのFulfillを選択すると、配送待ちになっている受注プロセスが<BR>
+表形式で表示されます。<BR>
+Radioボタンでプロセスを選択し、Fulfillボタンを押すと配送メッセージが<BR>
+Buyerサイトに送信されると同時に受注プロセスが<BR>
+配送済み、請求待ちに変わります。<BR>
+<BR>
+<IMG SRC="image/supplier_fulfill.jpg"><BR>
+
+<HR>
+<H3><A NAME="supplier_invoice">サプライヤー請求</A></H3>
+メニューのInvoiceを選択すると、請求待ちになっている受注プロセスが<BR>
+表形式で表示されます。<BR>
+Radioボタンでプロセスを選択し、Invoiceボタンを押すと請求メッセージが<BR>
+Buyerサイトに送信されると同時に受注プロセスが<BR>
+請求済みに変わります。<BR>
+<BR>
+<IMG SRC="image/supplier_invoice.jpg"><BR>
+
+<HR>
+<H3><A NAME="po_comm_log2">受注/配送/請求メッセージ通信ログ</A></H3>
+メッセージの送受信が完了後、管理画面で通信ログを参照すると、<BR>
+PurchaseOrderAccpeptance、AdvanceShipmentNotification、InvocieNotificationの送信と受信、<BR>
+対応するAckの送信と受信のログが表示されます。<BR>
+（自分から自分に送信しているので同じメッセージの送信ログと受信ログが現れています）<BR>
+<BR>
+<IMG SRC="image/admin_comm_log2.jpg"><BR>
+
+<HR>
+<H3><A NAME="smtp">SMTP通信</A></H3>
+「パートナー毎の設定」のURLをmailto:&lt;mail-address&gt;にして送信します。<BR>
+例: URL mailto:rosetta@xyz.com<BR>
+<BR>
+
+「自社サーバーの設定」の以下の項目を正しく設定し、<BR>
+変更後はサーバを再起動することが必要です。<BR>
+<PRE>
+    smpt.server       SMTPの送信の場合のSMTPサーバ名
+    from.mail.address SMTPの送信の場合の自社のメールアドレス
+    pop.server        SMTPの受信の場合のPOPサーバ名
+    pop.poll.interval SMTPの受信の場合のPOPサーバをポーリングする時間間隔 (単位 秒)  
+    pop.userid        SMTPの受信の場合のPOPのユーザID
+    pop.password      SMTPの受信の場合のPOPのパスワード
+
+  例：
+    smpt.server       smtp.xyz.com
+    from.mail.address rosetta@xyz.com
+    pop.server        pop.xyz.com
+    pop.poll.interval 10
+    pop.userid        rosetta
+    pop.password      rosetta
+</PRE>
+
+<HR>
+<H3><A NAME="sync">同期通信</A></H3>
+「パートナー毎の設定」の&lt;メッセージタイプ&gt;.syncをtrueにして送信します。<BR>
+例: Pip3A4PurchaseOrderRequest.sync true<BR>
+例: Pip3B2AdvanceShipmentNotification.sync true<BR>
+例: Pip3C3InvoiceNotification.sync true<BR>
+<BR>
+
+同期通信で受信した場合、メッセージが読み取れないなどのエラーの場合は<BR>
+HTTPレスポンスコードが200以外になります。<BR>
+それ以外の場合、HTTPレスポンスコードは200、レスポンスメッセージは、<BR>
+１アクションPIPの場合は、ReceiptAckまたはReceiptExceptionになり、<BR>
+２アクションPIPの場合は、レスポンスメッセージになります。<BR>
+<BR>
+
+２アクションPIPのレスポンスメッセージは、<BR>
+「パートナー毎の設定」の&lt;１アクション目のメッセージタイプ&gt;.replyを<BR>
+レスポンスを作成するクラス名にします。<BR>
+例: Pip3A4PurchaseOrderRequest.reply POSyncAcceptService<BR>
+<BR>
+
+レスポンスを作成するクラス名は、メソッド list invoke(list props); を持つ必要があります。<BR>
+ActionメッセージのIDは、invokeメソッド中で al_dst_node(props, "msgId"); で取得できます。<BR>
+invokeメソッド中で作成したResponseメッセージのIDは、<BR>
+返却値をretとするとき al_dst_node(ret, "rMsgId"); で取得できるようにします。<BR>
+<BR>
+
+<HR>
+<H3><A NAME="proxy">Proxy経由通信</A></H3>
+<PRE>
+  ● Proxyサーバ側設定（config.xml）
+
+    以下のコメント（when proxy）をはずしてをサーバを起動します。
+
+    &lt;Servlet&gt;
+      &lt;Path&gt;/rosetta&lt;/Path&gt;
+      &lt;Class&gt;RNIF20Servlet&lt;/Class&gt;
+&lt;!-- when proxy
+      &lt;Param&gt;
+         &lt;Name&gt;proxy&lt;/Name&gt;
+         &lt;Value&gt;true&lt;/Value&gt;
+      &lt;/Param&gt;
+      &lt;Param&gt;
+         &lt;Name&gt;inbound.dir&lt;/Name&gt;
+         &lt;Value&gt;./tmp&lt;/Value&gt;
+      &lt;/Param&gt;
+--&gt;
+    &lt;/Servlet&gt;
+
+&lt;!-- when proxy
+    &lt;Servlet&gt;
+      &lt;Path&gt;/proxyPollee&lt;/Path&gt;
+      &lt;Class&gt;ProxyPolleeServlet&lt;/Class&gt;
+      &lt;Param&gt;
+         &lt;Name&gt;inbound.dir&lt;/Name&gt;
+         &lt;Value&gt;./tmp&lt;/Value&gt;
+      &lt;/Param&gt;
+      &lt;Param&gt;
+         &lt;Name&gt;password&lt;/Name&gt;
+         &lt;Value&gt;proxy_pass&lt;/Value&gt;
+      &lt;/Param&gt;
+    &lt;/Servlet&gt;
+--&gt;
+
+
+  ● LAN内RosettaNetサーバ側設定
+
+    「自社サーバーの設定」の以下の項目を正しく設定してサーバを再起動します。
+
+       proxy.server        Proxy経由の送信の場合のProxyサーバ名
+       proxy.port          Proxy経由の送信の場合のProxyサーバのポート番号
+       proxy.poll.url      Proxy経由の受信の場合のProxyのWebサーバのURL
+       proxy.poll.interval Proxy経由の受信の場合のProxyのWebサーバをポーリングする時間間隔 (単位 秒)
+       proxy.poll.password Proxy経由の受信の場合のProxyのWebサーバをポーリングするときのパスワード
+
+     例：
+       proxy.server        svr1
+       proxy.port          8080
+       proxy.poll.url      http://svr1/proxyPollee
+       proxy.poll.interval 10
+       proxy.poll.password proxy_pass
+
+    「パートナー毎の設定」の以下の項目を正しく設定します。
+
+       URL http://&lt;proxy-server&gt;/rosetta
+
+     例：
+       URL http://svr1/rosetta
+
+</PRE>
+
+<HR>
+</BODY>
+</HTML>

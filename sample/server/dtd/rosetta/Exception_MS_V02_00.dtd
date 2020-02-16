@@ -1,0 +1,45 @@
+<!--
+
+   RosettaNet XML Message Schema
+   Exception_MS_V02_00.dtd (11-Jul-2001)
+
+-->
+
+
+<!ENTITY % common-attributes "id  CDATA #IMPLIED" >
+ 
+<!ELEMENT Exception ( 
+          ExceptionDescription ,
+          GlobalExceptionTypeCode ) > 
+
+<!ATTLIST Exception xmlns CDATA #FIXED
+          "http://www.rosettanet.org/RNIF/V02.00" >
+
+<!ELEMENT ExceptionDescription ( 
+          errorClassification ,
+          errorDescription ,
+          offendingMessageComponent? ) > 
+
+<!ELEMENT errorClassification
+           ( GlobalMessageExceptionCode ) > 
+
+<!ELEMENT GlobalMessageExceptionCode
+           ( #PCDATA ) >
+
+<!ELEMENT errorDescription
+           ( FreeFormText ) > 
+
+<!ELEMENT FreeFormText
+           ( #PCDATA ) >
+<!ATTLIST FreeFormText
+           xml:lang CDATA #IMPLIED >
+
+<!ELEMENT offendingMessageComponent
+           ( GlobalMessageComponentCode ) > 
+
+<!ELEMENT GlobalMessageComponentCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalExceptionTypeCode
+           ( #PCDATA ) >
+

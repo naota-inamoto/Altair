@@ -1,0 +1,100 @@
+// AlCtrl.odl : OLE コントロール プロジェクトのタイプ ライブラリのソース
+
+// このファイルはタイプ ライブラリ (AlCtrl.tlb) を作成するために
+// タイプ ライブラリ作成ツール (mktyplib) によって処理されます。
+// タイプ ライブラリは AlCtrl.ocx のリソースになります。
+
+#include <olectl.h>
+
+[ uuid(CBE7BC00-1F9E-11D0-B34E-444553540000), version(1.0),
+  helpstring("AlCtrl OLE Control module"), control ]
+library ALCTRLLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	//  CAlCtrlCtrl の最初のディスパッチ インターフェイス
+
+	[ uuid(CBE7BC01-1F9E-11D0-B34E-444553540000),
+	  helpstring("Dispatch interface for AlCtrl Control"), hidden ]
+	dispinterface _DAlCtrl
+	{
+		properties:
+			// メモ - ClassWizard はこの位置にプロパティ情報を追加します。
+			//    このセクションの編集は慎重に行ってください。
+			//{{AFX_ODL_PROP(CAlCtrlCtrl)
+			[id(1)] boolean Transparent;
+			[id(2)] short BorderWidth;
+			[id(3)] OLE_COLOR LightColor;
+			[id(4)] OLE_COLOR ShadowColor;
+			[id(DISPID_BACKCOLOR)] OLE_COLOR BackColor;
+			[id(5)] BSTR EventName;
+			//}}AFX_ODL_PROP
+
+		methods:
+			// メモ - ClassWizard はこの位置にメソッド情報を追加します。
+			//    このセクションの編集は慎重におこなってください。
+			//{{AFX_ODL_METHOD(CAlCtrlCtrl)
+			[id(6)] VARIANT GetWnd();
+			[id(7)] VARIANT Invoke(BSTR methodName, VARIANT args);
+			[id(DISPID_REFRESH)] void Refresh();
+			[id(8)] VARIANT GetRootClass();
+			[id(9)] short SetRootClass(VARIANT rootClass);
+			[id(10)] short SaveBody(BSTR fileName);
+			[id(11)] short LoadBody(BSTR fileName);
+			[id(12)] short LoadProgram(BSTR dir, BSTR name);
+			[id(13)] VARIANT Arg(BSTR name, VARIANT value, VARIANT args);
+			[id(14)] VARIANT Param(VARIANT params, short index);
+			[id(15)] void DebugMode(short mode);
+			[id(16)] void SetLibraryPath(BSTR path);
+			[id(17)] short InetProgram(BSTR url);
+			[id(18)] short InetLibrary(BSTR url);
+			[id(19)] short InetBody(BSTR url);
+			[id(20)] VARIANT EventParam(short index);
+			[id(21)] VARIANT EmptyArg(void);
+			//}}AFX_ODL_METHOD
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	//  CAlCtrlCtrl のイベント ディスパッチ インターフェイス
+
+	[ uuid(CBE7BC02-1F9E-11D0-B34E-444553540000),
+	  helpstring("Event interface for AlCtrl Control") ]
+	dispinterface _DAlCtrlEvents
+	{
+		properties:
+			//  イベント インターフェイスにプロパティはありません
+
+		methods:
+			// メモ - ClassWizard はこの位置にイベント情報を追加します。
+			//    このセクションの編集は慎重におこなってください。
+			//{{AFX_ODL_EVENT(CAlCtrlCtrl)
+			[id(1)] void FireEvent(BSTR eventName, VARIANT params);
+			//}}AFX_ODL_EVENT
+	};
+
+	//  CAlCtrlCtrl のノードオブジェクト インターフェイス
+
+	[ uuid(CBE7BC04-1F9E-11D0-B34E-444553540000),
+	  helpstring("IAGmNode interface for AlCtrl Control"), odl ]
+	interface IAGmNode : IUnknown
+	{
+	};
+
+	//  CAlCtrlCtrl のクラス情報
+
+	[ uuid(CBE7BC03-1F9E-11D0-B34E-444553540000),
+	  helpstring("AlCtrl Control"), control ]
+	coclass AlCtrl
+	{
+		[default] dispinterface _DAlCtrl;
+		[default, source] dispinterface _DAlCtrlEvents;
+		interface IAGmNode;
+	};
+
+
+	//{{AFX_APPEND_ODL}}
+};
+
+

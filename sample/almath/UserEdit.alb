@@ -1,0 +1,309 @@
+TEXT
+AlObject
+class UserEdit
+class Menu
+end_class
+end_class
+class UserEdit
+member
+public: void Create(string title, integer x, integer y, integer width, integer height);
+member
+public: void Create(string title, list opt);
+member
+public: void Load();
+member
+public: void PostCreateWindow();
+member
+public: void CreateWindow(string title, list opt);
+member
+public: void SetMenu(Menu menu);
+member
+public: list Destroy();
+member
+public: void TextIns(list event);
+member
+public: window wnd;
+member
+funcType: void Callback();
+member
+public: list menu;
+member
+public: static void EventProc(UserEdit ed, list event);
+member
+public: static list DestroyProc(UserEdit ed);
+member
+public: static void TextInsProc(UserEdit ed, list event);
+member
+public: void Clear();
+member
+public: void out(string s);
+member
+public: void Input();
+member
+public: integer last_lno();
+member
+public: integer from_line_no;
+member
+public: integer from_line_len;
+member
+public: list IsInputEnd(string s);
+member
+public: void Process(string s);
+class Menu
+member
+public: void Add(string name, UserEdit obj, Callback func);
+member
+public: void Add(string name, Menu sub_menu);
+member
+public: list menu;
+end_class
+end_class
+class UserEdit
+member
+public: void Create(string title, integer x, integer y, integer width, integer height);
+body
+{
+	var list geom, opt;
+	geom = al_list4(x, y, width, height);
+	opt = al_list3(0x00002040, null, geom);
+	Create(title, opt);
+}
+end_body
+member
+public: void Create(string title, list opt);
+body
+{
+	Load();
+	CreateWindow(title, opt);
+	PostCreateWindow();
+}
+end_body
+member
+public: void Load();
+body
+{
+}
+end_body
+member
+public: void PostCreateWindow();
+body
+{
+}
+end_body
+member
+public: void CreateWindow(string title, list opt);
+body
+{
+	from_line_no = 0;
+	from_line_len = 0;
+	opt = al_copy(opt);
+	if (opt && al_is_type(opt.head, "integer")) {
+		opt.head = opt.head | 0x00000040;
+	} else {
+		opt = al_cons(0x00000040, null);
+	}
+	wnd = al_create_window(opt);
+	al_set_title(wnd, title);
+	al_set_window_arg(wnd, "ed", this);
+	al_set_event_proc(wnd, UserEdit::EventProc);
+	al_set_destroy_proc(wnd, UserEdit::DestroyProc);
+	al_set_text_ins_proc(wnd, UserEdit::TextInsProc);
+}
+end_body
+member
+public: void SetMenu(Menu menu);
+body
+{
+	al_set_menu(wnd, menu);
+	this.menu = menu.menu;
+}
+end_body
+member
+public: list Destroy();
+body
+{
+	return 1;
+}
+end_body
+member
+public: void TextIns(list event);
+body
+{
+	from_line_no = event.head;
+	from_line_len = event.tail.head;
+}
+end_body
+member
+public: window wnd;
+member
+funcType: void Callback();
+body
+{
+}
+end_body
+member
+public: list menu;
+member
+public: static void EventProc(UserEdit ed, list event);
+body
+{
+	var integer type, code;
+	type = event.head;
+	code = event.tail.tail.tail.head;
+	if (type == 8 && code == '\r') {
+		// KeyRelease of '\n'
+		ed.Input();
+		return;
+	} else {
+	}
+	if (type == 3 && ed.menu) {
+		// RightPress
+		var list item;
+		if (item = al_menu_select(ed.wnd, event, ed.menu)) {
+		} else {
+			return;
+		}
+		var UserEdit obj;
+		var Callback func;
+		obj = item.tail.tail.head;
+		func = item.tail.tail.tail.head;
+		if (obj && func) {
+			obj.*func();
+		} else {
+		}
+		return;
+	} else {
+		return;
+	}
+}
+end_body
+member
+public: static list DestroyProc(UserEdit ed);
+body
+{
+	return ed.Destroy();
+}
+end_body
+member
+public: static void TextInsProc(UserEdit ed, list event);
+body
+{
+	ed.TextIns(event);
+}
+end_body
+member
+public: void Clear();
+body
+{
+	var integer lno, idx, len;
+	lno = al_user_edit("line_count", wnd, null, null);
+	if (lno > 0) {
+		lno = lno - 1;
+	} else {
+	}
+	idx = al_user_edit("line_from_pos", wnd, lno, null);
+	len = al_user_edit("line_length", wnd, lno, null);
+	al_user_edit("set_sel", wnd, 0, idx + len);
+	al_user_edit("replace_sel", wnd, "", null);
+}
+end_body
+member
+public: void out(string s);
+body
+{
+	al_user_edit("replace_sel", wnd, s, null);
+}
+end_body
+member
+public: void Input();
+body
+{
+	var string str, str2;
+	var integer to_lno, lno, len;
+	to_lno = last_lno();
+	lno = from_line_no;
+	len = from_line_len;
+	loop {
+		if (lno <= to_lno) {
+		} else {
+			break;
+		}
+		str2 = al_user_edit("get_line", wnd, lno, null);
+		if (len > 0 && al_strlen(str2) >= len) {
+			str2 = al_substr(str2, len, al_strlen(str2));
+		} else {
+		}
+		if (str == null) {
+			str = str2;
+		} else {
+			str = str + "\n" + str2;
+		}
+		lno = lno + 1;
+		len = 0;
+	}
+	if (IsInputEnd(str)) {
+		Process(str);
+	} else {
+	}
+}
+end_body
+member
+public: integer last_lno();
+body
+{
+	var integer lno;
+	lno = al_user_edit("line_count", wnd, null, null);
+	if (lno > 0) {
+		lno = lno - 1;
+	} else {
+	}
+	return lno;
+}
+end_body
+member
+public: integer from_line_no;
+member
+public: integer from_line_len;
+member
+public: list IsInputEnd(string s);
+body
+{
+}
+end_body
+member
+public: void Process(string s);
+body
+{
+}
+end_body
+class Menu
+member
+public: void Add(string name, UserEdit obj, Callback func);
+body
+{
+	if (menu) {
+	} else {
+		menu = al_cons(null, null);
+	}
+	var list item;
+	item = al_list4(name, null, obj, func);
+	al_create_arc(menu, item, null);
+}
+end_body
+member
+public: void Add(string name, Menu sub_menu);
+body
+{
+	if (menu) {
+	} else {
+		menu = al_cons(null, null);
+	}
+	var list item;
+	item = al_list4(name, sub_menu, null, null);
+	al_create_arc(menu, item, null);
+}
+end_body
+member
+public: list menu;
+end_class
+end_class

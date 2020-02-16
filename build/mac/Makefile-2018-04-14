@@ -1,0 +1,1499 @@
+
+ALTAIR_HOME=/Users/inamoto/altair
+TARGET=altair
+ALCORE_LIB=libalcore1.dylib
+JUMAN_KNP_LIB=libjumanknp1.dylib
+
+OPENSSL_HOME=/usr/local/ssl
+OPENSSL_LIB= -lssl -lcrypto
+
+#ORACLE_HOME=/proj/altair/oracle-8.1.7
+#ORACLE_LIB=libclntsh.so
+ORACLE_HOME=
+ORACLE_LIB=
+
+POSTGRES_HOME=/usr/local/pgsql
+POSTGRES_LIB=-lpq
+
+MYSQL_HOME=/usr/local/mysql
+MYSQL_LIB=-lmysqlclient
+
+INC_DIR=\
+	-I$(ALTAIR_HOME)/include\
+	-I$(OPENSSL_HOME)/include\
+	-I$(ORACLE_HOME)/rdbms/demo\
+	-I$(ORACLE_HOME)/rdbms/public\
+	-I$(POSTGRES_HOME)/include\
+	-I$(MYSQL_HOME)/include\
+	-I$(MYSQL_HOME)/include/mysql\
+	-I/Users/inamoto/gtk/inst/include\
+	-I/Users/inamoto/gtk/inst/lib/glib-2.0/include\
+	-I/Users/inamoto/gtk/inst/lib/gtk-3.0/include\
+	-I/Users/inamoto/gtk/inst/include/glib-2.0\
+	-I/Users/inamoto/gtk/inst/include/gtk-3.0\
+	-I/Users/inamoto/gtk/inst/include/pango-1.0\
+	-I/Users/inamoto/gtk/inst/include/cairo\
+	-I/Users/inamoto/gtk/inst/include/gdk-pixbuf-2.0\
+	-I/Users/inamoto/gtk/inst/include/atk-1.0
+
+LIB_DIR=\
+	-L/usr/local/lib\
+	-L/Users/inamoto/gtk/inst/lib
+
+# CPPFLAGS=-D_LINUX_DEBUG -D_LINUX -D_LINUX_ORACLE -D_LINUX_POSTGRES -D_LINUX_MYSQL -D_AL_OPENSSL -DJUMAN_KNP -DAL_LANG_JAPANESE $(INC_DIR) -O0 -g
+# CPPFLAGS=-DNDEBUG           -D_LINUX -D_LINUX_ORACLE -D_LINUX_JAPANESE -D_LINUX_MYSQL -D_AL_OPENSSL -DJUMAN_KNP -DAL_LANG_ENGLISH $(INC_DIR) -O0
+
+# CPPFLAGS=-D_LINUX_DEBUG -D_LINUX -D_LINUX_POSTGRES -D_LINUX_MYSQL -D_AL_OPENSSL -DJUMAN_KNP -DAL_LANG_ENGLISH $(INC_DIR) -O0 -g
+# CPPFLAGS=-DNDEBUG           -D_LINUX -D_LINUX_POSTGRES -D_LINUX_MYSQL -D_AL_OPENSSL -DJUMAN_KNP -DAL_LANG_ENGLISH $(INC_DIR) -O0
+
+CPPFLAGS=-D_LINUX_DEBUG -D_MAC -D_64BIT -D_LINUX -D_LINUX_POSTGRES -D_LINUX_MYSQL -D_AL_OPENSSL -DJUMAN_KNP -DAL_LANG_JAPANESE $(INC_DIR) -O0 -g
+# CPPFLAGS=-DNDEBUG -D_MAC -D_64BIT -D_LINUX -D_LINUX_POSTGRES -D_LINUX_MYSQL -D_AL_OPENSSL -DJUMAN_KNP -DAL_LANG_JAPANESE $(INC_DIR) -O0
+
+# CPPFLAGS=-D_LINUX_DEBUG -D_MAC -D_64BIT -D_LINUX -D_LINUX_POSTGRES -D_LINUX_MYSQL -D_AL_OPENSSL -DJUMAN_KNP -DAL_LANG_ENGLISH $(INC_DIR) -O0 -g
+# CPPFLAGS=-DNDEBUG -D_MAC -D_64BIT -D_LINUX -D_LINUX_POSTGRES -D_LINUX_MYSQL -D_AL_OPENSSL -DJUMAN_KNP -DAL_LANG_ENGLISH $(INC_DIR) -O0
+
+LDFLAGS= $(LIB_DIR) $(OPENSSL_LIB) $(POSTGRES_LIB) $(MYSQL_LIB) -lgtk-3 -lgdk-3 -lgdk_pixbuf-2.0 -lcairo -lpango-1.0 -lpangocairo-1.0 -lglib-2.0 -lgobject-2.0 -lm -lgthread-2.0 -g
+# LDFLAGS= $(LIB_DIR) $(OPENSSL_LIB) $(POSTGRES_LIB) $(MYSQL_LIB) -lgtk-3 -lgdk-3 -lgdk_pixbuf-2.0 -lcairo -lpango-1.0 -lpangocairo-1.0 -lglib-2.0 -lgobject-2.0 -lm -lgthread-2.0
+
+ALTAIR_SRC=\
+	altair.cpp \
+	altairdoc.cpp \
+	altairview.cpp
+ALCORE_SRC=\
+	gdm.cpp \
+	pict.cpp \
+	string.cpp \
+	matrix.cpp \
+	debug.cpp \
+	error.cpp \
+	copy.cpp \
+	gc.cpp \
+	j_code.cpp \
+	big_int.cpp \
+	crypt.cpp \
+	crypt_key.cpp \
+	multipart.cpp \
+	prof.cpp \
+	gp_intp.cpp \
+	interp1.cpp \
+	interp2.cpp \
+	parallel.cpp \
+	prcsmgr.cpp \
+	prog_if.cpp \
+	sysfunc1.cpp \
+	sysfunc2.cpp \
+	sysfunc3.cpp \
+	file.cpp \
+	dllcall.cpp \
+	advwnd.cpp \
+	bitmap.cpp \
+	shell.cpp \
+	advcapp.cpp \
+	advcvw.cpp \
+	advcedit.cpp \
+	mainfrm.cpp \
+	ocx.cpp \
+	olectrl.cpp \
+	cui.cpp \
+	project.cpp \
+	class.cpp \
+	member.cpp \
+	body.cpp \
+	body_in.cpp \
+	body_out.cpp \
+	sql.cpp \
+	socket.cpp \
+	xml.cpp \
+	typedic.cpp \
+	xslt.cpp \
+	solid.cpp \
+	jana.cpp \
+	almath.cpp \
+	parser_generator.cpp \
+	pro_lisp.cpp \
+	prolog.cpp \
+	symbolic_manip.cpp
+JUMAN_SRC=\
+	connect.cpp \
+	getid.cpp \
+	grammar.cpp \
+	iotool.cpp \
+	japanese.cpp \
+	juman_lib.cpp \
+	katuyou.cpp \
+	lisp.cpp \
+	pat.cpp \
+	patfile.cpp
+KNP_SRC=\
+	bnst_compare.cpp \
+	configfile.cpp \
+	db.cpp \
+	declare.cpp \
+	dpnd_analysis.cpp \
+	feature.cpp \
+	hash.cpp \
+	koou.cpp \
+	lib_bgh.cpp \
+	lib_dt.cpp \
+	lib_print.cpp \
+	lib_ps.cpp \
+	lib_scase.cpp \
+	lib_sm.cpp \
+	main.cpp \
+	para_analysis.cpp \
+	para_dpnd.cpp \
+	para_relation.cpp \
+	para_revision.cpp \
+	proper.cpp \
+	quote.cpp \
+	read_data.cpp \
+	read_rule.cpp \
+	regexp.cpp \
+	thesaurus.cpp \
+	tools.cpp \
+	tree_conv.cpp
+
+ALTAIR_OBJ=\
+	altair.o \
+	altairdoc.o \
+	altairview.o
+ALCORE_OBJ=\
+	gdm.o \
+	pict.o \
+	string.o \
+	matrix.o \
+	debug.o \
+	error.o \
+	copy.o \
+	gc.o \
+	j_code.o \
+	big_int.o \
+	big_int_ia.o \
+	crypt.o \
+	crypt_key.o \
+	multipart.o \
+	prof.o \
+	gp_intp.o \
+	interp1.o \
+	interp2.o \
+	parallel.o \
+	prcsmgr.o \
+	prog_if.o \
+	sysfunc1.o \
+	sysfunc2.o \
+	sysfunc3.o \
+	file.o \
+	dllcall.o \
+	advwnd.o \
+	bitmap.o \
+	shell.o \
+	advcapp.o \
+	advcvw.o \
+	advcedit.o \
+	mainfrm.o \
+	ocx.o \
+	olectrl.o \
+	cui.o \
+	project.o \
+	class.o \
+	member.o \
+	body.o \
+	body_in.o \
+	body_out.o \
+	sql.o \
+	socket.o \
+	xml.o \
+	typedic.o \
+	xslt.o \
+	solid.o \
+	jana.o \
+	almath.o \
+	parser_generator.o \
+	pro_lisp.o \
+	prolog.o \
+	gdb.o \
+	symbolic_manip.o
+JUMAN_OBJ=\
+	connect.o \
+	getid.o \
+	grammar.o \
+	iotool.o \
+	japanese.o \
+	juman_lib.o \
+	katuyou.o \
+	lisp.o \
+	pat.o \
+	patfile.o
+KNP_OBJ=\
+	bnst_compare.o \
+	configfile.o \
+	db.o \
+	declare.o \
+	dpnd_analysis.o \
+	feature.o \
+	hash.o \
+	koou.o \
+	lib_bgh.o \
+	lib_dt.o \
+	lib_print.o \
+	lib_ps.o \
+	lib_scase.o \
+	lib_sm.o \
+	main.o \
+	para_analysis.o \
+	para_dpnd.o \
+	para_relation.o \
+	para_revision.o \
+	proper.o \
+	quote.o \
+	read_data.o \
+	read_rule.o \
+	regexp.o \
+	thesaurus.o \
+	tools.o \
+	tree_conv.o
+
+$(TARGET): $(ALTAIR_OBJ) $(ALCORE_LIB) $(JUMAN_KNP_LIB)
+	g++ $(LDFLAGS) -o $(TARGET) $(ALTAIR_OBJ) $(ALCORE_LIB)
+
+$(ALCORE_LIB): $(ALCORE_OBJ) $(JUMAN_KNP_LIB)
+	g++ $(LDFLAGS) -shared -o $(ALCORE_LIB) $(ALCORE_OBJ) $(JUMAN_KNP_LIB)
+
+$(JUMAN_KNP_LIB): $(JUMAN_OBJ) $(KNP_OBJ)
+	g++ $(LDFLAGS) -shared -o $(JUMAN_KNP_LIB) $(JUMAN_OBJ) $(KNP_OBJ)
+
+.cpp.o:
+	g++ $(CPPFLAGS) -c $<
+
+big_int_ia.o:	big_int_ia.s
+	g++ -c big_int_ia.s
+
+depend:
+	makedepend $(INC_DIR) $(ALTAIR_SRC) $(ALCORE_SRC) $(JUMAN_SRC) $(KNP_SRC)
+
+clean:
+	rm -f $(ALTAIR_OBJ) $(ALCORE_OBJ) $(JUMAN_OBJ) $(KNP_OBJ)
+
+othello:
+	g++ $(CPPFLAGS) -c othello1.cpp
+	g++ -shared -o libothello.dylib othello1.o
+
+tp:	tp.cpp
+	g++ -o tp $(INC_DIR) $(CPPFLAGS) tp.cpp -g $(LDFLAGS) $(ALCORE_LIB)
+
+asm.s:	asm.cpp
+	g++ $(CPPFLAGS) -S asm.cpp
+
+######## dependency ########
+
+# DO NOT DELETE
+
+altair.o: /Users/inamoto/altair/include/stdafx.h
+altair.o: /Users/inamoto/altair/include/altair/libinc.h
+altair.o: /Users/inamoto/altair/include/altair/alext.h
+altair.o: /Users/inamoto/altair/include/altair/alcrt.h altair.h
+altair.o: /Users/inamoto/altair/include/altair/docvdef.h
+altair.o: /Users/inamoto/altair/include/gdm/gdm.h
+altair.o: /Users/inamoto/altair/include/gdm/vmkey.h
+altair.o: /Users/inamoto/altair/include/dev/advcapp.h
+altair.o: /Users/inamoto/altair/include/dev/advcvw.h
+altair.o: /Users/inamoto/altair/include/dev/olectrl.h
+altair.o: /Users/inamoto/altair/include/dev/shell.h
+altair.o: /Users/inamoto/altair/include/cui/cui.h
+altair.o: /Users/inamoto/altair/include/cui/member.h
+altair.o: /Users/inamoto/altair/include/dev/mainfrm.h altairdoc.h
+altair.o: altairview.h /Users/inamoto/altair/include/gdm/string.h
+altairdoc.o: /Users/inamoto/altair/include/stdafx.h
+altairdoc.o: /Users/inamoto/altair/include/altair/libinc.h
+altairdoc.o: /Users/inamoto/altair/include/altair/alext.h
+altairdoc.o: /Users/inamoto/altair/include/altair/alcrt.h altair.h
+altairdoc.o: /Users/inamoto/altair/include/altair/docvdef.h
+altairdoc.o: /Users/inamoto/altair/include/gdm/gdm.h
+altairdoc.o: /Users/inamoto/altair/include/gdm/vmkey.h
+altairdoc.o: /Users/inamoto/altair/include/dev/advcapp.h
+altairdoc.o: /Users/inamoto/altair/include/dev/advcvw.h
+altairdoc.o: /Users/inamoto/altair/include/dev/olectrl.h
+altairdoc.o: /Users/inamoto/altair/include/dev/shell.h
+altairdoc.o: /Users/inamoto/altair/include/cui/cui.h
+altairdoc.o: /Users/inamoto/altair/include/cui/member.h altairdoc.h
+altairview.o: /Users/inamoto/altair/include/stdafx.h
+altairview.o: /Users/inamoto/altair/include/altair/libinc.h
+altairview.o: /Users/inamoto/altair/include/altair/alext.h
+altairview.o: /Users/inamoto/altair/include/altair/alcrt.h altair.h
+altairview.o: /Users/inamoto/altair/include/altair/docvdef.h
+altairview.o: /Users/inamoto/altair/include/gdm/gdm.h
+altairview.o: /Users/inamoto/altair/include/gdm/vmkey.h
+altairview.o: /Users/inamoto/altair/include/dev/advcapp.h
+altairview.o: /Users/inamoto/altair/include/dev/advcvw.h
+altairview.o: /Users/inamoto/altair/include/dev/olectrl.h
+altairview.o: /Users/inamoto/altair/include/dev/shell.h
+altairview.o: /Users/inamoto/altair/include/cui/cui.h
+altairview.o: /Users/inamoto/altair/include/cui/member.h altairdoc.h
+altairview.o: altairview.h
+gdm.o: /Users/inamoto/altair/include/stdafx.h
+gdm.o: /Users/inamoto/altair/include/altair/libinc.h
+gdm.o: /Users/inamoto/altair/include/altair/alext.h
+gdm.o: /Users/inamoto/altair/include/altair/alcrt.h
+gdm.o: /Users/inamoto/altair/include/gdm/gdm.h
+gdm.o: /Users/inamoto/altair/include/gdm/string.h
+gdm.o: /Users/inamoto/altair/include/gdm/big_int.h
+gdm.o: /Users/inamoto/altair/include/gdm/matrix.h
+gdm.o: /Users/inamoto/altair/include/gdm/file.h
+gdm.o: /Users/inamoto/altair/include/gdm/vmkey.h
+gdm.o: /Users/inamoto/altair/include/gdm/debug.h
+gdm.o: /Users/inamoto/altair/include/gdm/error.h
+gdm.o: /Users/inamoto/altair/include/gdm/pict.h
+gdm.o: /Users/inamoto/altair/include/interp/interp.h
+gdm.o: /Users/inamoto/altair/include/interp/prcsmgr.h
+gdm.o: /Users/inamoto/altair/include/dev/advcvw.h
+gdm.o: /Users/inamoto/altair/include/dev/advwnd.h
+gdm.o: /Users/inamoto/altair/include/dev/bitmap.h
+gdm.o: /Users/inamoto/altair/include/dev/ocx.h
+gdm.o: /Users/inamoto/altair/include/cui/cui.h
+gdm.o: /Users/inamoto/altair/include/sql/sql.h
+pict.o: /Users/inamoto/altair/include/stdafx.h
+pict.o: /Users/inamoto/altair/include/altair/libinc.h
+pict.o: /Users/inamoto/altair/include/altair/alext.h
+pict.o: /Users/inamoto/altair/include/altair/alcrt.h
+pict.o: /Users/inamoto/altair/include/gdm/gdm.h
+pict.o: /Users/inamoto/altair/include/gdm/pict.h
+string.o: /Users/inamoto/altair/include/stdafx.h
+string.o: /Users/inamoto/altair/include/altair/libinc.h
+string.o: /Users/inamoto/altair/include/altair/alext.h
+string.o: /Users/inamoto/altair/include/altair/alcrt.h
+string.o: /Users/inamoto/altair/include/gdm/gdm.h
+string.o: /Users/inamoto/altair/include/gdm/string.h
+string.o: /Users/inamoto/altair/include/gdm/file.h
+string.o: /Users/inamoto/altair/include/gdm/error.h
+matrix.o: /Users/inamoto/altair/include/stdafx.h
+matrix.o: /Users/inamoto/altair/include/altair/libinc.h
+matrix.o: /Users/inamoto/altair/include/altair/alext.h
+matrix.o: /Users/inamoto/altair/include/altair/alcrt.h
+matrix.o: /Users/inamoto/altair/include/gdm/gdm.h
+matrix.o: /Users/inamoto/altair/include/gdm/matrix.h
+matrix.o: /Users/inamoto/altair/include/gdm/error.h
+debug.o: /Users/inamoto/altair/include/stdafx.h
+debug.o: /Users/inamoto/altair/include/altair/libinc.h
+debug.o: /Users/inamoto/altair/include/altair/alext.h
+debug.o: /Users/inamoto/altair/include/altair/alcrt.h
+debug.o: /Users/inamoto/altair/include/gdm/gdm.h
+debug.o: /Users/inamoto/altair/include/gdm/string.h
+debug.o: /Users/inamoto/altair/include/gdm/file.h
+debug.o: /Users/inamoto/altair/include/gdm/debug.h
+debug.o: /Users/inamoto/altair/include/dev/advwnd.h
+debug.o: /Users/inamoto/altair/include/gdm/big_int.h
+debug.o: /Users/inamoto/altair/include/altair/strres.h
+error.o: /Users/inamoto/altair/include/stdafx.h
+error.o: /Users/inamoto/altair/include/altair/libinc.h
+error.o: /Users/inamoto/altair/include/altair/alext.h
+error.o: /Users/inamoto/altair/include/altair/alcrt.h
+error.o: /Users/inamoto/altair/include/gdm/error.h
+copy.o: /Users/inamoto/altair/include/stdafx.h
+copy.o: /Users/inamoto/altair/include/altair/libinc.h
+copy.o: /Users/inamoto/altair/include/altair/alext.h
+copy.o: /Users/inamoto/altair/include/altair/alcrt.h
+copy.o: /Users/inamoto/altair/include/gdm/gdm.h
+copy.o: /Users/inamoto/altair/include/gdm/string.h
+copy.o: /Users/inamoto/altair/include/gdm/matrix.h
+copy.o: /Users/inamoto/altair/include/gdm/pict.h
+copy.o: /Users/inamoto/altair/include/dev/advwnd.h
+copy.o: /Users/inamoto/altair/include/dev/bitmap.h
+copy.o: /Users/inamoto/altair/include/dev/ocx.h
+copy.o: /Users/inamoto/altair/include/altair/strres.h
+gc.o: /Users/inamoto/altair/include/stdafx.h
+gc.o: /Users/inamoto/altair/include/altair/libinc.h
+gc.o: /Users/inamoto/altair/include/altair/alext.h
+gc.o: /Users/inamoto/altair/include/altair/alcrt.h
+gc.o: /Users/inamoto/altair/include/gdm/gdm.h
+gc.o: /Users/inamoto/altair/include/gdm/string.h
+gc.o: /Users/inamoto/altair/include/gdm/matrix.h
+gc.o: /Users/inamoto/altair/include/gdm/file.h
+gc.o: /Users/inamoto/altair/include/gdm/debug.h
+gc.o: /Users/inamoto/altair/include/gdm/pict.h
+gc.o: /Users/inamoto/altair/include/interp/interp.h
+gc.o: /Users/inamoto/altair/include/interp/prcsmgr.h
+gc.o: /Users/inamoto/altair/include/dev/advcapp.h
+gc.o: /Users/inamoto/altair/include/dev/advcvw.h
+gc.o: /Users/inamoto/altair/include/dev/advwnd.h
+gc.o: /Users/inamoto/altair/include/dev/shell.h
+gc.o: /Users/inamoto/altair/include/dev/bitmap.h
+gc.o: /Users/inamoto/altair/include/dev/ocx.h
+gc.o: /Users/inamoto/altair/include/dev/mainfrm.h
+gc.o: /Users/inamoto/altair/include/cui/cui.h
+gc.o: /Users/inamoto/altair/include/sql/sql.h
+gc.o: /Users/inamoto/altair/include/net/socket.h
+gc.o: /Users/inamoto/altair/include/symbol/pro_lisp.h
+j_code.o: /Users/inamoto/altair/include/stdafx.h
+j_code.o: /Users/inamoto/altair/include/altair/libinc.h
+j_code.o: /Users/inamoto/altair/include/altair/alext.h
+j_code.o: /Users/inamoto/altair/include/altair/alcrt.h
+j_code.o: /Users/inamoto/altair/include/gdm/gdm.h
+j_code.o: /Users/inamoto/altair/include/gdm/string.h
+j_code.o: /Users/inamoto/altair/include/gdm/file.h
+j_code.o: /Users/inamoto/altair/include/gdm/j_code.h
+big_int.o: /Users/inamoto/altair/include/stdafx.h
+big_int.o: /Users/inamoto/altair/include/altair/libinc.h
+big_int.o: /Users/inamoto/altair/include/altair/alext.h
+big_int.o: /Users/inamoto/altair/include/altair/alcrt.h
+big_int.o: /Users/inamoto/altair/include/gdm/gdm.h
+big_int.o: /Users/inamoto/altair/include/gdm/string.h
+big_int.o: /Users/inamoto/altair/include/gdm/big_int.h
+crypt.o: /Users/inamoto/altair/include/stdafx.h
+crypt.o: /Users/inamoto/altair/include/altair/libinc.h
+crypt.o: /Users/inamoto/altair/include/altair/alext.h
+crypt.o: /Users/inamoto/altair/include/altair/alcrt.h
+crypt.o: /Users/inamoto/altair/include/gdm/gdm.h
+crypt.o: /Users/inamoto/altair/include/gdm/string.h
+crypt.o: /Users/inamoto/altair/include/gdm/file.h
+crypt.o: /Users/inamoto/altair/include/gdm/pict.h
+crypt.o: /Users/inamoto/altair/include/gdm/big_int.h
+crypt.o: /Users/inamoto/altair/include/interp/interp.h
+crypt.o: /Users/inamoto/altair/include/interp/prcsmgr.h
+crypt.o: /Users/inamoto/altair/include/net/socket.h
+crypt.o: /Users/inamoto/altair/include/net/crypt.h
+crypt.o: /Users/inamoto/altair/include/net/multipart.h
+crypt_key.o: /Users/inamoto/altair/include/stdafx.h
+crypt_key.o: /Users/inamoto/altair/include/altair/libinc.h
+crypt_key.o: /Users/inamoto/altair/include/altair/alext.h
+crypt_key.o: /Users/inamoto/altair/include/altair/alcrt.h
+multipart.o: /Users/inamoto/altair/include/stdafx.h
+multipart.o: /Users/inamoto/altair/include/altair/libinc.h
+multipart.o: /Users/inamoto/altair/include/altair/alext.h
+multipart.o: /Users/inamoto/altair/include/altair/alcrt.h
+multipart.o: /Users/inamoto/altair/include/gdm/gdm.h
+multipart.o: /Users/inamoto/altair/include/gdm/string.h
+multipart.o: /Users/inamoto/altair/include/net/multipart.h
+prof.o: /Users/inamoto/altair/include/stdafx.h
+prof.o: /Users/inamoto/altair/include/altair/libinc.h
+prof.o: /Users/inamoto/altair/include/altair/alext.h
+prof.o: /Users/inamoto/altair/include/altair/alcrt.h
+prof.o: /Users/inamoto/altair/include/gdm/gdm.h
+prof.o: /Users/inamoto/altair/include/gdm/string.h
+prof.o: /Users/inamoto/altair/include/gdm/file.h
+prof.o: /Users/inamoto/altair/include/gdm/pict.h
+prof.o: /Users/inamoto/altair/include/dev/advcapp.h
+prof.o: /Users/inamoto/altair/include/dev/shell.h
+prof.o: /Users/inamoto/altair/include/interp/interp.h
+prof.o: /Users/inamoto/altair/include/cui/class.h
+prof.o: /Users/inamoto/altair/include/cui/member.h
+gp_intp.o: /Users/inamoto/altair/include/stdafx.h
+gp_intp.o: /Users/inamoto/altair/include/altair/libinc.h
+gp_intp.o: /Users/inamoto/altair/include/altair/alext.h
+gp_intp.o: /Users/inamoto/altair/include/altair/alcrt.h
+gp_intp.o: /Users/inamoto/altair/include/gdm/gdm.h
+gp_intp.o: /Users/inamoto/altair/include/gdm/string.h
+gp_intp.o: /Users/inamoto/altair/include/gdm/pict.h
+gp_intp.o: /Users/inamoto/altair/include/interp/interp.h
+gp_intp.o: /Users/inamoto/altair/include/interp/prcsmgr.h
+gp_intp.o: /Users/inamoto/altair/include/interp/basefunc.h
+gp_intp.o: /Users/inamoto/altair/include/interp/prog_if.h
+gp_intp.o: /Users/inamoto/altair/include/dev/advcapp.h
+gp_intp.o: /Users/inamoto/altair/include/dev/advwnd.h
+gp_intp.o: /Users/inamoto/altair/include/dev/shell.h
+gp_intp.o: /Users/inamoto/altair/include/cui/class.h
+gp_intp.o: /Users/inamoto/altair/include/cui/member.h
+gp_intp.o: /Users/inamoto/altair/include/cui/body.h
+gp_intp.o: /Users/inamoto/altair/include/altair/strres.h
+interp1.o: /Users/inamoto/altair/include/stdafx.h
+interp1.o: /Users/inamoto/altair/include/altair/libinc.h
+interp1.o: /Users/inamoto/altair/include/altair/alext.h
+interp1.o: /Users/inamoto/altair/include/altair/alcrt.h
+interp1.o: /Users/inamoto/altair/include/gdm/gdm.h
+interp1.o: /Users/inamoto/altair/include/gdm/string.h
+interp1.o: /Users/inamoto/altair/include/gdm/big_int.h
+interp1.o: /Users/inamoto/altair/include/gdm/matrix.h
+interp1.o: /Users/inamoto/altair/include/gdm/file.h
+interp1.o: /Users/inamoto/altair/include/gdm/debug.h
+interp1.o: /Users/inamoto/altair/include/gdm/error.h
+interp1.o: /Users/inamoto/altair/include/gdm/pict.h
+interp1.o: /Users/inamoto/altair/include/interp/interp.h
+interp1.o: /Users/inamoto/altair/include/interp/prcsmgr.h
+interp1.o: /Users/inamoto/altair/include/interp/basefunc.h
+interp1.o: /Users/inamoto/altair/include/interp/sysfunc.h
+interp1.o: /Users/inamoto/altair/include/interp/prog_if.h
+interp1.o: /Users/inamoto/altair/include/dev/advwnd.h
+interp1.o: /Users/inamoto/altair/include/dev/shell.h
+interp1.o: /Users/inamoto/altair/include/cui/class.h
+interp1.o: /Users/inamoto/altair/include/cui/body.h
+interp1.o: /Users/inamoto/altair/include/altair/strres.h
+interp2.o: /Users/inamoto/altair/include/stdafx.h
+interp2.o: /Users/inamoto/altair/include/altair/libinc.h
+interp2.o: /Users/inamoto/altair/include/altair/alext.h
+interp2.o: /Users/inamoto/altair/include/altair/alcrt.h
+interp2.o: /Users/inamoto/altair/include/gdm/gdm.h
+interp2.o: /Users/inamoto/altair/include/gdm/string.h
+interp2.o: /Users/inamoto/altair/include/gdm/matrix.h
+interp2.o: /Users/inamoto/altair/include/gdm/file.h
+interp2.o: /Users/inamoto/altair/include/gdm/debug.h
+interp2.o: /Users/inamoto/altair/include/gdm/error.h
+interp2.o: /Users/inamoto/altair/include/gdm/pict.h
+interp2.o: /Users/inamoto/altair/include/interp/interp.h
+interp2.o: /Users/inamoto/altair/include/interp/prcsmgr.h
+interp2.o: /Users/inamoto/altair/include/interp/basefunc.h
+interp2.o: /Users/inamoto/altair/include/interp/sysfunc.h
+interp2.o: /Users/inamoto/altair/include/interp/prog_if.h
+interp2.o: /Users/inamoto/altair/include/dev/advwnd.h
+interp2.o: /Users/inamoto/altair/include/dev/shell.h
+interp2.o: /Users/inamoto/altair/include/cui/class.h
+interp2.o: /Users/inamoto/altair/include/cui/body.h
+parallel.o: /Users/inamoto/altair/include/stdafx.h
+parallel.o: /Users/inamoto/altair/include/altair/libinc.h
+parallel.o: /Users/inamoto/altair/include/altair/alext.h
+parallel.o: /Users/inamoto/altair/include/altair/alcrt.h
+parallel.o: /Users/inamoto/altair/include/gdm/gdm.h
+parallel.o: /Users/inamoto/altair/include/gdm/string.h
+parallel.o: /Users/inamoto/altair/include/gdm/error.h
+parallel.o: /Users/inamoto/altair/include/gdm/pict.h
+parallel.o: /Users/inamoto/altair/include/interp/interp.h
+parallel.o: /Users/inamoto/altair/include/interp/prcsmgr.h
+parallel.o: /Users/inamoto/altair/include/dev/advwnd.h
+prcsmgr.o: /Users/inamoto/altair/include/stdafx.h
+prcsmgr.o: /Users/inamoto/altair/include/altair/libinc.h
+prcsmgr.o: /Users/inamoto/altair/include/altair/alext.h
+prcsmgr.o: /Users/inamoto/altair/include/altair/alcrt.h
+prcsmgr.o: /Users/inamoto/altair/include/gdm/gdm.h
+prcsmgr.o: /Users/inamoto/altair/include/gdm/vmkey.h
+prcsmgr.o: /Users/inamoto/altair/include/gdm/error.h
+prcsmgr.o: /Users/inamoto/altair/include/gdm/pict.h
+prcsmgr.o: /Users/inamoto/altair/include/interp/interp.h
+prcsmgr.o: /Users/inamoto/altair/include/interp/prcsmgr.h
+prog_if.o: /Users/inamoto/altair/include/stdafx.h
+prog_if.o: /Users/inamoto/altair/include/altair/libinc.h
+prog_if.o: /Users/inamoto/altair/include/altair/alext.h
+prog_if.o: /Users/inamoto/altair/include/altair/alcrt.h
+prog_if.o: /Users/inamoto/altair/include/gdm/gdm.h
+prog_if.o: /Users/inamoto/altair/include/interp/basefunc.h
+prog_if.o: /Users/inamoto/altair/include/interp/prog_if.h
+sysfunc1.o: /Users/inamoto/altair/include/stdafx.h
+sysfunc1.o: /Users/inamoto/altair/include/altair/libinc.h
+sysfunc1.o: /Users/inamoto/altair/include/altair/alext.h
+sysfunc1.o: /Users/inamoto/altair/include/altair/alcrt.h
+sysfunc1.o: /Users/inamoto/altair/include/gdm/gdm.h
+sysfunc1.o: /Users/inamoto/altair/include/gdm/string.h
+sysfunc1.o: /Users/inamoto/altair/include/gdm/big_int.h
+sysfunc1.o: /Users/inamoto/altair/include/gdm/matrix.h
+sysfunc1.o: /Users/inamoto/altair/include/gdm/file.h
+sysfunc1.o: /Users/inamoto/altair/include/gdm/vmkey.h
+sysfunc1.o: /Users/inamoto/altair/include/gdm/debug.h
+sysfunc1.o: /Users/inamoto/altair/include/gdm/error.h
+sysfunc1.o: /Users/inamoto/altair/include/gdm/pict.h
+sysfunc1.o: /Users/inamoto/altair/include/interp/interp.h
+sysfunc1.o: /Users/inamoto/altair/include/dev/advcvw.h
+sysfunc1.o: /Users/inamoto/altair/include/dev/event.h
+sysfunc1.o: /Users/inamoto/altair/include/dev/advwnd.h
+sysfunc1.o: /Users/inamoto/altair/include/dev/shell.h
+sysfunc1.o: /Users/inamoto/altair/include/dev/advcedit.h
+sysfunc1.o: /Users/inamoto/altair/include/dev/bitmap.h
+sysfunc1.o: /Users/inamoto/altair/include/dev/olectrl.h
+sysfunc1.o: /Users/inamoto/altair/include/cui/class.h
+sysfunc1.o: /Users/inamoto/altair/include/cui/member.h
+sysfunc1.o: /Users/inamoto/altair/include/cui/cui.h
+sysfunc1.o: /Users/inamoto/altair/include/net/crypt.h
+sysfunc1.o: /Users/inamoto/altair/include/altair/strres.h
+sysfunc2.o: /Users/inamoto/altair/include/stdafx.h
+sysfunc2.o: /Users/inamoto/altair/include/altair/libinc.h
+sysfunc2.o: /Users/inamoto/altair/include/altair/alext.h
+sysfunc2.o: /Users/inamoto/altair/include/altair/alcrt.h
+sysfunc2.o: /Users/inamoto/altair/include/gdm/gdm.h
+sysfunc2.o: /Users/inamoto/altair/include/gdm/string.h
+sysfunc2.o: /Users/inamoto/altair/include/gdm/matrix.h
+sysfunc2.o: /Users/inamoto/altair/include/gdm/file.h
+sysfunc2.o: /Users/inamoto/altair/include/gdm/vmkey.h
+sysfunc2.o: /Users/inamoto/altair/include/gdm/debug.h
+sysfunc2.o: /Users/inamoto/altair/include/gdm/error.h
+sysfunc2.o: /Users/inamoto/altair/include/gdm/pict.h
+sysfunc2.o: /Users/inamoto/altair/include/interp/interp.h
+sysfunc2.o: /Users/inamoto/altair/include/interp/prcsmgr.h
+sysfunc2.o: /Users/inamoto/altair/include/dev/advcapp.h
+sysfunc2.o: /Users/inamoto/altair/include/dev/advcvw.h
+sysfunc2.o: /Users/inamoto/altair/include/dev/event.h
+sysfunc2.o: /Users/inamoto/altair/include/dev/advwnd.h
+sysfunc2.o: /Users/inamoto/altair/include/dev/shell.h
+sysfunc2.o: /Users/inamoto/altair/include/dev/advcedit.h
+sysfunc2.o: /Users/inamoto/altair/include/dev/bitmap.h
+sysfunc2.o: /Users/inamoto/altair/include/dev/olectrl.h
+sysfunc2.o: /Users/inamoto/altair/include/dev/mainfrm.h
+sysfunc2.o: /Users/inamoto/altair/include/cui/class.h
+sysfunc2.o: /Users/inamoto/altair/include/cui/member.h
+sysfunc2.o: /Users/inamoto/altair/include/cui/cui.h
+sysfunc2.o: /Users/inamoto/altair/include/altair/strres.h
+sysfunc3.o: /Users/inamoto/altair/include/stdafx.h
+sysfunc3.o: /Users/inamoto/altair/include/altair/libinc.h
+sysfunc3.o: /Users/inamoto/altair/include/altair/alext.h
+sysfunc3.o: /Users/inamoto/altair/include/altair/alcrt.h
+sysfunc3.o: /Users/inamoto/altair/include/gdm/gdm.h
+sysfunc3.o: /Users/inamoto/altair/include/gdm/string.h
+sysfunc3.o: /Users/inamoto/altair/include/gdm/matrix.h
+sysfunc3.o: /Users/inamoto/altair/include/gdm/file.h
+sysfunc3.o: /Users/inamoto/altair/include/gdm/vmkey.h
+sysfunc3.o: /Users/inamoto/altair/include/gdm/debug.h
+sysfunc3.o: /Users/inamoto/altair/include/gdm/error.h
+sysfunc3.o: /Users/inamoto/altair/include/gdm/pict.h
+sysfunc3.o: /Users/inamoto/altair/include/interp/interp.h
+sysfunc3.o: /Users/inamoto/altair/include/interp/prcsmgr.h
+sysfunc3.o: /Users/inamoto/altair/include/dev/advcapp.h
+sysfunc3.o: /Users/inamoto/altair/include/dev/advcvw.h
+sysfunc3.o: /Users/inamoto/altair/include/dev/event.h
+sysfunc3.o: /Users/inamoto/altair/include/dev/advwnd.h
+sysfunc3.o: /Users/inamoto/altair/include/dev/advcedit.h
+sysfunc3.o: /Users/inamoto/altair/include/dev/shell.h
+sysfunc3.o: /Users/inamoto/altair/include/dev/bitmap.h
+sysfunc3.o: /Users/inamoto/altair/include/dev/olectrl.h
+sysfunc3.o: /Users/inamoto/altair/include/dev/mainfrm.h
+sysfunc3.o: /Users/inamoto/altair/include/cui/class.h
+sysfunc3.o: /Users/inamoto/altair/include/cui/member.h
+sysfunc3.o: /Users/inamoto/altair/include/cui/body.h
+sysfunc3.o: /Users/inamoto/altair/include/cui/cui.h
+sysfunc3.o: /Users/inamoto/altair/include/altair/strres.h
+sysfunc3.o: /Users/inamoto/altair/include/gdm/j_code.h
+sysfunc3.o: /Users/inamoto/altair/include/gdm/big_int.h
+sysfunc3.o: /Users/inamoto/altair/include/juman/juman.h
+sysfunc3.o: /Users/inamoto/altair/include/juman/juman_pat.h
+file.o: /Users/inamoto/altair/include/stdafx.h
+file.o: /Users/inamoto/altair/include/altair/libinc.h
+file.o: /Users/inamoto/altair/include/altair/alext.h
+file.o: /Users/inamoto/altair/include/altair/alcrt.h
+file.o: /Users/inamoto/altair/include/gdm/gdm.h
+file.o: /Users/inamoto/altair/include/gdm/string.h
+file.o: /Users/inamoto/altair/include/gdm/matrix.h
+file.o: /Users/inamoto/altair/include/gdm/file.h
+file.o: /Users/inamoto/altair/include/gdm/debug.h
+file.o: /Users/inamoto/altair/include/gdm/error.h
+file.o: /Users/inamoto/altair/include/gdm/pict.h
+file.o: /Users/inamoto/altair/include/dev/bitmap.h
+file.o: /Users/inamoto/altair/include/dev/ocx.h
+file.o: /Users/inamoto/altair/include/gdm/big_int.h
+dllcall.o: /Users/inamoto/altair/include/stdafx.h
+dllcall.o: /Users/inamoto/altair/include/altair/libinc.h
+dllcall.o: /Users/inamoto/altair/include/altair/alext.h
+dllcall.o: /Users/inamoto/altair/include/altair/alcrt.h
+dllcall.o: /Users/inamoto/altair/include/gdm/gdm.h
+dllcall.o: /Users/inamoto/altair/include/gdm/pict.h
+dllcall.o: /Users/inamoto/altair/include/gdm/string.h
+dllcall.o: /Users/inamoto/altair/include/interp/interp.h
+advwnd.o: /Users/inamoto/altair/include/stdafx.h
+advwnd.o: /Users/inamoto/altair/include/altair/libinc.h
+advwnd.o: /Users/inamoto/altair/include/altair/alext.h
+advwnd.o: /Users/inamoto/altair/include/altair/alcrt.h
+advwnd.o: /Users/inamoto/altair/include/gdm/gdm.h
+advwnd.o: /Users/inamoto/altair/include/gdm/string.h
+advwnd.o: /Users/inamoto/altair/include/gdm/file.h
+advwnd.o: /Users/inamoto/altair/include/gdm/matrix.h
+advwnd.o: /Users/inamoto/altair/include/gdm/vmkey.h
+advwnd.o: /Users/inamoto/altair/include/gdm/debug.h
+advwnd.o: /Users/inamoto/altair/include/gdm/error.h
+advwnd.o: /Users/inamoto/altair/include/gdm/pict.h
+advwnd.o: /Users/inamoto/altair/include/interp/interp.h
+advwnd.o: /Users/inamoto/altair/include/interp/prcsmgr.h
+advwnd.o: /Users/inamoto/altair/include/dev/advcapp.h
+advwnd.o: /Users/inamoto/altair/include/dev/advcvw.h
+advwnd.o: /Users/inamoto/altair/include/dev/event.h
+advwnd.o: /Users/inamoto/altair/include/dev/advwnd.h
+advwnd.o: /Users/inamoto/altair/include/dev/advcedit.h
+advwnd.o: /Users/inamoto/altair/include/dev/shell.h
+advwnd.o: /Users/inamoto/altair/include/dev/bitmap.h
+advwnd.o: /Users/inamoto/altair/include/dev/olectrl.h
+advwnd.o: /Users/inamoto/altair/include/altair/strres.h
+advwnd.o: /Users/inamoto/altair/include/altair/resource.h
+bitmap.o: /Users/inamoto/altair/include/stdafx.h
+bitmap.o: /Users/inamoto/altair/include/altair/libinc.h
+bitmap.o: /Users/inamoto/altair/include/altair/alext.h
+bitmap.o: /Users/inamoto/altair/include/altair/alcrt.h
+bitmap.o: /Users/inamoto/altair/include/gdm/gdm.h
+bitmap.o: /Users/inamoto/altair/include/gdm/string.h
+bitmap.o: /Users/inamoto/altair/include/gdm/file.h
+bitmap.o: /Users/inamoto/altair/include/gdm/error.h
+bitmap.o: /Users/inamoto/altair/include/gdm/pict.h
+bitmap.o: /Users/inamoto/altair/include/dev/advwnd.h
+bitmap.o: /Users/inamoto/altair/include/dev/bitmap.h
+bitmap.o: /Users/inamoto/altair/include/altair/strres.h
+shell.o: /Users/inamoto/altair/include/stdafx.h
+shell.o: /Users/inamoto/altair/include/altair/libinc.h
+shell.o: /Users/inamoto/altair/include/altair/alext.h
+shell.o: /Users/inamoto/altair/include/altair/alcrt.h
+shell.o: /Users/inamoto/altair/include/gdm/gdm.h
+shell.o: /Users/inamoto/altair/include/gdm/string.h
+shell.o: /Users/inamoto/altair/include/gdm/file.h
+shell.o: /Users/inamoto/altair/include/gdm/pict.h
+shell.o: /Users/inamoto/altair/include/dev/advwnd.h
+shell.o: /Users/inamoto/altair/include/dev/advcedit.h
+shell.o: /Users/inamoto/altair/include/dev/shell.h
+shell.o: /Users/inamoto/altair/include/altair/strres.h
+advcapp.o: /Users/inamoto/altair/include/stdafx.h
+advcapp.o: /Users/inamoto/altair/include/altair/libinc.h
+advcapp.o: /Users/inamoto/altair/include/altair/alext.h
+advcapp.o: /Users/inamoto/altair/include/altair/alcrt.h
+advcapp.o: /Users/inamoto/altair/include/gdm/gdm.h
+advcapp.o: /Users/inamoto/altair/include/gdm/string.h
+advcapp.o: /Users/inamoto/altair/include/gdm/file.h
+advcapp.o: /Users/inamoto/altair/include/gdm/vmkey.h
+advcapp.o: /Users/inamoto/altair/include/gdm/pict.h
+advcapp.o: /Users/inamoto/altair/include/gdm/error.h
+advcapp.o: /Users/inamoto/altair/include/interp/interp.h
+advcapp.o: /Users/inamoto/altair/include/interp/prcsmgr.h
+advcapp.o: /Users/inamoto/altair/include/dev/advcapp.h
+advcapp.o: /Users/inamoto/altair/include/dev/advcvw.h
+advcapp.o: /Users/inamoto/altair/include/dev/advcedit.h
+advcapp.o: /Users/inamoto/altair/include/dev/shell.h
+advcapp.o: /Users/inamoto/altair/include/cui/class.h
+advcapp.o: /Users/inamoto/altair/include/cui/member.h
+advcapp.o: /Users/inamoto/altair/include/cui/cui.h
+advcapp.o: /Users/inamoto/altair/include/cui/project.h
+advcapp.o: /Users/inamoto/altair/include/dev/mainfrm.h
+advcapp.o: /Users/inamoto/altair/include/altair/strres.h
+advcapp.o: /Users/inamoto/altair/include/sql/sql.h
+advcapp.o: /Users/inamoto/altair/include/net/socket.h
+advcapp.o: /Users/inamoto/altair/include/net/crypt.h
+advcvw.o: /Users/inamoto/altair/include/stdafx.h
+advcvw.o: /Users/inamoto/altair/include/altair/libinc.h
+advcvw.o: /Users/inamoto/altair/include/altair/alext.h
+advcvw.o: /Users/inamoto/altair/include/altair/alcrt.h
+advcvw.o: /Users/inamoto/altair/include/gdm/gdm.h
+advcvw.o: /Users/inamoto/altair/include/gdm/string.h
+advcvw.o: /Users/inamoto/altair/include/gdm/file.h
+advcvw.o: /Users/inamoto/altair/include/gdm/matrix.h
+advcvw.o: /Users/inamoto/altair/include/gdm/error.h
+advcvw.o: /Users/inamoto/altair/include/gdm/pict.h
+advcvw.o: /Users/inamoto/altair/include/gdm/vmkey.h
+advcvw.o: /Users/inamoto/altair/include/interp/interp.h
+advcvw.o: /Users/inamoto/altair/include/interp/prcsmgr.h
+advcvw.o: /Users/inamoto/altair/include/dev/advcapp.h
+advcvw.o: /Users/inamoto/altair/include/dev/advcvw.h
+advcvw.o: /Users/inamoto/altair/include/dev/advcedit.h
+advcvw.o: /Users/inamoto/altair/include/dev/event.h
+advcvw.o: /Users/inamoto/altair/include/dev/advwnd.h
+advcvw.o: /Users/inamoto/altair/include/dev/ocx.h
+advcvw.o: /Users/inamoto/altair/include/dev/mainfrm.h
+advcvw.o: /Users/inamoto/altair/include/altair/strres.h
+advcedit.o: /Users/inamoto/altair/include/stdafx.h
+advcedit.o: /Users/inamoto/altair/include/altair/libinc.h
+advcedit.o: /Users/inamoto/altair/include/altair/alext.h
+advcedit.o: /Users/inamoto/altair/include/altair/alcrt.h
+advcedit.o: /Users/inamoto/altair/include/gdm/gdm.h
+advcedit.o: /Users/inamoto/altair/include/gdm/string.h
+advcedit.o: /Users/inamoto/altair/include/gdm/file.h
+advcedit.o: /Users/inamoto/altair/include/gdm/error.h
+advcedit.o: /Users/inamoto/altair/include/gdm/pict.h
+advcedit.o: /Users/inamoto/altair/include/gdm/vmkey.h
+advcedit.o: /Users/inamoto/altair/include/dev/advcvw.h
+advcedit.o: /Users/inamoto/altair/include/dev/event.h
+advcedit.o: /Users/inamoto/altair/include/dev/advwnd.h
+advcedit.o: /Users/inamoto/altair/include/dev/advcedit.h
+advcedit.o: /Users/inamoto/altair/include/dev/shell.h
+advcedit.o: /Users/inamoto/altair/include/interp/interp.h
+mainfrm.o: /Users/inamoto/altair/include/stdafx.h
+mainfrm.o: /Users/inamoto/altair/include/altair/libinc.h
+mainfrm.o: /Users/inamoto/altair/include/altair/alext.h
+mainfrm.o: /Users/inamoto/altair/include/altair/alcrt.h
+mainfrm.o: /Users/inamoto/altair/include/gdm/gdm.h
+mainfrm.o: /Users/inamoto/altair/include/gdm/string.h
+mainfrm.o: /Users/inamoto/altair/include/gdm/error.h
+mainfrm.o: /Users/inamoto/altair/include/gdm/vmkey.h
+mainfrm.o: /Users/inamoto/altair/include/gdm/pict.h
+mainfrm.o: /Users/inamoto/altair/include/interp/interp.h
+mainfrm.o: /Users/inamoto/altair/include/interp/prcsmgr.h
+mainfrm.o: /Users/inamoto/altair/include/dev/advcapp.h
+mainfrm.o: /Users/inamoto/altair/include/dev/advcvw.h
+mainfrm.o: /Users/inamoto/altair/include/dev/advcedit.h
+mainfrm.o: /Users/inamoto/altair/include/dev/mainfrm.h
+mainfrm.o: /Users/inamoto/altair/include/cui/cui.h
+mainfrm.o: /Users/inamoto/altair/include/altair/strres.h
+mainfrm.o: /Users/inamoto/altair/include/altair/resource.h
+ocx.o: /Users/inamoto/altair/include/stdafx.h
+ocx.o: /Users/inamoto/altair/include/altair/libinc.h
+ocx.o: /Users/inamoto/altair/include/altair/alext.h
+ocx.o: /Users/inamoto/altair/include/altair/alcrt.h
+ocx.o: /Users/inamoto/altair/include/gdm/gdm.h
+ocx.o: /Users/inamoto/altair/include/gdm/string.h
+ocx.o: /Users/inamoto/altair/include/gdm/vmkey.h
+ocx.o: /Users/inamoto/altair/include/gdm/pict.h
+ocx.o: /Users/inamoto/altair/include/interp/interp.h
+ocx.o: /Users/inamoto/altair/include/dev/advcapp.h
+ocx.o: /Users/inamoto/altair/include/dev/advcvw.h
+ocx.o: /Users/inamoto/altair/include/dev/advwnd.h
+ocx.o: /Users/inamoto/altair/include/dev/bitmap.h
+ocx.o: /Users/inamoto/altair/include/dev/ocx.h
+ocx.o: /Users/inamoto/altair/include/dev/olectrl.h
+ocx.o: /Users/inamoto/altair/include/altair/strres.h
+olectrl.o: /Users/inamoto/altair/include/stdafx.h
+olectrl.o: /Users/inamoto/altair/include/altair/libinc.h
+olectrl.o: /Users/inamoto/altair/include/altair/alext.h
+olectrl.o: /Users/inamoto/altair/include/altair/alcrt.h
+olectrl.o: /Users/inamoto/altair/include/gdm/gdm.h
+olectrl.o: /Users/inamoto/altair/include/gdm/string.h
+olectrl.o: /Users/inamoto/altair/include/gdm/vmkey.h
+olectrl.o: /Users/inamoto/altair/include/gdm/pict.h
+olectrl.o: /Users/inamoto/altair/include/gdm/error.h
+olectrl.o: /Users/inamoto/altair/include/interp/interp.h
+olectrl.o: /Users/inamoto/altair/include/interp/prcsmgr.h
+olectrl.o: /Users/inamoto/altair/include/dev/advcapp.h
+olectrl.o: /Users/inamoto/altair/include/dev/advcvw.h
+olectrl.o: /Users/inamoto/altair/include/dev/event.h
+olectrl.o: /Users/inamoto/altair/include/dev/advwnd.h
+olectrl.o: /Users/inamoto/altair/include/dev/ocx.h
+olectrl.o: /Users/inamoto/altair/include/dev/olectrl.h
+olectrl.o: /Users/inamoto/altair/include/cui/cui.h
+olectrl.o: /Users/inamoto/altair/include/sql/sql.h
+olectrl.o: /Users/inamoto/altair/include/net/socket.h
+olectrl.o: /Users/inamoto/altair/include/net/crypt.h
+cui.o: /Users/inamoto/altair/include/stdafx.h
+cui.o: /Users/inamoto/altair/include/altair/libinc.h
+cui.o: /Users/inamoto/altair/include/altair/alext.h
+cui.o: /Users/inamoto/altair/include/altair/alcrt.h
+cui.o: /Users/inamoto/altair/include/gdm/gdm.h
+cui.o: /Users/inamoto/altair/include/gdm/string.h
+cui.o: /Users/inamoto/altair/include/gdm/file.h
+cui.o: /Users/inamoto/altair/include/gdm/vmkey.h
+cui.o: /Users/inamoto/altair/include/gdm/error.h
+cui.o: /Users/inamoto/altair/include/gdm/pict.h
+cui.o: /Users/inamoto/altair/include/interp/basefunc.h
+cui.o: /Users/inamoto/altair/include/interp/interp.h
+cui.o: /Users/inamoto/altair/include/dev/advcapp.h
+cui.o: /Users/inamoto/altair/include/dev/advcvw.h
+cui.o: /Users/inamoto/altair/include/dev/advwnd.h
+cui.o: /Users/inamoto/altair/include/dev/shell.h
+cui.o: /Users/inamoto/altair/include/cui/class.h
+cui.o: /Users/inamoto/altair/include/cui/member.h
+cui.o: /Users/inamoto/altair/include/cui/body.h
+cui.o: /Users/inamoto/altair/include/cui/cui.h
+cui.o: /Users/inamoto/altair/include/cui/project.h
+cui.o: /Users/inamoto/altair/include/altair/strres.h
+project.o: /Users/inamoto/altair/include/stdafx.h
+project.o: /Users/inamoto/altair/include/altair/libinc.h
+project.o: /Users/inamoto/altair/include/altair/alext.h
+project.o: /Users/inamoto/altair/include/altair/alcrt.h
+project.o: /Users/inamoto/altair/include/gdm/gdm.h
+project.o: /Users/inamoto/altair/include/gdm/string.h
+project.o: /Users/inamoto/altair/include/gdm/vmkey.h
+project.o: /Users/inamoto/altair/include/gdm/error.h
+project.o: /Users/inamoto/altair/include/gdm/pict.h
+project.o: /Users/inamoto/altair/include/dev/advcapp.h
+project.o: /Users/inamoto/altair/include/dev/advwnd.h
+project.o: /Users/inamoto/altair/include/dev/advcedit.h
+project.o: /Users/inamoto/altair/include/dev/shell.h
+project.o: /Users/inamoto/altair/include/cui/class.h
+project.o: /Users/inamoto/altair/include/cui/member.h
+project.o: /Users/inamoto/altair/include/cui/cui.h
+project.o: /Users/inamoto/altair/include/cui/project.h
+project.o: /Users/inamoto/altair/include/altair/strres.h
+class.o: /Users/inamoto/altair/include/stdafx.h
+class.o: /Users/inamoto/altair/include/altair/libinc.h
+class.o: /Users/inamoto/altair/include/altair/alext.h
+class.o: /Users/inamoto/altair/include/altair/alcrt.h
+class.o: /Users/inamoto/altair/include/gdm/gdm.h
+class.o: /Users/inamoto/altair/include/gdm/string.h
+class.o: /Users/inamoto/altair/include/gdm/file.h
+class.o: /Users/inamoto/altair/include/gdm/vmkey.h
+class.o: /Users/inamoto/altair/include/gdm/error.h
+class.o: /Users/inamoto/altair/include/gdm/pict.h
+class.o: /Users/inamoto/altair/include/dev/event.h
+class.o: /Users/inamoto/altair/include/dev/advwnd.h
+class.o: /Users/inamoto/altair/include/dev/advcedit.h
+class.o: /Users/inamoto/altair/include/dev/shell.h
+class.o: /Users/inamoto/altair/include/interp/interp.h
+class.o: /Users/inamoto/altair/include/cui/cui.h
+class.o: /Users/inamoto/altair/include/cui/class.h
+class.o: /Users/inamoto/altair/include/cui/member.h
+class.o: /Users/inamoto/altair/include/cui/project.h
+class.o: /Users/inamoto/altair/include/altair/strres.h
+member.o: /Users/inamoto/altair/include/stdafx.h
+member.o: /Users/inamoto/altair/include/altair/libinc.h
+member.o: /Users/inamoto/altair/include/altair/alext.h
+member.o: /Users/inamoto/altair/include/altair/alcrt.h
+member.o: /Users/inamoto/altair/include/gdm/gdm.h
+member.o: /Users/inamoto/altair/include/gdm/string.h
+member.o: /Users/inamoto/altair/include/gdm/vmkey.h
+member.o: /Users/inamoto/altair/include/gdm/file.h
+member.o: /Users/inamoto/altair/include/gdm/debug.h
+member.o: /Users/inamoto/altair/include/gdm/error.h
+member.o: /Users/inamoto/altair/include/gdm/pict.h
+member.o: /Users/inamoto/altair/include/dev/advcapp.h
+member.o: /Users/inamoto/altair/include/dev/event.h
+member.o: /Users/inamoto/altair/include/dev/advwnd.h
+member.o: /Users/inamoto/altair/include/dev/advcedit.h
+member.o: /Users/inamoto/altair/include/dev/shell.h
+member.o: /Users/inamoto/altair/include/interp/interp.h
+member.o: /Users/inamoto/altair/include/interp/prcsmgr.h
+member.o: /Users/inamoto/altair/include/cui/cui.h
+member.o: /Users/inamoto/altair/include/cui/class.h
+member.o: /Users/inamoto/altair/include/cui/member.h
+member.o: /Users/inamoto/altair/include/cui/body.h
+member.o: /Users/inamoto/altair/include/altair/strres.h
+body.o: /Users/inamoto/altair/include/stdafx.h
+body.o: /Users/inamoto/altair/include/altair/libinc.h
+body.o: /Users/inamoto/altair/include/altair/alext.h
+body.o: /Users/inamoto/altair/include/altair/alcrt.h
+body.o: /Users/inamoto/altair/include/gdm/gdm.h
+body.o: /Users/inamoto/altair/include/gdm/string.h
+body.o: /Users/inamoto/altair/include/gdm/file.h
+body.o: /Users/inamoto/altair/include/gdm/vmkey.h
+body.o: /Users/inamoto/altair/include/gdm/debug.h
+body.o: /Users/inamoto/altair/include/gdm/pict.h
+body.o: /Users/inamoto/altair/include/interp/interp.h
+body.o: /Users/inamoto/altair/include/interp/basefunc.h
+body.o: /Users/inamoto/altair/include/dev/advwnd.h
+body.o: /Users/inamoto/altair/include/dev/advcedit.h
+body.o: /Users/inamoto/altair/include/dev/shell.h
+body.o: /Users/inamoto/altair/include/cui/cui.h
+body.o: /Users/inamoto/altair/include/cui/class.h
+body.o: /Users/inamoto/altair/include/cui/member.h
+body.o: /Users/inamoto/altair/include/cui/body.h
+body.o: /Users/inamoto/altair/include/altair/strres.h
+body_in.o: /Users/inamoto/altair/include/stdafx.h
+body_in.o: /Users/inamoto/altair/include/altair/libinc.h
+body_in.o: /Users/inamoto/altair/include/altair/alext.h
+body_in.o: /Users/inamoto/altair/include/altair/alcrt.h
+body_in.o: /Users/inamoto/altair/include/gdm/gdm.h
+body_in.o: /Users/inamoto/altair/include/gdm/string.h
+body_in.o: /Users/inamoto/altair/include/gdm/file.h
+body_in.o: /Users/inamoto/altair/include/gdm/vmkey.h
+body_in.o: /Users/inamoto/altair/include/gdm/debug.h
+body_in.o: /Users/inamoto/altair/include/gdm/pict.h
+body_in.o: /Users/inamoto/altair/include/interp/interp.h
+body_in.o: /Users/inamoto/altair/include/interp/basefunc.h
+body_in.o: /Users/inamoto/altair/include/interp/prog_if.h
+body_in.o: /Users/inamoto/altair/include/dev/shell.h
+body_in.o: /Users/inamoto/altair/include/cui/cui.h
+body_in.o: /Users/inamoto/altair/include/cui/class.h
+body_in.o: /Users/inamoto/altair/include/cui/member.h
+body_in.o: /Users/inamoto/altair/include/cui/body.h
+body_in.o: /Users/inamoto/altair/include/altair/strres.h
+body_out.o: /Users/inamoto/altair/include/stdafx.h
+body_out.o: /Users/inamoto/altair/include/altair/libinc.h
+body_out.o: /Users/inamoto/altair/include/altair/alext.h
+body_out.o: /Users/inamoto/altair/include/altair/alcrt.h
+body_out.o: /Users/inamoto/altair/include/gdm/gdm.h
+body_out.o: /Users/inamoto/altair/include/gdm/string.h
+body_out.o: /Users/inamoto/altair/include/gdm/debug.h
+body_out.o: /Users/inamoto/altair/include/gdm/error.h
+body_out.o: /Users/inamoto/altair/include/gdm/pict.h
+body_out.o: /Users/inamoto/altair/include/interp/interp.h
+body_out.o: /Users/inamoto/altair/include/interp/basefunc.h
+body_out.o: /Users/inamoto/altair/include/dev/shell.h
+body_out.o: /Users/inamoto/altair/include/cui/class.h
+body_out.o: /Users/inamoto/altair/include/cui/body.h
+sql.o: /Users/inamoto/altair/include/stdafx.h
+sql.o: /Users/inamoto/altair/include/altair/libinc.h
+sql.o: /Users/inamoto/altair/include/altair/alext.h
+sql.o: /Users/inamoto/altair/include/altair/alcrt.h
+sql.o: /Users/inamoto/altair/include/gdm/gdm.h
+sql.o: /Users/inamoto/altair/include/gdm/string.h
+sql.o: /Users/inamoto/altair/include/gdm/file.h
+sql.o: /Users/inamoto/altair/include/gdm/pict.h
+sql.o: /Users/inamoto/altair/include/dev/advcapp.h
+sql.o: /Users/inamoto/altair/include/interp/interp.h
+sql.o: /Users/inamoto/altair/include/sql/sql.h
+socket.o: /Users/inamoto/altair/include/stdafx.h
+socket.o: /Users/inamoto/altair/include/altair/libinc.h
+socket.o: /Users/inamoto/altair/include/altair/alext.h
+socket.o: /Users/inamoto/altair/include/altair/alcrt.h
+socket.o: /Users/inamoto/altair/include/gdm/gdm.h
+socket.o: /Users/inamoto/altair/include/gdm/string.h
+socket.o: /Users/inamoto/altair/include/gdm/file.h
+socket.o: /Users/inamoto/altair/include/gdm/pict.h
+socket.o: /Users/inamoto/altair/include/interp/interp.h
+socket.o: /Users/inamoto/altair/include/net/socket.h
+xml.o: /Users/inamoto/altair/include/stdafx.h
+xml.o: /Users/inamoto/altair/include/altair/libinc.h
+xml.o: /Users/inamoto/altair/include/altair/alext.h
+xml.o: /Users/inamoto/altair/include/altair/alcrt.h
+xml.o: /Users/inamoto/altair/include/gdm/gdm.h
+xml.o: /Users/inamoto/altair/include/gdm/string.h
+xml.o: /Users/inamoto/altair/include/gdm/file.h
+xml.o: /Users/inamoto/altair/include/gdm/error.h
+xml.o: /Users/inamoto/altair/include/gdm/pict.h
+xml.o: /Users/inamoto/altair/include/interp/interp.h
+xml.o: /Users/inamoto/altair/include/dev/advwnd.h
+xml.o: /Users/inamoto/altair/include/xml/xml.h
+typedic.o: /Users/inamoto/altair/include/stdafx.h
+typedic.o: /Users/inamoto/altair/include/altair/libinc.h
+typedic.o: /Users/inamoto/altair/include/altair/alext.h
+typedic.o: /Users/inamoto/altair/include/altair/alcrt.h
+typedic.o: /Users/inamoto/altair/include/gdm/gdm.h
+typedic.o: /Users/inamoto/altair/include/gdm/string.h
+typedic.o: /Users/inamoto/altair/include/xml/xml.h
+xslt.o: /Users/inamoto/altair/include/stdafx.h
+xslt.o: /Users/inamoto/altair/include/altair/libinc.h
+xslt.o: /Users/inamoto/altair/include/altair/alext.h
+xslt.o: /Users/inamoto/altair/include/altair/alcrt.h
+xslt.o: /Users/inamoto/altair/include/gdm/gdm.h
+xslt.o: /Users/inamoto/altair/include/gdm/string.h
+xslt.o: /Users/inamoto/altair/include/gdm/file.h
+xslt.o: /Users/inamoto/altair/include/xml/xml.h
+xslt.o: /Users/inamoto/altair/include/dev/advwnd.h
+solid.o: /Users/inamoto/altair/include/stdafx.h
+solid.o: /Users/inamoto/altair/include/altair/libinc.h
+solid.o: /Users/inamoto/altair/include/altair/alext.h
+solid.o: /Users/inamoto/altair/include/altair/alcrt.h
+solid.o: /Users/inamoto/altair/include/gdm/gdm.h
+solid.o: /Users/inamoto/altair/include/gdm/string.h
+solid.o: /Users/inamoto/altair/include/gdm/matrix.h
+solid.o: /Users/inamoto/altair/include/gdm/pict.h
+solid.o: /Users/inamoto/altair/include/interp/interp.h
+solid.o: /Users/inamoto/altair/include/dev/advwnd.h
+solid.o: /Users/inamoto/altair/include/solid/solid.h
+jana.o: /Users/inamoto/altair/include/stdafx.h
+jana.o: /Users/inamoto/altair/include/altair/libinc.h
+jana.o: /Users/inamoto/altair/include/altair/alext.h
+jana.o: /Users/inamoto/altair/include/altair/alcrt.h
+jana.o: /Users/inamoto/altair/include/gdm/gdm.h
+jana.o: /Users/inamoto/altair/include/gdm/string.h
+jana.o: /Users/inamoto/altair/include/gdm/file.h
+jana.o: /Users/inamoto/altair/include/interp/interp.h
+jana.o: /Users/inamoto/altair/include/knp/knp.h
+jana.o: /Users/inamoto/altair/include/knp/config.h
+jana.o: /Users/inamoto/altair/include/juman/juman.h
+jana.o: /Users/inamoto/altair/include/juman/juman_pat.h
+jana.o: /Users/inamoto/altair/include/knp/path.h
+jana.o: /Users/inamoto/altair/include/knp/const.h
+jana.o: /Users/inamoto/altair/include/knp/dbm.h
+jana.o: /Users/inamoto/altair/include/knp/extern.h
+almath.o: /Users/inamoto/altair/include/stdafx.h
+almath.o: /Users/inamoto/altair/include/altair/libinc.h
+almath.o: /Users/inamoto/altair/include/altair/alext.h
+almath.o: /Users/inamoto/altair/include/altair/alcrt.h
+almath.o: /Users/inamoto/altair/include/gdm/gdm.h
+almath.o: /Users/inamoto/altair/include/gdm/string.h
+almath.o: /Users/inamoto/altair/include/gdm/file.h
+almath.o: /Users/inamoto/altair/include/gdm/debug.h
+almath.o: /Users/inamoto/altair/include/gdm/big_int.h
+almath.o: /Users/inamoto/altair/include/interp/interp.h
+almath.o: /Users/inamoto/altair/include/math/almath.h
+parser_generator.o: /Users/inamoto/altair/include/stdafx.h
+parser_generator.o: /Users/inamoto/altair/include/altair/libinc.h
+parser_generator.o: /Users/inamoto/altair/include/altair/alext.h
+parser_generator.o: /Users/inamoto/altair/include/altair/alcrt.h
+parser_generator.o: /Users/inamoto/altair/include/gdm/gdm.h
+parser_generator.o: /Users/inamoto/altair/include/gdm/string.h
+parser_generator.o: /Users/inamoto/altair/include/gdm/file.h
+parser_generator.o: /Users/inamoto/altair/include/gdm/debug.h
+parser_generator.o: /Users/inamoto/altair/include/gdm/big_int.h
+parser_generator.o: /Users/inamoto/altair/include/symbol/parser_generator.h
+parser_generator.o: /Users/inamoto/altair/include/symbol/pro_lisp.h
+pro_lisp.o: /Users/inamoto/altair/include/stdafx.h
+pro_lisp.o: /Users/inamoto/altair/include/altair/libinc.h
+pro_lisp.o: /Users/inamoto/altair/include/altair/alext.h
+pro_lisp.o: /Users/inamoto/altair/include/altair/alcrt.h
+pro_lisp.o: /Users/inamoto/altair/include/gdm/gdm.h
+pro_lisp.o: /Users/inamoto/altair/include/gdm/string.h
+pro_lisp.o: /Users/inamoto/altair/include/gdm/file.h
+pro_lisp.o: /Users/inamoto/altair/include/gdm/debug.h
+pro_lisp.o: /Users/inamoto/altair/include/gdm/big_int.h
+pro_lisp.o: /Users/inamoto/altair/include/interp/interp.h
+pro_lisp.o: /Users/inamoto/altair/include/interp/prcsmgr.h
+pro_lisp.o: /Users/inamoto/altair/include/net/crypt.h
+pro_lisp.o: /Users/inamoto/altair/include/symbol/parser_generator.h
+pro_lisp.o: /Users/inamoto/altair/include/symbol/pro_lisp.h
+pro_lisp.o: /Users/inamoto/altair/include/math/almath.h
+prolog.o: /Users/inamoto/altair/include/stdafx.h
+prolog.o: /Users/inamoto/altair/include/altair/libinc.h
+prolog.o: /Users/inamoto/altair/include/altair/alext.h
+prolog.o: /Users/inamoto/altair/include/altair/alcrt.h
+prolog.o: /Users/inamoto/altair/include/gdm/gdm.h
+prolog.o: /Users/inamoto/altair/include/gdm/string.h
+prolog.o: /Users/inamoto/altair/include/gdm/file.h
+prolog.o: /Users/inamoto/altair/include/gdm/debug.h
+prolog.o: /Users/inamoto/altair/include/symbol/pro_lisp.h
+symbolic_manip.o: /Users/inamoto/altair/include/stdafx.h
+symbolic_manip.o: /Users/inamoto/altair/include/altair/libinc.h
+symbolic_manip.o: /Users/inamoto/altair/include/altair/alext.h
+symbolic_manip.o: /Users/inamoto/altair/include/altair/alcrt.h
+symbolic_manip.o: /Users/inamoto/altair/include/gdm/gdm.h
+symbolic_manip.o: /Users/inamoto/altair/include/gdm/string.h
+symbolic_manip.o: /Users/inamoto/altair/include/gdm/file.h
+symbolic_manip.o: /Users/inamoto/altair/include/interp/interp.h
+symbolic_manip.o: /Users/inamoto/altair/include/interp/prcsmgr.h
+symbolic_manip.o: /Users/inamoto/altair/include/symbol/parser_generator.h
+symbolic_manip.o: /Users/inamoto/altair/include/symbol/pro_lisp.h
+connect.o: /Users/inamoto/altair/include/stdafx.h
+connect.o: /Users/inamoto/altair/include/altair/libinc.h
+connect.o: /Users/inamoto/altair/include/altair/alext.h
+connect.o: /Users/inamoto/altair/include/altair/alcrt.h
+connect.o: /Users/inamoto/altair/include/juman/config.h
+connect.o: /Users/inamoto/altair/include/juman/juman.h
+connect.o: /Users/inamoto/altair/include/juman/juman_pat.h
+getid.o: /Users/inamoto/altair/include/stdafx.h
+getid.o: /Users/inamoto/altair/include/altair/libinc.h
+getid.o: /Users/inamoto/altair/include/altair/alext.h
+getid.o: /Users/inamoto/altair/include/altair/alcrt.h
+getid.o: /Users/inamoto/altair/include/juman/config.h
+getid.o: /Users/inamoto/altair/include/juman/juman.h
+getid.o: /Users/inamoto/altair/include/juman/juman_pat.h
+grammar.o: /Users/inamoto/altair/include/stdafx.h
+grammar.o: /Users/inamoto/altair/include/altair/libinc.h
+grammar.o: /Users/inamoto/altair/include/altair/alext.h
+grammar.o: /Users/inamoto/altair/include/altair/alcrt.h
+grammar.o: /Users/inamoto/altair/include/juman/config.h
+grammar.o: /Users/inamoto/altair/include/juman/juman.h
+grammar.o: /Users/inamoto/altair/include/juman/juman_pat.h
+iotool.o: /Users/inamoto/altair/include/stdafx.h
+iotool.o: /Users/inamoto/altair/include/altair/libinc.h
+iotool.o: /Users/inamoto/altair/include/altair/alext.h
+iotool.o: /Users/inamoto/altair/include/altair/alcrt.h
+iotool.o: /Users/inamoto/altair/include/juman/config.h
+iotool.o: /Users/inamoto/altair/include/juman/juman.h
+iotool.o: /Users/inamoto/altair/include/juman/juman_pat.h
+japanese.o: /Users/inamoto/altair/include/stdafx.h
+japanese.o: /Users/inamoto/altair/include/altair/libinc.h
+japanese.o: /Users/inamoto/altair/include/altair/alext.h
+japanese.o: /Users/inamoto/altair/include/altair/alcrt.h
+japanese.o: /Users/inamoto/altair/include/juman/config.h
+japanese.o: /Users/inamoto/altair/include/juman/juman.h
+japanese.o: /Users/inamoto/altair/include/juman/juman_pat.h
+juman_lib.o: /Users/inamoto/altair/include/stdafx.h
+juman_lib.o: /Users/inamoto/altair/include/altair/libinc.h
+juman_lib.o: /Users/inamoto/altair/include/altair/alext.h
+juman_lib.o: /Users/inamoto/altair/include/altair/alcrt.h
+juman_lib.o: /Users/inamoto/altair/include/juman/config.h
+juman_lib.o: /Users/inamoto/altair/include/juman/juman.h
+juman_lib.o: /Users/inamoto/altair/include/juman/juman_pat.h
+katuyou.o: /Users/inamoto/altair/include/stdafx.h
+katuyou.o: /Users/inamoto/altair/include/altair/libinc.h
+katuyou.o: /Users/inamoto/altair/include/altair/alext.h
+katuyou.o: /Users/inamoto/altair/include/altair/alcrt.h
+katuyou.o: /Users/inamoto/altair/include/juman/config.h
+katuyou.o: /Users/inamoto/altair/include/juman/juman.h
+katuyou.o: /Users/inamoto/altair/include/juman/juman_pat.h
+lisp.o: /Users/inamoto/altair/include/stdafx.h
+lisp.o: /Users/inamoto/altair/include/altair/libinc.h
+lisp.o: /Users/inamoto/altair/include/altair/alext.h
+lisp.o: /Users/inamoto/altair/include/altair/alcrt.h
+lisp.o: /Users/inamoto/altair/include/juman/config.h
+lisp.o: /Users/inamoto/altair/include/juman/juman.h
+lisp.o: /Users/inamoto/altair/include/juman/juman_pat.h
+pat.o: /Users/inamoto/altair/include/stdafx.h
+pat.o: /Users/inamoto/altair/include/altair/libinc.h
+pat.o: /Users/inamoto/altair/include/altair/alext.h
+pat.o: /Users/inamoto/altair/include/altair/alcrt.h
+pat.o: /Users/inamoto/altair/include/juman/config.h
+pat.o: /Users/inamoto/altair/include/juman/juman_pat.h
+patfile.o: /Users/inamoto/altair/include/stdafx.h
+patfile.o: /Users/inamoto/altair/include/altair/libinc.h
+patfile.o: /Users/inamoto/altair/include/altair/alext.h
+patfile.o: /Users/inamoto/altair/include/altair/alcrt.h
+patfile.o: /Users/inamoto/altair/include/juman/config.h
+patfile.o: /Users/inamoto/altair/include/juman/juman_pat.h
+bnst_compare.o: /Users/inamoto/altair/include/stdafx.h
+bnst_compare.o: /Users/inamoto/altair/include/altair/libinc.h
+bnst_compare.o: /Users/inamoto/altair/include/altair/alext.h
+bnst_compare.o: /Users/inamoto/altair/include/altair/alcrt.h
+bnst_compare.o: /Users/inamoto/altair/include/knp/knp.h
+bnst_compare.o: /Users/inamoto/altair/include/knp/config.h
+bnst_compare.o: /Users/inamoto/altair/include/juman/juman.h
+bnst_compare.o: /Users/inamoto/altair/include/juman/juman_pat.h
+bnst_compare.o: /Users/inamoto/altair/include/knp/path.h
+bnst_compare.o: /Users/inamoto/altair/include/knp/const.h
+bnst_compare.o: /Users/inamoto/altair/include/knp/dbm.h
+bnst_compare.o: /Users/inamoto/altair/include/knp/extern.h
+configfile.o: /Users/inamoto/altair/include/stdafx.h
+configfile.o: /Users/inamoto/altair/include/altair/libinc.h
+configfile.o: /Users/inamoto/altair/include/altair/alext.h
+configfile.o: /Users/inamoto/altair/include/altair/alcrt.h
+configfile.o: /Users/inamoto/altair/include/knp/knp.h
+configfile.o: /Users/inamoto/altair/include/knp/config.h
+configfile.o: /Users/inamoto/altair/include/juman/juman.h
+configfile.o: /Users/inamoto/altair/include/juman/juman_pat.h
+configfile.o: /Users/inamoto/altair/include/knp/path.h
+configfile.o: /Users/inamoto/altair/include/knp/const.h
+configfile.o: /Users/inamoto/altair/include/knp/dbm.h
+configfile.o: /Users/inamoto/altair/include/knp/extern.h
+db.o: /Users/inamoto/altair/include/stdafx.h
+db.o: /Users/inamoto/altair/include/altair/libinc.h
+db.o: /Users/inamoto/altair/include/altair/alext.h
+db.o: /Users/inamoto/altair/include/altair/alcrt.h
+db.o: /Users/inamoto/altair/include/knp/knp.h
+db.o: /Users/inamoto/altair/include/knp/config.h
+db.o: /Users/inamoto/altair/include/juman/juman.h
+db.o: /Users/inamoto/altair/include/juman/juman_pat.h
+db.o: /Users/inamoto/altair/include/knp/path.h
+db.o: /Users/inamoto/altair/include/knp/const.h
+db.o: /Users/inamoto/altair/include/knp/dbm.h
+db.o: /Users/inamoto/altair/include/knp/extern.h
+declare.o: /Users/inamoto/altair/include/stdafx.h
+declare.o: /Users/inamoto/altair/include/altair/libinc.h
+declare.o: /Users/inamoto/altair/include/altair/alext.h
+declare.o: /Users/inamoto/altair/include/altair/alcrt.h
+declare.o: /Users/inamoto/altair/include/knp/knp.h
+declare.o: /Users/inamoto/altair/include/knp/config.h
+declare.o: /Users/inamoto/altair/include/juman/juman.h
+declare.o: /Users/inamoto/altair/include/juman/juman_pat.h
+declare.o: /Users/inamoto/altair/include/knp/path.h
+declare.o: /Users/inamoto/altair/include/knp/const.h
+declare.o: /Users/inamoto/altair/include/knp/dbm.h
+declare.o: /Users/inamoto/altair/include/knp/extern.h
+dpnd_analysis.o: /Users/inamoto/altair/include/stdafx.h
+dpnd_analysis.o: /Users/inamoto/altair/include/altair/libinc.h
+dpnd_analysis.o: /Users/inamoto/altair/include/altair/alext.h
+dpnd_analysis.o: /Users/inamoto/altair/include/altair/alcrt.h
+dpnd_analysis.o: /Users/inamoto/altair/include/knp/knp.h
+dpnd_analysis.o: /Users/inamoto/altair/include/knp/config.h
+dpnd_analysis.o: /Users/inamoto/altair/include/juman/juman.h
+dpnd_analysis.o: /Users/inamoto/altair/include/juman/juman_pat.h
+dpnd_analysis.o: /Users/inamoto/altair/include/knp/path.h
+dpnd_analysis.o: /Users/inamoto/altair/include/knp/const.h
+dpnd_analysis.o: /Users/inamoto/altair/include/knp/dbm.h
+dpnd_analysis.o: /Users/inamoto/altair/include/knp/extern.h
+feature.o: /Users/inamoto/altair/include/stdafx.h
+feature.o: /Users/inamoto/altair/include/altair/libinc.h
+feature.o: /Users/inamoto/altair/include/altair/alext.h
+feature.o: /Users/inamoto/altair/include/altair/alcrt.h
+feature.o: /Users/inamoto/altair/include/knp/knp.h
+feature.o: /Users/inamoto/altair/include/knp/config.h
+feature.o: /Users/inamoto/altair/include/juman/juman.h
+feature.o: /Users/inamoto/altair/include/juman/juman_pat.h
+feature.o: /Users/inamoto/altair/include/knp/path.h
+feature.o: /Users/inamoto/altair/include/knp/const.h
+feature.o: /Users/inamoto/altair/include/knp/dbm.h
+feature.o: /Users/inamoto/altair/include/knp/extern.h
+hash.o: /Users/inamoto/altair/include/stdafx.h
+hash.o: /Users/inamoto/altair/include/altair/libinc.h
+hash.o: /Users/inamoto/altair/include/altair/alext.h
+hash.o: /Users/inamoto/altair/include/altair/alcrt.h
+hash.o: /Users/inamoto/altair/include/knp/knp.h
+hash.o: /Users/inamoto/altair/include/knp/config.h
+hash.o: /Users/inamoto/altair/include/juman/juman.h
+hash.o: /Users/inamoto/altair/include/juman/juman_pat.h
+hash.o: /Users/inamoto/altair/include/knp/path.h
+hash.o: /Users/inamoto/altair/include/knp/const.h
+hash.o: /Users/inamoto/altair/include/knp/dbm.h
+hash.o: /Users/inamoto/altair/include/knp/extern.h
+koou.o: /Users/inamoto/altair/include/stdafx.h
+koou.o: /Users/inamoto/altair/include/altair/libinc.h
+koou.o: /Users/inamoto/altair/include/altair/alext.h
+koou.o: /Users/inamoto/altair/include/altair/alcrt.h
+koou.o: /Users/inamoto/altair/include/knp/knp.h
+koou.o: /Users/inamoto/altair/include/knp/config.h
+koou.o: /Users/inamoto/altair/include/juman/juman.h
+koou.o: /Users/inamoto/altair/include/juman/juman_pat.h
+koou.o: /Users/inamoto/altair/include/knp/path.h
+koou.o: /Users/inamoto/altair/include/knp/const.h
+koou.o: /Users/inamoto/altair/include/knp/dbm.h
+koou.o: /Users/inamoto/altair/include/knp/extern.h
+lib_bgh.o: /Users/inamoto/altair/include/stdafx.h
+lib_bgh.o: /Users/inamoto/altair/include/altair/libinc.h
+lib_bgh.o: /Users/inamoto/altair/include/altair/alext.h
+lib_bgh.o: /Users/inamoto/altair/include/altair/alcrt.h
+lib_bgh.o: /Users/inamoto/altair/include/knp/knp.h
+lib_bgh.o: /Users/inamoto/altair/include/knp/config.h
+lib_bgh.o: /Users/inamoto/altair/include/juman/juman.h
+lib_bgh.o: /Users/inamoto/altair/include/juman/juman_pat.h
+lib_bgh.o: /Users/inamoto/altair/include/knp/path.h
+lib_bgh.o: /Users/inamoto/altair/include/knp/const.h
+lib_bgh.o: /Users/inamoto/altair/include/knp/dbm.h
+lib_bgh.o: /Users/inamoto/altair/include/knp/extern.h
+lib_dt.o: /Users/inamoto/altair/include/stdafx.h
+lib_dt.o: /Users/inamoto/altair/include/altair/libinc.h
+lib_dt.o: /Users/inamoto/altair/include/altair/alext.h
+lib_dt.o: /Users/inamoto/altair/include/altair/alcrt.h
+lib_dt.o: /Users/inamoto/altair/include/knp/knp.h
+lib_dt.o: /Users/inamoto/altair/include/knp/config.h
+lib_dt.o: /Users/inamoto/altair/include/juman/juman.h
+lib_dt.o: /Users/inamoto/altair/include/juman/juman_pat.h
+lib_dt.o: /Users/inamoto/altair/include/knp/path.h
+lib_dt.o: /Users/inamoto/altair/include/knp/const.h
+lib_dt.o: /Users/inamoto/altair/include/knp/dbm.h
+lib_dt.o: /Users/inamoto/altair/include/knp/extern.h
+lib_print.o: /Users/inamoto/altair/include/stdafx.h
+lib_print.o: /Users/inamoto/altair/include/altair/libinc.h
+lib_print.o: /Users/inamoto/altair/include/altair/alext.h
+lib_print.o: /Users/inamoto/altair/include/altair/alcrt.h
+lib_print.o: /Users/inamoto/altair/include/knp/knp.h
+lib_print.o: /Users/inamoto/altair/include/knp/config.h
+lib_print.o: /Users/inamoto/altair/include/juman/juman.h
+lib_print.o: /Users/inamoto/altair/include/juman/juman_pat.h
+lib_print.o: /Users/inamoto/altair/include/knp/path.h
+lib_print.o: /Users/inamoto/altair/include/knp/const.h
+lib_print.o: /Users/inamoto/altair/include/knp/dbm.h
+lib_print.o: /Users/inamoto/altair/include/knp/extern.h
+lib_ps.o: /Users/inamoto/altair/include/stdafx.h
+lib_ps.o: /Users/inamoto/altair/include/altair/libinc.h
+lib_ps.o: /Users/inamoto/altair/include/altair/alext.h
+lib_ps.o: /Users/inamoto/altair/include/altair/alcrt.h
+lib_ps.o: /Users/inamoto/altair/include/knp/knp.h
+lib_ps.o: /Users/inamoto/altair/include/knp/config.h
+lib_ps.o: /Users/inamoto/altair/include/juman/juman.h
+lib_ps.o: /Users/inamoto/altair/include/juman/juman_pat.h
+lib_ps.o: /Users/inamoto/altair/include/knp/path.h
+lib_ps.o: /Users/inamoto/altair/include/knp/const.h
+lib_ps.o: /Users/inamoto/altair/include/knp/dbm.h
+lib_ps.o: /Users/inamoto/altair/include/knp/extern.h
+lib_scase.o: /Users/inamoto/altair/include/stdafx.h
+lib_scase.o: /Users/inamoto/altair/include/altair/libinc.h
+lib_scase.o: /Users/inamoto/altair/include/altair/alext.h
+lib_scase.o: /Users/inamoto/altair/include/altair/alcrt.h
+lib_scase.o: /Users/inamoto/altair/include/knp/knp.h
+lib_scase.o: /Users/inamoto/altair/include/knp/config.h
+lib_scase.o: /Users/inamoto/altair/include/juman/juman.h
+lib_scase.o: /Users/inamoto/altair/include/juman/juman_pat.h
+lib_scase.o: /Users/inamoto/altair/include/knp/path.h
+lib_scase.o: /Users/inamoto/altair/include/knp/const.h
+lib_scase.o: /Users/inamoto/altair/include/knp/dbm.h
+lib_scase.o: /Users/inamoto/altair/include/knp/extern.h
+lib_sm.o: /Users/inamoto/altair/include/stdafx.h
+lib_sm.o: /Users/inamoto/altair/include/altair/libinc.h
+lib_sm.o: /Users/inamoto/altair/include/altair/alext.h
+lib_sm.o: /Users/inamoto/altair/include/altair/alcrt.h
+lib_sm.o: /Users/inamoto/altair/include/knp/knp.h
+lib_sm.o: /Users/inamoto/altair/include/knp/config.h
+lib_sm.o: /Users/inamoto/altair/include/juman/juman.h
+lib_sm.o: /Users/inamoto/altair/include/juman/juman_pat.h
+lib_sm.o: /Users/inamoto/altair/include/knp/path.h
+lib_sm.o: /Users/inamoto/altair/include/knp/const.h
+lib_sm.o: /Users/inamoto/altair/include/knp/dbm.h
+lib_sm.o: /Users/inamoto/altair/include/knp/extern.h
+main.o: /Users/inamoto/altair/include/stdafx.h
+main.o: /Users/inamoto/altair/include/altair/libinc.h
+main.o: /Users/inamoto/altair/include/altair/alext.h
+main.o: /Users/inamoto/altair/include/altair/alcrt.h
+main.o: /Users/inamoto/altair/include/knp/knp.h
+main.o: /Users/inamoto/altair/include/knp/config.h
+main.o: /Users/inamoto/altair/include/juman/juman.h
+main.o: /Users/inamoto/altair/include/juman/juman_pat.h
+main.o: /Users/inamoto/altair/include/knp/path.h
+main.o: /Users/inamoto/altair/include/knp/const.h
+main.o: /Users/inamoto/altair/include/knp/dbm.h
+main.o: /Users/inamoto/altair/include/knp/extern.h
+para_analysis.o: /Users/inamoto/altair/include/stdafx.h
+para_analysis.o: /Users/inamoto/altair/include/altair/libinc.h
+para_analysis.o: /Users/inamoto/altair/include/altair/alext.h
+para_analysis.o: /Users/inamoto/altair/include/altair/alcrt.h
+para_analysis.o: /Users/inamoto/altair/include/knp/knp.h
+para_analysis.o: /Users/inamoto/altair/include/knp/config.h
+para_analysis.o: /Users/inamoto/altair/include/juman/juman.h
+para_analysis.o: /Users/inamoto/altair/include/juman/juman_pat.h
+para_analysis.o: /Users/inamoto/altair/include/knp/path.h
+para_analysis.o: /Users/inamoto/altair/include/knp/const.h
+para_analysis.o: /Users/inamoto/altair/include/knp/dbm.h
+para_analysis.o: /Users/inamoto/altair/include/knp/extern.h
+para_dpnd.o: /Users/inamoto/altair/include/stdafx.h
+para_dpnd.o: /Users/inamoto/altair/include/altair/libinc.h
+para_dpnd.o: /Users/inamoto/altair/include/altair/alext.h
+para_dpnd.o: /Users/inamoto/altair/include/altair/alcrt.h
+para_dpnd.o: /Users/inamoto/altair/include/knp/knp.h
+para_dpnd.o: /Users/inamoto/altair/include/knp/config.h
+para_dpnd.o: /Users/inamoto/altair/include/juman/juman.h
+para_dpnd.o: /Users/inamoto/altair/include/juman/juman_pat.h
+para_dpnd.o: /Users/inamoto/altair/include/knp/path.h
+para_dpnd.o: /Users/inamoto/altair/include/knp/const.h
+para_dpnd.o: /Users/inamoto/altair/include/knp/dbm.h
+para_dpnd.o: /Users/inamoto/altair/include/knp/extern.h
+para_relation.o: /Users/inamoto/altair/include/stdafx.h
+para_relation.o: /Users/inamoto/altair/include/altair/libinc.h
+para_relation.o: /Users/inamoto/altair/include/altair/alext.h
+para_relation.o: /Users/inamoto/altair/include/altair/alcrt.h
+para_relation.o: /Users/inamoto/altair/include/knp/knp.h
+para_relation.o: /Users/inamoto/altair/include/knp/config.h
+para_relation.o: /Users/inamoto/altair/include/juman/juman.h
+para_relation.o: /Users/inamoto/altair/include/juman/juman_pat.h
+para_relation.o: /Users/inamoto/altair/include/knp/path.h
+para_relation.o: /Users/inamoto/altair/include/knp/const.h
+para_relation.o: /Users/inamoto/altair/include/knp/dbm.h
+para_relation.o: /Users/inamoto/altair/include/knp/extern.h
+para_revision.o: /Users/inamoto/altair/include/stdafx.h
+para_revision.o: /Users/inamoto/altair/include/altair/libinc.h
+para_revision.o: /Users/inamoto/altair/include/altair/alext.h
+para_revision.o: /Users/inamoto/altair/include/altair/alcrt.h
+para_revision.o: /Users/inamoto/altair/include/knp/knp.h
+para_revision.o: /Users/inamoto/altair/include/knp/config.h
+para_revision.o: /Users/inamoto/altair/include/juman/juman.h
+para_revision.o: /Users/inamoto/altair/include/juman/juman_pat.h
+para_revision.o: /Users/inamoto/altair/include/knp/path.h
+para_revision.o: /Users/inamoto/altair/include/knp/const.h
+para_revision.o: /Users/inamoto/altair/include/knp/dbm.h
+para_revision.o: /Users/inamoto/altair/include/knp/extern.h
+proper.o: /Users/inamoto/altair/include/stdafx.h
+proper.o: /Users/inamoto/altair/include/altair/libinc.h
+proper.o: /Users/inamoto/altair/include/altair/alext.h
+proper.o: /Users/inamoto/altair/include/altair/alcrt.h
+proper.o: /Users/inamoto/altair/include/knp/knp.h
+proper.o: /Users/inamoto/altair/include/knp/config.h
+proper.o: /Users/inamoto/altair/include/juman/juman.h
+proper.o: /Users/inamoto/altair/include/juman/juman_pat.h
+proper.o: /Users/inamoto/altair/include/knp/path.h
+proper.o: /Users/inamoto/altair/include/knp/const.h
+proper.o: /Users/inamoto/altair/include/knp/dbm.h
+proper.o: /Users/inamoto/altair/include/knp/extern.h
+quote.o: /Users/inamoto/altair/include/stdafx.h
+quote.o: /Users/inamoto/altair/include/altair/libinc.h
+quote.o: /Users/inamoto/altair/include/altair/alext.h
+quote.o: /Users/inamoto/altair/include/altair/alcrt.h
+quote.o: /Users/inamoto/altair/include/knp/knp.h
+quote.o: /Users/inamoto/altair/include/knp/config.h
+quote.o: /Users/inamoto/altair/include/juman/juman.h
+quote.o: /Users/inamoto/altair/include/juman/juman_pat.h
+quote.o: /Users/inamoto/altair/include/knp/path.h
+quote.o: /Users/inamoto/altair/include/knp/const.h
+quote.o: /Users/inamoto/altair/include/knp/dbm.h
+quote.o: /Users/inamoto/altair/include/knp/extern.h
+read_data.o: /Users/inamoto/altair/include/stdafx.h
+read_data.o: /Users/inamoto/altair/include/altair/libinc.h
+read_data.o: /Users/inamoto/altair/include/altair/alext.h
+read_data.o: /Users/inamoto/altair/include/altair/alcrt.h
+read_data.o: /Users/inamoto/altair/include/knp/knp.h
+read_data.o: /Users/inamoto/altair/include/knp/config.h
+read_data.o: /Users/inamoto/altair/include/juman/juman.h
+read_data.o: /Users/inamoto/altair/include/juman/juman_pat.h
+read_data.o: /Users/inamoto/altair/include/knp/path.h
+read_data.o: /Users/inamoto/altair/include/knp/const.h
+read_data.o: /Users/inamoto/altair/include/knp/dbm.h
+read_data.o: /Users/inamoto/altair/include/knp/extern.h
+read_rule.o: /Users/inamoto/altair/include/stdafx.h
+read_rule.o: /Users/inamoto/altair/include/altair/libinc.h
+read_rule.o: /Users/inamoto/altair/include/altair/alext.h
+read_rule.o: /Users/inamoto/altair/include/altair/alcrt.h
+read_rule.o: /Users/inamoto/altair/include/knp/knp.h
+read_rule.o: /Users/inamoto/altair/include/knp/config.h
+read_rule.o: /Users/inamoto/altair/include/juman/juman.h
+read_rule.o: /Users/inamoto/altair/include/juman/juman_pat.h
+read_rule.o: /Users/inamoto/altair/include/knp/path.h
+read_rule.o: /Users/inamoto/altair/include/knp/const.h
+read_rule.o: /Users/inamoto/altair/include/knp/dbm.h
+read_rule.o: /Users/inamoto/altair/include/knp/extern.h
+regexp.o: /Users/inamoto/altair/include/stdafx.h
+regexp.o: /Users/inamoto/altair/include/altair/libinc.h
+regexp.o: /Users/inamoto/altair/include/altair/alext.h
+regexp.o: /Users/inamoto/altair/include/altair/alcrt.h
+regexp.o: /Users/inamoto/altair/include/knp/knp.h
+regexp.o: /Users/inamoto/altair/include/knp/config.h
+regexp.o: /Users/inamoto/altair/include/juman/juman.h
+regexp.o: /Users/inamoto/altair/include/juman/juman_pat.h
+regexp.o: /Users/inamoto/altair/include/knp/path.h
+regexp.o: /Users/inamoto/altair/include/knp/const.h
+regexp.o: /Users/inamoto/altair/include/knp/dbm.h
+regexp.o: /Users/inamoto/altair/include/knp/extern.h
+thesaurus.o: /Users/inamoto/altair/include/stdafx.h
+thesaurus.o: /Users/inamoto/altair/include/altair/libinc.h
+thesaurus.o: /Users/inamoto/altair/include/altair/alext.h
+thesaurus.o: /Users/inamoto/altair/include/altair/alcrt.h
+thesaurus.o: /Users/inamoto/altair/include/knp/knp.h
+thesaurus.o: /Users/inamoto/altair/include/knp/config.h
+thesaurus.o: /Users/inamoto/altair/include/juman/juman.h
+thesaurus.o: /Users/inamoto/altair/include/juman/juman_pat.h
+thesaurus.o: /Users/inamoto/altair/include/knp/path.h
+thesaurus.o: /Users/inamoto/altair/include/knp/const.h
+thesaurus.o: /Users/inamoto/altair/include/knp/dbm.h
+thesaurus.o: /Users/inamoto/altair/include/knp/extern.h
+tools.o: /Users/inamoto/altair/include/stdafx.h
+tools.o: /Users/inamoto/altair/include/altair/libinc.h
+tools.o: /Users/inamoto/altair/include/altair/alext.h
+tools.o: /Users/inamoto/altair/include/altair/alcrt.h
+tools.o: /Users/inamoto/altair/include/knp/knp.h
+tools.o: /Users/inamoto/altair/include/knp/config.h
+tools.o: /Users/inamoto/altair/include/juman/juman.h
+tools.o: /Users/inamoto/altair/include/juman/juman_pat.h
+tools.o: /Users/inamoto/altair/include/knp/path.h
+tools.o: /Users/inamoto/altair/include/knp/const.h
+tools.o: /Users/inamoto/altair/include/knp/dbm.h
+tools.o: /Users/inamoto/altair/include/knp/extern.h
+tree_conv.o: /Users/inamoto/altair/include/stdafx.h
+tree_conv.o: /Users/inamoto/altair/include/altair/libinc.h
+tree_conv.o: /Users/inamoto/altair/include/altair/alext.h
+tree_conv.o: /Users/inamoto/altair/include/altair/alcrt.h
+tree_conv.o: /Users/inamoto/altair/include/knp/knp.h
+tree_conv.o: /Users/inamoto/altair/include/knp/config.h
+tree_conv.o: /Users/inamoto/altair/include/juman/juman.h
+tree_conv.o: /Users/inamoto/altair/include/juman/juman_pat.h
+tree_conv.o: /Users/inamoto/altair/include/knp/path.h
+tree_conv.o: /Users/inamoto/altair/include/knp/const.h
+tree_conv.o: /Users/inamoto/altair/include/knp/dbm.h
+tree_conv.o: /Users/inamoto/altair/include/knp/extern.h

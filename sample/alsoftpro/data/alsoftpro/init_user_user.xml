@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE User SYSTEM "User.dtd">
+<User>
+    <Target>alsoftpro</Target>
+    <Id>alsoftpro:user</Id>
+    <UserId>user</UserId>
+    <Password>user</Password>
+    <RoleName>admin</RoleName>
+</User>

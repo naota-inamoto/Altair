@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE SampleCatalog SYSTEM "SampleCatalog.dtd">
+<SampleCatalog>
+    <Target>rosetta</Target>
+    <Product>
+        <ProductName>11111111111111</ProductName>
+    </Product>
+    <Product>
+        <ProductName>22222222222222</ProductName>
+    </Product>
+    <Product>
+        <ProductName>33333333333333</ProductName>
+    </Product>
+</SampleCatalog>

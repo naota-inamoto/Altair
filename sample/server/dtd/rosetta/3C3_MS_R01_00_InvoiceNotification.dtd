@@ -1,0 +1,418 @@
+<!--
+
+   RosettaNet XML Message Schema
+   3C3_MS_R01_00_InvoiceNotification.dtd (16-Nov-2000 17:19)
+   This document has been prepared by Edifecs (http://www.edifecs.com/)
+   based On the Business Collaboration Framework from requirements
+   in conformance with the RosettaNet methodology.
+
+-->
+
+
+<!ENTITY % common-attributes "id  CDATA #IMPLIED" >
+ 
+<!ELEMENT Pip3C3InvoiceNotification ( 
+          fromRole ,
+          GlobalDocumentFunctionCode ,
+          Invoice ,
+          thisDocumentGenerationDateTime ,
+          thisDocumentIdentifier ,
+          toRole ) > 
+
+<!ELEMENT fromRole
+            ( PartnerRoleDescription ) > 
+
+<!ELEMENT PartnerRoleDescription ( 
+          ContactInformation? ,
+          GlobalPartnerRoleClassificationCode? ,
+          PartnerDescription ) > 
+
+<!ELEMENT ContactInformation ( 
+          contactName ,
+          EmailAddress ,
+          facsimileNumber? ,
+          telephoneNumber ) > 
+
+<!ELEMENT contactName
+           ( FreeFormText ) > 
+
+<!ELEMENT FreeFormText
+           ( #PCDATA ) >
+<!ATTLIST FreeFormText
+           xml:lang CDATA #IMPLIED >
+
+<!ELEMENT EmailAddress
+           ( #PCDATA ) >
+
+<!ELEMENT facsimileNumber
+           ( CommunicationsNumber ) > 
+
+<!ELEMENT CommunicationsNumber
+           ( #PCDATA ) >
+
+<!ELEMENT telephoneNumber
+            ( CommunicationsNumber ) > 
+
+<!ELEMENT GlobalPartnerRoleClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT PartnerDescription ( 
+          BusinessDescription? ,
+          GlobalPartnerClassificationCode? ,
+          PhysicalAddress? ) > 
+
+<!ELEMENT BusinessDescription ( 
+          GlobalBusinessIdentifier ,
+          GlobalSupplyChainCode? ,
+          businessName? ) > 
+
+<!ELEMENT GlobalBusinessIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalSupplyChainCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalPartnerClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalDocumentFunctionCode
+           ( #PCDATA ) >
+
+<!ELEMENT Invoice ( 
+          billTo ,
+          billToAccount* ,
+          FinancialAmount ,
+          Financing? ,
+          GlobalDocumentTypeCode ,
+          GlobalPaymentTermsCode ,
+          InvoiceLineItem+ ,
+          isLockBoxUsed ,
+          isRebill ,
+          originalInvoiceNumber? ,
+          purchaseOrderNumber? ,
+          remitTo ,
+          remitToAccount* ,
+          remitToTax? ,
+          salesOrderIdentifier* ,
+          soldTo? ,
+          soldToAccount* ,
+          soldToTax? ,
+          transferTo? ,
+          transferToAccount* ) > 
+
+<!ELEMENT billTo
+            ( PartnerRoleDescription ) > 
+
+<!ELEMENT billToAccount
+           ( AccountNumber ) > 
+
+<!ELEMENT AccountNumber
+           ( #PCDATA ) >
+
+<!ELEMENT FinancialAmount ( 
+          GlobalCurrencyCode ,
+          GlobalMonetaryAmountTypeCode? ,
+          MonetaryAmount ) > 
+
+<!ELEMENT GlobalCurrencyCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalMonetaryAmountTypeCode
+           ( #PCDATA ) >
+
+<!ELEMENT MonetaryAmount
+           ( #PCDATA ) >
+
+<!ELEMENT Financing ( 
+          approvalIdentifier ,
+          financingPlanIdentifier? ) > 
+
+<!ELEMENT approvalIdentifier
+           ( ProprietaryReferenceIdentifier ) > 
+
+<!ELEMENT ProprietaryReferenceIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT financingPlanIdentifier
+            ( ProprietaryReferenceIdentifier ) > 
+
+<!ELEMENT GlobalDocumentTypeCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalPaymentTermsCode
+           ( #PCDATA ) >
+
+<!ELEMENT InvoiceLineItem ( 
+          allowancesAndCharges? ,
+          depositAmount? ,
+          handlingCharges? ,
+          LineNumber ,
+          OrderStatus ,
+          packingSlipIdentifier ,
+          prepaymentAmount? ,
+          shipTo ,
+          shipToAccount* ,
+          totalLineItemAmount ,
+          transportedBy ,
+          transportedByAccount* ) > 
+
+<!ELEMENT allowancesAndCharges
+            ( FinancialAmount ) > 
+
+<!ELEMENT depositAmount
+            ( FinancialAmount ) > 
+
+<!ELEMENT handlingCharges
+            ( FinancialAmount ) > 
+
+<!ELEMENT LineNumber
+           ( #PCDATA ) >
+
+<!ELEMENT OrderStatus ( 
+          primaryIdentifier ,
+          PurchaseOrder ,
+          secondaryIdentifier? ) > 
+
+<!ELEMENT primaryIdentifier
+           ( ProprietaryShipmentTrackingIdentifier ) > 
+
+<!ELEMENT ProprietaryShipmentTrackingIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT PurchaseOrder ( 
+          GlobalShipmentTermsCode ,
+          governmentContractIdentifier? ,
+          ProductLineItem+ ,
+          purchaseOrderNumber? ) > 
+
+<!ELEMENT GlobalShipmentTermsCode
+           ( #PCDATA ) >
+
+<!ELEMENT governmentContractIdentifier
+           ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT ProprietaryDocumentIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT ProductLineItem ( 
+          countryOfOrigin? ,
+          GlobalProductUnitOfMeasureCode ,
+          GlobalShippingServiceLevelCode? ,
+          LineNumber ,
+          ProductDescription ,
+          ProductQuantity ,
+          shipDate+ ,
+          shipFrom* ,
+          TaxSummary? ,
+          unitPrice ) > 
+
+<!ELEMENT countryOfOrigin
+           ( GlobalCountryCode ) > 
+
+<!ELEMENT GlobalCountryCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalProductUnitOfMeasureCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalShippingServiceLevelCode
+           ( #PCDATA ) >
+
+<!ELEMENT ProductDescription ( 
+          GlobalProductIdentifier? ,
+          NationalExportControlClassificationCode? ,
+          NationalHarmonizedTariffScheduleCode? ,
+          PartnerProductIdentification* ,
+          ProprietarySerialIdentifier? ) > 
+
+<!ELEMENT GlobalProductIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT NationalExportControlClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT NationalHarmonizedTariffScheduleCode
+           ( #PCDATA ) >
+
+<!ELEMENT PartnerProductIdentification ( 
+          GlobalPartnerClassificationCode ,
+          ProprietaryProductIdentifier ) > 
+
+<!ELEMENT ProprietaryProductIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT ProprietarySerialIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT ProductQuantity
+           ( #PCDATA ) >
+
+<!ELEMENT shipDate
+           ( DateStamp ) > 
+
+<!ELEMENT DateStamp
+           ( #PCDATA ) >
+
+<!ELEMENT shipFrom
+            ( PartnerDescription ) > 
+
+<!ELEMENT PhysicalAddress ( 
+          GlobalLocationIdentifier? ,
+          addressLine1? ,
+          addressLine2? ,
+          addressLine3? ,
+          cityName? ,
+          GlobalCountryCode? ,
+          NationalPostalCode? ,
+          regionName? ,
+          postOfficeBoxIdentifier? ) > 
+
+<!ELEMENT GlobalLocationIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT TaxSummary ( 
+          CityTax? ,
+          NationalTax* ,
+          RegionalTax? ,
+          totalAmount? ) > 
+
+<!ELEMENT CityTax ( 
+          cityName ,
+          FinancialAmount ,
+          taxRate? ) > 
+
+<!ELEMENT cityName
+            ( FreeFormText ) > 
+
+<!ELEMENT taxRate
+           ( PercentAmount ) > 
+
+<!ELEMENT PercentAmount
+           ( #PCDATA ) >
+
+<!ELEMENT NationalTax ( 
+          FinancialAmount ,
+          NationalBusinessTaxIdentifier ,
+          taxRate? ) > 
+
+<!ELEMENT NationalBusinessTaxIdentifier ( 
+          BusinessTaxIdentifier ,
+          GlobalCountryCode ) > 
+
+<!ELEMENT BusinessTaxIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT RegionalTax ( 
+          FinancialAmount ,
+          RegionalBusinessTaxIdentifier ,
+          taxRate? ) > 
+
+<!ELEMENT RegionalBusinessTaxIdentifier ( 
+          BusinessTaxIdentifier ,
+          regionName ) > 
+
+<!ELEMENT regionName
+            ( FreeFormText ) > 
+
+<!ELEMENT totalAmount
+            ( FinancialAmount ) > 
+
+<!ELEMENT unitPrice
+            ( FinancialAmount ) > 
+
+<!ELEMENT purchaseOrderNumber
+            ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT secondaryIdentifier
+            ( ProprietaryShipmentTrackingIdentifier ) > 
+
+<!ELEMENT packingSlipIdentifier
+            ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT prepaymentAmount
+            ( FinancialAmount ) > 
+
+<!ELEMENT shipTo
+            ( PartnerRoleDescription ) > 
+
+<!ELEMENT addressLine1
+            ( FreeFormText ) > 
+
+<!ELEMENT addressLine2
+            ( FreeFormText ) > 
+
+<!ELEMENT addressLine3
+            ( FreeFormText ) > 
+
+<!ELEMENT NationalPostalCode
+           ( #PCDATA ) >
+
+<!ELEMENT shipToAccount
+            ( AccountNumber ) > 
+
+<!ELEMENT totalLineItemAmount
+            ( FinancialAmount ) > 
+
+<!ELEMENT transportedBy
+            ( PartnerRoleDescription ) > 
+
+<!ELEMENT businessName
+            ( FreeFormText ) > 
+
+<!ELEMENT transportedByAccount
+            ( AccountNumber ) > 
+
+<!ELEMENT isLockBoxUsed
+           ( AffirmationIndicator ) > 
+
+<!ELEMENT AffirmationIndicator
+           ( #PCDATA ) >
+
+<!ELEMENT isRebill
+            ( AffirmationIndicator ) > 
+
+<!ELEMENT originalInvoiceNumber
+            ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT remitTo
+            ( PartnerRoleDescription ) > 
+
+<!ELEMENT postOfficeBoxIdentifier
+            ( FreeFormText ) > 
+
+<!ELEMENT remitToAccount
+            ( AccountNumber ) > 
+
+<!ELEMENT remitToTax
+            ( TaxSummary ) > 
+
+<!ELEMENT salesOrderIdentifier
+            ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT soldTo
+            ( PartnerRoleDescription ) > 
+
+<!ELEMENT soldToAccount
+            ( AccountNumber ) > 
+
+<!ELEMENT soldToTax
+            ( TaxSummary ) > 
+
+<!ELEMENT transferTo
+            ( PartnerRoleDescription ) > 
+
+<!ELEMENT transferToAccount
+            ( AccountNumber ) > 
+
+<!ELEMENT thisDocumentGenerationDateTime
+           ( DateTimeStamp ) > 
+
+<!ELEMENT DateTimeStamp
+           ( #PCDATA ) >
+
+<!ELEMENT thisDocumentIdentifier
+            ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT toRole
+            ( PartnerRoleDescription ) > 
+

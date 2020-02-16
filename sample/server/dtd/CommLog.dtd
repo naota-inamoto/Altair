@@ -1,0 +1,31 @@
+
+<!ELEMENT CommLog (CommLogId, Target,
+        SendRecv, LogLevel, Time, 
+        MsgType, Reason,
+        URLfromIP, MyId, PartnerId,
+        rawMsgId, MsgId, RefMsgId, TransactionId,
+        Pid, AppPid)>
+
+<!ELEMENT CommLogId (#PCDATA)>
+<!ATTLIST CommLogId primary-key CDATA #IMPLIED>
+
+<!ELEMENT Target (#PCDATA)>
+
+<!ELEMENT SendRecv (#PCDATA)>
+<!ELEMENT rawMsgId (#PCDATA)>
+<!ELEMENT LogLevel (#PCDATA)>
+<!ELEMENT Time     (#PCDATA)>
+<!ELEMENT Reason   (#PCDATA)>
+
+<!ELEMENT URLfromIP (#PCDATA)>
+<!ELEMENT MyId      (#PCDATA)>
+<!ELEMENT PartnerId (#PCDATA)>
+
+<!ELEMENT MsgType       (#PCDATA)>
+<!ELEMENT MsgId         (#PCDATA)>
+<!ELEMENT RefMsgId      (#PCDATA)>
+<!ELEMENT TransactionId (#PCDATA)>
+
+<!ELEMENT Pid    (#PCDATA)>
+<!ELEMENT AppPid (#PCDATA)>
+

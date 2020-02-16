@@ -1,0 +1,25 @@
+
+<!ELEMENT 伝票 (日付, チェック+, 仕訳+)>
+<!ELEMENT 日付 #PCDATA>
+
+<!ELEMENT チェック (日時, ユーザ, 種別, メモ?)>
+<!ELEMENT 日時 #PCDATA>   <!-- YYYY/MM/DD-hh:mm:ss -->
+<!ELEMENT ユーザ #PCDATA>
+<!ELEMENT 種別 #PCDATA>   <!-- 作成、修正、チェック、承認 -->
+<!ELEMENT メモ #PCDATA>
+
+<!ELEMENT 仕訳 (借方|貸方)>
+<!ELEMENT 借方 (勘定科目, 補助科目, 金額, 税額, 税区分, 税率, 摘要, メモ, 付箋)>
+<!ELEMENT 貸方 (勘定科目, 補助科目, 金額, 税額, 税区分, 税率, 摘要, メモ, 付箋)>
+<!ELEMENT 勘定科目 #PCDATA>
+<!ELEMENT 補助科目 #PCDATA>
+<!ELEMENT 金額 #PCDATA>
+<!ELEMENT 税額 #PCDATA>
+
+<!ELEMENT 税区分 #PCDATA>
+<!-- 税計算対象外、課税売上、課税売上返還、非課税売上、課税仕入、課税仕入返還、課税貸倒、その他 -->
+
+<!ELEMENT 税率 #PCDATA>
+<!ELEMENT 摘要 #PCDATA>
+<!ELEMENT 付箋 #PCDATA>
+

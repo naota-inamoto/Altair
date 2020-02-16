@@ -1,0 +1,22 @@
+<!--
+
+   RosettaNet XML Message Schema
+   AcknowledgmentOfReceipt_MS_V02_00.dtd (11-Jul-2001)
+
+-->
+
+
+<!ENTITY % common-attributes "id  CDATA #IMPLIED" >
+ 
+<!ELEMENT ReceiptAcknowledgment ( 
+          NonRepudiationInformation? ) > 
+
+<!ATTLIST ReceiptAcknowledgment xmlns CDATA #FIXED
+          "http://www.rosettanet.org/RNIF/V02.00" >
+
+<!ELEMENT NonRepudiationInformation ( 
+          OriginalMessageDigest ) > 
+
+<!ELEMENT OriginalMessageDigest
+           ( #PCDATA ) >
+

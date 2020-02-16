@@ -1,0 +1,13 @@
+
+<!ELEMENT ƒtƒ[ (ŠúŠÔ, ó‘Ô?, €–Ú+)>
+<!ELEMENT ŠúŠÔ #PCDATA>
+<!ELEMENT ó‘Ô #PCDATA>
+
+<!ELEMENT €–Ú (‘å•ª—Þ, ’†•ª—Þ?, ¬•ª—Þ?, Š¨’è‰È–Ú?, ‹àŠz)>
+
+<!ELEMENT ‘å•ª—Þ #PCDATA>
+<!ELEMENT ’†•ª—Þ #PCDATA>
+<!ELEMENT ¬•ª—Þ #PCDATA>
+<!ELEMENT Š¨’è‰È–Ú #PCDATA>
+<!ELEMENT ‹àŠz #PCDATA>
+

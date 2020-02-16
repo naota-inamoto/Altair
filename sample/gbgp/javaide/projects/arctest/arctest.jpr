@@ -1,0 +1,6 @@
+<PROJ>
+  <JAVA>ArcTest.java</JAVA>
+  <HTML>example1.html</HTML>
+  <APPLET>example1.html</APPLET>
+  <IMPORT>C:/altair/temp/nec/ebiz/src/crimson.jar</IMPORT>
+</PROJ>

@@ -1,0 +1,82 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Tree-Graph conversion Sample</TITLE>
+</HEAD>
+
+<BODY>
+ツリー・グラフ変換ルールは、<BR>
+「単位構文のid」「単位構文のリスト表現」「変換ルールの本体」の三つ組で<BR>
+構成されます。「単位構文のid」「単位構文のリスト表現」の<BR>
+スケルトンは自動生成出来ます。「変換ルールの本体」のヒントも<BR>
+同時に自動生成出来ます。<BR>
+
+<HR>
+<H2>ツリー・グラフ変換ルールの作成部分例 (1)</H2>
+<PRE>
+block_stat:
+(
+  (
+    "{}*",
+    (
+      "block_stat_n",
+      (
+        (
+          "{}",
+          ("block"),
+          ("if"),
+          ("switch"),
+          ("label"),
+          ("for"),
+          ("while"),
+          ("do"),
+          ("continue"),
+          ("break"),
+          ("return"),
+          ("stat_sync"),
+          ("try"),
+          ("throw"),
+          ("stat_var_dcl"),
+          ("stat_exp"),
+          ("stat_colon")
+        )
+      )
+    )
+  )
+)
+attr_grmr {
+  loop1(stat, n) :- for($[1]) == 1   , ("block") == stat [ -/n/-&gt; $[1][1] ], ! loop1(stat, n + 1) .
+  loop1(stat, n) :- for($[1]) == null, ("block") == stat, must_be(dst_node(stat, n), null) == 1 .
+
+  loop1($$, 1) .
+}
+</PRE>
+
+<HR>
+<H2>ツリー・グラフ変換ルールの作成部分例 (2)</H2>
+<PRE>
+e_cmp:
+(("e_sft"), ("{}?", ("e_cmp_1", (("{}", ("ge"), ("gt"), ("le"), ("lt"), ("instanceof")), ("e_sft")))))
+attr_grmr {
+  op("&gt;=")         :- switch($[2][1]) == "ge" .
+  op("&gt;" )         :- switch($[2][1]) == "gt" .
+  op("&lt;=")         :- switch($[2][1]) == "le" .
+  op("&lt;" )         :- switch($[2][1]) == "lt" .
+  op("instanceof") :- switch($[2][1]) == "instanceof" .
+
+  if1(exp, exp1) :- if($[2]) == 1   , op(op), ("binary") == exp [ -/"op"/-&gt; op ]
+                                                                [ -/"exp1"/-&gt; exp1 ]
+                                                                [ -/"exp2"/-&gt; $[2][2] ] .
+  if1(exp, exp ) :- if($[2]) == null .
+
+  if2(exp) :- $gen == 1, ("binary") == exp [ -/"op"/-&gt; op ],
+      op != "&gt;=", op != "&gt;", op != "&lt;=", op != "&lt;", op != "instanceof", if($[2]) == null, exp === $[1] .
+  if2(exp) :- if1(exp, $[1]) .
+
+  if2($$) .
+}
+</PRE>
+
+<HR>
+</BODY>
+</HTML>

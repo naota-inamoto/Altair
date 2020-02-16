@@ -1,0 +1,72 @@
+$END_LIB
+TEXT
+AlObject
+class TP
+end_class
+$END_CLASS
+TEXT
+AlObject
+class TP
+member
+public: static void create_shm();
+member
+public: static void close_shm();
+member
+public: static integer share_mem_obj_id;
+member
+public: static void get_from_shm();
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class TP
+member
+public: static void create_shm();
+body
+{
+	var string msg;
+	msg = "Hello!";
+	if (al_misc("platform", null, null) == "windows") {
+		var integer id;
+		id = al_get_id();
+		share_mem_obj_id = al_wnd_message(null, "create_map", (string)id, msg);
+		al_print("share ID = " + (string)id + "\n");
+	} else {
+	}
+	if (al_misc("platform", null, null) == "linux" || al_misc("platform", null, null) == "mac") {
+		share_mem_obj_id = al_wnd_message(null, "create_map", null, msg);
+		al_print("share ID = " + (string)share_mem_obj_id + "\n");
+	} else {
+	}
+}
+end_body
+member
+public: static void close_shm();
+body
+{
+	al_wnd_message(null, "close_map", share_mem_obj_id, null);
+}
+end_body
+member
+public: static integer share_mem_obj_id;
+member
+public: static void get_from_shm();
+body
+{
+	var string id;
+	var string msg;
+	id = al_ask("share ID ?", "");
+	if (al_misc("platform", null, null) == "windows") {
+		msg = al_wnd_message(null, "get_map", id, null);
+		al_print("message = " + (string)msg + "\n");
+	} else {
+	}
+	if (al_misc("platform", null, null) == "linux" || al_misc("platform", null, null) == "mac") {
+		msg = al_wnd_message(null, "get_map", (integer)id, null);
+		al_print("message = " + (string)msg + "\n");
+	} else {
+	}
+}
+end_body
+end_class
+$END_BODY

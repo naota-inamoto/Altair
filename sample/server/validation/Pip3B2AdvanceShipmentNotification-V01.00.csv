@@ -1,0 +1,931 @@
+dic-1,AD,  ANDORRA
+dic-1,AE,  UNITED ARAB EMIRATES
+dic-1,AF,  AFGHANISTAN
+dic-1,AG,  ANTIGUA AND BARBUDA
+dic-1,AI,  ANGUILLA
+dic-1,AL,  ALBANIA
+dic-1,AM,  ARMENIA
+dic-1,AN,  NETHERLANDS ANTILLES
+dic-1,AO,  ANGOLA
+dic-1,AQ,  ANTARCTICA
+dic-1,AR,  ARGENTINA
+dic-1,AS,  AMERICAN SAMOA
+dic-1,AT,  AUSTRIA
+dic-1,AU,  AUSTRALIA
+dic-1,AW,  ARUBA
+dic-1,AZ,  AZERBAIJAN
+dic-1,BA,  BOSNIA AND HERZEGOVINA
+dic-1,BB,  BARBADOS
+dic-1,BD,  BANGLADESH
+dic-1,BE,  BELGIUM
+dic-1,BF,  BURKINA FASO
+dic-1,BG,  BULGARIA
+dic-1,BH,  BAHRAIN
+dic-1,BI,  BURUNDI
+dic-1,BJ,  BENIN
+dic-1,BM,  BERMUDA
+dic-1,BN,  BRUNEI DARUSSALAM
+dic-1,BO,  BOLIVIA
+dic-1,BR,  BRAZIL
+dic-1,BS,  BAHAMAS
+dic-1,BT,  BHUTAN
+dic-1,BV,  BOUVET ISLAND
+dic-1,BW,  BOTSWANA
+dic-1,BY,  BELARUS
+dic-1,BZ,  BELIZE
+dic-1,CA,  CANADA
+dic-1,CC,  COCOS (KEELING) ISLANDS
+dic-1,CF,  CENTRAL AFRICAN REPUBLIC
+dic-1,CG,  CONGO
+dic-1,CH,  SWITZERLAND
+dic-1,CI,  CÔTE D'IVOIRE
+dic-1,CK,  COOK ISLANDS
+dic-1,CL,  CHILE
+dic-1,CM,  CAMEROON
+dic-1,CN,  CHINA
+dic-1,CO,  COLOMBIA
+dic-1,CR,  COSTA RICA
+dic-1,CU,  CUBA
+dic-1,CV,  CAPE VERDE
+dic-1,CX,  CHRISTMAS ISLAND
+dic-1,CY,  CYPRUS
+dic-1,CZ,  CZECH REPUBLIC
+dic-1,DE,  GERMANY
+dic-1,DJ,  DJIBOUTI
+dic-1,DK,  DENMARK
+dic-1,DM,  DOMINICA
+dic-1,DO,  DOMINICAN REPUBLIC
+dic-1,DZ,  ALGERIA
+dic-1,EC,  ECUADOR
+dic-1,EE,  ESTONIA
+dic-1,EG,  EGYPT
+dic-1,EH,  WESTERN SAHARA
+dic-1,ER,  ERITREA
+dic-1,ES,  SPAIN
+dic-1,ET,  ETHIOPIA
+dic-1,FI,  FINLAND
+dic-1,FJ,  FIJI
+dic-1,FK,  FALKLAND ISLANDS (MALVINAS)
+dic-1,FM,"  MICRONESIA, FEDERATED STATES"
+dic-1,FO,  FAROE ISLANDS
+dic-1,FR,  FRANCE
+dic-1,GA,  GABON
+dic-1,GB,  UNITED KINGDOM
+dic-1,GD,  GRENADA
+dic-1,GE,  GEORGIA
+dic-1,GF,  FRENCH GUIANA
+dic-1,GH,  GHANA
+dic-1,GI,  GIBRALTAR
+dic-1,GL,  GREENLAND
+dic-1,GM,  GAMBIA
+dic-1,GN,  GUINEA
+dic-1,GP,  GUADELOUPE
+dic-1,GQ,  EQUATORIAL GUINEA
+dic-1,GR,  GREECE
+dic-1,GS,  SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS
+dic-1,GT,  GUATEMALA
+dic-1,GU,  GUAM
+dic-1,GW,  GUINEA-BISSAU
+dic-1,GY,  GUYANA
+dic-1,HK,  HONG KONG
+dic-1,HM,  HEARD ISLAND AND MCDONALD ISLANDS
+dic-1,HN,  HONDURAS
+dic-1,HR,  CROATIA
+dic-1,HT,  HAITI
+dic-1,HU,  HUNGARY
+dic-1,ID,  INDONESIA
+dic-1,IE,  IRELAND
+dic-1,IL,  ISRAEL
+dic-1,IN,  INDIA
+dic-1,IO,  BRITISH INDIAN OCEAN TERRITORY
+dic-1,IQ,  IRAQ
+dic-1,IR,"  IRAN, ISLAMIC REPUBLIC OF"
+dic-1,IS,  ICELAND
+dic-1,IT,  ITALY
+dic-1,JM,  JAMAICA
+dic-1,JO,  JORDAN
+dic-1,JP,  JAPAN
+dic-1,KE,  KENYA
+dic-1,KG,  KYRGYSTAN
+dic-1,KH,  CAMBODIA
+dic-1,KI,  KIRIBATI
+dic-1,KM,  COMOROS
+dic-1,KN,  SAINT KITTS AND NEVIS
+dic-1,KP,"  KOREA, DEMOCRATIC PEOPLE'S REP. OF"
+dic-1,KR,"  KOREA, REPUBLIC OF"
+dic-1,KW,  KUWAIT
+dic-1,KY,  CAYMAN ISLANDS
+dic-1,KZ,  KAZAKSTAN
+dic-1,LA,  LAO PEOPLE'S DEMOCRATIC REPUBLIC
+dic-1,LB,  LEBANON
+dic-1,LC,  SAINT LUCIA
+dic-1,LI,  LIECHTENSTEIN
+dic-1,LK,  SRI LANKA
+dic-1,LR,  LIBERIA
+dic-1,LS,  LESOTHO
+dic-1,LT,  LITHUANIA
+dic-1,LU,  LUXEMBOURG
+dic-1,LV,  LATVIA
+dic-1,LY,  LIBYAN ARAB JAMAHIRIYA
+dic-1,MA,  MOROCCO
+dic-1,MC,  MONACO
+dic-1,MD,"  MOLDOVA, REPUBLIC OF"
+dic-1,MG,  MADAGASCAR
+dic-1,MH,  MARSHALL ISLANDS
+dic-1,MK,"  MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF"
+dic-1,ML,  MALI
+dic-1,MM,  MYANMAR
+dic-1,MN,  MONGOLIA
+dic-1,MO,  MACAU
+dic-1,MP,  NORTHERN MARIANA ISLANDS
+dic-1,MQ,  MARTINIQUE
+dic-1,MR,  MAURITANIA
+dic-1,MS,  MONTSERRAT
+dic-1,MT,  MALTA
+dic-1,MU,  MAURITIUS
+dic-1,MV,  MALDIVES
+dic-1,MW,  MALAWI
+dic-1,MX,  MEXICO
+dic-1,MY,  MALAYSIA
+dic-1,MZ,  MOZAMBIQUE
+dic-1,NA,  NAMIBIA
+dic-1,NC,  NEW CALEDONIA
+dic-1,NE,  NIGER
+dic-1,NF,  NORFOLK ISLAND
+dic-1,NG,  NIGERIA
+dic-1,NI,  NICARAGUA
+dic-1,NL,  NETHERLANDS
+dic-1,NO,  NORWAY
+dic-1,NP,  NEPAL
+dic-1,NR,  NAURU
+dic-1,NT,  NEUTRAL ZONE
+dic-1,NU,  NIUE
+dic-1,NZ,  NEW ZEALAND
+dic-1,OM,  OMAN
+dic-1,PA,  PANAMA
+dic-1,PE,  PERU
+dic-1,PF,  FRENCH POLYNESIA
+dic-1,PG,  PAPUA NEW GUINEA
+dic-1,PH,  PHILIPPINES
+dic-1,PK,  PAKISTAN
+dic-1,PL,  POLAND
+dic-1,PM,  SAINT PIERRE AND MIQUELON
+dic-1,PN,  PITCAIRN
+dic-1,PR,  PUERTO RICO
+dic-1,PT,  PORTUGAL
+dic-1,PW,  PALAU
+dic-1,PY,  PARAGUAY
+dic-1,QA,  QATAR
+dic-1,RE,  REUNION
+dic-1,RO,  ROMANIA
+dic-1,RU,  RUSSIAN FEDERATION
+dic-1,RW,  RWANDA
+dic-1,SA,  SAUDI ARABIA
+dic-1,SB,  SOLOMON ISLANDS
+dic-1,SC,  SEYCHELLES
+dic-1,SD,  SUDAN
+dic-1,SE,  SWEDEN
+dic-1,SG,  SINGAPORE
+dic-1,SH,  SAINT HELENA
+dic-1,SI,  SLOVENIA
+dic-1,SJ,  SVALBARD AND JAN MAYEN ISLANDS
+dic-1,SK,  SLOVAKIA
+dic-1,SL,  SIERRA LEONE
+dic-1,SM,  SAN MARINO
+dic-1,SN,  SENEGAL
+dic-1,SO,  SOMALIA
+dic-1,SR,  SURINAME
+dic-1,ST,  SAO TOME AND PRINCIPE
+dic-1,SV,  EL SALVADOR
+dic-1,SY,  SYRIAN ARAB REPUBLIC
+dic-1,SZ,  SWAZILAND
+dic-1,TC,  TURKS AND CAICOS ISLANDS
+dic-1,TD,  CHAD
+dic-1,TF,  FRENCH SOUTHERN TERRITORIES
+dic-1,TG,  TOGO
+dic-1,TH,  THAILAND
+dic-1,TJ,  TAJIKISTAN
+dic-1,TK,  TOKELAU
+dic-1,TM,  TURKMENISTAN
+dic-1,TN,  TUNISIA
+dic-1,TO,  TONGA
+dic-1,TP,  EAST TIMOR
+dic-1,TR,  TURKEY
+dic-1,TT,  TRINIDAD AND TOBAGO
+dic-1,TV,  TUVALU
+dic-1,TW,"  TAIWAN, PROVINCE OF CHINA"
+dic-1,TZ,"  TANZANIA, UNITED REPUBLIC OF"
+dic-1,UA,  UKRAINE
+dic-1,UG,  UGANDA
+dic-1,UM,  UNITED STATES MINOR OUTLYING ISLANDS
+dic-1,US,  UNITED STATES
+dic-1,UY,  URUGUAY
+dic-1,UZ,  UZBEKISTAN
+dic-1,VA,  HOLY SEE (VATICAN CITY STATE)
+dic-1,VC,  SAINT VINCENT AND THE GRENADINES
+dic-1,VE,  VENEZUELA
+dic-1,VG,  VIRGIN ISLANDS (BRITISH)
+dic-1,VI,  VIRGIN ISLANDS (U.S.)
+dic-1,VN,  VIET NAM
+dic-1,VU,  VANUATU
+dic-1,WF,  WALLIS AND FUTUNA ISLANDS
+dic-1,WS,  SAMOA
+dic-1,YE,  YEMEN
+dic-1,YT,  MAYOTTE
+dic-1,YU,  YUGOSLAVIA
+dic-1,ZA,  SOUTH AFRICA
+dic-1,ZM,  ZAMBIA
+dic-1,ZR,  ZAIRE
+dic-1,ZW,  ZIMBABWE
+end-dic-1,,
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/BuyingPartner/purchasedBy/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-1
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/BuyingPartner/purchasedBy/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-1
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/OriginatingPartner/shipFrom/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-1
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/OriginatingPartner/shipFrom/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-1
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/SellingPartner/soldBy/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-1
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/SellingPartner/soldBy/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-1
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ReceivingPartner/shipto/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-1
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ReceivingPartner/shipto/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-1
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/ManufacturerProfile/countryOfOrigin/GlobalCountryCode,dic-1
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/ManufacturerProfile/countryOfOrigin/GlobalCountryCode,dic-1
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/transportedBy/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-1
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/transportedBy/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-1
+dic,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-1
+dic,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-1
+dic,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-1
+dic,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-1
+dic,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-1
+dic,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-1
+dic-7,SCAC codes to be used.,
+end-dic-7,,
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/GlobalCarrierCode,dic-7
+dic-8,CFR,  Cost and Freight (named port of destination)
+dic-8,CIF,"  Cost, Insurance and Freight (named port of destination)"
+dic-8,CIP,  Carriage and Insurance Paid To (named place of destination)
+dic-8,CPT,  Carriage Paid To (named place of destination)
+dic-8,DAF,  Delivered at Frontier (named place)
+dic-8,DDP,  Delivered Duty Paid (named place of destination)
+dic-8,DDU,  Delivered Duty Unpaid (named place of destination)
+dic-8,DEQ,  Delivered Ex Quay (Duty Paid) (named port of destination)
+dic-8,DES,  Delivered Ex Ship (named port of destination)
+dic-8,EXW,  Ex Works (named place)
+dic-8,FAS,  Free Along Ship (named port of shipment)
+dic-8,FCA,  Free Carrier (named place)
+dic-8,FOB,  Free on Board (named port of shipment)
+end-dic-8,,
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/GlobalIncotermsCode,dic-8
+dic-9,Abandon shipment,
+dic-9,Cancel shipment,
+dic-9,Destroy shipment,
+dic-9,Reassignment of carrier,
+dic-9,Release shipment,
+dic-9,Return Shipment,
+dic-9,Stop shipment until further notice,
+end-dic-9,,
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/GlobalShipmentChangeDispositionCode,dic-9
+dic-10,Air,
+dic-10,Air Express,
+dic-10,Air Freight,
+dic-10,Containerized Ocean,
+dic-10,Contract Carrier,
+dic-10,Customer Pickup,
+dic-10,Expedited Truck,
+dic-10,Intermodal,
+dic-10,Motor,
+dic-10,Ocean,
+dic-10,Private Carrier,
+dic-10,Rail,
+end-dic-10,,
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/GlobalShipmentModeCode,dic-10
+dic-11,9 A.M.,
+dic-11,A.M.,
+dic-11,Air Cargo,
+dic-11,Air Charter,
+dic-11,Air Economy,
+dic-11,Authorized Return Service
+dic-11,Bulk Commodity Train
+dic-11,Business Class
+dic-11,Consignee Billing Service
+dic-11,Courier Express
+dic-11,Deferred Service
+dic-11,Delivery Confirmation
+dic-11,Delivery Confirmation Return
+dic-11,Delivery Notification Only
+dic-11,Delivery scheduled next day by cartage agent
+dic-11,Delivery scheduled second day by cartage agent
+dic-11,Delivery scheduled third day by cartage agent
+dic-11,Door Service
+dic-11,Expedited Service
+dic-11,Expedited Service - Worldwide
+dic-11,Express Service
+dic-11,Express Service - Worldwide
+dic-11,Express Service Plus
+dic-11,First Class
+dic-11,Ground
+dic-11,Manifest Freight
+dic-11,Metro
+dic-11,Multiweight
+dic-11,Next Day Air
+dic-11,Next Day Hundred Weight
+dic-11,Next Flight Out
+dic-11,Next Morning
+dic-11,Not Served
+dic-11,Other Intermodal and Stack Service
+dic-11,Overnight
+dic-11,P.O. Box/Zip Code
+dic-11,PM
+dic-11,Passenger Service,
+dic-11,Pickup,
+dic-11,Premium Surface,
+dic-11,Primary Service Area - Next Day By 9,30 AM
+dic-11,Primary Service Area - Next Day by 10,30 A.M.
+dic-11,Primary Service Area - Next Day by 5,00 P.M.
+dic-11,Primary Service Area - Next Day by Noon,
+dic-11,Primary Service Area - Second Day by Noon,
+dic-11,Priority Mail,
+dic-11,Priority Mail Insured,
+dic-11,Proof of Delivery (POD) with Signature,
+dic-11,Regular,
+dic-11,Same Day,
+dic-11,Saturday,
+dic-11,Saturday Pickup,
+dic-11,Scheduled,
+dic-11,Second Day,
+dic-11,Second Day Air,
+dic-11,Second Day Hundred Weight,
+dic-11,Second Morning,
+dic-11,Standard Class,
+dic-11,Standard Ground,
+dic-11,Standard Ground Hundred Weight,
+dic-11,Standard Service,
+dic-11,Sunday and Holidays,
+dic-11,Three Day Service,
+dic-11,Time Critical,
+dic-11,Tracking - Ground,
+end-dic-11,,
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/GlobalShippingServiceLevelCode,dic-11
+dic-14,Dock,  The event representing when the product should arrive on the recipient's dock.
+dic-14,Ship,  The event representing when the product is requested to ship.
+end-dic-14,,
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShipmentTransportationEvent/confirmedEvent/TransportationEvent/GlobalTransportEventCode,dic-14
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShipmentTransportationEvent/revisedScheduledEvent/TransportationEvent/GlobalTransportEventCode,dic-14
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShipmentTransportationEvent/scheduledEvent/TransportationEvent/GlobalTransportEventCode,dic-14
+dic-17,Box,
+dic-17,Carton,
+dic-17,Pallet,
+dic-17,Reel,
+dic-17,Tray,
+end-dic-17,,
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/GlobalPackageTypeCode,dic-17
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/GlobalPackageTypeCode,dic-17
+dic-18,Commercial Invoice,
+dic-18,Contract,
+dic-18,Delivery Note,
+dic-18,Invoice,
+dic-18,Purchase Order,
+dic-18,Quote,
+dic-18,Sales Order,
+dic-18,Waybill,
+dic-18,Work Order,
+end-dic-18,,
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/DocumentSubLineLotShipReference/GlobalDocumentReferenceTypeCode,dic-18
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/DocumentSubLineLotShipReference/GlobalDocumentReferenceTypeCode,dic-18
+dic-19,10 Kilogram Drum,
+dic-19,"10,000 Gallon Tankcar",
+dic-19,100 Board Feet,
+dic-19,100 Pound Drum,
+dic-19,100-Pack,
+dic-19,115 Kilogram Drum,
+dic-19,15 Kilogram Drum,
+dic-19,20 Foot Container,
+dic-19,"20,000 Gallon Tankcar"
+dic-19,20-Pack
+dic-19,25 Kilogram Bulk Bag
+dic-19,300 Kilogram Bulk Bag
+dic-19,40 Foot Container
+dic-19,50 Pound Bag
+dic-19,500 Kilogram Bulk Bag
+dic-19,55 Gallon Drum
+dic-19,Actual Pounds
+dic-19,Aluminum Pounds Only
+dic-19,Bag
+dic-19,Bale
+dic-19,Ball
+dic-19,Band
+dic-19,Bar
+dic-19,Barrel
+dic-19,"Barrel, Imperial"
+dic-19,Barrels Per Day
+dic-19,Barrels Per Minute
+dic-19,Base Box
+dic-19,Base Weight
+dic-19,Basket
+dic-19,Batch
+dic-19,Batt
+dic-19,Batting Pound
+dic-19,Beam
+dic-19,Belt
+dic-19,Billet
+dic-19,Bin
+dic-19,Block
+dic-19,Board
+dic-19,Board Feet
+dic-19,Bolt
+dic-19,Bottle
+dic-19,Box
+dic-19,British Thermal Unit (BTU)
+dic-19,British Thermal Units (BTUs) Per Cubic Foot
+dic-19,British Thermal Units (BTUs) Per Pound
+dic-19,Bucket
+dic-19,Bulk
+dic-19,Bulk Car Load
+dic-19,Bulk Pack
+dic-19,Bundle
+dic-19,Bunks
+dic-19,Bushel
+dic-19,"Bushel, Dry Imperial"
+dic-19,Calorie
+dic-19,Can
+dic-19,Car
+dic-19,Carat
+dic-19,Card
+dic-19,Carload
+dic-19,Carton
+dic-19,Cartridge
+dic-19,Case
+dic-19,Cask
+dic-19,Cassette
+dic-19,Catchweight
+dic-19,Cell
+dic-19,Centipoise (CPS)
+dic-19,Chains (Land Survey)
+dic-19,Chest
+dic-19,Coil
+dic-19,Coil Group
+dic-19,Composite Product Pounds (Total Weight)
+dic-19,Cone
+dic-19,Connector
+dic-19,Container
+dic-19,Cover
+dic-19,Crate
+dic-19,Cup
+dic-19,Cycles
+dic-19,Cylinder
+dic-19,Deal
+dic-19,Die
+dic-19,Disk (Disc)
+dic-19,Dispenser
+dic-19,Display
+dic-19,Dozen
+dic-19,Dram
+dic-19,Drum
+dic-19,Dry Pounds
+dic-19,Each
+dic-19,Fluid Ounce
+dic-19,Fluid Ounce (Imperial)
+dic-19,Fuel Usage (Gallons)
+dic-19,Gage Systems
+dic-19,Gallon
+dic-19,Gigajoules
+dic-19,Gill (Imperial)
+dic-19,Grain
+dic-19,Gram
+dic-19,Grams Per 100 Centimeters
+dic-19,Grams Per 100 Grams
+dic-19,Grams Per Cubic Centimeter
+dic-19,Grams Per Kilogram
+dic-19,Grams Per Liter
+dic-19,Grams Per Milliliter
+dic-19,Grams Per Square Centimeter
+dic-19,Grams Per Square Meter
+dic-19,Great Gross (Dozen Gross)
+dic-19,Gross
+dic-19,Gross Barrels
+dic-19,Gross Gallons
+dic-19,Gross Kilogram
+dic-19,Gross Ton
+dic-19,Gross Yard
+dic-19,Group
+dic-19,Half Gallon
+dic-19,Half Hour
+dic-19,Half Liter
+dic-19,Hank
+dic-19,Heat lots
+dic-19,Hours
+dic-19,Hundred Boxes
+dic-19,Hundred Count
+dic-19,Hundred Sheets
+dic-19,Hundredth of a Carat
+dic-19,Imperial Gallons
+dic-19,Jar
+dic-19,Joint
+dic-19,Lifts
+dic-19,Link
+dic-19,Liquid Pounds
+dic-19,Load
+dic-19,Lot
+dic-19,Lug
+dic-19,Mat
+dic-19,Megagram,
+dic-19,Megagrams Per Hour,
+dic-19,Micrograms Per Cubic Meter,
+dic-19,Milligrams Per Cubic Meter,
+dic-19,Milligrams Per Square Meter,
+dic-19,Millimeter H20,
+dic-19,Million BTU's,
+dic-19,Multichip,  When 2 or more dies (chips) are merged into one package.
+dic-19,Net Barrels,
+dic-19,Net Gallons,
+dic-19,Net Imperial Gallons,
+dic-19,Net Liters,
+dic-19,Pack (PAK),
+dic-19,Package,
+dic-19,Packet,
+dic-19,Pad,
+dic-19,Pail
+dic-19,Pallet (Lift)
+dic-19,Pallet/Unit Load
+dic-19,Panel
+dic-19,Pennyweight
+dic-19,Percent
+dic-19,Percent Per 1000 Hours
+dic-19,Percent Weight
+dic-19,Piece
+dic-19,Pint U.S. Dry
+dic-19,Plate
+dic-19,Pound
+dic-19,Pounds Per 1000 Square Feet
+dic-19,Pounds Per Foot
+dic-19,Pounds Per Gallon
+dic-19,Pounds Per Piece of Product
+dic-19,Pounds Per Pound of Product
+dic-19,Pounds Per Thousand
+dic-19,Rack
+dic-19,Reel
+dic-19,Ring
+dic-19,Rod
+dic-19,Sack
+dic-19,Sheet
+dic-19,Sheet-Metric  measure
+dic-19,Shipment
+dic-19,Shot
+dic-19,Skein
+dic-19,Skid
+dic-19,Sleeve
+dic-19,Slip Sheet
+dic-19,Spool
+dic-19,Square
+dic-19,Statute Mile
+dic-19,Stick
+dic-19,Strip
+dic-19,Super Bulk Bag
+dic-19,Tablet
+dic-19,Tank
+dic-19,Tank Truck
+dic-19,Torr
+dic-19,Tote
+dic-19,Track Foot
+dic-19,Trailer
+dic-19,Train
+dic-19,Tray
+dic-19,Truckload
+dic-19,Tube
+dic-19,Vial,
+dic-19,Wafer,
+dic-19,Wrap,
+end-dic-19,,
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/DocumentSubLineLotShipReference/LotShipReference/GlobalProductUnitOfMeasureCode,dic-19
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/GlobalProductUnitOfMeasureCode,dic-19
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/DocumentSubLineLotShipReference/LotShipReference/GlobalProductUnitOfMeasureCode,dic-19
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/GlobalProductUnitOfMeasureCode,dic-19
+dic-20,Already customs cleared in the importing country,Arrangements for inspection are not necessary because they were cleared before.
+dic-20,Clearance,The cargo will be or has been cleared.
+dic-20,Detention,The cargo has been or will be detained.
+dic-20,Documents required,Pertinent documents are required.
+dic-20,Documents requirements completed,All requirements for documents have been completed.
+dic-20,Fumigation,The cargo has been or will be fumigated.
+dic-20,Inspection,The cargo has been or will be inspected.
+dic-20,Inspection arrangements completed,Arrangements for inspection of the cargo have been completed.
+dic-20,Inspection arrangements required,Arrangements for inspection of the cargo are required.
+dic-20,No customs procedure,Customs clearance not required.
+dic-20,Safety arrangements completed,Arrangements for safeguarding the cargo have been completed.
+dic-20,Safety arrangements required,Arrangements for safeguarding the cargo are required.
+dic-20,Security,The cargo has been or will be secured.
+dic-20,Security arrangements required,Arrangements for the security of the cargo are required.
+dic-20,Storage arrangements completed,Arrangements for storing the cargo have been completed.
+dic-20,Storage arrangements required,Arrangements for storing the cargo are required.
+dic-20,Transport arrangements completed,All arrangements for transport have been completed.
+dic-20,Transport arrangements required,Transport has to be arranged.
+end-dic-20,,
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/ExportLicense/NationalExportControlClassificationCode,dic-20
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/ExportLicense/NationalExportControlClassificationCode,dic-20
+dic-23,Broker,  Representative of a third party.
+dic-23,Carrier,  Product carrier for transporting goods in supply chain.
+dic-23,Contract Manufacturer,  The party responsible for the services rendered.
+dic-23,Customs Broker,  Product customs broker in supply chain.
+dic-23,Distribution Center,  Product distributor in supply chain.
+dic-23,Distributor,  Product distributor in supply chain.
+dic-23,End User,  Product end user in supply chain.
+dic-23,End User Government,  End user government.
+dic-23,Financier,  Financial service provider in supply chain
+dic-23,Freight Forwarder,  Product freight forwarder for transporting goods in supply chain.
+dic-23,Manufacturer,  Product manufacturer in supply chain.
+dic-23,Original Equipment Manufacturer,  Product manufacturer of original equipment in the supply chain.
+dic-23,Reseller,  The party who buys goods from a manufacturer and resells them to customers unchanged.
+dic-23,Retailer,  Product retailer in supply chain.
+dic-23,Shopper,  Product shopper in supply chain.
+dic-23,Warehouser,  Product warehouser in supply chain.
+end-dic-23,,
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/BuyingPartner/purchasedBy/PartnerDescription/GlobalPartnerClassificationCode,dic-23
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/OriginatingPartner/shipFrom/PartnerDescription/GlobalPartnerClassificationCode,dic-23
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/SellingPartner/soldBy/PartnerDescription/GlobalPartnerClassificationCode,dic-23
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ReceivingPartner/shipto/PartnerDescription/GlobalPartnerClassificationCode,dic-23
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/ProductIdentification/PartnerProductIdentification/GlobalPartnerClassificationCode,dic-23
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/ProductIdentification/PartnerProductIdentification/GlobalPartnerClassificationCode,dic-23
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/transportedBy/PartnerDescription/GlobalPartnerClassificationCode,dic-23
+dic,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-23
+dic,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-23
+dic-24,Bill of Lading Number,
+dic-24,Booking Number,
+dic-24,Carrier Reference Number,
+dic-24,House Airwaybill Number,
+dic-24,Master Airwaybill Number,
+dic-24,Ocean Bill of Lading Number,
+dic-24,Packing Slip Number,
+dic-24,Pro Number,
+dic-24,Sales Order Number,
+dic-24,Seal Identifier,
+dic-24,Shipper Reference Number,
+dic-24,Trailer Number,
+end-dic-24,,
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/TrackingReference/GlobalTrackingReferenceTypeCode,dic-24
+dic-27,Shipper,  The party who relinquishes a shipment to a Transport Service Provider.
+end-dic-27,,
+dic,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-27
+dic,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-31
+dic-28,Electronic Components,  The electronic components supply chain.
+dic-28,Information Technology,  The information technology supply chain.
+end-dic-28,,
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/BuyingPartner/purchasedBy/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-28
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/OriginatingPartner/shipFrom/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-28
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/SellingPartner/soldBy/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-28
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ReceivingPartner/shipto/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-28
+dic,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/transportedBy/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-28,,,
+dic,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-28,,,
+dic,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-28,,,
+dic-30,Request,  The business document is a request for a business action to be performed by a partner.,,,
+end-dic-30,,,,,
+dic,/Pip3B2AdvanceShipmentNotification/GlobalDocumentFunctionCode,dic-30,,,
+dic-31,Receiver,  The intended recipient of artifacts or business information. The Receiver may verify receipt if prescribed.,,,
+end-dic-31,,,,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/BuyingPartner/purchasedBy/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/OriginatingPartner/shipFrom/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/SellingPartner/soldBy/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ReceivingPartner/shipto/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/transportedBy/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/BuyingPartner/purchasedBy/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/BuyingPartner/purchasedBy/PartnerDescription/BusinessDescription/RegionalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/OriginatingPartner/shipFrom/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/OriginatingPartner/shipFrom/PartnerDescription/BusinessDescription/RegionalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/SellingPartner/soldBy/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/SellingPartner/soldBy/PartnerDescription/BusinessDescription/RegionalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ReceivingPartner/shipto/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ReceivingPartner/shipto/PartnerDescription/BusinessDescription/RegionalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/transportedBy/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/transportedBy/PartnerDescription/BusinessDescription/RegionalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/RegionalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/RegionalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/BuyingPartner/purchasedBy/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/BuyingPartner/purchasedBy/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/OriginatingPartner/shipFrom/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/OriginatingPartner/shipFrom/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/SellingPartner/soldBy/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/SellingPartner/soldBy/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ReceivingPartner/shipto/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ReceivingPartner/shipto/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/ManufacturerProfile/countryOfOrigin/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/ManufacturerProfile/countryOfOrigin/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/transportedBy/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/transportedBy/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/BuyingPartner/purchasedBy/PartnerDescription/BusinessDescription/RegionalBusinessTaxIdentifier/regionName/FreeFormText,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/BuyingPartner/purchasedBy/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/BuyingPartner/purchasedBy/PartnerDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/BuyingPartner/purchasedBy/PartnerDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/BuyingPartner/purchasedBy/PartnerDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/BuyingPartner/purchasedBy/PartnerDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/BuyingPartner/purchasedBy/PartnerDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/BuyingPartner/purchasedBy/PartnerDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/OriginatingPartner/shipFrom/PartnerDescription/BusinessDescription/RegionalBusinessTaxIdentifier/regionName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/OriginatingPartner/shipFrom/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/OriginatingPartner/shipFrom/PartnerDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/OriginatingPartner/shipFrom/PartnerDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/OriginatingPartner/shipFrom/PartnerDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/OriginatingPartner/shipFrom/PartnerDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/OriginatingPartner/shipFrom/PartnerDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/OriginatingPartner/shipFrom/PartnerDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/SellingPartner/soldBy/PartnerDescription/BusinessDescription/RegionalBusinessTaxIdentifier/regionName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/SellingPartner/soldBy/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/SellingPartner/soldBy/PartnerDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/SellingPartner/soldBy/PartnerDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/SellingPartner/soldBy/PartnerDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/SellingPartner/soldBy/PartnerDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/SellingPartner/soldBy/PartnerDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/SellingPartner/soldBy/PartnerDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ReceivingPartner/shipto/PartnerDescription/BusinessDescription/RegionalBusinessTaxIdentifier/regionName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ReceivingPartner/shipto/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ReceivingPartner/shipto/PartnerDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ReceivingPartner/shipto/PartnerDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ReceivingPartner/shipto/PartnerDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ReceivingPartner/shipto/PartnerDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ReceivingPartner/shipto/PartnerDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ReceivingPartner/shipto/PartnerDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/shipmentChangeReason/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/ProductIdentification/PartnerProductIdentification/revisionIdentifier/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/ProductIdentification/PartnerProductIdentification/revisionIdentifier/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/transportedBy/PartnerDescription/BusinessDescription/RegionalBusinessTaxIdentifier/regionName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/transportedBy/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/transportedBy/PartnerDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/transportedBy/PartnerDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/transportedBy/PartnerDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/transportedBy/PartnerDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/transportedBy/PartnerDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/transportedBy/PartnerDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/RegionalBusinessTaxIdentifier/regionName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/RegionalBusinessTaxIdentifier/regionName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/BuyingPartner/purchasedBy/PartnerDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/OriginatingPartner/shipFrom/PartnerDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/SellingPartner/soldBy/PartnerDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ReceivingPartner/shipto/PartnerDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/transportedBy/PartnerDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/BuyingPartner/purchasedBy/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/BuyingPartner/purchasedBy/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/OriginatingPartner/shipFrom/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/OriginatingPartner/shipFrom/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/SellingPartner/soldBy/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/SellingPartner/soldBy/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ReceivingPartner/shipto/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ReceivingPartner/shipto/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/transportedBy/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/transportedBy/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/BuyingPartner/purchasedBy/PartnerDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/OriginatingPartner/shipFrom/PartnerDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/SellingPartner/soldBy/PartnerDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ReceivingPartner/shipto/PartnerDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/transportedBy/PartnerDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/BuyingPartner/purchasedBy/PartnerDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/OriginatingPartner/shipFrom/PartnerDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/SellingPartner/soldBy/PartnerDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ReceivingPartner/shipto/PartnerDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/transportedBy/PartnerDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/GlobalCarrierCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/GlobalIncotermsCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/GlobalShipmentChangeDispositionCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/GlobalShipmentModeCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/GlobalShippingServiceLevelCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/numberOfShippingContainers/CountableAmount,PositiveInteger,1,15,9(15)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/numberOfItemPackages/CountableAmount,PositiveInteger,1,15,9(15)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/numberOfItemPackages/CountableAmount,PositiveInteger,1,15,9(15)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/shipmentIdentifier/ProprietaryReferenceIdentifier,String,1,255,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShipmentTransportationEvent/confirmedEvent/TransportationEvent/DateStamp,Date,9,9,9(8)X
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShipmentTransportationEvent/revisedScheduledEvent/TransportationEvent/DateStamp,Date,9,9,9(8)X
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShipmentTransportationEvent/scheduledEvent/TransportationEvent/DateStamp,Date,9,9,9(8)X
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/DocumentSubLineLotShipReference/LotShipReference/expiryDate/DateStamp,Date,9,9,9(8)X
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/ManufacturerProfile/manufactureDate/DateStamp,Date,9,9,9(8)X
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/DocumentSubLineLotShipReference/LotShipReference/expiryDate/DateStamp,Date,9,9,9(8)X
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/ManufacturerProfile/manufactureDate/DateStamp,Date,9,9,9(8)X
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShipmentTransportationEvent/confirmedEvent/TransportationEvent/GlobalTransportEventCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShipmentTransportationEvent/revisedScheduledEvent/TransportationEvent/GlobalTransportEventCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShipmentTransportationEvent/scheduledEvent/TransportationEvent/GlobalTransportEventCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/containerPhysicalDimension/PhysicalDimension/HeightDimension,Real,1,15,9(13)V99
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/containerPhysicalDimension/PhysicalDimension/HeightDimension,Real,1,15,9(13)V99
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/containerPhysicalDimension/PhysicalDimension/LengthDimension,Real,1,15,9(13)V99
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/containerPhysicalDimension/PhysicalDimension/LengthDimension,Real,1,15,9(13)V99
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/containerPhysicalDimension/PhysicalDimension/VolumeDimension,Real,1,15,9(13)V99
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/containerPhysicalDimension/PhysicalDimension/VolumeDimension,Real,1,15,9(13)V99
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/containerPhysicalDimension/PhysicalDimension/WeightDimension,Real,1,15,9(13)V99
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/containerPhysicalDimension/PhysicalDimension/WeightDimension,Real,1,15,9(13)V99
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/containerPhysicalDimension/PhysicalDimension/WidthDimension,Real,1,15,9(13)V99
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/containerPhysicalDimension/PhysicalDimension/WidthDimension,Real,1,15,9(13)V99
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/GlobalPackageTypeCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/GlobalPackageTypeCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/shippingContainerIdentifier/ProprietarySerialIdentifier,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/ManufacturerProfile/productSerialIdentifier/ProprietarySerialIdentifier,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/shippingContainerIdentifier/ProprietarySerialIdentifier,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/ManufacturerProfile/productSerialIdentifier/ProprietarySerialIdentifier,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/DocumentSubLineLotShipReference/GlobalDocumentReferenceTypeCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/DocumentSubLineLotShipReference/GlobalDocumentReferenceTypeCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/DocumentSubLineLotShipReference/LineNumber,String,1,6,X(6)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/DocumentSubLineLotShipReference/subLineNumber/LineNumber,String,1,6,X(6)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/DocumentSubLineLotShipReference/LineNumber,String,1,6,X(6)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/DocumentSubLineLotShipReference/subLineNumber/LineNumber,String,1,6,X(6)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/DocumentSubLineLotShipReference/LotShipReference/GlobalProductUnitOfMeasureCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/GlobalProductUnitOfMeasureCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/DocumentSubLineLotShipReference/LotShipReference/GlobalProductUnitOfMeasureCode,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/GlobalProductUnitOfMeasureCode,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/DocumentSubLineLotShipReference/LotShipReference/lotQuantity/ProductQuantity,Real,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/DocumentSubLineLotShipReference/LotShipReference/shippedLotQuantity/ProductQuantity,Real,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/DocumentSubLineLotShipReference/requestedQuantity/ProductQuantity,Real,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/shippedQuantity/ProductQuantity,Real,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/DocumentSubLineLotShipReference/LotShipReference/lotQuantity/ProductQuantity,Real,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/DocumentSubLineLotShipReference/LotShipReference/shippedLotQuantity/ProductQuantity,Real,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/DocumentSubLineLotShipReference/requestedQuantity/ProductQuantity,Real,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/shippedQuantity/ProductQuantity,Real,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/DocumentSubLineLotShipReference/LotShipReference/ProprietaryLotIdentifier,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/traceIdentifier/ProprietaryLotIdentifier,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/DocumentSubLineLotShipReference/LotShipReference/ProprietaryLotIdentifier,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/traceIdentifier/ProprietaryLotIdentifier,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/DocumentSubLineLotShipReference/ProprietaryDocumentIdentifier,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/DocumentSubLineLotShipReference/ProprietaryDocumentIdentifier,String,1
+type,/Pip3B2AdvanceShipmentNotification/thisDocumentIdentifier/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/ExportLicense/NationalExportControlClassificationCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/ExportLicense/NationalExportControlClassificationCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/HazardousMaterialDescription/NationalHazardousMaterialUnitedNationsClassificationCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/HazardousMaterialDescription/NationalHazardousMaterialUnitedNationsClassificationCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/isContainsHazardousMaterial/AffirmationIndicator,String,2,3,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/isContainsHazardousMaterial/AffirmationIndicator,String,2,3,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/NationalHarmonizedTariffScheduleCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/NationalHarmonizedTariffScheduleCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/ProductIdentification/GlobalProductIdentifier,String,14,14,9(14)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/ProductIdentification/GlobalProductIdentifier,String,14,14,9(14)
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/BuyingPartner/purchasedBy/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/OriginatingPartner/shipFrom/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/SellingPartner/soldBy/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ReceivingPartner/shipto/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/ProductIdentification/PartnerProductIdentification/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/ProductIdentification/PartnerProductIdentification/GlobalPartnerClassificationCode,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/transportedBy/PartnerDescription/GlobalPartnerClassificationCode,String,1
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/ShippingContainerItem/ProductIdentification/PartnerProductIdentification/ProprietaryProductIdentifier,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ShippingContainer/SubContainer/ShippingContainer/ShippingContainerItem/ProductIdentification/PartnerProductIdentification/ProprietaryProductIdentifier,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/TrackingReference/GlobalTrackingReferenceTypeCode,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/TrackingReference/ProprietaryShipmentTrackingIdentifier,String,1
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/BuyingPartner/purchasedBy/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/OriginatingPartner/shipFrom/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/SellingPartner/soldBy/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/ReceivingPartner/shipto/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1
+type,/Pip3B2AdvanceShipmentNotification/AdvancedShipmentNotification/Shipment/transportedBy/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1
+type,/Pip3B2AdvanceShipmentNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1
+type,/Pip3B2AdvanceShipmentNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/GlobalDocumentFunctionCode,String,1,,
+type,/Pip3B2AdvanceShipmentNotification/thisDocumentGenerationDateTime/DateTimeStamp,DateTime,13,20,9(8)X9(6)V9(3)X

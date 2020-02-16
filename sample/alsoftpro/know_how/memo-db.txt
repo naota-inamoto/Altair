@@ -1,0 +1,14 @@
+
+postgresql
+
+\i c:/altair/sample/alsoftpro/sql/postgresql/drop_table.sql
+
+\i c:/altair/sample/alsoftpro/sql/postgresql/create_table.sql
+
+
+mysql
+
+source c:/altair/sample/alsoftpro/sql/postgresql/drop_table.sql
+
+source c:/altair/sample/alsoftpro/sql/postgresql/create_table.sql
+

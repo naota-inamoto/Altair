@@ -1,0 +1,4 @@
+count	total	average	class	func
+	(msec)	(msec)		
+1	0	0	Test	init
+1	43633	43633	Test	test_parse

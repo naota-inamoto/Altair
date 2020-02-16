@@ -1,0 +1,188 @@
+
+split_ident ;
+
+indent+ "    " "{" ;
+-indent "}" ;
+post newline indent "{" ;
+post newline indent "}" ;
+post newline indent ";" ;
+post space "," ;
+
+post space <fd:4> ;
+pre  space <sent_1:2> ;
+post space <sent_1:2> ;
+
+pre  space <or_n:1> ;
+post space <or_n:1> ;
+pre  space <and_n:1> ;
+post space <and_n:1> ;
+pre  space <last_eq:1> ;
+post space <last_eq:1> ;
+pre  space <eq:1> ;
+post space <eq:1> ;
+pre  space <ne:1> ;
+post space <ne:1> ;
+pre  space <ge:1> ;
+post space <ge:1> ;
+pre  space <gt:1> ;
+post space <gt:1> ;
+pre  space <le:1> ;
+post space <le:1> ;
+pre  space <lt:1> ;
+post space <lt:1> ;
+
+indent+ "    " <rule:2> ;
+-indent <rule:4> ;
+pre  space <rule:2> ;
+post newline indent <rule:2> ;
+pre  space <rule:4> ;
+post newline indent <rule:4> ;
+post newline indent <query:2> ;
+pre  space <query:2> ;
+post newline indent <goal_n:1> ;
+
+pre  space <arc_n:1> ;
+post space <arc_n:1> ;
+post space <arc_n:4> ;
+pre  space <arc_n:6> ;
+pre  newline indent <arc_n:6> ;
+
+pre  newline indent <before:1> ;
+pre  space <before:2> ;
+post space <before:2> ;
+pre  space <before_n:1> ;
+post newline indent <before_n:1> ;
+pre  newline indent <before:6> ;
+
+pre  space <after:2> ;
+post space <after:2> ;
+pre  space <after_n:1> ;
+post newline indent <after_n:1> ;
+pre  newline indent <after:6> ;
+
+post space <sub_graph:2> ;
+pre  space <sub_graph:4> ;
+
+pre  space <cwh:2> ;
+post space <cwh:2> ;
+post newline indent <cwh_gls_n:1> ;
+pre  newline indent <cwh:6> ;
+
+pre  space <twh:2> ;
+post space <twh:2> ;
+post newline indent <twh_gls_n:1> ;
+pre  newline indent <twh:6> ;
+
+pre  space <fwh:2> ;
+post space <fwh:2> ;
+post newline indent <fwh_gls_n:1> ;
+pre  newline indent <fwh:6> ;
+
+<program> = program { p_fd <func_def> | syn_unit <syntax_unit> | prolog <prolog> }* EOF ;
+
+<func_def> = fd <ident> "(" { a_1 <ident> { a_n "," <ident> }* }? ")" { para <para> | prog <prog> };
+
+<syntax_unit> = syntax_unit <ident> ":" <list_exp> "attr_grmr"   { ag_prog "{" <prolog> "}" | ag_stat <stat> } ;
+
+/* -------- Prolog-Like List Processing -------- */
+<para> = para_1 "{" { para_n <sent> }* "}" ;
+<sent> = sent_1 <cond> "->" { s_exp <cond> ";" | s_para { sent_n <cond> "," }? <para> } ;
+<cond>  = cond_1 <or_exp> { cond_n "," <or_exp> }* ;
+
+/* -------- General Program -------- */
+<prog> = prog_2 "prog" <stat> ;
+<stat> = block <block_stat> | if <if_stat> | return <return> | while <while_stat> |
+         for_range <for_range_stat> | for_list <for_list_stat> |
+         for <for_stat> | inv_for <inv_for_stat> | switch <switch_stat> |
+         exp <exp_stat> ;
+<block_stat>     = block_2 "{" { block_n <stat> }* "}" ;
+<if_stat>        = if_2 "if" "(" <exp> ")" <stat> { if_else "else" <stat> }? ;
+<while_stat>     = while_2 "while" "(" <exp> ")" <stat> ;
+<for_range_stat> = for_range_2 "for" <ident> "in" "[" <add_exp> ".." <add_exp> "]" <stat> ;
+<for_list_stat>  = for_list_2  "for" <ident> "in" <exp>                            <stat> ;
+<for_stat>       = for_2 "for" "(" <exp> ")" <stat> ;
+<inv_for_stat>   = inv_for_2 "inv_for" "(" <exp> ")" <stat> ;
+<switch_stat>    = switch_2 "switch" "(" <exp> ")" "{" { case  "case" <exp> ":" { case_n <stat> }* }* "}" ;
+<return>         = ret "return" { ret_exp <exp> }? ";" ;
+<exp_stat>       = exp_2 <exp> ";" ;
+
+/* -------- General Expression -------- */
+<exp>      = exp_1 <asgn_exp> ;
+<asgn_exp> = asgn_1 { asgn_n <var> "=" !'=' }* <or_exp> ;
+<or_exp>   = or_1  <and_exp> { or_n  "||" <and_exp> }* ;
+<and_exp>  = and_1 <cmp_exp> { and_n "&&" <cmp_exp> }* ;
+<cmp_exp> = cmp_1 <list_exp> { cmp_n <cmp_op> <list_exp> }? ;
+<cmp_op>  = last_eq "===" | eq "==" | ne "!=" | ge ">=" | gt ">" | le "<=" | lt "<" ;
+
+<list_exp>  = ls_1 "(" <list_elem> { ls_n "," <list_elem>  }* ")" | prim <add_exp>  ;
+<list_elem> = t <list_exp> "..." | wc_t "..." | e <list_exp> ;
+<add_exp>  = add_1 <mul_exp>  { add_n { add "+" | sub "-" } <mul_exp>  }* ;
+<mul_exp>  = mul_1 <prim_exp> { mul_n { mul "*" | div "/" !"-" | mod "%" } <prim_exp> }* ;
+<prim_exp> = null "null" | true "true" | brk "break" | cont "continue" | next "next" |
+             const_i <integer> | const_s <string> | neg "-" <mul_exp> | not "!" <mul_exp> | func <func_exp> |
+             pre_inc "++" <var> | pre_dec "--" <var> | post_inc <var> "++" | post_dec <var> "--" |
+             variable <var> | syntax_var <syn_var> | braket "(" <exp> ")" | wc_e "*" ;
+<func_exp> = func_exp <ident> "(" { arg_1 <exp> { arg_n "," <exp> }* }? ")" ;
+<var> = var <ident> | syn_ret "$$" | syn_loc <syn_loc> | syn_gen <syn_gen> | syn_tree <syn_tree> |
+        depth <depth> | count <count> ;
+
+<syn_var>  = syn_var "$" { syn_idx "[" <integer> "]" }+ ;
+<syn_loc>  = regex \$[1-9]  string ;
+<syn_gen>  = regex \$gen    string ;
+<syn_tree> = regex \$tree   string ;
+<depth>    = regex \$depth  string ;
+<count>    = regex \$count  string ;
+
+<ident>   = regex [A-Za-z_\M][A-Za-z0-9_\M]* string ;
+<integer> = regex \-?[0-9]+ integer ;
+<string>  = regex "([^\\"]|\\.)*" quote_string ;
+
+// <comment_1> = comment /\*([^\*]|\*[^/])*\*/ ;
+// <comment_2> = comment //[^\n]*\n ;
+<comment_1> = comment_begin_end "/*" "*/" ;
+<comment_2> = comment_until_newline "//" ;
+
+/* -------- GraphData-Extended Prolog -------- */
+<prolog> = pro { rule <goal> ":-" { body <goals> }? "." | query <goals> "." }+ ;
+<goals> = goals <goal> { goal_n "," <goal> }* ;
+<goal>  = pred_not "not" "(" <goals> ")" |
+          next_if_false "next_if_false" "(" <goals> ")" |
+
+          pm_rep  "pm_rep"   "(" <list_exp> { pmr_arg_n "," <list_exp> }* ")"
+            { bace <before> <after> <common> <tail> }+ <final> |
+
+          cmp_goal   <list_exp> <cmp_op> <grph_exp> |
+          pred_goal { cut "!" }? <ident> "(" <list_exp> { pred_arg_n "," <list_exp> }* ")" ;
+
+/* -------- (Tree Graph Conversion) -------- */
+<grph_exp> = grph <list_exp> {
+                   null_a "[" "-/" <list_exp> "/->" "null" "]" |
+                   arc_n  "[" "-/" <list_exp> "/->" <grph_exp> "]" 
+             }* ;
+
+/* -------- (Sub-Graph PatturnMatch and Replacement) -------- */
+<before>  = before "before" ":=" "{" <sub_graph> { before_n "," <sub_graph> }* "}" ;
+<after>   = after  "after"  ":=" "{" <sub_graph> { after_n  "," <sub_graph> }* "}" ;
+
+<common>  = cwh "common" ":=" "{" "where" { cwh_gls_n { cwh_gls <goals> }? "." }+ "}" ;
+<tail>    = twh "tail"   ":=" "{" "where" { twh_gls_n { twh_gls <goals> }? "." }+ "}" ;
+<final>   = fwh "final"  ":=" "{" "where" { fwh_gls_n { fwh_gls <goals> }? "." }+ "}" ;
+
+<sub_graph> = invariant "invariant" |
+              opt_grph "?" <integer> <sub_graph> |
+              blk_grph "[[[" <integer> <sub_graph> { blk_grph_n "," <sub_graph> }* "]]]" <integer> |
+              rpt_grph "<<<" <integer> <sub_graph> { rep_grph_n "," <sub_graph> }* ">>>" <integer> |
+              chc_grph  "[%" <integer> <sub_graph> { chc_grph_n "," <sub_graph> }* "]%" <integer> |
+              chc_before "%" <integer> <goals> "." |
+              chc_after  "%" <integer> <sub_graph> { chs_after_n "," <sub_graph> }* "." |
+              sub_graph <node>  {
+                  rel_1_1       "-/" <arc>  "/->" |
+                  rel_1_n       "-/" <arc>  "/=>" |
+                  inv_rel_1_1  "<-/" <arc>  "/-"  |
+                  inv_rel_1_n  "<-/" <arc>  "/="
+              } <node>  |
+              node_only <node> ;
+
+<node> = node <ident> { nv ":" <list_exp> }? !"(" | node_v <list_exp> ;
+<arc>  = arc  <ident> { av ":" <list_exp> }? !"(" | arc_v  <list_exp> ;
+

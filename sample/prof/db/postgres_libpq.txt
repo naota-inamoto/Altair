@@ -1,0 +1,12 @@
+total = 46811
+count	total	average	class	func
+	(msec)	(msec)		
+1	21	21	SQLTest	connect
+204	1936	9	SQLTest	commit
+1	141	141	SQLTest	create_table
+1	44	44	SQLTest	drop_table
+1	45045	45045	SQLTest	insert20000
+200	45039	225	SQLTest	insert100
+1	119	119	SQLTest	select200
+1	108	108	SQLTest	delete200
+1	1329	1329	SQLTest	delete19800

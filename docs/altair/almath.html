@@ -1,0 +1,97 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Altair Symbolic Formula Manipulations</TITLE>
+</HEAD>
+
+<BODY>
+<H2>数式処理の内部表現と組み込み関数です。</H2>
+
+第0.43版 2016年10月23日<BR>
+第0.39版 2010年 9月23日<BR>
+
+<HR>
+<UL>
+<LI><A HREF="#reps">内部表現</A>
+<LI><A HREF="#add_poly">math("add_poly", tl1, tl2)</A>
+<LI><A HREF="#sub_poly">math("sub_poly", tl1, tl2)</A>
+<LI><A HREF="#mul_poly">math("mul_poly", tl1, tl2)</A>
+<LI><A HREF="#divmod_poly">math("divmod_poly", tl1, tl2)</A>
+<LI><A HREF="#divmod_poly2">math("divmod_poly2", tl1, tl2, vf, v, l)</A>
+<LI><A HREF="#degree_poly">math("degree_poly", tl, vf, v, l)</A>
+<LI><A HREF="#coef_poly">math("coef_poly", tl, vf, v, l, d)</A>
+<LI><A HREF="#normalize">math("normalize", tl)</A>
+<LI><A HREF="#normalize2">math("normalize2", tl1, tl2)</A>
+<LI><A HREF="#normalize3_var">math("normalize3_var", vl1, vl2)</A>
+<LI><A HREF="#normalize3_func">math("normalize3_func", fl1, fl2)</A>
+<LI><A HREF="#to_gfp_poly">math("to_gfp_poly", tl, mod)</A>
+<LI><A HREF="#from_gfp_poly">math("from_gfp_poly", tl)</A>
+</UL>
+
+<HR>
+<H3><A NAME="reps">内部表現</A></H3>
+<PRE>
+ &lt;A_list&gt; = &lt;rat&gt; | &lt;poly&gt;
+ &lt;rat&gt; = ("rat", &lt;ploy&gt;, &lt;poly&gt;)
+ &lt;poly&gt; = ("poly", &lt;term_list&gt;, &lt;opt&gt;) // &lt;opt&gt; is for extension
+ &lt;term_list&gt; = (&lt;term&gt;, ...)
+ &lt;term&gt; = ((&lt;const&gt;, &lt;const&gt;), &lt;var_list&gt;, &lt;func_list&gt;)
+ &lt;var_list&gt;  = (&lt;var&gt;, ...)  // order of &lt;var&gt;  is order of strcmp of &lt;name&gt;
+ &lt;func_list&gt; = (&lt;func&gt;, ...) // order of &lt;func&gt; is order of strcmp of &lt;name&gt;
+ &lt;var&gt; = ("var", &lt;name&gt;, &lt;index_list&gt;, &lt;degree&gt;)
+ &lt;index_list&gt; = (&lt;index-1&gt;, ... , &lt;index-k&gt;)   // k >=0
+ &lt;func&gt; = ("func", &lt;name&gt;, &lt;A_list_list&gt;, &lt;degree&gt;)
+ &lt;A_list_list&gt; = (&lt;A-list-1&gt;, ..., &lt;A-list-k&gt;) // k >=0, order of &lt;A_list&gt; is order of listcmp of &lt;A_list&gt;
+ &lt;index&gt;  // integer of 0 or more, however, variable of 1st power without affixing character OK
+ &lt;degree&gt; // integer
+</PRE>
+
+<H3><A NAME="add_poly">math("add_poly", tl1, tl2)</A></H3>
+term_list表現で、多項式tl1と多項式tl2の和の多項式を返します。
+
+<H3><A NAME="sub_poly">math("sub_poly", tl1, tl2)</A></H3>
+term_list表現で、多項式tl1と多項式tl2の差の多項式を返します。
+
+<H3><A NAME="mul_poly">math("mul_poly", tl1, tl2)</A></H3>
+term_list表現で、多項式tl1と多項式tl2の積の多項式を返します。
+
+<H3><A NAME="divmod_poly">math("divmod_poly", tl1, tl2)</A></H3>
+term_list表現で、多項式tl1と多項式tl2の商をdiv、余りをmodとするとき、<BR>
+(div, mod)を返します。
+
+<H3><A NAME="divmod_poly2">math("divmod_poly2", tl1, tl2, vf, v, l)</A></H3>
+term_list表現で、多項式tl1と多項式tl2の商をdiv、余りをmodとするとき、<BR>
+変数はたは関数情報(vf, v, l)に着目して、(div, mod)を返します。
+
+<H3><A NAME="degree_poly">math("degree_poly", tl, vf, v, l)</A></H3>
+(vf,v,l)で指定される変数または関数について、term_list表現の多項式tlの次数を返します。<BR>
+
+<H3><A NAME="coef_poly">math("coef_poly", tl, vf, v, l, d)</A></H3>
+(vf,v,l)で指定される次数dの変数または関数について、term_list表現の多項式tlの係数を返します。<BR>
+
+<H3><A NAME="normalize">math("normalize", tl)</A></H3>
+term_list表現で、多項式tlの単項の共通因子を除いた多項式を返します。<BR>
+最大公約多項式の取得の時等で使用します。
+
+<H3><A NAME="normalize2">math("normalize2", tl1, tl2)</A></H3>
+term_list表現で、多項式tl1と多項式tl2の単項の共通因子を除いた多項式をペアで返します。<BR>
+有理式の分母と分子の共通項の削除等に使用します。
+
+<H3><A NAME="normalize3_var">math("normalize3_var", vl1, vl2)</A></H3>
+var_list表現の変数リストvl1からとvar_list表現の変数リストvl2を<BR>
+除いたvar_list表現の変数リストを返します。
+
+<H3><A NAME="normalize3_func">math("normalize3_func", fl1, fl2)</A></H3>
+func_list表現の変数リストfl1からとfunc_list表現の変数リストfl2を<BR>
+除いたfunc_list表現の変数リストを返します。
+
+<H3><A NAME="to_gfp_poly">math("to_gfp_poly", tl, mod)</A></H3>
+term_list表現の多項式tlの係数を素数modを法とする有限体に変えた多項式を返します。<BR>
+多項式tlは整係数である必要があります。
+
+<H3><A NAME="from_gfp_poly">math("from_gfp_poly", tl)</A></H3>
+係数を素数modを法とする有限体に変えた多項式を係数を整数体に戻した多項式を返します。<BR>
+
+<HR>
+</BODY>
+</HTML>

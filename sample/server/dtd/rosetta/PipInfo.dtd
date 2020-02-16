@@ -1,0 +1,26 @@
+
+<!ELEMENT PipInfo (Target, Id, Message*)>
+
+<!ELEMENT Target (#PCDATA)>
+<!ELEMENT Id (#PCDATA)>
+
+<!ELEMENT Message (MsgType, MessageVersion, DTDfilename, MessageCode,
+    FromRoleClass, FromService, ToRoleClass, ToService, TransactionCode, NextAction,
+    Indicator, ProcessCode, ProcessVersion)>
+
+<!ELEMENT MsgType (#PCDATA)>
+<!ELEMENT MessageVersion (#PCDATA)>
+<!ELEMENT DTDfilename (#PCDATA)>
+<!ELEMENT MessageCode (#PCDATA)>
+
+<!ELEMENT FromRoleClass (#PCDATA)>
+<!ELEMENT FromService (#PCDATA)>
+<!ELEMENT ToRoleClass (#PCDATA)>
+<!ELEMENT ToService (#PCDATA)>
+<!ELEMENT TransactionCode (#PCDATA)>
+<!ELEMENT NextAction (#PCDATA)>
+
+<!ELEMENT Indicator (#PCDATA)>
+<!ELEMENT ProcessCode (#PCDATA)>
+<!ELEMENT ProcessVersion (#PCDATA)>
+

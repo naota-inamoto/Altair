@@ -1,0 +1,42 @@
+$END_LIB
+TEXT
+AlObject
+class Ping
+end_class
+$END_CLASS
+TEXT
+AlObject
+class Ping
+member
+public: static void main();
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class Ping
+member
+public: static void main();
+body
+{
+	var string host, addr_str;
+	var list addr, res;
+	host = al_ask("host?", "localhost");
+	if (addr = al_socket("gethostbyname", host, null, null)) {
+	} else {
+		al_print("can not get IP address for " + (string)host + "\n");
+		return;
+	}
+	addr_str = al_socket("address_string", addr, null, null);
+	al_print("IP address = " + (string)addr_str + "\n");
+	res = al_socket("ping", addr, null, null);
+	if (res == null || al_is_type(res, "string")) {
+		al_print((string)res + "\n");
+		return;
+	} else {
+	}
+	al_print("read " + (string)res.head + " bytes\n");
+	al_print("time " + (string)res.tail.head + " msec\n");
+}
+end_body
+end_class
+$END_BODY

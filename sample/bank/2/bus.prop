@@ -1,0 +1,16 @@
+begin_broker
+	command:	"altair -file orb.apr -class ORB -method start_deamon"
+	directory:	"."
+	show:		true
+	timeout:	10
+end_broker
+
+begin_tool
+	name:		"Bank"
+	command:	"altair -file AccountServer.apr -class AccountServer -method main"
+	directory:	"."
+	show:		true
+	timeout:	10
+end_tool
+
+end

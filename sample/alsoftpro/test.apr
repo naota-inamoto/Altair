@@ -1,0 +1,5514 @@
+$END_LIB
+TEXT
+AlObject
+class FileUtility
+class FileItr
+end_class
+class RevFileItr
+end_class
+end_class
+TEXT
+AlObject
+class TP
+end_class
+TEXT
+AlObject
+class TP2
+end_class
+TEXT
+AlObject
+class TP3
+end_class
+TEXT
+AlObject
+class ParGenConv
+end_class
+$END_CLASS
+TEXT
+AlObject
+class FileUtility
+member
+public: static string tempFile();
+member
+public: static list readBinary(string filename);
+member
+public: static string readString(string filename);
+member
+public: static void writeBinary(string filename, list bin);
+member
+public: static void writeBinary(string filename, list bin, integer from, integer size);
+member
+public: static void writeBinary(string filename, string str);
+member
+public: static void appendBinary(string filename, list bin);
+member
+public: static void appendBinary(string filename, list bin, integer from, integer size);
+member
+public: static void appendBinary(string filename, string str);
+member
+public: static void writeString(string filename, string str);
+member
+public: static void appendString(string filename, string str);
+member
+public: static list readGraphData(string filename);
+member
+public: static void writeGraphData(string filename, list data);
+member
+public: static list readTreeData(string filename);
+member
+public: static void writeTreeData(string filename, list data);
+member
+public: static void remove(string dir);
+member
+public: static void makeReadOnly(string dir);
+member
+public: static void makeWritable(string dir);
+class FileItr
+member
+public: void Reset(string root);
+member
+public: void Reset(string root, string root2);
+member
+public: list Next();
+member
+public: list stack;
+member
+public: string root;
+member
+public: string root2;
+member
+public: string path;
+member
+public: string name;
+member
+public: string abs_path;
+member
+public: string abs_path2;
+member
+public: list is_dir;
+end_class
+class RevFileItr
+member
+public: void Reset(string root);
+member
+public: void Reset(string root, string root2);
+member
+public: list Next();
+member
+public: list stack;
+member
+public: string root;
+member
+public: string root2;
+member
+public: string path;
+member
+public: string name;
+member
+public: string abs_path;
+member
+public: string abs_path2;
+member
+public: list is_dir;
+end_class
+end_class
+TEXT
+AlObject
+class TP
+member
+public: static void compile_syntax();
+member
+public: static void debug_compile_syntax();
+member
+public: static void parse();
+member
+public: static void simple();
+member
+public: static void test();
+member
+public: static void debug_test();
+member
+public: static void test2();
+member
+public: static void full_parse();
+member
+public: static void debug_parse();
+member
+public: static void dump_parse_tree();
+member
+public: static void dump_full_parse_tree();
+member
+public: static void generate();
+member
+public: static void dump_syntax();
+member
+protected: static list compiled_syntax;
+member
+protected: static list parse_tree;
+member
+public: static void pro_lisp();
+member
+public: static void cplusplus_main();
+member
+public: static void java_main();
+member
+public: static void ruby_main();
+member
+public: static void cplusplus_altair();
+member
+public: static void java_faqnavi();
+member
+public: static void jsp_faqnavi();
+member
+public: static void ruby_algebra();
+member
+public: static void ruby_error_file();
+member
+public: static void dump_algebra();
+member
+public: static void model_dump_algebra();
+member
+public: static void ruby_site_ruby();
+member
+public: static void ruby_error();
+member
+public: static void prolog_parse();
+member
+protected: list compile_syntax(string filename);
+member
+protected: void iterate(string dir);
+member
+protected: void dump_iterate(string dir);
+member
+protected: void model_dump_iterate(string dir);
+member
+protected: list parse(string filename, string name);
+member
+protected: list parse_full(string filename, string name);
+member
+protected: list dump_parse(string filename, string name);
+member
+protected: list model_dump(string filename, string name);
+member
+protected: list parse_and_interpret(string filename, string name);
+member
+public: static void debug_cplusplus();
+member
+public: static void debug_java();
+member
+public: static void debug_jsp();
+member
+public: static void debug_ruby();
+member
+public: static void debug_plisp();
+member
+public: static void debug_prolog();
+member
+public: static void debug_sql();
+member
+protected: list debug_parse(string filename, string out_filename, integer lno);
+member
+protected: list debug_parse(string def_name, string filename, string out_filename, integer lno);
+member
+protected: list syntax;
+member
+protected: list interp_syntax;
+member
+protected: list interp_tree;
+member
+protected: list env;
+member
+protected: string msg;
+member
+protected: string file_ext;
+member
+public: static void ruby_rule_dump();
+member
+public: static void java_rule_dump();
+member
+public: static void interp_test_slow();
+member
+public: static void interp_test_fast();
+member
+public: static void interp_test_fast_rel();
+member
+public: static void tree_to_graph();
+member
+public: static void graph_to_tree();
+member
+public: static void tree_to_src();
+member
+public: static void dump_syntax_ids_ruby();
+member
+public: static void dump_syntax_ids_java();
+member
+public: static void dump_syntax_id_jsp();
+member
+public: static void dump_syntax_ids_sql();
+member
+public: static void dump_syntax_ids_altair();
+member
+public: static void dump_syntax_ids_ruby_no_attr();
+member
+public: static void check_mem();
+member
+public: static void dump_compiled_syntax();
+member
+public: static void format_config();
+member
+public: static void parse_leak_bug_fix();
+member
+public: static void improve_err_msg_debug_altair();
+member
+public: static void improve_err_msg_debug_ruby();
+end_class
+TEXT
+AlObject
+class TP2
+member
+public: static void ruby_ParGen();
+member
+public: static void ruby_ParGenConv();
+member
+public: static void ruby_algebra1();
+member
+public: static void ruby_algebra2();
+member
+public: static void java_ParGen();
+member
+public: static void java_ParGenConv();
+member
+public: static void java_faqnavi1();
+member
+public: static void java_faqnavi2();
+member
+public: static void jsp_ParGen();
+member
+public: static void jsp_ParGenConv();
+member
+public: static void jsp_faqnavi1();
+member
+public: static void jsp_faqnavi2();
+member
+public: static void altair_ParGen();
+member
+public: static void altair_ParGenConv();
+member
+public: static void altair_ParGenConvStd();
+member
+public: static void altair_sample1();
+member
+public: static void altair_sample2();
+member
+public: static void cplusplus_ParGen();
+member
+public: static void cplusplus_ParGenConv();
+member
+public: static void iterate1(ParGenConv pgc, string src_dir, string dst_dir, string fext);
+member
+public: static void iterate2(ParGenConv pgc, string src_dir, string dst_dir, string fext);
+member
+public: static void iterate1(string def_name, ParGenConv pgc, string src_dir, string dst_dir, string fext);
+member
+public: static void iterate2(string def_name, ParGenConv pgc, string src_dir, string dst_dir, string fext);
+member
+public: static void check_mem();
+member
+public: static void gc();
+member
+public: static void exec_plisp();
+member
+public: static void test();
+member
+public: static void insert_elem();
+member
+public: static void apply();
+end_class
+TEXT
+AlObject
+class TP3
+member
+public: static void exec_gdmanip();
+member
+public: static ParGenConv pgc;
+end_class
+TEXT
+AlObject
+class ParGenConv
+member
+public: void compile_syntax(string filename);
+member
+public: list syntax;
+member
+public: list system_syntax;
+member
+public: void parse_system(string filename);
+member
+public: void parse(string filename, string def_name, integer full, list debug);
+member
+public: void parse(file f, string def_name, integer full, list debug);
+member
+public: void generate(string filename, list spacing);
+member
+public: void generate(file f, list spacing);
+member
+public: list parse_tree;
+member
+public: void plisp_load(string filename);
+member
+public: void plisp_set_var(string name, list value);
+member
+public: list plisp_get_var(string name);
+member
+public: list plisp_call(string func_name, list arg_ls);
+member
+public: list prolog_exec();
+member
+public: void clear_query();
+member
+public: void clear_pred();
+member
+public: list env;
+member
+public: void prepare(string sys_syn_fn, string syn_fn);
+member
+public: ParGenConv copy();
+member
+public: void load_attr_grmr(string filename);
+member
+public: list attr_grmr;
+member
+public: void src_to_graph(string filename, string def_name);
+member
+public: void graph_to_src(string filename, string def_name);
+member
+public: list graph;
+member
+public: string ls_pred();
+member
+public: void clear_debug();
+member
+public: list debug_pred;
+member
+public: list debug_dump;
+member
+public: list debug_syn;
+member
+public: list debug_syn2;
+member
+public: list debug_syn3;
+member
+public: list debug_syntax_id;
+member
+public: list debug_syntax_id2;
+member
+public: list debug_syntax_id3;
+member
+public: integer time_load_attr_grmr;
+member
+public: integer time_parse;
+member
+public: integer time_tree_to_graph;
+member
+public: integer time_graph_to_tree;
+member
+public: integer time_generate;
+member
+public: void write_tree(string filename);
+member
+public: void write_graph(string filename);
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class FileUtility
+member
+public: static string tempFile();
+body
+{
+	var string dir;
+	dir = al_file_manip("tmp_dir", null, null);
+	return dir + "/" + al_file_manip("tmp_file", dir, null);
+}
+end_body
+member
+public: static list readBinary(string filename);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	var integer size;
+	var file in;
+	var list buffer;
+	if (al_file_manip("does_exist", filename, null)) {
+	} else {
+		ex.msg = "file '" + filename + "' not found.";
+		throw ex;
+	}
+	if (size = al_file_manip("get_size", filename, null)) {
+	} else {
+		ex.msg = "can't get file size of '" + filename + "'.";
+		throw ex;
+	}
+	if (in = al_file_open(filename, "rb")) {
+	} else {
+		ex.msg = "can't open read file '" + filename + "'.";
+		throw ex;
+	}
+	buffer = al_misc("binary", size, null);
+	if (al_file_read(in, al_list3(buffer, 0, size))) {
+		ex.msg = "file read error '" + (string)filename + "'.";
+		throw ex;
+	} else {
+	}
+	return buffer;
+}
+end_body
+member
+public: static string readString(string filename);
+body
+{
+	var list buffer;
+	var integer size;
+	var string str;
+	buffer = readBinary(filename);
+	size = al_misc("binary_size", buffer, null);
+	str = al_misc("binary_to_string", al_list3(buffer, 0, size), null);
+	return str;
+}
+end_body
+member
+public: static void writeBinary(string filename, list bin);
+body
+{
+	var integer size;
+	size = al_misc("binary_size", bin, null);
+	writeBinary(filename, bin, 0, size);
+}
+end_body
+member
+public: static void writeBinary(string filename, list bin, integer from, integer size);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	var file out;
+	if (out = al_file_open(filename, "wb")) {
+	} else {
+		ex.msg = "can't open write file '" + filename + "'.";
+		throw ex;
+	}
+	if (al_file_write(out, al_list3(bin, from, size), null)) {
+		ex.msg = "file write error '" + filename + "'.";
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: static void writeBinary(string filename, string str);
+body
+{
+	var integer size;
+	var list bin;
+	size = al_strlen(str);
+	bin = al_misc("binary", size, null);
+	al_misc("binary_copy", al_list2(bin, 0), str);
+	writeBinary(filename, bin, 0, size);
+}
+end_body
+member
+public: static void appendBinary(string filename, list bin);
+body
+{
+	var integer size;
+	size = al_misc("binary_size", bin, null);
+	appendBinary(filename, bin, 0, size);
+}
+end_body
+member
+public: static void appendBinary(string filename, list bin, integer from, integer size);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	var file out;
+	if (out = al_file_open(filename, "ab")) {
+	} else {
+		ex.msg = "can't open write file '" + filename + "'.";
+		throw ex;
+	}
+	if (al_file_write(out, al_list3(bin, from, size), null)) {
+		ex.msg = "file write error '" + filename + "'.";
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: static void appendBinary(string filename, string str);
+body
+{
+	var integer size;
+	var list bin;
+	size = al_strlen(str);
+	bin = al_misc("binary", size, null);
+	al_misc("binary_copy", al_list2(bin, 0), str);
+	appendBinary(filename, bin, 0, size);
+}
+end_body
+member
+public: static void writeString(string filename, string str);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	var file out;
+	if (out = al_file_open(filename, "w")) {
+	} else {
+		ex.msg = "can't open write file '" + filename + "'.";
+		throw ex;
+	}
+	if (al_file_write(out, "string", str)) {
+		ex.msg = "file write error '" + (string)filename + "'.";
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: static void appendString(string filename, string str);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	var file out;
+	if (out = al_file_open(filename, "a")) {
+	} else {
+		ex.msg = "can't open write file '" + filename + "'.";
+		throw ex;
+	}
+	if (al_file_write(out, "string", str)) {
+		ex.msg = "file write error '" + (string)filename + "'.";
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: static list readGraphData(string filename);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	var file in;
+	if (in = al_file_open(filename, "r")) {
+	} else {
+		ex.msg = "can't open read file '" + filename + "'.";
+		throw ex;
+	}
+	return al_file_read(in, "graph");
+}
+end_body
+member
+public: static void writeGraphData(string filename, list data);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	var file out;
+	if (out = al_file_open(filename, "w")) {
+	} else {
+		ex.msg = "can't open write file '" + filename + "'.";
+		throw ex;
+	}
+	if (al_file_write(out, "graph", data)) {
+		ex.msg = "file write error '" + filename + "'.";
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: static list readTreeData(string filename);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	var file in;
+	if (in = al_file_open(filename, "r")) {
+	} else {
+		ex.msg = "can't open read file '" + filename + "'.";
+		throw ex;
+	}
+	return al_file_read(in, "tree");
+}
+end_body
+member
+public: static void writeTreeData(string filename, list data);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	var file out;
+	if (out = al_file_open(filename, "w")) {
+	} else {
+		ex.msg = "can't open write file '" + filename + "'.";
+		throw ex;
+	}
+	if (al_file_write(out, "tree", data)) {
+		ex.msg = "file write error '" + filename + "'.";
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: static void remove(string dir);
+body
+{
+	var RevFileItr itr;
+	itr = new RevFileItr;
+	itr.Reset(dir);
+	loop {
+		if (itr.Next()) {
+		} else {
+			break;
+		}
+		al_file_manip("remove", itr.abs_path, null);
+	}
+}
+end_body
+member
+public: static void makeReadOnly(string dir);
+body
+{
+	var FileItr itr;
+	itr = new FileItr;
+	itr.Reset(dir);
+	loop {
+		if (itr.Next()) {
+		} else {
+			break;
+		}
+		al_file_manip("set_readonly", itr.abs_path, null);
+	}
+}
+end_body
+member
+public: static void makeWritable(string dir);
+body
+{
+	var FileItr itr;
+	itr = new FileItr;
+	itr.Reset(dir);
+	loop {
+		if (itr.Next()) {
+		} else {
+			break;
+		}
+		al_file_manip("set_readonly", itr.abs_path, 1);
+	}
+}
+end_body
+class FileItr
+member
+public: void Reset(string root);
+body
+{
+	if (al_file_manip("does_exist", root, null) && al_file_manip("is_dir", root, null)) {
+	} else {
+		return;
+	}
+	var list node, itr;
+	node = al_file_manip("find_file", root, null);
+	itr = al_dst_itr(node);
+	stack = al_cons(al_list2("", itr), stack);
+	this.root = root;
+	this.root2 = null;
+	abs_path = null;
+	abs_path2 = null;
+}
+end_body
+member
+public: void Reset(string root, string root2);
+body
+{
+	if (al_file_manip("does_exist", root, null) && al_file_manip("is_dir", root, null)) {
+	} else {
+		return;
+	}
+	var list node, itr;
+	node = al_file_manip("find_file", root, null);
+	itr = al_dst_itr(node);
+	stack = al_cons(al_list2("", itr), stack);
+	this.root = root;
+	this.root2 = root2;
+	abs_path = null;
+	abs_path2 = null;
+}
+end_body
+member
+public: list Next();
+body
+{
+	if (stack) {
+	} else {
+		return null;
+	}
+	var list itr, node;
+	if (abs_path) {
+	} else {
+		path = "";
+		name = "";
+		abs_path = root;
+		if (root2) {
+			abs_path2 = root2;
+		} else {
+		}
+		is_dir = al_file_manip("is_dir", abs_path, null);
+		return abs_path;
+	}
+	path = stack.head.head;
+	itr = stack.head.tail.head;
+	if (is_dir && name != "") {
+		node = al_file_manip("find_file", abs_path, null);
+		itr = al_dst_itr(node);
+		if (path == "") {
+			path = name;
+		} else {
+			path = path + "/" + name;
+		}
+		stack = al_cons(al_list2(path, itr), stack);
+	} else {
+	}
+	loop {
+		if (name = al_next(itr)) {
+		} else {
+			stack = stack.tail;
+			if (stack) {
+			} else {
+				return null;
+			}
+			path = stack.head.head;
+			itr = stack.head.tail.head;
+			continue;
+		}
+		if (name == "." || name == "..") {
+			continue;
+		} else {
+		}
+		if (path == "") {
+			abs_path = root + "/" + name;
+		} else {
+			abs_path = root + "/" + path + "/" + name;
+		}
+		if (root2) {
+			if (path == "") {
+				abs_path2 = root2 + "/" + name;
+			} else {
+				abs_path2 = root2 + "/" + path + "/" + name;
+			}
+		} else {
+		}
+		is_dir = al_file_manip("is_dir", abs_path, null);
+		return abs_path;
+	}
+}
+end_body
+member
+public: list stack;
+member
+public: string root;
+member
+public: string root2;
+member
+public: string path;
+member
+public: string name;
+member
+public: string abs_path;
+member
+public: string abs_path2;
+member
+public: list is_dir;
+end_class
+class RevFileItr
+member
+public: void Reset(string root);
+body
+{
+	if (al_file_manip("does_exist", root, null) && al_file_manip("is_dir", root, null)) {
+	} else {
+		return;
+	}
+	var list node, itr;
+	node = al_file_manip("find_file", root, null);
+	itr = al_dst_itr(node);
+	stack = al_cons(al_list2("", itr), stack);
+	this.root = root;
+	this.root2 = null;
+	abs_path = null;
+}
+end_body
+member
+public: void Reset(string root, string root2);
+body
+{
+	if (al_file_manip("does_exist", root, null) && al_file_manip("is_dir", root, null)) {
+	} else {
+		return;
+	}
+	var list node, itr;
+	node = al_file_manip("find_file", root, null);
+	itr = al_dst_itr(node);
+	stack = al_cons(al_list2("", itr), stack);
+	this.root = root;
+	this.root2 = root2;
+	abs_path = null;
+}
+end_body
+member
+public: list Next();
+body
+{
+	if (is_dir) {
+		stack = stack.tail;
+	} else {
+	}
+	if (stack) {
+	} else {
+		return null;
+	}
+	var list itr, node;
+	path = stack.head.head;
+	itr = stack.head.tail.head;
+	loop {
+		if (name = al_next(itr)) {
+		} else {
+			path = stack.head.head;
+			if (path == "") {
+				abs_path = root;
+			} else {
+				abs_path = root + "/" + path;
+			}
+			if (root2) {
+				if (path == "") {
+					abs_path2 = root2;
+				} else {
+					abs_path2 = root2 + "/" + path;
+				}
+			} else {
+			}
+			is_dir = 1;
+			return abs_path;
+		}
+		if (name == "." || name == "..") {
+			continue;
+		} else {
+		}
+		if (path == "") {
+			abs_path = root + "/" + name;
+		} else {
+			abs_path = root + "/" + path + "/" + name;
+		}
+		if (root2) {
+			if (path == "") {
+				abs_path2 = root2 + "/" + name;
+			} else {
+				abs_path2 = root2 + "/" + path + "/" + name;
+			}
+		} else {
+		}
+		is_dir = al_file_manip("is_dir", abs_path, null);
+		if (is_dir) {
+			node = al_file_manip("find_file", abs_path, null);
+			itr = al_dst_itr(node);
+			if (path == "") {
+				path = name;
+			} else {
+				path = path + "/" + name;
+			}
+			stack = al_cons(al_list2(path, itr), stack);
+		} else {
+			return abs_path;
+		}
+	}
+}
+end_body
+member
+public: list stack;
+member
+public: string root;
+member
+public: string root2;
+member
+public: string path;
+member
+public: string name;
+member
+public: string abs_path;
+member
+public: string abs_path2;
+member
+public: list is_dir;
+end_class
+end_class
+TEXT
+AlObject
+class TP
+member
+public: static void compile_syntax();
+body
+{
+	var list dir_name;
+	var string filename;
+	var file f;
+	var list res;
+	if (dir_name = al_get_read_filename("Syntax Files (*.syntax)|*.syntax|All Files (*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	filename = dir_name.head + "/" + dir_name.tail.head;
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		al_print("[ERROR] can't open '" + filename + "'\n");
+		return;
+	}
+	res = al_symbol_manip("compile_syntax", f, null, null, null);
+	if (al_is_type(res, "string")) {
+		al_print("[ERROR] " + res + "\n");
+		al_print("filename = " + filename + "\n");
+		check_mem();
+		return;
+	} else {
+	}
+	compiled_syntax = res;
+	al_print("compile_syntax OK\n");
+	al_print("filename = " + filename + "\n");
+	check_mem();
+}
+end_body
+member
+public: static void debug_compile_syntax();
+body
+{
+	var list dir_name;
+	var string filename;
+	var file f;
+	var list res, opt;
+	if (dir_name = al_get_read_filename("Syntax Files (*.syntax)|*.syntax|All Files (*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	filename = dir_name.head + "/" + dir_name.tail.head;
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		al_print("[ERROR] can't open '" + filename + "'\n");
+		return;
+	}
+	opt = al_cons(null, null);
+	al_set_dst_node(opt, "debug", 1);
+	res = al_symbol_manip("compile_syntax", f, null, null, opt);
+	if (al_is_type(res, "string")) {
+		al_print("[ERROR] " + res + "\n");
+		return;
+	} else {
+	}
+	compiled_syntax = res;
+	al_print("compile_syntax OK\n");
+}
+end_body
+member
+public: static void parse();
+body
+{
+	var list dir_name;
+	var string filename, def_name;
+	var file f;
+	var list res;
+	if (compiled_syntax) {
+	} else {
+		al_print("[ERROR] no compiled_syntax\n");
+		return;
+	}
+	if (dir_name = al_get_read_filename("All Files (*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	filename = dir_name.head + "/" + dir_name.tail.head;
+	def_name = al_ask("def_name", "program");
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		al_print("[ERROR] can't open '" + filename + "'\n");
+		return;
+	}
+	res = al_symbol_manip("parse", f, compiled_syntax, def_name, null);
+	if (al_is_type(res, "string")) {
+		al_print("[ERROR] " + res + "\n");
+		al_print("filename = " + filename + "\n");
+		return;
+	} else {
+	}
+	parse_tree = res;
+	al_print("parse OK\n");
+	al_print("filename = " + filename + "\n");
+	check_mem();
+}
+end_body
+member
+public: static void simple();
+body
+{
+	compile_syntax();
+	parse();
+}
+end_body
+member
+public: static void test();
+body
+{
+	var string filename;
+	var file f;
+	var list res;
+	filename = "./syntax/system.syntax";
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		al_print("[ERROR] can't open '" + filename + "'\n");
+		return;
+	}
+	res = al_symbol_manip("compile_syntax", f, null, null, null);
+	if (al_is_type(res, "string")) {
+		al_print("[ERROR] " + res + "\n");
+		al_print("filename = " + filename + "\n");
+		check_mem();
+		return;
+	} else {
+	}
+	compiled_syntax = res;
+	al_print("compile_syntax OK\n");
+	al_print("filename = " + filename + "\n");
+	check_mem();
+	parse();
+	check_mem();
+}
+end_body
+member
+public: static void debug_test();
+body
+{
+	var string filename;
+	var file f;
+	var list res;
+	filename = "./syntax/system.syntax";
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		al_print("[ERROR] can't open '" + filename + "'\n");
+		return;
+	}
+	res = al_symbol_manip("compile_syntax", f, null, null, null);
+	if (al_is_type(res, "string")) {
+		al_print("[ERROR] " + res + "\n");
+		al_print("filename = " + filename + "\n");
+		check_mem();
+		return;
+	} else {
+	}
+	compiled_syntax = res;
+	al_print("compile_syntax OK\n");
+	al_print("filename = " + filename + "\n");
+	check_mem();
+	debug_parse();
+	check_mem();
+}
+end_body
+member
+public: static void test2();
+body
+{
+	var string filename;
+	var file f;
+	var list res;
+	filename = "./syntax/system.syntax";
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		al_print("[ERROR] can't open '" + filename + "'\n");
+		return;
+	}
+	res = al_symbol_manip("compile_syntax", f, null, null, null);
+	if (al_is_type(res, "string")) {
+		al_print("[ERROR] " + res + "\n");
+		al_print("filename = " + filename + "\n");
+		check_mem();
+		return;
+	} else {
+	}
+	compiled_syntax = res;
+	al_print("compile_syntax OK\n");
+	al_print("filename = " + filename + "\n");
+	check_mem();
+	parse();
+	al_misc("output", "output.txt", "no_gui");
+	try {
+		var list env;
+		env = al_symbol_manip("plisp_load", null, parse_tree, null, null);
+	} catch (AlException e) {
+		al_misc("output", null, "gui");
+		al_print("plisp_load ERROR\n");
+		al_print("e.msg = " + (string)e.msg + "\n");
+		return;
+	}
+	check_mem();
+	al_misc("output", null, "gui");
+	al_gc(null);
+	al_print("plisp_load OK\n");
+	check_mem();
+}
+end_body
+member
+public: static void full_parse();
+body
+{
+	var list dir_name;
+	var string filename, def_name;
+	var file f;
+	var list res, opt;
+	// debug = al_list3(null, null, 30);
+	if (compiled_syntax) {
+	} else {
+		al_print("[ERROR] no compiled_syntax\n");
+		return;
+	}
+	if (dir_name = al_get_read_filename("All Files (*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	filename = dir_name.head + "/" + dir_name.tail.head;
+	def_name = al_ask("def_name", "program");
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		al_print("[ERROR] can't open '" + filename + "'\n");
+		return;
+	}
+	opt = al_cons(null, null);
+	al_set_dst_node(opt, "full", 1);
+	res = al_symbol_manip("parse", f, compiled_syntax, def_name, opt);
+	if (al_is_type(res, "string")) {
+		al_print("[ERROR] " + res + "\n");
+		al_print("filename = " + filename + "\n");
+		return;
+	} else {
+	}
+	parse_tree = res;
+	al_print("parse OK\n");
+	al_print("filename = " + filename + "\n");
+}
+end_body
+member
+public: static void debug_parse();
+body
+{
+	var list dir_name;
+	var string filename, def_name;
+	var file f;
+	var list res;
+	if (compiled_syntax) {
+	} else {
+		al_print("[ERROR] no compiled_syntax\n");
+		return;
+	}
+	if (dir_name = al_get_read_filename("All Files (*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	filename = dir_name.head + "/" + dir_name.tail.head;
+	def_name = al_ask("def_name", "program");
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		al_print("[ERROR] can't open '" + filename + "'\n");
+		return;
+	}
+	al_misc("output", "debug.txt", "no_gui");
+	var list opt, debug, level10, level20, level30;
+	level30 = al_list2(1, 100000);
+	opt = al_cons(null, null);
+	debug = al_list3(level10, level20, level30);
+	al_create_arc(opt, debug, "debug");
+	res = al_symbol_manip("parse", f, compiled_syntax, def_name, opt);
+	if (al_is_type(res, "string")) {
+		al_misc("output", null, "gui");
+		al_print("[ERROR] " + res + "\n");
+		al_print("filename = " + filename + "\n");
+		return;
+	} else {
+	}
+	al_misc("output", null, "gui");
+	parse_tree = res;
+	al_print("parse OK\n");
+	al_print("filename = " + filename + "\n");
+	al_list_misc("dump", parse_tree, 20);
+}
+end_body
+member
+public: static void dump_parse_tree();
+body
+{
+	var list dir_name;
+	var string filename, def_name;
+	var file f;
+	var list res;
+	if (compiled_syntax) {
+	} else {
+		al_print("[ERROR] no compiled_syntax\n");
+		return;
+	}
+	if (dir_name = al_get_read_filename("All Files (*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	filename = dir_name.head + "/" + dir_name.tail.head;
+	def_name = al_ask("def_name", "program");
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		al_print("[ERROR] can't open '" + filename + "'\n");
+		return;
+	}
+	res = al_symbol_manip("parse", f, compiled_syntax, def_name, null);
+	if (al_is_type(res, "string")) {
+		al_print("[ERROR] " + res + "\n");
+		al_print("filename = " + filename + "\n");
+		return;
+	} else {
+	}
+	parse_tree = res;
+	al_print("parse OK\n");
+	al_print("filename = " + filename + "\n");
+	if (dir_name = al_get_write_filename("All Files (*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	filename = dir_name.head + "/" + dir_name.tail.head;
+	f = al_file_open(filename, "w");
+	al_list_misc("dump", parse_tree, al_list2(200, f));
+}
+end_body
+member
+public: static void dump_full_parse_tree();
+body
+{
+	var list dir_name;
+	var string filename, def_name;
+	var file f;
+	var list res, opt;
+	if (compiled_syntax) {
+	} else {
+		al_print("[ERROR] no compiled_syntax\n");
+		return;
+	}
+	if (dir_name = al_get_read_filename("All Files (*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	filename = dir_name.head + "/" + dir_name.tail.head;
+	def_name = al_ask("def_name", "program");
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		al_print("[ERROR] can't open '" + filename + "'\n");
+		return;
+	}
+	opt = al_cons(null, null);
+	al_set_dst_node(opt, "full", 1);
+	res = al_symbol_manip("parse", f, compiled_syntax, def_name, opt);
+	if (al_is_type(res, "string")) {
+		al_print("[ERROR] " + res + "\n");
+		al_print("filename = " + filename + "\n");
+		return;
+	} else {
+	}
+	parse_tree = res;
+	al_print("parse OK\n");
+	al_print("filename = " + filename + "\n");
+	if (dir_name = al_get_write_filename("All Files (*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	filename = dir_name.head + "/" + dir_name.tail.head;
+	f = al_file_open(filename, "w");
+	al_list_misc("dump", parse_tree, al_list2(200, f));
+}
+end_body
+member
+public: static void generate();
+body
+{
+	var list dir_name;
+	var string filename;
+	var file f;
+	var list res, tree, opt;
+	if (compiled_syntax) {
+	} else {
+		al_print("[ERROR] no compiled_syntax\n");
+		return;
+	}
+	if (tree = parse_tree) {
+	} else {
+		al_print("[ERROR] no parse_tree\n");
+		return;
+	}
+	if (dir_name = al_get_write_filename("|All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	filename = dir_name.head + "/" + dir_name.tail.head;
+	if (f = al_file_open(filename, "w")) {
+	} else {
+		al_print("[ERROR] can't open '" + filename + "'\n");
+		return;
+	}
+	opt = al_cons(null, null);
+	res = al_symbol_manip("generate", f, compiled_syntax, tree, opt);
+	if (al_is_type(res, "string")) {
+		al_print("[ERROR] " + res + "\n");
+		return;
+	} else {
+	}
+	al_print("generate OK\n");
+	check_mem();
+}
+end_body
+member
+public: static void dump_syntax();
+body
+{
+	if (compiled_syntax) {
+	} else {
+		al_print("syntax is null.\n");
+		return;
+	}
+	var list syntax, name, itr;
+	itr = al_dst_itr(compiled_syntax.head);
+	loop {
+		if (syntax = al_next(itr)) {
+		} else {
+			break;
+		}
+		name = al_arc_a(itr);
+		al_print("name = " + (string)name + "\n");
+		al_list_misc("dump", syntax, 1);
+	}
+}
+end_body
+member
+protected: static list compiled_syntax;
+member
+protected: static list parse_tree;
+member
+public: static void pro_lisp();
+body
+{
+	var TP tp;
+	tp = new TP;
+	if (tp.compile_syntax("syntax/system.syntax") == null) {
+		al_print(tp.msg + "\n");
+		return;
+	} else {
+	}
+	var file f;
+	var list tree;
+	f = al_file_open("ruby.rule", "r");
+	tree = al_symbol_manip("parse", f, tp.syntax, "program", null);
+	if (al_is_type(tree, "string")) {
+		al_print(tree + "\n");
+		return;
+	} else {
+	}
+	al_print("OK\n");
+}
+end_body
+member
+public: static void cplusplus_main();
+body
+{
+	cplusplus_altair();
+}
+end_body
+member
+public: static void java_main();
+body
+{
+	java_faqnavi();
+	jsp_faqnavi();
+}
+end_body
+member
+public: static void ruby_main();
+body
+{
+	ruby_algebra();
+	ruby_site_ruby();
+}
+end_body
+member
+public: static void cplusplus_altair();
+body
+{
+	var TP cpp;
+	cpp = new TP;
+	if (cpp.compile_syntax("syntax/c++.syntax") == null) {
+		al_print(cpp.msg + "\n");
+		return;
+	} else {
+	}
+	al_misc("output", "cpp_altair.txt", null);
+	cpp.file_ext = ".h";
+	cpp.iterate("C:/altair/src");
+	cpp.file_ext = ".cpp";
+	cpp.iterate("C:/altair/src");
+	al_misc("output", null, null);
+	al_print("END\n");
+}
+end_body
+member
+public: static void java_faqnavi();
+body
+{
+	var TP java;
+	java = new TP;
+	if (java.compile_syntax("syntax/java.syntax") == null) {
+		al_print(java.msg + "\n");
+		return;
+	} else {
+	}
+	al_misc("output", "java_faqnavi.txt", null);
+	java.file_ext = ".java";
+	java.iterate("C:/NEC/product-me/FAQ-Navi/faq3.1/WEB-INF/src/jp/nec/faqnavi");
+	al_misc("output", null, null);
+	al_print("END\n");
+}
+end_body
+member
+public: static void jsp_faqnavi();
+body
+{
+	var TP jsp;
+	jsp = new TP;
+	if (jsp.compile_syntax("syntax/jsp.syntax") == null) {
+		al_print(jsp.msg + "\n");
+		return;
+	} else {
+	}
+	al_misc("output", "jsp_faqnavi.txt", null);
+	jsp.file_ext = ".jsp";
+	jsp.iterate("C:/NEC/product-me/FAQ-Navi/faq3.1/pages");
+	al_misc("output", null, null);
+	al_print("END\n");
+}
+end_body
+member
+public: static void ruby_algebra();
+body
+{
+	var TP ruby;
+	ruby = new TP;
+	if (ruby.compile_syntax("syntax/ruby.syntax") == null) {
+		al_print(ruby.msg + "\n");
+		return;
+	} else {
+	}
+	al_misc("output", "ruby_algebra.txt", null);
+	ruby.file_ext = ".rb";
+	ruby.iterate("C:/archives/software/free/math/ruby/2/algebra-0.72/lib");
+	ruby.iterate("C:/archives/software/free/math/ruby/2/algebra-0.72/sample");
+	al_misc("output", null, null);
+	al_print("END\n");
+}
+end_body
+member
+public: static void ruby_error_file();
+body
+{
+	var TP ruby;
+	ruby = new TP;
+	if (ruby.compile_syntax("syntax/ruby.syntax") == null) {
+		al_print(ruby.msg + "\n");
+		return;
+	} else {
+	}
+	al_misc("output", "ruby_error.txt", null);
+	ruby.file_ext = ".rb";
+	ruby.iterate("C:/altair/sample/alsoftpro/err");
+	al_misc("output", null, null);
+	al_print("END\n");
+}
+end_body
+member
+public: static void dump_algebra();
+body
+{
+	var TP ruby;
+	ruby = new TP;
+	if (ruby.compile_syntax("syntax/ruby.syntax") == null) {
+		al_print(ruby.msg + "\n");
+		return;
+	} else {
+	}
+	al_misc("output", "ruby_algebra.txt", null);
+	ruby.file_ext = ".rb";
+	ruby.dump_iterate("C:/archives/software/free/math/ruby/2/algebra-0.71/lib");
+	ruby.dump_iterate("C:/archives/software/free/math/ruby/2/algebra-0.71/sample");
+	al_misc("output", null, null);
+	al_print("END\n");
+}
+end_body
+member
+public: static void model_dump_algebra();
+body
+{
+	var TP ruby;
+	ruby = new TP;
+	if (ruby.compile_syntax("syntax/system.syntax") == null) {
+		al_print(ruby.msg + "\n");
+		return;
+	} else {
+		al_print(ruby.msg + "\n");
+	}
+	ruby.interp_syntax = ruby.syntax;
+	ruby.interp_tree = ruby.parse("rule/ruby.rule", "ruby.rule");
+	var list tree;
+	tree = ruby.parse("rule/lisp.rule", "lisp.rule");
+	al_print(ruby.msg + "\n");
+	ruby.env = al_symbol_manip("plisp_load", null, tree, null, null);
+	tree = ruby.parse("rule/test.rule", "test.rule");
+	ruby.env = al_symbol_manip("plisp_load", ruby.env, tree, null, null);
+	al_print(ruby.msg + "\n");
+	// ===============================================
+	al_misc("output", "ruby_algebra.txt", null);
+	if (ruby.compile_syntax("syntax/ruby.syntax") == null) {
+		al_print(ruby.msg + "\n");
+		return;
+	} else {
+		al_print(ruby.msg + "\n");
+	}
+	al_misc("output", "ruby_algebra.txt", null);
+	ruby.file_ext = ".rb";
+	ruby.model_dump_iterate("C:/archives/software/free/math/ruby/2/algebra-0.71/lib");
+	ruby.model_dump_iterate("C:/archives/software/free/math/ruby/2/algebra-0.71/sample");
+	al_misc("output", null, null);
+	al_print("END\n");
+}
+end_body
+member
+public: static void ruby_site_ruby();
+body
+{
+	var TP ruby;
+	ruby = new TP;
+	if (ruby.compile_syntax("syntax/ruby.syntax") == null) {
+		al_print(ruby.msg + "\n");
+		return;
+	} else {
+	}
+	al_misc("output", "ruby_site_ruby.txt", null);
+	ruby.file_ext = ".rb";
+	ruby.iterate("C:/Tool/ruby/lib/ruby/site_ruby");
+	al_misc("output", null, null);
+	al_print("END\n");
+}
+end_body
+member
+public: static void ruby_error();
+body
+{
+	var TP ruby;
+	ruby = new TP;
+	if (ruby.compile_syntax("syntax/ruby.syntax") == null) {
+		al_print(ruby.msg + "\n");
+		return;
+	} else {
+	}
+	al_misc("output", "ruby_site_ruby.txt", null);
+	ruby.file_ext = ".rb";
+	ruby.iterate("error_source");
+	al_misc("output", null, null);
+	al_print("END\n");
+}
+end_body
+member
+public: static void prolog_parse();
+body
+{
+	var TP tp;
+	tp = new TP;
+	if (tp.compile_syntax("syntax/system.syntax") == null) {
+		al_print(tp.msg + "\n");
+		return;
+	} else {
+	}
+	var list tree;
+	tree = tp.parse("prolog.txt", "prolog.txt");
+	al_symbol_manip("test", tree, null, null, null);
+}
+end_body
+member
+protected: list compile_syntax(string filename);
+body
+{
+	var file f;
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		msg = "[ERROR] can't open '" + filename + "'\n";
+		return null;
+	}
+	syntax = al_symbol_manip("compile_syntax", f, null, null, null);
+	if (al_is_type(syntax, "string")) {
+		msg = "[compile syntax ERROR] '" + filename + "' " + syntax;
+		return null;
+	} else {
+	}
+	msg = "[compile syntax OK] '" + filename + "'";
+	return 1;
+}
+end_body
+member
+protected: void iterate(string dir);
+body
+{
+	var string ext;
+	var integer start, end;
+	var integer start2, end2;
+	var FileItr itr;
+	itr = new FileItr;
+	itr.Reset(dir);
+	al_print("START: directory = " + dir + "\n");
+	start = al_misc("time_stamp", null, null);
+	loop {
+		if (itr.Next()) {
+		} else {
+			break;
+		}
+		if (itr.is_dir) {
+			continue;
+		} else {
+		}
+		ext = al_str_misc("file_ext", itr.name, null);
+		if (ext != file_ext) {
+			continue;
+		} else {
+		}
+		al_print("start: " + itr.abs_path + " " + (string)al_file_manip("current_datetime", null, null) + "\n");
+		start2 = al_misc("time_stamp", null, null);
+		parse(itr.abs_path, itr.name);
+		end2 = al_misc("time_stamp", null, null);
+		al_print("time = " + (string)((end2 - start2) / 1000) + " sec\n");
+		if (al_str_misc("starts_with", msg, "[OK]")) {
+			al_print(msg + "\n");
+		} else {
+			al_file_manip("copy", itr.abs_path, "error/" + itr.name);
+			al_print(msg + "\n");
+		}
+	}
+	end = al_misc("time_stamp", null, null);
+	al_print("total time = " + (string)((end - start) / 1000) + " sec\n");
+}
+end_body
+member
+protected: void dump_iterate(string dir);
+body
+{
+	var string ext;
+	var integer start, end;
+	var integer start2, end2;
+	var FileItr itr;
+	itr = new FileItr;
+	itr.Reset(dir);
+	al_print("START: directory = " + dir + "\n");
+	start = al_misc("time_stamp", null, null);
+	loop {
+		if (itr.Next()) {
+		} else {
+			break;
+		}
+		if (itr.is_dir) {
+			continue;
+		} else {
+		}
+		ext = al_str_misc("file_ext", itr.name, null);
+		if (ext != file_ext) {
+			continue;
+		} else {
+		}
+		al_print("start: " + itr.abs_path + " " + (string)al_file_manip("current_datetime", null, null) + "\n");
+		start2 = al_misc("time_stamp", null, null);
+		dump_parse(itr.abs_path, itr.name);
+		end2 = al_misc("time_stamp", null, null);
+		al_print("time = " + (string)((end2 - start2) / 1000) + " sec\n");
+		if (al_str_misc("starts_with", msg, "[OK]")) {
+			al_print(msg + "\n");
+		} else {
+			al_file_manip("copy", itr.abs_path, "error/" + itr.name);
+			al_print(msg + "\n");
+		}
+	}
+	end = al_misc("time_stamp", null, null);
+	al_print("total time = " + (string)((end - start) / 1000) + " sec\n");
+}
+end_body
+member
+protected: void model_dump_iterate(string dir);
+body
+{
+	var string ext;
+	var integer start, end;
+	var integer start2, end2;
+	var FileItr itr;
+	itr = new FileItr;
+	itr.Reset(dir);
+	al_print("START: directory = " + dir + "\n");
+	start = al_misc("time_stamp", null, null);
+	loop {
+		if (itr.Next()) {
+		} else {
+			break;
+		}
+		if (itr.is_dir) {
+			continue;
+		} else {
+		}
+		ext = al_str_misc("file_ext", itr.name, null);
+		if (ext != file_ext) {
+			continue;
+		} else {
+		}
+		al_print("start: " + itr.abs_path + " " + (string)al_file_manip("current_datetime", null, null) + "\n");
+		start2 = al_misc("time_stamp", null, null);
+		model_dump(itr.abs_path, itr.name);
+		end2 = al_misc("time_stamp", null, null);
+		al_print("time = " + (string)((end2 - start2) / 1000) + " sec\n");
+		if (al_str_misc("starts_with", msg, "[OK]")) {
+			al_print(msg + "\n");
+		} else {
+			al_file_manip("copy", itr.abs_path, "error/" + itr.name);
+			al_print(msg + "\n");
+		}
+	}
+	end = al_misc("time_stamp", null, null);
+	al_print("total time = " + (string)((end - start) / 1000) + " sec\n");
+}
+end_body
+member
+protected: list parse(string filename, string name);
+body
+{
+	var file f;
+	var list tree;
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		msg = "[ERROR] can't open '" + filename + "'\n";
+		return null;
+	}
+	tree = al_symbol_manip("parse", f, syntax, "program", null);
+	if (al_is_type(tree, "string")) {
+		// msg = "[parse ERROR] ( " + filename + " ) " + tree;
+		{
+			f = al_file_open(tree, "sr");
+			al_file_read(f, al_list2("find", "line("));
+			var integer lno;
+			lno = al_file_read(f, "integer");
+			msg = filename + "(" + (string)lno + "): [ERROR] ";
+		}
+		return null;
+	} else {
+	}
+	msg = "[OK] " + filename;
+	check_mem();
+	return tree;
+}
+end_body
+member
+protected: list parse_full(string filename, string name);
+body
+{
+	var file f;
+	var list tree, opt;
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		msg = "[ERROR] can't open '" + filename + "'\n";
+		return null;
+	}
+	opt = al_cons(null, null);
+	al_set_dst_node(opt, "full", 1);
+	tree = al_symbol_manip("parse", f, syntax, "program", opt);
+	if (al_is_type(tree, "string")) {
+		// msg = "[parse ERROR] ( " + filename + " ) " + tree;
+		{
+			f = al_file_open(tree, "sr");
+			al_file_read(f, al_list2("find", "line("));
+			var integer lno;
+			lno = al_file_read(f, "integer");
+			msg = filename + "(" + (string)lno + "): [ERROR] ";
+		}
+		return null;
+	} else {
+	}
+	msg = "[OK] " + filename;
+	check_mem();
+	return tree;
+}
+end_body
+member
+protected: list dump_parse(string filename, string name);
+body
+{
+	var file f;
+	var list tree;
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		msg = "[ERROR] can't open '" + filename + "'\n";
+		return null;
+	}
+	tree = al_symbol_manip("parse", f, syntax, "program", null);
+	if (al_is_type(tree, "string")) {
+		// msg = "[parse ERROR] ( " + filename + " ) " + tree;
+		{
+			f = al_file_open(tree, "sr");
+			al_file_read(f, al_list2("find", "line("));
+			var integer lno;
+			lno = al_file_read(f, "integer");
+			msg = filename + "(" + (string)lno + "): [ERROR] ";
+		}
+		al_print("ref_count = " + (string)al_gc("ref_count") + "\n");
+		al_print("cyclic = " + (string)al_gc("cyclic") + "\n");
+		// al_print("gc = " + (string)al_gc(null) + "\n");
+		return null;
+	} else {
+	}
+	msg = "[OK] " + filename;
+	f = al_file_open("dump/" + name + ".txt", "w");
+	al_print("ref_count = " + (string)al_gc("ref_count") + "\n");
+	al_print("cyclic = " + (string)al_gc("cyclic") + "\n");
+	// al_print("gc = " + (string)al_gc(null) + "\n");
+	al_list_misc("dump", tree, al_list2(60, f));
+	return tree;
+}
+end_body
+member
+protected: list model_dump(string filename, string name);
+body
+{
+	var file f;
+	var list tree;
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		msg = "[ERROR] can't open '" + filename + "'\n";
+		return null;
+	}
+	tree = al_symbol_manip("parse", f, syntax, "program", null);
+	if (al_is_type(tree, "string")) {
+		// msg = "[parse ERROR] ( " + filename + " ) " + tree;
+		{
+			f = al_file_open(tree, "sr");
+			al_file_read(f, al_list2("find", "line("));
+			var integer lno;
+			lno = al_file_read(f, "integer");
+			msg = filename + "(" + (string)lno + "): [ERROR] ";
+		}
+		return null;
+	} else {
+	}
+	msg = "[OK] " + filename;
+	env = al_symbol_manip("set_var", env, "syntax", syntax, null);
+	env = al_symbol_manip("set_var", env, "parse_tree", tree, null);
+	env = al_symbol_manip("set_var", env, "interp_tree", interp_tree, null);
+	try {
+		al_symbol_manip("plisp_call", env, "test", null, null);
+		tree = al_symbol_manip("get_var", env, "result", null, null);
+		f = al_file_open("model_dump/" + name + ".txt", "w");
+		al_list_misc("dump", tree, al_list2(60, f));
+	} catch (AlException e) {
+		al_print("[ERROR] " + e.msg + filename + "\n");
+	}
+}
+end_body
+member
+protected: list parse_and_interpret(string filename, string name);
+body
+{
+	var file f;
+	var list tree;
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		msg = "[ERROR] can't open '" + filename + "'\n";
+		return null;
+	}
+	tree = al_symbol_manip("parse", f, syntax, "program", null);
+	if (al_is_type(tree, "string")) {
+		// msg = "[parse ERROR] ( " + filename + " ) " + tree;
+		{
+			f = al_file_open(tree, "sr");
+			al_file_read(f, al_list2("find", "line("));
+			var integer lno;
+			lno = al_file_read(f, "integer");
+			msg = filename + "(" + (string)lno + "): [ERROR] ";
+		}
+		return null;
+	} else {
+	}
+	msg = "[OK] " + filename;
+	return tree;
+}
+end_body
+member
+public: static void debug_cplusplus();
+body
+{
+	var TP cpp;
+	cpp = new TP;
+	if (cpp.compile_syntax("syntax/c++.syntax") == null) {
+		al_print(cpp.msg + "\n");
+		return;
+	} else {
+	}
+	var string filename;
+	var integer lno;
+	filename = "/Users/inamoto/info/sum_1_to_100/sum.c";
+	// filename = "/Users/inamoto/altair/sample/alsoftpro/in.cpp";
+	lno = 1;
+	cpp.debug_parse(filename, "parse.txt", lno);
+	al_print(cpp.msg + "\n");
+}
+end_body
+member
+public: static void debug_java();
+body
+{
+	var TP java;
+	java = new TP;
+	if (java.compile_syntax("syntax/java.syntax") == null) {
+		al_print(java.msg + "\n");
+		return;
+	} else {
+	}
+	var string filename;
+	var integer lno;
+	filename = "/Users/inamoto/misc/faqnavi/WEB-INF/src/jp/nec/faqnavi/core/db/FaqHistoryEntityImpl.java";
+	lno = 10000;
+	java.debug_parse(filename, "parse.txt", lno);
+	al_print(java.msg + "\n");
+}
+end_body
+member
+public: static void debug_jsp();
+body
+{
+	var TP jsp;
+	jsp = new TP;
+	if (jsp.compile_syntax("syntax/jsp.syntax") == null) {
+		al_print(jsp.msg + "\n");
+		return;
+	} else {
+	}
+	var integer begin, end;
+	var string filename;
+	var integer lno;
+	// filename = "/Users/inamoto/misc/faqnavi/pages/ADM020.jsp";
+	// filename = "/Users/inamoto/misc/faqnavi/pages/MGR020.jsp";
+	// filename = "/Users/inamoto/misc/faqnavi/pages/faqlogin2.jsp";
+	filename = "/Users/inamoto/misc/faqnavi/pages/checkall.jsp";
+	// filename = "/Users/inamoto/altair/sample/alsoftpro/in.jsp";
+	lno = 1;
+	begin = al_misc("time_stamp", null, null);
+	jsp.debug_parse("jsp_page", filename, "parse.txt", lno);
+	end = al_misc("time_stamp", null, null);
+	al_print(jsp.msg + "\n");
+	al_print("time = " + (string)((end - begin) / 1000) + " sec\n");
+}
+end_body
+member
+public: static void debug_ruby();
+body
+{
+	var TP ruby;
+	ruby = new TP;
+	if (ruby.compile_syntax("syntax/ruby.syntax") == null) {
+		al_print(ruby.msg + "\n");
+		return;
+	} else {
+	}
+	var string filename;
+	var integer lno;
+	// filename = "C:/Tool/ruby/lib/ruby/site_ruby/1.8/rubygems/open-uri.rb";
+	// filename = "C:/Tool/ruby/lib/ruby/site_ruby/1.8/rubygems/package.rb";
+	// filename = "C:/Tool/ruby/lib/ruby/site_ruby/1.8/rubygems/specification.rb";
+	// filename = "C:/Tool/ruby/lib/ruby/site_ruby/1.8/rubygems/user_interaction.rb";
+	// filename = "C:/Tool/ruby/lib/ruby/site_ruby/1.8/vr/vruby.rb";
+	// filename = "C:/Tool/ruby/lib/ruby/site_ruby/1.8/xml/dom/core.rb";
+	// filename = "C:/Tool/ruby/lib/ruby/site_ruby/1.8/xml/xpath.rb";
+	// filename = "C:/altair/sample/alsoftpro/tmp.rb";
+	// filename = "C:/archives/software/free/math/ruby/2/algebra-0.71/lib/algebra/algebraic-parser.rb";
+	// filename = "C:/altair/sample/alsoftpro/sample-m-factorize02.rb";
+	// filename = "C:/Tool/ruby/lib/ruby/site_ruby/1.8/test/do-testscripts.rb";
+	// filename = "C:/Tool/ruby/lib/ruby/site_ruby/1.8/test/test-polynomial.rb";
+	// filename = "C:/Tool/ruby/lib/ruby/site_ruby/1.8/vr/vrlayout2.rb";
+	// filename = "C:/archives/software/free/math/ruby/2/algebra-0.71/lib/algebra/algebraic-system.rb";
+	// filename = "C:/archives/software/free/math/ruby/2/algebra-0.71/lib/algebra/factors.rb";
+	// filename = "C:/archives/software/free/math/ruby/2/algebra-0.71/lib/algebra/import-module.rb";
+	// filename = "C:/archives/software/free/math/ruby/2/algebra-0.71/lib/algebra/m-polynomial.rb";
+	// filename = "C:/Tool/ruby/lib/ruby/site_ruby/1.8/test/test-polynomial.rb";
+	// filename = "C:/Tool/ruby/lib/ruby/site_ruby/1.8/xml/xpath.rb";
+	// filename = "C:/archives/software/free/math/ruby/2/algebra-0.71/lib/algebra/algebraic-extension-field.rb";
+	// filename = "C:/archives/software/free/math/ruby/2/algebra-0.72/lib/algebra/m-polynomial.rb";
+	filename = "/Users/inamoto/misc/algebra-0.72/lib/algebra/gaussian-elimination.rb";
+	// filename = "/Users/inamoto/altair/sample/alsoftpro/in.rb";
+	lno = 1;
+	al_print("start: " + (string)al_file_manip("current_datetime", null, null) + "\n");
+	var integer start2, end2;
+	start2 = al_misc("time_stamp", null, null);
+	ruby.debug_parse("program", filename, "parse.txt", lno);
+	end2 = al_misc("time_stamp", null, null);
+	al_print("time = " + (string)((end2 - start2) / 1000) + " sec\n");
+	al_print(ruby.msg + "\n");
+}
+end_body
+member
+public: static void debug_plisp();
+body
+{
+	var TP tp;
+	tp = new TP;
+	if (tp.compile_syntax("syntax/system.syntax") == null) {
+		al_print(tp.msg + "\n");
+		return;
+	} else {
+	}
+	var string filename;
+	var integer lno;
+	filename = "rule/ruby_correct.rule";
+	lno = 10000;
+	tp.debug_parse(filename, "parse.txt", lno);
+	al_print(tp.msg + "\n");
+}
+end_body
+member
+public: static void debug_prolog();
+body
+{
+	var TP prolog;
+	prolog = new TP;
+	if (prolog.compile_syntax("syntax/system.syntax") == null) {
+		al_print(prolog.msg + "\n");
+		return;
+	} else {
+	}
+	var integer begin, end;
+	var string filename;
+	var integer lno;
+	filename = "C:/altair/sample/alsoftpro/tmp/ba-001.txt";
+	lno = 1;
+	begin = al_misc("time_stamp", null, null);
+	prolog.debug_parse("program", filename, "parse.txt", lno);
+	end = al_misc("time_stamp", null, null);
+	al_print(prolog.msg + "\n");
+	al_print("time = " + (string)((end - begin) / 1000) + " sec\n");
+}
+end_body
+member
+public: static void debug_sql();
+body
+{
+	var TP sql;
+	sql = new TP;
+	if (sql.compile_syntax("syntax/sql.syntax") == null) {
+		al_print(sql.msg + "\n");
+		return;
+	} else {
+	}
+	var string filename;
+	var integer lno;
+	filename = "C:/altair/sample/alsoftpro/par.sql";
+	lno = 1;
+	sql.debug_parse(filename, "parse.txt", lno);
+	al_print(sql.msg + "\n");
+}
+end_body
+member
+protected: list debug_parse(string filename, string out_filename, integer lno);
+body
+{
+	var file f, out;
+	var list tree, opt, debug, debug_10, debug_20, debug_30;
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		msg = "[ERROR] can't open '" + filename + "'\n";
+		return null;
+	}
+	if (1) {
+		debug_10 = al_list2(1, lno);
+		// debug_10 = al_list2(1, 10000);
+		// debug_20 = al_list2(1, 10000);
+		// debug_30 = al_list2(lno, 10000);
+		debug_30 = al_list2(1, 10000);
+		debug = al_list3(debug_10, debug_20, debug_30);
+		if (debug_10) {
+			// al_create_arc(debug_10, al_cons(null, null), "stat");
+			// al_create_arc(debug_10, al_cons(null, null), "js_stat");
+			// al_create_arc(debug_10, al_cons(null, null), "exp");
+			// al_create_arc(debug_10, al_cons(null, null), "js_exp");
+		} else {
+		}
+		if (debug_20) {
+			al_create_arc(debug_20, al_cons(null, null), "module");
+			al_create_arc(debug_20, al_cons(null, null), "class");
+			al_create_arc(debug_20, al_cons(null, null), "class_spcl");
+			al_create_arc(debug_20, al_cons(null, null), "method");
+			al_create_arc(debug_20, al_cons(null, null), "method2");
+			al_create_arc(debug_20, al_cons(null, null), "begin");
+			al_create_arc(debug_20, al_cons(null, null), "loop");
+			al_create_arc(debug_20, al_cons(null, null), "for");
+			al_create_arc(debug_20, al_cons(null, null), "case");
+			al_create_arc(debug_20, al_cons(null, null), "if");
+			al_create_arc(debug_20, al_cons(null, null), "while");
+			al_create_arc(debug_20, al_cons(null, null), "unless");
+			al_create_arc(debug_20, al_cons(null, null), "until");
+			al_create_arc(debug_20, al_cons(null, null), "resoucel");
+			al_create_arc(debug_20, al_cons(null, null), "s_if");
+			al_create_arc(debug_20, al_cons(null, null), "s_while");
+			al_create_arc(debug_20, al_cons(null, null), "s_unless");
+			al_create_arc(debug_20, al_cons(null, null), "s_until");
+			al_create_arc(debug_20, al_cons(null, null), "s_rescue");
+			al_create_arc(debug_20, al_cons(null, null), "p1_if");
+			al_create_arc(debug_20, al_cons(null, null), "p1_while");
+			al_create_arc(debug_20, al_cons(null, null), "p1_unless");
+			al_create_arc(debug_20, al_cons(null, null), "p1_until");
+			al_create_arc(debug_20, al_cons(null, null), "p1_rescue");
+			al_create_arc(debug_20, al_cons(null, null), "p4_if");
+			al_create_arc(debug_20, al_cons(null, null), "p4_while");
+			al_create_arc(debug_20, al_cons(null, null), "p4_unless");
+			al_create_arc(debug_20, al_cons(null, null), "p4_until");
+			al_create_arc(debug_20, al_cons(null, null), "p4_rescue");
+			al_create_arc(debug_20, al_cons(null, null), "p5_if");
+			al_create_arc(debug_20, al_cons(null, null), "p5_while");
+			al_create_arc(debug_20, al_cons(null, null), "p5_unless");
+			al_create_arc(debug_20, al_cons(null, null), "p5_until");
+			al_create_arc(debug_20, al_cons(null, null), "p5_rescue");
+		} else {
+		}
+		if (null) {
+			al_create_arc(debug_30, al_cons(null, null), "module");
+			al_create_arc(debug_30, al_cons(null, null), "method");
+			al_create_arc(debug_30, al_cons(null, null), "adcl_1");
+			al_create_arc(debug_30, al_cons(null, null), "exp_f");
+			al_create_arc(debug_30, al_cons(null, null), "blk1");
+			al_create_arc(debug_30, al_cons(null, null), "blk2");
+			al_create_arc(debug_30, al_cons(null, null), "p_not");
+			al_create_arc(debug_30, al_cons(null, null), "prim2");
+			al_create_arc(debug_30, al_cons(null, null), "p_fn1");
+			al_create_arc(debug_30, al_cons(null, null), "p_fn2");
+			al_create_arc(debug_30, al_cons(null, null), "p_fn2_blk_v");
+			al_create_arc(debug_30, al_cons(null, null), "p_ident");
+			al_create_arc(debug_30, al_cons(null, null), "braket");
+			al_create_arc(debug_30, al_cons(null, null), "stats");
+			al_create_arc(debug_30, al_cons(null, null), "stat2");
+			al_create_arc(debug_30, al_cons(null, null), "exp");
+		} else {
+		}
+	} else {
+	}
+	al_misc("output", out_filename, "no_gui");
+	if (debug) {
+		opt = al_cons(null, null);
+		al_set_dst_node(opt, "debug", debug);
+	} else {
+	}
+	tree = al_symbol_manip("parse", f, syntax, "program", opt);
+	al_misc("output", null, "gui");
+	if (al_is_type(tree, "string")) {
+		msg = "[parse ERROR] '" + filename + "' " + tree;
+		al_print("ref_count = " + (string)al_gc("ref_count") + "\n");
+		al_print("cyclic = " + (string)al_gc("cyclic") + "\n");
+		// al_print("gc = " + (string)al_gc(null) + "\n");
+		return null;
+	} else {
+	}
+	msg = "[parse OK] '" + filename + "'";
+	al_print("ref_count = " + (string)al_gc("ref_count") + "\n");
+	al_print("cyclic = " + (string)al_gc("cyclic") + "\n");
+	// al_print("gc = " + (string)al_gc(null) + "\n");
+	return tree;
+}
+end_body
+member
+protected: list debug_parse(string def_name, string filename, string out_filename, integer lno);
+body
+{
+	var file f, out;
+	var list tree, opt, debug, debug_10, debug_20, debug_30;
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		msg = "[ERROR] can't open '" + filename + "'\n";
+		return null;
+	}
+	if (1) {
+		debug_10 = al_list2(1, lno);
+		// debug_10 = al_list2(1, 10000);
+		debug_20 = al_list2(1, 10000);
+		debug_30 = al_list2(lno, 10000);
+		// debug_30 = al_list2(1, 10000);
+		debug = al_list3(debug_10, debug_20, debug_30);
+		if (debug_10) {
+			al_create_arc(debug_10, al_cons(null, null), "stat");
+			al_create_arc(debug_10, al_cons(null, null), "exp");
+		} else {
+		}
+		if (debug_20) {
+			al_create_arc(debug_20, al_cons(null, null), "module");
+			al_create_arc(debug_20, al_cons(null, null), "class");
+			al_create_arc(debug_20, al_cons(null, null), "class_spcl");
+			al_create_arc(debug_20, al_cons(null, null), "method");
+			al_create_arc(debug_20, al_cons(null, null), "method2");
+			al_create_arc(debug_20, al_cons(null, null), "begin");
+			al_create_arc(debug_20, al_cons(null, null), "loop");
+			al_create_arc(debug_20, al_cons(null, null), "for");
+			al_create_arc(debug_20, al_cons(null, null), "case");
+			al_create_arc(debug_20, al_cons(null, null), "if");
+			al_create_arc(debug_20, al_cons(null, null), "while");
+			al_create_arc(debug_20, al_cons(null, null), "unless");
+			al_create_arc(debug_20, al_cons(null, null), "until");
+			al_create_arc(debug_20, al_cons(null, null), "resoucel");
+			al_create_arc(debug_20, al_cons(null, null), "s_if");
+			al_create_arc(debug_20, al_cons(null, null), "s_while");
+			al_create_arc(debug_20, al_cons(null, null), "s_unless");
+			al_create_arc(debug_20, al_cons(null, null), "s_until");
+			al_create_arc(debug_20, al_cons(null, null), "s_rescue");
+			al_create_arc(debug_20, al_cons(null, null), "p1_if");
+			al_create_arc(debug_20, al_cons(null, null), "p1_while");
+			al_create_arc(debug_20, al_cons(null, null), "p1_unless");
+			al_create_arc(debug_20, al_cons(null, null), "p1_until");
+			al_create_arc(debug_20, al_cons(null, null), "p1_rescue");
+			al_create_arc(debug_20, al_cons(null, null), "p4_if");
+			al_create_arc(debug_20, al_cons(null, null), "p4_while");
+			al_create_arc(debug_20, al_cons(null, null), "p4_unless");
+			al_create_arc(debug_20, al_cons(null, null), "p4_until");
+			al_create_arc(debug_20, al_cons(null, null), "p4_rescue");
+			al_create_arc(debug_20, al_cons(null, null), "p5_if");
+			al_create_arc(debug_20, al_cons(null, null), "p5_while");
+			al_create_arc(debug_20, al_cons(null, null), "p5_unless");
+			al_create_arc(debug_20, al_cons(null, null), "p5_until");
+			al_create_arc(debug_20, al_cons(null, null), "p5_rescue");
+		} else {
+		}
+		if (null) {
+			al_create_arc(debug_30, al_cons(null, null), "module");
+			al_create_arc(debug_30, al_cons(null, null), "method");
+			al_create_arc(debug_30, al_cons(null, null), "adcl_1");
+			al_create_arc(debug_30, al_cons(null, null), "exp_f");
+			al_create_arc(debug_30, al_cons(null, null), "blk1");
+			al_create_arc(debug_30, al_cons(null, null), "blk2");
+			al_create_arc(debug_30, al_cons(null, null), "p_not");
+			al_create_arc(debug_30, al_cons(null, null), "prim2");
+			al_create_arc(debug_30, al_cons(null, null), "p_fn1");
+			al_create_arc(debug_30, al_cons(null, null), "p_fn2");
+			al_create_arc(debug_30, al_cons(null, null), "p_fn2_blk_v");
+			al_create_arc(debug_30, al_cons(null, null), "p_ident");
+			al_create_arc(debug_30, al_cons(null, null), "braket");
+			al_create_arc(debug_30, al_cons(null, null), "stats");
+			al_create_arc(debug_30, al_cons(null, null), "stat2");
+			al_create_arc(debug_30, al_cons(null, null), "exp");
+		} else {
+		}
+	} else {
+	}
+	al_misc("output", out_filename, "no_gui");
+	if (debug) {
+		opt = al_cons(null, null);
+		al_set_dst_node(opt, "debug", debug);
+	} else {
+	}
+	tree = al_symbol_manip("parse", f, syntax, def_name, opt);
+	al_misc("output", null, "gui");
+	if (al_is_type(tree, "string")) {
+		msg = "[parse ERROR] '" + filename + "' " + tree;
+		al_print("ref_count = " + (string)al_gc("ref_count") + "\n");
+		al_print("cyclic = " + (string)al_gc("cyclic") + "\n");
+		// al_print("gc = " + (string)al_gc(null) + "\n");
+		return null;
+	} else {
+	}
+	msg = "[parse OK] '" + filename + "'";
+	al_print("ref_count = " + (string)al_gc("ref_count") + "\n");
+	al_print("cyclic = " + (string)al_gc("cyclic") + "\n");
+	// al_print("gc = " + (string)al_gc(null) + "\n");
+	return tree;
+}
+end_body
+member
+protected: list syntax;
+member
+protected: list interp_syntax;
+member
+protected: list interp_tree;
+member
+protected: list env;
+member
+protected: string msg;
+member
+protected: string file_ext;
+member
+public: static void ruby_rule_dump();
+body
+{
+	var list interp_tree;
+	var string filename;
+	var TP ruby;
+	ruby = new TP;
+	if (ruby.compile_syntax("syntax/system.syntax") == null) {
+		al_print(ruby.msg + "\n");
+		return;
+	} else {
+	}
+	filename = "C:/altair/sample/alsoftpro/rule/ruby.rule";
+	interp_tree = ruby.parse(filename, filename);
+	al_print(ruby.msg + "\n");
+	al_print("interp_tree: " + (string)(interp_tree != null) + "\n");
+	var file f;
+	f = al_file_open(filename + ".dump", "w");
+	al_file_write(f, "graph", interp_tree);
+	al_print("DONE\n");
+}
+end_body
+member
+public: static void java_rule_dump();
+body
+{
+	var list interp_tree;
+	var string filename;
+	var TP java;
+	java = new TP;
+	if (java.compile_syntax("syntax/system.syntax") == null) {
+		al_print(java.msg + "\n");
+		return;
+	} else {
+	}
+	filename = "C:/altair/sample/alsoftpro/rule/java.rule";
+	interp_tree = java.parse(filename, filename);
+	al_print(java.msg + "\n");
+	al_print("interp_tree: " + (string)(interp_tree != null) + "\n");
+	var file f;
+	f = al_file_open(filename + ".dump", "w");
+	al_file_write(f, "graph", interp_tree);
+	al_print("DONE\n");
+}
+end_body
+member
+public: static void interp_test_slow();
+body
+{
+	var list ruby_syntax, interp_syntax, parse_tree, interp_tree;
+	var list plisp_syntax, plisp_tree, env;
+	var string filename;
+	var TP ruby;
+	ruby = new TP;
+	if (ruby.compile_syntax("syntax/ruby.syntax") == null) {
+		al_print(ruby.msg + "\n");
+		return;
+	} else {
+	}
+	ruby_syntax = ruby.syntax;
+	filename = "C:/archives/software/free/math/ruby/2/algebra-0.71/lib/algebra/algebraic-equation.rb";
+	filename = "C:/archives/software/free/math/ruby/2/algebra-0.71/sample/sample-m-factorize02.rb";
+	parse_tree = ruby.parse_full(filename, filename);
+	al_print(ruby.msg + "\n");
+	// ==============================
+	if (ruby.compile_syntax("syntax/system.syntax") == null) {
+		al_print(ruby.msg + "\n");
+		return;
+	} else {
+	}
+	interp_syntax = ruby.syntax;
+	filename = "C:/altair/sample/alsoftpro/rule/ruby.rule";
+	var integer b, e;
+	b = al_misc("time_stamp", null, null);
+	interp_tree = ruby.parse(filename, filename);
+	al_print(ruby.msg + "\n");
+	al_print("interp_tree: " + (string)(interp_tree != null) + "\n");
+	e = al_misc("time_stamp", null, null);
+	al_print("to_model.rule PARSE TIME = " + (string)(e - b) + " msec\n");
+	// return;
+	// ==============================
+	if (ruby.compile_syntax("syntax/system.syntax") == null) {
+		al_print(ruby.msg + "\n");
+		return;
+	} else {
+	}
+	plisp_syntax = ruby.syntax;
+	filename = "C:/altair/sample/alsoftpro/rule/lisp.rule";
+	plisp_tree = ruby.parse(filename, filename);
+	al_print(ruby.msg + "\n");
+	env = al_symbol_manip("plisp_load", env, plisp_tree, null, null);
+	filename = "C:/altair/sample/alsoftpro/rule/attr_grmr.rule";
+	plisp_tree = ruby.parse(filename, filename);
+	al_print(ruby.msg + "\n");
+	env = al_symbol_manip("plisp_load", env, plisp_tree, null, null);
+	// ==============================
+	env = al_symbol_manip("set_var", env, "syntax", ruby_syntax, null);
+	env = al_symbol_manip("set_var", env, "parse_full_tree", parse_tree, null);
+	env = al_symbol_manip("set_var", env, "attr_grmr", interp_tree, null);
+	al_misc("dump_trace", 1, null);
+	al_misc("output", "debug.txt", "no_gui");
+	try {
+		al_symbol_manip("plisp_call", env, "AttrGrmr", null, null);
+	} catch (AlException e) {
+		al_misc("output", null, "gui");
+		throw e;
+	}
+	al_misc("output", null, "gui");
+	al_print("END\n");
+}
+end_body
+member
+public: static void interp_test_fast();
+body
+{
+	var list ruby_syntax, interp_syntax, parse_tree, interp_tree, graph;
+	var list plisp_syntax, plisp_tree, env;
+	var string filename;
+	var TP ruby;
+	ruby = new TP;
+	if (ruby.compile_syntax("syntax/ruby.syntax") == null) {
+		al_print(ruby.msg + "\n");
+		return;
+	} else {
+	}
+	ruby_syntax = ruby.syntax;
+	filename = "C:/archives/software/free/math/ruby/2/algebra-0.71/lib/algebra/algebraic-equation.rb";
+	// filename = "C:/archives/software/free/math/ruby/2/algebra-0.71/sample/sample-m-factorize02.rb";
+	// filename = "C:/archives/software/free/math/ruby/2/algebra-0.71/lib/algebra/import-module.rb";
+	parse_tree = ruby.parse_full(filename, filename);
+	al_print(ruby.msg + "\n");
+	// ==============================
+	if (ruby.compile_syntax("syntax/system.syntax") == null) {
+		al_print(ruby.msg + "\n");
+		return;
+	} else {
+	}
+	interp_syntax = ruby.syntax;
+	filename = "C:/altair/sample/alsoftpro/rule/ruby.rule";
+	var integer b, e;
+	b = al_misc("time_stamp", null, null);
+	var file f;
+	f = al_file_open(filename + ".dump", "r");
+	interp_tree = al_file_read(f, "graph");
+	// interp_tree = ruby.parse(filename, filename);
+	// al_print(ruby.msg + "\n");
+	al_print("interp_tree: " + (string)(interp_tree != null) + "\n");
+	e = al_misc("time_stamp", null, null);
+	al_print("to_model.rule READ TIME = " + (string)(e - b) + " msec\n");
+	// return;
+	// ==============================
+	if (ruby.compile_syntax("syntax/system.syntax") == null) {
+		al_print(ruby.msg + "\n");
+		return;
+	} else {
+	}
+	plisp_syntax = ruby.syntax;
+	filename = "C:/altair/sample/alsoftpro/rule/attr_grmr.rule";
+	plisp_tree = ruby.parse(filename, filename);
+	al_print(ruby.msg + "\n");
+	env = al_symbol_manip("plisp_load", env, plisp_tree, null, null);
+	// ==============================
+	// env = al_symbol_manip("set_var", env, "syntax", ruby_syntax, null);
+	env = al_symbol_manip("set_var", env, "parse_tree", parse_tree, null);
+	env = al_symbol_manip("set_var", env, "attr_grmr", interp_tree, null);
+	var list opt;
+	opt = al_cons(null, null);
+	// al_set_dst_node(opt, "debug_dump", 1);
+	// al_set_dst_node(opt, "debug_syn", 1);
+	// al_set_dst_node(opt, "debug_syn2", 1);
+	env = al_symbol_manip("set_var", env, "opt", opt, null);
+	al_misc("dump_trace", 0, null);
+	al_misc("output", "debug.txt", "no_gui");
+	try {
+		graph = al_symbol_manip("plisp_call", env, "AttrGrmr", null, null);
+	} catch (AlException e) {
+		al_print(e.msg + "\n");
+		al_misc("stack_trace", e.stack_frame, null);
+		al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+		al_misc("output", null, "gui");
+		throw e;
+	}
+	al_misc("output", null, "gui");
+	al_list_misc("dump", graph, 20);
+	al_graph_misc("dump", graph, 50);
+	check_mem();
+	al_print("END\n");
+}
+end_body
+member
+public: static void interp_test_fast_rel();
+body
+{
+	var list ruby_syntax, interp_syntax, parse_tree, interp_tree;
+	var list plisp_syntax, plisp_tree, env, graph;
+	var string filename;
+	var TP ruby;
+	ruby = new TP;
+	if (ruby.compile_syntax("syntax/ruby.syntax") == null) {
+		al_print(ruby.msg + "\n");
+		return;
+	} else {
+	}
+	ruby_syntax = ruby.syntax;
+	filename = "C:/archives/software/free/math/ruby/2/algebra-0.71/lib/algebra/algebraic-equation.rb";
+	// filename = "C:/archives/software/free/math/ruby/2/algebra-0.71/sample/sample-m-factorize02.rb";
+	// filename = "C:/archives/software/free/math/ruby/2/algebra-0.71/lib/algebra/import-module.rb";
+	parse_tree = ruby.parse_full(filename, filename);
+	al_print(ruby.msg + "\n");
+	// ==============================
+	if (ruby.compile_syntax("syntax/system.syntax") == null) {
+		al_print(ruby.msg + "\n");
+		return;
+	} else {
+	}
+	interp_syntax = ruby.syntax;
+	filename = "C:/altair/sample/alsoftpro/rule/ruby.rule";
+	var integer b, e;
+	b = al_misc("time_stamp", null, null);
+	var file f;
+	f = al_file_open(filename + ".dump", "r");
+	interp_tree = al_file_read(f, "graph");
+	// interp_tree = ruby.parse(filename, filename);
+	// al_print(ruby.msg + "\n");
+	al_print("interp_tree: " + (string)(interp_tree != null) + "\n");
+	e = al_misc("time_stamp", null, null);
+	al_print("to_model.rule READ TIME = " + (string)(e - b) + " msec\n");
+	// return;
+	// ==============================
+	if (ruby.compile_syntax("syntax/system.syntax") == null) {
+		al_print(ruby.msg + "\n");
+		return;
+	} else {
+	}
+	plisp_syntax = ruby.syntax;
+	filename = "C:/altair/sample/alsoftpro/rule/attr_grmr.rule";
+	plisp_tree = ruby.parse(filename, filename);
+	al_print(ruby.msg + "\n");
+	env = al_symbol_manip("plisp_load", env, plisp_tree, null, null);
+	// ==============================
+	env = al_symbol_manip("set_var", env, "opt", null, null);
+	// env = al_symbol_manip("set_var", env, "syntax", ruby_syntax, null);
+	env = al_symbol_manip("set_var", env, "parse_tree", parse_tree, null);
+	env = al_symbol_manip("set_var", env, "attr_grmr", interp_tree, null);
+	// al_misc("dump_trace", 0, null);
+	// al_misc("output", "debug.txt", "no_gui");
+	try {
+		graph = al_symbol_manip("plisp_call", env, "AttrGrmr", null, null);
+		al_list_misc("dump", graph, 20);
+		al_graph_misc("dump", graph, 20);
+	} catch (AlException e) {
+		// al_print(e.msg + "\n");
+		// al_misc("stack_trace", e.stack_frame, null);
+		// al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+		// al_misc("output", null, "gui");
+		throw e;
+	}
+	// al_misc("output", null, "gui");
+	al_print("END\n");
+}
+end_body
+member
+public: static void tree_to_graph();
+body
+{
+	var list ruby_syntax, attr_grmr, parse_tree, interp_tree, graph;
+	var list plisp_syntax, plisp_tree, env;
+	var string filename;
+	var TP tp;
+	var file f;
+	tp = new TP;
+	if (tp.compile_syntax("syntax/ruby.syntax") == null) {
+		al_print(tp.msg + "\n");
+		return;
+	} else {
+	}
+	ruby_syntax = tp.syntax;
+	filename = "C:/archives/software/free/math/ruby/2/algebra-0.71/lib/algebra/algebraic-equation.rb";
+	// filename = "C:/archives/software/free/math/ruby/2/algebra-0.71/sample/sample-m-factorize02.rb";
+	// filename = "C:/archives/software/free/math/ruby/2/algebra-0.71/lib/algebra/import-module.rb";
+	parse_tree = tp.parse_full(filename, filename);
+	al_print(tp.msg + "\n");
+	f = al_file_open("parse_tree.dump", "w");
+	al_file_write(f, "graph", parse_tree);
+	// ==============================
+	if (tp.compile_syntax("syntax/system.syntax") == null) {
+		al_print(tp.msg + "\n");
+		return;
+	} else {
+	}
+	plisp_syntax = tp.syntax;
+	filename = "C:/altair/sample/alsoftpro/rule/ruby.rule";
+	f = al_file_open(filename + ".dump", "r");
+	attr_grmr = al_file_read(f, "graph");
+	filename = "C:/altair/sample/alsoftpro/rule/attr_grmr.rule";
+	plisp_tree = tp.parse(filename, filename);
+	al_print(tp.msg + "\n");
+	env = al_symbol_manip("plisp_load", env, plisp_tree, null, null);
+	// ==============================
+	env = al_symbol_manip("set_var", env, "parse_tree", parse_tree, null);
+	env = al_symbol_manip("set_var", env, "attr_grmr", attr_grmr, null);
+	var list opt;
+	env = al_symbol_manip("set_var", env, "opt", opt, null);
+	graph = al_symbol_manip("plisp_call", env, "AttrGrmr", null, null);
+	// al_graph_misc("dump", graph, 20);
+	f = al_file_open("parse_tree_graph.dump", "w");
+	al_file_write(f, "graph", graph);
+	check_mem();
+	al_print("END\n");
+}
+end_body
+member
+public: static void graph_to_tree();
+body
+{
+	var list ruby_syntax, attr_grmr, parse_tree, interp_tree, graph;
+	var list plisp_syntax, plisp_tree, env;
+	var string filename;
+	var TP tp;
+	tp = new TP;
+	if (tp.compile_syntax("syntax/ruby.syntax") == null) {
+		al_print(tp.msg + "\n");
+		return;
+	} else {
+	}
+	ruby_syntax = tp.syntax;
+	// filename = "C:/archives/software/free/math/ruby/2/algebra-0.71/lib/algebra/algebraic-equation.rb";
+	// filename = "C:/archives/software/free/math/ruby/2/algebra-0.71/sample/sample-m-factorize02.rb";
+	// filename = "C:/archives/software/free/math/ruby/2/algebra-0.71/lib/algebra/import-module.rb";
+	// parse_tree = tp.parse_full(filename, filename);
+	// al_print(tp.msg + "\n");
+	if (tp.compile_syntax("syntax/system.syntax") == null) {
+		al_print(tp.msg + "\n");
+		return;
+	} else {
+	}
+	plisp_syntax = tp.syntax;
+	filename = "C:/altair/sample/alsoftpro/rule/ruby.rule";
+	var file f;
+	f = al_file_open(filename + ".dump", "r");
+	attr_grmr = al_file_read(f, "graph");
+	filename = "C:/altair/sample/alsoftpro/rule/attr_grmr.rule";
+	plisp_tree = tp.parse(filename, filename);
+	al_print(tp.msg + "\n");
+	env = al_symbol_manip("plisp_load", env, plisp_tree, null, null);
+	// ==============================
+	filename = "C:/altair/sample/alsoftpro/parse_tree_graph";
+	f = al_file_open(filename + ".dump", "r");
+	graph = al_file_read(f, "graph");
+	// ==============================
+	env = al_symbol_manip("set_var", env, "graph", graph, null);
+	env = al_symbol_manip("set_var", env, "attr_grmr", attr_grmr, null);
+	al_print("ruby_syntax = " + (string)(ruby_syntax != null) + "\n");
+	env = al_symbol_manip("set_var", env, "syntax", ruby_syntax, null);
+	env = al_symbol_manip("set_var", env, "id", "program", null);
+	var list opt;
+	opt = al_cons(null, null);
+	// al_set_dst_node(opt, "debug_dump", 1);
+	// al_set_dst_node(opt, "debug_syn", 1);
+	// al_set_dst_node(opt, "debug_syn2", 1);
+	env = al_symbol_manip("set_var", env, "opt", opt, null);
+	try {
+		al_misc("dump_trace", 0, null);
+		al_misc("output", "debug.txt", "no_gui");
+		parse_tree = al_symbol_manip("plisp_call", env, "InvAttrGrmr", null, null);
+	} catch (AlException e) {
+		al_print(e.msg + "\n");
+		al_misc("stack_trace", e.stack_frame, null);
+		al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+		al_misc("output", null, "gui");
+		throw e;
+	}
+	al_list_misc("dump", parse_tree, 1000);
+	al_misc("output", null, "gui");
+	f = al_file_open("parse_tree_graph_parse_tree.dump", "w");
+	al_file_write(f, "graph", parse_tree);
+	check_mem();
+	al_print("END\n");
+}
+end_body
+member
+public: static void tree_to_src();
+body
+{
+	var TP tp;
+	tp = new TP;
+	if (tp.compile_syntax("syntax/ruby.syntax") == null) {
+		al_print(tp.msg + "\n");
+		return;
+	} else {
+	}
+	var file f;
+	f = al_file_open("parse_tree_graph_parse_tree.dump", "r");
+	var list parse_tree;
+	parse_tree = al_file_read(f, "graph");
+	// f = al_file_open("tmp.txt", "w");
+	// al_list_misc("dump", parse_tree, al_list2(200, f));
+	f = al_file_open("tmp.rb", "w");
+	var list res, opt;
+	opt = al_cons(null, null);
+	res = al_symbol_manip("generate", f, tp.syntax, parse_tree, opt);
+	if (al_is_type(res, "string")) {
+		al_print("[ERROR] " + res + "\n");
+		return;
+	} else {
+	}
+	al_print("generate OK\n");
+}
+end_body
+member
+public: static void dump_syntax_ids_ruby();
+body
+{
+	var TP ruby;
+	ruby = new TP;
+	if (ruby.compile_syntax("syntax/ruby.syntax") == null) {
+		al_print(ruby.msg + "\n");
+		return;
+	} else {
+	}
+	var file f;
+	var list error, opt;
+	f = al_file_open("ruby.rule", "w");
+	opt = al_cons(null, null);
+	al_set_dst_node(opt, "skelton", 1);
+	error = al_symbol_manip("out_syntax_unit", f, ruby.syntax, null, opt);
+	if (error) {
+		al_print("[ERROR] " + error + "\n");
+	} else {
+		al_print("[OK]\n");
+	}
+}
+end_body
+member
+public: static void dump_syntax_ids_java();
+body
+{
+	var TP java;
+	java = new TP;
+	if (java.compile_syntax("syntax/java.syntax") == null) {
+		al_print(java.msg + "\n");
+		return;
+	} else {
+	}
+	var file f;
+	var list error, opt;
+	f = al_file_open("java.rule", "w");
+	opt = al_cons(null, null);
+	al_set_dst_node(opt, "skelton", 1);
+	error = al_symbol_manip("out_syntax_unit", f, java.syntax, null, opt);
+	if (error) {
+		al_print("[ERROR] " + error + "\n");
+	} else {
+		al_print("[OK]\n");
+	}
+}
+end_body
+member
+public: static void dump_syntax_id_jsp();
+body
+{
+	var TP jsp;
+	jsp = new TP;
+	if (jsp.compile_syntax("syntax/jsp.syntax") == null) {
+		al_print(jsp.msg + "\n");
+		return;
+	} else {
+	}
+	var file f;
+	var list error, opt;
+	f = al_file_open("jsp.rule", "w");
+	opt = al_cons(null, null);
+	al_set_dst_node(opt, "skelton", 1);
+	error = al_symbol_manip("out_syntax_unit", f, jsp.syntax, null, opt);
+	if (error) {
+		al_print("[ERROR] " + error + "\n");
+	} else {
+		al_print("[OK]\n");
+	}
+}
+end_body
+member
+public: static void dump_syntax_ids_sql();
+body
+{
+	var TP sql;
+	sql = new TP;
+	if (sql.compile_syntax("syntax/sql.syntax") == null) {
+		al_print(sql.msg + "\n");
+		return;
+	} else {
+	}
+	var file f;
+	var list error, opt;
+	f = al_file_open("sql.rule", "w");
+	opt = al_cons(null, null);
+	al_set_dst_node(opt, "skelton", 1);
+	error = al_symbol_manip("out_syntax_unit", f, sql.syntax, null, opt);
+	if (error) {
+		al_print("[ERROR] " + error + "\n");
+	} else {
+		al_print("[OK]\n");
+	}
+}
+end_body
+member
+public: static void dump_syntax_ids_altair();
+body
+{
+	var TP altair;
+	altair = new TP;
+	if (altair.compile_syntax("syntax/altair.syntax") == null) {
+		al_print(altair.msg + "\n");
+		return;
+	} else {
+	}
+	var file f;
+	var list error, opt;
+	f = al_file_open("altair.rule", "w");
+	opt = al_cons(null, null);
+	al_set_dst_node(opt, "skelton", 1);
+	error = al_symbol_manip("out_syntax_unit", f, altair.syntax, null, opt);
+	if (error) {
+		al_print("[ERROR] " + error + "\n");
+	} else {
+		al_print("[OK]\n");
+	}
+}
+end_body
+member
+public: static void dump_syntax_ids_ruby_no_attr();
+body
+{
+	var TP ruby;
+	ruby = new TP;
+	if (ruby.compile_syntax("syntax/ruby.syntax") == null) {
+		al_print(ruby.msg + "\n");
+		return;
+	} else {
+	}
+	var file f;
+	var list error;
+	f = al_file_open("ruby.rule", "w");
+	error = al_symbol_manip("out_syntax_unit", f, ruby.syntax, null, null);
+	if (error) {
+		al_print("[ERROR] " + error + "\n");
+	} else {
+		al_print("[OK]\n");
+	}
+}
+end_body
+member
+public: static void check_mem();
+body
+{
+	al_print("ref_count = " + (string)al_gc("ref_count") + "\n");
+	al_print("cyclic = " + (string)al_gc("cyclic") + "\n");
+	// al_print("gc = " + (string)al_gc(null) + "\n");
+}
+end_body
+member
+public: static void dump_compiled_syntax();
+body
+{
+	var list ls;
+	ls = al_dst_node(compiled_syntax.head, "program");
+	al_misc("output", "syntax.txt", "no_gui");
+	al_list_misc("dump", ls, 20);
+	al_misc("output", null, "gui");
+}
+end_body
+member
+public: static void format_config();
+body
+{
+	var file f;
+	var list config;
+	f = al_file_open("c:/altair/sample/alsoftpro/config/test1.conf", "r");
+	config = al_file_read(f, "tree");
+	if (config) {
+	} else {
+		al_print("error.\n");
+	}
+	f = al_file_open("c:/altair/sample/alsoftpro/config/test1.conf", "w");
+	al_file_write(f, "tree", config);
+	al_print("ok.\n");
+}
+end_body
+member
+public: static void parse_leak_bug_fix();
+body
+{
+	// ==== compile syntax
+	var string filename;
+	var file f;
+	var list res;
+	filename = "C:/altair/sample/almath/syntax/almath.syntax";
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		al_print("[ERROR] can't open '" + filename + "'\n");
+		return;
+	}
+	res = al_symbol_manip("compile_syntax", f, null, null, null);
+	if (al_is_type(res, "string")) {
+		al_print("[ERROR] " + res + "\n");
+		al_print("filename = " + filename + "\n");
+		return;
+	} else {
+	}
+	compiled_syntax = res;
+	al_print("compile_syntax OK\n");
+	al_print("filename = " + filename + "\n");
+	if (null) {
+		// ==== parse
+		var string def_name;
+		var file f;
+		var list res;
+		// debug = al_list3(null, null, 30);
+		if (compiled_syntax) {
+		} else {
+			al_print("[ERROR] no compiled_syntax\n");
+			return;
+		}
+		filename = "C:/altair/sample/almath/physics/christof.math";
+		def_name = "file";
+		if (f = al_file_open(filename, "r")) {
+		} else {
+			al_print("[ERROR] can't open '" + filename + "'\n");
+			return;
+		}
+		res = al_symbol_manip("parse", f, compiled_syntax, def_name, null);
+		if (al_is_type(res, "string")) {
+			al_print("[ERROR] " + res + "\n");
+			al_print("filename = " + filename + "\n");
+			return;
+		} else {
+		}
+		parse_tree = res;
+		al_print("parse OK\n");
+		al_print("filename = " + filename + "\n");
+	} else {
+	}
+	// ==== check memory leak
+	check_mem();
+}
+end_body
+member
+public: static void improve_err_msg_debug_altair();
+body
+{
+	var string sys_syn_fn, syn_fn, ag_fn, pl_fn, in, out;
+	if (al_misc("platform", null, null) == "windows") {
+		sys_syn_fn = "C:/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "C:/altair/sample/alsoftpro/syntax/altair.syntax";
+		ag_fn = "C:/altair/sample/alsoftpro/rule/tr_to_grph/altair.rule";
+		pl_fn = "C:/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		// in = "";
+		// in = "C:/altair/sample/alctrl/alctrl.apr";
+		// in = "C:/altair/sample/gui/guicore.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/ptr_func.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/vfunc.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/sum_n.apr";
+		in = "C:/altair/sample/alsoftpro/tmp/empty.apr";
+		out = "C:/altair/sample/alsoftpro/tmp/out.apr";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "mac") {
+		sys_syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/altair.syntax";
+		ag_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/tr_to_grph/altair.rule";
+		pl_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		// in = "/Users/inamoto/misc/faqnavi/WEB-INF/src/jp/nec/faqnavi/core/db/FaqDataEntityImpl.java";
+		in = "/Users/inamoto/altair/sample/alsoftpro/in.apr";
+		out = "/Users/inamoto/altair/sample/alsoftpro/out.apr";
+	} else {
+	}
+	{
+		var list dir_name;
+		var string filename;
+		var file f;
+		var list res;
+		filename = syn_fn;
+		if (f = al_file_open(filename, "r")) {
+		} else {
+			al_print("[ERROR] can't open '" + filename + "'\n");
+			return;
+		}
+		res = al_symbol_manip("compile_syntax", f, null, null, null);
+		if (al_is_type(res, "string")) {
+			al_print("[ERROR] " + res + "\n");
+			al_print("filename = " + filename + "\n");
+			check_mem();
+			return;
+		} else {
+		}
+		compiled_syntax = res;
+		al_print("compile_syntax OK\n");
+		al_print("filename = " + filename + "\n");
+		check_mem();
+	}
+	{
+		var list dir_name;
+		var string filename, def_name;
+		var file f;
+		var list res;
+		if (compiled_syntax) {
+		} else {
+			al_print("[ERROR] no compiled_syntax\n");
+			return;
+		}
+		filename = in;
+		// def_name = al_ask("def_name", "program");
+		def_name = "program";
+		if (f = al_file_open(filename, "r")) {
+		} else {
+			al_print("[ERROR] can't open '" + filename + "'\n");
+			return;
+		}
+		var list opt, logging;
+		opt = al_cons(null, null);
+		// logging = 1;
+		if (logging) {
+			al_misc("output", "debug.txt", "no_gui");
+			al_create_arc(opt, al_list3(1, 1, 1), "debug");
+		} else {
+		}
+		res = al_symbol_manip("parse", f, compiled_syntax, def_name, null);
+		if (al_is_type(res, "string")) {
+			al_print("[ERROR] " + res + "\n");
+			al_print("filename = " + filename + "\n");
+			if (logging) {
+				al_misc("output", null, "gui");
+			} else {
+			}
+			return;
+		} else {
+		}
+		parse_tree = res;
+		al_print("parse OK\n");
+		al_print("filename = " + filename + "\n");
+		check_mem();
+		if (logging) {
+			al_misc("output", null, "gui");
+		} else {
+		}
+	}
+}
+end_body
+member
+public: static void improve_err_msg_debug_ruby();
+body
+{
+	var string sys_syn_fn, syn_fn, ag_fn, pl_fn, in, out;
+	if (al_misc("platform", null, null) == "windows") {
+		sys_syn_fn = "C:/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "C:/altair/sample/alsoftpro/syntax/ruby.syntax";
+		ag_fn = "C:/altair/sample/alsoftpro/rule/tr_to_grph/ruby.rule";
+		pl_fn = "C:/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		// in = "";
+		in = "D:/temp/algebra-0.72/install.rb";
+		out = "C:/altair/sample/alsoftpro/tmp/out.apr";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "mac") {
+		sys_syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/altair.syntax";
+		ag_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/tr_to_grph/altair.rule";
+		pl_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		// in = "/Users/inamoto/misc/faqnavi/WEB-INF/src/jp/nec/faqnavi/core/db/FaqDataEntityImpl.java";
+		in = "/Users/inamoto/altair/sample/alsoftpro/in.apr";
+		out = "/Users/inamoto/altair/sample/alsoftpro/out.apr";
+	} else {
+	}
+	{
+		var list dir_name;
+		var string filename;
+		var file f;
+		var list res;
+		filename = syn_fn;
+		if (f = al_file_open(filename, "r")) {
+		} else {
+			al_print("[ERROR] can't open '" + filename + "'\n");
+			return;
+		}
+		res = al_symbol_manip("compile_syntax", f, null, null, null);
+		if (al_is_type(res, "string")) {
+			al_print("[ERROR] " + res + "\n");
+			al_print("filename = " + filename + "\n");
+			check_mem();
+			return;
+		} else {
+		}
+		compiled_syntax = res;
+		al_print("compile_syntax OK\n");
+		al_print("filename = " + filename + "\n");
+		check_mem();
+	}
+	{
+		var list dir_name;
+		var string filename, def_name;
+		var file f;
+		var list res;
+		if (compiled_syntax) {
+		} else {
+			al_print("[ERROR] no compiled_syntax\n");
+			return;
+		}
+		filename = in;
+		// def_name = al_ask("def_name", "program");
+		def_name = "program";
+		if (f = al_file_open(filename, "r")) {
+		} else {
+			al_print("[ERROR] can't open '" + filename + "'\n");
+			return;
+		}
+		res = al_symbol_manip("parse", f, compiled_syntax, def_name, null);
+		if (al_is_type(res, "string")) {
+			al_print("[ERROR] " + res + "\n");
+			al_print("filename = " + filename + "\n");
+			return;
+		} else {
+		}
+		parse_tree = res;
+		al_print("parse OK\n");
+		al_print("filename = " + filename + "\n");
+		check_mem();
+	}
+}
+end_body
+end_class
+TEXT
+AlObject
+class TP2
+member
+public: static void ruby_ParGen();
+body
+{
+	var string sys_syn_fn, syn_fn, ag_fn, pl_fn, in, out;
+	if (al_misc("platform", null, null) == "windows") {
+		sys_syn_fn = "C:/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "C:/altair/sample/alsoftpro/syntax/ruby.syntax";
+		ag_fn = "C:/altair/sample/alsoftpro/rule/tr_to_grph/ruby.rule";
+		pl_fn = "C:/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		in = "D:/temp/algebra-0.72/lib/algebra/gaussian-elimination.rb";
+		// in = "C:/altair/sample/alsoftpro/in.rb";
+		out = "C:/altair/sample/alsoftpro/tmp/out.rb";
+		// out = "C:/altair/sample/alsoftpro/tmp/m-polynomial.rb";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "mac") {
+		sys_syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/ruby.syntax";
+		ag_fn = "/Users/inamoto/altair/sample/alsoftpro/tr_to_grph/rule/ruby.rule";
+		pl_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		in = "/Users/inamoto/misc/algebra-0.72/lib/algebra/gaussian-elimination.rb";
+		// in = "/Users/inamoto/altair/sample/alsoftpro/in.rb";
+		out = "/Users/inamoto/altair/sample/alsoftpro/out.rb";
+		// out = "/Users/inamoto/altair/sample/alsoftpro/m-polynomial.rb";
+	} else {
+	}
+	var list logging;
+	logging = 1;
+	var ParGenConv pgc;
+	pgc = new ParGenConv;
+	if (logging) {
+		al_misc("output", "debug.txt", "no_gui");
+		al_misc("dump_trace", 0, null);
+	} else {
+	}
+	try {
+		pgc.prepare(sys_syn_fn, syn_fn);
+		pgc.parse(in, "program", 1, null);
+		// pgc.write_tree("parse-tree-before.txt");
+		pgc.generate(out, (list)al_cons(null, null));
+		// pgc.write_tree("parse-tree-after.txt");
+	} catch (AlException e) {
+		al_print(e.msg + "\n");
+		al_misc("stack_trace", e.stack_frame, null);
+		al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+		if (logging) {
+			al_misc("output", null, "gui");
+		} else {
+		}
+		throw e;
+	}
+	if (logging) {
+		al_misc("output", null, "gui");
+	} else {
+	}
+	check_mem();
+}
+end_body
+member
+public: static void ruby_ParGenConv();
+body
+{
+	var string sys_syn_fn, syn_fn, ag_fn, pl_fn, in, out;
+	if (al_misc("platform", null, null) == "windows") {
+		sys_syn_fn = "C:/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "C:/altair/sample/alsoftpro/syntax/ruby.syntax";
+		ag_fn = "C:/altair/sample/alsoftpro/rule/tr_to_grph/ruby.rule";
+		pl_fn = "C:/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		// in = "C:/archives/software/free/math/ruby/2/algebra-0.71/test/test-finite-set.rb";
+		// in = "C:/archives/software/free/math/ruby/2/algebra-0.71/lib/algebra/groebner-basis-coeff.rb";
+		// in = "C:/archives/software/free/math/ruby/2/algebra-0.71/test/test-00-groebner-basis.rb";
+		// in = "C:/archives/software/free/math/ruby/2/algebra-0.72/lib/algebra/m-polynomial.rb";
+		// in = "C:/archives/software/free/math/ruby/2/algebra-0.72/lib/algebra/auto-require.rb";
+		// in = "C:/temp/algebra-0.72/lib/algebra/polynomial-factor-int.rb";
+		// in = "C:/archives/software/free/math/ruby/2/algebra-0.72/lib/algebra/polynomial.rb";
+		// in = "C:/archives/software/free/math/ruby/2/algebra-0.72/lib/algebra/polynomial-factor-int.rb";
+		// in = "C:/archives/software/free/math/ruby/2/algebra-0.72/lib/algebra/import-module.rb";
+		// in = "C:/archives/software/free/math/ruby/2/algebra-0.72/lib/algebra/splitting-field.rb";
+		// in = "C:/archives/software/free/math/ruby/2/algebra-0.72/lib/algebra/factor-int.rb";
+		// in = "C:/archives/software/free/math/ruby/2/algebra-0.72/lib/algebra.rb";
+		// ===
+		// in = "D:/temp/algebra-0.72/lib/algebra/algebraic-equation.rb";
+		in = "D:/temp/algebra-0.72/lib/algebra/auto-require.rb";
+		// in = "C:/temp/algebra-0.72/lib/algebra/array-supplement.rb";
+		// in = "D:/temp/algebra-0.72/lib/algebra/m-polynomial-gcd.rb";
+		// in = "D:/temp/algebra-0.72/lib/algebra/combinatorial.rb";
+		// ===
+		// in = "C:/altair/sample/alsoftpro/tmp/in.rb";
+		out = "C:/altair/sample/alsoftpro/tmp/out.rb";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "mac") {
+		sys_syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/ruby.syntax";
+		ag_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/ruby.rule";
+		pl_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		in = "/Users/inamoto/misc/algebra-0.72/lib/algebra/m-polynomial.rb";
+		// ===
+		// in = "/Users/inamoto/info/sum_1_to_100/sum.rb";
+		// in = "/Users/inamoto/altair/sample/alsoftpro/in.rb";
+		out = "/Users/inamoto/altair/sample/alsoftpro/out.rb";
+	} else {
+	}
+	var list logging;
+	logging = 1;
+	var ParGenConv pgc;
+	pgc = new ParGenConv;
+	if (logging) {
+		al_misc("output", "debug.txt", "no_gui");
+		al_misc("dump_trace", 0, null);
+	} else {
+	}
+	try {
+		pgc.prepare(sys_syn_fn, syn_fn);
+		pgc.plisp_load(pl_fn);
+		pgc.load_attr_grmr(ag_fn);
+		pgc.clear_debug();
+		al_print("=================== src_to_graph\n");
+		if (null) {
+			pgc.debug_pred = 1;
+			// pgc.debug_dump = 1;
+			pgc.debug_syn = 1;
+			// pgc.debug_syn2 = 1;
+			// pgc.debug_syn3 = 1;
+			// pgc.debug_syntax_id = "";
+			// pgc.debug_syntax_id2 = "";
+			// pgc.debug_syntax_id3 = "";
+		} else {
+		}
+		pgc.src_to_graph(in, "program");
+		pgc.write_tree("parse-tree-before.txt");
+		check_mem();
+		pgc.write_graph("graph.txt");
+		pgc.clear_debug();
+		al_print("=================== graph_to_src\n");
+		if (null) {
+			pgc.debug_pred = 1;
+			pgc.debug_dump = 1;
+			pgc.debug_syn = 1;
+			pgc.debug_syn2 = 1;
+			pgc.debug_syn3 = 1;
+			// pgc.debug_syntax_id = "";
+			// pgc.debug_syntax_id2 = "";
+			// pgc.debug_syntax_id3 = "";
+		} else {
+		}
+		pgc.graph_to_src(out, "program");
+		pgc.write_tree("parse-tree-after.txt");
+		check_mem();
+	} catch (AlException e) {
+		al_print(e.msg + "\n");
+		al_misc("stack_trace", e.stack_frame, null);
+		al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+		if (logging) {
+			al_misc("output", null, "gui");
+		} else {
+		}
+		throw e;
+	}
+	if (logging) {
+		al_misc("output", null, "gui");
+	} else {
+	}
+	check_mem();
+	al_print("load_attr_grmr time = " + (string)pgc.time_load_attr_grmr + " msec\n");
+	al_print("parse time = " + (string)pgc.time_parse + " msec\n");
+	al_print("tree_to_graph time = " + (string)pgc.time_tree_to_graph + " msec\n");
+	al_print("graph_to_tree time = " + (string)pgc.time_graph_to_tree + " msec\n");
+	al_print("generate time = " + (string)pgc.time_generate + " msec\n");
+	al_print("syntax_depth = " + (string)al_symbol_manip("inv_attr_grmr_syntax_depth", null, null, null, null) + "\n");
+}
+end_body
+member
+public: static void ruby_algebra1();
+body
+{
+	var string sys_syn_fn, syn_fn, pl_fn, in, out;
+	var string src_dir, dst_dir;
+	if (al_misc("platform", null, null) == "windows") {
+		sys_syn_fn = "C:/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "C:/altair/sample/alsoftpro/syntax/ruby.syntax";
+		pl_fn = "C:/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		src_dir = "C:/temp/algebra-0.72";
+		dst_dir = "C:/altair/sample/alsoftpro/tmp1";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "mac") {
+		sys_syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/ruby.syntax";
+		pl_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		src_dir = "/Users/inamoto/misc/algebra-0.72";
+		dst_dir = "/Users/inamoto/altair/sample/alsoftpro/tmp1";
+	} else {
+	}
+	var list logging;
+	logging = 1;
+	var ParGenConv pgc;
+	pgc = new ParGenConv;
+	if (logging) {
+		al_misc("output", "debug.txt", null);
+		al_misc("dump_trace", 0, null);
+	} else {
+	}
+	var integer begin, end;
+	try {
+		begin = al_misc("time_stamp", null, null);
+		pgc.prepare(sys_syn_fn, syn_fn);
+		pgc.plisp_load(pl_fn);
+		al_print("load_attr_grmr time = " + (string)pgc.time_load_attr_grmr + " msec\n");
+		iterate1(pgc, src_dir, dst_dir, ".rb");
+		end = al_misc("time_stamp", null, null);
+	} catch (AlException e) {
+		al_print(e.msg + "\n");
+		al_misc("stack_trace", e.stack_frame, null);
+		al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+		if (logging) {
+			al_misc("output", null, null);
+		} else {
+		}
+		al_print("FATAL ERROR\n");
+		return;
+	}
+	al_print("TOTAL TIME = " + (string)((end - begin) / 1000) + " sec\n");
+	al_print("END\n");
+	if (logging) {
+		al_misc("output", null, null);
+	} else {
+	}
+}
+end_body
+member
+public: static void ruby_algebra2();
+body
+{
+	var string sys_syn_fn, syn_fn, ag_fn, pl_fn, in, out;
+	var string src_dir, dst_dir;
+	if (al_misc("platform", null, null) == "windows") {
+		sys_syn_fn = "C:/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "C:/altair/sample/alsoftpro/syntax/ruby.syntax";
+		ag_fn = "C:/altair/sample/alsoftpro/rule/tr_to_grph/ruby.rule";
+		pl_fn = "C:/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		src_dir = "D:/temp/algebra-0.72";
+		dst_dir = "D:/temp/all_ruby";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "mac") {
+		sys_syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/ruby.syntax";
+		ag_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/tr_to_grph/ruby.rule";
+		pl_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		src_dir = "/Users/inamoto/misc/algebra-0.72";
+		dst_dir = "/Users/inamoto/altair/sample/alsoftpro/all_ruby";
+	} else {
+	}
+	var list logging;
+	logging = 1;
+	var ParGenConv pgc;
+	pgc = new ParGenConv;
+	if (logging) {
+		al_misc("output", "debug.txt", null);
+		al_misc("dump_trace", 0, null);
+	} else {
+	}
+	var integer begin, end;
+	try {
+		begin = al_misc("time_stamp", null, null);
+		pgc.prepare(sys_syn_fn, syn_fn);
+		pgc.plisp_load(pl_fn);
+		pgc.load_attr_grmr(ag_fn);
+		al_print("load_attr_grmr time = " + (string)pgc.time_load_attr_grmr + " msec\n");
+		iterate2(pgc, src_dir, dst_dir, ".rb");
+		end = al_misc("time_stamp", null, null);
+	} catch (AlException e) {
+		al_print(e.msg + "\n");
+		al_misc("stack_trace", e.stack_frame, null);
+		al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+		if (logging) {
+			al_misc("output", null, null);
+		} else {
+		}
+		al_print("FATAL ERROR\n");
+		return;
+	}
+	al_print("TOTAL TIME = " + (string)((end - begin) / 1000) + " sec\n");
+	al_print("END\n");
+	if (logging) {
+		al_misc("output", null, null);
+	} else {
+	}
+}
+end_body
+member
+public: static void java_ParGen();
+body
+{
+	var string sys_syn_fn, syn_fn, ag_fn, pl_fn, in, out;
+	if (al_misc("platform", null, null) == "windows") {
+		sys_syn_fn = "C:/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "C:/altair/sample/alsoftpro/syntax/java.syntax";
+		ag_fn = "C:/altair/sample/alsoftpro/rule/tr_to_grph/java.rule";
+		pl_fn = "C:/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		// in = "";
+		in = "C:/altair/sample/alsoftpro/in.java";
+		out = "C:/altair/sample/alsoftpro/out.java";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "mac") {
+		sys_syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/java.syntax";
+		ag_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/tr_to_grph/java.rule";
+		pl_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		in = "/Users/inamoto/misc/faqnavi/WEB-INF/src/jp/nec/faqnavi/core/db/FaqDataEntityImpl.java";
+		// in = "/Users/inamoto/altair/sample/alsoftpro/in.java";
+		out = "/Users/inamoto/altair/sample/alsoftpro/out.java";
+	} else {
+	}
+	var list logging;
+	logging = 1;
+	var ParGenConv pgc;
+	pgc = new ParGenConv;
+	if (logging) {
+		al_misc("output", "debug.txt", "no_gui");
+		al_misc("dump_trace", 0, null);
+	} else {
+	}
+	try {
+		pgc.prepare(sys_syn_fn, syn_fn);
+		pgc.parse(in, "program", 1, null);
+		// pgc.write_tree("parse-tree-before.txt");
+		pgc.generate(out, (list)al_cons(null, null));
+		// pgc.write_tree("parse-tree-after.txt");
+	} catch (AlException e) {
+		al_print(e.msg + "\n");
+		al_misc("stack_trace", e.stack_frame, null);
+		al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+		if (logging) {
+			al_misc("output", null, "gui");
+		} else {
+		}
+		throw e;
+	}
+	if (logging) {
+		al_misc("output", null, "gui");
+	} else {
+	}
+	check_mem();
+}
+end_body
+member
+public: static void java_ParGenConv();
+body
+{
+	var string sys_syn_fn, syn_fn, ag_fn, pl_fn, in, out;
+	if (al_misc("platform", null, null) == "windows") {
+		sys_syn_fn = "C:/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "C:/altair/sample/alsoftpro/syntax/java.syntax";
+		ag_fn = "C:/altair/sample/alsoftpro/rule/tr_to_grph/java.rule";
+		pl_fn = "C:/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		// in = "C:/NEC/product-me/FAQ-Navi/faq3.1/WEB-INF/src/jp/nec/faqnavi/action/AddFaqActionForm.java";
+		// in = "C:/NEC/product-me/FAQ-Navi/faq3.1/WEB-INF/src/jp/nec/faqnavi/action/AbstractAuthGroupListActionForm.java";
+		// in = "C:/NEC/product-me/FAQ-Navi/faq3.1/WEB-INF/src/jp/nec/faqnavi/core/db/FaqAccountEntity.java";
+		// in = "C:/NEC/product-me/FAQ-Navi/faq3.1/WEB-INF/src/jp/nec/faqnavi/core/generator/TemplateTags.java";
+		// in = "C:/NEC/product-me/FAQ-Navi/faq3.1/WEB-INF/src/jp/nec/faqnavi/core/history/CategoryHistory.java";
+		// in = "C:/NEC/product-me/FAQ-Navi/faq3.1/WEB-INF/src/jp/nec/faqnavi/batch/AccessCountBatch.java";
+		// in = "C:/NEC/product-me/FAQ-Navi/faq3.1/WEB-INF/src/jp/nec/faqnavi/client/XmlBatch.java";
+		// in = "C:/NEC/product-me/FAQ-Navi/faq3.1/WEB-INF/src/jp/nec/faqnavi/core/faq/Faq.java";
+		// in = "C:/NEC/product-me/FAQ-Navi/faq3.1/WEB-INF/src/jp/nec/faqnavi/core/db/FaqAuthGroupEntityImpl.java";
+		// in = "C:/NEC/product-me/FAQ-Navi/faq3.1/WEB-INF/src/jp/nec/faqnavi/core/faq/ClsQsSearch.java";
+		// in = "C:/NEC/product-me/FAQ-Navi/faq3.1/WEB-INF/src/jp/nec/faqnavi/core/db/FaqDataEntityImpl.java";
+		in = "D:/temp/faqnavi/WEB-INF/src/jp/nec/faqnavi/core/db/FaqHistoryEntityImpl.java";
+		// ===
+		// in = "C:/altair/sample/alsoftpro/tmp/in.java";
+		out = "C:/altair/sample/alsoftpro/tmp/out.java";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "mac") {
+		sys_syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/java.syntax";
+		ag_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/tr_to_grph/java.rule";
+		pl_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		// in = "/Users/inamoto/misc/faqnavi/WEB-INF/src/jp/nec/faqnavi/action/AddFaqActionForm.java";
+		// in = "/Users/inamoto/misc/faqnavi/WEB-INF/src/jp/nec/faqnavi/action/AbstractAuthGroupListActionForm.java";
+		// in = "/Users/inamoto/misc/faqnavi/WEB-INF/src/jp/nec/faqnavi/core/db/FaqAccountEntity.java";
+		// in = "/Users/inamoto/misc/faqnavi/WEB-INF/src/jp/nec/faqnavi/core/generator/TemplateTags.java";
+		// in = "/Users/inamoto/misc/faqnavi/WEB-INF/src/jp/nec/faqnavi/core/history/CategoryHistory.java";
+		// in = "/Users/inamoto/misc/faqnavi/WEB-INF/src/jp/nec/faqnavi/batch/AccessCountBatch.java";
+		// in = "/Users/inamoto/misc/faqnavi/WEB-INF/src/jp/nec/faqnavi/client/XmlBatch.java";
+		// in = "/Users/inamoto/misc/faqnavi/WEB-INF/src/jp/nec/faqnavi/core/faq/Faq.java";
+		// in = "/Users/inamoto/misc/faqnavi/WEB-INF/src/jp/nec/faqnavi/core/db/FaqAuthGroupEntityImpl.java";
+		// in = "/Users/inamoto/misc/faqnavi/WEB-INF/src/jp/nec/faqnavi/core/faq/ClsQsSearch.java";
+		// in = "/Users/inamoto/misc/faqnavi/WEB-INF/src/jp/nec/faqnavi/core/db/FaqDataEntityImpl.java";
+		in = "/Users/inamoto/misc/faqnavi/WEB-INF/src/jp/nec/faqnavi/core/db/FaqHistoryEntityImpl.java";
+		in = "/Users/inamoto/misc/faqnavi/WEB-INF/src/jp/nec/faqnavi/core/generator/TemplateParser.java";
+		// ===
+		in = "/Users/inamoto/info/sum_1_to_100/Sum.java";
+		// in = "/Users/inamoto/altair/sample/alsoftpro/in.java";
+		out = "/Users/inamoto/altair/sample/alsoftpro/out.java";
+	} else {
+	}
+	var list logging;
+	logging = 1;
+	var ParGenConv pgc;
+	pgc = new ParGenConv;
+	if (logging) {
+		al_misc("output", "debug.txt", "no_gui");
+		al_misc("dump_trace", 0, null);
+	} else {
+	}
+	try {
+		pgc.prepare(sys_syn_fn, syn_fn);
+		pgc.plisp_load(pl_fn);
+		pgc.load_attr_grmr(ag_fn);
+		pgc.clear_debug();
+		al_print("=================== src_to_graph\n");
+		if (null) {
+			// pgc.debug_pred = 1;
+			// pgc.debug_dump = 1;
+			// pgc.debug_syn = 1;
+			// pgc.debug_syn2 = 1;
+			// pgc.debug_syn3 = 1;
+			// pgc.debug_syntax_id = "";
+			// pgc.debug_syntax_id2 = "";
+			// pgc.debug_syntax_id3 = "";
+		} else {
+		}
+		pgc.src_to_graph(in, "program");
+		pgc.write_tree("parse-tree-before.txt");
+		pgc.write_graph("graph.txt");
+		pgc.clear_debug();
+		al_print("=================== graph_to_src\n");
+		if (null) {
+			// pgc.debug_pred = 1;
+			// pgc.debug_dump = 1;
+			// pgc.debug_syn = 1;
+			// pgc.debug_syn2 = 1;
+			// pgc.debug_syn3 = 1;
+			// pgc.debug_syntax_id = "";
+			// pgc.debug_syntax_id2 = "";
+			// pgc.debug_syntax_id3 = "";
+		} else {
+		}
+		pgc.graph_to_src(out, "program");
+		pgc.write_tree("parse-tree-after.txt");
+	} catch (AlException e) {
+		al_print(e.msg + "\n");
+		al_misc("stack_trace", e.stack_frame, null);
+		al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+		if (logging) {
+			al_misc("output", null, "gui");
+		} else {
+		}
+		check_mem();
+		gc();
+		throw e;
+	}
+	if (logging) {
+		al_misc("output", null, "gui");
+	} else {
+	}
+	check_mem();
+	al_print("load_attr_grmr time = " + (string)pgc.time_load_attr_grmr + " msec\n");
+	al_print("parse time = " + (string)pgc.time_parse + " msec\n");
+	al_print("tree_to_graph time = " + (string)pgc.time_tree_to_graph + " msec\n");
+	al_print("graph_to_tree time = " + (string)pgc.time_graph_to_tree + " msec\n");
+	al_print("generate time = " + (string)pgc.time_generate + " msec\n");
+	al_print("syntax_depth = " + (string)al_symbol_manip("inv_attr_grmr_syntax_depth", null, null, null, null) + "\n");
+}
+end_body
+member
+public: static void java_faqnavi1();
+body
+{
+	var string sys_syn_fn, syn_fn, pl_fn, in, out;
+	var string src_dir, dst_dir;
+	if (al_misc("platform", null, null) == "windows") {
+		sys_syn_fn = "C:/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "C:/altair/sample/alsoftpro/syntax/java.syntax";
+		pl_fn = "C:/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		src_dir = "C:/temp/faq3.1/WEB-INF/src/jp/nec/faqnavi";
+		dst_dir = "C:/altair/sample/alsoftpro/tmp1";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "mac") {
+		sys_syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/java.syntax";
+		pl_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		src_dir = "/Users/inamoto/misc/faqnavi/WEB-INF/src/jp/nec/faqnavi";
+		dst_dir = "/Users/inamoto/altair/sample/alsoftpro/tmp1";
+	} else {
+	}
+	var list logging;
+	logging = 1;
+	var ParGenConv pgc;
+	pgc = new ParGenConv;
+	if (logging) {
+		al_misc("output", "debug.txt", null);
+		al_misc("dump_trace", 0, null);
+	} else {
+	}
+	var integer begin, end;
+	try {
+		begin = al_misc("time_stamp", null, null);
+		pgc.prepare(sys_syn_fn, syn_fn);
+		pgc.plisp_load(pl_fn);
+		al_print("load_attr_grmr time = " + (string)pgc.time_load_attr_grmr + " msec\n");
+		iterate1(pgc, src_dir, dst_dir, ".java");
+		end = al_misc("time_stamp", null, null);
+	} catch (AlException e) {
+		al_print(e.msg + "\n");
+		al_misc("stack_trace", e.stack_frame, null);
+		al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+		if (logging) {
+			al_misc("output", null, null);
+		} else {
+		}
+		al_print("FATAL ERROR\n");
+		return;
+	}
+	al_print("TOTAL TIME = " + (string)((end - begin) / 1000) + " sec\n");
+	al_print("END\n");
+	if (logging) {
+		al_misc("output", null, null);
+	} else {
+	}
+}
+end_body
+member
+public: static void java_faqnavi2();
+body
+{
+	var string sys_syn_fn, syn_fn, ag_fn, pl_fn, in, out;
+	var string src_dir, dst_dir;
+	if (al_misc("platform", null, null) == "windows") {
+		sys_syn_fn = "C:/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "C:/altair/sample/alsoftpro/syntax/java.syntax";
+		ag_fn = "C:/altair/sample/alsoftpro/rule/tr_to_grph/java.rule";
+		pl_fn = "C:/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		src_dir = "D:/temp/faqnavi/WEB-INF/src/jp/nec/faqnavi";
+		// src_dir = "C:/altair/sample/alsoftpro/error";
+		dst_dir = "D:/temp/all_java";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "mac") {
+		sys_syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/java.syntax";
+		ag_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/tr_to_grph/java.rule";
+		pl_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		src_dir = "/Users/inamoto/misc/faqnavi/WEB-INF/src/jp/nec/faqnavi";
+		// src_dir = "/Users/inamoto/altair/sample/alsoftpro/error";
+		dst_dir = "/Users/inamoto/altair/sample/alsoftpro/all_java";
+	} else {
+	}
+	var list logging;
+	logging = 1;
+	var ParGenConv pgc;
+	pgc = new ParGenConv;
+	if (logging) {
+		al_misc("output", "debug.txt", null);
+		al_misc("dump_trace", 0, null);
+	} else {
+	}
+	var integer begin, end;
+	try {
+		begin = al_misc("time_stamp", null, null);
+		pgc.prepare(sys_syn_fn, syn_fn);
+		pgc.plisp_load(pl_fn);
+		pgc.load_attr_grmr(ag_fn);
+		al_print("load_attr_grmr time = " + (string)pgc.time_load_attr_grmr + " msec\n");
+		iterate2("program", pgc, src_dir, dst_dir, ".java");
+		end = al_misc("time_stamp", null, null);
+	} catch (AlException e) {
+		al_print(e.msg + "\n");
+		al_misc("stack_trace", e.stack_frame, null);
+		al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+		if (logging) {
+			al_misc("output", null, null);
+		} else {
+		}
+		al_print("FATAL ERROR\n");
+		return;
+	}
+	al_print("TOTAL TIME = " + (string)((end - begin) / 1000) + " sec\n");
+	al_print("END\n");
+	if (logging) {
+		al_misc("output", null, null);
+	} else {
+	}
+}
+end_body
+member
+public: static void jsp_ParGen();
+body
+{
+	var string sys_syn_fn, syn_fn, ag_fn, pl_fn, in, out;
+	if (al_misc("platform", null, null) == "windows") {
+		sys_syn_fn = "C:/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "C:/altair/sample/alsoftpro/syntax/jsp.syntax";
+		ag_fn = "C:/altair/sample/alsoftpro/rule/tr_to_grph/jsp.rule";
+		pl_fn = "C:/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		// in = "";
+		in = "C:/altair/sample/alsoftpro/in.jsp";
+		out = "C:/altair/sample/alsoftpro/out.jsp";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "mac") {
+		sys_syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/jsp.syntax";
+		ag_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/tr_to_grph/jsp.rule";
+		pl_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		// in = "/Users/inamoto/misc/faqnavi/pages/ADM010.jsp";
+		// in = "/Users/inamoto/misc/faqnavi/pages/ADM020.jsp";
+		// in = "/Users/inamoto/misc/faqnavi/pages/faqfiles/js/treeAction.jsp";
+		// in = "/Users/inamoto/misc/faqnavi/pages/faqlogin2.jsp";
+		// in = "/Users/inamoto/misc/faqnavi/pages/MGR110.jsp";
+		in = "/Users/inamoto/altair/sample/alsoftpro/in.jsp";
+		out = "/Users/inamoto/altair/sample/alsoftpro/out.jsp";
+		// out = "/Users/inamoto/altair/sample/alsoftpro/ADM010.jsp";
+		// out = "/Users/inamoto/altair/sample/alsoftpro/ADM020.jsp";
+	} else {
+	}
+	var list logging;
+	logging = 1;
+	var ParGenConv pgc;
+	pgc = new ParGenConv;
+	if (logging) {
+		al_misc("output", "debug.txt", "no_gui");
+		al_misc("dump_trace", 0, null);
+	} else {
+	}
+	try {
+		pgc.prepare(sys_syn_fn, syn_fn);
+		pgc.parse(in, "jsp_page", 1, null);
+		// pgc.write_tree("parse-tree-before.txt");
+		pgc.generate(out, (list)al_cons(null, null));
+		// pgc.write_tree("parse-tree-after.txt");
+	} catch (AlException e) {
+		al_print(e.msg + "\n");
+		al_misc("stack_trace", e.stack_frame, null);
+		al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+		if (logging) {
+			al_misc("output", null, "gui");
+		} else {
+		}
+		throw e;
+	}
+	if (logging) {
+		al_misc("output", null, "gui");
+	} else {
+	}
+	check_mem();
+}
+end_body
+member
+public: static void jsp_ParGenConv();
+body
+{
+	var string sys_syn_fn, syn_fn, ag_fn, pl_fn, in, out;
+	if (al_misc("platform", null, null) == "windows") {
+		sys_syn_fn = "C:/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "C:/altair/sample/alsoftpro/syntax/jsp.syntax";
+		ag_fn = "C:/altair/sample/alsoftpro/rule/tr_to_grph/jsp.rule";
+		pl_fn = "C:/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		// in = "";
+		in = "C:/altair/sample/alsoftpro/in.jsp";
+		out = "C:/altair/sample/alsoftpro/out.jsp";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "mac") {
+		sys_syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/jsp.syntax";
+		ag_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/tr_to_grph/jsp.rule";
+		pl_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		in = "/Users/inamoto/misc/faqnavi/pages.sjis/MGR020.jsp";
+		// in = "/Users/inamoto/altair/sample/alsoftpro/in.jsp";
+		out = "/Users/inamoto/altair/sample/alsoftpro/out.jsp";
+	} else {
+	}
+	var list logging;
+	logging = 1;
+	var ParGenConv pgc;
+	pgc = new ParGenConv;
+	if (logging) {
+		al_misc("output", "debug.txt", "no_gui");
+		al_misc("dump_trace", 0, null);
+	} else {
+	}
+	try {
+		pgc.prepare(sys_syn_fn, syn_fn);
+		pgc.plisp_load(pl_fn);
+		pgc.load_attr_grmr(ag_fn);
+		pgc.clear_debug();
+		al_print("=================== src_to_graph\n");
+		if (null) {
+			// pgc.debug_pred = 1;
+			// pgc.debug_dump = 1;
+			// pgc.debug_syn = 1;
+			// pgc.debug_syn2 = 1;
+			// pgc.debug_syn3 = 1;
+			// pgc.debug_syntax_id = "";
+			// pgc.debug_syntax_id2 = "";
+			// pgc.debug_syntax_id3 = "";
+		} else {
+		}
+		pgc.src_to_graph(in, "program");
+		pgc.write_tree("parse-tree-before.txt");
+		pgc.write_graph("graph.txt");
+		pgc.clear_debug();
+		al_print("=================== graph_to_src\n");
+		if (null) {
+			// pgc.debug_pred = 1;
+			// pgc.debug_dump = 1;
+			// pgc.debug_syn = 1;
+			// pgc.debug_syn2 = 1;
+			// pgc.debug_syn3 = 1;
+			// pgc.debug_syntax_id = "";
+			// pgc.debug_syntax_id2 = "";
+			// pgc.debug_syntax_id3 = "";
+		} else {
+		}
+		pgc.graph_to_src(out, "program");
+		pgc.write_tree("parse-tree-after.txt");
+	} catch (AlException e) {
+		al_print(e.msg + "\n");
+		al_misc("stack_trace", e.stack_frame, null);
+		al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+		if (logging) {
+			al_misc("output", null, "gui");
+		} else {
+		}
+		throw e;
+	}
+	if (logging) {
+		al_misc("output", null, "gui");
+	} else {
+	}
+	check_mem();
+	al_print("load_attr_grmr time = " + (string)pgc.time_load_attr_grmr + " msec\n");
+	al_print("parse time = " + (string)pgc.time_parse + " msec\n");
+	al_print("tree_to_graph time = " + (string)pgc.time_tree_to_graph + " msec\n");
+	al_print("graph_to_tree time = " + (string)pgc.time_graph_to_tree + " msec\n");
+	al_print("generate time = " + (string)pgc.time_generate + " msec\n");
+}
+end_body
+member
+public: static void jsp_faqnavi1();
+body
+{
+	var string sys_syn_fn, syn_fn, pl_fn, in, out;
+	var string src_dir, dst_dir;
+	if (al_misc("platform", null, null) == "windows") {
+		sys_syn_fn = "C:/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "C:/altair/sample/alsoftpro/syntax/jsp.syntax";
+		pl_fn = "C:/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		src_dir = "C:/temp/faq3.1/WEB-INF/src/jp/nec/faqnavi";
+		dst_dir = "C:/altair/sample/alsoftpro/tmp1";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "mac") {
+		sys_syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/jsp.syntax";
+		pl_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		src_dir = "/Users/inamoto/misc/faqnavi/pages";
+		dst_dir = "/Users/inamoto/altair/sample/alsoftpro/tmp1";
+	} else {
+	}
+	var list logging;
+	logging = 1;
+	var ParGenConv pgc;
+	pgc = new ParGenConv;
+	if (logging) {
+		al_misc("output", "debug.txt", null);
+		al_misc("dump_trace", 0, null);
+	} else {
+	}
+	var integer begin, end;
+	try {
+		begin = al_misc("time_stamp", null, null);
+		pgc.prepare(sys_syn_fn, syn_fn);
+		pgc.plisp_load(pl_fn);
+		al_print("load_attr_grmr time = " + (string)pgc.time_load_attr_grmr + " msec\n");
+		iterate1("jsp_page", pgc, src_dir, dst_dir, ".jsp");
+		end = al_misc("time_stamp", null, null);
+	} catch (AlException e) {
+		al_print(e.msg + "\n");
+		al_misc("stack_trace", e.stack_frame, null);
+		al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+		if (logging) {
+			al_misc("output", null, null);
+		} else {
+		}
+		al_print("FATAL ERROR\n");
+		return;
+	}
+	al_print("TOTAL TIME = " + (string)((end - begin) / 1000) + " sec\n");
+	al_print("END\n");
+	if (logging) {
+		al_misc("output", null, null);
+	} else {
+	}
+}
+end_body
+member
+public: static void jsp_faqnavi2();
+body
+{
+	var string sys_syn_fn, syn_fn, ag_fn, pl_fn, in, out;
+	var string src_dir, dst_dir;
+	if (al_misc("platform", null, null) == "windows") {
+		sys_syn_fn = "C:/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "C:/altair/sample/alsoftpro/syntax/jsp.syntax";
+		ag_fn = "C:/altair/sample/alsoftpro/rule/tr_to_grph/jsp.rule";
+		pl_fn = "C:/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		src_dir = "D:/temp/faqnavi/pages";
+		// src_dir = "C:/altair/sample/alsoftpro/tmp1";
+		dst_dir = "D:/temp/all_jsp";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "mac") {
+		sys_syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/jsp.syntax";
+		ag_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/tr_to_grph/jsp.rule";
+		pl_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		src_dir = "/Users/inamoto/misc/faqnavi/WEB-INF/src/jp/nec/faqnavi";
+		src_dir = "/Users/inamoto/altair/sample/alsoftpro/tmp1";
+		// dst_dir = "/Users/inamoto/altair/sample/alsoftpro/tmp2";
+	} else {
+	}
+	var list logging;
+	logging = 1;
+	var ParGenConv pgc;
+	pgc = new ParGenConv;
+	if (logging) {
+		al_misc("output", "debug.txt", null);
+		al_misc("dump_trace", 0, null);
+	} else {
+	}
+	var integer begin, end;
+	try {
+		begin = al_misc("time_stamp", null, null);
+		pgc.prepare(sys_syn_fn, syn_fn);
+		pgc.plisp_load(pl_fn);
+		pgc.load_attr_grmr(ag_fn);
+		al_print("load_attr_grmr time = " + (string)pgc.time_load_attr_grmr + " msec\n");
+		iterate2(pgc, src_dir, dst_dir, ".java");
+		end = al_misc("time_stamp", null, null);
+	} catch (AlException e) {
+		al_print(e.msg + "\n");
+		al_misc("stack_trace", e.stack_frame, null);
+		al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+		if (logging) {
+			al_misc("output", null, null);
+		} else {
+		}
+		al_print("FATAL ERROR\n");
+		return;
+	}
+	al_print("TOTAL TIME = " + (string)((end - begin) / 1000) + " sec\n");
+	al_print("END\n");
+	if (logging) {
+		al_misc("output", null, null);
+	} else {
+	}
+}
+end_body
+member
+public: static void altair_ParGen();
+body
+{
+	var string sys_syn_fn, syn_fn, ag_fn, pl_fn, in, out;
+	if (al_misc("platform", null, null) == "windows") {
+		sys_syn_fn = "C:/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "C:/altair/sample/alsoftpro/syntax/altair.syntax";
+		ag_fn = "C:/altair/sample/alsoftpro/rule/tr_to_grph/altair.rule";
+		pl_fn = "C:/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		// in = "";
+		// in = "C:/altair/sample/alctrl/alctrl.apr";
+		// in = "C:/altair/sample/gui/guicore.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/ptr_func.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/vfunc.apr";
+		in = "C:/altair/sample/alsoftpro/tmp/apr/sum_n.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/empty.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/try.apr";
+		out = "C:/altair/sample/alsoftpro/tmp/out.apr";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "mac") {
+		sys_syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/altair.syntax";
+		ag_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/tr_to_grph/altair.rule";
+		pl_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		in = "/Users/inamoto/altair/sample/alsoftpro/tmp/empty2.apr";
+		// in = "/Users/inamoto/altair/sample/alsoftpro/in.apr";
+		out = "/Users/inamoto/altair/sample/alsoftpro/tmp/out.apr";
+	} else {
+	}
+	var list logging;
+	logging = 1;
+	var ParGenConv pgc;
+	pgc = new ParGenConv;
+	if (logging) {
+		al_misc("output", "debug.txt", "no_gui");
+		al_misc("dump_trace", 0, null);
+	} else {
+	}
+	try {
+		pgc.prepare(sys_syn_fn, syn_fn);
+		pgc.parse(in, "program", 1, null);
+		// pgc.write_tree("parse-tree-before.txt");
+		pgc.generate(out, (list)al_cons(null, null));
+		// pgc.write_tree("parse-tree-after.txt");
+	} catch (AlException e) {
+		al_print(e.msg + "\n");
+		al_misc("stack_trace", e.stack_frame, null);
+		al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+		if (logging) {
+			al_misc("output", null, "gui");
+		} else {
+		}
+		throw e;
+	}
+	if (logging) {
+		al_misc("output", null, "gui");
+	} else {
+	}
+	check_mem();
+}
+end_body
+member
+public: static void altair_ParGenConv();
+body
+{
+	var string sys_syn_fn, syn_fn, ag_fn, pl_fn, in, out;
+	if (al_misc("platform", null, null) == "windows") {
+		sys_syn_fn = "C:/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "C:/altair/sample/alsoftpro/syntax/altair.syntax";
+		ag_fn = "C:/altair/sample/alsoftpro/rule/tr_to_grph/altair.rule";
+		pl_fn = "C:/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		// ===
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/empty1.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/empty2.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/empty3.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/empty4.apr";
+		in = "C:/altair/sample/alsoftpro/tmp/apr/sum_n.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/vfunc.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/ptr_func.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/tail.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/return_exp.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/if.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/braket.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/try.apr";
+		// in = "C:/altair/sample/net/servlet/servlet.apr";
+		// in = "C:/altair/sample/server/server.apr";
+		// in = "C:/altair/build/linux/sync.apr";
+		// in = "C:/altair/build/linux/sync.apr";
+		// in = "C:/altair/sample/alsoftpro/alsoftpro.apr";
+		// in = "C:/altair/sample/alsoftpro/alsoftpro.apr";
+		// in = "C:/altair/sample/gui/guitest.apr";
+		out = "C:/altair/sample/alsoftpro/tmp/out.apr";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "mac") {
+		sys_syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/altair.syntax";
+		ag_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/tr_to_grph/altair.rule";
+		pl_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		in = "/Users/inamoto/altair/sample/alsoftpro/tmp/vfunc.apr";
+		// ===
+		out = "/Users/inamoto/altair/sample/alsoftpro/tmp/out.apr";
+	} else {
+	}
+	var list logging;
+	logging = 1;
+	var ParGenConv pgc;
+	pgc = new ParGenConv;
+	if (logging) {
+		al_misc("output", "debug.txt", "no_gui");
+		al_misc("dump_trace", 0, null);
+	} else {
+	}
+	try {
+		pgc.prepare(sys_syn_fn, syn_fn);
+		pgc.plisp_load(pl_fn);
+		pgc.load_attr_grmr(ag_fn);
+		pgc.clear_debug();
+		al_print("=================== src_to_graph\n");
+		if (null) {
+			pgc.debug_pred = 1;
+			pgc.debug_dump = 1;
+			pgc.debug_syn = 1;
+			pgc.debug_syn2 = 1;
+			pgc.debug_syn3 = 1;
+			// pgc.debug_syntax_id = "";
+			// pgc.debug_syntax_id2 = "";
+			// pgc.debug_syntax_id3 = "";
+		} else {
+		}
+		pgc.src_to_graph(in, "program");
+		pgc.write_tree("parse-tree-before.txt");
+		check_mem();
+		pgc.write_graph("graph.txt");
+		pgc.clear_debug();
+		al_print("=================== graph_to_src\n");
+		if (null) {
+			pgc.debug_pred = 1;
+			pgc.debug_dump = 1;
+			pgc.debug_syn = 1;
+			pgc.debug_syn2 = 1;
+			pgc.debug_syn3 = 1;
+			// pgc.debug_syntax_id = "";
+			// pgc.debug_syntax_id2 = "";
+			// pgc.debug_syntax_id3 = "";
+		} else {
+		}
+		pgc.graph_to_src(out, "program");
+		pgc.write_tree("parse-tree-after.txt");
+		check_mem();
+	} catch (AlException e) {
+		al_print(e.msg + "\n");
+		al_misc("stack_trace", e.stack_frame, null);
+		al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+		if (logging) {
+			al_misc("output", null, "gui");
+		} else {
+		}
+		throw e;
+	}
+	if (logging) {
+		al_misc("output", null, "gui");
+	} else {
+	}
+	check_mem();
+	al_print("load_attr_grmr time = " + (string)pgc.time_load_attr_grmr + " msec\n");
+	al_print("parse time = " + (string)pgc.time_parse + " msec\n");
+	al_print("tree_to_graph time = " + (string)pgc.time_tree_to_graph + " msec\n");
+	al_print("graph_to_tree time = " + (string)pgc.time_graph_to_tree + " msec\n");
+	al_print("generate time = " + (string)pgc.time_generate + " msec\n");
+	al_print("syntax_depth = " + (string)al_symbol_manip("inv_attr_grmr_syntax_depth", null, null, null, null) + "\n");
+}
+end_body
+member
+public: static void altair_ParGenConvStd();
+body
+{
+	var string sys_syn_fn, syn_fn, ag_fn, pl_fn, in, out, to_std, from_std;
+	var list graph, ret;
+	if (al_misc("platform", null, null) == "windows") {
+		sys_syn_fn = "C:/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "C:/altair/sample/alsoftpro/syntax/altair.syntax";
+		ag_fn = "C:/altair/sample/alsoftpro/rule/tr_to_grph/altair.rule";
+		pl_fn = "C:/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		to_std = "C:/altair/sample/alsoftpro/rule/to_std/altair.gdmanip";
+		// to_std = "C:/altair/sample/alsoftpro/rule/to_std/tmp.gdmanip";
+		from_std = "C:/altair/sample/alsoftpro/rule/from_std/altair.rule";
+		// ===
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/braket.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/empty0.apr";
+		in = "C:/altair/sample/alsoftpro/tmp/apr/empty1.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/empty2.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/empty3.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/empty4.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/if.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/ptr_func.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/return_exp.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/sum_n.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/tail.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/try.apr";
+		// in = "C:/altair/sample/alsoftpro/tmp/apr/vfunc.apr";
+		// in = "C:/altair/sample/net/servlet/servlet.apr";
+		// in = "C:/altair/sample/server/server.apr";
+		// in = "C:/altair/build/linux/sync.apr";
+		// in = "C:/altair/build/linux/sync.apr";
+		// in = "C:/altair/sample/alsoftpro/alsoftpro.apr";
+		// in = "C:/altair/sample/alsoftpro/alsoftpro.apr";
+		// in = "C:/altair/sample/gui/guitest.apr";
+		out = "C:/altair/sample/alsoftpro/tmp/out.apr";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "mac") {
+		sys_syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/altair.syntax";
+		ag_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/tr_to_grph/altair.rule";
+		pl_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		to_std = "/Users/inamoto/altair/sample/alsoftpro/rule/to_std/altair.gdmanip";
+		from_std = "/Users/inamoto/altair/sample/alsoftpro/rule/from_std/altair.rule";
+		in = "/Users/inamoto/altair/sample/alsoftpro/tmp/apr/vfunc.apr";
+		// ===
+		out = "/Users/inamoto/altair/sample/alsoftpro/tmp/out.apr";
+	} else {
+	}
+	var list logging;
+	logging = 1;
+	if (logging) {
+		al_misc("output", "debug.txt", "no_gui");
+		// al_misc("dump_trace", 0, null);
+	} else {
+	}
+	var ParGenConv pgc;
+	pgc = new ParGenConv;
+	try {
+		pgc.prepare(sys_syn_fn, syn_fn);
+		pgc.plisp_load(pl_fn);
+		pgc.load_attr_grmr(ag_fn);
+		al_print("=================== src_to_graph\n");
+		if (null) {
+			// pgc.debug_pred = 1;
+			// pgc.debug_dump = 1;
+			// pgc.debug_syn = 1;
+			// pgc.debug_syn2 = 1;
+			// pgc.debug_syn3 = 1;
+			// pgc.debug_syntax_id = "";
+			// pgc.debug_syntax_id2 = "";
+			// pgc.debug_syntax_id3 = "";
+		} else {
+		}
+		pgc.src_to_graph(in, "program");
+		pgc.write_tree("parse-tree-before.txt");
+		check_mem();
+		pgc.write_graph("graph.txt");
+		graph = pgc.graph;
+	} catch (AlException e) {
+		al_print(e.msg + "\n");
+		al_misc("stack_trace", e.stack_frame, null);
+		al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+		if (logging) {
+			al_misc("output", null, "gui");
+		} else {
+		}
+		throw e;
+	}
+	al_print("load_attr_grmr time = " + (string)pgc.time_load_attr_grmr + " msec\n");
+	al_print("parse time = " + (string)pgc.time_parse + " msec\n");
+	al_print("tree_to_graph time = " + (string)pgc.time_tree_to_graph + " msec\n");
+	try {
+		pgc.prepare(sys_syn_fn, syn_fn);
+		al_print("=================== load to_std_graph program\n");
+		pgc.plisp_load(to_std);
+		al_print("=================== set_var \"depend\"\n");
+		al_symbol_manip("set_var", pgc.env, "depend", graph, null);
+		al_print("=================== BEGIN to_std_graph\n");
+		pgc.clear_debug();
+		if (null) {
+			pgc.debug_pred = 1;
+			pgc.debug_dump = 1;
+			pgc.debug_syn = 1;
+			pgc.debug_syn2 = 1;
+			pgc.debug_syn3 = 1;
+			// pgc.debug_syntax_id = "";
+			// pgc.debug_syntax_id2 = "";
+			// pgc.debug_syntax_id3 = "";
+		} else {
+			al_print("prolog_exec is not implemented yet.\n");
+			return;
+		}
+		ret = pgc.prolog_exec();
+		if (al_is_type(ret, "string")) {
+			var AlException ex;
+			ex = new AlException;
+			ex.msg = "to_std_graph: " + ret;
+			throw ex;
+		} else {
+		}
+		al_print("=================== END to_std_graph\n");
+		graph = al_symbol_manip("get_var", pgc.env, "model", null, null);
+	} catch (AlException e) {
+		al_print(e.msg + "\n");
+		al_misc("stack_trace", e.stack_frame, null);
+		al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+		if (logging) {
+			al_misc("output", null, "gui");
+		} else {
+		}
+		throw e;
+	}
+	pgc = new ParGenConv;
+	try {
+		pgc.graph = graph;
+		pgc.write_graph("graph-std.txt");
+		pgc.prepare(sys_syn_fn, syn_fn);
+		pgc.plisp_load(pl_fn);
+		pgc.load_attr_grmr(from_std);
+		al_print("=================== graph_to_src\n");
+		if (null) {
+			// pgc.debug_pred = 1;
+			// pgc.debug_dump = 1;
+			// pgc.debug_syn = 1;
+			// pgc.debug_syn2 = 1;
+			// pgc.debug_syn3 = 1;
+			// pgc.debug_syntax_id = "";
+			// pgc.debug_syntax_id2 = "";
+			// pgc.debug_syntax_id3 = "";
+		} else {
+		}
+		pgc.graph_to_src(out, "program");
+		pgc.write_tree("parse-tree-after.txt");
+		check_mem();
+	} catch (AlException e) {
+		al_print(e.msg + "\n");
+		al_misc("stack_trace", e.stack_frame, null);
+		al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+		if (logging) {
+			al_misc("output", null, "gui");
+		} else {
+		}
+		throw e;
+	}
+	if (logging) {
+		al_misc("output", null, "gui");
+	} else {
+	}
+	check_mem();
+	al_print("graph_to_tree time = " + (string)pgc.time_graph_to_tree + " msec\n");
+	al_print("generate time = " + (string)pgc.time_generate + " msec\n");
+	al_print("syntax_depth = " + (string)al_symbol_manip("inv_attr_grmr_syntax_depth", null, null, null, null) + "\n");
+}
+end_body
+member
+public: static void altair_sample1();
+body
+{
+	var string sys_syn_fn, syn_fn, pl_fn, in, out;
+	var string src_dir, dst_dir;
+	if (al_misc("platform", null, null) == "windows") {
+		sys_syn_fn = "C:/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "C:/altair/sample/alsoftpro/syntax/altair.syntax";
+		pl_fn = "C:/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		src_dir = "C:/altair/sample";
+		dst_dir = "C:/altair/sample/alsoftpro/tmp1";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "mac") {
+		sys_syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/ruby.syntax";
+		pl_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		src_dir = "/Users/inamoto/misc/algebra-0.72";
+		dst_dir = "/Users/inamoto/altair/sample/alsoftpro/tmp1";
+	} else {
+	}
+	var list logging;
+	logging = 1;
+	var ParGenConv pgc;
+	pgc = new ParGenConv;
+	if (logging) {
+		al_misc("output", "debug.txt", null);
+		al_misc("dump_trace", 0, null);
+	} else {
+	}
+	var integer begin, end;
+	try {
+		begin = al_misc("time_stamp", null, null);
+		pgc.prepare(sys_syn_fn, syn_fn);
+		pgc.plisp_load(pl_fn);
+		al_print("load_attr_grmr time = " + (string)pgc.time_load_attr_grmr + " msec\n");
+		iterate1(pgc, src_dir, dst_dir, ".rb");
+		end = al_misc("time_stamp", null, null);
+	} catch (AlException e) {
+		al_print(e.msg + "\n");
+		al_misc("stack_trace", e.stack_frame, null);
+		al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+		if (logging) {
+			al_misc("output", null, null);
+		} else {
+		}
+		al_print("FATAL ERROR\n");
+		return;
+	}
+	al_print("TOTAL TIME = " + (string)((end - begin) / 1000) + " sec\n");
+	al_print("END\n");
+	if (logging) {
+		al_misc("output", null, null);
+	} else {
+	}
+}
+end_body
+member
+public: static void altair_sample2();
+body
+{
+	var string sys_syn_fn, syn_fn, ag_fn, pl_fn, in, out;
+	var string src_dir, dst_dir;
+	if (al_misc("platform", null, null) == "windows") {
+		sys_syn_fn = "C:/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "C:/altair/sample/alsoftpro/syntax/altair.syntax";
+		ag_fn = "C:/altair/sample/alsoftpro/rule/tr_to_grph/altair.rule";
+		pl_fn = "C:/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		src_dir = "C:/altair";
+		dst_dir = "D:/temp/all_altair";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "mac") {
+		sys_syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/ruby.syntax";
+		ag_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/tr_to_grph/ruby.rule";
+		pl_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		src_dir = "/Users/inamoto/misc/algebra-0.72";
+		dst_dir = "/Users/inamoto/altair/sample/alsoftpro/all_ruby";
+	} else {
+	}
+	var list logging;
+	logging = 1;
+	var ParGenConv pgc;
+	pgc = new ParGenConv;
+	if (logging) {
+		al_misc("output", "debug.txt", null);
+		al_misc("dump_trace", 0, null);
+	} else {
+	}
+	var integer begin, end;
+	try {
+		begin = al_misc("time_stamp", null, null);
+		pgc.prepare(sys_syn_fn, syn_fn);
+		pgc.plisp_load(pl_fn);
+		pgc.load_attr_grmr(ag_fn);
+		al_print("load_attr_grmr time = " + (string)pgc.time_load_attr_grmr + " msec\n");
+		iterate2(pgc, src_dir, dst_dir, ".apr");
+		end = al_misc("time_stamp", null, null);
+	} catch (AlException e) {
+		al_print(e.msg + "\n");
+		al_misc("stack_trace", e.stack_frame, null);
+		al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+		if (logging) {
+			al_misc("output", null, null);
+		} else {
+		}
+		al_print("FATAL ERROR\n");
+		return;
+	}
+	al_print("TOTAL TIME = " + (string)((end - begin) / 1000) + " sec\n");
+	al_print("END\n");
+	if (logging) {
+		al_misc("output", null, null);
+	} else {
+	}
+}
+end_body
+member
+public: static void cplusplus_ParGen();
+body
+{
+	var string sys_syn_fn, syn_fn, ag_fn, pl_fn, in, out;
+	if (al_misc("platform", null, null) == "windows") {
+		sys_syn_fn = "C:/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "C:/altair/sample/alsoftpro/syntax/c++.syntax";
+		ag_fn = "C:/altair/sample/alsoftpro/rule/c++.rule";
+		pl_fn = "C:/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		// in = "";
+		in = "C:/altair/sample/alsoftpro/in.cpp";
+		out = "C:/altair/sample/alsoftpro/out.cpp";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "mac") {
+		sys_syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/c++.syntax";
+		ag_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/c++.rule";
+		pl_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		in = "/Users/inamoto/info/sum_1_to_100/sum.c";
+		// in = "/Users/inamoto/altair/sample/alsoftpro/in.cpp";
+		out = "/Users/inamoto/altair/sample/alsoftpro/out.cpp";
+	} else {
+	}
+	var list logging;
+	logging = 1;
+	var ParGenConv pgc;
+	pgc = new ParGenConv;
+	if (logging) {
+		al_misc("output", "debug.txt", "no_gui");
+		al_misc("dump_trace", 0, null);
+	} else {
+	}
+	try {
+		pgc.prepare(sys_syn_fn, syn_fn);
+		pgc.parse(in, "program", 1, null);
+		// pgc.write_tree("parse-tree-before.txt");
+		pgc.generate(out, (list)al_cons(null, null));
+		// pgc.write_tree("parse-tree-after.txt");
+	} catch (AlException e) {
+		al_print(e.msg + "\n");
+		al_misc("stack_trace", e.stack_frame, null);
+		al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+		if (logging) {
+			al_misc("output", null, "gui");
+		} else {
+		}
+		throw e;
+	}
+	if (logging) {
+		al_misc("output", null, "gui");
+	} else {
+	}
+	check_mem();
+}
+end_body
+member
+public: static void cplusplus_ParGenConv();
+body
+{
+	var string sys_syn_fn, syn_fn, ag_fn, pl_fn, in, out;
+	if (al_misc("platform", null, null) == "windows") {
+		sys_syn_fn = "C:/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "C:/altair/sample/alsoftpro/syntax/c++.syntax";
+		ag_fn = "C:/altair/sample/alsoftpro/rule/c++.rule";
+		pl_fn = "C:/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		// in = "";
+		in = "C:/altair/sample/alsoftpro/in.cpp";
+		out = "C:/altair/sample/alsoftpro/out.cpp";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "mac") {
+		sys_syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/system.syntax";
+		syn_fn = "/Users/inamoto/altair/sample/alsoftpro/syntax/c++.syntax";
+		ag_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/c++.rule";
+		pl_fn = "/Users/inamoto/altair/sample/alsoftpro/rule/attr_grmr.rule";
+		in = "/Users/inamoto/altair/sample/alsoftpro/in.cpp";
+		out = "/Users/inamoto/altair/sample/alsoftpro/out.cpp";
+	} else {
+	}
+	var list logging;
+	logging = 1;
+	var ParGenConv pgc;
+	pgc = new ParGenConv;
+	if (logging) {
+		al_misc("output", "debug.txt", "no_gui");
+		al_misc("dump_trace", 0, null);
+	} else {
+	}
+	try {
+		pgc.prepare(sys_syn_fn, syn_fn);
+		pgc.plisp_load(pl_fn);
+		pgc.load_attr_grmr(ag_fn);
+		pgc.clear_debug();
+		al_print("=================== src_to_graph\n");
+		if (null) {
+			// pgc.debug_pred = 1;
+			// pgc.debug_dump = 1;
+			// pgc.debug_syn = 1;
+			// pgc.debug_syn2 = 1;
+			// pgc.debug_syn3 = 1;
+			// pgc.debug_syntax_id = "";
+			// pgc.debug_syntax_id2 = "";
+			// pgc.debug_syntax_id3 = "";
+		} else {
+		}
+		pgc.src_to_graph(in, "program");
+		pgc.write_tree("parse-tree-before.txt");
+		pgc.write_graph("graph.txt");
+		pgc.clear_debug();
+		al_print("=================== graph_to_src\n");
+		if (null) {
+			// pgc.debug_pred = 1;
+			// pgc.debug_dump = 1;
+			// pgc.debug_syn = 1;
+			// pgc.debug_syn2 = 1;
+			// pgc.debug_syn3 = 1;
+			// pgc.debug_syntax_id = "";
+			// pgc.debug_syntax_id2 = "";
+			// pgc.debug_syntax_id3 = "";
+		} else {
+		}
+		pgc.graph_to_src(out, "program");
+		pgc.write_tree("parse-tree-after.txt");
+	} catch (AlException e) {
+		al_print(e.msg + "\n");
+		al_misc("stack_trace", e.stack_frame, null);
+		al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+		if (logging) {
+			al_misc("output", null, "gui");
+		} else {
+		}
+		check_mem();
+		throw e;
+	}
+	if (logging) {
+		al_misc("output", null, "gui");
+	} else {
+	}
+	check_mem();
+	al_print("load_attr_grmr time = " + (string)pgc.time_load_attr_grmr + " msec\n");
+	al_print("parse time = " + (string)pgc.time_parse + " msec\n");
+	al_print("tree_to_graph time = " + (string)pgc.time_tree_to_graph + " msec\n");
+	al_print("graph_to_tree time = " + (string)pgc.time_graph_to_tree + " msec\n");
+	al_print("generate time = " + (string)pgc.time_generate + " msec\n");
+}
+end_body
+member
+public: static void iterate1(ParGenConv pgc, string src_dir, string dst_dir, string fext);
+body
+{
+	var FileItr itr;
+	itr = new FileItr;
+	itr.Reset(src_dir, dst_dir);
+	loop {
+		if (itr.Next()) {
+		} else {
+			break;
+		}
+		if (itr.is_dir) {
+			if (al_file_manip("does_exist", itr.abs_path2, null)) {
+			} else {
+				if (al_file_manip("mk_dir", itr.abs_path2, null)) {
+					var AlException ex;
+					ex = new AlException;
+					ex.msg = "can't make directory '" + itr.abs_path2 + "'";
+					throw ex;
+				} else {
+				}
+			}
+			continue;
+		} else {
+		}
+		if (al_str_misc("file_ext", itr.name, null) != fext) {
+			continue;
+		} else {
+		}
+		try {
+			pgc.parse(itr.abs_path, "program", 1, null);
+			pgc.generate(itr.abs_path2, (list)al_cons(null, null));
+		} catch (AlException e) {
+			al_print("[ERROR] " + itr.abs_path + "\n");
+			al_print(e.msg + "\n");
+			al_misc("stack_trace", e.stack_frame, null);
+			al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+			continue;
+		}
+		al_print("[OK] " + itr.abs_path + "\n");
+		check_mem();
+	}
+}
+end_body
+member
+public: static void iterate2(ParGenConv pgc, string src_dir, string dst_dir, string fext);
+body
+{
+	var FileItr itr;
+	itr = new FileItr;
+	itr.Reset(src_dir, dst_dir);
+	loop {
+		if (itr.Next()) {
+		} else {
+			break;
+		}
+		if (itr.is_dir) {
+			if (al_file_manip("does_exist", itr.abs_path2, null)) {
+			} else {
+				if (al_file_manip("mk_dir", itr.abs_path2, null)) {
+					var AlException ex;
+					ex = new AlException;
+					ex.msg = "can't make directory '" + itr.abs_path2 + "'";
+					throw ex;
+				} else {
+				}
+			}
+			continue;
+		} else {
+		}
+		if (al_str_misc("file_ext", itr.name, null) != fext) {
+			continue;
+		} else {
+		}
+		try {
+			pgc.src_to_graph(itr.abs_path, "program");
+			pgc.write_tree(itr.abs_path2 + ".tree-before");
+			pgc.write_graph(itr.abs_path2 + ".graph");
+			pgc.graph_to_src(itr.abs_path2, "program");
+			pgc.write_tree(itr.abs_path2 + ".tree-after");
+		} catch (AlException e) {
+			al_print("[ERROR] " + itr.abs_path + "\n");
+			al_print(e.msg + "\n");
+			al_misc("stack_trace", e.stack_frame, null);
+			al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+			continue;
+		}
+		al_print("[OK] " + itr.abs_path + "\n");
+		check_mem();
+		al_print("parse time = " + (string)pgc.time_parse + " msec\n");
+		al_print("tree_to_graph time = " + (string)pgc.time_tree_to_graph + " msec\n");
+		al_print("graph_to_tree time = " + (string)pgc.time_graph_to_tree + " msec\n");
+		al_print("generate time = " + (string)pgc.time_generate + " msec\n");
+	}
+}
+end_body
+member
+public: static void iterate1(string def_name, ParGenConv pgc, string src_dir, string dst_dir, string fext);
+body
+{
+	var FileItr itr;
+	itr = new FileItr;
+	itr.Reset(src_dir, dst_dir);
+	loop {
+		if (itr.Next()) {
+		} else {
+			break;
+		}
+		if (itr.is_dir) {
+			if (al_file_manip("does_exist", itr.abs_path2, null)) {
+			} else {
+				if (al_file_manip("mk_dir", itr.abs_path2, null)) {
+					var AlException ex;
+					ex = new AlException;
+					ex.msg = "can't make directory '" + itr.abs_path2 + "'";
+					throw ex;
+				} else {
+				}
+			}
+			continue;
+		} else {
+		}
+		if (al_str_misc("file_ext", itr.name, null) != fext) {
+			continue;
+		} else {
+		}
+		try {
+			// pgc.src_to_graph(itr.abs_path, def_name);
+			// pgc.write_tree(itr.abs_path2 + ".tree-before");
+			// pgc.write_graph(itr.abs_path2 + ".graph");
+			// pgc.graph_to_src(itr.abs_path2, def_name);
+			// pgc.write_tree(itr.abs_path2 + ".tree-after");
+			pgc.parse(itr.abs_path, def_name, 1, null);
+			pgc.generate(itr.abs_path2, (list)al_cons(null, null));
+		} catch (AlException e) {
+			al_print("[ERROR] " + itr.abs_path + "\n");
+			al_print(e.msg + "\n");
+			al_misc("stack_trace", e.stack_frame, null);
+			al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+			continue;
+		}
+		al_print("[OK] " + itr.abs_path + "\n");
+		check_mem();
+	}
+}
+end_body
+member
+public: static void iterate2(string def_name, ParGenConv pgc, string src_dir, string dst_dir, string fext);
+body
+{
+	var FileItr itr;
+	itr = new FileItr;
+	itr.Reset(src_dir, dst_dir);
+	loop {
+		if (itr.Next()) {
+		} else {
+			break;
+		}
+		if (itr.is_dir) {
+			if (al_file_manip("does_exist", itr.abs_path2, null)) {
+			} else {
+				if (al_file_manip("mk_dir", itr.abs_path2, null)) {
+					var AlException ex;
+					ex = new AlException;
+					ex.msg = "can't make directory '" + itr.abs_path2 + "'";
+					throw ex;
+				} else {
+				}
+			}
+			continue;
+		} else {
+		}
+		if (al_str_misc("file_ext", itr.name, null) != fext) {
+			continue;
+		} else {
+		}
+		try {
+			pgc.src_to_graph(itr.abs_path, def_name);
+			pgc.write_tree(itr.abs_path2 + ".tree-before");
+			pgc.write_graph(itr.abs_path2 + ".graph");
+			pgc.graph_to_src(itr.abs_path2, def_name);
+			pgc.write_tree(itr.abs_path2 + ".tree-after");
+		} catch (AlException e) {
+			al_print("[ERROR] " + itr.abs_path + "\n");
+			al_print(e.msg + "\n");
+			al_misc("stack_trace", e.stack_frame, null);
+			al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+			continue;
+		}
+		al_print("[OK] " + itr.abs_path + "\n");
+		check_mem();
+		al_print("parse time = " + (string)pgc.time_parse + " msec\n");
+		al_print("tree_to_graph time = " + (string)pgc.time_tree_to_graph + " msec\n");
+		al_print("graph_to_tree time = " + (string)pgc.time_graph_to_tree + " msec\n");
+		al_print("generate time = " + (string)pgc.time_generate + " msec\n");
+	}
+}
+end_body
+member
+public: static void check_mem();
+body
+{
+	al_print("ref_count_check = " + (string)al_gc("ref_count") + "\n");
+	al_print("cyclic_check = " + (string)al_gc("cyclic") + "\n");
+	// al_print("gc = " + (string)al_gc(null) + "\n");
+}
+end_body
+member
+public: static void gc();
+body
+{
+	al_print("gc_cyclic_only = " + (string)al_gc("gc_cyclic_only") + "\n");
+}
+end_body
+member
+public: static void exec_plisp();
+body
+{
+	var string sys_syn_fn, fname;
+	sys_syn_fn = "C:/altair/sample/alsoftpro/syntax/system.syntax";
+	fname = "C:/altair/sample/alsoftpro/tp/00-07-pm-rep-composit.gdmanip";
+	var ParGenConv pgc;
+	pgc = new ParGenConv;
+	pgc.compile_syntax(sys_syn_fn);
+	pgc.system_syntax = pgc.syntax;
+	pgc.plisp_load(fname);
+	// pgc.plisp_call("test", null);
+}
+end_body
+member
+public: static void test();
+body
+{
+	al_symbol_manip("test", null, null, null, null);
+}
+end_body
+member
+public: static void insert_elem();
+body
+{
+	var string sys_syn_fn, fname;
+	sys_syn_fn = "syntax/system.syntax";
+	fname = "tmp/insert_elem.prolog";
+	var ParGenConv pgc;
+	pgc = new ParGenConv;
+	pgc.compile_syntax(sys_syn_fn);
+	pgc.system_syntax = pgc.syntax;
+	pgc.plisp_load(fname);
+}
+end_body
+member
+public: static void apply();
+body
+{
+	var string sys_syn_fn, fname;
+	sys_syn_fn = "syntax/system.syntax";
+	fname = "tmp/apply.prolog";
+	var ParGenConv pgc;
+	pgc = new ParGenConv;
+	pgc.compile_syntax(sys_syn_fn);
+	pgc.system_syntax = pgc.syntax;
+	pgc.plisp_load(fname);
+}
+end_body
+end_class
+TEXT
+AlObject
+class TP3
+member
+public: static void exec_gdmanip();
+body
+{
+	var string sys_syntax_fn;
+	sys_syntax_fn = "./syntax/system.syntax";
+	pgc = new ParGenConv;
+	pgc.compile_syntax(sys_syntax_fn);
+	pgc.system_syntax = pgc.syntax;
+	pgc.syntax = null;
+	var list logging;
+	logging = 1;
+	if (logging) {
+		al_misc("output", "debug.txt", "no_gui");
+		al_misc("dump_trace", 0, null);
+	} else {
+	}
+	var list dir_name;
+	var string dir, name, filename;
+	if (dir_name = al_get_read_filename("All Files (*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	filename = dir + "/" + name;
+	var list ret;
+	try {
+		pgc.plisp_load(filename);
+		pgc.clear_debug();
+		if (1) {
+			pgc.debug_pred = 1;
+			pgc.debug_dump = 1;
+			pgc.debug_syn = 1;
+			pgc.debug_syn2 = 1;
+			pgc.debug_syn3 = 1;
+		} else {
+		}
+		ret = pgc.prolog_exec();
+		if (al_is_type(ret, "string")) {
+			var AlException ex;
+			ex = new AlException;
+			ex.msg = "prolog_exec: " + ret;
+			throw ex;
+		} else {
+		}
+	} catch (AlException e) {
+		al_print(e.msg + "\n");
+		al_misc("stack_trace", e.stack_frame, null);
+		al_misc("error_source", al_list2(e.stack_frame, e.pos), null);
+		if (logging) {
+			al_misc("output", null, "gui");
+		} else {
+		}
+		throw e;
+	}
+	if (logging) {
+		al_misc("output", null, "gui");
+	} else {
+	}
+	TP2::check_mem();
+}
+end_body
+member
+public: static ParGenConv pgc;
+end_class
+TEXT
+AlObject
+class ParGenConv
+member
+public: void compile_syntax(string filename);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	var file f;
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		ex.msg = "compile_syntax: can't read open '" + (string)filename + "'.";
+		throw ex;
+	}
+	syntax = al_symbol_manip("compile_syntax", f, null, null, null);
+	if (al_is_type(syntax, "string")) {
+		ex.msg = "compile_syntax error '" + filename + "': " + syntax;
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: list syntax;
+member
+public: list system_syntax;
+member
+public: void parse_system(string filename);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	if (system_syntax == null || al_is_type(system_syntax, "string")) {
+		ex.msg = "parse_system '" + (string)filename + "': no compiled_system_syntax.";
+		throw ex;
+	} else {
+	}
+	var file f;
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		ex.msg = "parse_system: can't read open '" + (string)filename + "'.";
+		throw ex;
+	}
+	parse_tree = al_symbol_manip("parse", f, system_syntax, "program", null);
+	if (al_is_type(parse_tree, "string")) {
+		ex.msg = "parse_system error '" + filename + "': " + parse_tree;
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: void parse(string filename, string def_name, integer full, list debug);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	if (syntax == null || al_is_type(syntax, "string")) {
+		ex.msg = "parse '" + (string)filename + "': no compiled_syntax.";
+		throw ex;
+	} else {
+	}
+	var file f;
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		ex.msg = "parse: can't read open '" + (string)filename + "'.";
+		throw ex;
+	}
+	var list opt;
+	if (full == 1) {
+		if (debug) {
+			opt = al_copy(debug);
+			al_set_dst_node(opt, "full", 1);
+		} else {
+			opt = al_cons(null, null);
+			al_set_dst_node(opt, "full", 1);
+		}
+	} else {
+		if (debug) {
+			opt = debug;
+		} else {
+		}
+	}
+	parse_tree = al_symbol_manip("parse", f, syntax, def_name, opt);
+	if (al_is_type(parse_tree, "string")) {
+		ex.msg = "parse error '" + filename + "': " + parse_tree;
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: void parse(file f, string def_name, integer full, list debug);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	if (syntax == null || al_is_type(syntax, "string")) {
+		ex.msg = "parse: no compiled_syntax.";
+		throw ex;
+	} else {
+	}
+	var list opt;
+	if (full == 1) {
+		if (debug) {
+			opt = al_copy(debug);
+			al_set_dst_node(opt, "full", 1);
+		} else {
+			opt = al_cons(null, null);
+			al_set_dst_node(opt, "full", 1);
+		}
+	} else {
+		if (debug) {
+			opt = debug;
+		} else {
+		}
+	}
+	parse_tree = al_symbol_manip("parse", f, syntax, def_name, opt);
+	if (al_is_type(parse_tree, "string")) {
+		ex.msg = "parse error: " + parse_tree;
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: void generate(string filename, list spacing);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	if (syntax == null || al_is_type(syntax, "string")) {
+		ex.msg = "generate '" + (string)filename + "': no compiled_syntax.";
+		throw ex;
+	} else {
+	}
+	if (parse_tree == null || al_is_type(parse_tree, "string")) {
+		ex.msg = "generate '" + (string)filename + "': no parse_tree, msg = " + (string)parse_tree;
+		throw ex;
+	} else {
+	}
+	var file f;
+	if (f = al_file_open(filename, "w")) {
+	} else {
+		ex.msg = "generate: can't write open '" + (string)filename + "'.";
+		throw ex;
+	}
+	var list res;
+	res = al_symbol_manip("generate", f, syntax, parse_tree, spacing);
+	if (al_is_type(res, "string")) {
+		ex.msg = "generate error '" + filename + "': " + res;
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: void generate(file f, list spacing);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	if (syntax == null || al_is_type(syntax, "string")) {
+		ex.msg = "generate: no compiled_syntax.";
+		throw ex;
+	} else {
+	}
+	if (parse_tree == null || al_is_type(parse_tree, "string")) {
+		ex.msg = "generate: no parse_tree, msg = " + (string)parse_tree;
+		throw ex;
+	} else {
+	}
+	var list res;
+	res = al_symbol_manip("generate", f, syntax, parse_tree, spacing);
+	if (al_is_type(res, "string")) {
+		ex.msg = "generate error: " + res;
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: list parse_tree;
+member
+public: void plisp_load(string filename);
+body
+{
+	var list save_parse_tree;
+	try {
+		save_parse_tree = parse_tree;
+		parse_system(filename);
+		env = al_symbol_manip("plisp_load", env, parse_tree, null, null);
+		if (al_is_type(env, "string")) {
+			var AlException ex;
+			ex = new AlException;
+			ex.msg = "load failed, reason = " + (string)env;
+			throw ex;
+		} else {
+		}
+	} catch (AlException e) {
+		parse_tree = save_parse_tree;
+		e.msg = "plisp_load: " + e.msg;
+		throw e;
+	}
+	parse_tree = save_parse_tree;
+}
+end_body
+member
+public: void plisp_set_var(string name, list value);
+body
+{
+	env = al_symbol_manip("set_var", env, name, value, null);
+}
+end_body
+member
+public: list plisp_get_var(string name);
+body
+{
+	return al_symbol_manip("get_var", env, name, null, null);
+}
+end_body
+member
+public: list plisp_call(string func_name, list arg_ls);
+body
+{
+	return al_symbol_manip("plisp_call", env, func_name, arg_ls, null);
+}
+end_body
+member
+public: list prolog_exec();
+body
+{
+	var list ret, opt;
+	opt = al_cons(null, null);
+	al_set_dst_node(opt, "debug_pred", debug_pred);
+	al_set_dst_node(opt, "debug_dump", debug_dump);
+	al_set_dst_node(opt, "debug_syn", debug_syn);
+	al_set_dst_node(opt, "debug_syn2", debug_syn2);
+	al_set_dst_node(opt, "debug_syn3", debug_syn3);
+	al_set_dst_node(opt, "debug_syntax_id", debug_syntax_id);
+	al_set_dst_node(opt, "debug_syntax_id2", debug_syntax_id2);
+	al_set_dst_node(opt, "debug_syntax_id3", debug_syntax_id3);
+	ret = al_symbol_manip("prolog_exec", env, null, null, opt);
+	return ret;
+}
+end_body
+member
+public: void clear_query();
+body
+{
+	env = al_symbol_manip("clear_query", env, null, null, null);
+}
+end_body
+member
+public: void clear_pred();
+body
+{
+	env = al_symbol_manip("clear_pred", env, null, null, null);
+}
+end_body
+member
+public: list env;
+member
+public: void prepare(string sys_syn_fn, string syn_fn);
+body
+{
+	try {
+		compile_syntax(sys_syn_fn);
+		system_syntax = syntax;
+		compile_syntax(syn_fn);
+		env = null;
+		plisp_set_var("syntax", syntax);
+	} catch (AlException e) {
+		e.msg = "prepare: " + e.msg;
+		throw e;
+	}
+}
+end_body
+member
+public: ParGenConv copy();
+body
+{
+	var ParGenConv pgc;
+	pgc = new ParGenConv;
+	pgc.system_syntax = system_syntax;
+	pgc.syntax = syntax;
+	pgc.env = env;
+	return pgc;
+}
+end_body
+member
+public: void load_attr_grmr(string filename);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	if (al_file_manip("does_exist", filename, null)) {
+	} else {
+		ex.msg = "load_attr_grmr: not exist '" + (string)filename + "'.";
+		throw ex;
+	}
+	var integer begin, end;
+	begin = al_misc("time_stamp", null, null);
+	var string dump_filename;
+	var file f;
+	dump_filename = filename + ".dump";
+	if (al_file_manip("does_exist", dump_filename, null)) {
+		var list file_dt, dump_file_dt;
+		file_dt = al_file_manip("get_datetime", filename, null);
+		dump_file_dt = al_file_manip("get_datetime", dump_filename, null);
+		if (dump_file_dt > file_dt) {
+			try {
+				attr_grmr = FileUtility::readGraphData(dump_filename);
+				plisp_set_var("attr_grmr", attr_grmr);
+			} catch (AlException e) {
+				e.msg = "load_attr_grmr: " + e.msg;
+				throw e;
+			}
+			end = al_misc("time_stamp", null, null);
+			time_load_attr_grmr = end - begin;
+			return;
+		} else {
+		}
+	} else {
+	}
+	var list save_parse_tree;
+	try {
+		save_parse_tree = parse_tree;
+		parse_system(filename);
+	} catch (AlException e) {
+		parse_tree = save_parse_tree;
+		e.msg = "load_attr_grmr: " + e.msg;
+		throw e;
+	}
+	attr_grmr = parse_tree;
+	parse_tree = save_parse_tree;
+	try {
+		FileUtility::writeGraphData(dump_filename, attr_grmr);
+	} catch (AlException e) {
+		e.msg = "load_attr_grmr: " + e.msg;
+		throw e;
+	}
+	end = al_misc("time_stamp", null, null);
+	plisp_set_var("attr_grmr", attr_grmr);
+	time_load_attr_grmr = end - begin;
+}
+end_body
+member
+public: list attr_grmr;
+member
+public: void src_to_graph(string filename, string def_name);
+body
+{
+	try {
+		{
+			var integer begin, end;
+			begin = al_misc("time_stamp", null, null);
+			parse(filename, def_name, 1, null);
+			end = al_misc("time_stamp", null, null);
+			time_parse = end - begin;
+		}
+		plisp_set_var("parse_tree", parse_tree);
+		var list opt;
+		opt = al_cons(null, null);
+		al_set_dst_node(opt, "debug_pred", debug_pred);
+		al_set_dst_node(opt, "debug_dump", debug_dump);
+		al_set_dst_node(opt, "debug_syn", debug_syn);
+		al_set_dst_node(opt, "debug_syn2", debug_syn2);
+		al_set_dst_node(opt, "debug_syn3", debug_syn3);
+		al_set_dst_node(opt, "debug_syntax_id", debug_syntax_id);
+		al_set_dst_node(opt, "debug_syntax_id2", debug_syntax_id2);
+		al_set_dst_node(opt, "debug_syntax_id3", debug_syntax_id3);
+		plisp_set_var("opt", opt);
+		{
+			var integer begin, end;
+			begin = al_misc("time_stamp", null, null);
+			graph = plisp_call("attr_grmr", null);
+			end = al_misc("time_stamp", null, null);
+			time_tree_to_graph = end - begin;
+		}
+	} catch (AlException e) {
+		e.msg = "src_to_graph: " + e.msg;
+		throw e;
+	}
+}
+end_body
+member
+public: void graph_to_src(string filename, string def_name);
+body
+{
+	try {
+		plisp_set_var("id", (list)def_name);
+		plisp_set_var("graph", graph);
+		var list opt;
+		opt = al_cons(null, null);
+		al_set_dst_node(opt, "debug_pred", debug_pred);
+		al_set_dst_node(opt, "debug_dump", debug_dump);
+		al_set_dst_node(opt, "debug_syn", debug_syn);
+		al_set_dst_node(opt, "debug_syn2", debug_syn2);
+		al_set_dst_node(opt, "debug_syn3", debug_syn3);
+		al_set_dst_node(opt, "debug_syntax_id", debug_syntax_id);
+		al_set_dst_node(opt, "debug_syntax_id2", debug_syntax_id2);
+		al_set_dst_node(opt, "debug_syntax_id3", debug_syntax_id3);
+		plisp_set_var("opt", opt);
+		{
+			var integer begin, end;
+			begin = al_misc("time_stamp", null, null);
+			parse_tree = plisp_call("inv_attr_grmr", null);
+			end = al_misc("time_stamp", null, null);
+			time_graph_to_tree = end - begin;
+		}
+		var list spacing;
+		spacing = al_cons(null, null);
+		{
+			var integer begin, end;
+			begin = al_misc("time_stamp", null, null);
+			generate(filename, spacing);
+			end = al_misc("time_stamp", null, null);
+			time_generate = end - begin;
+		}
+	} catch (AlException e) {
+		e.msg = "graph_to_src: " + e.msg;
+		throw e;
+	}
+}
+end_body
+member
+public: list graph;
+member
+public: string ls_pred();
+body
+{
+	return al_symbol_manip("ls_pred", env, null, null, null);
+}
+end_body
+member
+public: void clear_debug();
+body
+{
+	debug_pred = null;
+	debug_dump = null;
+	debug_syn = null;
+	debug_syn2 = null;
+	debug_syn3 = null;
+	debug_syntax_id = null;
+	debug_syntax_id2 = null;
+	debug_syntax_id3 = null;
+}
+end_body
+member
+public: list debug_pred;
+member
+public: list debug_dump;
+member
+public: list debug_syn;
+member
+public: list debug_syn2;
+member
+public: list debug_syn3;
+member
+public: list debug_syntax_id;
+member
+public: list debug_syntax_id2;
+member
+public: list debug_syntax_id3;
+member
+public: integer time_load_attr_grmr;
+member
+public: integer time_parse;
+member
+public: integer time_tree_to_graph;
+member
+public: integer time_graph_to_tree;
+member
+public: integer time_generate;
+member
+public: void write_tree(string filename);
+body
+{
+	var file f;
+	if (f = al_file_open(filename, "w")) {
+	} else {
+		var AlException ex;
+		ex = new AlException;
+		ex.msg = "write_parse_tree: can't write open '" + filename + "'";
+		throw ex;
+	}
+	al_list_misc("dump", parse_tree, al_list2(200, f));
+}
+end_body
+member
+public: void write_graph(string filename);
+body
+{
+	var file f;
+	if (f = al_file_open(filename, "w")) {
+	} else {
+		var AlException ex;
+		ex = new AlException;
+		ex.msg = "write_graph: can't write open '" + filename + "'";
+		throw ex;
+	}
+	al_graph_misc("dump", graph, al_list2(200, f));
+}
+end_body
+end_class
+$END_BODY

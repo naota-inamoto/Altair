@@ -1,0 +1,14 @@
+
+<!ELEMENT 商品マスター (商品*)>
+<!ELEMENT 商品 (商品名, 型番, 電子媒体, ライセンス, 数量, 単価, 詳細, ダウンロード, 説明)>
+<!ELEMENT 商品名 #PCDATA>
+<!ELEMENT 型番 #PCDATA>
+<!ELEMENT 電子媒体 #PCDATA>
+<!ELEMENT ライセンス #PCDATA>
+<!ELEMENT 数量 #PCDATA>
+<!ELEMENT 単価 #PCDATA>
+
+<!ELEMENT 詳細 #PCDATA>
+<!ELEMENT ダウンロード #PCDATA>
+<!ELEMENT 説明 #PCDATA>
+

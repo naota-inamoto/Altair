@@ -1,0 +1,192 @@
+
+/* -------- 配列の内部形式 --------
+ ("mat", n, array)
+   array -/  0/-> a[0]
+           ...
+         -/n-1/-> a[n-1]
+ */
+
+/* -------- 行列の和 -------- */
+mat_add(a, b) {
+  a == ("mat", n, ary1), b == ("mat", n, ary2) ->
+    ary3 == unq_str(), mat_add2(ary1, ary2, ary3, n), ("mat", n, ary3);
+}
+mat_add2(a, b, ret, n) prog {
+  for i in [0..n-1] {
+    idx = (i);
+    set_ary(ret, idx,
+      add(get_ary(a, idx), get_ary(b, idx))
+    );
+  }
+}
+
+/* -------- 行列の差 -------- */
+mat_sub(a, b) {
+  a == ("mat", n, ary1), b == ("mat", n, ary2) ->
+    ary3 == unq_str(), mat_sub2(ary1, ary2, ary3, n), ("mat", n, ary3);
+}
+mat_sub2(a, b, ret, n) prog {
+  for i in [0..n-1] {
+    idx = (i);
+    set_ary(ret, idx,
+      sub(get_ary(a, idx), get_ary(b, idx))
+    );
+  }
+}
+
+/* -------- 零行列の作成 -------- */
+mat_zero(idx, val) {
+  idx == (n, idx2...) -> {
+    idx2 == null -> mat_zero2(n, val);
+    true -> mat_zero3(n, idx2, val);
+  }
+}
+mat_zero2(n, val) prog {
+  ary = unq_str();
+  for i in [0..n-1] {
+    set_ary(ary, (i), val);
+  }
+  return ("mat", n, ary);
+}
+mat_zero3(n, idx2, val) prog {
+  ary = unq_str();
+  for i in [0..n-1] {
+    set_ary(ary, (i), mat_zero(idx2, val));
+  }
+  return ("mat", n, ary);
+}
+
+/* -------- 行列の次元 -------- */
+mat_dim(a) {
+  a == ("mat", n, ary), a2 == get_ary(ary, (0)) -> (n, mat_dim(a2)...);
+  true -> null;
+}
+/* -------- 行列の要素取得 -------- */
+mat_get_elem(a, idx) {
+  a == ("mat", n, ary), idx == (i, idx2...), 0 <= i, i < n, a2 == get_ary(ary, (i)) -> {
+    idx2 == null -> a2;
+    true -> mat_get_elem(a2, idx2);
+  }
+}
+/* -------- 行列の要素セット -------- */
+mat_set_elem(a, idx, val) {
+  a == ("mat", n, ary), idx == (i, idx2...), 0 <= i, i < n -> {
+    idx2 == null -> set_ary(ary, (i), val);
+    a2 == get_ary(ary, (i)) -> mat_set_elem(a2, idx2, val);
+  }
+}
+
+/* -------- 行列の積 -------- */
+mat_mul(a, b) {
+  (n, k) == mat_dim(a), (k, m) == mat_dim(b) -> mat_mul2(a, b, n, k, m);
+}
+mat_mul2(a, b, n, k, m) prog {
+  ret = mat_zero((n, k), ("poly", null, null));
+  for i in [0..n-1] {
+    for j in [0..m-1] {
+      sum = ("poly", null, null);
+      for l in [0..k-1] {
+        sum = add(
+          sum,
+          mul(
+            mat_get_elem(a, (i, l)),
+            mat_get_elem(b, (l, j))
+          )
+        );
+      }
+      mat_set_elem(ret, (i, j), sum);
+    }
+  }
+  return ret;
+}
+
+/* -------- 行列のスカラー倍 -------- */
+mat_scalar_mul(a, b) {
+  a == ("mat", n, ary1) ->
+    ary2 == unq_str(), mat_scalar_mul2(ary1, ary2, n, b), ("mat", n, ary2);
+}
+mat_scalar_mul2(a, ret, n, b) prog {
+  for i in [0..n-1] {
+    idx = (i);
+    set_ary(ret, idx,
+      mul(get_ary(a, idx), b)
+    );
+  }
+}
+
+/* -------- 転置行列 -------- */
+mat_transpose(a) {
+  (n, m) == mat_dim(a) -> mat_transpose2(a, n, m);
+  true -> ("poly", (((1, 1), null, (("func", "transpose", (a), 1)))), null);
+}
+mat_transpose2(a, n, m) prog {
+  ret = mat_zero((m, n), ("poly", null, null));
+  for i in [0..n-1] {
+    for j in [0..m-1] {
+       mat_set_elem(ret, (j, i), mat_get_elem(a, (i, j)));
+    }
+  }
+  return ret;
+}
+
+/* -------- 行列式 -------- */
+mat_determinant(a) {
+  (n, n) == mat_dim(a) -> mat_determinant2(a, n, null, null);
+  true -> ("poly", (((1, 1), null, (("func", "determinant", (a), 1)))), null);
+}
+mat_determinant2(a, n, idxs_i, idxs_j) prog {
+  ret = ("poly", null, null);
+  sign = 1;
+  for i in [0..n-1] {
+    if (member(i, idxs_i)) continue;
+    for j in [0..n-1] {
+      if (member(j, idxs_j)) continue;
+      x = mat_get_elem(a, (i, j));
+      if (length(idxs_j) + 1 == n) return x;
+      if (is_zero(x)) {
+        if (sign > 0) {
+          sign = -1;
+        } else {
+          sign = 1;
+        }
+      } else {
+        adj = mat_determinant2(a, n, (i, idxs_i...), (j, idxs_j...));
+        if (sign > 0) {
+          ret = add( ret, mul(x, adj) );
+          sign = -1;
+        } else {
+          ret = sub( ret, mul(x, adj) );
+          sign = 1;
+        }
+      }
+    }
+    break;
+  }
+  return ret;
+}
+
+/* -------- 逆行列 -------- */
+mat_inverse(a) {
+  (n, n) == mat_dim(a) -> mat_inverse2(a, n);
+  true -> ("poly", (((1, 1), null, (("func", "inverse", (a), 1)))), null);
+}
+mat_inverse2(a, n) prog {
+  ret = mat_zero((n, n), ("poly", null, null));
+  det = mat_determinant2(a, n, null, null);
+  for i in [0..n-1] {
+    for j in [0..n-1] {
+      k = i + j;
+      if (k % 2 == 0) {
+        mat_set_elem(ret, (j, i),
+          div( mat_determinant2(a, n, (i), (j)), det )
+        );
+      } else {
+        mat_set_elem(ret, (j, i),
+          div( neg(mat_determinant2(a, n, (i), (j))), det )
+        );
+      }
+    }
+  }
+  return ret;
+}
+

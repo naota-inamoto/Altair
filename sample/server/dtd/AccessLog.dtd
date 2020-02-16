@@ -1,0 +1,15 @@
+
+<!ELEMENT AccessLog (AccessLogId,
+        Time,
+        FromIP, Path, ResponseCode, ResponseSize)>
+
+<!ELEMENT AccessLogId (#PCDATA)>
+<!ATTLIST AccessLogId primary-key CDATA #IMPLIED>
+
+<!ELEMENT Time (#PCDATA)>
+
+<!ELEMENT FromIP (#PCDATA)>
+<!ELEMENT Path (#PCDATA)>
+<!ELEMENT ResponseCode (#PCDATA)>
+<!ELEMENT ResponseSize (#PCDATA)>
+

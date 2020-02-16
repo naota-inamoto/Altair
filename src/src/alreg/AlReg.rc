@@ -1,0 +1,187 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// “ú–{Œê resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#ifdef _WIN32
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+	"resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+	"#include ""afxres.h""\r\n"
+	"\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+	"1 TYPELIB ""AlReg.tlb""\r\n"
+	"\0"
+END
+
+#endif	  // APSTUDIO_INVOKED
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 0,0,44,0
+ PRODUCTVERSION 0,0,44,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+	BLOCK "StringFileInfo"
+	BEGIN
+		BLOCK "041104b0"
+		BEGIN
+			VALUE "Comments", "by Naota Inamoto\0"
+			VALUE "CompanyName", "\0"
+			VALUE "FileDescription", "AlReg ActiveX Control Module\0"
+			VALUE "FileVersion", "0, 0, 44, 0\0"
+			VALUE "InternalName", "ALREG\0"
+			VALUE "LegalCopyright", "Copyright (C) 1998-2020\0"
+			VALUE "LegalTrademarks", "\0"
+			VALUE "OriginalFilename", "ALREG.OCX\0"
+			VALUE "PrivateBuild", "\0"
+			VALUE "ProductName", "AlReg ActiveX Control Module\0"
+			VALUE "ProductVersion", "0, 0, 44, 0\0"
+			VALUE "SpecialBuild", "\0"
+		END
+	END
+	BLOCK "VarFileInfo"
+	BEGIN
+		VALUE "Translation", 0x411, 1200
+	END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ABOUTDLL			ICON	DISCARDABLE 	"AlReg.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_ALREG				BITMAP	DISCARDABLE 	"AlRegCtl.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX_ALREG DIALOG DISCARDABLE  34, 22, 190, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About AlReg Control"
+FONT 9, "System"
+BEGIN
+	ICON			IDI_ABOUTDLL,IDC_STATIC,10,10,20,20
+	LTEXT			"AlReg Control, Version 0.44",IDC_STATIC,40,10,106,8
+	LTEXT			"Copyright (C) 1998-2020",IDC_STATIC,40,25,102,8
+	DEFPUSHBUTTON	"OK",IDOK,151,7,32,14,WS_GROUP
+END
+
+IDD_PROPPAGE_ALREG DIALOG DISCARDABLE  0, 0, 250, 62
+STYLE WS_CHILD
+FONT 9, "System"
+BEGIN
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+	IDD_ABOUTBOX_ALREG, DIALOG
+	BEGIN
+		LEFTMARGIN, 7
+		RIGHTMARGIN, 183
+		TOPMARGIN, 7
+		BOTTOMMARGIN, 48
+	END
+
+	IDD_PROPPAGE_ALREG, DIALOG
+	BEGIN
+		LEFTMARGIN, 7
+		RIGHTMARGIN, 243
+		TOPMARGIN, 7
+		BOTTOMMARGIN, 55
+	END
+END
+#endif	  // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+	IDS_ALREG				"AlReg Control"
+	IDS_ALREG_PPG			"AlReg Property Page"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+	IDS_ALREG_PPG_CAPTION	"General"
+END
+
+#endif	  // “ú–{Œê resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+1 TYPELIB "AlReg.tlb"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif	  // not APSTUDIO_INVOKED
+

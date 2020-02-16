@@ -1,0 +1,322 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Object Request Broker Sample Page</TITLE>
+</HEAD>
+
+<BODY>
+<H1>Object Rquest Broker</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.13版 1999年 5月 4日<BR>
+
+<HR>
+<H3>概要</H3>
+メモリマッピングオブジェクトとウィンドウメッセージを使って<BR>
+プロセス間でリモートプロシージャコールを行うサンプルです。<BR>
+メモリマッピングオブジェクトとウィンドウメッセージの部分を<BR>
+Socketを使ったものに書き換え、ネーミングサーバを用意すれば<BR>
+CORBAやJava-RMIと同等のことができるようにもなります。<BR>
+
+<HR>
+<H3><A NAME="sample">サンプル</A></H3>
+
+<DL>
+<DT>bank/1/*<DD>
+クライアントサーバ型でクライアントの要求をサーバが処理し<BR>
+結果をクライアントに返すサンプルです。<BR>
+下記の前準備をした後、AccoutClient.bat を実行するとサンプルが起動します。<BR>
+<BR>
+<DT>bank/2/*<DD>
+ひとつのクライアントの処理要求をサーバが処理し<BR>
+サーバでの処理結果を複数のクライアントに通知するサンプルです。<BR>
+下記の前準備をした後、AccoutClient.bat を実行するとサンプルが起動します。<BR>
+</DL>
+両者とも、預金口座があって、預け入れと引き出しができる簡単なものです。<BR>
+
+<H4>前準備</H4>
+<A HREF="../sample.html#prepare">Altairのサンプルの前準備</A>で、
+ライブラリgbgp.albが作成されていることを確認してください。<BR>
+<BR>
+bank/1/altair.ini, bank/2/altair.ini中の<BR>
+LIBDIR, END_LIBDIRで囲まれたところにある"C:/Altair/Data"という<BR>
+ディレクトリ記述をgbgp.albが置かれているディレクトリに書き換えてください。<BR>
+<BR>
+altair.exe, alcore1.dllにPATHを通してください。<BR>
+<BR>
+bank/1/bus.prop, bank/2/bus.propに<BR>
+共通サービスおよびサーバの自動起動の設定がされていますが<BR>
+これはこのままでOKです。<BR>
+
+<HR>
+<H3><A NAME="struct">サンプルの構造</A></H3>
+
+<PRE>
+インターフェース
+    Account.alb
+
+クライアントAP
+    accountstub.alb        メソッド呼び出しのスタブ
+    orbgbgp.apr            GUIを含むAPの構築環境
+    accountClient.gpr      GUIを持つクライアントAP
+
+サーバAP
+    accountskelton.alb     メソッド呼び出しのスケルトン
+    accountserver.apr      サーバAP
+
+共通ライブラリ
+    orb.alb
+</PRE>
+
+<HR>
+<H3><A NAME="api">共通ライブラリの主なAPI</A></H3>
+
+<PRE>
+class ORB
+public: static list start_deamon();
+    // 共通サービスのスタート
+public: static list end_deamon();
+    // 共通サービスの終了
+
+public: static list init(string title);
+    // クライアントおよびサーバの初期化
+
+public: static ObjRef obj_to_ref(ORB_Object obj);
+    // オブジェクトをオブジェクト参照にする
+public: static ORB_Object ref_to_obj(ObjRef ref);
+    // オブジェクト参照をオブジェクトにする
+
+public: static list bind(ORB_Object obj, string name);
+    // オブジェクトを名前をつけて共通サービスに登録および登録解除
+public: static ObjRef resolve(string name);
+    // 共通サービスで名前からオブジェクト参照を取り出す
+
+public: static ReqResult request(ObjRef ref, string method, list arg_dcl, list arg_list);
+    // リモートメソッド呼び出し
+public: static list want_notify(ORB_Object obj, string event, list remove);
+    // 通知して欲しいイベントの登録および登録削除
+public: static list notify(string event, list arg);
+    // イベントの発行
+</PRE>
+
+<HR>
+<H3><A NAME="code">サンプルコード</A></H3>
+
+<PRE>
+○インターフェース
+public: integer balance;
+public: integer diposit(integer amount);
+public: integer withdraw(integer amount);
+
+○スケルトン
+public: integer AccountSkelton::diposit(integer amount)
+{
+    if (amount < 0) {
+        return "負の金額は預け入れられません";
+    } else {
+    }
+    if (amount > 1000000) {
+        return "百万円より多い金額は預け入れられません";
+    } else {
+    }
+    if (balance + amount > 10000000) {
+        return "預金総額が千万円を超えます";
+    } else {
+    }
+    balance = balance + amount;
+    return balance;
+}
+
+○サーバAP
+{
+    var list err;
+    if (err = ORB::init("server")) {
+        al_print("ORBの初期化に失敗しました。\n");
+        return;
+    } else {
+    }
+    var AccountSkelton account;
+    account = new AccountSkelton;
+    account.create();
+    if (err = ORB::bind(account, "Bank")) {
+        al_print("オブジェクトのバインドに失敗しました。\n");
+        return;
+    } else {
+    }
+}
+
+○スタブ
+public: integer AccountStub::diposit(integer amount)
+{
+    var string method;
+    var list arg_dcl, arg_list;
+    method = al_gp("method_name", null, null, null, null);
+    arg_dcl = al_gp("arg_dcl", null, null, null, null);
+    arg_list = al_gp("arg_list", null, null, null, null);
+    var ReqResult result;
+    result = ORB::request(ref, method, arg_dcl, arg_list);
+    if (result.exception) {
+        return result.exception;
+    } else {
+    }
+    return result.ret_val;
+}
+
+○クライアントAP
+--- 初期化
+{
+    var integer err;
+    if (err = ORB::init("client")) {
+        al_print("ORBの初期化に失敗しました。\n");
+        return;
+    } else {
+    }
+    var ObjRef ref;
+    if (ref = ORB::resolve("Bank")) {
+    } else {
+        al_print("名前 Bank のオブジェクト参照取得に失敗しました。\n");
+        return;
+    }
+    var AccountStub stub;
+    stub = new AccountStub;
+    stub.ref = ref;
+    account = stub;
+}
+--- 預け入れ
+{
+    var integer amount, balance;
+    amount = (integer)diposit_edit.text;
+    diposit_edit.text = "";
+    withdraw_edit.text = "";
+    balance = account.diposit(amount);
+    balance_label.text = (string)balance;
+    diposit_edit.Damage();
+    withdraw_edit.Damage();
+    balance_label.Damage();
+}
+
+○共通サービスおよびサーバの自動起動の設定ファイル内容
+begin_broker
+	command:	"altair -file orb.apr -class ORB -method start_deamon"
+	directory:	"."
+	show:		true
+	timeout:	10
+end_broker
+
+begin_tool
+	name:		"Bank"
+	command:	"altair -file accountserver.apr -class AccountServer -method main"
+	directory:	"."
+	show:		true
+	timeout:	10
+end_tool
+
+end
+
+</PRE>
+
+<HR>
+<H3><A NAME="seq">メッセージシーケンスチャート</A></H3>
+
+<PRE>
+
+【Bind】
+                               Broker                   Server
+  start broker if necessary
+                                 |      (CreateProcess)    |
+                                 |<------------------------|
+                                 |     broker_mapfile      |
+                                 |create                   |
+                                 |----->|                  |
+                                 |      |       (wait for broker_mapfile)
+
+                                 |                         |   mapfile
+                                 |                         |create
+                                 |                         |----->|
+                                 |        BIND(Send)       |      |
+                                 |<------------------------|close |
+                                 |                         |----->|
+【Resolve】
+
+    Client                     Broker
+  start broker if necessary
+      |        (CreateProcess)         broker_mapfile
+      |------------------------->|create
+      |                          |------>|
+      |(wait for broker_mapfile) |       |
+
+
+      |  mapfile1                |
+      |create|                   |
+      |----->|   RESOLVE(Post)   |
+      |------------------------->|
+      |◎1                       |
+
+  start up server if necessary
+                                                        Server
+      |      |                   |     (CreateProcess)
+      |      |                   |------------------------>|
+      |      |                   |        BIND             |
+      |      |                   |<------------------------|
+
+      |      |                   |  mapfile2
+      |      |                   |create|
+      |         RESOLVED(Post)   |----->|
+      |<-------------------------|      |
+      |      |  RESOLVE_ACK(Post)|○2   |
+      |------------------------->|      |
+      |close |                   |close |
+      |----->|                   |----->|
+
+【Method Call】
+
+    Client                     Broker                    Server
+      |   mapfile1               |                         |
+      |create|                   |                         |
+      |----->|                   |                         |
+      |      |  R_C_TO_B(Post)   |                         |
+      |------------------------->|   R_B_TO_S(Post)        |
+      |◎1   |                   |------------------------>|
+      |      |                   |                         ■   mapfile2
+      |      |                   |                         |create
+      |      |                   |   R_S_TO_B(Post)        |----->|
+      |      |  R_B_TO_C(Post)   |<------------------------|      |
+      |<-------------------------|                      ○2|      |
+      |      |  R_ACK_TO_B(Post) |                         |      |
+      |------------------------->|   R_ACK_TO_S(Post)      |      |
+      |close |                   |------------------------>|close |
+      |----->|                   |                         |----->|
+
+【Want Notify】
+
+                               Broker                   Consumer
+                                 |                         |   mapfile
+                                 |                         |create
+                                 |                         |----->|
+                                 |   WANT_N(Send)          |      |
+                                 |<------------------------|close |
+                                 |                         |----->|
+
+【Notify】
+
+    Supplier                   Broker                   Consumer
+      |   mapfile                |                         |
+      |create|                   |                         |
+      |----->|  N_C_TO_B(Post)   |                         |
+      |------------------------->|                         |
+      |◎    |                   |   N_B_TO_S(Send)        | +
+      |      |                   |------------------------>| |repeated
+      |      |                   |           (Reply)       | |
+      |      |                   |<------------------------| +
+      |      |  N_ACK_TO_C(Post) |                         |
+      |<-------------------------|                         |
+      |close |                   |                         ■
+      |----->|                   |                         |
+
+If All of Servers and Consumers closes, Broker closes itself
+
+</PRE>
+
+<HR>
+</BODY>
+</HTML>

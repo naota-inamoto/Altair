@@ -1,0 +1,12 @@
+
+<!ELEMENT SystemLog (SystemLogId,
+        Time, LogLevel, Message)>
+
+<!ELEMENT SystemLogId (#PCDATA)>
+<!ATTLIST SystemLogId primary-key CDATA #IMPLIED>
+
+<!ELEMENT Time (#PCDATA)>
+
+<!ELEMENT LogLevel (#PCDATA)>
+<!ELEMENT Message  (#PCDATA)>
+

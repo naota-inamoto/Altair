@@ -1,0 +1,95 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>AltairScript</TITLE>
+</HEAD>
+
+<BODY>
+<H2>Altairスクリプト</H2>
+
+第0.43版 2016年10月23日<BR>
+第0.12版 1998年11月23日<BR>
+
+<BR>
+ここでは、Altairで定義されているクラスに変更を加えることなく<BR>
+動的に関数をロードし実行する機能の説明をします。<BR>
+
+<UL>
+<LI><A HREF="#trans">trans</A>
+<LI><A HREF="#eval">eval</A>
+<LI><A HREF="#eval2">eval2</A>
+<LI><A HREF="#sample">サンプルコード</A>
+</UL>
+
+<HR>
+<H3><A NAME="trans">integer al_script("trans", script, opt);</A></H3>
+文字列scriptを内部コードに変換しscriptに関連付けます。<BR>
+変換に成功するとnullが返ります。<BR>
+<BR>
+optに1を入れると変換中の途中の文字列をアウトプットウィンドウに出力します。<BR>
+これは、Altairスクリプトのデバッグに使えます。<BR>
+
+<HR>
+<H3><A NAME="eval">any al_script("eval", script, args);</A></H3>
+文字列scriptに関連付けられた内部コードを実行します。<BR>
+argsには、実引数の値をリストにしたものを与えます。<BR>
+リスト要素の順番は、関数の仮引数の順番になります。<BR>
+<BR>
+実行する前に、al_script("trans", script, ...);で内部コードが<BR>
+生成されていなければ、実行は行われません。<BR>
+
+<HR>
+<H3><A NAME="eval2">any al_script("eval2", script, args);</A></H3>
+文字列scriptに関連付けられた内部コードを名前付引数で実行します。<BR>
+argsには、以下の形式のデータを与えます。<BR>
+((arg_name, arg_value, null), ...)<BR>
+リスト要素の引数の順番はランダムでかまいません。<BR>
+arg_nameはal_gp("unique_str", ...);でアドレスを比較すればよいだけの文字列に
+変換しておく必要があります。<BR>
+<BR>
+実行する前に、al_script("trans", script, ...);で内部コードが<BR>
+生成されていなければ、実行は行われません。<BR>
+
+<HR>
+<H3><A NAME="sample">サンプルコード</A></H3>
+<PRE>
+    var string s;
+    s = "public: static integer test(integer a, integer b);\n";
+    s = s + "body\n";
+    s = s + "{\n";
+    s = s + "    return a * 10 + b;\n";
+    s = s + "}\n";
+    s = s + "end_body\n";
+    if (al_script("trans", s, null)) {
+        al_print("スクリプトにエラーがあります。\n");
+        return;
+    } else {
+    }
+    al_print(al_script("eval", s, al_list2(2, 3)));
+    al_print("\n");
+</PRE>
+上記コードを実行すると23がアウトプットウィンドウに出力されます。<BR>
+<PRE>
+    var string s;
+    s = "public: static integer test(integer a, integer b);\n";
+    s = s + "body\n";
+    s = s + "{\n";
+    s = s + "    return a * 10 + b;\n";
+    s = s + "}\n";
+    s = s + "end_body\n";
+    if (al_script("trans", s, null)) {
+        al_print("スクリプトにエラーがあります。\n");
+        return;
+    } else {
+    }
+    var list arg_ls;
+    arg_ls = al_cons(al_list3(al_gp("unique_str", "a", null, null, null), 4, null), arg_ls);
+    arg_ls = al_cons(al_list3(al_gp("unique_str", "b", null, null, null), 5, null), arg_ls);
+    al_print(al_script("eval2", s, arg_ls));
+    al_print("\n");
+</PRE>
+上記コードを実行すると45がアウトプットウィンドウに出力されます。<BR>
+
+<HR>
+</BODY>
+</HTML>

@@ -1,0 +1,115 @@
+$END_LIB
+TEXT
+AlObject
+class JUMAN_KNP
+end_class
+$END_CLASS
+TEXT
+AlObject
+class JUMAN_KNP
+member
+public: static void juman();
+member
+public: static void knp();
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class JUMAN_KNP
+member
+public: static void juman();
+body
+{
+	var string dic, in, out, err;
+	if (al_misc("platform", null, null) == "windows") {
+		dic = "C:/temp/nl/juman/dic";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "linux") {
+		dic = "/proj/altair/nl";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "mac") {
+		dic = "/Users/inamoto/misc/nl";
+	} else {
+	}
+	if (err = al_jp_ana("juman_init", dic, null, null, null)) {
+		al_print(err + "\n");
+		return;
+	} else {
+	}
+	in = "./text.txt";
+	out = "./text-juman.txt";
+	if (err = al_jp_ana("juman_ana", in, out, null, null)) {
+		al_print(err + "\n");
+		return;
+	} else {
+	}
+	if (err = al_jp_ana("juman_close", null, null, null, null)) {
+		al_print(err + "\n");
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: static void knp();
+body
+{
+	var string dic, rule, in, out, err;
+	if (al_misc("platform", null, null) == "windows") {
+		dic = "C:/temp/nl/juman/dic";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "linux") {
+		dic = "/proj/altair/nl";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "mac") {
+		dic = "/Users/inamoto/misc/nl";
+	} else {
+	}
+	if (err = al_jp_ana("juman_init", dic, null, null, null)) {
+		al_print(err + "\n");
+		return;
+	} else {
+	}
+	if (al_misc("platform", null, null) == "windows") {
+		dic = "C:/temp/nl/knp/dic";
+		rule = "C:/temp/nl/knp/rule";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "linux") {
+		dic = "/proj/altair/nl";
+	} else {
+	}
+	if (al_misc("platform", null, null) == "mac") {
+		dic = "/Users/inamoto/misc/nl";
+	} else {
+	}
+	if (err = al_jp_ana("knp_init", dic, rule, null, null)) {
+		al_print(err + "\n");
+		return;
+	} else {
+	}
+	in = "./text-juman.txt";
+	out = "./text-knp.txt";
+	if (err = al_jp_ana("knp_ana", in, out, null, null)) {
+		al_print(err + "\n");
+		return;
+	} else {
+	}
+	if (err = al_jp_ana("knp_close", null, null, null, null)) {
+		al_print(err + "\n");
+		return;
+	} else {
+	}
+	if (err = al_jp_ana("juman_close", null, null, null, null)) {
+		al_print(err + "\n");
+		return;
+	} else {
+	}
+}
+end_body
+end_class
+$END_BODY

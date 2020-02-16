@@ -1,0 +1,1805 @@
+2013/03/14 11:38:06 info: [OK] 'C:/altair/build/linux/sync.apr
+2013/03/14 11:38:08 info: [OK] 'C:/altair/sample/alctrl/alctrl.apr
+2013/03/14 11:38:09 info: [OK] 'C:/altair/sample/almath/almath.apr
+2013/03/14 12:01:01 info: [OK] 'C:/altair/sample/alsoftpro/alsoftpro.apr
+2013/03/14 12:01:17 info: [OK] 'C:/altair/sample/alsoftpro/test.apr
+2013/03/14 12:01:17 info: [OK] 'C:/altair/sample/alsoftpro/tmp/braket.apr
+2013/03/14 12:01:17 info: [OK] 'C:/altair/sample/alsoftpro/tmp/empty1.apr
+2013/03/14 12:01:17 info: [OK] 'C:/altair/sample/alsoftpro/tmp/empty2.apr
+2013/03/14 12:01:17 info: [OK] 'C:/altair/sample/alsoftpro/tmp/empty3.apr
+2013/03/14 12:01:17 info: [OK] 'C:/altair/sample/alsoftpro/tmp/empty4.apr
+2013/03/14 12:01:17 info: [OK] 'C:/altair/sample/alsoftpro/tmp/if.apr
+2013/03/14 12:01:17 info: [OK] 'C:/altair/sample/alsoftpro/tmp/ptr_func.apr
+2013/03/14 12:01:17 info: [OK] 'C:/altair/sample/alsoftpro/tmp/return_exp.apr
+2013/03/14 12:01:17 info: [OK] 'C:/altair/sample/alsoftpro/tmp/sum_n.apr
+2013/03/14 12:01:17 info: [OK] 'C:/altair/sample/alsoftpro/tmp/tail.apr
+2013/03/14 12:01:17 info: [OK] 'C:/altair/sample/alsoftpro/tmp/vfunc.apr
+2013/03/14 12:01:17 info: [OK] 'C:/altair/sample/bank/1/accountserver.apr
+2013/03/14 12:01:17 info: [OK] 'C:/altair/sample/bank/1/accountskelton.apr
+2013/03/14 12:01:17 info: [OK] 'C:/altair/sample/bank/1/accountstub.apr
+2013/03/14 12:01:17 info: [OK] 'C:/altair/sample/bank/1/orb.apr
+2013/03/14 12:01:17 info: [OK] 'C:/altair/sample/bank/1/orbgbgp.apr
+2013/03/14 12:01:18 info: [OK] 'C:/altair/sample/bank/2/accountserver.apr
+2013/03/14 12:01:18 info: [OK] 'C:/altair/sample/bank/2/accountskelton.apr
+2013/03/14 12:01:18 info: [OK] 'C:/altair/sample/bank/2/accountstub.apr
+2013/03/14 12:01:18 info: [OK] 'C:/altair/sample/bank/2/orb.apr
+2013/03/14 12:01:18 info: [OK] 'C:/altair/sample/bank/2/orbgbgp.apr
+2013/03/14 12:01:45 info: [OK] 'C:/altair/sample/bank/orbt.apr
+2013/03/14 12:01:46 info: [OK] 'C:/altair/sample/build/1/build.apr
+2013/03/14 12:01:46 info: [OK] 'C:/altair/sample/build/2/build.apr
+2013/03/14 12:01:46 info: [OK] 'C:/altair/sample/comm/cmdline.apr
+2013/03/14 12:01:46 info: [OK] 'C:/altair/sample/comm/conv_sjis_euc_and_utf8.apr
+2013/03/14 12:01:47 info: [OK] 'C:/altair/sample/comm/dllcall.apr
+2013/03/14 12:01:47 info: [OK] 'C:/altair/sample/comm/mapfile.apr
+2013/03/14 12:01:48 info: [OK] 'C:/altair/sample/comm/mapfile2.apr
+2013/03/14 12:01:48 info: [OK] 'C:/altair/sample/comm/ping.apr
+2013/03/14 12:01:48 info: [OK] 'C:/altair/sample/comm/script.apr
+2013/03/14 12:01:50 info: [OK] 'C:/altair/sample/comm/simple_ft.apr
+2013/03/14 12:01:51 info: [OK] 'C:/altair/sample/comm/socket.apr
+2013/03/14 12:01:52 info: [OK] 'C:/altair/sample/comm/socket2.apr
+2013/03/14 12:01:53 info: [OK] 'C:/altair/sample/comm/stdio.apr
+2013/03/14 12:01:53 info: [OK] 'C:/altair/sample/comm/stdio2.apr
+2013/03/14 12:01:53 info: [OK] 'C:/altair/sample/gui/gbgp.apr
+2013/03/14 12:03:28 info: [OK] 'C:/altair/sample/gui/gbgpt.apr
+2013/03/14 12:27:53 info: [OK] 'C:/altair/sample/gui/guicore.apr
+2013/03/14 12:30:30 info: [OK] 'C:/altair/sample/gui/guitest.apr
+2013/03/14 12:30:30 info: [OK] 'C:/altair/sample/gui/gui_sample_setup.apr
+2013/03/14 12:30:31 info: [OK] 'C:/altair/sample/gui/scribble.apr
+2013/03/14 12:30:58 info: [OK] 'C:/altair/sample/gui/syslib.apr
+2013/03/14 12:31:00 info: [OK] 'C:/altair/sample/net/crypt/crypt.apr
+2013/03/14 12:31:02 info: [OK] 'C:/altair/sample/net/http/httpclnt.apr
+2013/03/14 12:31:05 info: [OK] 'C:/altair/sample/net/http/httpd.apr
+2013/03/14 12:31:06 info: [OK] 'C:/altair/sample/net/https/httpclnt.apr
+2013/03/14 12:31:08 info: [OK] 'C:/altair/sample/net/https/httpclnt_bothAuth.apr
+2013/03/14 12:31:09 info: [OK] 'C:/altair/sample/net/https/httpclnt_clientAuth.apr
+2013/03/14 12:31:10 info: [OK] 'C:/altair/sample/net/https/httpclnt_serverAuth.apr
+2013/03/14 12:31:12 info: [OK] 'C:/altair/sample/net/https/httpd.apr
+2013/03/14 12:31:14 info: [OK] 'C:/altair/sample/net/https/httpd128.apr
+2013/03/14 12:31:16 info: [OK] 'C:/altair/sample/net/https/httpd_clientAuth.apr
+2013/03/14 12:31:20 info: [OK] 'C:/altair/sample/net/servlet/servlet.apr
+2013/03/14 12:31:21 info: [OK] 'C:/altair/sample/net/smime/smime.apr
+2013/03/14 12:31:40 info: [OK] 'C:/altair/sample/net/smtp/mail.apr
+2013/03/14 12:31:41 info: [OK] 'C:/altair/sample/nl/juman_knp.apr
+2013/03/14 12:31:41 info: [OK] 'C:/altair/sample/parser_and_generator/math-simple.apr
+2013/03/14 12:31:41 info: [OK] 'C:/altair/sample/parser_and_generator/xml-simple.apr
+2013/03/14 12:31:52 info: [OK] 'C:/altair/sample/prof/prof.apr
+2013/03/14 12:31:59 info: [OK] 'C:/altair/sample/prof/sqlprof.apr
+2013/03/14 12:31:59 info: [OK] 'C:/altair/sample/prolog/prolog.apr
+2013/03/14 12:32:05 info: [OK] 'C:/altair/sample/proxy/proxy.apr
+2013/03/14 12:32:05 info: [OK] 'C:/altair/sample/rdb/2_conn.apr
+2013/03/14 12:32:06 info: [OK] 'C:/altair/sample/rdb/csv2db.apr
+2013/03/14 12:32:06 info: [OK] 'C:/altair/sample/rdb/db2csv.apr
+2013/03/14 12:32:10 info: [OK] 'C:/altair/sample/rdb/sqltest.apr
+2013/03/14 13:50:31 info: [OK] 'C:/altair/sample/server/server.apr
+2013/03/14 13:50:32 info: [OK] 'C:/altair/sample/server/watcher.apr
+2013/03/14 14:17:21 info: [OK] 'C:/altair/sample/server2/server.apr
+2013/03/14 14:17:23 info: [OK] 'C:/altair/sample/solid/solid1.apr
+2013/03/14 14:17:25 info: [OK] 'C:/altair/sample/solid/solid2.apr
+2013/03/14 14:17:25 info: [OK] 'C:/altair/sample/solid/solid3.apr
+2013/03/14 14:17:27 info: [OK] 'C:/altair/sample/xml/xml.apr
+2013/03/14 14:17:27 info: [OK] 'C:/altair/tmp/tmp.apr
+2013/03/14 14:17:27 info: [OK] 'C:/altair/util/apr/append_semicolumn.apr
+2013/03/14 14:17:29 info: [OK] 'C:/altair/util/apr/CRLF_to_LF.apr
+2013/03/14 14:17:29 info: [OK] 'C:/altair/util/apr/cut_head.apr
+2013/03/14 14:17:29 info: [OK] 'C:/altair/util/apr/c_to_cpp.apr
+2013/03/14 14:17:29 info: [OK] 'C:/altair/util/apr/ed.apr
+2013/03/14 14:17:29 info: [OK] 'C:/altair/util/apr/euc_to_sjis.apr
+2013/03/14 14:17:29 info: [OK] 'C:/altair/util/apr/grep.apr
+2013/03/14 14:17:29 info: [OK] 'C:/altair/util/apr/listup_tag.apr
+2013/03/14 14:17:31 info: [OK] 'C:/altair/util/apr/release.apr
+2013/03/14 14:17:31 info: [OK] 'C:/altair/util/apr/sjis_utf8_sjis.apr
+2013/03/14 14:17:32 info: [OK] 'C:/altair/util/apr/sync.apr
+2013/03/14 14:17:32 info: [OK] 'C:/altair/util/apr/utf8_to_sjis.apr
+2013/03/14 14:17:34 info: [OK] 'C:/altair/util/apr/wc.apr
+2013/03/14 14:17:37 info: [OK] 'C:/altair/build/linux/sync.apr
+2013/03/14 14:17:40 info: [OK] 'C:/altair/sample/alctrl/alctrl.apr
+2013/03/14 14:17:41 info: [OK] 'C:/altair/sample/almath/almath.apr
+2013/03/14 14:20:38 info: [ERROR] 'C:/altair/sample/alsoftpro/alsoftpro.apr: e.msg = graph_to_tree: runtime: exit request by user.
+	if2(5)
+	loop1(1)
+	if2(5)
+	loop1(2)
+	if2(8)
+	loop1(2)
+	if2(3)
+	loop1(2)
+	if2(4)
+	loop1(2)
+	if2(4)
+	loop1(2)
+	if2(1)
+	loop1(2)
+	if2(1)
+	loop1(2)
+	if2(1)
+	loop1(1)
+tree converion error: syntax_id = prim
+	prim
+	e_unry_op
+	e_shift
+	e_and
+	e_xor
+	e_or
+	e_mul
+	e_add
+	e_asgn
+	e_comp
+	e_andand
+	e_oror
+	e_cond
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+graph = ("head")
+-/"list"/->("tail")
+	-/"list"/->("tail")
+		-/"list"/->("tail")
+			-/"list"/->("tail")
+				-/"list"/->("tail")
+					-/"list"/->("tail")
+						-/"list"/->("tail")
+							-/"list"/->("head")
+								-/"list"/->("ident")
+									-/"name"/->"stack"
+
+ at syn_var
+	if1(3)
+	if2(2)
+tree converion error: syntax_id = e_unry_op
+	e_unry_op
+	e_shift
+	e_and
+	e_xor
+	e_or
+	e_mul
+	e_add
+	e_asgn
+	e_comp
+	e_andand
+	e_oror
+	e_cond
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	if1(2)
+	if2(2)
+tree converion error: syntax_id = e_shift
+	e_shift
+	e_and
+	e_xor
+	e_or
+	e_mul
+	e_add
+	e_asgn
+	e_comp
+	e_andand
+	e_oror
+	e_cond
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop1(3)
+tree converion error: syntax_id = e_and
+	e_and
+	e_xor
+	e_or
+	e_mul
+	e_add
+	e_asgn
+	e_comp
+	e_andand
+	e_oror
+	e_cond
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop1(3)
+tree converion error: syntax_id = e_xor
+	e_xor
+	e_or
+	e_mul
+	e_add
+	e_asgn
+	e_comp
+	e_andand
+	e_oror
+	e_cond
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop1(3)
+tree converion error: syntax_id = e_or
+	e_or
+	e_mul
+	e_add
+	e_asgn
+	e_comp
+	e_andand
+	e_oror
+	e_cond
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop1(3)
+tree converion error: syntax_id = e_mul
+	e_mul
+	e_add
+	e_asgn
+	e_comp
+	e_andand
+	e_oror
+	e_cond
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop1(3)
+tree converion error: syntax_id = e_add
+	e_add
+	e_asgn
+	e_comp
+	e_andand
+	e_oror
+	e_cond
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop1(3)
+	loop1(1)
+tree converion error: syntax_id = e_asgn
+	e_asgn
+	e_comp
+	e_andand
+	e_oror
+	e_cond
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	if1(2)
+	if2(2)
+tree converion error: syntax_id = e_comp
+	e_comp
+	e_andand
+	e_oror
+	e_cond
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop1(3)
+tree converion error: syntax_id = e_andand
+	e_andand
+	e_oror
+	e_cond
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop1(3)
+tree converion error: syntax_id = e_oror
+	e_oror
+	e_cond
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at last_eq
+	if2(1)
+tree converion error: syntax_id = e_cond
+	e_cond
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+tree converion error: syntax_id = exp
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+tree converion error: syntax_id = s_exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop1(1)
+	if1(1)
+tree converion error: syntax_id = s_if
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at for
+	loop1(2)
+	loop1(1)
+	if1(1)
+tree converion error: syntax_id = s_if
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	if1(1)
+tree converion error: syntax_id = s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at for
+	loop1(2)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	if1(1)
+tree converion error: syntax_id = s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+tree converion error: syntax_id = s_loop
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at for
+	loop1(2)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+tree converion error: syntax_id = s_loop
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+tree converion error: syntax_id = s_block
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at for
+	loop1(2)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+tree converion error: syntax_id = s_block
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if2(1)
+tree converion error: syntax_id = body_p2
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at if
+	if1(2)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if2(1)
+tree converion error: syntax_id = body_p2
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop1(2)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if2(1)
+tree converion error: syntax_id = body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at for
+	loop2(2)
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop1(2)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if2(1)
+tree converion error: syntax_id = body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop1(2)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if2(1)
+tree converion error: syntax_id = body_p2
+	body_p2
+	body_p
+	program
+
+ at for
+	loop2(2)
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop1(2)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if2(1)
+tree converion error: syntax_id = body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop1(1)
+	if1(1)
+tree converion error: syntax_id = body_p
+	body_p
+	program
+
+ at for
+	loop1(2)
+	loop1(1)
+	if1(1)
+tree converion error: syntax_id = body_p
+	body_p
+	program
+
+ at syn_var
+	loop4(1)
+	loop3(2)
+	loop3(1)
+	loop2(2)
+	loop2(1)
+	loop1(2)
+	if1(1)
+tree converion error: syntax_id = program
+	program
+
+ at for
+	loop4(2)
+	loop4(1)
+	loop3(2)
+	loop3(1)
+	loop2(2)
+	loop2(1)
+	loop1(2)
+	if1(1)
+tree converion error: syntax_id = program
+	program
+ (in function 'inv_attr_grmr')
+StackTrace
+	ParGenConv::plisp_call
+	ParGenConv::graph_to_tree
+	AlSoftPro::par_tgt_gen
+	WebUIalsoftproServlet::invokeTreeGraphConvRule
+Source
+	return al_symbol_manip("plisp_call", env, func_name, arg_ls, null);
+}
+END
+
+2014/09/03 15:43:13 info: [OK] 'C:/altair/build/linux/sync.apr
+2014/09/03 15:43:16 info: [OK] 'C:/altair/sample/alctrl/alctrl.apr
+2014/09/03 15:43:17 info: [OK] 'C:/altair/sample/almath/almath.apr
+2014/09/03 15:48:59 info: [ERROR] 'C:/altair/sample/alsoftpro/alsoftpro.apr: e.msg = graph_to_tree: runtime: exit request by user.
+	if2(5)
+	loop1(1)
+	if2(6)
+	loop1(2)
+	if2(5)
+	loop1(2)
+	if2(4)
+	loop1(2)
+	if2(7)
+	loop1(2)
+	if2(5)
+	loop1(2)
+	if2(3)
+	loop1(2)
+	if2(1)
+	loop1(2)
+	if2(1)
+	loop1(1)
+tree converion error: syntax_id = prim
+	prim
+	e_unry_op
+	e_shift
+	e_and
+	e_xor
+	e_or
+	e_mul
+	e_add
+	e_asgn
+	e_comp
+	e_andand
+	e_oror
+	e_cond
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+graph = ("head")
+-/"list"/->("tail")
+	-/"list"/->("tail")
+		-/"list"/->("tail")
+			-/"list"/->("tail")
+				-/"list"/->("tail")
+					-/"list"/->("tail")
+						-/"list"/->("tail")
+							-/"list"/->("head")
+								-/"list"/->("ident")
+									-/"name"/->("stack")
+
+ at syn_var
+	if1(3)
+	if2(2)
+tree converion error: syntax_id = e_unry_op
+	e_unry_op
+	e_shift
+	e_and
+	e_xor
+	e_or
+	e_mul
+	e_add
+	e_asgn
+	e_comp
+	e_andand
+	e_oror
+	e_cond
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	if1(2)
+	if2(2)
+tree converion error: syntax_id = e_shift
+	e_shift
+	e_and
+	e_xor
+	e_or
+	e_mul
+	e_add
+	e_asgn
+	e_comp
+	e_andand
+	e_oror
+	e_cond
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop1(3)
+tree converion error: syntax_id = e_and
+	e_and
+	e_xor
+	e_or
+	e_mul
+	e_add
+	e_asgn
+	e_comp
+	e_andand
+	e_oror
+	e_cond
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop1(3)
+tree converion error: syntax_id = e_xor
+	e_xor
+	e_or
+	e_mul
+	e_add
+	e_asgn
+	e_comp
+	e_andand
+	e_oror
+	e_cond
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop1(3)
+tree converion error: syntax_id = e_or
+	e_or
+	e_mul
+	e_add
+	e_asgn
+	e_comp
+	e_andand
+	e_oror
+	e_cond
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop1(3)
+tree converion error: syntax_id = e_mul
+	e_mul
+	e_add
+	e_asgn
+	e_comp
+	e_andand
+	e_oror
+	e_cond
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop1(3)
+tree converion error: syntax_id = e_add
+	e_add
+	e_asgn
+	e_comp
+	e_andand
+	e_oror
+	e_cond
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop1(3)
+	loop1(1)
+tree converion error: syntax_id = e_asgn
+	e_asgn
+	e_comp
+	e_andand
+	e_oror
+	e_cond
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	if1(2)
+	if2(2)
+tree converion error: syntax_id = e_comp
+	e_comp
+	e_andand
+	e_oror
+	e_cond
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop1(3)
+tree converion error: syntax_id = e_andand
+	e_andand
+	e_oror
+	e_cond
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop1(3)
+tree converion error: syntax_id = e_oror
+	e_oror
+	e_cond
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at last_eq
+	if2(1)
+tree converion error: syntax_id = e_cond
+	e_cond
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+tree converion error: syntax_id = exp
+	exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+tree converion error: syntax_id = s_exp
+	s_exp
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop1(1)
+	if1(1)
+tree converion error: syntax_id = s_if
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at for
+	loop1(2)
+	loop1(1)
+	if1(1)
+tree converion error: syntax_id = s_if
+	s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	if1(1)
+tree converion error: syntax_id = s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at for
+	loop1(2)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	if1(1)
+tree converion error: syntax_id = s_if
+	s_if
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+tree converion error: syntax_id = s_loop
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at for
+	loop1(2)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+tree converion error: syntax_id = s_loop
+	s_loop
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+tree converion error: syntax_id = s_block
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at for
+	loop1(2)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+	loop1(1)
+tree converion error: syntax_id = s_block
+	s_block
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if2(1)
+tree converion error: syntax_id = body_p2
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at if
+	if1(2)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if2(1)
+tree converion error: syntax_id = body_p2
+	body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop1(2)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if2(1)
+tree converion error: syntax_id = body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at for
+	loop2(2)
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop1(2)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if2(1)
+tree converion error: syntax_id = body_p2
+	body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop1(2)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if2(1)
+tree converion error: syntax_id = body_p2
+	body_p2
+	body_p
+	program
+
+ at for
+	loop2(2)
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop2(1)
+	loop1(2)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(2)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if1(1)
+	loop1(1)
+	if2(1)
+tree converion error: syntax_id = body_p2
+	body_p2
+	body_p
+	program
+
+ at syn_var
+	loop1(1)
+	if1(1)
+tree converion error: syntax_id = body_p
+	body_p
+	program
+
+ at for
+	loop1(2)
+	loop1(1)
+	if1(1)
+tree converion error: syntax_id = body_p
+	body_p
+	program
+
+ at syn_var
+	loop4(1)
+	loop3(2)
+	loop3(1)
+	loop2(2)
+	loop2(1)
+	loop1(2)
+	if1(1)
+tree converion error: syntax_id = program
+	program
+
+ at for
+	loop4(2)
+	loop4(1)
+	loop3(2)
+	loop3(1)
+	loop2(2)
+	loop2(1)
+	loop1(2)
+	if1(1)
+tree converion error: syntax_id = program
+	program
+ (in function 'inv_attr_grmr')
+StackTrace
+	ParGenConv::plisp_call
+	ParGenConv::graph_to_tree
+	AlSoftPro::par_tgt_gen
+	WebUIalsoftproServlet::invokeTreeGraphConvRule
+Source
+	return al_symbol_manip("plisp_call", env, func_name, arg_ls, null);
+}
+END
+

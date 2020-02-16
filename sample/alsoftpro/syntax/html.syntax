@@ -1,0 +1,97 @@
+
+indent+ "    " <node_html_1:4> ;
+-indent        <node_html_1:6> ;
+post newline indent <comment_html:3> ;
+post newline indent <node_html_1:4> ;
+post newline indent <node_html_1:8> ;
+post newline indent <node_html_2:5> ;
+post newline indent <empty_html_2:7> ;
+post newline indent <empty_html_2:4> ;
+pre space <ha1:1> ;
+pre space <ha2:1> ;
+pre space <ha3:1> ;
+pre space <ha4:1> ;
+pre space <ha_n:1> ;
+
+pre space <onclick:1> ;
+pre space <ondblclick:1> ; 
+pre space <onkeydown:1> ;
+pre space <onkeypress:1> ;
+pre space <onkeyup:1> ;
+pre space <onmousedown:1> ;
+pre space <onmouseup:1> ;
+pre space <onmouseover:1> ;
+pre space <onmouseout:1> ;
+pre space <onmousemove:1> ;
+pre space <onload:1> ;
+pre space <onunload:1> ;
+pre space <onfocus:1> ;
+pre space <onblur:1> ;
+pre space <onsubmit:1> ;
+pre space <onreset:1> ;
+pre space <onchage:1> ;
+pre space <onresize:1> ;
+pre space <onmove:1> ;
+pre space <ondragdrop:1> ;
+pre space <onabort:1> ;
+pre space <onerror:1> ;
+pre space <onselect:1> ;
+
+include "java_script.syntax"
+
+<html_page> = html_page <body> EOF ;
+
+<body> = body { html     <html>        |
+                js_def   <js_func_def> |
+                js_stat  <js_stat>     |
+                text     <text>
+              }+ ;
+
+<html> = line_break   "<" i"br" ">" |
+         comment_html "<!--" { js_def_2 <js_func_def> | text_2 <text2> }* "-->"  |
+         node_html_1  "<" <name> { ha1 <html_attr> }? ">" <body> "</" i$1 ">" |
+         node_html_2  "<" <name> { ha2 <html_attr> }? ">" <body>              |
+         empty_html_1 "<" <name> { ha3 <html_attr> }? ">"        "</" i$1 ">" |
+         empty_html_2 "<" <name> { ha4 <html_attr> }? { et "/>" | eto ">" } ;
+
+<html_attr> = html_attr { h_js_handler <js_handler> | ha_n <name> { hav_n "=" <value> }? }+ ;
+
+<value> = value_1 <value_1> | value_2 <value_2> | value_3 <ident2> ;
+<value_1> = dstr $ifndef(dq) "\"" { dq_token <dq_token> | dq_lt "<" }*  "\"" ;
+<value_2> = sstr $ifndef(sq) "'"  { sq_token <sq_token> | sq_lt "<" }*  "'" ;
+
+<js_handler> = onclick     i"onclick"     "=" <js> |
+               ondblclick  i"ondblclick"  "=" <js> |
+               onkeydown   i"onkeydown"   "=" <js> |
+               onkeypress  i"onkeypress"  "=" <js> |
+               onkeyup     i"onkeyup"     "=" <js> |
+               onmousedown i"onmousedown" "=" <js> |
+               onmouseup   i"onmouseup"   "=" <js> |
+               onmouseover i"onmouseover" "=" <js> |
+               onmouseout  i"onmouseout"  "=" <js> |
+               onmousemove i"onmousemove" "=" <js> |
+               onload      i"onload"      "=" <js> |
+               onunload    i"onunload"    "=" <js> |
+               onfocus     i"onfocus"     "=" <js> |
+               onblur      i"onblur"      "=" <js> |
+               onsubmit    i"onsubmit"    "=" <js> |
+               onreset     i"onreset"     "=" <js> |
+               onchage     i"onchange"    "=" <js> |
+               onresize    i"onresize"    "=" <js> |
+               onmove      i"onmove"      "=" <js> |
+               ondragdrop  i"ondragdrop"  "=" <js> |
+               onabort     i"onabort"     "=" <js> |
+               onerror     i"onerror"     "=" <js> |
+               onselect    i"onselect"    "=" <js> ;
+
+<js> = dq_js $nonewline "\"" $define(dq) { dq_stat <js_stat> }* $undef(dq) "\"" |
+       sq_js $nonewline "'"  $define(sq) { sq_stat <js_stat> }* $undef(sq) "'"  ;
+
+<name>     = regex [A-Za-z_0-9\-M]+          string ;
+<text>     = regex [^<]+                     string ;
+<text2>    = regex ([^\-]|\-[^\-]|\-\-[^>])+ string ;
+<dq_token> = regex ([^"\\<]|\\.)+            string ;
+<sq_token> = regex ([^'\\<]|\\.)+            string ;
+
+<ident2> = regex [a-zA-Z_][a-zA-Z_0-9\-]* string ;
+

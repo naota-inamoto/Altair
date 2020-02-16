@@ -1,0 +1,305 @@
+<!ELEMENT PORequest (
+          MsgId,
+          CommonProps,
+          POItem+,
+          POPartnerDesc+,
+          Comment?,
+          Revision,
+          PackListRequirements?,
+          ShipmentTerms,
+          PrePaymentCheckNumber?,
+          QuoteId?,
+          WireTransferId?,
+          GeneralServicesAdminId?,
+          FinanceTerms,
+          POType,
+          DeliverToLocationId?,
+          DeliverToCountry?,
+          DeliverToRegion?,
+          DeliverToCity?,
+          DeliverToAddress1?,
+          DeliverToAddress2?,
+          DeliverToAddress3?,
+          DeliverToZip?,
+          AccountClass?,
+          AccountName?,
+          AccountProprietaryCID?,
+          AccountExpiryDate?,
+          AccountNumber?,
+          BillToPartnerRoleClass?,
+          BillToContactName?,
+          BillToContactPhone?,
+          BillToContactEmail?,
+          BillToContactLocationId?,
+          BillToContactCountry?,
+          BillToContactRegion?,
+          BillToContactCity?,
+          BillToContactAddress1?,
+          BillToContactAddress2?,
+          BillToContactAddress3?,
+          BillToContactZip?,
+          BillToContactPOBox?,
+          SecondBuyerPOId?,
+          SecondBuyerBusinessId?,
+          SecondBuyerPartnerRoleClass?,
+          SecondBuyerContactName?,
+          SecondBuyerContactEmail?,
+          SecondBuyerContactLocationId?,
+          SecondBuyerContactCountry?,
+          SecondBuyerContactRegion?,
+          SecondBuyerContactCity?,
+          SecondBuyerContactAddress1?,
+          SecondBuyerContactAddress2?,
+          SecondBuyerContactAddress3?,
+          SecondBuyerContactZip?,
+          SecondBuyerContactPOBox? ) >
+          
+<!ELEMENT CommonProps (
+          MsgId,
+          FromBusinessId,
+          FromBusinessTaxId?,
+          FromBusinessName?,
+          FromPartnerRoleClass,
+          FromPartnerClass,
+          FromSupplyChain,
+          FromContactName?,
+          FromContactPhone?,
+          FromContactEmail?,
+          FromContactLocationId?,
+          FromContactCountry?,
+          FromContactRegion?,
+          FromContactCity?,
+          FromContactAddress1?,
+          FromContactAddress2?,
+          FromContactAddress3?,
+          FromContactZip?,
+          FromContactPOBox?,
+          FromLocationId?,
+          FromCountry?,
+          FromRegion?,
+          FromCity?,
+          FromAddress1?,
+          FromAddress2?,
+          FromAddress3?,
+          FromZip?,
+          FromPOBox?,
+          ToBusinessId,
+          ToBusinessTaxId?,
+          ToBusinessName?,
+          ToPartnerRoleClass,
+          ToPartnerClass,
+          ToSupplyChain,
+          ToContactName?,
+          ToContactPhone?,
+          ToContactEmail?,
+          ToContactLocationId?,
+          ToContactCountry?,
+          ToContactRegion?,
+          ToContactCity?,
+          ToContactAddress1?,
+          ToContactAddress2?,
+          ToContactAddress3?,
+          ToContactZip?,
+          ToContactPOBox?,
+          ToLocationId?,
+          ToCountry?,
+          ToRegion?,
+          ToCity?,
+          ToAddress1?,
+          ToAddress2?,
+          ToAddress3?,
+          ToZip?,
+          ToPOBox?,
+          DocGenDateTime,
+          DocId,
+          ReqDocId?,
+          ReqDocDateTime?,
+          DocFunction ) >
+
+<!ELEMENT POItem (
+          POItemId,
+          MsgId,
+          LineNumber,
+          ProductId,
+          ProductQuantity,
+          ProductMeasureUnit,
+          ShipFromLocationId,
+          OriginCountry?,
+          ContractId?,
+          SpecialFulfillmentRequest?,
+          RequestedShipDate,
+          SpecialHandlingInstruction,
+          RequestedPriceCurrency,
+          RequestedPrice ) >
+
+<!ELEMENT POPartnerDesc (
+          POPartnerDescId,
+          MsgId,
+          BusinessId?,
+          BusinessTaxId?,
+          BusinessName?,
+          PartnerClass,
+          Country?,
+          Region,
+          City,
+          Address1,
+          Address2?,
+          Address3?,
+          Zip?,
+          POBox? ) >
+
+<!ELEMENT MsgId           ( #PCDATA ) >
+<!ELEMENT POItemId        ( #PCDATA ) >
+<!ELEMENT POPartnerDescId ( #PCDATA ) >
+
+<!ELEMENT FromBusinessId        ( #PCDATA ) >
+<!ELEMENT FromBusinessTaxId     ( #PCDATA ) >
+<!ELEMENT FromBusinessName      ( #PCDATA ) >
+<!ELEMENT FromPartnerRoleClass  ( #PCDATA ) >
+<!ELEMENT FromPartnerClass      ( #PCDATA ) >
+<!ELEMENT FromSupplyChain       ( #PCDATA ) >
+<!ELEMENT FromContactName       ( #PCDATA ) >
+<!ELEMENT FromContactPhone      ( #PCDATA ) >
+<!ELEMENT FromContactEmail      ( #PCDATA ) >
+<!ELEMENT FromContactLocationId ( #PCDATA ) >
+<!ELEMENT FromContactCountry    ( #PCDATA ) >
+<!ELEMENT FromContactRegion     ( #PCDATA ) >
+<!ELEMENT FromContactCity       ( #PCDATA ) >
+<!ELEMENT FromContactAddress1   ( #PCDATA ) >
+<!ELEMENT FromContactAddress2   ( #PCDATA ) >
+<!ELEMENT FromContactAddress3   ( #PCDATA ) >
+<!ELEMENT FromContactZip        ( #PCDATA ) >
+<!ELEMENT FromContactPOBox      ( #PCDATA ) >
+<!ELEMENT FromLocationId        ( #PCDATA ) >
+<!ELEMENT FromCountry           ( #PCDATA ) >
+<!ELEMENT FromRegion            ( #PCDATA ) >
+<!ELEMENT FromCity              ( #PCDATA ) >
+<!ELEMENT FromAddress1          ( #PCDATA ) >
+<!ELEMENT FromAddress2          ( #PCDATA ) >
+<!ELEMENT FromAddress3          ( #PCDATA ) >
+<!ELEMENT FromZip               ( #PCDATA ) >
+<!ELEMENT FromPOBox             ( #PCDATA ) >
+<!ELEMENT ToBusinessId          ( #PCDATA ) >
+<!ELEMENT ToBusinessTaxId       ( #PCDATA ) >
+<!ELEMENT ToBusinessName        ( #PCDATA ) >
+<!ELEMENT ToPartnerRoleClass    ( #PCDATA ) >
+<!ELEMENT ToPartnerClass        ( #PCDATA ) >
+<!ELEMENT ToSupplyChain         ( #PCDATA ) >
+<!ELEMENT ToContactName         ( #PCDATA ) >
+<!ELEMENT ToContactPhone        ( #PCDATA ) >
+<!ELEMENT ToContactEmail        ( #PCDATA ) >
+<!ELEMENT ToContactLocationId   ( #PCDATA ) >
+<!ELEMENT ToContactCountry      ( #PCDATA ) >
+<!ELEMENT ToContactRegion       ( #PCDATA ) >
+<!ELEMENT ToContactCity         ( #PCDATA ) >
+<!ELEMENT ToContactAddress1     ( #PCDATA ) >
+<!ELEMENT ToContactAddress2     ( #PCDATA ) >
+<!ELEMENT ToContactAddress3     ( #PCDATA ) >
+<!ELEMENT ToContactZip          ( #PCDATA ) >
+<!ELEMENT ToContactPOBox        ( #PCDATA ) >
+<!ELEMENT ToLocationId          ( #PCDATA ) >
+<!ELEMENT ToCountry             ( #PCDATA ) >
+<!ELEMENT ToRegion              ( #PCDATA ) >
+<!ELEMENT ToCity                ( #PCDATA ) >
+<!ELEMENT ToAddress1            ( #PCDATA ) >
+<!ELEMENT ToAddress2            ( #PCDATA ) >
+<!ELEMENT ToAddress3            ( #PCDATA ) >
+<!ELEMENT ToZip                 ( #PCDATA ) >
+<!ELEMENT ToPOBox               ( #PCDATA ) >
+<!ELEMENT DocGenDateTime        ( #PCDATA ) >
+<!ELEMENT DocId                 ( #PCDATA ) >
+<!ELEMENT ReqDocId              ( #PCDATA ) >
+<!ELEMENT ReqDocDateTime        ( #PCDATA ) >
+<!ELEMENT DocFunction           ( #PCDATA ) >
+
+<!ELEMENT LineNumber                 ( #PCDATA ) >
+<!ELEMENT ProductId                  ( #PCDATA ) >
+<!ELEMENT ProductQuantity            ( #PCDATA ) >
+<!ELEMENT ProductMeasureUnit         ( #PCDATA ) >
+<!ELEMENT ShipFromLocationId         ( #PCDATA ) >
+<!ELEMENT OriginCountry              ( #PCDATA ) >
+<!ELEMENT ContractId                 ( #PCDATA ) >
+<!ELEMENT SpecialFulfillmentRequest  ( #PCDATA ) >
+<!ELEMENT RequestedShipDate          ( #PCDATA ) >
+<!ELEMENT SpecialHandlingInstruction ( #PCDATA ) >
+<!ELEMENT RequestedPriceCurrency     ( #PCDATA ) >
+<!ELEMENT RequestedPrice             ( #PCDATA ) >
+
+<!ELEMENT BusinessId    ( #PCDATA ) >
+<!ELEMENT BusinessTaxId ( #PCDATA ) >
+<!ELEMENT BusinessName  ( #PCDATA ) >
+<!ELEMENT PartnerClass  ( #PCDATA ) >
+<!ELEMENT Country       ( #PCDATA ) >
+<!ELEMENT Region        ( #PCDATA ) >
+<!ELEMENT City          ( #PCDATA ) >
+<!ELEMENT Address1      ( #PCDATA ) >
+<!ELEMENT Address2      ( #PCDATA ) >
+<!ELEMENT Address3      ( #PCDATA ) >
+<!ELEMENT Zip           ( #PCDATA ) >
+<!ELEMENT POBox         ( #PCDATA ) >
+
+<!ELEMENT Comment                      ( #PCDATA ) >
+<!ELEMENT Revision                     ( #PCDATA ) >
+<!ELEMENT PackListRequirements         ( #PCDATA ) >
+<!ELEMENT ShipmentTerms                ( #PCDATA ) >
+<!ELEMENT PrePaymentCheckNumber        ( #PCDATA ) >
+<!ELEMENT QuoteId                      ( #PCDATA ) >
+<!ELEMENT WireTransferId               ( #PCDATA ) >
+<!ELEMENT GeneralServicesAdminId       ( #PCDATA ) >
+<!ELEMENT FinanceTerms                 ( #PCDATA ) >
+<!ELEMENT POType                       ( #PCDATA ) >
+<!ELEMENT DeliverToLocationId          ( #PCDATA ) >
+<!ELEMENT DeliverToCountry             ( #PCDATA ) >
+<!ELEMENT DeliverToRegion              ( #PCDATA ) >
+<!ELEMENT DeliverToCity                ( #PCDATA ) >
+<!ELEMENT DeliverToAddress1            ( #PCDATA ) >
+<!ELEMENT DeliverToAddress2            ( #PCDATA ) >
+<!ELEMENT DeliverToAddress3            ( #PCDATA ) >
+<!ELEMENT DeliverToZip                 ( #PCDATA ) >
+<!ELEMENT DeliverToPOBox               ( #PCDATA ) >
+<!ELEMENT AccountClass                 ( #PCDATA ) >
+<!ELEMENT AccountName                  ( #PCDATA ) >
+<!ELEMENT AccountProprietaryCID        ( #PCDATA ) >
+<!ELEMENT AccountExpiryDate            ( #PCDATA ) >
+<!ELEMENT AccountNumber                ( #PCDATA ) >
+<!ELEMENT BillToBusinessId             ( #PCDATA ) >
+<!ELEMENT BillToBusinessTaxId          ( #PCDATA ) >
+<!ELEMENT BillToBusinessName           ( #PCDATA ) >
+<!ELEMENT BillToPartnerRoleClass       ( #PCDATA ) >
+<!ELEMENT BillToPartnerClass           ( #PCDATA ) >
+<!ELEMENT BillToSupplyChain            ( #PCDATA ) >
+<!ELEMENT BillToContactName            ( #PCDATA ) >
+<!ELEMENT BillToContactPhone           ( #PCDATA ) >
+<!ELEMENT BillToContactEmail           ( #PCDATA ) >
+<!ELEMENT BillToContactLocationId      ( #PCDATA ) >
+<!ELEMENT BillToContactCountry         ( #PCDATA ) >
+<!ELEMENT BillToContactRegion          ( #PCDATA ) >
+<!ELEMENT BillToContactCity            ( #PCDATA ) >
+<!ELEMENT BillToContactAddress1        ( #PCDATA ) >
+<!ELEMENT BillToContactAddress2        ( #PCDATA ) >
+<!ELEMENT BillToContactAddress3        ( #PCDATA ) >
+<!ELEMENT BillToContactZip             ( #PCDATA ) >
+<!ELEMENT BillToContactPOBox           ( #PCDATA ) >
+<!ELEMENT BillToLocationId             ( #PCDATA ) >
+<!ELEMENT BillToCountry                ( #PCDATA ) >
+<!ELEMENT BillToRegion                 ( #PCDATA ) >
+<!ELEMENT BillToCity                   ( #PCDATA ) >
+<!ELEMENT BillToAddress1               ( #PCDATA ) >
+<!ELEMENT BillToAddress2               ( #PCDATA ) >
+<!ELEMENT BillToAddress3               ( #PCDATA ) >
+<!ELEMENT BillToZip                    ( #PCDATA ) >
+<!ELEMENT BillToPOBox                  ( #PCDATA ) >
+<!ELEMENT SecondBuyerPOId              ( #PCDATA ) >
+<!ELEMENT SecondBuyerBusinessId        ( #PCDATA ) >
+<!ELEMENT SecondBuyerPartnerRoleClass  ( #PCDATA ) >
+<!ELEMENT SecondBuyerContactName       ( #PCDATA ) >
+<!ELEMENT SecondBuyerContactEmail      ( #PCDATA ) >
+<!ELEMENT SecondBuyerContactLocationId ( #PCDATA ) >
+<!ELEMENT SecondBuyerContactCountry    ( #PCDATA ) >
+<!ELEMENT SecondBuyerContactRegion     ( #PCDATA ) >
+<!ELEMENT SecondBuyerContactCity       ( #PCDATA ) >
+<!ELEMENT SecondBuyerContactAddress1   ( #PCDATA ) >
+<!ELEMENT SecondBuyerContactAddress2   ( #PCDATA ) >
+<!ELEMENT SecondBuyerContactAddress3   ( #PCDATA ) >
+<!ELEMENT SecondBuyerContactZip        ( #PCDATA ) >
+<!ELEMENT SecondBuyerContactPOBox      ( #PCDATA ) >

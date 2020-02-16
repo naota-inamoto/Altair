@@ -1,0 +1,173 @@
+B 91
+N 1 L
+N 2 O RootGlyph
+N 3 S "wnd"
+N 4 W
+N 5 S "child"
+N 6 O OcPushButton
+N 7 S "status"
+N 8 I 0
+N 9 S "left"
+N 10 I 0
+N 11 S "top"
+N 12 I 0
+N 13 S "right"
+N 14 I 100
+N 15 S "bottom"
+N 16 I 30
+N 17 S "face_color"
+N 18 I 12632256
+N 19 S "highlight_color"
+N 20 I 16777215
+N 21 S "shadow_color"
+N 22 I 8421504
+N 23 S "frame_color"
+N 24 I 0
+N 25 S "text_color"
+N 26 I 0
+N 27 S "text_bg_color"
+N 28 I 12632256
+N 29 S "face_text"
+N 30 S "Button"
+N 31 S "font_name"
+N 32 S "ÇlÇr ÉSÉVÉbÉN"
+N 33 S "font_height"
+N 34 I 12
+N 35 S "font_width"
+N 36 I 6
+N 37 I 0
+N 38 I 0
+N 39 I 120
+N 40 I 30
+N 41 L
+N 42 L
+N 43 S "SetText"
+N 44 L
+N 45 O AlPushButtonClick
+N 46 I 10
+N 47 I 0
+N 48 I 0
+N 49 I 100
+N 50 I 30
+N 51 S "_ocx"
+N 52 X ALCTRL.AlCtrlCtrl.1 1 subStgID
+N 53 S "root"
+N 54 L
+N 55 L
+N 56 I 33
+N 57 L
+N 58 I 100
+N 59 L
+N 60 I 0
+N 61 L
+N 62 I 1
+N 63 L
+N 64 L
+N 65 I 101
+N 66 L
+N 67 S "btn"
+N 68 I 48
+N 69 L
+N 70 I 50
+N 71 L
+N 72 I 57
+N 73 L
+N 74 I 6
+N 75 I 46
+N 76 L
+N 77 I 66
+N 78 I 47
+N 79 L
+N 80 S "text"
+N 81 I 61
+N 82 L
+N 83 I 6
+N 84 I 46
+N 85 L
+N 86 I 70
+N 87 I 6
+N 88 L
+N 89 L
+N 90 L
+N 91 I 7
+h 1 2
+t 1 41
+a 2 4 3 0
+a 2 6 5 0
+a 6 8 7 0
+a 6 10 9 0
+a 6 12 11 0
+a 6 14 13 0
+a 6 16 15 0
+a 6 18 17 0
+a 6 20 19 0
+a 6 22 21 0
+a 6 24 23 0
+a 6 26 25 0
+a 6 28 27 0
+a 6 30 29 0
+a 6 32 31 0
+a 6 34 33 0
+a 6 36 35 0
+a 2 37 9 0
+a 2 38 11 0
+a 2 39 13 0
+a 2 40 15 0
+h 41 42
+a 42 44 43 0
+h 44 45
+t 44 54
+a 45 46 7 0
+a 45 47 9 0
+a 45 48 11 0
+a 45 49 13 0
+a 45 50 15 0
+a 45 52 51 0
+a 45 2 53 0
+h 54 55
+h 55 56
+t 55 57
+h 57 58
+t 57 59
+h 59 60
+t 59 88
+t 60 61
+h 61 62
+t 62 63
+h 63 64
+t 63 68
+h 64 65
+t 64 66
+h 66 67
+t 68 69
+h 69 53
+t 69 70
+t 70 71
+h 71 5
+t 71 72
+t 72 73
+h 73 67
+t 73 74
+t 74 75
+t 75 76
+h 76 67
+t 76 77
+t 77 78
+t 78 79
+h 79 80
+t 79 81
+t 81 82
+h 82 29
+t 82 83
+t 83 84
+t 84 85
+h 85 67
+t 85 86
+t 86 87
+h 88 89
+h 89 80
+t 89 90
+h 90 91
+E
+SetText AlPushButtonClick SetText
+$END_METHOD_TBL

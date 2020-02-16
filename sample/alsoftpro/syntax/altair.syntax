@@ -1,0 +1,230 @@
+
+newline_is_token ;
+split_ident ;
+
+indent+ "\t" <s_block:1> ;
+indent-      <s_block:3> ;
+
+post space   <s_if:1> ;
+post space   <s_if:4> ;
+indent+ "\t" <s_if:5> ;
+-indent      <s_if:8> ;
+pre  space   <s_if:9> ;
+post space   <s_if:9> ;
+indent+ "\t" <s_if:10> ;
+-indent      <s_if:13> ;
+
+post space   <s_loop:1> ;
+indent+ "\t" <s_loop:2> ;
+indent-      <s_loop:4> ;
+
+indent+ "\t" <s_try:2> ;
+-indent      <s_try:5> ;
+indent+ "\t" <s_try:7> ;
+indent-      <s_try:9> ;
+pre  space <s_try:2> ;
+post space <s_try:5> ;
+pre  space <s_try:7> ;
+
+pre  space <e_cond_2:1> ;
+post space <e_cond_2:1> ;
+pre  space <e_cond_2:3> ;
+post space <e_cond_2:3> ;
+pre  space <e_oror_n:1> ;
+post space <e_oror_n:1> ;
+pre  space <e_andand_n:1> ;
+post space <e_andand_n:1> ;
+
+pre  space <e_asgn_n:2> ;
+post space <e_asgn_n:2> ;
+
+pre  space <e_comp_2:1> ;
+post space <e_comp_2:1> ;
+
+pre  space <e_add_n:1> ;
+post space <e_add_n:1> ;
+pre  space <e_mul_n:1> ;
+post space <e_mul_n:1> ;
+
+pre  space <e_or_n:1> ;
+post space <e_or_n:1> ;
+pre  space <e_xor_n:1> ;
+post space <e_xor_n:1> ;
+pre  space <e_and_n:1> ;
+post space <e_and_n:1> ;
+
+pre  space <e_shift_2:1> ;
+post space <e_shift_2:1> ;
+
+post space <mf_a_n:1>;
+
+post space <arg_ls_n:1> ;
+
+post space <s_comment:1> ;
+
+post space <sv_n:1> ;
+post space <public:1> ;
+post space <protected:1> ;
+post space <private:1> ;
+post space <fp_dcl:1> ;
+
+/* --------------- program --------------- */
+<program> = program { import <libname>   <nl> }* "$END_LIB"   <nl>
+                    { class  <classPart>      }* "$END_CLASS" <nl>
+                    { member <memberPart>     }* "$END_MEMBER"<nl>
+                    { body   <bodyPart>       }* "$END_BODY"  <nl>
+                    EOF ;
+
+//<classPart>  = class_p  "TEXT" <nl> <ident> <nl> { cls_sub <classPart2> }* ;
+//<classPart2> = class_p2 "class" <ident> <nl> { cls_sub2 <classPart2> }* "end_class" <nl> ;
+
+//<memberPart>  = member_p  "TEXT" <nl> <ident> <nl> { mem_sub <memberPart2> }* ;
+//<memberPart2> = member_p2 "class" <ident> <nl>
+//                 { mem_ls <member> }*
+//                 { mem_sub2 <memberPart2> }* "end_class" <nl> ;
+
+//<bodyPart>  = body_p  "TEXT" <nl> <ident> <nl> { body_sub <bodyPart2> }* ;
+//<bodyPart2> = body_p2 "class" <ident> <nl>
+//                { body_def <member> { body_def2 "body" <nl> <stat> "end_body" <nl> }? }*
+//                { body_sub2 <bodyPart2> }* "end_class" <nl> ;
+
+<classPart>   = class_p   "TEXT" <nl> <ident>  { cls_sub <nl> <classPart2>  }* <nl> ;
+<classPart2>  = class_p2  "class" <ident>
+                 { cls_sub2 <nl> <classPart2>  }* <nl> "end_class" ;
+
+<memberPart>  = member_p  "TEXT" <nl> <ident>  { mem_sub <nl> <memberPart2> }* <nl> ;
+<memberPart2> = member_p2 "class" <ident>
+                 { mem_ls   <nl> <member>      }*
+                 { mem_sub2 <nl> <memberPart2> }* <nl> "end_class" ;
+
+<bodyPart>    = body_p    "TEXT" <nl> <ident>  { body_sub <nl> <bodyPart2>  }* <nl> ;
+<bodyPart2>   = body_p2   "class" <ident>
+                   { body_def <nl> <member> { body_def2 <nl> "body" <nl> <stat> "end_body" }? }*
+                 { body_sub2 <nl> <bodyPart2>  }* <nl> "end_class" ;
+
+/* --------------- type --------------- */
+<typeName> = integer "integer" |
+             real    "real" |
+             string  "string" |
+             list    "list" |
+             array   "array" |
+             file    "file" |
+             void    "void" |
+             matrix  "matrix" |
+             window  "window" |
+             variant "variant" |
+             type    <ident> ;
+
+/* --------------- member of class --------------- */
+<member> = mem "member" <nl> { mem_v <memberVarDcl> | mem_f <memberFuncDcl> | mem_fp <FuncPDcl> } ;
+
+<memberVarDcl>  = mv_dcl <protection> { mv_sd "static" }? <typeName> <ident> ";" ;
+
+<memberFuncDcl> = mf_dcl <protection> { mf_sd "static" }? <typeName> <ident> "("
+                      { mf_a_1 <typeName> <ident> { mf_a_n "," <typeName> <ident> }* }?
+                  ")" ";" ;
+
+<protection> = public    "public:"    |
+               protected "protected:" |
+               private   "private:"   ;
+
+<FuncPDcl> =   fp_dcl "funcType:" { fp_sv "static" }? <typeName> <ident> "("
+                   { pf_a_1 <typeName> <ident> { pf_a_n "," <typeName> <ident> }* }?
+               ")" ";" ;
+
+/* --------------- body of member function --------------- */
+/* ----- sentense ----- */
+<stat> =  s_block    "{" <nl> { s_blk_n <stat> }* "}" <nl> |
+          s_if       "if" "(" <exp> ")" "{" <nl> { s_if_t <stat> }* "}"
+                     "else"             "{" <nl> { s_if_f <stat> }* "}" <nl> |
+          s_loop     "loop" "{" <nl> { s_lp_n <stat> }* "}" <nl> |
+          s_break    "break" ";"    <nl> |
+          s_continue "continue" ";" <nl> |
+          s_return_0 "return" ";"       <nl> |
+          s_return_1 "return" <exp> ";" <nl> |
+          s_var      "var" <typeName> <ident> { sv_n "," <ident> }* ";" <nl> |
+          s_exp      <exp> ";" <nl> |
+          s_try      "try" "{" <nl> { try_s <stat> }* "}"
+                     "catch (AlException e)" "{" <nl> { try_es <stat> }* "}" <nl> |
+          s_throw    "throw" <exp> ";" <nl> |
+          s_para     "para" <exp> ";" <nl> |
+          s_comment  "//" <comment_string> <nl> ;
+
+/* ----- expression ----- */
+<exp> =  exp <cond_exp> ;
+
+<cond_exp>    = e_cond <or_or_exp>   { e_cond_2   "?"  <cond_exp> ":" <cond_exp> }? ;
+<or_or_exp>   = e_oror <and_and_exp> { e_oror_n   "||" <or_or_exp>   }* ;
+<and_and_exp> = e_andand <comp_exp>  { e_andand_n "&&" <and_and_exp> }* ;
+
+<comp_exp> = e_comp <assign_exp> { e_comp_2 <comp_op> <assign_exp> }? ;
+
+<comp_op> = eq "==" |
+            ne "!=" |
+            le "<=" |
+            lt "<"  |
+            ge ">=" |
+            gt ">" ;
+
+<assign_exp> = e_asgn { e_asgn_n <prim> "=" !"=" }* <add_exp> ;
+
+<add_exp> = e_add <mul_exp>  { e_add_n { add "+" | sub "-" } <mul_exp> }* ;
+<mul_exp> = e_mul <or_exp>   { e_mul_n { mul "*" | div "/" | mod "%" } <or_exp>  }* ;
+
+<or_exp>  = e_or  <xor_exp>   { e_or_n  "|" <xor_exp>   }* ;
+<xor_exp> = e_xor <and_exp>   { e_xor_n "^" <and_exp>   }* ;
+<and_exp> = e_and <shift_exp> { e_and_n "&" <shift_exp> }* ;
+
+<shift_exp> = e_shift <unary_exp> { e_shift_2 { shift_l "<<" | shift_r ">>" } <unary_exp> }? ;
+
+<unary_exp> = e_unry_op { euop { neg "-" | not "~" | cast "(" <ident> ")" }? } <prim> ;
+
+<prim> = prim
+         {
+              e_new "new" <ident> |
+              e_this "this" |
+              e_runtime "runtime" <ident> |
+              e_const <constant> |
+              func $ifndef(fptr) <ident> "(" { f_arg_ls <arg_ls> }? ")" |
+              super_f <ident> "::" <ident> "(" { super_f_args <arg_ls> }? ")" |
+              sv_fptr <ident> "::" <ident> |
+              a_l_cv_ov <ident> |
+              p_ptr_f "*" <ident> "(" { p_ptr_f_args <arg_ls> }? ")" |
+              e_braket "(" <exp> ")"
+          }
+          {
+              e_head "." "head" |
+              e_tail "." "tail" |
+              e_ary "[" <exp> "]" |
+              e_ptr_f  "." "*" $define(fptr) <prim> $undef(fptr) "(" { e_ptr_f_args <arg_ls> }? ")" |
+              e_mf $ifndef(fptr) "." <ident> "(" { e_mf_args <arg_ls> }? ")" |
+              e_mv "." <ident>
+          }* ;
+
+<arg_ls> = arg_ls <exp> { arg_ls_n "," <exp> }* ;
+
+<constant> = const_null    "null"          |
+             const_real    <const_real>    |
+             const_hexa    <const_hexa>    |
+             const_integer <const_integer> |
+             const_char    <const_char>    |
+             const_string  <const_string> ;
+
+<nl> = newline <newline> ;
+
+/* --------------- lexical analyze  --------------- */
+
+<comment_string> = regex [^\n]* string ;
+
+<newline> = regex $ special ;
+
+<ident>    = regex [A-Za-z_\M][A-Za-z0-9_\M]* string ;
+
+<const_integer> = regex \-?[0-9]+ string ;
+<const_real>    = regex \-?[0-9]+\.[0-9]*(e(\+|\-)?[0-9]*)? string ;
+<const_hexa>    = regex 0x[0-9a-fA-F]+ string ;
+
+<const_char>    = regex '([^\\']|\\.)'  string ;
+<const_string>  = regex "([^\\"]|\\.)*" string ;
+
+<libname> = regex [A-Za-z_\M\.][A-Za-z0-9_\M\.]* string ;

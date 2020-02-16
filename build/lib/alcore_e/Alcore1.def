@@ -1,0 +1,13 @@
+LIBRARY   ALCORE1E
+;CODE      PRELOAD MOVEABLE DISCARDABLE
+;DATA      PRELOAD MOVEABLE SINGLE
+HEAPSIZE  1024
+EXPORTS
+; ユーザーの Windows 終了プロシージャをインプリメントするためには、
+; 次の関数をあなたのアプリケーションに追加します。
+; (.def ファイルにその関数を反映させる必要はありません。)  extern "C" は、C++ モジュールの時だけ必要です。
+; extern "C" int FAR PASCAL _WEP(int)
+; {
+;       /* ユーザーの WEP 関数定義 */
+;      return 1;
+; }

@@ -1,0 +1,1775 @@
+$END_LIB
+TEXT
+AlObject
+class AltairServer
+class WebServer
+class HttpServerConnectionMgr
+end_class
+class HttpServerConnection
+end_class
+class HttpServlet
+class TestServlet1
+end_class
+class TestServlet2
+end_class
+end_class
+class HttpRequest
+end_class
+class HttpResponse
+end_class
+class HttpSession
+end_class
+end_class
+class XmlObj
+end_class
+end_class
+$END_CLASS
+TEXT
+AlObject
+class AltairServer
+member
+public: static void start();
+member
+public: static void shutdown();
+member
+public: static AltairServer appServer;
+member
+public: list startServer();
+member
+public: void shutdownServer();
+member
+public: list load_config();
+member
+public: list config;
+member
+public: list web_servers;
+member
+public: void log(string str);
+class WebServer
+member
+public: AltairServer ap_server;
+member
+public: integer port;
+member
+public: string documentRoot;
+member
+public: list servlet_list;
+member
+public: list start();
+member
+public: void stop();
+member
+public: HttpServerConnectionMgr conn_mgr;
+member
+public: string GetAbsPath(string path);
+member
+public: list sessions;
+member
+public: integer sessionTimeout;
+member
+public: void info_log(string str);
+member
+public: void error_log(string str);
+member
+public: void debug_log(string str);
+member
+public: list debug;
+member
+public: void timeoutCheck();
+member
+public: integer timer_id;
+class HttpServerConnectionMgr
+member
+public: void create(WebServer server);
+member
+public: void close();
+member
+public: WebServer server;
+member
+public: list connections;
+member
+public: list start();
+member
+public: integer server_socket_id;
+member
+public: integer hwnd;
+member
+public: integer msg;
+member
+public: void accepted();
+end_class
+class HttpServerConnection
+member
+public: void create(WebServer server, integer socket_id);
+member
+public: void close();
+member
+public: WebServer server;
+member
+public: integer socket_id;
+member
+public: integer hwnd;
+member
+public: integer msg;
+member
+public: void startReceiveCommand();
+member
+public: void startReceiveHeaders();
+member
+public: void startReceiveContents();
+member
+public: void commandReceived();
+member
+public: void headersReceived();
+member
+public: void contentsReceived();
+member
+public: list buffer;
+member
+public: string command;
+member
+public: list headers;
+member
+public: integer content_length;
+member
+public: list contents;
+member
+public: void process();
+member
+public: string order;
+member
+public: string path;
+member
+public: string path2;
+member
+public: list params;
+member
+public: list send(string str);
+member
+public: list send(list binary);
+member
+public: list send(list binary, integer index, integer size);
+end_class
+class HttpServlet
+member
+public: void doGet(HttpRequest req, HttpResponse res);
+member
+public: void doPost(HttpRequest req, HttpResponse res);
+class TestServlet1
+member
+public: void doGet(HttpRequest req, HttpResponse res);
+end_class
+class TestServlet2
+member
+public: void doGet(HttpRequest req, HttpResponse res);
+member
+public: void doPost(HttpRequest req, HttpResponse res);
+end_class
+end_class
+class HttpRequest
+member
+public: WebServer _server;
+member
+public: HttpResponse _response;
+member
+public: string _command;
+member
+public: string _path;
+member
+public: string _params;
+member
+public: list headers;
+member
+public: list input;
+member
+public: list getParameters();
+member
+public: string getParameter(string name);
+member
+public: list parameters;
+member
+public: HttpSession createSession();
+member
+public: HttpSession getSession();
+member
+public: list getCookies();
+member
+public: string getCookie(string name);
+member
+public: list cookies;
+member
+public: string getBasePath();
+member
+public: list splitNameValue(string name_value);
+end_class
+class HttpResponse
+member
+public: void _create();
+member
+public: HttpRequest _request;
+member
+public: integer response_code;
+member
+public: list headers;
+member
+public: list output;
+member
+public: integer max_size;
+member
+public: integer content_length;
+member
+public: void out(string s);
+member
+public: void out(list binary);
+member
+public: void out(list binary, integer index, integer size);
+member
+public: void redirect(string url);
+member
+public: void redirectWithSession(string url);
+end_class
+class HttpSession
+member
+public: void _create(WebServer server);
+member
+public: WebServer _server;
+member
+public: string _sessionId;
+member
+public: integer _time;
+member
+public: void invalidate();
+member
+public: list getAttributes();
+member
+public: list getAttribute(string name);
+member
+public: void setAttribute(string name, list attr);
+member
+public: void setAttribute(string name, integer attr);
+member
+public: void setAttribute(string name, string attr);
+member
+public: void setAttribute(string name, AlObject attr);
+member
+public: list attrs;
+end_class
+end_class
+class XmlObj
+member
+public: void create(list tree);
+member
+public: list tag_tree;
+member
+public: list body_tree;
+member
+public: list itr;
+member
+public: string tag;
+member
+public: XmlObj getItr(string xpath);
+member
+public: XmlObj getNext();
+member
+public: string getValue(string xpath);
+member
+public: XmlObj createXmlObj(string xpath);
+member
+public: list putValue(string xpath, string value);
+end_class
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class AltairServer
+member
+public: static void start();
+body
+{
+	if (appServer) {
+		al_print("[Error] Server already started.\n");
+		return;
+	} else {
+	}
+	appServer = new AltairServer;
+	var string err;
+	if (err = appServer.startServer()) {
+		al_print("[Error] fail to start server.(" + err + ")\n");
+		appServer.shutdownServer();
+		appServer = null;
+	} else {
+	}
+	al_print("[Info] Altair Server Startup.\n");
+}
+end_body
+member
+public: static void shutdown();
+body
+{
+	if (appServer == null) {
+		al_print("[Error] Server not started.\n");
+		return;
+	} else {
+	}
+	appServer.shutdownServer();
+	appServer = null;
+	al_print("[Info] Altair Server Shutdown.\n");
+}
+end_body
+member
+public: static AltairServer appServer;
+member
+public: list startServer();
+body
+{
+	var string err;
+	if (err = load_config()) {
+		return err;
+	} else {
+	}
+	web_servers = al_cons(null, null);
+	var XmlObj root, itr, web_server_info, itr2, servlet_info;
+	root = new XmlObj;
+	root.create(config);
+	itr = root.getItr("AltairServer/WebServer");
+	loop {
+		if (web_server_info = itr.getNext()) {
+		} else {
+			break;
+		}
+		var WebServer web_server;
+		web_server = new WebServer;
+		web_server.ap_server = this;
+		web_server.port = (integer)web_server_info.getValue("Port");
+		web_server.documentRoot = web_server_info.getValue("DocumentRoot");
+		web_server.debug = (web_server_info.getValue("Debug") == "true");
+		web_server.sessionTimeout = (integer)web_server_info.getValue("SessionTimeout");
+		web_server.servlet_list = al_cons(null, null);
+		itr2 = web_server_info.getItr("Servlet");
+		loop {
+			if (servlet_info = itr2.getNext()) {
+			} else {
+				break;
+			}
+			var string path, class_name;
+			path = servlet_info.getValue("Path");
+			class_name = servlet_info.getValue("Class");
+			al_create_arc(web_server.servlet_list, class_name, path);
+		}
+		al_create_arc(web_servers, web_server, null);
+		if (err = web_server.start()) {
+			return err;
+		} else {
+		}
+	}
+	return null;
+}
+end_body
+member
+public: void shutdownServer();
+body
+{
+	var list itr;
+	var WebServer web_server;
+	itr = al_dst_itr(web_servers);
+	loop {
+		if (web_server = al_next(itr)) {
+		} else {
+			break;
+		}
+		web_server.stop();
+	}
+}
+end_body
+member
+public: list load_config();
+body
+{
+	var file f;
+	if (f = al_file_open("config.xml", "r")) {
+	} else {
+		return "config.xml nof found.";
+	}
+	var list tree_err;
+	tree_err = al_xml("parse", f, null, null);
+	if (tree_err.tail.head) {
+		return "fail to parse config.xml.";
+	} else {
+	}
+	config = tree_err.head;
+	return null;
+}
+end_body
+member
+public: list config;
+member
+public: list web_servers;
+member
+public: void log(string str);
+body
+{
+	al_print(str + "\n");
+}
+end_body
+class WebServer
+member
+public: AltairServer ap_server;
+member
+public: integer port;
+member
+public: string documentRoot;
+member
+public: list servlet_list;
+member
+public: list start();
+body
+{
+	var string err;
+	conn_mgr = new HttpServerConnectionMgr;
+	conn_mgr.create(this);
+	if (err = conn_mgr.start()) {
+		return err;
+	} else {
+	}
+	var list cb;
+	timer_id = al_get_id();
+	cb = al_list3(al_root_class(), this, WebServer::timeoutCheck);
+	al_gui_misc("timer", al_list2(timer_id, 1000), cb);
+	return null;
+}
+end_body
+member
+public: void stop();
+body
+{
+	if (conn_mgr) {
+		conn_mgr.close();
+		conn_mgr = null;
+	} else {
+	}
+	if (timer_id) {
+		al_gui_misc("timer", al_list2(timer_id, 1000), null);
+		al_release_id(timer_id);
+		timer_id = null;
+	} else {
+	}
+	ap_server = null;
+}
+end_body
+member
+public: HttpServerConnectionMgr conn_mgr;
+member
+public: string GetAbsPath(string path);
+body
+{
+	var string abs_path;
+	abs_path = documentRoot + path;
+	if (al_file_manip("does_exist", abs_path, null)) {
+		if (al_file_manip("is_dir", abs_path, null)) {
+			abs_path = abs_path + "/index.html";
+			if (al_file_manip("does_exist", abs_path, null)) {
+				return abs_path;
+			} else {
+			}
+		} else {
+			return abs_path;
+		}
+	} else {
+		return null;
+	}
+}
+end_body
+member
+public: list sessions;
+member
+public: integer sessionTimeout;
+member
+public: void info_log(string str);
+body
+{
+	ap_server.log("[Info] " + str);
+}
+end_body
+member
+public: void error_log(string str);
+body
+{
+	ap_server.log("[Error] " + str);
+}
+end_body
+member
+public: void debug_log(string str);
+body
+{
+	ap_server.log("[Debug Info] " + str);
+}
+end_body
+member
+public: list debug;
+member
+public: void timeoutCheck();
+body
+{
+	if (sessions) {
+	} else {
+		return;
+	}
+	var list itr;
+	var HttpSession session;
+	itr = al_dst_itr(sessions);
+	loop {
+		if (session = al_next(itr)) {
+		} else {
+			break;
+		}
+		session._time = session._time + 1;
+		if (session._time >= sessionTimeout) {
+			al_remove(itr);
+		} else {
+		}
+	}
+}
+end_body
+member
+public: integer timer_id;
+class HttpServerConnectionMgr
+member
+public: void create(WebServer server);
+body
+{
+	this.server = server;
+	connections = al_cons(null, null);
+}
+end_body
+member
+public: void close();
+body
+{
+	if (server_socket_id) {
+		al_socket("close", server_socket_id, null, null);
+		server_socket_id = null;
+	} else {
+	}
+	if (hwnd && msg) {
+		al_wnd_message(null, "msg_callback", msg, null);
+		al_wnd_message(null, "unregister_msg", msg, null);
+		hwnd = msg = null;
+	} else {
+	}
+	var list itr;
+	var HttpServerConnection conn;
+	loop {
+		itr = al_dst_itr(connections);
+		if (conn = al_next(itr)) {
+		} else {
+			break;
+		}
+		conn.close();
+	}
+	server = null;
+}
+end_body
+member
+public: WebServer server;
+member
+public: list connections;
+member
+public: list start();
+body
+{
+	var string err;
+	if (server_socket_id = al_socket("socket", null, null, null)) {
+	} else {
+		return "fail to create socket.";
+	}
+	if (al_socket("bind", server_socket_id, al_list2(0, server.port), null)) {
+		err = (string)al_socket("get_last_error", server_socket_id, null, null);
+		err = "fail to bind socket with port = " + (string)server.port + ". (" + err + ")";
+		close();
+		return err;
+	} else {
+	}
+	if (al_socket("listen", server_socket_id, null, null)) {
+		err = (string)al_socket("get_last_error", server_socket_id, null, null);
+		close();
+		return "fail to listen socket. (" + err + ")";
+	} else {
+	}
+	var list cb;
+	hwnd = al_wnd_message(null, "hwnd", null, null);
+	msg = al_wnd_message(null, "register_msg", "ACCEPT" + (string)server_socket_id, null);
+	cb = al_list3(al_root_class(), this, HttpServerConnectionMgr::accepted);
+	al_wnd_message(null, "msg_callback", msg, cb);
+	if (al_socket("accept_que", server_socket_id, al_list2(hwnd, msg), null)) {
+		err = (string)al_socket("get_last_error", server_socket_id, null, null);
+		close();
+		return "fail to start accept_queue. (" + err + ")";
+	} else {
+	}
+	return null;
+}
+end_body
+member
+public: integer server_socket_id;
+member
+public: integer hwnd;
+member
+public: integer msg;
+member
+public: void accepted();
+body
+{
+	var integer socket_id;
+	server_socket_id = al_wnd_message(null, "wParam", null, null);
+	if (socket_id = al_socket("get_socket", server_socket_id, null, null)) {
+	} else {
+		server.error_log("fail to get_socket");
+		return;
+	}
+	if (socket_id < 0) {
+		server.error_log("fail to accept socket");
+		return;
+	} else {
+	}
+	var HttpServerConnection conn;
+	conn = new HttpServerConnection;
+	conn.create(server, socket_id);
+	al_create_arc(connections, conn, socket_id);
+	conn.startReceiveCommand();
+}
+end_body
+end_class
+class HttpServerConnection
+member
+public: void create(WebServer server, integer socket_id);
+body
+{
+	this.server = server;
+	this.socket_id = socket_id;
+	hwnd = al_wnd_message(null, "hwnd", null, null);
+	msg = al_wnd_message(null, "register_msg", "RECV" + (string)socket_id, null);
+	if (server.debug) {
+		server.debug_log("### create: socket_id = " + (string)socket_id);
+	} else {
+	}
+}
+end_body
+member
+public: void close();
+body
+{
+	if (server.debug) {
+		server.debug_log("### close: socket_id = " + (string)socket_id);
+	} else {
+	}
+	var integer id;
+	id = socket_id;
+	if (socket_id) {
+		al_socket("close", socket_id, null, null);
+		socket_id = null;
+	} else {
+	}
+	if (hwnd && msg) {
+		al_wnd_message(null, "msg_callback", msg, null);
+		al_wnd_message(null, "unregister_msg", msg, null);
+		hwnd = msg = null;
+	} else {
+	}
+	var list connections;
+	if (connections = al_src_node(this, id)) {
+		al_set_dst_node(connections, id, null);
+	} else {
+	}
+}
+end_body
+member
+public: WebServer server;
+member
+public: integer socket_id;
+member
+public: integer hwnd;
+member
+public: integer msg;
+member
+public: void startReceiveCommand();
+body
+{
+	if (msg) {
+	} else {
+		return;
+	}
+	var list cb, buf, err;
+	cb = al_list3(al_root_class(), this, HttpServerConnection::commandReceived);
+	al_wnd_message(null, "msg_callback", msg, cb);
+	buffer = al_misc("binary", 512, null);
+	buf = al_list3(buffer, 0, 512);
+	if (al_socket("recv", socket_id, buf, al_list3(hwnd, msg, 1))) {
+		err = (string)al_socket("get_last_error", socket_id, null, null);
+		server.error_log("recv error.(" + err + ")");
+		close();
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: void startReceiveHeaders();
+body
+{
+	var list cb, buf, err;
+	cb = al_list3(al_root_class(), this, HttpServerConnection::headersReceived);
+	al_wnd_message(null, "msg_callback", msg, cb);
+	buf = al_list3(buffer, 0, 512);
+	if (al_socket("recv", socket_id, buf, al_list3(hwnd, msg, 2))) {
+		err = (string)al_socket("get_last_error", socket_id, null, null);
+		server.error_log("recv error.(" + err + ")");
+		close();
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: void startReceiveContents();
+body
+{
+	var list cb, buf, err;
+	cb = al_list3(al_root_class(), this, HttpServerConnection::contentsReceived);
+	al_wnd_message(null, "msg_callback", msg, cb);
+	buf = al_list3(buffer, 0, 512);
+	if (al_socket("recv", socket_id, buf, al_list4(hwnd, msg, 3, content_length))) {
+		err = (string)al_socket("get_last_error", socket_id, null, null);
+		server.error_log("recv error.(" + err + ")");
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: void commandReceived();
+body
+{
+	var list err;
+	var integer read_bytes;
+	read_bytes = al_wnd_message(null, "lParam", null, null);
+	if (read_bytes < 0) {
+		err = (string)al_socket("get_last_error", socket_id, null, null);
+		server.error_log("recv error. (" + err + ")");
+		close();
+		return;
+	} else {
+	}
+	command = al_misc("binary_to_string", al_list3(buffer, 0, read_bytes), null);
+	if (server.debug) {
+		server.debug_log("(Recv) " + command);
+	} else {
+	}
+	startReceiveHeaders();
+}
+end_body
+member
+public: void headersReceived();
+body
+{
+	var string err;
+	var integer read_bytes;
+	read_bytes = al_wnd_message(null, "lParam", null, null);
+	if (read_bytes < 0) {
+		err = (string)al_socket("get_last_error", socket_id, null, null);
+		server.error_log("recv error. (" + err + ")");
+		close();
+		return;
+	} else {
+	}
+	if (server.debug) {
+		server.debug_log("(Recv) " + (string)al_misc("binary_to_string", al_list3(buffer, 0, read_bytes), null));
+	} else {
+	}
+	if (headers = al_crypt("mime_headers_read", al_list3(buffer, 0, read_bytes), null, null)) {
+	} else {
+		server.error_log("mime header parse error.");
+		return;
+	}
+	headers = headers.head;
+	if (content_length = al_dst_node_i(headers, "Content-Length")) {
+		content_length = (integer)content_length;
+	} else {
+		process();
+		return;
+	}
+	startReceiveContents();
+}
+end_body
+member
+public: void contentsReceived();
+body
+{
+	var list err;
+	var integer read_bytes;
+	read_bytes = al_wnd_message(null, "lParam", null, null);
+	if (read_bytes < 0) {
+		err = (string)al_socket("get_last_error", socket_id, null, null);
+		server.error_log("recv error. (" + err + ")");
+		close();
+		return;
+	} else {
+	}
+	contents = al_misc("binary", read_bytes, null);
+	al_misc("binary_copy", al_list2(contents, 0), al_list3(buffer, 0, read_bytes));
+	if (server.debug) {
+		server.debug_log("(Recv) " + (string)al_misc("binary_to_string", al_list3(contents, 0, read_bytes), null));
+	} else {
+	}
+	process();
+}
+end_body
+member
+public: list buffer;
+member
+public: string command;
+member
+public: list headers;
+member
+public: integer content_length;
+member
+public: list contents;
+member
+public: void process();
+body
+{
+	var file in;
+	var integer idx;
+	var string cmd, err;
+	in = al_file_open(command, "sr");
+	cmd = al_file_read(in, "string");
+	cmd = al_str_misc("to_upper", cmd, null);
+	path = al_file_read(in, "string");
+	command = cmd;
+	idx = al_search_str(path, 0, "?");
+	if (idx > 0) {
+		params = al_substr(path, idx + 1, al_strlen(path));
+		path = al_substr(path, 0, idx);
+	} else {
+		params = "";
+	}
+	var integer len;
+	len = al_strlen(path);
+	if (al_get_char(path, len - 1) == '/') {
+		path = al_substr(path, 0, len - 1);
+	} else {
+	}
+	var string class_name;
+	if (class_name = al_dst_node(server.servlet_list, path)) {
+		var HttpServlet servlet;
+		var HttpRequest req;
+		var HttpResponse res;
+		servlet = al_gp("new", class_name, null, null, null);
+		req = new HttpRequest;
+		req._command = command;
+		req._path = path;
+		req._server = server;
+		res = new HttpResponse;
+		res._create();
+		req._response = res;
+		res._request = req;
+		if (command == "GET") {
+			req.headers = headers;
+			req._params = params;
+			servlet.doGet(req, res);
+		} else {
+		}
+		if (command == "POST") {
+			req.headers = headers;
+			req._params = params;
+			req.input = contents;
+			servlet.doPost(req, res);
+		} else {
+		}
+		req._response = null;
+		res._request = null;
+		if (err = send("HTTP/1.1 " + (string)res.response_code + "\r\n")) {
+			server.error_log(err);
+			close();
+			return;
+		} else {
+		}
+		al_set_dst_node(res.headers, "Content-Length", (string)res.content_length);
+		if (al_dst_node(res.headers, "Connection")) {
+		} else {
+			al_set_dst_node(res.headers, "Connection", "Keep-Alive");
+		}
+		var list buffer;
+		buffer = al_crypt("mime_headers_write", res.headers, null, null);
+		if (err = send(buffer)) {
+			server.error_log(err);
+			close();
+			return;
+		} else {
+		}
+		if (err = send(res.output, 0, res.content_length)) {
+			server.error_log(err);
+			close();
+			return;
+		} else {
+		}
+		close();
+		return;
+	} else {
+		var string abs_path;
+		if (abs_path = server.GetAbsPath(path) && in = al_file_open(abs_path, "rb")) {
+		} else {
+			if (err = send("HTTP/1.1 404\r\n")) {
+				server.error_log(err);
+				close();
+				return;
+			} else {
+			}
+			close();
+			return;
+		}
+		content_length = al_file_manip("get_size", abs_path, null);
+		headers = al_cons(null, null);
+		al_set_dst_node(headers, "Content-Length", (string)content_length);
+		al_set_dst_node(headers, "Connection", "Close");
+		var list buffer;
+		buffer = al_crypt("mime_headers_write", headers, null, null);
+		if (err = send("HTTP/1.1 200\r\n")) {
+			server.error_log(err);
+			close();
+			return;
+		} else {
+		}
+		if (err = send(buffer)) {
+			server.error_log(err);
+			close();
+			return;
+		} else {
+		}
+		buffer = al_misc("binary", 1024, null);
+		var integer total_read_bytes, read_bytes;
+		var list block;
+		total_read_bytes = 0;
+		loop {
+			if (total_read_bytes >= content_length) {
+				break;
+			} else {
+			}
+			block = al_list3(buffer, 0, 1024);
+			if (read_bytes = al_file_read(in, block)) {
+				if (read_bytes < 0) {
+					// cannot read page
+					close();
+					return;
+				} else {
+				}
+			} else {
+				read_bytes = 1024;
+			}
+			if (err = send(buffer, 0, read_bytes)) {
+				server.error_log(err);
+				close();
+				return;
+			} else {
+			}
+			total_read_bytes = total_read_bytes + read_bytes;
+		}
+		if (err = send("\r\n")) {
+			server.error_log(err);
+			close();
+			return;
+		} else {
+		}
+		close();
+		return;
+	}
+}
+end_body
+member
+public: string order;
+member
+public: string path;
+member
+public: string path2;
+member
+public: list params;
+member
+public: list send(string str);
+body
+{
+	var integer size;
+	var list binary;
+	size = al_strlen(str);
+	binary = al_misc("binary", size, null);
+	al_misc("binary_copy", al_list2(binary, 0), str);
+	return send(binary, 0, size);
+}
+end_body
+member
+public: list send(list binary);
+body
+{
+	var integer size;
+	size = al_misc("binary_size", binary, null);
+	return send(binary, 0, size);
+}
+end_body
+member
+public: list send(list binary, integer index, integer size);
+body
+{
+	var list block;
+	block = al_list3(binary, index, size);
+	if (server.debug) {
+		server.debug_log("(Send) " + (string)al_misc("binary_to_string", block, null));
+	} else {
+	}
+	if (al_socket("send", socket_id, block, null)) {
+		var string err;
+		err = (string)al_socket("get_last_error", socket_id, null, null);
+		return err;
+	} else {
+	}
+	return null;
+}
+end_body
+end_class
+class HttpServlet
+member
+public: void doGet(HttpRequest req, HttpResponse res);
+body
+{
+}
+end_body
+member
+public: void doPost(HttpRequest req, HttpResponse res);
+body
+{
+}
+end_body
+class TestServlet1
+member
+public: void doGet(HttpRequest req, HttpResponse res);
+body
+{
+	res.out("<HTML><HEAD><TITLE>Test1</TITLE></HEAD><BODY>\n");
+	res.out("<H1>Hello World !!</H1>\n");
+	res.out("</BODY></HTML>\n");
+}
+end_body
+end_class
+class TestServlet2
+member
+public: void doGet(HttpRequest req, HttpResponse res);
+body
+{
+	var HttpSession session;
+	var string action;
+	action = req.getParameter("action");
+	if (action == "Login") {
+		var string id, pass;
+		id = req.getParameter("UserID");
+		pass = req.getParameter("Password");
+		// TODO: insert authorization code here
+		session = req.createSession();
+		res.redirectWithSession("servlet2?action=AddressMap");
+		return;
+	} else {
+	}
+	if (action == "AddressMap") {
+		if (session = req.getSession()) {
+		} else {
+			res.redirect("/no_session.html");
+			return;
+		}
+		var string operation, name, phone, submit;
+		operation = req.getParameter("operation");
+		name = req.getParameter("name");
+		phone = req.getParameter("phone");
+		submit = req.getParameter("submit");
+		if (submit == "logout") {
+			session.invalidate();
+			res.redirect("index.html");
+			return;
+		} else {
+		}
+		if (operation == "Insert/Update") {
+			if (name != "") {
+				session.setAttribute(name, phone);
+			} else {
+			}
+		} else {
+		}
+		if (operation == "Delete") {
+			if (name != "") {
+				session.setAttribute(name, null);
+			} else {
+			}
+		} else {
+		}
+		res.out("<HTML><HEAD>\n");
+		res.out("<META http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
+		res.out("<TITLE>Name Phone</TITLE></HEAD><BODY>\n");
+		res.out("<FORM METHOD=\"POST\">\n");
+		res.out("  Name <INPUT TYPE=\"text\" NAME=\"name\"><BR>\n");
+		res.out("  Phone <INPUT TYPE=\"text\" NAME=\"phone\"><BR>\n");
+		res.out("  <SELECT NAME=\"operation\">\n");
+		res.out("    <OPTION SELECTED=\"true\">Insert/Update</OPTION>\n");
+		res.out("    <OPTION>Delete</OPTION>\n");
+		res.out("  </SELECT><BR>\n");
+		res.out("  <INPUT TYPE=\"submit\" Name=\"submit\" VALUE=\"execute\">\n");
+		res.out("<TABLE BORDER=\"1\" WIDTH=\"50%\">\n");
+		res.out("  <TR><TD>Name</TD><TD>Phone</TD></TR>\n");
+		var list attrs, itr;
+		var string str;
+		if (attrs = session.getAttributes()) {
+			itr = al_dst_itr(attrs);
+			loop {
+				if (phone = al_next(itr)) {
+				} else {
+					break;
+				}
+				name = al_arc_a(itr);
+				if (al_misc("platform", null, null) == "windows") {
+					if (str = al_str_misc("sjis_to_utf8", name, null)) {
+						name = str;
+					} else {
+					}
+					if (str = al_str_misc("sjis_to_utf8", phone, null)) {
+						phone = str;
+					} else {
+					}
+				} else {
+				}
+				res.out("<TR><TD>");
+				res.out(name);
+				res.out("</TD><TD>");
+				res.out(phone);
+				res.out("</TD></TR>\n");
+			}
+		} else {
+		}
+		res.out("</TABLE>\n");
+		res.out("  <INPUT TYPE=\"submit\" Name=\"submit\" VALUE=\"logout\">\n");
+		res.out("</FORM>\n");
+		res.out("</BODY></HTML>\n");
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: void doPost(HttpRequest req, HttpResponse res);
+body
+{
+	doGet(req, res);
+}
+end_body
+end_class
+end_class
+class HttpRequest
+member
+public: WebServer _server;
+member
+public: HttpResponse _response;
+member
+public: string _command;
+member
+public: string _path;
+member
+public: string _params;
+member
+public: list headers;
+member
+public: list input;
+member
+public: list getParameters();
+body
+{
+	if (parameters) {
+		return parameters;
+	} else {
+	}
+	parameters = al_cons(null, null);
+	var list ls, itr, nv;
+	var string name_value, name, value;
+	ls = al_str_misc("split", _params, '&');
+	itr = al_dst_itr(ls);
+	loop {
+		if (name_value = al_next(itr)) {
+		} else {
+			break;
+		}
+		nv = splitNameValue(name_value);
+		name = nv.head;
+		value = nv.tail.head;
+		value = al_str_misc("param_to_string", value, null);
+		if (al_misc("platform", null, null) == "windows") {
+			var string str;
+			if (str = al_str_misc("utf8_to_sjis", value, null)) {
+				value = str;
+			} else {
+			}
+		} else {
+		}
+		al_create_arc(parameters, value, name);
+	}
+	if (_command == "POST") {
+		var integer size;
+		var string params;
+		size = al_misc("binary_size", input, null);
+		params = al_misc("binary_to_string", al_list3(input, 0, size), null);
+		ls = al_str_misc("split", params, '&');
+		itr = al_dst_itr(ls);
+		loop {
+			if (name_value = al_next(itr)) {
+			} else {
+				break;
+			}
+			nv = splitNameValue(name_value);
+			name = nv.head;
+			value = nv.tail.head;
+			value = al_str_misc("param_to_string", value, null);
+			if (al_misc("platform", null, null) == "windows") {
+				var string str;
+				if (str = al_str_misc("utf8_to_sjis", value, null)) {
+					value = str;
+				} else {
+				}
+			} else {
+			}
+			al_create_arc(parameters, value, name);
+		}
+	} else {
+	}
+	return parameters;
+}
+end_body
+member
+public: string getParameter(string name);
+body
+{
+	parameters = getParameters();
+	return al_dst_node_i(parameters, name);
+}
+end_body
+member
+public: list parameters;
+member
+public: HttpSession createSession();
+body
+{
+	var HttpSession session;
+	if (session = getSession()) {
+		return session;
+	} else {
+	}
+	session = new HttpSession;
+	session._create(_server);
+	var string cookie;
+	cookie = "AltairSession=" + session._sessionId + "; path=" + getBasePath();
+	al_set_dst_node(_response.headers, "Set-Cookie", cookie);
+	return session;
+}
+end_body
+member
+public: HttpSession getSession();
+body
+{
+	if (_server.sessions) {
+	} else {
+		return null;
+	}
+	getCookies();
+	var string session_id;
+	if (session_id = al_dst_node_i(cookies, "AltairSession")) {
+	} else {
+		return null;
+	}
+	var HttpSession session;
+	if (session = al_dst_node_i(_server.sessions, session_id)) {
+	} else {
+		return null;
+	}
+	session._time = 0;
+	return session;
+}
+end_body
+member
+public: list getCookies();
+body
+{
+	if (cookies) {
+		return cookies;
+	} else {
+	}
+	cookies = al_cons(null, null);
+	var list itr, nv, itr2;
+	var string name_value, name, value;
+	itr = al_dst_itr(headers);
+	loop {
+		if (name_value = al_next(itr)) {
+		} else {
+			break;
+		}
+		if (al_str_misc("strcmpi", al_arc_a(itr), "Cookie") != 0) {
+			continue;
+		} else {
+		}
+		nv = splitNameValue(name_value);
+		name = nv.head;
+		value = nv.tail.head;
+		al_create_arc(cookies, value, name);
+		itr2 = al_dst_itr(name_value);
+		loop {
+			if (value = al_next(itr2)) {
+			} else {
+				break;
+			}
+			name = al_arc_a(itr2);
+			al_create_arc(cookies, value, name);
+		}
+	}
+	return cookies;
+}
+end_body
+member
+public: string getCookie(string name);
+body
+{
+	getCookies();
+	return al_dst_node_i(cookies, name);
+}
+end_body
+member
+public: list cookies;
+member
+public: string getBasePath();
+body
+{
+	var string path;
+	var integer idx;
+	idx = al_strlen(_path) - 1;
+	loop {
+		if (idx < 0 || al_get_char(_path, idx) == '/') {
+			path = al_substr(_path, 0, idx + 1);
+			break;
+		} else {
+		}
+		idx = idx - 1;
+	}
+	return path;
+}
+end_body
+member
+public: list splitNameValue(string name_value);
+body
+{
+	var string name, value;
+	var integer idx;
+	idx = al_search_str(name_value, 0, "=");
+	if (idx >= 0) {
+		name = al_substr(name_value, 0, idx);
+		value = al_substr(name_value, idx + 1, al_strlen(name_value));
+	} else {
+		name = name_value;
+		value = "";
+	}
+	return al_list2(name, value);
+}
+end_body
+end_class
+class HttpResponse
+member
+public: void _create();
+body
+{
+	response_code = 200;
+	headers = al_cons(null, null);
+	max_size = 1024;
+	output = al_misc("binary", max_size, null);
+	content_length = 0;
+}
+end_body
+member
+public: HttpRequest _request;
+member
+public: integer response_code;
+member
+public: list headers;
+member
+public: list output;
+member
+public: integer max_size;
+member
+public: integer content_length;
+member
+public: void out(string s);
+body
+{
+	var integer len;
+	len = al_strlen(s);
+	if (content_length + len > max_size) {
+		al_misc("extend_binary", output, len);
+		max_size = max_size + len;
+	} else {
+	}
+	al_misc("binary_copy", al_list2(output, content_length), s);
+	content_length = content_length + len;
+}
+end_body
+member
+public: void out(list binary);
+body
+{
+	var integer size;
+	size = al_misc("binary_size", binary, null);
+	out(binary, 0, size);
+}
+end_body
+member
+public: void out(list binary, integer index, integer size);
+body
+{
+	if (content_length + size > max_size) {
+		al_misc("extend_binary", output, size);
+		max_size = max_size + size;
+	} else {
+	}
+	al_misc("binary_copy", al_list2(output, content_length), al_list3(binary, index, size));
+	content_length = content_length + size;
+}
+end_body
+member
+public: void redirect(string url);
+body
+{
+	if (al_strlen(url) >= 4 && al_substr(url, 0, 4) == "http") {
+	} else {
+		var string host;
+		if (host = host = al_dst_node_i(_request.headers, "Host")) {
+		} else {
+			host = "localhost";
+		}
+		if (al_strlen(url) >= 1 && al_get_char(url, 0) == '/') {
+			url = "http://" + host + url;
+		} else {
+			url = "http://" + host + _request.getBasePath() + url;
+		}
+	}
+	// redirect
+	response_code = 302;
+	al_set_dst_node(headers, "Location", url);
+	al_set_dst_node(headers, "Connection", "Close");
+}
+end_body
+member
+public: void redirectWithSession(string url);
+body
+{
+	var HttpSession session;
+	if (session = _request.getSession()) {
+		var string cookie;
+		cookie = "AltairSession=" + session._sessionId;
+		al_set_dst_node(headers, "Set-Cookie", cookie);
+	} else {
+	}
+	redirect(url);
+}
+end_body
+end_class
+class HttpSession
+member
+public: void _create(WebServer server);
+body
+{
+	_server = server;
+	_sessionId = al_crypt("random", 64, null, null);
+	_time = 0;
+	if (_server.sessions) {
+	} else {
+		_server.sessions = al_cons(null, null);
+	}
+	al_set_dst_node(_server.sessions, _sessionId, this);
+}
+end_body
+member
+public: WebServer _server;
+member
+public: string _sessionId;
+member
+public: integer _time;
+member
+public: void invalidate();
+body
+{
+	_time = 0x000000007fff0000;
+}
+end_body
+member
+public: list getAttributes();
+body
+{
+	return attrs;
+}
+end_body
+member
+public: list getAttribute(string name);
+body
+{
+	if (attrs) {
+	} else {
+		return null;
+	}
+	return al_dst_node(attrs, name);
+}
+end_body
+member
+public: void setAttribute(string name, list attr);
+body
+{
+	if (attrs) {
+	} else {
+		attrs = al_cons(null, null);
+	}
+	al_set_dst_node(attrs, name, attr);
+}
+end_body
+member
+public: void setAttribute(string name, integer attr);
+body
+{
+	setAttribute(name, (list)attr);
+}
+end_body
+member
+public: void setAttribute(string name, string attr);
+body
+{
+	setAttribute(name, (list)attr);
+}
+end_body
+member
+public: void setAttribute(string name, AlObject attr);
+body
+{
+	setAttribute(name, (list)attr);
+}
+end_body
+member
+public: list attrs;
+end_class
+end_class
+class XmlObj
+member
+public: void create(list tree);
+body
+{
+	body_tree = tree;
+}
+end_body
+member
+public: list tag_tree;
+member
+public: list body_tree;
+member
+public: list itr;
+member
+public: string tag;
+member
+public: XmlObj getItr(string xpath);
+body
+{
+	var list body_tree2, tag_tree2, tags, itr2;
+	var string tag2;
+	tag_tree2 = tag_tree;
+	body_tree2 = body_tree;
+	tags = al_str_misc("split", xpath, '/');
+	itr2 = al_dst_itr(tags);
+	loop {
+		if (tag2 = al_next(itr2)) {
+		} else {
+			return null;
+		}
+		if (al_next(itr2)) {
+			al_prev(itr2);
+		} else {
+			break;
+		}
+		if (tag_tree2 = al_dst_node(body_tree2, tag2)) {
+		} else {
+			return null;
+		}
+		if (body_tree2 = al_dst_node(tag_tree2, "!body")) {
+		} else {
+			return null;
+		}
+	}
+	var XmlObj obj;
+	obj = new XmlObj;
+	obj.itr = al_dst_itr(body_tree2);
+	obj.tag = tag2;
+	return obj;
+}
+end_body
+member
+public: XmlObj getNext();
+body
+{
+	var list tag_tree2, body_tree2;
+	if (tag_tree2 = al_next_a(itr, tag)) {
+	} else {
+		return null;
+	}
+	if (body_tree2 = al_dst_node(tag_tree2, "!body")) {
+	} else {
+		return null;
+	}
+	var XmlObj obj;
+	obj = new XmlObj;
+	obj.tag_tree = tag_tree2;
+	obj.body_tree = body_tree2;
+	obj.itr = itr;
+	obj.tag = tag;
+	return obj;
+}
+end_body
+member
+public: string getValue(string xpath);
+body
+{
+	var list body_tree2, tag_tree2, tags, itr2, param;
+	var string tag2;
+	tag_tree2 = tag_tree;
+	body_tree2 = body_tree;
+	tags = al_str_misc("split", xpath, '/');
+	itr2 = al_dst_itr(tags);
+	loop {
+		if (tag2 = al_next(itr2)) {
+		} else {
+			return null;
+		}
+		if (al_next(itr2)) {
+			al_prev(itr2);
+		} else {
+			break;
+		}
+		if (tag_tree2 = al_dst_node(body_tree2, tag2)) {
+		} else {
+			return null;
+		}
+		if (body_tree2 = al_dst_node(tag_tree2, "!body")) {
+		} else {
+			return null;
+		}
+	}
+	if (al_strlen(tag2) > 0 && al_get_char(tag2, 0) == '@') {
+		tag2 = al_substr(tag2, 1, al_strlen(tag2));
+		if (param = al_dst_node(tag_tree2, tag2)) {
+			return param.head;
+		} else {
+			return null;
+		}
+	} else {
+		if (tag_tree2 = al_dst_node(body_tree2, tag2)) {
+		} else {
+			return null;
+		}
+		if (body_tree2 = al_dst_node(tag_tree2, "!body")) {
+		} else {
+			return null;
+		}
+		return al_dst_node(body_tree2, "!text");
+	}
+}
+end_body
+member
+public: XmlObj createXmlObj(string xpath);
+body
+{
+	var list body_tree2, tag_tree2, tags, itr2;
+	var string tag2;
+	tag_tree2 = tag_tree;
+	body_tree2 = body_tree;
+	tags = al_str_misc("split", xpath, '/');
+	itr2 = al_dst_itr(tags);
+	loop {
+		if (tag2 = al_next(itr2)) {
+		} else {
+			return null;
+		}
+		if (al_next(itr2)) {
+			al_prev(itr2);
+		} else {
+			break;
+		}
+		if (tag_tree2 = al_dst_node(body_tree2, tag2)) {
+		} else {
+			al_create_arc(body_tree2, tag_tree2 = al_cons(2, null), tag2);
+		}
+		if (body_tree2 = al_dst_node(tag_tree2, "!body")) {
+		} else {
+			al_create_arc(tag_tree2, body_tree2 = al_cons(1, null), "!body");
+		}
+	}
+	al_create_arc(body_tree2, tag_tree2 = al_cons(2, null), tag2);
+	al_create_arc(tag_tree2, body_tree2 = al_cons(1, null), "!body");
+	var XmlObj obj;
+	obj = new XmlObj;
+	obj.tag_tree = tag_tree2;
+	obj.body_tree = body_tree2;
+	return obj;
+}
+end_body
+member
+public: list putValue(string xpath, string value);
+body
+{
+	var list body_tree2, tag_tree2, tags, itr2, param;
+	var string tag2;
+	tag_tree2 = tag_tree;
+	body_tree2 = body_tree;
+	tags = al_str_misc("split", xpath, '/');
+	itr2 = al_dst_itr(tags);
+	loop {
+		if (tag2 = al_next(itr2)) {
+		} else {
+			return null;
+		}
+		if (al_next(itr2)) {
+			al_prev(itr2);
+		} else {
+			break;
+		}
+		if (tag_tree2 = al_dst_node(body_tree2, tag2)) {
+		} else {
+			al_create_arc(body_tree2, tag_tree2 = al_cons(2, null), tag2);
+		}
+		if (body_tree2 = al_dst_node(tag_tree2, "!body")) {
+		} else {
+			al_create_arc(tag_tree2, body_tree2 = al_cons(1, null), "!body");
+		}
+	}
+	if (al_strlen(tag2) > 0 && al_get_char(tag2, 0) == '@') {
+		tag2 = al_substr(tag2, 1, al_strlen(tag2));
+		if (param = al_dst_node(tag_tree2, tag2)) {
+		} else {
+			al_create_arc(tag_tree2, param = al_cons(null, null), tag2);
+		}
+		param.head = value;
+	} else {
+		if (tag_tree2 = al_dst_node(body_tree2, tag2)) {
+		} else {
+			al_create_arc(body_tree2, tag_tree2 = al_cons(2, null), tag2);
+		}
+		if (body_tree2 = al_dst_node(tag_tree2, "!body")) {
+		} else {
+			al_create_arc(tag_tree2, body_tree2 = al_cons(1, null), "!body");
+		}
+		al_set_dst_node(body_tree2, "!text", value);
+	}
+	return 1;
+}
+end_body
+end_class
+end_class
+$END_BODY

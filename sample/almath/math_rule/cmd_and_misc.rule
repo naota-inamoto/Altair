@@ -1,0 +1,245 @@
+
+/* -------- コマンド実行 -------- */
+exec_cmd(tree) {
+  tree == ("cmd", stat) -> exec_cmd2(stat);
+  tree == (*, t...) -> block(t);
+}
+exec_cmd2(stat) {
+  stat == (h, t...) -> {
+    h == "include" -> include(t);
+    h == "block" -> t == ((*, t2...)), block(t2);
+    h == "for" -> for(t);
+    h == "if" -> if(t);
+    h == "vardcl_1" -> vardcl(t);
+    h == "assign" -> assign(t);
+    h == "print" -> print(t);
+    h == "test" -> test();
+    true -> tree_to_exp(stat);
+  }
+}
+
+include(t) {
+  t == (filename) ->
+  eval_script(
+    get_var("include_script"),
+    (get_var("almath_user_edit"), filename)
+  );
+}
+block(t) {
+  t == null -> ("poly", null, null);
+  t == (h2, t2...) -> exec_cmd2(h2), block(t2);
+}
+for(t) {
+  t == (v, from_0, to_0, stat),
+  ("poly", (((from, 1), null, null)), opt1) == tree_to_alist(from_0),
+  ("poly", (((to,   1), null, null)), opt2) == tree_to_alist(to_0)
+   -> for2(v, from, to, stat);
+}
+for2(v, from, to, stat) prog {
+  for i in [from..to] {
+    set_var(v, const(i));
+    exec_cmd2(stat);
+  }
+  return ("poly", null, null);
+}
+if(t) {
+  t == (cond, then, (*, else2...)) -> {
+    eval_cond(cond) -> exec_cmd2(then);
+    else2 == null -> ("poly", null, null);
+    else2 == ((*, else)) -> exec_cmd2(else);
+  }
+}
+
+vardcl(ls) {
+  (h, ("{}*", t...)) == ls, vardcl3(h), vardcl2(t) -> ("poly", null, null);
+}
+vardcl2(t) {
+  t == null -> 1;
+  (("vardcl_n", h), t2...) == t -> vardcl3(h), vardcl2(t2);
+}
+vardcl3(h) {
+  h == ("vardcl", v, ("{}*", dms...)), val == ("poly", null, null) -> {
+    dms == null -> set_var(v, val);
+    idx == vardcl_dms(dms) -> set_var(v, mat_zero(idx, val));
+  }
+}
+vardcl_dms(dms) {
+  dms == null -> null;
+  dms == (("dim", ee), t...), e == tree_to_exp(ee) -> {
+    e == ("poly", (((n, 1), null, null)), opt) -> (n, vardcl_dms(t)...);
+  }
+}
+
+assign(t) {
+  (("var_exp", v, ("{}*", il...)), exp) == t, val == tree_to_exp(exp) -> assign2(v, il, val);
+}
+assign2(v, il, val) {
+  il == null, set_var(v, val) -> val;
+  ("mat", n, ary) == get_var(v), assign3(ary, n, il, val) -> val;
+}
+assign3(ary, n, il, val) {
+  il == (("index", e), t...) -> {
+    e == ("const", i, ("{}?")), 0 <= i, i < n -> {
+      t == null -> set_ary(ary, (i), val);
+      ("mat", n2, ary2) == get_ary(ary, (i)) -> assign3(ary2, n2, t, val);
+    }
+    e == ("var_exp", t2...), e2 == var_exp_to_alist(t2) -> {
+      e2 == ("poly", (((i, 1), null, null)), opt), 0 <= i, i < n -> {
+        t == null -> set_ary(ary, (i), val);
+        ("mat", n2, ary2) == get_ary(ary, (i)) -> assign3(ary2, n2, t, val);
+      }
+    }
+  }
+}
+
+print(t) {
+  t == ((*, t2...)) -> print2(t2);
+}
+print2(t) {
+  t == null -> ("poly", null, null);
+  t == (h, t2...) -> {
+    h == ("p_s", msg) ->
+      eval_script(
+        get_var("out_script"),
+        (get_var("almath_user_edit"), msg)
+      ), print2(t2);
+    exp == tree_to_alist(h) ->
+      eval_script(
+        get_var("out_exp_script"),
+        (get_var("almath_user_edit"), exp)
+      ), print2(t2);
+  }
+}
+
+/* -------- パースツリーから内部データへの変換 -------- */
+tree_to_exp(tree) {
+  true -> tree_to_alist(tree);
+}
+
+/* -------- 内部データからパースツリーへの変換 -------- */
+exp_to_tree(a) {
+  a == ("poly", ...) -> alist_to_tree(a);
+  a == ("rat", ...)  -> alist_to_tree(a);
+  a == ("mat", ...)  -> alist_to_tree(a);
+}
+
+/* -------- 加算 -------- */
+add(a, b) {
+  is_zero(b) -> a;
+  is_zero(a) -> b;
+  a == ("poly", ...), b == ("poly", ...) -> add_alist(a, b);
+  a == ("poly", ...), b == ("rat", ...)  -> add_alist(a, b);
+  a == ("rat", ...),  b == ("poly", ...) -> add_alist(a, b);
+  a == ("rat", ...),  b == ("rat", ...)  -> add_alist(a, b);
+  a == ("mat", ...),  b == ("mat", ...)  -> mat_add(a, b);
+}
+
+/* -------- 減算 -------- */
+sub(a, b) {
+  is_zero(b) -> a;
+  is_zero(a) -> neg(b);
+  a == ("poly", ...), b == ("poly", ...) -> sub_alist(a, b);
+  a == ("poly", ...), b == ("rat", ...)  -> sub_alist(a, b);
+  a == ("rat", ...),  b == ("poly", ...) -> sub_alist(a, b);
+  a == ("rat", ...),  b == ("rat", ...)  -> sub_alist(a, b);
+  a == ("mat", ...),  b == ("mat", ...)  -> mat_sub(a, b);
+}
+
+/* -------- 乗算 -------- */
+mul(a, b) {
+  is_zero(b) -> ("poly", null, null);
+  is_zero(a) -> ("poly", null, null);
+  is_one(b) -> a;
+  is_one(a) -> b;
+  a == ("poly", ...), b == ("poly", ...) -> mul_alist(a, b);
+  a == ("poly", ...), b == ("rat", ...)  -> mul_alist(a, b);
+  a == ("rat", ...),  b == ("poly", ...) -> mul_alist(a, b);
+  a == ("rat", ...),  b == ("rat", ...)  -> mul_alist(a, b);
+  a == ("mat", ...),  b == ("mat", ...)  -> mat_mul(a, b);
+  a == ("mat", ...),  b == ("poly", ...) -> mat_scalar_mul(a, b);
+  a == ("mat", ...),  b == ("rat", ...)  -> mat_scalar_mul(a, b);
+  a == ("poly", ...), b == ("mat", ...)  -> mat_scalar_mul(b, a);
+  a == ("rat", ...),  b == ("mat", ...)  -> mat_scalar_mul(b, a);
+}
+
+/* -------- 除算 -------- */
+div(a, b) {
+  is_zero(a) -> ("poly", null, null);
+  is_one(b) -> a;
+  a == ("poly", ...), a == ("poly", ...) -> div_alist(a, b);
+  a == ("poly", ...), a == ("rat", ...)  -> div_alist(a, b);
+  a == ("rat", ...),  a == ("poly", ...) -> div_alist(a, b);
+  a == ("rat", ...),  a == ("rat", ...)  -> div_alist(a, b);
+  a == ("mat", ...),  b == ("poly", ...) -> mat_scalar_mul(a, inverse(b));
+  a == ("mat", ...),  b == ("rat", ...)  -> mat_scalar_mul(a, inverse(b));
+}
+
+
+/* -------- 補数 -------- */
+neg(a) {
+  true -> mul(a, const(-1));
+}
+
+/* -------- 逆数 -------- */
+inverse(a) {
+  true -> div(const(1), a);
+}
+
+/* -------- ０か -------- */
+is_zero(a) {
+  a == ("poly", null, opt) -> 1;
+  a == ("poly", (((0, *), null, null)), opt) -> 1;
+  a == ("rat", ("poly", null, opt), ...) -> 1;
+  a == ("rat", ("poly", (((0, *), null, null)), opt), ...) -> 1;
+  true -> null;
+}
+
+/* -------- １か -------- */
+is_one(a) {
+  a == ("poly", tl, opt) -> is_one_tl(tl);
+  true -> null;
+}
+is_one_tl(tl) {
+  tl == (((c, c), null, null)) -> 1;
+  true -> null;
+}
+
+/* -------- マイナス１か -------- */
+is_minus_one(a) {
+  a == ("poly", (((c1, c2), null, null)), opt), c1 == -c2 -> 1;
+  true -> null;
+}
+
+/* -------- 多項式の長さ -------- */
+poly_length(p) {
+  p == ("poly", tl, opt) -> length(tl);
+}
+
+/* -------- 整定数 -------- */
+const(c) {
+  true -> ("poly", const_tl(c), null);
+}
+const_tl(c) {
+  true -> (((c, 1), null, null));
+}
+
+/* -------- 変数/関数から多項式形式へ -------- */
+vf_to_poly_tl(c, vf, v, l, d) {
+  d == 0 -> const_tl(c);
+  d >  0 -> {
+    vf == "var"  -> var_to_poly_tl (c, v, l, d);
+    vf == "func" -> func_to_poly_tl(c, v, l, d);
+  }
+}
+var_to_poly(c, v, il, d) {
+  true -> ("poly", var_to_poly_tl(c, v, il, d), null);
+}
+var_to_poly_tl(c, v, il, d) {
+  true -> (((c, 1), (("var", v, il, d)), null));
+}
+func_to_poly(c, v, al, d) {
+  true -> ("poly", func_to_poly_tl(c, v, al, d), null);
+}
+func_to_poly_tl(c, v, al, d) {
+  true -> (((c, 1), null, (("func", v, al, d))));
+}

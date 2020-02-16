@@ -1,0 +1,134 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>VideoCapture OLE Control</TITLE>
+</HEAD>
+
+<BODY>
+<H1>VideoCaptuer OLE Control</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.32版 2003年 8月15日<BR>
+
+<HR>
+<H3>概要</H3>
+
+Video for WindowsのAPIを使って、ビデオキャプチャーデバイスで<BR>
+動画をキャプチャーしたり、ビデオ入力の動画を表示するOLEコントロールです。<BR>
+
+<HR>
+<H3><A NAME="name_prog_id">名前とProgID</A></H3>
+
+名前は、「RobotVision Control」で、ProgIDは、「ROBOTVISION.RobotVisionCtrl.1」です。<BR>
+
+<HR>
+<H1>メソッド</H1>
+
+<H3><A NAME="Start">short Start()</A></H3>
+
+OCXのウインドウをビデオキャプチャーデバイスに接続します。<BR>
+
+<H3><A NAME="Stop">void Stop()</A></H3>
+
+ビデオキャプチャーデバイスとOCXのウィンドウの接続を切断します。<BR>
+
+<H3><A NAME="DlgVideoFormat">BOOL DlgVideoFormat()</A></H3>
+
+キャプチャーするイメージのフォーマットを設定するダイアログを出します。<BR>
+成功するとTRUEが返ります。<BR>
+<BR>
+注意：デバイスドライバがこの機能をサポートしていない場合があります。<BR>
+
+<H3><A NAME="DlgVideoSource">BOOL DlgVideoSource()</A></H3>
+
+ビデオキャプチャーボードが複数の入力を持つ場合、どの入力を選択するかを設定するダイアログを出します。<BR>
+TVチューナー付きビデオキャプチャーボードの場合、TVチャンネルの設定もできます。<BR>
+成功するとTRUEが返ります。<BR>
+<BR>
+注意：デバイスドライバがこの機能をサポートしていない場合があります。<BR>
+
+<H3><A NAME="DlgVideoCompression">BOOL DlgVideoCompression()</A></H3>
+
+キャプチャーしたイメージを動画で保存する場合の圧縮方式を設定するダイアログを出します。<BR>
+成功するとTRUEが返ります。<BR>
+<BR>
+注意：デバイスドライバがこの機能をサポートしていない場合があります。<BR>
+
+<H3><A NAME="SaveBitmap">BOOL SaveBitmap(LPCTSTR filename)</A></H3>
+
+最近キャプチャーしたイメージをfilenameで指定されるBMP形式ファイルに保存します。<BR>
+成功するとTRUEが返ります。<BR>
+
+<H3><A NAME="StartCapture">BOOL StartCapture(LPCTSTR filename)</A></H3>
+
+キャプチャーしている動画のfilenameで指定される動画ファイルへの保存を開始します。<BR>
+成功するとTRUEが返ります。<BR>
+
+<H3><A NAME="StopCapture">void StopCapture()</A></H3>
+
+動画ファイルへの保存を終了します。<BR>
+
+<HR>
+<H1>プロパティ</H1>
+
+<H3><A NAME="DeviceIndex">long DeviceIndex</A></H3>
+
+ビデオキャプチャーデバイス番号です。<BR>
+デフォルトは0です。
+
+<H3><A NAME="DriverName">CString DriverName</A></H3>
+
+Startした後、ビデオキャプチャードライバーの名前になります。<BR>
+
+<H3><A NAME="DriverVersion">CString DriverVersion</A></H3>
+
+Startした後、ビデオキャプチャードライバーのバージョンになります。<BR>
+
+<H3><A NAME="PreviewRate">short PreviewRate</A></H3>
+
+１秒間の間に何フレームキャプチャするかの数です。<BR>
+デフォルトは15です。
+
+<H3><A NAME="PreviewScale">BOOL PreviewScale</A></H3>
+
+キャプチャーイメージのサイズをOCXのサイズにリサイズするかを示します。<BR>
+デフォルトはTRUEです。
+
+<H3><A NAME="Preview">BOOL Preview</A></H3>
+
+OCXのウィンドウで動画を表示するかを示します。<BR>
+デフォルトはTRUEです。
+
+<H3><A NAME="Overlay">BOOL Overlay</A></H3>
+
+ハードウェアオーバーレイをするかどうかを示します。<BR>
+Startした後ドライバがハードウェアオーバーレイをサポートしていればTRUE、<BR>
+サポートしていなければFALSEになります。<BR>
+
+<HR>
+<H1>サンプル</H1>
+
+<H3>前準備</H3>
+<A HREF="sample.html#prepare">Altairのサンプルの前準備</A>で、
+ライブラリgbgp.albが作成されていることを確認してください。<BR>
+
+<H3><A NAME="Monitor">ビデオモニター</A></H3>
+
+プロジェクトgbgp.aprを開いてください。<BR>
+クラスGbGpをダブルクリックしてください。<BR>
+関数Runのところにキャレットをおいて<BR>
+メニューの「インタプリタ - 実行」を行ってください。<BR>
+これでGbGpサンプルが立ち上がります。<BR>
+<BR>
+「開く」ボタンでrobot_vision/robot_vision.gprを開いてください。<BR>
+ここで画面のの「Start」ボタンを押してください。<BR>
+ビデオキャプチャーデバイスへの接続が行われます。<BR>
+次に「VideoSource」ボタンを押して現れるダイアログで、<BR>
+ビデオ入力の設定を行ってください。<BR>
+これで、ビデオ入力の動画が表示されます。<BR>
+<BR>
+<IMG SRC="image/video_monitor.jpg"><BR>
+
+<HR>
+</BODY>
+</HTML>

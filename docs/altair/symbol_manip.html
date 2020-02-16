@@ -1,0 +1,534 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Generic Parser/Generator and Graph Data Maniplutation</TITLE>
+</HEAD>
+
+<BODY>
+<H2>汎用パーサー・汎用ジェネレータ・汎用グラフデータ操作です。</H2>
+
+第0.43版 2016年10月23日<BR>
+第0.38版 2008年 2月10日<BR>
+
+<UL>
+<LI><A HREF="#compile_syntax">compile_syntax</A>
+<LI><A HREF="#parse">parse</A>
+<LI><A HREF="#generate">generate</A>
+<LI><A HREF="#out_syntax_unit">out_syntax_unit</A>
+    <UL>
+    <LI><A HREF="#syntax">【syntaxの文法】</A>
+    <LI><A HREF="#parse_tree">【compiled_syntaxとparse_teeのデータ構造】</A>
+    </UL>
+<LI>
+<LI><A HREF="#plisp_load">plisp_load</A>
+<LI><A HREF="#plisp_call">plisp_call</A>
+<LI><A HREF="#set_var">set_var</A>
+<LI><A HREF="#get_var">get_var</A>
+<LI>
+<LI><A HREF="#prolog_exec">prolog_exec</A>
+<LI><A HREF="#clear_query">clear_query</A>
+<LI><A HREF="#clear_pred">clear_pred</A>
+<LI><A HREF="#ls_pred">ls_pred</A>
+<LI>
+<LI><A HREF="#plisp_max_call">plisp_max_call</A>
+<LI><A HREF="#prolog_max_call">prolog_max_call</A>
+    <UL>
+    <LI><A HREF="#system_syntax">【Prologライクリスト処理言語・拡張Prolog言語処理系の文法】</A>
+    <LI><A HREF="#plisp_sysfunc">【Prologライクリスト処理言語の組み込み関数】</A>
+        <UL>
+        <LI><A HREF="plisp_sample.html">Prologライクリスト処理言語のサンプル</A><BR>
+        </UL>
+    <LI><A HREF="#prolog_sysfunc">【拡張Prolog言語処理系の組み込み関数】</A>
+        <UL>
+        <LI><A HREF="tree_graph_conv.html">ツリーグラフ変換ルールの作成部分例</A><BR>
+        </UL>
+    </UL>
+</UL>
+
+<HR>
+<H3><A NAME="compile_syntax">compiled_syntax al_symbol_manip("compile_syntax", syntax, null, null, opt);</A></H3>
+syntaxで定義された文法を内部表現に変換してlist型を返します。<BR>
+syntaxの型は読み込みのfileです。変換エラーの場合、エラー情報を含むstringが返ります。<BR>
+optが opt-/"debug"/->1の形式のときは文法のコンパイル途中情報をアウトプットウィンドウに出力します。<BR>
+
+<H3><A NAME="parse">parse_tree al_symbol_manip("parse", input, compiled_syntax, id, opt);</A></H3>
+内部表現になった文法compiled_syntaxを用いてinputをパースし、<BR>
+パースツリーをlist型で返します。inputの型は読み込みのfileです。<BR>
+パースエラーの場合、エラー情報を含むstringが返ります。<BR>
+idには、文法中に現れる「単位構文のid」を入れます。<BR>
+<BR>
+opt に opt-/"debug"/->(level10, level20, level30) を入れるとlevelに合わせてパース途中のデバッグ情報がダンプされます。<BR>
+levelxxの形式は以下です。
+<PRE>
+  形式                                意味
+  null                                デバッグ出力しません。
+ start_lno-/unit_name/=>()            行番号が start_lno 以降デバッグ出力します。
+                                      unit_name が一個もない場合は全文法ユニットの情報がが出力されます。
+                                      unit_name がある場合は、その unit_name の文法ユニットの情報だけが出力されます。
+ (start_lno, end_lno)-/unit_name/=>() 行番号が start_lno から end_lno の間だけデバッグ出力します。
+                                      unit_name が一個もない場合は全文法ユニットの情報がが出力されます。
+                                      unit_name がある場合は、その unit_name の文法ユニットの情報だけが出力されます。
+</PRE>
+出力されるデバッグ情報は以下です。
+<PRE>
+  level10 成功した単位構文IDとそのソース上の行番号。
+  level20 成功した単位構文IDとそのソース上の先頭の行番号と行番号。
+  level30 成功した単位構文IDとそのソース上の行番号。
+          試行を開始する単位構文IDとそのソース上の行番号。
+          文法定義ファイル中の固定文字列のtokenの成否とそのソース上の行番号。
+          文法定義ファイル中の字句解析の成否とそのソース上での行番号。
+          試行した単位構文のIDとその成否とソース上の行番号。
+</PRE>
+デフォルトの parse では、parseツリーの大きさが大きくならないよう、省略可能なノードを省略するようになっています。<BR>
+opt に opt-/"full"/->1 を入れるとこれらのノードを省略しないままの parse ツリーが返されます。<BR>
+
+<H3><A NAME="generate">list al_symbol_manip("generate", output, compiled_syntax, parse_tree, opt);</A></H3>
+内部表現になった文法compiled_syntaxとパースツリーparse_treeから<BR>
+parseで同じパースツリーが生成されるテキストを生成してoutputに書き込みます。<BR>
+outputの型は書き込みのfileです。<BR>
+テキスト生成エラー場合、エラー情報を含むstringが返ります。エラーのない場合は nullが返ります。<BR>
+<BR>
+デフォルトでは token の間にスペースを1文字入れますが、optに非nullを入れるとスペースを入れません。<BR>
+<BR>
+<H3><A NAME="out_syntax_unit">list al_symbol_manip("out_syntax_unit", output, compiled_syntax, null, opt);</A></H3>
+内部表現になった文法compiled_syntaxからそれに含まれる単位構文の情報を<BR>
+outputの書き込みのfile型ファイルに出力します。<BR>
+<BR>
+opt に opt-/"skelton"/->1 を入れると変換ルールの手助けを行う為の<BR>
+スケルトンも同時に出力されます。<BR>
+
+<PRE>
+<H3><A NAME="syntax">【syntaxの文法】</A></H3>
+
+● 構文
+
+&lt;構文定義&gt; = "&lt;" &lt;構文名&gt; "&gt;" "=" &lt;並列構文&gt; ";" ;
+
+&lt;並列構文&gt; =       &lt;単位構文&gt; { "|" &lt;単位構文&gt; }* ; // ２つにマッチするものは長いものを前に置く
+
+&lt;括弧構文&gt; = { "{" &lt;並列構文&gt; "}*" | "{" &lt;並列構文&gt; "}+" | "{" &lt;並列構文&gt; "}?" | "{" &lt;並列構文&gt; "}" } ;
+
+&lt;単位構文&gt; = &lt;id&gt; { &lt;固定文字列&gt; | &lt;正規表現名&gt; | &lt;構文名&gt; | &lt;括弧構文&gt; }+ ;
+
+● 字句
+
+&lt;正規表現名&gt; = regex &lt;正規表現&gt; &lt;型&gt; ;
+
+&lt;型&gt; = "integer" | "hex" | "char" | "real" | "string" | "quote_string" | "special" ;
+
+&lt;正規表現&gt; = { &lt;単位表現&gt; { "*" | "+" | "?" |
+                            "{" &lt;整数&gt; { "," { &lt;整数&gt; }?  }? "}"
+                          }?
+             }+ ;
+
+&lt;単位表現&gt; = "$" | "." |
+             "(" &lt;正規表現&gt; { "|" &lt;正規表現&gt; }* ")" |
+             "[^" &lt;文字リスト&gt; "]" | "["  &lt;文字リスト&gt; "]" |
+             &lt;文字&gt; ;
+
+&lt;文字リスト&gt; = { &lt;文字&gt; "-" &lt;文字&gt; | &lt;文字&gt; }+ ;
+
+&lt;文字&gt; = &lt;通常文字&gt; | "\" &lt;エスケープ文字&gt; ;
+
+                       // \n 改行
+                       // \M 全角文字
+
+&lt;通常文字&gt; // 下記以外
+
+           "$"  "."  "*"  "+"  "?"  "|"
+           "{"  "}"  "("  ")"  "["  "]"
+           "\"
+
+<H3><A NAME="parse_tree">【compiled_syntaxとparse_teeのデータ構造】</A></H3>
+
+● 構文
+
+&lt;構文定義&gt; = "&lt;" &lt;構文名&gt; "&gt;" "=" &lt;並列構文&gt; ";"
+        compiled_syntax
+                (null)-/構文名/=&gt;("{|}", ...)
+                   or
+                (null)-/構文名/=&gt;(id, ...)
+
+&lt;固定文字列&gt;
+        compiled_syntax
+                ("const", &lt;固定文字列&gt;)
+        parse_tree
+                -
+
+&lt;正規表現&gt;
+        compiled_syntax
+                ("regex", &lt;正規表現&gt;)
+        parse_tree
+                value
+
+&lt;並列構文&gt; = &lt;単位構文&gt; { "|" &lt;単位構文&gt; }*  ";"  // ２つにマッチするものは長いものを前に置く
+        compiled_syntax
+                ("{}", (id-1, ...), ... , (id-n, ...)) // n&gt;1
+                (id-1, ...)                            // n=1
+        parse_tree
+                (id-k, ...)
+
+&lt;括弧構文&gt; = { "{" &lt;並列構文&gt; "}*" | "{"&lt;並列構文&gt; "}+" | "{" &lt;並列構文&gt; "}?" | "{" &lt;並列構文&gt; "}" } ;
+        compiled_syntax
+                ("{}", (id-1, ...), ... , (id-n, ...))
+                ("{}*", ("{}", (id-1, ...), ... , (id-n, ...)))  or  ("{}*", (id, ...))
+                ("{}+", ("{}", (id-1, ...), ... , (id-n, ...)))  or  ("{}+", (id, ...))
+                ("{}?", ("{}", (id-1, ...), ... , (id-n, ...)))  or  ("{}?", (id, ...))
+        parse_tree
+                (id-k1, ...)
+                ("{}*", (id-k1, ...), ... , (id-km, ...))  // m&gt;=0
+                ("{}+", (id-k1, ...), ... , (id-km, ...))  // m&gt;=1
+                ("{}?", (id-k1, ...), ... , (id-km, ...))  // m=0 or m=1
+
+&lt;単位構文&gt; = id { &lt;固定文字列&gt; | &lt;正規表現名&gt; | "&lt;" &lt;構文名&gt; "&gt;" | &lt;括弧構文&gt; }+ ;
+                // idは1文法内でユニーク
+        compiled_syntax
+                (id {, ("const", &lt;固定文字列&gt;) | ("regex", &lt;正規表現名&gt;) |
+                      ("{}", ...)  | ("{}*", ...) | ("{}+", ...) | ("{}?", ...) } + )
+        parse_tree
+                (id, (...), (...), (...), ...)
+
+● 字句
+
+&lt;正規表現&gt; = { &lt;単位表現&gt; { "*" | "+" | "?" |
+                            "{" &lt;整数&gt; { "," { &lt;整数&gt; }?  }? "}"
+                          }?                                     }+ ;
+        compiled_syntax
+                ("regex",  { ('*', unit) | ('+', unit) | ('?', unit) | ('{', n, m, unit) | unit }+ )
+
+&lt;単位表現&gt; = "$" | "." |
+             "(" &lt;正規表現&gt; { "|" &lt;正規表現&gt; }* ")" |
+             "[^" &lt;文字リスト&gt; "]" | "["  &lt;文字リスト&gt; "]" | &lt;文字&gt; ;
+        compiled_syntax
+                ('$') | ('.') |
+                ('(' ("regex", ...) { ("regex", ,,,) }* ) |
+                ('!' ('|' { (b) | (b, e) }+ ) ) |
+                ('[' ('|' { (b) | (b, e) }+ ) )
+                (0, c)
+
+</PRE>
+<HR>
+<H3><A NAME="plisp_load">env al_symbol_manip("plisp_load", env, plisp_tree, null, null);</A></H3>
+prologライクのリスト処理言語のパーズツリー plisp_tree をランタイム環境 env にロードし、<BR>
+新しいランタイム環境  env を返します。引数の env が null だったら env が新しく作られます。<BR>
+または、prologプログラムの parse_tree をロードしてランタイム環境 env にロードし、<BR>
+新しいランタイム環境 env を返します。引数の env が null だったら env が新しく作られます。<BR>
+
+<H3><A NAME="plisp_call">result al_symbol_manip("plisp_call", env, function_name, arg_list, opt);</A></H3>
+ランタイム環境 env で、関数名 function_name の関数を、<BR>
+引数リスト arg_list で実行し、結果を返します。<BR>
+エラーが発生した場合、エラー情報を含む AlException が throw されます。<BR>
+<BR>
+optに opt-/"debug"/->debug を入れるとデバッグ情報がダンプされます。
+<PRE>
+debug に 10,20,30 のいずれかを入れた場合           levelに合わせてすべてのメソッドのデバッグ情報がダンプされます。
+debug に (level, ()-/func_name/=>()) を入れた場合  名前func_name群のメソッドのデバッグ情報だけがダンプされます。
+</PRE>
+
+<H3><A NAME="set_var">env al_symbol_manip("set_var", env, name, value, null);</A></H3>
+altair側からprologライクのリスト処理言語側にデータを渡すための関数です。<BR>
+plisp_call中で set_var(name, value) するのと同じです。<BR>
+環境変数をランタイム環境 env にロードし、新しいランタイム環境  env を返します。<BR>
+
+<H3><A NAME="get_var">list al_symbol_manip("get_var", env, name, null, null);</A></H3>
+prologライクのリスト処理言語側からaltair側にデータを渡すための関数です。<BR>
+plisp_call中の get_var(name) するのと同じです。<BR>
+
+<H3><A NAME="prolog_exec">list al_symbol_manip("prolog_exec", env, null, null, opt);</A></H3>
+prologプログラムを実行します。Successの場合は null が、Failの場合は 1 が返ります。<BR>
+prologライクのリスト処理言語で定義して環境envにロードしてある関数が、prologプログラム中で使えます。<BR>
+Goalだけからなる問い合わせが複数ある場合、頭から順に実行し、<BR>
+ひとつでもFailするとそこで戻り値 1 でリターンします。<BR>
+Successしている間は実行を続け、すべての問い合わせがSuccessの場合だけ戻り値 null でリターンします。<BR>
+途中でエラーが発生した場合、文字列が返ります。<BR>
+<BR>
+このprologの実装方式は、<A HREF="JPA_2000148501.pdf" TARGET="_blank">以下の特許技術</A>を用いています。
+<PRE>
+　　特許出願公開番号　特開2000-148501
+　　公開日　　　　　　平成12年5月30日(2000.5.30)
+
+　　出願番号　特願平10-328834
+　　出願日　　平成10年11月4日(1998.11.4)
+　　出願人　　日本電気株式会社
+　　発明者　　稲本直太
+
+　　発明の名称　グラフ構造データを用いた論理型言語処理系の実現方式
+　　　　　　　　及びコンピュータ制御プログラムを格納した記憶媒体
+</PRE>
+optに opt-/"debug_pred"/->1 を入れると実行中の述語の名前の<BR>
+デバッグ情報がダンプされます。<A HREF="debug_pred.html">出力部分例</A><BR>
+optに opt-/"debug_dump"/->1 を入れると実行中の詳細なグラフ構造データの<BR>
+デバッグ情報がダンプされます。<A HREF="debug_dump.html">出力部分例</A><BR>
+ツリーグラフ変換の attr_grmr関数/inv_attr_grmr関数では、<BR>
+optは、prolog_execの引数でなく、<BR>
+attr_grmr関数/inv_attr_grmr関数の引数である事に注意してください。<BR>
+<BR>
+以下は、plisp_call中で呼び出された、<BR>
+ツリーグラフ変換の attr_grmr関数/inv_attr_grmr関数で出力される詳細ログです。<BR>
+optは、prolog_execの引数でなく、<BR>
+attr_grmr関数/inv_attr_grmr関数の引数である事に注意してください。<BR>
+<BR>
+optに opt-/"debug_syn"/->1 を入れるとツリーグラフ変換中の文法変数の<BR>
+デバッグ情報(単位文法に入った出た等)がダンプされます。<A HREF="debug_syn.html">出力部分例</A><BR>
+optに opt-/"debug_syn2"/->1 を入れるとツリーグラフ変換中の文法変数の<BR>
+デバッグ情報(制御情報等)がダンプされます。<A HREF="debug_syn2.html">出力部分例</A><BR>
+optに opt-/"debug_syn3"/->1 を入れるとツリーグラフ変換中の文法変数の<BR>
+デバッグ情報(制御の末端情報等)がダンプされます。<A HREF="debug_syn3.html">出力部分例</A><BR>
+<BR>
+optに opt-/"debug_syntax_id"/->id を入れるとツリーグラフ変換中の指定した文法単位に着目した情報がダンプされます。<BR>
+optに opt-/"debug_syntax_id2"/->id を入れるとツリーグラフ変換中の指定した文法単位に着目した情報がダンプされます。<BR>
+optに opt-/"debug_syntax_id3"/->id を入れるとツリーグラフ変換中の指定した文法単位に着目した情報がダンプされます。<BR>
+ダンプされる情報は、debug_pred, debug_synですが、<BR>
+debug_syntax_id2は、debug_syn2, debug_syn3が加わり、<BR>
+debug_syntax_id3は、debug_dumpが加わります。<BR>
+<BR>
+Prologライクリスト処理言語中の「inv_attr_grmr(グラフ構造データからパースツリーに変換)」関数中で<BR>
+エラーが発生した場合、<A HREF="debug_rule.html">この様なエラーログ</A>が出力されます。<BR>
+ログの最後の方にある、<BR>
+<PRE>
+	 (in function 'inv_attr_grmr')
+	
+	StackTrace:
+		ParGenConv::plisp_call
+		ParGenConv::graph_to_tree
+</PRE>
+は、クラスライブラリ ParGenConv の 双方向グラフ構造データから 単方向 Lisp２進木データへの、<BR>
+変換に失敗していることを表します。<BR>
+ログの最初の所にある、<BR>
+<PRE>
+	graph_to_tree: runtime: lack of information for resolve.
+		if1(10)
+		loop1(8)
+		if2(7)
+		loop1(5)
+	tree converion error: syntax_id = prim
+		. . . 
+	graph = ("mem_func")
+	-/"arg_ls"/->("arg_ls")
+	-/"name"/->("test")
+	-/"obj"/->("ident")
+		-/"name"/->("tp")
+</PRE>
+は、単位文法 prim 中で、変換が何らかの原因のため、<BR>
+("mem_func") 以下のグラフ構造データで<BR>
+グラフ構造データからLisp２進木データへの変換に失敗している事を表します。<BR>
+ツリーグラフ変換ルール中の、<BR>
+loop1 の５番め、if2 の７番目、loop1 の８番目、if1 の１０番目で、<BR>
+述語が一つも解決出来なかった事を示します。<BR>
+<BR>
+デバッグオプションで、debug_pred, debug_syn をチェックして変換してみると<BR>
+<A HREF="debug_ana_rule.html">この様なデバッグ用のログ</A>が生成されます。<BR>
+<BR>
+デバッグオプションで、debug_syntax_id2とdebug_syntax_id3 をチェックし、<BR>
+単位文法にprimを入れて変換してみると<BR><A HREF="debug_ana2_rule.html">この様なデバッグ用のログ</A>が生成されます。<BR>
+
+
+<H3><A NAME="clear_query">al_symbol_manip("clear_query", env, null, null, null);</A></H3>
+ロードしたprologプログラムのうち、HeadとBodyからなるRuleはそのままにして<BR>
+Goalだけからなる問い合わせをランタイム環境 env から削除します。<BR>
+
+<H3><A NAME="clear_pred">al_symbol_manip("clear_pred", env, null, null, null);</A></H3>
+ロードしたprologプログラムのうち、GoalだけからなるQueryはそのままにして<BR>
+HeadとBodyからなるRuleをランタイム環境 env から削除します。<BR>
+
+<H3><A NAME="ls_pred">al_symbol_manip("ls_pred", env, null, null, null);</A></H3>
+ロードしたprologプログラムのうち、定義された述語の一覧を返します。<BR>
+
+<H3><A NAME="plisp_max_call">al_symbol_manip("plisp_max_call", count, null, null, null);</A></H3>
+prologライクのリスト処理言語の関数コールの最大ネスト数を integer count で指定される値に設定します。<BR>
+この値を超えると stack overflow の例外が発生します。デフォルトは、1024です。<BR>
+count に null を入れると現在の設定値が返ります。<BR>
+
+<H3><A NAME="prolog_max_call">al_symbol_manip("prolog_max_call", count, null, null, null);</A></H3>
+prologプログラムで述語を展開する最大ネスト数を integer count で指定される値に設定します。<BR>
+この値を超えると stack overflow の例外が発生します。デフォルトは、1024です。<BR>
+count に null を入れると現在の設定値が返ります。<BR>
+
+<PRE>
+<H3><A NAME="system_syntax">【Prologライクリスト処理言語・拡張Prolog言語処理系の文法】</A></H3>
+&lt;program&gt; = {  &lt;func_def&gt; | &lt;syntax_unit&gt; | &lt;prolog&gt; }* EOF ;
+
+&lt;func_def&gt; = &lt;ident&gt; "(" { &lt;ident&gt; { "," &lt;ident&gt; }* }? ")" { &lt;para&gt; | &lt;prog&gt; };
+
+&lt;syntax_unit&gt; = &lt;ident&gt; ":" &lt;list_exp&gt; "attr_grmr"   { "{" &lt;prolog&gt; "}" | &lt;stat&gt; } ;
+
+/* -------- Prolog-Like List Processing -------- */
+&lt;para&gt; = "{" { &lt;sent&gt; }* "}" ;
+&lt;sent&gt; = &lt;cond&gt; "->" { &lt;cond&gt; ";" | { &lt;cond&gt; "," }? &lt;para&gt; } ;
+&lt;cond&gt; = &lt;or_exp&gt; { "," &lt;or_exp&gt; }* ;
+
+/* -------- General Program -------- */
+&lt;prog&gt; = "prog" &lt;stat&gt; ;
+&lt;stat&gt; = &lt;block_stat&gt; | &lt;if_stat&gt; | &lt;return&gt; | &lt;while_stat&gt; |
+         &lt;for_range_stat&gt; | &lt;for_list_stat&gt; |
+         &lt;for_stat&gt; | &lt;inv_for_stat&gt; | &lt;switch_stat&gt; |
+         &lt;exp_stat&gt; ;
+&lt;block_stat&gt;     = "{" { &lt;stat&gt; }* "}" ;
+&lt;if_stat&gt;        = "if" "(" &lt;exp&gt; ")" &lt;stat&gt; { "else" &lt;stat&gt; }? ;
+&lt;while_stat&gt;     = "while" "(" &lt;exp&gt; ")" &lt;stat&gt; ;
+&lt;for_range_stat&gt; = "for" &lt;ident&gt; "in" "[" &lt;add_exp&gt; ".." &lt;add_exp&gt; "]" &lt;stat&gt; ;
+&lt;for_list_stat&gt;  = "for" &lt;ident&gt; "in" &lt;exp&gt;                            &lt;stat&gt; ;
+&lt;for_stat&gt;       = "for" "(" &lt;exp&gt; ")" &lt;stat&gt; ;
+&lt;inv_for_stat&gt;   = "inv_for" "(" &lt;exp&gt; ")" &lt;stat&gt; ;
+&lt;switch_stat&gt;    = "switch" "(" &lt;exp&gt; ")" "{" { "case" &lt;exp&gt; ":" { &lt;stat&gt; }* }* "}" ;
+&lt;return&gt;         = "return" { &lt;exp&gt; }? ";" ;
+&lt;exp_stat&gt;       = &lt;exp&gt; ";" ;
+
+/* -------- General Expression -------- */
+&lt;exp&gt;      = &lt;asgn_exp&gt; ;
+&lt;asgn_exp&gt; = { &lt;var&gt; "=" }* &lt;or_exp&gt; ;
+&lt;or_exp&gt;   = &lt;and_exp&gt; { "||" &lt;and_exp&gt; }* ;
+&lt;and_exp&gt;  = &lt;cmp_exp&gt; { "&&" &lt;cmp_exp&gt; }* ;
+&lt;cmp_exp&gt; = &lt;list_exp&gt; { &lt;cmp_op&gt; &lt;list_exp&gt; }? ;
+&lt;cmp_op&gt;  = "===" | "==" | "!=" | ">=" | ">" | "<=" | "<" ;
+
+&lt;list_exp&gt;  = "(" &lt;list_elem&gt; { "," &lt;list_elem&gt;  }* ")" | &lt;add_exp&gt;  ;
+&lt;list_elem&gt; = &lt;list_exp&gt; "..." | "..." | &lt;list_exp&gt; ;
+&lt;add_exp&gt;  = &lt;mul_exp&gt;  { { "+" | "-" } &lt;mul_exp&gt;  }* ;
+&lt;mul_exp&gt;  = &lt;prim_exp&gt; { { "*" | "/" | "%" } &lt;prim_exp&gt; }* ;
+&lt;prim_exp&gt; = "null" | "true" | "break" | "continue" | "next" |
+             &lt;integer&gt; | &lt;string&gt; | "-" &lt;mul_exp&gt; | "!" &lt;mul_exp&gt; | &lt;func_exp&gt; |
+             "++" &lt;var&gt; | "--" &lt;var&gt; | &lt;var&gt; "++" | &lt;var&gt; "--" |
+             &lt;var&gt; | &lt;syn_var&gt; | "(" &lt;exp&gt; ")" | "*" ;
+&lt;func_exp&gt; = &lt;ident&gt; "(" { &lt;exp&gt; { "," &lt;exp&gt; }* }? ")" ;
+&lt;var&gt; = &lt;ident&gt; | "$$" | &lt;syn_loc&gt; | &lt;syn_gen&gt; | &lt;syn_tree&gt; |
+        &lt;depth&gt; | &lt;count&gt; ;
+
+&lt;syn_var&gt;  = "$" { "[" &lt;integer&gt; "]" }+ ;
+&lt;syn_loc&gt;  = regex \$[1-9]  string ;
+&lt;syn_gen&gt;  = regex \$gen    string ;
+&lt;syn_tree&gt; = regex \$tree   string ;
+&lt;depth&gt;    = regex \$depth  string ;
+&lt;count&gt;    = regex \$count  string ;
+
+&lt;ident&gt;   = regex [A-Za-z_\M][A-Za-z0-9_\M]* string ;
+&lt;integer&gt; = regex \-?[0-9]+ integer ;
+&lt;string&gt;  = regex "([^\\"]|\\.)*" quote_string ;
+
+// &lt;comment_1&gt; = comment /\*([^\*]|\*[^/])*\*/ ;
+// &lt;comment_2&gt; = comment //[^\n]*\n ;
+&lt;comment_1&gt; = comment_begin_end "/*" "*/" ;
+&lt;comment_2&gt; = comment_until_newline "//" ;
+
+/* -------- GraphData-Extended Prolog -------- */
+&lt;prolog&gt; = { &lt;goal&gt; ":-" { &lt;goals&gt; }? "." | &lt;goals&gt; "." }+ ;
+&lt;goals&gt; = &lt;goal&gt; { "," &lt;goal&gt; }* ;
+&lt;goal&gt;  = "not" "(" &lt;goals&gt; ")" |
+          "brk_true_if"  "(" &lt;goals&gt; ")" |
+          "brk_false_if" "(" &lt;goals&gt; ")" |
+          "cont_if"      "(" &lt;goals&gt; ")" |
+          "last"         "(" &lt;goals&gt; ")" |
+          "pm_rep"   "(" &lt;list_exp&gt; { "," &lt;list_exp&gt; }* ")"
+            { &lt;before&gt; &lt;after&gt; &lt;common&gt; &lt;error&gt; }+ &lt;final&gt; |
+          &lt;list_exp&gt; &lt;cmp_op&gt; &lt;grph_exp&gt; |
+          { "!" }? &lt;ident&gt; "(" &lt;list_exp&gt; { "," &lt;list_exp&gt; }* ")" ;
+
+/* -------- (Tree Graph Conversion) -------- */
+&lt;grph_exp&gt; = &lt;list_exp&gt; {
+                   "[" "-/" &lt;list_exp&gt; "/->" "null" "]" |
+                   "[" "-/" &lt;list_exp&gt; "/->" &lt;grph_exp&gt; "]" 
+             }* ;
+
+/* -------- (Sub-Graph PatturnMatch and Replacement) -------- */
+&lt;before&gt;  = "before" ":=" "{" &lt;sub_graph&gt; { "," &lt;sub_graph&gt; }* "}" ;
+&lt;after&gt;   = "after"  ":=" "{" &lt;sub_graph&gt; { "," &lt;sub_graph&gt; }* "}" ;
+
+&lt;common&gt;  = "common" ":=" "{" "where" { { &lt;goals&gt; }? "." }+ "}" ;
+&lt;error&gt;   = "error"  ":=" "{" "where" { { &lt;goals&gt; }? "." }+ "}" ;
+&lt;final&gt;   = "final"  ":=" "{" "where" { { &lt;goals&gt; }? "." }+ "}" ;
+
+&lt;sub_graph&gt; = "invariant" |
+              { "?" }? &lt;node&gt;  {
+                     "-/" &lt;arc&gt;  "/->" |
+                     "-/" &lt;arc&gt;  "/=>" |
+                    "<-/" &lt;arc&gt;  "/-"  |
+                    "<-/" &lt;arc&gt;  "/="
+              } &lt;node&gt; { "?" }? |
+              &lt;node&gt; ;
+
+&lt;node&gt; = &lt;ident&gt; { ":" &lt;list_exp&gt; }? | &lt;list_exp&gt; ;
+&lt;arc&gt;  = &lt;ident&gt; { ":" &lt;list_exp&gt; }? | &lt;list_exp&gt; ;
+</PRE>
+
+<H3><A NAME="plisp_sysfunc">【Prologライクリスト処理言語の組み込み関数】</A></H3>
+<PRE>
+ set_var(name, value)           グローバル変数に値を代入し、1を返します。
+ get_var(name)                  グローバル変数から値を取得します。
+                                set_var せず get_var すると Exception が発生します。
+ ifdef_var(name)                グローバル変数が未定義ならnullが、既定義なら1が返ります。
+ undef_var(name)                グローバル変数が既定義なら未定義に戻し、1を返します。
+
+ set_ary(array, idx_ls, value)  配列 array の インデックスリスト idx_ls で指定される要素に値を代入します。
+ get_ary(array, idx_ls)         配列 array の インデックスリスト idx_ls で指定される要素から値を取得します。
+                                arrayは非nullの任意のオブジェクトで構いません。 
+                                インデックスには整数だけでなく文字列・任意リストも使えます。
+
+ attr_grmr(full_parse_tree, attr_grmr, opt)
+                                単方向リスト構造のフルパースツリー full_parse_tree から
+                                prologライクの双方向ルール attr_grmr で双方向グラフ構造データ graph を生成します。
+                                al_symbol_manip("out_syntax_unit", ...)で構文の文法部分のスケルトンが出ます。
+ inv_attr_grmr(graph, attr_grmr, syntax, id, opt)
+                                双方向グラフ構造データ graph から prologライクの双方向ルール attr_grmr で
+                                単方向リスト構造のフルパースツリー full_parse_tree を生成します。
+                                al_symbol_manip("out_syntax_unit", ...)で構文の文法部分のスケルトンが出ます。
+
+ write(msg, value)              文字列のメッセージmsgとともにリストデータvalueをプリントします。
+ dump(value, print_addr)        グラフデータvalueをプリントします。
+                                print_addr に非nullを入れるとノードのアドレスもダンプした文字列を返します。
+ stop(message)                  メッセージを出力して実行を中止します。
+
+ gcd(a, b)                      ２つの整数 a と b の最大公約数を返します。
+ gcd_ex(a, b)                   拡張ユークリッド互除法を行い a*x+b*y=gcdとなるx,y,gcdを
+                                 (gcd, x, y)の形式で返します。
+ inv_mod_m(a, m)                mod m での a の逆数を返します。
+ crt(a, m, b, n)                x = a (mod m), x = b (mod n) の解xを返します。
+ factor(a)                      整数aの因子のリストを返します。
+ next_prime(p)                  整数pより大きい素数を返します。
+
+ eval_script(script, args)      アルタイルスクリプトを実行します。
+                                al_script("eval", script, args); と等価です。
+ append(x, y)                   リストxの後にリストyを付け足したリストを返します。
+ member(elem, ls)               リストlsに要素elemが含まれている場合は1を含まれて居ない場合はnullを返します。
+ length(ls)                     リストlsの長さを返します。
+ starts_with(s1, s2)            文字列s1が文字列s2で始まるとき非null、そうでないときnullを返します。
+ ends_with(s1, s2)              文字列s1が文字列s2で終わるとき非null、そうでないときnullを返します。
+
+ math( ... )                    数式処理の組み込み関数を呼び出します。<A HREF="almath.html">参照</A>
+
+ unq_str()                      クイックソートにより文字列比較をアドレス比較で比較できる
+                                $$&lt;シーケンス番号&gt;で表されるユニークな文字列を返します。
+</PRE>
+
+<H3><A NAME="prolog_sysfunc">【拡張Prolog言語処理系の組み込み関数】</A></H3>
+<PRE>
+ cons(h, t)                    Lispのconsです。
+ append(x, y)                  リスト x の後にリスト y を付け足したリストを返します。
+ member(x, y)                  リスト y に 要素 x が含まれている場合は 1 を含まれて居ない場合は null を返します。
+
+ write( ... ) == r             引数の値をプリントします。引数の個数は可変です。
+                               r が 0 の場合は必ず最後に実行され、Failします。
+                               r が 1 の場合は必ず最後に実行され、Successします。
+                               r が -1 の場合は引数が定義された段階で実行され、Failします。
+                               r が 2 の場合は引数が定義された段階で実行され、Successします。
+
+ dump(graph, print_addr)       グラフデータをツリー状にしてダンプした文字列を返します。
+                               print_addr に非nullを入れるとノードのアドレスもダンプした文字列を返します。
+                               必ず最後から１つ前に実行されます。
+
+ dst_node(src, attr)           グラフデータのノードsrcから属性attrの出力アーク先のノードを返します。
+                               存在しない場合はnullが返ります。
+
+ must_be(value, expect)        valueがリストとしてexpectに等しくない場合Exceptionを発生します。
+                               この関数は１を返します。
+
+ var(name, value)              グローバル変数nameから値をvalueにゲット、
+                               またはグローバル変数nameに値valueのセットをします。
+                               この関数は１を返します。
+ undef(name) == r              グローバル変数nameに値を既定義から未定義に戻します。
+                               r が 0 の場合、グローバル変数が未定義でも、Successします。
+                               r が 1 の場合、グローバル変数が未定義なら、Failします。
+
+</PRE>
+<HR>
+</BODY>
+</HTML>

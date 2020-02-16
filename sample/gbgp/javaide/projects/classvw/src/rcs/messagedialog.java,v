@@ -1,0 +1,87 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	99.01.29.11.18.18;	author inamoto;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	99.01.29.10.07.24;	author inamoto;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@jdk1.1.6 -> jdk1.2
+@
+text
+@
+/* $Id: $ */
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Dimension;
+import java.awt.Point;
+
+public class MessageDialog extends JDialog {
+    public MessageDialog(JFrame f, String msg) {
+        super(f, "", true);
+        JLabel label = new JLabel(msg);
+
+        JPanel panel = new JPanel();
+        JButton ok = new JButton("OK");
+        panel.setLayout(new FlowLayout());
+        panel.add(ok);
+
+        getContentPane().setLayout(new BorderLayout());
+        getContentPane().add("Center", label);
+        getContentPane().add("South", panel);
+
+        setSize(new Dimension(300, 100));
+        setLocation(new Point(100, 100));
+
+        ok.addActionListener( new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        } );
+    }
+};
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d2 1
+a2 2
+import com.sun.java.swing.JFrame;
+import com.sun.java.swing.JPanel;
+d4 6
+a9 3
+import com.sun.java.swing.JDialog;
+import com.sun.java.swing.JLabel;
+import com.sun.java.swing.JButton;
+@

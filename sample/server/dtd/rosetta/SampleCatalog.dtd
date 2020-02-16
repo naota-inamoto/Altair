@@ -1,0 +1,7 @@
+
+<!ELEMENT SampleCatalog (Target, Product*)>
+
+<!ELEMENT Target (#PCDATA)>
+
+<!ELEMENT Product (ProductName)>
+<!ELEMENT ProductName  (#PCDATA)>

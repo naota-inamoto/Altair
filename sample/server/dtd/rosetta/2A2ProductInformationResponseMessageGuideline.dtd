@@ -1,0 +1,255 @@
+<!--
+
+   RosettaNet XML Message Guideline.
+   http://www.rosettanet.org
+   PIP 2 A2 Product Information Response
+   Version 1.0
+   
+   Created using Edifecs Commerce SpecBuilder. 
+   http://www.edifecs.com
+   http://www.commercedesk.com
+   Build # 9
+-->
+
+
+<!ENTITY % common-attributes "id  CDATA #IMPLIED" >
+ 
+<!ELEMENT Pip2A2ProductInformationResponse ( 
+          SalesCatalog ,
+          GlobalDocumentFunctionCode ,
+          requestingDocumentDateTime ,
+          requestingDocumentIdentifier ,
+          thisDocumentIdentifier ,
+          toRole ,
+          fromRole ,
+          thisDocumentGenerationDateTime ) > 
+
+<!ELEMENT SalesCatalog ( 
+          ProductLineItem+ ) > 
+
+<!ELEMENT ProductLineItem ( 
+          authorizationPrerequirements ,
+          minimumOrderQuantity ,
+          allowancesAndCharges? ,
+          warrantyDescription ,
+          productUnit ,
+          GlobalRegulationCode ,
+          PalletDescription ,
+          countryOfOrigin? ,
+          productAvailableInCountries+ ,
+          unitPrice ,
+          SpecialHandlingInstruction ,
+          TaxAmount? ) > 
+
+<!ELEMENT authorizationPrerequirements
+           ( FreeFormText ) > 
+
+<!ELEMENT FreeFormText
+           ( #PCDATA ) >
+<!ATTLIST FreeFormText
+           xml:lang CDATA #IMPLIED >
+
+<!ELEMENT minimumOrderQuantity
+           ( ProductQuantity ) > 
+
+<!ELEMENT ProductQuantity
+           ( #PCDATA ) >
+
+<!ELEMENT allowancesAndCharges
+            ( FinancialAmount ) > 
+
+<!ELEMENT FinancialAmount ( 
+          GlobalCurrencyCode ,
+          MonetaryAmount ) > 
+
+<!ELEMENT GlobalCurrencyCode
+           ( #PCDATA ) >
+
+<!ELEMENT MonetaryAmount
+           ( #PCDATA ) >
+
+<!ELEMENT warrantyDescription
+            ( FreeFormText ) > 
+
+<!ELEMENT productUnit
+            ( ProductPackageDescription ) > 
+
+<!ELEMENT ProductPackageDescription ( 
+          ProductDescription ) > 
+
+<!ELEMENT ProductDescription ( 
+          TextualDescription ,
+          productName ,
+          GlobalProductIdentifier ,
+          ProprietaryProductIdentifier ,
+          GlobalSerialIdentifier ,
+          PhysicalDimension ,
+          ProprietaryProductClassificationCode? ,
+          GlobalProductClassificationCode? ) > 
+
+<!ELEMENT TextualDescription ( 
+          primary ,
+          summary ) > 
+
+<!ELEMENT primary
+            ( FreeFormText ) > 
+
+<!ELEMENT summary
+            ( FreeFormText ) > 
+
+<!ELEMENT productName
+            ( FreeFormText ) > 
+
+<!ELEMENT GlobalProductIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT ProprietaryProductIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalSerialIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT PhysicalDimension ( 
+          LengthDimension* ,
+          WidthDimension* ,
+          HeightDimension* ,
+          WeightDimension+ ) > 
+
+<!ELEMENT LengthDimension
+           ( #PCDATA ) >
+<!ATTLIST LengthDimension
+           unit-of-measure    CDATA #REQUIRED>
+
+<!ELEMENT WidthDimension
+           ( #PCDATA ) >
+<!ATTLIST WidthDimension
+           unit-of-measure    CDATA #REQUIRED>
+
+<!ELEMENT HeightDimension
+           ( #PCDATA ) >
+<!ATTLIST HeightDimension
+           unit-of-measure    CDATA #REQUIRED>
+
+<!ELEMENT WeightDimension
+           ( #PCDATA ) >
+<!ATTLIST WeightDimension
+           unit-of-measure    CDATA #REQUIRED>
+
+<!ELEMENT ProprietaryProductClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalProductClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalRegulationCode
+           ( #PCDATA ) >
+
+<!ELEMENT PalletDescription ( 
+          PhysicalDimension ,
+          palletQuantity ) > 
+
+<!ELEMENT palletQuantity
+            ( ProductQuantity ) > 
+
+<!ELEMENT countryOfOrigin
+           ( GlobalCountryCode ) > 
+
+<!ELEMENT GlobalCountryCode
+           ( #PCDATA ) >
+
+<!ELEMENT productAvailableInCountries
+            ( GlobalCountryCode ) > 
+
+<!ELEMENT unitPrice
+            ( FinancialAmount ) > 
+
+<!ELEMENT SpecialHandlingInstruction ( 
+          GlobalSpecialHandlingCode ) > 
+
+<!ELEMENT GlobalSpecialHandlingCode
+           ( #PCDATA ) >
+
+<!ELEMENT TaxAmount ( 
+          FinancialAmount ,
+          taxingCountry ,
+          taxingCity? ,
+          taxingRegion? ) > 
+
+<!ELEMENT taxingCountry
+            ( GlobalCountryCode ) > 
+
+<!ELEMENT taxingCity
+            ( FreeFormText ) > 
+
+<!ELEMENT taxingRegion
+            ( FreeFormText ) > 
+
+<!ELEMENT GlobalDocumentFunctionCode
+           ( #PCDATA ) >
+
+<!ELEMENT requestingDocumentDateTime
+           ( DateTimeStamp ) > 
+
+<!ELEMENT DateTimeStamp
+           ( #PCDATA ) >
+
+<!ELEMENT requestingDocumentIdentifier
+           ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT ProprietaryDocumentIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT thisDocumentIdentifier
+            ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT toRole
+            ( PartnerRoleDescription ) > 
+
+<!ELEMENT PartnerRoleDescription ( 
+          GlobalPartnerRoleClassificationCode ,
+          PartnerDescription ,
+          ContactInformation? ) > 
+
+<!ELEMENT GlobalPartnerRoleClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT PartnerDescription ( 
+          GlobalPartnerClassificationCode ,
+          BusinessDescription ) > 
+
+<!ELEMENT GlobalPartnerClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT BusinessDescription ( 
+          GlobalBusinessIdentifier ,
+          GlobalSupplyChainCode ) > 
+
+<!ELEMENT GlobalBusinessIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalSupplyChainCode
+           ( #PCDATA ) >
+
+<!ELEMENT fromRole
+            ( PartnerRoleDescription ) > 
+
+<!ELEMENT ContactInformation ( 
+          contactName ,
+          telephoneNumber ,
+          EmailAddress ) > 
+
+<!ELEMENT contactName
+            ( FreeFormText ) > 
+
+<!ELEMENT telephoneNumber
+           ( CommunicationsNumber ) > 
+
+<!ELEMENT CommunicationsNumber
+           ( #PCDATA ) >
+
+<!ELEMENT EmailAddress
+           ( #PCDATA ) >
+
+<!ELEMENT thisDocumentGenerationDateTime
+            ( DateTimeStamp ) > 
+

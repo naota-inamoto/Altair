@@ -1,0 +1,272 @@
+
+/* -------- 多項式/有理式のパースツリー --------
+ (add_1,   <exp>, ("{}*" {, (add_n, { (add) | (sub) } , <exp> ) }* ) )
+ (mul_1,   <exp>, ("{}*" {, (mul_n, { (mul) | (div) } , <exp> ) }* ) )
+ (power_1, <exp>, ("{}?" {, (power_n,  <exp> ) }? ) )
+ (power_2, <exp>, ("{}?" {, (power_n,  <exp> ) }? ) )
+ (const, <const> ("{}*" {, d, <const> } ))
+ (neg, <exp>)
+ (func_exp, <name>, ("{}?" {, (a_1, <exp>, ("{}*" {, a_n, <exp> }* )) }? ) )
+ (var_exp,  <name>, ("{}*" {, index, <exp> }* ) )
+ (braket, <exp>)
+ */
+
+/* -------- パースツリーから多項式/有理式の内部データへの変換 -------- */
+tree_to_alist(tree) {
+  tree == null -> ("poly", (((0, 1), null, null)), null);
+  tree == (h, t...) -> {
+    h == "add_1"    -> add_1_to_alist(t);
+    h == "mul_1"    -> mul_1_to_alist(t);
+    h == "power_1"  -> power_1_to_alist(t);
+    h == "power_2"  -> power_1_to_alist(t);
+    h == "mat_1"    -> mat_1_to_alist(t);
+    h == "const"    -> {
+      t == (c1, (*))        -> ("poly", (((c1, 1), null, null)), null);
+      t == (c1, (*, (*,1))) -> ("poly", (((c1, 1), null, null)), null);
+      t == (c1, (*, (*, c2))), gcd == gcd(c1, c2), c11 == c1 / gcd, c22 == c2 / gcd -> {
+        c22 < 0 -> ("poly", (((-c11, -c22), null, null)), null);
+        c22 > 0 -> ("poly", ((( c11,  c22), null, null)), null);
+      }
+    }
+    h == "neg"      -> t == (e), mul_alist(tree_to_alist(e), ("poly", (((-1, 1), null, null)), null));
+    h == "func_exp" -> func_exp_to_alist(t);
+    h == "var_exp"  -> var_exp_to_alist(t);
+    h == "braket"   -> t == (e), tree_to_alist(e);
+    true -> null;
+  }
+}
+add_1_to_alist(l) {
+  l == (e, (*, t...)) -> add_n_to_alist(tree_to_alist(e), t);
+}
+add_n_to_alist(a1, l) {
+  l == null -> a1;
+  l == ((*, (op), e), t...) -> {
+    op == "add" -> add_n_to_alist(add_alist(a1, tree_to_alist(e)), t);
+    op == "sub" -> add_n_to_alist(sub_alist(a1, tree_to_alist(e)), t);
+  }
+}
+mul_1_to_alist(l) {
+  l == (e, (*, t...)) -> mul_n_to_alist(tree_to_alist(e), t);
+}
+mul_n_to_alist(a1, l) {
+  l == null -> a1;
+  l == ((*, (op), e), t...) -> {
+    op == "mul" -> mul_n_to_alist(mul_alist(a1, tree_to_alist(e)), t);
+    op == "div" -> mul_n_to_alist(div_alist(a1, tree_to_alist(e)), t);
+  }
+}
+power_1_to_alist(l) {
+  l == (e1, (*, (*, e2))),  a1 == tree_to_alist(e1), a2 == tree_to_alist(e2) -> {
+    a2 == (*, (((c, 1), null, null)), opt) -> {
+      c < 0 -> div_alist(const(1), power_c_to_alist(a1, -c));
+      true  -> power_c_to_alist(a1, c);
+    }
+    true ->
+      f1 == mul_alist(a2, ("poly", (((1, 1), null, (("func", "log", (a1), 1)))), null)),
+      ("poly", (((1, 1), null, (("func", "exp", (f1), 1)))), null);
+  }
+}
+power_c_to_alist(a1, c) prog {
+  ret = ("poly", (((1, 1), null, null)), null);
+  for i in [1..c] {
+    ret = mul_alist(ret, a1);
+  }
+  ret;
+}
+mat_1_to_alist(l) {
+  l == (e, (*, t...)) -> ary == unq_str(),
+    n == mat_n_to_alist(ary, 0, tree_to_alist(e), t),
+    ("mat", n, ary);
+}
+mat_n_to_alist(ary, n, a1, l) {
+  set_ary(ary, (n), a1) -> {
+    l == null -> n+1;
+    l == ((*, e), t...) -> mat_n_to_alist(ary, n+1, tree_to_alist(e), t);
+  }
+}
+var_exp_to_alist(t) {
+  t == (name, (*, il...)), idx == var_exp_idx_ls(il),
+  ret == ("poly", (((1, 1), (("var", name, idx, 1)), null)), null) -> {
+    ifdef_var(name) -> {
+      idx == null -> get_var(name);
+      true -> ("mat", n, ary) == get_var(name),
+        ary_elem(ret, ary, n, idx);
+    }
+    true -> ret;
+  }
+}
+var_exp_idx_ls(il) {
+  il == null -> null;
+  il == (("index", e), t...), idx == tree_to_alist(e) -> {
+    idx == ("poly", (((i, 1), null, null)), null) -> (i, var_exp_idx_ls(t)...);
+    true -> (idx, var_exp_idx_ls(t)...);
+  }
+}
+ary_elem(ret, ary, n, idx) {
+  idx == (i, idx2...) -> {
+    i == ("poly", ...) -> ret;
+    0 <= i, i < n, val == get_ary(ary, (i)) -> {
+      idx2 == null -> val;
+      val == ("mat", n2, ary2) -> ary_elem(ret, ary2, n2, idx2);
+    }
+  }
+}
+func_exp_to_alist(t) {
+  t == (name, (*, al...)) -> {
+    al == null -> func_exp_check(name, null);
+    al == (("a_1", h, (*, alt...))), al2 == (tree_to_alist(h), func_exp_arg_ls(alt)...)
+      -> func_exp_check(name, al2);
+    al == (h, ...), al2 == (tree_to_alist(h))
+      -> func_exp_check(name, al2);
+  }
+}
+func_exp_arg_ls(alt) {
+  alt == null -> null;
+  alt == ((*, h), t...) -> (tree_to_alist(h), func_exp_arg_ls(t)...);
+}
+func_exp_check(name, al) {
+  name == "transpose", al == (a) -> mat_transpose(a);
+  name == "determinant", al == (a) -> mat_determinant(a);
+  name == "inverse", al == (a) -> mat_inverse(a);
+  name == "diff" -> eval_diff(al);
+  name == "coords", al == (x) -> eval_coords(x), x;
+  name == "ezgcd", al == (x) -> ezgcd(x);
+  true -> ("poly", (((1, 1), null, (("func", name, al, 1)))), null);
+}
+
+/* -------- 多項式/有理式の内部データからパースツリーへの変換 -------- */
+alist_to_tree(e) {
+  e == ("rat", t...) ->
+    t == ((*, pt1, opt1), (*, pt2, opt2)),
+    m == poly_to_tree_m(pt1),
+    d == poly_to_tree_d(pt2),
+    ("mul_1", m, ("{}*", ("mul_n", ("div"), d)));
+  e == ("poly", t, opt) -> poly_to_tree(t);
+  e == ("mat", n, ary) -> mat_to_tree(0, n, ary);
+}
+poly_to_tree_m(pt) {
+  a == poly_to_tree(pt) -> {
+    a == ("add_1", ...) -> ("braket", a);
+    true -> a;
+  }
+}
+poly_to_tree_d(pt) {
+  a == poly_to_tree(pt) -> {
+    a == ("add_1", ...) -> ("braket", a);
+    a == ("mul_1", ...) -> ("braket", a);
+    true -> a;
+  }
+}
+poly_to_tree(pt) {
+  pt == null -> ("const", 0, ("{}?"));
+  pt == (h, t...) -> {
+    t == null -> term_to_tree(h);
+    true -> ("add_1", term_to_tree(h), ("{}*", poly_to_tree2(t)...));
+  }
+}
+poly_to_tree2(l) {
+  l == null -> null;
+  l == (((c1, c2), vl, fl), t...) -> {
+    c1 >= 0 -> (("add_n", ("add"), term_to_tree((( c1, c2), vl, fl))), poly_to_tree2(t)...);
+    true    -> (("add_n", ("sub"), term_to_tree(((-c1, c2), vl, fl))), poly_to_tree2(t)...);
+  }
+}
+term_to_tree(trm) {
+  trm == ((c1, c2), vl, fl) -> {
+    c2 == 1 -> {
+      vl == null, fl == null -> ("const", c1, ("{}?"));
+      vl == null -> {
+        c1 == 1 -> fl == (f, flt...), {
+          flt == null -> f_to_tree(f);
+          true        -> ("mul_1", f_to_tree(f), ("{}*", fl_to_tree(flt)...));
+        }
+        c1 < 0 -> ("neg", term_to_tree(((-c1, 1), null, fl)) );
+        true   -> ("mul_1", ("const", c1, ("{}?")), ("{}*", fl_to_tree(fl)...));
+      }
+      fl == null -> {
+        c1 == 1 -> vl == (v, vlt...), {
+          vlt == null -> v_to_tree(v);
+          true        -> ("mul_1", v_to_tree(v), ("{}*", vl_to_tree(vlt)...));
+        }
+        c1 < 0 -> ("neg", term_to_tree(((-c1, 1), vl, null)) );
+        true   -> ("mul_1", ("const", c1, ("{}?")), ("{}*", vl_to_tree(vl)...));
+      }
+      true -> {
+        c1 == 1 ->
+          vl == (v, vlt...),
+          ("mul_1", v_to_tree(v), ("{}*", vl_to_tree(vlt)... , fl_to_tree(fl)...));
+        c1 < 0 -> ("neg", term_to_tree(((-c1, 1), vl, fl)) );
+        true   ->
+          ("mul_1", ("const", c1, ("{}?")), ("{}*", vl_to_tree(vl)... , fl_to_tree(fl)...));
+      }
+    }
+    true -> {
+      vl == null, fl == null -> ("const", c1, ("{}?", ("d", c2)));
+      vl == null -> {
+        c1 < 0 -> ("neg", term_to_tree(((-c1, c2), null, fl)) );
+        true   -> ("mul_1", ("const", c1, ("{}?", ("d", c2))), ("{}*", fl_to_tree(fl)...));
+      }
+      fl == null -> {
+        c1 < 0 -> ("neg", term_to_tree(((-c1, c2), vl, null)) );
+        true   -> ("mul_1", ("const", c1, ("{}?", ("d", c2))), ("{}*", vl_to_tree(vl)...));
+      }
+      true -> {
+        c1 < 0 -> ("neg", term_to_tree(((-c1, c2), vl, fl)) );
+        true   ->
+          ("mul_1", ("const", c1, ("{}?", ("d", c2))), ("{}*", vl_to_tree(vl)... , fl_to_tree(fl)...));
+      }
+    }
+  }
+}
+vl_to_tree(vl) {
+  vl == null        -> null;
+  vl == (v, vlt...) -> (("mul_n", ("mul"), v_to_tree(v)), vl_to_tree(vlt)...);
+}
+fl_to_tree(fl) {
+  fl == null        -> null;
+  fl == (f, flt...) -> (("mul_n", ("mul"), f_to_tree(f)), fl_to_tree(flt)...);
+}
+v_to_tree(v) {
+  v == (*, n, il, d) -> {
+    d == 1 -> ("var_exp", n, ("{}*", idx_ls_to_tree(il)...));
+    true   -> ("power_1", v_to_tree(("var", n, il, 1)), ("{}?", ("power_n", ("const", d, ("{}?")))));
+  }
+}
+f_to_tree(f) {
+  f == (*, n, al, d) -> {
+    d == 1 -> {
+      al == null -> ("func_exp", n, ("{}?"));
+      al == (a, alt...) -> {
+        a == null -> ("func_exp", n, ("{}?"));
+        true -> ("func_exp", n, ("{}?", ("a_1", alist_to_tree(a), ("{}*", arg_ls_to_tree(alt)...))));
+      }
+    }
+    true -> {
+      al == null -> ("power_1", f_to_tree(("func", n, (al), 1)), ("{}?", ("power_n", ("const", d, ("{}?")))));
+      true ->
+        al == (a, alt...),
+        ("power_1",
+          ("func_exp", n, ("{}?", ("a_1", alist_to_tree(a), ("{}*", arg_ls_to_tree(alt)...)))),
+          ("{}?", ("power_n", ("const", d, ("{}?"))))
+        );
+    }
+  }
+}
+idx_ls_to_tree(il) {
+  il == null -> null;
+  il == (h, t...) -> {
+    h == ("poly", ...) -> (("index", alist_to_tree(h)), idx_ls_to_tree(t)...);
+    true -> (("index", ("const", h, ("{}?"))), idx_ls_to_tree(t)...);
+  }
+}
+arg_ls_to_tree(al) {
+  al == null -> null;
+  al == (h, t...) -> (("a_n", alist_to_tree(h)), arg_ls_to_tree(t)...);
+}
+mat_to_tree(i, n, ary) {
+  e == alist_to_tree(get_ary(ary, (i))) -> ("mat_1", e, ("{}*", mat_n_to_tree(i+1, n, ary)...));
+}
+mat_n_to_tree(i, n, ary) {
+  i >= n -> null;
+  e == alist_to_tree(get_ary(ary, (i))) -> (("mat_n", e), mat_n_to_tree(i+1, n, ary)...);
+}

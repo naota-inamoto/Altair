@@ -1,0 +1,79 @@
+$END_LIB
+TEXT
+AlObject
+class TP
+end_class
+$END_CLASS
+TEXT
+AlObject
+class TP
+member
+public: static void main();
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class TP
+member
+public: static void main();
+body
+{
+	var string platform;
+	platform = al_misc("platform", null, null);
+	if (platform == "windows") {
+		var string sjis, utf8, sjis2;
+		sjis = "Å`Å|ÅëÅíÅ Å\Åa";
+		if (utf8 = al_str_misc("sjis_to_utf8", sjis, null)) {
+			if (sjis2 = al_str_misc("utf8_to_sjis", utf8, null)) {
+				al_print(sjis2 + "\n");
+			} else {
+			}
+		} else {
+		}
+		var string euc;
+		sjis = "Å`Å|ÅëÅíÅ Å\Åa";
+		if (utf8 = al_str_misc("sjis_to_utf8", sjis, null)) {
+			if (euc = al_str_misc("utf8_to_euc", utf8, null)) {
+				if (utf8 = al_str_misc("euc_to_utf8", euc, null)) {
+					if (euc = al_str_misc("utf8_to_euc", utf8, null)) {
+						if (sjis2 = al_str_misc("euc_to_sjis", euc, null)) {
+							al_print(sjis2 + "\n");
+						} else {
+						}
+					} else {
+					}
+				} else {
+				}
+			} else {
+			}
+		} else {
+		}
+	} else {
+	}
+	if (platform == "linux" || platform == "mac") {
+		var string utf8, sjis, utf8_2;
+		// utf8 = "Å`Å|ÅëÅíÅ Å\Åa";
+		utf8 = "Å|";
+		if (sjis = al_str_misc("utf8_to_sjis", utf8, null)) {
+			if (utf8_2 = al_str_misc("sjis_to_utf8", sjis, null)) {
+				al_print(utf8_2 + "\n");
+			} else {
+			}
+		} else {
+		}
+		var string euc;
+		// utf8 = "Å`Å|ÅëÅíÅ Å\Åa";
+		utf8 = "Å|";
+		if (euc = al_str_misc("utf8_to_euc", utf8, null)) {
+			if (utf8_2 = al_str_misc("euc_to_utf8", euc, null)) {
+				al_print(utf8_2 + "\n");
+			} else {
+			}
+		} else {
+		}
+	} else {
+	}
+}
+end_body
+end_class
+$END_BODY

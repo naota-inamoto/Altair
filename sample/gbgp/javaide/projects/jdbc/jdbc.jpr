@@ -1,0 +1,5 @@
+<PROJ>
+  <JAVA>Test.java</JAVA>
+  <APPLICATION>Test "-s select * from accounts"</APPLICATION>
+  <IMPORT>D:/Archive/tech/oracleJDBCdriver/8.1.6_type4_jdk1.2/classes12_01.zip</IMPORT>
+</PROJ>

@@ -1,0 +1,147 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>PLISP Sample Source Code</TITLE>
+</HEAD>
+
+<BODY>
+<H2>Prologライクリスト処理言語のサンプル</H2>
+
+<HR>
+LISPの代表的関数 car, cdr, cons, append, reverse, length, member は次のように書けます。<BR>
+<PRE>
+car(l) {
+  l == (h, ...)  -> h;
+}
+
+cdr(l) {
+  l == (*, t...) -> t;
+}
+
+cons(h, t) {
+  true -> (h, t...);
+}
+
+append(x, y) {
+  x == null -> y;
+  x == (h, t...) -> (h, append(t, y)...);
+}
+
+reverse(x) {
+  x == null -> null;
+  x == (h, t...) -> (reverse(t)..., h);
+}
+
+length(l) {
+  l == null -> 0;
+  l == (*, t...) -> length(t) + 1;
+}
+
+member(x, y) {
+  y == null -> null;
+  y == (h, t...) -> {
+    x == h -> 1;
+    true   -> member(x, t);
+  }
+}
+</PRE>
+
+<HR>
+LISPの簡単な２つのプログラム（記号微分、式の簡単化）を<BR>
+prologライクリスト処理言語で書き換えた例を示します。<BR>
+
+<PRE>
+<H3>【LISPによる記号微分】</H3>
+(defun derv (poly var)
+  (cond
+    ((atom poly)
+       (cond ((equal poly var) 1)
+             (t 0)))
+    ((equal (car poly) 'add)
+       (list 'add (derv (cadr poly) var)
+                  (derv (caddr poly) var)))
+    ((equal (car poly) 'sub)
+       (list 'sub (derv (cadr poly) var)
+                  (derv (caddr poly) var)))
+    ((equal (car poly) 'mul)
+       (list 'add ('mul (derv (cadr poly) var)
+                        (caddr poly))
+                  ('mul (cadr poly))
+                        (derv (caddr poly) var)))
+    ((equal (car poly) 'exp)
+       (list 'mul ('mul (caddr poly)
+                        ('exp (cadr poly)
+                              (sub (caddr poly) 1))
+                        (derv (cadr poly) var))))))
+
+<H3>【Prologライクリスト処理言語による記号微分】</H3>
+derv(poly, var) {
+  poly == (op, a1, a2) -> {
+    op == "add" -> ("add", derv(a1, var), derv(a2, var));
+    op == "sub" -> ("sub", derv(a1, var), derv(a2, var));
+    op == "mul" -> ("mul", ("mul", derv(a1, var), a2), ("mul", a1, derv(a2, var)));
+    op == "exp" -> ("mul", ("mul", a2, ("exp", a1, a2-1), derv(a1, var)));
+  }
+  poly == var -> 1;
+  true        -> 0;
+}
+
+<HR>
+<H3>【LISPによる式の簡単化】</H3>
+(defun simplify (poly)
+  (cond
+    ((null poly) nil)
+    ((atom poly) poly)
+    ((equal (car poly) 'add)
+       (cond ((equal (cadr poly) 0) (simplify (caddr poly)))
+             ((equal (caddr poly) 0) (simplify (cadr poly)))
+             (t (list 'add (simplify (cadr poly) (simplify (caddr poly)))))))
+    ((equal (car poly) 'sub)
+       (cond ((equal (caddr poly) 0) (simplify (cadr poly)))
+             (t (list 'sub (simplify (cadr poly) (simplify (caddr poly)))))))
+    ((equal (car poly) 'mul)
+       (cond ((equal (cadr poly) 0) 0)
+             ((equal (cadr poly) 1) (simplify (caddr poly)))
+             ((equal (caddr poly) 0) 0)
+             ((equal (caddr poly) 1) (simplify (cadr poly)))
+             (t (list 'mul (simplify (cadr poly) (simplify (caddr poly)))))))
+    ((equal (car poly) 'exp)
+       (cond ((equal (cadr poly) 0) 0)
+             ((equal (cadr poly) 1) 1)
+             ((equal (caddr poly) 0) 1)
+             ((equal (caddr poly) 1) (simplify (cadr poly)))
+             (t poly)))))
+
+<H3>【Prologライクリスト処理言語による式の簡単化】</H3>
+simplify(poly) {
+  poly == (op, a1, a2) -> {
+    op == "add" -> {
+      a1 == 0 -> simplify(a2);
+      a2 == 0 -> simplify(a1);
+      true    -> ("add", simplify(a1), simplify(a2));
+    }
+    op == "sub" -> {
+      a2 == 0 -> simplify(a1);
+      true    -> ("sub", simplify(a1), simplify(a2));
+    }
+    op == "mul" -> {
+      a1 == 0 -> 0;
+      a1 == 1 -> simplify(a2);
+      a2 == 0 -> 0;
+      a2 == 1 -> simplify(a1);
+      true    -> ("mul", simplify(a1), simplify(a2));
+    }
+    op == "exp" -> {
+      a1 == 0 -> 0;
+      a1 == 1 -> 1;
+      a2 == 0 -> 1;
+      a2 == 1 -> simplify(a1);
+      true -> poly;
+  }
+  true -> poly;
+}
+</PRE>
+
+<HR>
+</BODY>
+</HTML>

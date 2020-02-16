@@ -1,0 +1,662 @@
+TEXT
+AlObject
+class ParGenConv
+end_class
+class ParGenConv
+member
+public: void compile_syntax(string filename);
+member
+public: void debug_compile_syntax(string filename);
+member
+public: list syntax;
+member
+public: list system_syntax;
+member
+public: void parse_system(string filename);
+member
+public: void parse(string filename, string def_name, integer full, list debug);
+member
+public: void parse(file f, string def_name, integer full, list debug);
+member
+public: void generate(string filename, list spacing);
+member
+public: void generate(file f, list spacing);
+member
+public: list parse_tree;
+member
+public: void plisp_load(string filename);
+member
+public: void plisp_set_var(string name, list value);
+member
+public: list plisp_get_var(string name);
+member
+public: list plisp_call(string func_name, list arg_ls);
+member
+public: list prolog_exec();
+member
+public: void clear_query();
+member
+public: void clear_pred();
+member
+public: list env;
+member
+public: void prepare(string sys_syn_fn, string syn_fn);
+member
+public: void prepare(string sys_syn_fn, string syn_fn, string debug_cs);
+member
+public: ParGenConv copy();
+member
+public: void load_attr_grmr(string filename);
+member
+public: list attr_grmr;
+member
+public: void parse(string filename, string def_name, list opt);
+member
+public: void tree_to_graph();
+member
+public: void graph_to_tree();
+member
+public: void generate(string filename);
+member
+public: list graph;
+member
+public: string ls_pred();
+member
+public: void clear_debug();
+member
+public: list debug_opt();
+member
+public: list debug_pred;
+member
+public: list debug_dump;
+member
+public: list debug_syn;
+member
+public: list debug_syn2;
+member
+public: list debug_syn3;
+member
+public: list debug_syntax_id;
+member
+public: list debug_syntax_id2;
+member
+public: list debug_syntax_id3;
+member
+public: integer time_load_attr_grmr;
+member
+public: integer time_parse;
+member
+public: integer time_tree_to_graph;
+member
+public: integer time_graph_to_tree;
+member
+public: integer time_generate;
+member
+public: void write_tree(string filename);
+member
+public: void write_graph(string filename);
+end_class
+class ParGenConv
+member
+public: void compile_syntax(string filename);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	var file f;
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		ex.msg = "compile_syntax: can't read open '" + (string)filename + "'.";
+		throw ex;
+	}
+	syntax = al_symbol_manip("compile_syntax", f, null, null, null);
+	if (al_is_type(syntax, "string")) {
+		ex.msg = "compile_syntax error '" + filename + "': " + syntax;
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: void debug_compile_syntax(string filename);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	var file f;
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		ex.msg = "debug_compile_syntax: can't read open '" + (string)filename + "'.";
+		throw ex;
+	}
+	var list opt;
+	opt = al_cons(null, null);
+	al_set_dst_node(opt, "debug", 1);
+	syntax = al_symbol_manip("compile_syntax", f, null, null, opt);
+	if (al_is_type(syntax, "string")) {
+		ex.msg = "debug_compile_syntax error '" + filename + "': " + syntax;
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: list syntax;
+member
+public: list system_syntax;
+member
+public: void parse_system(string filename);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	if (system_syntax == null || al_is_type(system_syntax, "string")) {
+		ex.msg = "parse_system '" + (string)filename + "': no compiled_system_syntax.";
+		throw ex;
+	} else {
+	}
+	var file f;
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		ex.msg = "parse_system: can't read open '" + (string)filename + "'.";
+		throw ex;
+	}
+	parse_tree = al_symbol_manip("parse", f, system_syntax, "program", null);
+	if (al_is_type(parse_tree, "string")) {
+		ex.msg = "parse_system error '" + filename + "': " + parse_tree;
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: void parse(string filename, string def_name, integer full, list debug);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	if (def_name == null || def_name == "") {
+		ex.msg = "parse '" + (string)filename + "', syntax_id is empty.";
+		throw ex;
+	} else {
+	}
+	if (syntax == null || al_is_type(syntax, "string")) {
+		ex.msg = "parse '" + (string)filename + "': no compiled_syntax.";
+		throw ex;
+	} else {
+	}
+	var file f;
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		ex.msg = "parse: can't read open '" + (string)filename + "'.";
+		throw ex;
+	}
+	var list opt;
+	if (full == 1) {
+		if (debug) {
+			opt = al_copy(debug);
+			al_set_dst_node(opt, "full", 1);
+		} else {
+			opt = al_cons(null, null);
+			al_set_dst_node(opt, "full", 1);
+		}
+	} else {
+		if (debug) {
+			opt = debug;
+		} else {
+		}
+	}
+	parse_tree = al_symbol_manip("parse", f, syntax, def_name, opt);
+	if (al_is_type(parse_tree, "string")) {
+		ex.msg = "parse error '" + filename + "': " + parse_tree;
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: void parse(file f, string def_name, integer full, list debug);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	if (def_name == null || def_name == "") {
+		ex.msg = "parse: syntax_id is empty.";
+		throw ex;
+	} else {
+	}
+	if (syntax == null || al_is_type(syntax, "string")) {
+		ex.msg = "parse: no compiled_syntax.";
+		throw ex;
+	} else {
+	}
+	var list opt;
+	if (full == 1) {
+		if (debug) {
+			opt = al_copy(debug);
+			al_set_dst_node(opt, "full", 1);
+		} else {
+			opt = al_cons(null, null);
+			al_set_dst_node(opt, "full", 1);
+		}
+	} else {
+		if (debug) {
+			opt = debug;
+		} else {
+		}
+	}
+	parse_tree = al_symbol_manip("parse", f, syntax, def_name, opt);
+	if (al_is_type(parse_tree, "string")) {
+		ex.msg = "parse error: " + parse_tree;
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: void generate(string filename, list spacing);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	if (syntax == null || al_is_type(syntax, "string")) {
+		ex.msg = "generate '" + (string)filename + "': no compiled_syntax.";
+		throw ex;
+	} else {
+	}
+	if (parse_tree == null || al_is_type(parse_tree, "string")) {
+		ex.msg = "generate '" + (string)filename + "': no parse_tree, msg = " + (string)parse_tree;
+		throw ex;
+	} else {
+	}
+	var file f;
+	if (f = al_file_open(filename, "w")) {
+	} else {
+		ex.msg = "generate: can't write open '" + (string)filename + "'.";
+		throw ex;
+	}
+	var list res;
+	res = al_symbol_manip("generate", f, syntax, parse_tree, spacing);
+	if (al_is_type(res, "string")) {
+		ex.msg = "generate error '" + filename + "': " + res;
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: void generate(file f, list spacing);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	if (syntax == null || al_is_type(syntax, "string")) {
+		ex.msg = "generate: no compiled_syntax.";
+		throw ex;
+	} else {
+	}
+	if (parse_tree == null || al_is_type(parse_tree, "string")) {
+		ex.msg = "generate: no parse_tree, msg = " + (string)parse_tree;
+		throw ex;
+	} else {
+	}
+	var list res;
+	res = al_symbol_manip("generate", f, syntax, parse_tree, spacing);
+	if (al_is_type(res, "string")) {
+		ex.msg = "generate error: " + res;
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: list parse_tree;
+member
+public: void plisp_load(string filename);
+body
+{
+	var list save_parse_tree;
+	try {
+		save_parse_tree = parse_tree;
+		parse_system(filename);
+		env = al_symbol_manip("plisp_load", env, parse_tree, null, null);
+	} catch (AlException e) {
+		parse_tree = save_parse_tree;
+		e.msg = "plisp_load: " + e.msg;
+		throw e;
+	}
+	parse_tree = save_parse_tree;
+}
+end_body
+member
+public: void plisp_set_var(string name, list value);
+body
+{
+	env = al_symbol_manip("set_var", env, name, value, null);
+}
+end_body
+member
+public: list plisp_get_var(string name);
+body
+{
+	return al_symbol_manip("get_var", env, name, null, null);
+}
+end_body
+member
+public: list plisp_call(string func_name, list arg_ls);
+body
+{
+	return al_symbol_manip("plisp_call", env, func_name, arg_ls, null);
+}
+end_body
+member
+public: list prolog_exec();
+body
+{
+	var list ret, opt, debug;
+	// debug = 1;
+	if (debug) {
+		al_misc("output", "debug.txt", "no_gui");
+		opt = al_cons(null, null);
+		al_set_dst_node(opt, "debug_pred", 1);
+		// al_set_dst_node(opt, "debug_dump", 1);
+	} else {
+	}
+	try {
+		ret = al_symbol_manip("prolog_exec", env, null, null, opt);
+		if (debug) {
+			al_misc("output", null, "gui");
+		} else {
+		}
+		return ret;
+	} catch (AlException e) {
+		if (debug) {
+			al_misc("output", null, "gui");
+		} else {
+		}
+		throw e;
+	}
+}
+end_body
+member
+public: void clear_query();
+body
+{
+	env = al_symbol_manip("clear_query", env, null, null, null);
+}
+end_body
+member
+public: void clear_pred();
+body
+{
+	env = al_symbol_manip("clear_pred", env, null, null, null);
+}
+end_body
+member
+public: list env;
+member
+public: void prepare(string sys_syn_fn, string syn_fn);
+body
+{
+	try {
+		compile_syntax(sys_syn_fn);
+		system_syntax = syntax;
+		compile_syntax(syn_fn);
+		env = null;
+	} catch (AlException e) {
+		e.msg = "prepare: " + e.msg;
+		throw e;
+	}
+}
+end_body
+member
+public: void prepare(string sys_syn_fn, string syn_fn, string debug_cs);
+body
+{
+	try {
+		compile_syntax(sys_syn_fn);
+		system_syntax = syntax;
+		al_misc("output", debug_cs, "no_gui");
+		debug_compile_syntax(syn_fn);
+		al_misc("output", null, "gui");
+		env = null;
+	} catch (AlException e) {
+		al_misc("output", null, "gui");
+		e.msg = "prepare: " + e.msg;
+		throw e;
+	}
+}
+end_body
+member
+public: ParGenConv copy();
+body
+{
+	var ParGenConv pgc;
+	pgc = new ParGenConv;
+	pgc.system_syntax = system_syntax;
+	pgc.syntax = syntax;
+	pgc.env = env;
+	return pgc;
+}
+end_body
+member
+public: void load_attr_grmr(string filename);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	if (al_file_manip("does_exist", filename, null)) {
+	} else {
+		ex.msg = "load_attr_grmr: not exist '" + filename + "'.";
+		throw ex;
+	}
+	var integer begin, end;
+	begin = al_misc("time_stamp", null, null);
+	var string dump_filename;
+	var file f;
+	dump_filename = filename + ".dump";
+	if (al_file_manip("does_exist", dump_filename, null)) {
+		var list file_dt, dump_file_dt;
+		file_dt = al_file_manip("get_datetime", filename, null);
+		dump_file_dt = al_file_manip("get_datetime", dump_filename, null);
+		if (dump_file_dt > file_dt) {
+			try {
+				attr_grmr = FileUtility::readGraphData(dump_filename);
+			} catch (AlException e) {
+				e.msg = "load_attr_grmr: " + e.msg;
+				throw e;
+			}
+			end = al_misc("time_stamp", null, null);
+			time_load_attr_grmr = end - begin;
+			return;
+		} else {
+		}
+	} else {
+	}
+	var list save_parse_tree;
+	try {
+		save_parse_tree = parse_tree;
+		parse_system(filename);
+	} catch (AlException e) {
+		parse_tree = save_parse_tree;
+		e.msg = "load_attr_grmr: " + e.msg;
+		throw e;
+	}
+	attr_grmr = parse_tree;
+	parse_tree = save_parse_tree;
+	try {
+		FileUtility::writeGraphData(dump_filename, attr_grmr);
+	} catch (AlException e) {
+		e.msg = "load_attr_grmr: " + e.msg;
+		throw e;
+	}
+	end = al_misc("time_stamp", null, null);
+	time_load_attr_grmr = end - begin;
+}
+end_body
+member
+public: list attr_grmr;
+member
+public: void parse(string filename, string def_name, list opt);
+body
+{
+	try {
+		var integer begin, end;
+		begin = al_misc("time_stamp", null, null);
+		parse(filename, def_name, 1, opt);
+		end = al_misc("time_stamp", null, null);
+		time_parse = end - begin;
+	} catch (AlException e) {
+		e.msg = "parse: " + e.msg;
+		throw e;
+	}
+}
+end_body
+member
+public: void tree_to_graph();
+body
+{
+	try {
+		var integer begin, end;
+		begin = al_misc("time_stamp", null, null);
+		graph = plisp_call("attr_grmr", null);
+		end = al_misc("time_stamp", null, null);
+		time_tree_to_graph = end - begin;
+	} catch (AlException e) {
+		e.msg = "tree_to_graph: " + e.msg;
+		throw e;
+	}
+}
+end_body
+member
+public: void graph_to_tree();
+body
+{
+	try {
+		var integer begin, end;
+		begin = al_misc("time_stamp", null, null);
+		parse_tree = plisp_call("inv_attr_grmr", null);
+		end = al_misc("time_stamp", null, null);
+		time_graph_to_tree = end - begin;
+	} catch (AlException e) {
+		e.msg = "graph_to_tree: " + e.msg;
+		throw e;
+	}
+}
+end_body
+member
+public: void generate(string filename);
+body
+{
+	var string def_name;
+	try {
+		var list spacing;
+		spacing = al_cons(null, null);
+		var integer begin, end;
+		begin = al_misc("time_stamp", null, null);
+		generate(filename, spacing);
+		end = al_misc("time_stamp", null, null);
+		time_generate = end - begin;
+	} catch (AlException e) {
+		e.msg = "generate: " + e.msg;
+		throw e;
+	}
+}
+end_body
+member
+public: list graph;
+member
+public: string ls_pred();
+body
+{
+	return al_symbol_manip("ls_pred", env, null, null, null);
+}
+end_body
+member
+public: void clear_debug();
+body
+{
+	debug_pred = null;
+	debug_dump = null;
+	debug_syn = null;
+	debug_syn2 = null;
+	debug_syn3 = null;
+	debug_syntax_id = null;
+	debug_syntax_id2 = null;
+	debug_syntax_id3 = null;
+}
+end_body
+member
+public: list debug_opt();
+body
+{
+	var list opt;
+	opt = al_cons(null, null);
+	al_set_dst_node(opt, "debug_pred", debug_pred);
+	al_set_dst_node(opt, "debug_dump", debug_dump);
+	al_set_dst_node(opt, "debug_syn", debug_syn);
+	al_set_dst_node(opt, "debug_syn2", debug_syn2);
+	al_set_dst_node(opt, "debug_syn3", debug_syn3);
+	al_set_dst_node(opt, "debug_syntax_id", debug_syntax_id);
+	al_set_dst_node(opt, "debug_syntax_id2", debug_syntax_id2);
+	al_set_dst_node(opt, "debug_syntax_id3", debug_syntax_id3);
+	return opt;
+}
+end_body
+member
+public: list debug_pred;
+member
+public: list debug_dump;
+member
+public: list debug_syn;
+member
+public: list debug_syn2;
+member
+public: list debug_syn3;
+member
+public: list debug_syntax_id;
+member
+public: list debug_syntax_id2;
+member
+public: list debug_syntax_id3;
+member
+public: integer time_load_attr_grmr;
+member
+public: integer time_parse;
+member
+public: integer time_tree_to_graph;
+member
+public: integer time_graph_to_tree;
+member
+public: integer time_generate;
+member
+public: void write_tree(string filename);
+body
+{
+	var file f;
+	if (f = al_file_open(filename, "w")) {
+	} else {
+		var AlException ex;
+		ex = new AlException;
+		ex.msg = "write_parse_tree: can't write open '" + filename + "'";
+		throw ex;
+	}
+	al_list_misc("dump", parse_tree, al_list2(200, f));
+}
+end_body
+member
+public: void write_graph(string filename);
+body
+{
+	var file f;
+	if (f = al_file_open(filename, "w")) {
+	} else {
+		var AlException ex;
+		ex = new AlException;
+		ex.msg = "write_graph: can't write open '" + filename + "'";
+		throw ex;
+	}
+	al_graph_misc("dump", graph, al_list2(200, f));
+}
+end_body
+end_class

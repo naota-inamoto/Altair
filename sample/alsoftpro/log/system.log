@@ -1,0 +1,1033 @@
+2013/02/20 09:46:46 info: >>>>>>>>> system startup started.
+2013/02/20 09:46:46 info: DB Connection pool created: pool_name = ebizPool
+2013/02/20 09:46:49 info: WebServer started: port = 8080, SSL = false
+2013/02/20 09:46:49 info: <<<<<<<<< system startup completed.
+2013/02/20 09:47:08 info: user 'alsoftpro:user' login.
+2013/02/20 09:58:13 info: user 'alsoftpro:user' logout.
+2013/02/20 10:07:25 info: user 'system:admin' login.
+2013/02/20 10:07:31 info: >>>>>>>>> shutdown system immediately.
+2013/02/20 11:51:15 info: >>>>>>>>> system startup started.
+2013/02/20 11:51:15 info: DB Connection pool created: pool_name = ebizPool
+2013/02/20 11:51:15 info: WebServer started: port = 8080, SSL = false
+2013/02/20 11:51:15 info: <<<<<<<<< system startup completed.
+2013/02/20 11:51:33 info: user 'alsoftpro:user' login.
+2013/02/20 12:06:42 info: user 'alsoftpro:user' logout.
+2013/02/20 12:06:49 info: user 'system:admin' login.
+2013/02/20 12:06:56 info: >>>>>>>>> shutdown system immediately.
+2013/02/20 12:07:53 info: >>>>>>>>> system startup started.
+2013/02/20 12:07:53 info: DB Connection pool created: pool_name = ebizPool
+2013/02/20 12:07:53 info: WebServer started: port = 8080, SSL = false
+2013/02/20 12:07:53 info: <<<<<<<<< system startup completed.
+2013/02/20 12:08:12 info: user 'alsoftpro:user' login.
+2013/02/20 12:23:11 info: user 'alsoftpro:user' logout.
+2013/02/20 12:23:20 info: user 'system:admin' login.
+2013/02/20 12:23:29 info: >>>>>>>>> shutdown system immediately.
+2013/02/20 12:27:16 info: >>>>>>>>> system startup started.
+2013/02/20 12:27:16 info: DB Connection pool created: pool_name = ebizPool
+2013/02/20 12:27:16 info: WebServer started: port = 8080, SSL = false
+2013/02/20 12:27:16 info: <<<<<<<<< system startup completed.
+2013/02/20 12:27:46 info: user 'alsoftpro:user' login.
+2013/02/20 12:37:40 info: user 'alsoftpro:user' logout.
+2013/02/20 12:37:48 info: user 'system:admin' login.
+2013/02/20 12:37:53 info: >>>>>>>>> shutdown system immediately.
+2013/02/20 15:39:53 info: >>>>>>>>> system startup started.
+2013/02/20 15:39:53 info: DB Connection pool created: pool_name = ebizPool
+2013/02/20 15:39:53 info: WebServer started: port = 8080, SSL = false
+2013/02/20 15:39:53 info: <<<<<<<<< system startup completed.
+2013/02/20 15:40:28 info: user 'alsoftpro:user' login.
+2013/02/20 16:16:20 info: user 'alsoftpro:user' logout.
+2013/02/20 16:16:30 info: user 'system:admin' login.
+2013/02/20 16:16:36 info: >>>>>>>>> shutdown system immediately.
+2013/02/20 16:34:13 info: >>>>>>>>> system startup started.
+2013/02/20 16:34:13 info: DB Connection pool created: pool_name = ebizPool
+2013/02/20 16:34:13 info: WebServer started: port = 8080, SSL = false
+2013/02/20 16:34:13 info: <<<<<<<<< system startup completed.
+2013/02/20 16:34:39 info: user 'alsoftpro:user' login.
+2013/02/20 21:27:30 info: >>>>>>>>> system startup started.
+2013/02/20 21:27:30 info: DB Connection pool created: pool_name = ebizPool
+2013/02/20 21:27:30 info: WebServer started: port = 8080, SSL = false
+2013/02/20 21:27:30 info: <<<<<<<<< system startup completed.
+2013/02/20 21:28:16 info: user 'alsoftpro:user' login.
+2013/02/20 22:28:29 info: garbage collection: recycled = 674605, used = 6343337, total = 8687436
+2013/02/20 22:28:32 info: garbage collection: recycled = 0, used = 6343473, total = 8687436
+2013/02/20 22:28:36 info: garbage collection: recycled = 0, used = 6343609, total = 8687436
+2013/02/20 22:28:39 info: garbage collection: recycled = 0, used = 6343816, total = 8687436
+2013/02/20 22:28:43 info: garbage collection: recycled = 0, used = 6344023, total = 8687436
+2013/02/20 22:28:46 info: garbage collection: recycled = 0, used = 6344230, total = 8687436
+2013/02/20 22:28:50 info: garbage collection: recycled = 0, used = 6344437, total = 8687436
+2013/02/20 22:28:53 info: garbage collection: recycled = 0, used = 6344644, total = 8687436
+2013/02/20 22:28:57 info: garbage collection: recycled = 0, used = 6344851, total = 8687436
+2013/02/20 22:29:00 info: garbage collection: recycled = 0, used = 6345058, total = 8687436
+2013/02/20 22:29:04 info: garbage collection: recycled = 0, used = 6345265, total = 8687436
+2013/02/20 22:29:08 info: garbage collection: recycled = 0, used = 6345472, total = 8687436
+2013/02/20 22:29:11 info: garbage collection: recycled = 0, used = 6345679, total = 8687436
+2013/02/20 22:29:15 info: garbage collection: recycled = 0, used = 6345886, total = 8687436
+2013/02/20 22:29:18 info: garbage collection: recycled = 0, used = 6346093, total = 8687436
+2013/02/20 22:29:22 info: garbage collection: recycled = 0, used = 6346300, total = 8687436
+2013/02/20 22:29:25 info: garbage collection: recycled = 0, used = 6346507, total = 8687436
+2013/02/20 22:29:29 info: garbage collection: recycled = 0, used = 6346714, total = 8687436
+2013/02/20 22:29:32 info: garbage collection: recycled = 0, used = 6346921, total = 8687436
+2013/02/20 22:29:36 info: garbage collection: recycled = 0, used = 6347128, total = 8687436
+2013/02/20 22:29:39 info: garbage collection: recycled = 0, used = 6347335, total = 8687436
+2013/02/20 22:29:43 info: garbage collection: recycled = 0, used = 6347542, total = 8687436
+2013/02/20 22:29:46 info: garbage collection: recycled = 0, used = 6347749, total = 8687436
+2013/02/20 22:29:50 info: garbage collection: recycled = 0, used = 6347956, total = 8687436
+2013/02/20 22:29:54 info: garbage collection: recycled = 0, used = 6348163, total = 8687436
+2013/02/20 22:29:57 info: garbage collection: recycled = 0, used = 6348370, total = 8687436
+2013/02/20 22:30:01 info: garbage collection: recycled = 0, used = 6348577, total = 8687436
+2013/02/20 22:30:04 info: garbage collection: recycled = 0, used = 6348784, total = 8687436
+2013/02/20 22:30:08 info: garbage collection: recycled = 0, used = 6348991, total = 8687436
+2013/02/20 22:30:11 info: garbage collection: recycled = 0, used = 6349198, total = 8687436
+2013/02/20 22:30:15 info: garbage collection: recycled = 0, used = 6349405, total = 8687436
+2013/02/20 22:30:18 info: garbage collection: recycled = 0, used = 6349612, total = 8687436
+2013/02/20 22:30:22 info: garbage collection: recycled = 0, used = 6349819, total = 8687436
+2013/02/20 22:30:25 info: garbage collection: recycled = 0, used = 6350026, total = 8687436
+2013/02/20 22:30:29 info: garbage collection: recycled = 0, used = 6350233, total = 8687436
+2013/02/20 22:30:33 info: garbage collection: recycled = 0, used = 6350440, total = 8687436
+2013/02/20 22:30:36 info: garbage collection: recycled = 0, used = 6350647, total = 8687436
+2013/02/20 22:30:40 info: garbage collection: recycled = 0, used = 6350854, total = 8687436
+2013/02/20 22:30:43 info: garbage collection: recycled = 0, used = 6351061, total = 8687436
+2013/02/20 22:30:47 info: garbage collection: recycled = 0, used = 6351268, total = 8687436
+2013/02/20 22:30:50 info: garbage collection: recycled = 0, used = 6351475, total = 8687436
+2013/02/20 22:30:54 info: garbage collection: recycled = 0, used = 6351682, total = 8687436
+2013/02/20 22:30:57 info: garbage collection: recycled = 0, used = 6351889, total = 8687436
+2013/02/20 22:31:01 info: garbage collection: recycled = 0, used = 6352096, total = 8687436
+2013/02/20 22:31:04 info: garbage collection: recycled = 0, used = 6352303, total = 8687436
+2013/02/20 22:31:08 info: garbage collection: recycled = 0, used = 6352510, total = 8687436
+2013/02/20 22:31:11 info: garbage collection: recycled = 0, used = 6352717, total = 8687436
+2013/02/20 22:31:15 info: garbage collection: recycled = 0, used = 6352924, total = 8687436
+2013/02/20 22:31:19 info: garbage collection: recycled = 0, used = 6353131, total = 8687436
+2013/02/20 22:31:22 info: garbage collection: recycled = 0, used = 6353338, total = 8687436
+2013/02/20 22:31:26 info: garbage collection: recycled = 0, used = 6353545, total = 8687436
+2013/02/20 22:31:29 info: garbage collection: recycled = 0, used = 6353752, total = 8687436
+2013/02/20 22:31:33 info: garbage collection: recycled = 0, used = 6353959, total = 8687436
+2013/02/20 22:31:36 info: garbage collection: recycled = 0, used = 6354166, total = 8687436
+2013/02/20 22:31:40 info: garbage collection: recycled = 0, used = 6354373, total = 8687436
+2013/02/20 22:31:43 info: garbage collection: recycled = 0, used = 6354580, total = 8687436
+2013/02/20 22:31:47 info: garbage collection: recycled = 0, used = 6354787, total = 8687436
+2013/02/20 22:31:50 info: garbage collection: recycled = 0, used = 6354994, total = 8687436
+2013/02/20 22:31:54 info: garbage collection: recycled = 0, used = 6355201, total = 8687436
+2013/02/20 22:31:57 info: garbage collection: recycled = 0, used = 6355408, total = 8687436
+2013/02/20 22:32:01 info: garbage collection: recycled = 0, used = 6355615, total = 8687436
+2013/02/20 22:32:05 info: garbage collection: recycled = 0, used = 6355822, total = 8687436
+2013/02/20 22:32:08 info: garbage collection: recycled = 0, used = 6356029, total = 8687436
+2013/02/20 22:32:12 info: garbage collection: recycled = 0, used = 6356236, total = 8687436
+2013/02/20 22:32:15 info: garbage collection: recycled = 0, used = 6356443, total = 8687436
+2013/02/20 22:32:19 info: garbage collection: recycled = 0, used = 6356650, total = 8687436
+2013/02/20 22:32:22 info: garbage collection: recycled = 0, used = 6356857, total = 8687436
+2013/02/20 22:32:26 info: garbage collection: recycled = 0, used = 6357064, total = 8687436
+2013/02/20 22:32:29 info: garbage collection: recycled = 0, used = 6357271, total = 8687436
+2013/02/20 22:32:33 info: garbage collection: recycled = 0, used = 6357478, total = 8687436
+2013/02/20 22:32:36 info: garbage collection: recycled = 0, used = 6357685, total = 8687436
+2013/02/20 22:32:40 info: garbage collection: recycled = 0, used = 6357892, total = 8687436
+2013/02/20 22:32:43 info: garbage collection: recycled = 0, used = 6358099, total = 8687436
+2013/02/20 22:32:47 info: garbage collection: recycled = 0, used = 6358306, total = 8687436
+2013/02/20 22:32:51 info: garbage collection: recycled = 0, used = 6358513, total = 8687436
+2013/02/20 22:32:54 info: garbage collection: recycled = 0, used = 6358720, total = 8687436
+2013/02/20 22:32:58 info: garbage collection: recycled = 0, used = 6358927, total = 8687436
+2013/02/20 22:33:01 info: garbage collection: recycled = 0, used = 6359134, total = 8687436
+2013/02/20 22:33:05 info: garbage collection: recycled = 0, used = 6359341, total = 8687436
+2013/02/20 22:33:08 info: garbage collection: recycled = 0, used = 6359548, total = 8687436
+2013/02/20 22:33:12 info: garbage collection: recycled = 0, used = 6359755, total = 8687436
+2013/02/20 22:33:15 info: garbage collection: recycled = 0, used = 6359962, total = 8687436
+2013/02/20 22:33:19 info: garbage collection: recycled = 0, used = 6360169, total = 8687436
+2013/02/20 22:33:22 info: garbage collection: recycled = 0, used = 6360376, total = 8687436
+2013/02/20 22:33:26 info: garbage collection: recycled = 0, used = 6360583, total = 8687436
+2013/02/20 22:33:29 info: garbage collection: recycled = 0, used = 6360790, total = 8687436
+2013/02/20 22:33:33 info: garbage collection: recycled = 0, used = 6360997, total = 8687436
+2013/02/20 22:33:36 info: garbage collection: recycled = 0, used = 6361204, total = 8687436
+2013/02/20 22:33:40 info: garbage collection: recycled = 0, used = 6361411, total = 8687436
+2013/02/20 22:33:44 info: garbage collection: recycled = 0, used = 6361618, total = 8687436
+2013/02/20 22:33:47 info: garbage collection: recycled = 0, used = 6361825, total = 8687436
+2013/02/20 22:33:51 info: garbage collection: recycled = 0, used = 6362032, total = 8687436
+2013/02/20 22:33:54 info: garbage collection: recycled = 0, used = 6362239, total = 8687436
+2013/02/20 22:33:58 info: garbage collection: recycled = 0, used = 6362446, total = 8687436
+2013/02/20 22:34:01 info: garbage collection: recycled = 0, used = 6362653, total = 8687436
+2013/02/20 22:34:05 info: garbage collection: recycled = 0, used = 6362860, total = 8687436
+2013/02/20 22:34:08 info: garbage collection: recycled = 0, used = 6363067, total = 8687436
+2013/02/20 22:34:12 info: garbage collection: recycled = 0, used = 6363274, total = 8687436
+2013/02/20 22:34:15 info: garbage collection: recycled = 0, used = 6363481, total = 8687436
+2013/02/20 22:34:19 info: garbage collection: recycled = 0, used = 6363688, total = 8687436
+2013/02/20 22:34:22 info: garbage collection: recycled = 0, used = 6363895, total = 8687436
+2013/02/20 22:34:26 info: garbage collection: recycled = 0, used = 6364102, total = 8687436
+2013/02/20 22:34:30 info: garbage collection: recycled = 0, used = 6364309, total = 8687436
+2013/02/20 22:34:33 info: garbage collection: recycled = 0, used = 6364516, total = 8687436
+2013/02/20 22:34:37 info: garbage collection: recycled = 0, used = 6364723, total = 8687436
+2013/02/20 22:34:40 info: garbage collection: recycled = 0, used = 6364930, total = 8687436
+2013/02/20 22:34:44 info: garbage collection: recycled = 0, used = 6365137, total = 8687436
+2013/02/20 22:34:47 info: garbage collection: recycled = 0, used = 6365344, total = 8687436
+2013/02/20 22:34:51 info: garbage collection: recycled = 0, used = 6365551, total = 8687436
+2013/02/20 22:34:54 info: garbage collection: recycled = 0, used = 6365758, total = 8687436
+2013/02/20 22:34:58 info: garbage collection: recycled = 0, used = 6365965, total = 8687436
+2013/02/20 22:35:01 info: garbage collection: recycled = 0, used = 6366172, total = 8687436
+2013/02/20 22:35:05 info: garbage collection: recycled = 0, used = 6366379, total = 8687436
+2013/02/20 22:35:08 info: garbage collection: recycled = 0, used = 6366586, total = 8687436
+2013/02/20 22:35:12 info: garbage collection: recycled = 0, used = 6366793, total = 8687436
+2013/02/20 22:35:16 info: garbage collection: recycled = 0, used = 6367000, total = 8687436
+2013/02/20 22:35:19 info: garbage collection: recycled = 0, used = 6367207, total = 8687436
+2013/02/20 22:35:23 info: garbage collection: recycled = 0, used = 6367414, total = 8687436
+2013/02/20 22:35:26 info: garbage collection: recycled = 0, used = 6367621, total = 8687436
+2013/02/20 22:35:30 info: garbage collection: recycled = 0, used = 6367828, total = 8687436
+2013/02/20 22:35:33 info: garbage collection: recycled = 0, used = 6368035, total = 8687436
+2013/02/20 22:35:37 info: garbage collection: recycled = 0, used = 6368242, total = 8687436
+2013/02/20 22:35:40 info: garbage collection: recycled = 0, used = 6368449, total = 8687436
+2013/02/20 22:35:44 info: garbage collection: recycled = 0, used = 6368656, total = 8687436
+2013/02/20 22:35:47 info: garbage collection: recycled = 0, used = 6368863, total = 8687436
+2013/02/20 22:35:51 info: garbage collection: recycled = 0, used = 6369070, total = 8687436
+2013/02/20 22:35:54 info: garbage collection: recycled = 0, used = 6369277, total = 8687436
+2013/02/20 22:35:58 info: garbage collection: recycled = 0, used = 6369484, total = 8687436
+2013/02/20 22:36:02 info: garbage collection: recycled = 0, used = 6369691, total = 8687436
+2013/02/20 22:36:05 info: garbage collection: recycled = 0, used = 6369898, total = 8687436
+2013/02/20 22:36:09 info: garbage collection: recycled = 0, used = 6370105, total = 8687436
+2013/02/20 22:36:12 info: garbage collection: recycled = 0, used = 6370312, total = 8687436
+2013/02/20 22:36:16 info: garbage collection: recycled = 0, used = 6370519, total = 8687436
+2013/02/20 22:36:19 info: garbage collection: recycled = 0, used = 6370726, total = 8687436
+2013/02/20 22:36:23 info: garbage collection: recycled = 0, used = 6370933, total = 8687436
+2013/02/20 22:36:26 info: garbage collection: recycled = 0, used = 6371140, total = 8687436
+2013/02/20 22:36:30 info: garbage collection: recycled = 0, used = 6371347, total = 8687436
+2013/02/20 22:36:33 info: garbage collection: recycled = 0, used = 6371554, total = 8687436
+2013/02/20 22:36:37 info: garbage collection: recycled = 0, used = 6371761, total = 8687436
+2013/02/20 22:36:40 info: garbage collection: recycled = 0, used = 6371968, total = 8687436
+2013/02/20 22:36:44 info: garbage collection: recycled = 0, used = 6372175, total = 8687436
+2013/02/20 22:36:48 info: garbage collection: recycled = 0, used = 6372382, total = 8687436
+2013/02/20 22:36:51 info: garbage collection: recycled = 0, used = 6372589, total = 8687436
+2013/02/20 22:36:55 info: garbage collection: recycled = 0, used = 6372796, total = 8687436
+2013/02/20 22:36:58 info: garbage collection: recycled = 0, used = 6373003, total = 8687436
+2013/02/20 22:37:02 info: garbage collection: recycled = 0, used = 6373210, total = 8687436
+2013/02/20 22:37:05 info: garbage collection: recycled = 0, used = 6373417, total = 8687436
+2013/02/20 22:37:09 info: garbage collection: recycled = 0, used = 6373624, total = 8687436
+2013/02/20 22:37:12 info: garbage collection: recycled = 0, used = 6373831, total = 8687436
+2013/02/20 22:37:16 info: garbage collection: recycled = 0, used = 6374038, total = 8687436
+2013/02/20 22:37:19 info: garbage collection: recycled = 0, used = 6374245, total = 8687436
+2013/02/20 22:37:23 info: garbage collection: recycled = 0, used = 6374452, total = 8687436
+2013/02/20 22:37:26 info: garbage collection: recycled = 0, used = 6374659, total = 8687436
+2013/02/20 22:37:30 info: garbage collection: recycled = 0, used = 6374866, total = 8687436
+2013/02/20 22:37:34 info: garbage collection: recycled = 0, used = 6375073, total = 8687436
+2013/02/20 22:37:37 info: garbage collection: recycled = 0, used = 6375280, total = 8687436
+2013/02/20 22:37:41 info: garbage collection: recycled = 0, used = 6375487, total = 8687436
+2013/02/20 22:37:44 info: garbage collection: recycled = 0, used = 6375694, total = 8687436
+2013/02/20 22:37:48 info: garbage collection: recycled = 0, used = 6375901, total = 8687436
+2013/02/20 22:37:51 info: garbage collection: recycled = 0, used = 6376108, total = 8687436
+2013/02/20 22:37:55 info: garbage collection: recycled = 0, used = 6376315, total = 8687436
+2013/02/20 22:37:58 info: garbage collection: recycled = 0, used = 6376522, total = 8687436
+2013/02/20 22:38:02 info: garbage collection: recycled = 0, used = 6376729, total = 8687436
+2013/02/20 22:38:05 info: garbage collection: recycled = 0, used = 6376936, total = 8687436
+2013/02/20 22:38:09 info: garbage collection: recycled = 0, used = 6377143, total = 8687436
+2013/02/20 22:38:12 info: garbage collection: recycled = 0, used = 6377350, total = 8687436
+2013/02/20 22:38:16 info: garbage collection: recycled = 0, used = 6377557, total = 8687436
+2013/02/20 22:38:19 info: garbage collection: recycled = 0, used = 6377764, total = 8687436
+2013/02/20 22:38:23 info: garbage collection: recycled = 0, used = 6377971, total = 8687436
+2013/02/20 22:38:27 info: garbage collection: recycled = 0, used = 6378178, total = 8687436
+2013/02/20 22:38:30 info: garbage collection: recycled = 0, used = 6378385, total = 8687436
+2013/02/20 22:38:34 info: garbage collection: recycled = 0, used = 6378592, total = 8687436
+2013/02/20 22:38:37 info: garbage collection: recycled = 0, used = 6378799, total = 8687436
+2013/02/20 22:38:41 info: garbage collection: recycled = 0, used = 6379006, total = 8687436
+2013/02/20 22:38:44 info: garbage collection: recycled = 0, used = 6379213, total = 8687436
+2013/02/20 22:38:48 info: garbage collection: recycled = 0, used = 6379420, total = 8687436
+2013/02/20 22:38:51 info: garbage collection: recycled = 0, used = 6379627, total = 8687436
+2013/02/20 22:38:55 info: garbage collection: recycled = 0, used = 6379834, total = 8687436
+2013/02/20 22:38:58 info: garbage collection: recycled = 0, used = 6380041, total = 8687436
+2013/02/20 22:39:02 info: garbage collection: recycled = 0, used = 6380248, total = 8687436
+2013/02/20 22:39:06 info: garbage collection: recycled = 0, used = 6380455, total = 8687436
+2013/02/20 22:39:09 info: garbage collection: recycled = 0, used = 6380662, total = 8687436
+2013/02/20 22:39:13 info: garbage collection: recycled = 0, used = 6380869, total = 8687436
+2013/02/20 22:39:16 info: garbage collection: recycled = 0, used = 6381076, total = 8687436
+2013/02/20 22:39:20 info: garbage collection: recycled = 0, used = 6381283, total = 8687436
+2013/02/20 22:39:23 info: garbage collection: recycled = 0, used = 6381490, total = 8687436
+2013/02/20 22:39:27 info: garbage collection: recycled = 0, used = 6381697, total = 8687436
+2013/02/20 22:39:30 info: garbage collection: recycled = 0, used = 6381904, total = 8687436
+2013/02/20 22:39:34 info: garbage collection: recycled = 0, used = 6382111, total = 8687436
+2013/02/20 22:39:37 info: garbage collection: recycled = 0, used = 6382318, total = 8687436
+2013/02/20 22:39:41 info: garbage collection: recycled = 0, used = 6382525, total = 8687436
+2013/02/20 22:39:45 info: garbage collection: recycled = 0, used = 6382732, total = 8687436
+2013/02/20 22:39:48 info: garbage collection: recycled = 0, used = 6382939, total = 8687436
+2013/02/20 22:39:52 info: garbage collection: recycled = 0, used = 6383146, total = 8687436
+2013/02/20 22:39:55 info: garbage collection: recycled = 0, used = 6383353, total = 8687436
+2013/02/20 22:39:59 info: garbage collection: recycled = 0, used = 6383560, total = 8687436
+2013/02/20 22:40:02 info: garbage collection: recycled = 0, used = 6383767, total = 8687436
+2013/02/20 22:40:06 info: garbage collection: recycled = 0, used = 6383974, total = 8687436
+2013/02/20 22:40:09 info: garbage collection: recycled = 0, used = 6384181, total = 8687436
+2013/02/20 22:40:13 info: garbage collection: recycled = 0, used = 6384388, total = 8687436
+2013/02/20 22:40:16 info: garbage collection: recycled = 0, used = 6384595, total = 8687436
+2013/02/20 22:40:20 info: garbage collection: recycled = 0, used = 6384802, total = 8687436
+2013/02/20 22:40:23 info: garbage collection: recycled = 0, used = 6385009, total = 8687436
+2013/02/20 22:40:27 info: garbage collection: recycled = 0, used = 6385216, total = 8687436
+2013/02/20 22:40:31 info: garbage collection: recycled = 0, used = 6385423, total = 8687436
+2013/02/20 22:40:34 info: garbage collection: recycled = 0, used = 6385630, total = 8687436
+2013/02/20 22:40:38 info: garbage collection: recycled = 0, used = 6385837, total = 8687436
+2013/02/20 22:40:41 info: garbage collection: recycled = 0, used = 6386044, total = 8687436
+2013/02/20 22:40:45 info: garbage collection: recycled = 0, used = 6386251, total = 8687436
+2013/02/20 22:40:48 info: garbage collection: recycled = 0, used = 6386458, total = 8687436
+2013/02/20 22:40:52 info: garbage collection: recycled = 0, used = 6386665, total = 8687436
+2013/02/20 22:40:55 info: garbage collection: recycled = 0, used = 6386872, total = 8687436
+2013/02/20 22:40:59 info: garbage collection: recycled = 0, used = 6387079, total = 8687436
+2013/02/20 22:41:02 info: garbage collection: recycled = 0, used = 6387286, total = 8687436
+2013/02/20 22:41:06 info: garbage collection: recycled = 0, used = 6387493, total = 8687436
+2013/02/20 22:41:09 info: garbage collection: recycled = 0, used = 6387700, total = 8687436
+2013/02/20 22:41:13 info: garbage collection: recycled = 0, used = 6387907, total = 8687436
+2013/02/20 22:41:16 info: garbage collection: recycled = 0, used = 6388114, total = 8687436
+2013/02/20 22:41:20 info: garbage collection: recycled = 0, used = 6388321, total = 8687436
+2013/02/20 22:41:24 info: garbage collection: recycled = 0, used = 6388528, total = 8687436
+2013/02/20 22:41:27 info: garbage collection: recycled = 0, used = 6388735, total = 8687436
+2013/02/20 22:41:31 info: garbage collection: recycled = 0, used = 6388942, total = 8687436
+2013/02/20 22:41:34 info: garbage collection: recycled = 0, used = 6389149, total = 8687436
+2013/02/20 22:41:38 info: garbage collection: recycled = 0, used = 6389356, total = 8687436
+2013/02/20 22:41:41 info: garbage collection: recycled = 0, used = 6389563, total = 8687436
+2013/02/20 22:41:45 info: garbage collection: recycled = 0, used = 6389770, total = 8687436
+2013/02/20 22:41:48 info: garbage collection: recycled = 0, used = 6389977, total = 8687436
+2013/02/20 22:41:52 info: garbage collection: recycled = 0, used = 6390184, total = 8687436
+2013/02/20 22:41:55 info: garbage collection: recycled = 0, used = 6390391, total = 8687436
+2013/02/20 22:41:59 info: garbage collection: recycled = 0, used = 6390598, total = 8687436
+2013/02/20 22:42:03 info: garbage collection: recycled = 0, used = 6390805, total = 8687436
+2013/02/20 22:42:06 info: garbage collection: recycled = 0, used = 6391012, total = 8687436
+2013/02/20 22:42:10 info: garbage collection: recycled = 0, used = 6391219, total = 8687436
+2013/02/20 22:42:13 info: garbage collection: recycled = 0, used = 6391426, total = 8687436
+2013/02/20 22:42:17 info: garbage collection: recycled = 0, used = 6391633, total = 8687436
+2013/02/20 22:42:20 info: garbage collection: recycled = 0, used = 6391840, total = 8687436
+2013/02/20 22:42:24 info: garbage collection: recycled = 0, used = 6392047, total = 8687436
+2013/02/20 22:42:27 info: garbage collection: recycled = 0, used = 6392254, total = 8687436
+2013/02/20 22:42:31 info: garbage collection: recycled = 0, used = 6392461, total = 8687436
+2013/02/20 22:42:34 info: garbage collection: recycled = 0, used = 6392668, total = 8687436
+2013/02/20 22:42:38 info: garbage collection: recycled = 0, used = 6392875, total = 8687436
+2013/02/20 22:42:41 info: garbage collection: recycled = 0, used = 6393082, total = 8687436
+2013/02/20 22:42:45 info: garbage collection: recycled = 0, used = 6393289, total = 8687436
+2013/02/20 22:42:49 info: garbage collection: recycled = 0, used = 6393496, total = 8687436
+2013/02/20 22:42:52 info: garbage collection: recycled = 0, used = 6393703, total = 8687436
+2013/02/20 22:42:56 info: garbage collection: recycled = 0, used = 6393910, total = 8687436
+2013/02/20 22:42:59 info: garbage collection: recycled = 0, used = 6394117, total = 8687436
+2013/02/20 22:43:03 info: garbage collection: recycled = 0, used = 6394324, total = 8687436
+2013/02/20 22:43:06 info: garbage collection: recycled = 0, used = 6394531, total = 8687436
+2013/02/20 22:43:10 info: garbage collection: recycled = 0, used = 6394738, total = 8687436
+2013/02/20 22:43:13 info: garbage collection: recycled = 0, used = 6394945, total = 8687436
+2013/02/20 22:43:17 info: garbage collection: recycled = 0, used = 6395152, total = 8687436
+2013/02/20 22:43:20 info: garbage collection: recycled = 0, used = 6395359, total = 8687436
+2013/02/20 22:43:24 info: garbage collection: recycled = 0, used = 6395566, total = 8687436
+2013/02/20 22:43:27 info: garbage collection: recycled = 0, used = 6395773, total = 8687436
+2013/02/20 22:43:31 info: garbage collection: recycled = 0, used = 6395980, total = 8687436
+2013/02/20 22:43:34 info: garbage collection: recycled = 0, used = 6396187, total = 8687436
+2013/02/20 22:43:38 info: garbage collection: recycled = 0, used = 6396394, total = 8687436
+2013/02/20 22:43:42 info: garbage collection: recycled = 0, used = 6396601, total = 8687436
+2013/02/20 22:43:45 info: garbage collection: recycled = 0, used = 6396808, total = 8687436
+2013/02/20 22:43:49 info: garbage collection: recycled = 0, used = 6397015, total = 8687436
+2013/02/20 22:43:52 info: garbage collection: recycled = 0, used = 6397222, total = 8687436
+2013/02/20 22:43:56 info: garbage collection: recycled = 0, used = 6397429, total = 8687436
+2013/02/20 22:43:59 info: garbage collection: recycled = 0, used = 6397636, total = 8687436
+2013/02/20 22:44:03 info: garbage collection: recycled = 0, used = 6397843, total = 8687436
+2013/02/20 22:44:06 info: garbage collection: recycled = 0, used = 6398050, total = 8687436
+2013/02/20 22:44:10 info: garbage collection: recycled = 0, used = 6398257, total = 8687436
+2013/02/20 22:44:13 info: garbage collection: recycled = 0, used = 6398464, total = 8687436
+2013/02/20 22:44:17 info: garbage collection: recycled = 0, used = 6398671, total = 8687436
+2013/02/20 22:44:21 info: garbage collection: recycled = 0, used = 6398878, total = 8687436
+2013/02/20 22:44:24 info: garbage collection: recycled = 0, used = 6399085, total = 8687436
+2013/02/20 22:44:28 info: garbage collection: recycled = 0, used = 6399292, total = 8687436
+2013/02/20 22:44:31 info: garbage collection: recycled = 0, used = 6399499, total = 8687436
+2013/02/20 22:44:35 info: garbage collection: recycled = 0, used = 6399706, total = 8687436
+2013/02/20 22:44:38 info: garbage collection: recycled = 0, used = 6399913, total = 8687436
+2013/02/20 22:44:42 info: garbage collection: recycled = 0, used = 6400120, total = 8687436
+2013/02/20 22:44:45 info: garbage collection: recycled = 0, used = 6400327, total = 8687436
+2013/02/20 22:44:49 info: garbage collection: recycled = 0, used = 6400534, total = 8687436
+2013/02/20 22:44:52 info: garbage collection: recycled = 0, used = 6400741, total = 8687436
+2013/02/20 22:44:56 info: garbage collection: recycled = 0, used = 6400948, total = 8687436
+2013/02/20 22:44:59 info: garbage collection: recycled = 0, used = 6401155, total = 8687436
+2013/02/20 22:45:03 info: garbage collection: recycled = 0, used = 6401362, total = 8687436
+2013/02/20 22:45:07 info: garbage collection: recycled = 0, used = 6401569, total = 8687436
+2013/02/23 15:52:46 info: >>>>>>>>> system startup started.
+2013/02/23 15:52:46 info: DB Connection pool created: pool_name = ebizPool
+2013/02/23 15:52:46 info: WebServer started: port = 8080, SSL = false
+2013/02/23 15:52:46 info: <<<<<<<<< system startup completed.
+2013/02/23 15:53:05 info: user 'alsoftpro:user' login.
+2013/02/23 16:16:09 info: user 'alsoftpro:user' logout.
+2013/02/23 16:16:15 info: user 'system:admin' login.
+2013/02/23 16:16:21 info: >>>>>>>>> shutdown system immediately.
+2013/02/23 19:38:40 info: >>>>>>>>> system startup started.
+2013/02/23 19:38:40 info: DB Connection pool created: pool_name = ebizPool
+2013/02/23 19:38:40 info: WebServer started: port = 8080, SSL = false
+2013/02/23 19:38:40 info: <<<<<<<<< system startup completed.
+2013/02/23 19:39:14 info: user 'alsoftpro:user' login.
+2013/02/23 22:12:29 info: >>>>>>>>> system startup started.
+2013/02/23 22:12:29 info: DB Connection pool created: pool_name = ebizPool
+2013/02/23 22:12:31 info: WebServer started: port = 8080, SSL = false
+2013/02/23 22:12:31 info: <<<<<<<<< system startup completed.
+2013/02/23 22:12:53 info: user 'alsoftpro:user' login.
+2013/02/23 23:13:29 info: garbage collection: recycled = 638985, used = 6342036, total = 8681830
+2013/02/23 23:13:33 info: garbage collection: recycled = 0, used = 6342172, total = 8681830
+2013/02/23 23:13:36 info: garbage collection: recycled = 0, used = 6342308, total = 8681830
+2013/02/23 23:13:40 info: garbage collection: recycled = 0, used = 6342515, total = 8681830
+2013/02/23 23:13:44 info: garbage collection: recycled = 0, used = 6342722, total = 8681830
+2013/02/23 23:13:47 info: garbage collection: recycled = 0, used = 6342929, total = 8681830
+2013/02/23 23:13:51 info: garbage collection: recycled = 0, used = 6343136, total = 8681830
+2013/02/23 23:13:55 info: garbage collection: recycled = 0, used = 6343343, total = 8681830
+2013/02/23 23:13:58 info: garbage collection: recycled = 0, used = 6343550, total = 8681830
+2013/02/23 23:14:02 info: garbage collection: recycled = 0, used = 6343757, total = 8681830
+2013/02/23 23:14:06 info: garbage collection: recycled = 0, used = 6343964, total = 8681830
+2013/02/23 23:14:09 info: garbage collection: recycled = 0, used = 6344171, total = 8681830
+2013/02/23 23:14:13 info: garbage collection: recycled = 0, used = 6344378, total = 8681830
+2013/02/23 23:14:17 info: garbage collection: recycled = 0, used = 6344585, total = 8681830
+2013/02/23 23:14:20 info: garbage collection: recycled = 0, used = 6344792, total = 8681830
+2013/02/23 23:14:24 info: garbage collection: recycled = 0, used = 6344999, total = 8681830
+2013/02/23 23:14:28 info: garbage collection: recycled = 0, used = 6345206, total = 8681830
+2013/02/23 23:14:31 info: garbage collection: recycled = 0, used = 6345413, total = 8681830
+2013/02/23 23:14:35 info: garbage collection: recycled = 0, used = 6345620, total = 8681830
+2013/02/23 23:14:39 info: garbage collection: recycled = 0, used = 6345827, total = 8681830
+2013/02/23 23:14:42 info: garbage collection: recycled = 0, used = 6346034, total = 8681830
+2013/02/23 23:14:46 info: garbage collection: recycled = 0, used = 6346241, total = 8681830
+2013/02/23 23:14:49 info: garbage collection: recycled = 0, used = 6346448, total = 8681830
+2013/02/23 23:14:53 info: garbage collection: recycled = 0, used = 6346655, total = 8681830
+2013/02/23 23:14:57 info: garbage collection: recycled = 0, used = 6346862, total = 8681830
+2013/02/23 23:15:00 info: garbage collection: recycled = 0, used = 6347069, total = 8681830
+2013/02/23 23:15:04 info: garbage collection: recycled = 0, used = 6347276, total = 8681830
+2013/02/23 23:15:08 info: garbage collection: recycled = 0, used = 6347483, total = 8681830
+2013/02/23 23:15:12 info: garbage collection: recycled = 0, used = 6347690, total = 8681830
+2013/02/23 23:15:15 info: garbage collection: recycled = 0, used = 6347897, total = 8681830
+2013/02/23 23:15:19 info: garbage collection: recycled = 0, used = 6348104, total = 8681830
+2013/02/23 23:15:22 info: garbage collection: recycled = 0, used = 6348311, total = 8681830
+2013/02/23 23:15:26 info: garbage collection: recycled = 0, used = 6348518, total = 8681830
+2013/02/23 23:15:30 info: garbage collection: recycled = 0, used = 6348725, total = 8681830
+2013/02/23 23:15:33 info: garbage collection: recycled = 0, used = 6348932, total = 8681830
+2013/02/23 23:15:37 info: garbage collection: recycled = 0, used = 6349139, total = 8681830
+2013/02/23 23:15:41 info: garbage collection: recycled = 0, used = 6349346, total = 8681830
+2013/02/23 23:15:44 info: garbage collection: recycled = 0, used = 6349553, total = 8681830
+2013/02/23 23:15:48 info: garbage collection: recycled = 0, used = 6349760, total = 8681830
+2013/02/23 23:15:52 info: garbage collection: recycled = 0, used = 6349967, total = 8681830
+2013/02/23 23:15:55 info: garbage collection: recycled = 0, used = 6350174, total = 8681830
+2013/02/23 23:15:59 info: garbage collection: recycled = 0, used = 6350381, total = 8681830
+2013/02/23 23:16:03 info: garbage collection: recycled = 0, used = 6350588, total = 8681830
+2013/02/23 23:16:06 info: garbage collection: recycled = 0, used = 6350795, total = 8681830
+2013/02/23 23:16:10 info: garbage collection: recycled = 0, used = 6351002, total = 8681830
+2013/02/23 23:16:14 info: garbage collection: recycled = 0, used = 6351209, total = 8681830
+2013/02/23 23:16:17 info: garbage collection: recycled = 0, used = 6351416, total = 8681830
+2013/02/23 23:16:21 info: garbage collection: recycled = 0, used = 6351623, total = 8681830
+2013/02/23 23:16:25 info: garbage collection: recycled = 0, used = 6351830, total = 8681830
+2013/02/23 23:16:28 info: garbage collection: recycled = 0, used = 6352037, total = 8681830
+2013/02/23 23:16:32 info: garbage collection: recycled = 0, used = 6352244, total = 8681830
+2013/02/23 23:16:35 info: garbage collection: recycled = 0, used = 6352451, total = 8681830
+2013/02/23 23:16:39 info: garbage collection: recycled = 0, used = 6352658, total = 8681830
+2013/02/23 23:16:43 info: garbage collection: recycled = 0, used = 6352865, total = 8681830
+2013/02/23 23:16:46 info: garbage collection: recycled = 0, used = 6353072, total = 8681830
+2013/02/23 23:16:50 info: garbage collection: recycled = 0, used = 6353279, total = 8681830
+2013/02/23 23:16:54 info: garbage collection: recycled = 0, used = 6353486, total = 8681830
+2013/02/23 23:16:57 info: garbage collection: recycled = 0, used = 6353693, total = 8681830
+2013/02/23 23:17:01 info: garbage collection: recycled = 0, used = 6353900, total = 8681830
+2013/02/23 23:17:05 info: garbage collection: recycled = 0, used = 6354107, total = 8681830
+2013/02/23 23:17:08 info: garbage collection: recycled = 0, used = 6354314, total = 8681830
+2013/02/23 23:17:12 info: garbage collection: recycled = 0, used = 6354521, total = 8681830
+2013/02/23 23:17:16 info: garbage collection: recycled = 0, used = 6354728, total = 8681830
+2013/02/23 23:17:19 info: garbage collection: recycled = 0, used = 6354935, total = 8681830
+2013/02/23 23:17:23 info: garbage collection: recycled = 0, used = 6355142, total = 8681830
+2013/02/23 23:17:27 info: garbage collection: recycled = 0, used = 6355349, total = 8681830
+2013/02/23 23:17:30 info: garbage collection: recycled = 0, used = 6355556, total = 8681830
+2013/02/23 23:17:34 info: garbage collection: recycled = 0, used = 6355763, total = 8681830
+2013/02/23 23:17:38 info: garbage collection: recycled = 0, used = 6355970, total = 8681830
+2013/02/23 23:17:41 info: garbage collection: recycled = 0, used = 6356177, total = 8681830
+2013/02/23 23:17:45 info: garbage collection: recycled = 0, used = 6356384, total = 8681830
+2013/02/23 23:17:49 info: garbage collection: recycled = 0, used = 6356591, total = 8681830
+2013/02/23 23:17:52 info: garbage collection: recycled = 0, used = 6356798, total = 8681830
+2013/02/23 23:17:56 info: garbage collection: recycled = 0, used = 6357005, total = 8681830
+2013/02/23 23:18:00 info: garbage collection: recycled = 0, used = 6357212, total = 8681830
+2013/02/23 23:18:03 info: garbage collection: recycled = 0, used = 6357419, total = 8681830
+2013/02/23 23:18:07 info: garbage collection: recycled = 0, used = 6357626, total = 8681830
+2013/02/23 23:18:10 info: garbage collection: recycled = 0, used = 6357833, total = 8681830
+2013/02/23 23:18:14 info: garbage collection: recycled = 0, used = 6358040, total = 8681830
+2013/02/23 23:18:18 info: garbage collection: recycled = 0, used = 6358247, total = 8681830
+2013/02/23 23:18:22 info: garbage collection: recycled = 0, used = 6358454, total = 8681830
+2013/02/23 23:18:25 info: garbage collection: recycled = 0, used = 6358661, total = 8681830
+2013/02/23 23:18:29 info: garbage collection: recycled = 0, used = 6358868, total = 8681830
+2013/02/23 23:18:32 info: garbage collection: recycled = 0, used = 6359075, total = 8681830
+2013/02/23 23:18:36 info: garbage collection: recycled = 0, used = 6359282, total = 8681830
+2013/02/23 23:18:40 info: garbage collection: recycled = 0, used = 6359489, total = 8681830
+2013/02/23 23:18:43 info: garbage collection: recycled = 0, used = 6359696, total = 8681830
+2013/02/23 23:18:47 info: garbage collection: recycled = 0, used = 6359903, total = 8681830
+2013/02/23 23:18:51 info: garbage collection: recycled = 0, used = 6360110, total = 8681830
+2013/02/23 23:18:54 info: garbage collection: recycled = 0, used = 6360317, total = 8681830
+2013/02/23 23:18:58 info: garbage collection: recycled = 0, used = 6360524, total = 8681830
+2013/02/23 23:19:02 info: garbage collection: recycled = 0, used = 6360731, total = 8681830
+2013/02/23 23:19:05 info: garbage collection: recycled = 0, used = 6360938, total = 8681830
+2013/02/23 23:19:09 info: garbage collection: recycled = 0, used = 6361145, total = 8681830
+2013/02/23 23:19:12 info: garbage collection: recycled = 0, used = 6361352, total = 8681830
+2013/02/23 23:19:16 info: garbage collection: recycled = 0, used = 6361559, total = 8681830
+2013/02/23 23:19:20 info: garbage collection: recycled = 0, used = 6361766, total = 8681830
+2013/02/23 23:19:24 info: garbage collection: recycled = 0, used = 6361973, total = 8681830
+2013/02/23 23:19:27 info: garbage collection: recycled = 0, used = 6362180, total = 8681830
+2013/02/23 23:19:31 info: garbage collection: recycled = 0, used = 6362387, total = 8681830
+2013/02/23 23:19:35 info: garbage collection: recycled = 0, used = 6362594, total = 8681830
+2013/02/23 23:19:38 info: garbage collection: recycled = 0, used = 6362801, total = 8681830
+2013/02/23 23:19:42 info: garbage collection: recycled = 0, used = 6363008, total = 8681830
+2013/02/23 23:19:45 info: garbage collection: recycled = 0, used = 6363215, total = 8681830
+2013/02/23 23:19:49 info: garbage collection: recycled = 0, used = 6363422, total = 8681830
+2013/02/23 23:19:53 info: garbage collection: recycled = 0, used = 6363629, total = 8681830
+2013/02/23 23:19:56 info: garbage collection: recycled = 0, used = 6363836, total = 8681830
+2013/02/23 23:20:00 info: garbage collection: recycled = 0, used = 6364043, total = 8681830
+2013/02/23 23:20:04 info: garbage collection: recycled = 0, used = 6364250, total = 8681830
+2013/02/23 23:20:07 info: garbage collection: recycled = 0, used = 6364457, total = 8681830
+2013/02/23 23:20:11 info: garbage collection: recycled = 0, used = 6364664, total = 8681830
+2013/02/23 23:20:15 info: garbage collection: recycled = 0, used = 6364871, total = 8681830
+2013/02/23 23:20:18 info: garbage collection: recycled = 0, used = 6365078, total = 8681830
+2013/02/23 23:20:22 info: garbage collection: recycled = 0, used = 6365285, total = 8681830
+2013/02/23 23:20:26 info: garbage collection: recycled = 0, used = 6365492, total = 8681830
+2013/02/23 23:20:29 info: garbage collection: recycled = 0, used = 6365699, total = 8681830
+2013/02/23 23:20:33 info: garbage collection: recycled = 0, used = 6365906, total = 8681830
+2013/02/23 23:20:37 info: garbage collection: recycled = 0, used = 6366113, total = 8681830
+2013/02/23 23:20:40 info: garbage collection: recycled = 0, used = 6366320, total = 8681830
+2013/02/23 23:20:44 info: garbage collection: recycled = 0, used = 6366527, total = 8681830
+2013/02/23 23:20:48 info: garbage collection: recycled = 0, used = 6366734, total = 8681830
+2013/02/23 23:20:51 info: garbage collection: recycled = 0, used = 6366941, total = 8681830
+2013/02/23 23:20:55 info: garbage collection: recycled = 0, used = 6367148, total = 8681830
+2013/02/23 23:20:59 info: garbage collection: recycled = 0, used = 6367355, total = 8681830
+2013/02/23 23:21:02 info: garbage collection: recycled = 0, used = 6367562, total = 8681830
+2013/02/23 23:21:06 info: garbage collection: recycled = 0, used = 6367769, total = 8681830
+2013/02/23 23:21:10 info: garbage collection: recycled = 0, used = 6367976, total = 8681830
+2013/02/23 23:21:13 info: garbage collection: recycled = 0, used = 6368183, total = 8681830
+2013/02/23 23:21:17 info: garbage collection: recycled = 0, used = 6368390, total = 8681830
+2013/02/23 23:21:20 info: garbage collection: recycled = 0, used = 6368597, total = 8681830
+2013/02/23 23:21:24 info: garbage collection: recycled = 0, used = 6368804, total = 8681830
+2013/02/23 23:21:28 info: garbage collection: recycled = 0, used = 6369011, total = 8681830
+2013/02/23 23:21:31 info: garbage collection: recycled = 0, used = 6369218, total = 8681830
+2013/02/23 23:21:35 info: garbage collection: recycled = 0, used = 6369425, total = 8681830
+2013/02/23 23:21:39 info: garbage collection: recycled = 0, used = 6369632, total = 8681830
+2013/02/23 23:21:43 info: garbage collection: recycled = 0, used = 6369839, total = 8681830
+2013/02/23 23:21:46 info: garbage collection: recycled = 0, used = 6370046, total = 8681830
+2013/02/23 23:21:50 info: garbage collection: recycled = 0, used = 6370253, total = 8681830
+2013/02/23 23:21:53 info: garbage collection: recycled = 0, used = 6370460, total = 8681830
+2013/02/23 23:21:57 info: garbage collection: recycled = 0, used = 6370667, total = 8681830
+2013/02/23 23:22:01 info: garbage collection: recycled = 0, used = 6370874, total = 8681830
+2013/02/23 23:22:04 info: garbage collection: recycled = 0, used = 6371081, total = 8681830
+2013/02/23 23:22:08 info: garbage collection: recycled = 0, used = 6371288, total = 8681830
+2013/02/23 23:22:12 info: garbage collection: recycled = 0, used = 6371495, total = 8681830
+2013/02/23 23:22:15 info: garbage collection: recycled = 0, used = 6371702, total = 8681830
+2013/02/23 23:22:19 info: garbage collection: recycled = 0, used = 6371909, total = 8681830
+2013/02/23 23:22:23 info: garbage collection: recycled = 0, used = 6372116, total = 8681830
+2013/02/23 23:22:26 info: garbage collection: recycled = 0, used = 6372323, total = 8681830
+2013/02/23 23:22:30 info: garbage collection: recycled = 0, used = 6372530, total = 8681830
+2013/02/23 23:22:34 info: garbage collection: recycled = 0, used = 6372737, total = 8681830
+2013/02/23 23:22:37 info: garbage collection: recycled = 0, used = 6372944, total = 8681830
+2013/02/23 23:22:41 info: garbage collection: recycled = 0, used = 6373151, total = 8681830
+2013/02/23 23:22:45 info: garbage collection: recycled = 0, used = 6373358, total = 8681830
+2013/02/23 23:22:48 info: garbage collection: recycled = 0, used = 6373565, total = 8681830
+2013/02/23 23:22:52 info: garbage collection: recycled = 0, used = 6373772, total = 8681830
+2013/02/23 23:22:55 info: garbage collection: recycled = 0, used = 6373979, total = 8681830
+2013/02/23 23:22:59 info: garbage collection: recycled = 0, used = 6374186, total = 8681830
+2013/02/23 23:23:03 info: garbage collection: recycled = 0, used = 6374393, total = 8681830
+2013/02/23 23:23:06 info: garbage collection: recycled = 0, used = 6374600, total = 8681830
+2013/02/23 23:23:10 info: garbage collection: recycled = 0, used = 6374807, total = 8681830
+2013/02/23 23:23:14 info: garbage collection: recycled = 0, used = 6375014, total = 8681830
+2013/02/23 23:23:17 info: garbage collection: recycled = 0, used = 6375221, total = 8681830
+2013/02/23 23:23:21 info: garbage collection: recycled = 0, used = 6375428, total = 8681830
+2013/02/23 23:23:25 info: garbage collection: recycled = 0, used = 6375635, total = 8681830
+2013/02/23 23:23:28 info: garbage collection: recycled = 0, used = 6375842, total = 8681830
+2013/02/23 23:23:32 info: garbage collection: recycled = 0, used = 6376049, total = 8681830
+2013/02/23 23:23:35 info: garbage collection: recycled = 0, used = 6376256, total = 8681830
+2013/02/23 23:23:39 info: garbage collection: recycled = 0, used = 6376463, total = 8681830
+2013/02/23 23:23:43 info: garbage collection: recycled = 0, used = 6376670, total = 8681830
+2013/02/23 23:23:47 info: garbage collection: recycled = 0, used = 6376877, total = 8681830
+2013/02/23 23:23:50 info: garbage collection: recycled = 0, used = 6377084, total = 8681830
+2013/02/23 23:23:54 info: garbage collection: recycled = 0, used = 6377291, total = 8681830
+2013/02/23 23:23:58 info: garbage collection: recycled = 0, used = 6377498, total = 8681830
+2013/02/23 23:24:01 info: garbage collection: recycled = 0, used = 6377705, total = 8681830
+2013/02/23 23:24:05 info: garbage collection: recycled = 0, used = 6377912, total = 8681830
+2013/02/23 23:24:08 info: garbage collection: recycled = 0, used = 6378119, total = 8681830
+2013/02/23 23:24:12 info: garbage collection: recycled = 0, used = 6378326, total = 8681830
+2013/02/23 23:24:16 info: garbage collection: recycled = 0, used = 6378533, total = 8681830
+2013/02/23 23:24:19 info: garbage collection: recycled = 0, used = 6378740, total = 8681830
+2013/02/23 23:24:23 info: garbage collection: recycled = 0, used = 6378947, total = 8681830
+2013/02/23 23:24:27 info: garbage collection: recycled = 0, used = 6379154, total = 8681830
+2013/02/23 23:24:30 info: garbage collection: recycled = 0, used = 6379361, total = 8681830
+2013/02/23 23:24:34 info: garbage collection: recycled = 0, used = 6379568, total = 8681830
+2013/02/23 23:24:37 info: garbage collection: recycled = 0, used = 6379775, total = 8681830
+2013/02/23 23:24:41 info: garbage collection: recycled = 0, used = 6379982, total = 8681830
+2013/02/23 23:24:45 info: garbage collection: recycled = 0, used = 6380189, total = 8681830
+2013/02/23 23:24:48 info: garbage collection: recycled = 0, used = 6380396, total = 8681830
+2013/02/23 23:24:52 info: garbage collection: recycled = 0, used = 6380603, total = 8681830
+2013/02/23 23:24:56 info: garbage collection: recycled = 0, used = 6380810, total = 8681830
+2013/02/23 23:24:59 info: garbage collection: recycled = 0, used = 6381017, total = 8681830
+2013/02/23 23:25:03 info: garbage collection: recycled = 0, used = 6381224, total = 8681830
+2013/02/23 23:25:07 info: garbage collection: recycled = 0, used = 6381431, total = 8681830
+2013/02/23 23:25:10 info: garbage collection: recycled = 0, used = 6381638, total = 8681830
+2013/02/23 23:25:14 info: garbage collection: recycled = 0, used = 6381845, total = 8681830
+2013/02/23 23:25:18 info: garbage collection: recycled = 0, used = 6382052, total = 8681830
+2013/02/23 23:25:21 info: garbage collection: recycled = 0, used = 6382259, total = 8681830
+2013/02/23 23:25:25 info: garbage collection: recycled = 0, used = 6382466, total = 8681830
+2013/02/23 23:25:29 info: garbage collection: recycled = 0, used = 6382673, total = 8681830
+2013/02/23 23:25:32 info: garbage collection: recycled = 0, used = 6382880, total = 8681830
+2013/02/23 23:25:36 info: garbage collection: recycled = 0, used = 6383087, total = 8681830
+2013/02/23 23:25:39 info: garbage collection: recycled = 0, used = 6383294, total = 8681830
+2013/02/23 23:25:43 info: garbage collection: recycled = 0, used = 6383501, total = 8681830
+2013/02/23 23:25:47 info: garbage collection: recycled = 0, used = 6383708, total = 8681830
+2013/02/23 23:25:50 info: garbage collection: recycled = 0, used = 6383915, total = 8681830
+2013/02/23 23:25:54 info: garbage collection: recycled = 0, used = 6384122, total = 8681830
+2013/02/23 23:25:58 info: garbage collection: recycled = 0, used = 6384329, total = 8681830
+2013/02/23 23:26:02 info: garbage collection: recycled = 0, used = 6384536, total = 8681830
+2013/02/23 23:26:05 info: garbage collection: recycled = 0, used = 6384743, total = 8681830
+2013/02/23 23:26:09 info: garbage collection: recycled = 0, used = 6384950, total = 8681830
+2013/02/23 23:26:12 info: garbage collection: recycled = 0, used = 6385157, total = 8681830
+2013/02/23 23:26:16 info: garbage collection: recycled = 0, used = 6385364, total = 8681830
+2013/02/23 23:26:20 info: garbage collection: recycled = 0, used = 6385571, total = 8681830
+2013/02/23 23:26:23 info: garbage collection: recycled = 0, used = 6385778, total = 8681830
+2013/02/23 23:26:27 info: garbage collection: recycled = 0, used = 6385985, total = 8681830
+2013/02/23 23:26:31 info: garbage collection: recycled = 0, used = 6386192, total = 8681830
+2013/02/23 23:26:34 info: garbage collection: recycled = 0, used = 6386399, total = 8681830
+2013/02/23 23:26:38 info: garbage collection: recycled = 0, used = 6386606, total = 8681830
+2013/02/23 23:26:42 info: garbage collection: recycled = 0, used = 6386813, total = 8681830
+2013/02/23 23:26:45 info: garbage collection: recycled = 0, used = 6387020, total = 8681830
+2013/02/23 23:26:49 info: garbage collection: recycled = 0, used = 6387227, total = 8681830
+2013/02/23 23:26:52 info: garbage collection: recycled = 0, used = 6387434, total = 8681830
+2013/02/23 23:26:56 info: garbage collection: recycled = 0, used = 6387641, total = 8681830
+2013/02/23 23:27:00 info: garbage collection: recycled = 0, used = 6387848, total = 8681830
+2013/02/23 23:27:04 info: garbage collection: recycled = 0, used = 6388055, total = 8681830
+2013/02/23 23:27:07 info: garbage collection: recycled = 0, used = 6388262, total = 8681830
+2013/02/23 23:27:11 info: garbage collection: recycled = 0, used = 6388469, total = 8681830
+2013/02/23 23:27:15 info: garbage collection: recycled = 0, used = 6388676, total = 8681830
+2013/02/23 23:27:18 info: garbage collection: recycled = 0, used = 6388883, total = 8681830
+2013/02/23 23:27:22 info: garbage collection: recycled = 0, used = 6389090, total = 8681830
+2013/02/23 23:27:25 info: garbage collection: recycled = 0, used = 6389297, total = 8681830
+2013/02/23 23:27:29 info: garbage collection: recycled = 0, used = 6389504, total = 8681830
+2013/02/23 23:27:33 info: garbage collection: recycled = 0, used = 6389711, total = 8681830
+2013/02/23 23:27:36 info: garbage collection: recycled = 0, used = 6389918, total = 8681830
+2013/02/23 23:27:40 info: garbage collection: recycled = 0, used = 6390125, total = 8681830
+2013/02/23 23:27:44 info: garbage collection: recycled = 0, used = 6390332, total = 8681830
+2013/02/23 23:27:47 info: garbage collection: recycled = 0, used = 6390539, total = 8681830
+2013/02/23 23:27:51 info: garbage collection: recycled = 0, used = 6390746, total = 8681830
+2013/02/23 23:27:55 info: garbage collection: recycled = 0, used = 6390953, total = 8681830
+2013/02/23 23:27:58 info: garbage collection: recycled = 0, used = 6391160, total = 8681830
+2013/02/23 23:28:02 info: garbage collection: recycled = 0, used = 6391367, total = 8681830
+2013/02/23 23:28:06 info: garbage collection: recycled = 0, used = 6391574, total = 8681830
+2013/02/23 23:28:09 info: garbage collection: recycled = 0, used = 6391781, total = 8681830
+2013/02/23 23:28:13 info: garbage collection: recycled = 0, used = 6391988, total = 8681830
+2013/02/23 23:28:17 info: garbage collection: recycled = 0, used = 6392195, total = 8681830
+2013/02/23 23:28:20 info: garbage collection: recycled = 0, used = 6392402, total = 8681830
+2013/02/23 23:28:24 info: garbage collection: recycled = 0, used = 6392609, total = 8681830
+2013/02/23 23:28:28 info: garbage collection: recycled = 0, used = 6392816, total = 8681830
+2013/02/23 23:28:31 info: garbage collection: recycled = 0, used = 6393023, total = 8681830
+2013/02/23 23:28:35 info: garbage collection: recycled = 0, used = 6393230, total = 8681830
+2013/02/23 23:28:38 info: garbage collection: recycled = 0, used = 6393437, total = 8681830
+2013/02/23 23:28:42 info: garbage collection: recycled = 0, used = 6393644, total = 8681830
+2013/02/23 23:28:46 info: garbage collection: recycled = 0, used = 6393851, total = 8681830
+2013/02/23 23:28:49 info: garbage collection: recycled = 0, used = 6394058, total = 8681830
+2013/02/23 23:28:53 info: garbage collection: recycled = 0, used = 6394265, total = 8681830
+2013/02/23 23:28:57 info: garbage collection: recycled = 0, used = 6394472, total = 8681830
+2013/02/23 23:29:00 info: garbage collection: recycled = 0, used = 6394679, total = 8681830
+2013/02/23 23:29:04 info: garbage collection: recycled = 0, used = 6394886, total = 8681830
+2013/02/23 23:29:08 info: garbage collection: recycled = 0, used = 6395093, total = 8681830
+2013/02/23 23:29:11 info: garbage collection: recycled = 0, used = 6395300, total = 8681830
+2013/02/23 23:29:15 info: garbage collection: recycled = 0, used = 6395507, total = 8681830
+2013/02/23 23:29:19 info: garbage collection: recycled = 0, used = 6395714, total = 8681830
+2013/02/23 23:29:22 info: garbage collection: recycled = 0, used = 6395921, total = 8681830
+2013/02/23 23:29:26 info: garbage collection: recycled = 0, used = 6396128, total = 8681830
+2013/02/23 23:29:30 info: garbage collection: recycled = 0, used = 6396335, total = 8681830
+2013/02/23 23:29:33 info: garbage collection: recycled = 0, used = 6396542, total = 8681830
+2013/02/23 23:29:37 info: garbage collection: recycled = 0, used = 6396749, total = 8681830
+2013/02/23 23:29:41 info: garbage collection: recycled = 0, used = 6396956, total = 8681830
+2013/02/23 23:29:44 info: garbage collection: recycled = 0, used = 6397163, total = 8681830
+2013/02/23 23:29:48 info: garbage collection: recycled = 0, used = 6397370, total = 8681830
+2013/02/23 23:29:51 info: garbage collection: recycled = 0, used = 6397577, total = 8681830
+2013/02/23 23:29:55 info: garbage collection: recycled = 0, used = 6397784, total = 8681830
+2013/02/23 23:29:59 info: garbage collection: recycled = 0, used = 6397991, total = 8681830
+2013/02/23 23:30:02 info: garbage collection: recycled = 0, used = 6398198, total = 8681830
+2013/02/23 23:30:06 info: garbage collection: recycled = 0, used = 6398405, total = 8681830
+2013/02/23 23:30:10 info: garbage collection: recycled = 0, used = 6398612, total = 8681830
+2013/02/23 23:30:13 info: garbage collection: recycled = 0, used = 6398819, total = 8681830
+2013/02/23 23:30:17 info: garbage collection: recycled = 0, used = 6399026, total = 8681830
+2013/02/23 23:30:21 info: garbage collection: recycled = 0, used = 6399233, total = 8681830
+2013/02/23 23:30:25 info: garbage collection: recycled = 0, used = 6399440, total = 8681830
+2013/02/23 23:30:28 info: garbage collection: recycled = 0, used = 6399647, total = 8681830
+2013/02/23 23:30:32 info: garbage collection: recycled = 0, used = 6399854, total = 8681830
+2013/02/23 23:30:35 info: garbage collection: recycled = 0, used = 6400061, total = 8681830
+2013/02/23 23:30:39 info: garbage collection: recycled = 0, used = 6400268, total = 8681830
+2013/02/24 08:24:29 info: garbage collection: recycled = 0, used = 6400475, total = 8681830
+2013/02/24 08:24:33 info: garbage collection: recycled = 0, used = 6400682, total = 8681830
+2013/02/24 08:24:37 info: garbage collection: recycled = 0, used = 6400889, total = 8681830
+2013/02/24 08:28:41 info: >>>>>>>>> system startup started.
+2013/02/24 08:28:41 info: DB Connection pool created: pool_name = ebizPool
+2013/02/24 08:28:41 info: WebServer started: port = 8080, SSL = false
+2013/02/24 08:28:41 info: <<<<<<<<< system startup completed.
+2013/02/24 08:30:40 info: >>>>>>>>> system startup started.
+2013/02/24 08:30:40 info: DB Connection pool created: pool_name = ebizPool
+2013/02/24 08:30:40 info: WebServer started: port = 8080, SSL = false
+2013/02/24 08:30:40 info: <<<<<<<<< system startup completed.
+2013/02/24 08:31:14 info: user 'alsoftpro:user' login.
+2013/02/24 09:31:38 info: garbage collection: recycled = 638402, used = 6342020, total = 8681830
+2013/02/24 17:15:21 info: >>>>>>>>> system startup started.
+2013/02/24 17:15:21 info: DB Connection pool created: pool_name = ebizPool
+2013/02/24 17:15:21 info: WebServer started: port = 8080, SSL = false
+2013/02/24 17:15:21 info: <<<<<<<<< system startup completed.
+2013/02/24 17:16:22 info: user 'alsoftpro:user' login.
+2013/02/24 20:09:06 info: user 'system:admin' login.
+2013/02/24 20:10:01 info: >>>>>>>>> shutdown system immediately.
+2013/02/24 21:53:25 info: >>>>>>>>> system startup started.
+2013/02/24 21:53:25 info: DB Connection pool created: pool_name = ebizPool
+2013/02/24 21:53:25 info: WebServer started: port = 8080, SSL = false
+2013/02/24 21:53:25 info: <<<<<<<<< system startup completed.
+2013/02/24 21:54:00 info: user 'alsoftpro:user' login.
+2013/02/24 22:12:52 info: >>>>>>>>> system startup started.
+2013/02/24 22:12:52 info: DB Connection pool created: pool_name = ebizPool
+2013/02/24 22:12:52 info: WebServer started: port = 8080, SSL = false
+2013/02/24 22:12:52 info: <<<<<<<<< system startup completed.
+2013/02/24 22:13:12 info: user 'alsoftpro:user' login.
+2013/02/25 08:53:15 info: user 'alsoftpro:user' login.
+2013/02/25 08:56:01 info: user 'system:admin' login.
+2013/02/25 08:56:10 info: >>>>>>>>> shutdown system immediately.
+2013/02/25 09:19:54 info: >>>>>>>>> system startup started.
+2013/02/25 09:19:54 info: DB Connection pool created: pool_name = ebizPool
+2013/02/25 09:19:54 info: WebServer started: port = 8080, SSL = false
+2013/02/25 09:19:54 info: <<<<<<<<< system startup completed.
+2013/02/25 09:20:10 info: >>>>>>>>> shutdown system immediately.
+2013/02/25 09:21:22 info: >>>>>>>>> system startup started.
+2013/02/25 09:21:22 info: DB Connection pool created: pool_name = ebizPool
+2013/02/25 09:21:22 info: WebServer started: port = 8080, SSL = false
+2013/02/25 09:21:22 info: <<<<<<<<< system startup completed.
+2013/02/25 10:22:13 info: garbage collection: recycled = 0, used = 143780, total = 143989
+2013/02/25 11:23:03 info: garbage collection: recycled = 0, used = 143782, total = 143989
+2013/02/25 11:41:54 info: >>>>>>>>> shutdown system immediately.
+2013/02/25 11:45:16 info: >>>>>>>>> system startup started.
+2013/02/25 11:45:16 info: DB Connection pool created: pool_name = ebizPool
+2013/02/25 11:45:16 info: WebServer started: port = 8080, SSL = false
+2013/02/25 11:45:16 info: <<<<<<<<< system startup completed.
+2013/02/25 11:58:31 info: >>>>>>>>> shutdown system immediately.
+2013/02/25 16:43:16 info: >>>>>>>>> system startup started.
+2013/02/25 16:43:16 info: DB Connection pool created: pool_name = ebizPool
+2013/02/25 16:43:16 info: WebServer started: port = 8080, SSL = false
+2013/02/25 16:43:16 info: <<<<<<<<< system startup completed.
+2013/02/25 16:43:58 info: user 'alsoftpro:user' login.
+2013/02/25 16:45:15 info: user 'alsoftpro:user' logout.
+2013/02/25 16:45:25 info: user 'system:admin' login.
+2013/02/25 16:45:31 info: >>>>>>>>> shutdown system immediately.
+2013/03/14 03:13:20 info: >>>>>>>>> system startup started.
+2013/03/14 03:13:20 info: DB Connection pool created: pool_name = ebizPool
+2013/03/14 03:13:20 info: WebServer started: port = 8080, SSL = false
+2013/03/14 03:13:20 info: <<<<<<<<< system startup completed.
+2013/03/14 03:13:54 info: user 'alsoftpro:user' login.
+2013/03/14 03:51:04 info: >>>>>>>>> system startup started.
+2013/03/14 03:51:04 info: DB Connection pool created: pool_name = ebizPool
+2013/03/14 03:51:04 info: WebServer started: port = 8080, SSL = false
+2013/03/14 03:51:04 info: <<<<<<<<< system startup completed.
+2013/03/14 03:51:49 info: user 'alsoftpro:user' login.
+2013/03/14 03:59:31 info: user 'alsoftpro:user' logout.
+2013/03/14 03:59:43 info: user 'system:admin' login.
+2013/03/14 03:59:49 info: >>>>>>>>> shutdown system immediately.
+2013/03/14 04:02:15 info: >>>>>>>>> system startup started.
+2013/03/14 04:02:15 info: DB Connection pool created: pool_name = ebizPool
+2013/03/14 04:02:15 info: WebServer started: port = 8080, SSL = false
+2013/03/14 04:02:15 info: <<<<<<<<< system startup completed.
+2013/03/14 04:02:47 info: user 'alsoftpro:user' login.
+2013/03/14 04:14:22 info: user 'alsoftpro:user' logout.
+2013/03/14 04:14:32 info: user 'system:admin' login.
+2013/03/14 04:14:41 info: >>>>>>>>> shutdown system immediately.
+2013/03/14 04:15:33 info: >>>>>>>>> system startup started.
+2013/03/14 04:15:33 info: DB Connection pool created: pool_name = ebizPool
+2013/03/14 04:15:33 info: WebServer started: port = 8080, SSL = false
+2013/03/14 04:15:33 info: <<<<<<<<< system startup completed.
+2013/03/14 04:16:04 info: user 'alsoftpro:user' login.
+2013/03/14 05:16:31 info: garbage collection: recycled = 0, used = 6986002, total = 7833382
+2013/03/14 06:17:24 info: garbage collection: recycled = 0, used = 7868949, total = 7870842
+2013/03/14 07:18:20 info: garbage collection: recycled = 0, used = 3374664, total = 9872164
+2013/03/14 11:34:28 info: >>>>>>>>> system startup started.
+2013/03/14 11:34:28 info: DB Connection pool created: pool_name = ebizPool
+2013/03/14 11:34:28 info: WebServer started: port = 8080, SSL = false
+2013/03/14 11:34:28 info: <<<<<<<<< system startup completed.
+2013/03/14 11:34:52 info: >>>>>>>>> shutdown system immediately.
+2013/03/14 11:36:36 info: >>>>>>>>> system startup started.
+2013/03/14 11:36:36 info: DB Connection pool created: pool_name = ebizPool
+2013/03/14 11:36:36 info: WebServer started: port = 8080, SSL = false
+2013/03/14 11:36:36 info: <<<<<<<<< system startup completed.
+2013/03/14 11:37:05 info: user 'alsoftpro:user' login.
+2013/03/14 12:37:35 info: garbage collection: recycled = 0, used = 6998186, total = 7841918
+2013/03/14 13:38:27 info: garbage collection: recycled = 0, used = 7874032, total = 7879378
+2013/07/26 00:22:45 info: >>>>>>>>> system startup started.
+2013/07/26 00:22:45 info: DB Connection pool created: pool_name = ebizPool
+2013/07/26 00:22:45 info: WebServer started: port = 8080, SSL = false
+2013/07/26 00:22:45 info: <<<<<<<<< system startup completed.
+2013/07/26 00:23:09 info: user 'alsoftpro:user' login.
+2013/07/26 01:23:43 info: garbage collection: recycled = 0, used = 5911185, total = 7841918
+2013/07/26 02:24:36 info: garbage collection: recycled = 0, used = 7877404, total = 7879378
+2013/07/26 03:25:34 info: garbage collection: recycled = 0, used = 3354068, total = 9880700
+2013/07/26 04:26:33 info: garbage collection: recycled = 0, used = 7000846, total = 9880700
+2013/07/26 05:27:26 info: garbage collection: recycled = 0, used = 7945570, total = 9880700
+2013/07/26 06:28:24 info: garbage collection: recycled = 0, used = 275206, total = 9881954
+2013/07/26 07:29:14 info: garbage collection: recycled = 0, used = 275206, total = 9881954
+2013/07/26 08:30:05 info: garbage collection: recycled = 0, used = 275206, total = 9881954
+2013/07/26 09:30:55 info: garbage collection: recycled = 0, used = 275206, total = 9881954
+2013/07/26 09:42:06 info: user 'system:admin' login.
+2013/07/26 09:42:13 info: >>>>>>>>> shutdown system immediately.
+2013/10/10 20:27:29 info: >>>>>>>>> system startup started.
+2013/10/10 20:27:29 info: DB Connection pool created: pool_name = ebizPool
+2013/10/10 20:27:29 info: WebServer started: port = 8080, SSL = false
+2013/10/10 20:27:29 info: <<<<<<<<< system startup completed.
+2013/10/10 20:28:38 info: user 'alsoftpro:user' login.
+2013/10/10 20:30:03 info: user 'alsoftpro:user' logout.
+2013/10/10 20:30:16 info: user 'system:admin' login.
+2013/10/10 20:30:25 info: >>>>>>>>> shutdown system immediately.
+2013/10/12 07:30:05 error: DB Connection Pool Creation falied: pool_name = ebizPool: sql: connect error: Could not connect to the server;
+No connection could be made because the target machine actively refused it.
+ [127.0.0.1:5432]
+2013/10/12 07:30:05 info: >>>>>>>>> shutdown system immediately.
+2014/02/24 16:56:54 info: >>>>>>>>> system startup started.
+2014/02/24 16:56:55 info: DB Connection pool created: pool_name = ebizPool
+2014/02/24 16:56:55 info: WebServer started: port = 8080, SSL = false
+2014/02/24 16:56:55 info: <<<<<<<<< system startup completed.
+2014/02/24 16:57:11 info: user 'alsoftpro:user' login.
+2014/02/24 16:57:59 info: user 'alsoftpro:user' logout.
+2014/02/24 16:58:18 info: >>>>>>>>> shutdown system immediately.
+2014/02/24 20:28:30 info: >>>>>>>>> system startup started.
+2014/02/24 20:28:30 info: DB Connection pool created: pool_name = ebizPool
+2014/02/24 20:28:30 info: WebServer started: port = 8080, SSL = false
+2014/02/24 20:28:30 info: <<<<<<<<< system startup completed.
+2014/02/24 20:29:35 info: user 'alsoftpro:user' login.
+2014/02/24 20:29:54 info: user 'alsoftpro:user' logout.
+2014/02/24 20:30:04 info: user 'system:admin' login.
+2014/02/24 20:30:45 info: >>>>>>>>> shutdown system immediately.
+2014/02/24 20:32:39 info: >>>>>>>>> system startup started.
+2014/02/24 20:32:39 info: DB Connection pool created: pool_name = ebizPool
+2014/02/24 20:32:39 info: WebServer started: port = 8080, SSL = false
+2014/02/24 20:32:39 info: <<<<<<<<< system startup completed.
+2014/02/24 20:33:16 info: user 'alsoftpro:user' login.
+2014/02/24 20:33:34 info: user 'alsoftpro:user' logout.
+2014/02/24 20:33:51 info: user 'system:admin' login.
+2014/02/24 20:33:59 info: >>>>>>>>> shutdown system immediately.
+2014/02/24 20:57:25 info: >>>>>>>>> system startup started.
+2014/02/24 20:57:25 info: DB Connection pool created: pool_name = ebizPool
+2014/02/24 20:57:25 info: WebServer started: port = 8080, SSL = false
+2014/02/24 20:57:25 info: <<<<<<<<< system startup completed.
+2014/02/24 20:58:11 info: user 'alsoftpro:user' login.
+2014/02/24 20:58:19 info: user 'alsoftpro:user' logout.
+2014/02/24 20:58:29 info: user 'system:admin' login.
+2014/02/24 20:58:38 info: >>>>>>>>> shutdown system immediately.
+2014/07/11 10:34:05 info: >>>>>>>>> system startup started.
+2014/07/11 10:34:05 info: DB Connection pool created: pool_name = ebizPool
+2014/07/11 10:34:05 info: WebServer started: port = 8080, SSL = false
+2014/07/11 10:34:05 info: <<<<<<<<< system startup completed.
+2014/07/11 10:35:34 info: user 'alsoftpro:user' login.
+2014/07/11 11:25:21 info: user 'alsoftpro:user' login.
+2014/07/11 11:31:39 info: user 'alsoftpro:user' logout.
+2014/07/11 11:31:52 info: user 'system:admin' login.
+2014/07/11 11:31:59 info: >>>>>>>>> shutdown system immediately.
+2014/07/11 11:39:47 info: >>>>>>>>> system startup started.
+2014/07/11 11:39:47 info: DB Connection pool created: pool_name = ebizPool
+2014/07/11 11:39:47 info: WebServer started: port = 8080, SSL = false
+2014/07/11 11:39:47 info: <<<<<<<<< system startup completed.
+2014/07/11 11:40:15 info: user 'alsoftpro:user' login.
+2014/07/11 11:42:24 info: user 'alsoftpro:user' logout.
+2014/07/11 11:42:35 info: user 'system:admin' login.
+2014/07/11 11:42:43 info: >>>>>>>>> shutdown system immediately.
+2014/08/14 16:20:03 info: >>>>>>>>> system startup started.
+2014/08/14 16:20:03 info: DB Connection pool created: pool_name = ebizPool
+2014/08/14 16:20:03 info: WebServer started: port = 8080, SSL = false
+2014/08/14 16:20:03 info: <<<<<<<<< system startup completed.
+2014/08/14 16:21:36 info: user 'alsoftpro:user' login.
+2014/08/14 16:39:54 info: user 'alsoftpro:user' logout.
+2014/08/14 16:40:04 info: user 'system:admin' login.
+2014/08/14 16:40:10 info: >>>>>>>>> shutdown system immediately.
+2014/08/20 16:47:11 info: >>>>>>>>> system startup started.
+2014/08/20 16:47:11 info: DB Connection pool created: pool_name = ebizPool
+2014/08/20 16:47:11 info: WebServer started: port = 8080, SSL = false
+2014/08/20 16:47:11 info: <<<<<<<<< system startup completed.
+2014/08/20 16:47:43 info: user 'alsoftpro:user' login.
+2014/08/20 16:49:33 info: >>>>>>>>> shutdown system immediately.
+2014/08/20 19:31:36 info: >>>>>>>>> system startup started.
+2014/08/20 19:31:37 info: DB Connection pool created: pool_name = ebizPool
+2014/08/20 19:31:37 info: WebServer started: port = 8080, SSL = false
+2014/08/20 19:31:37 info: <<<<<<<<< system startup completed.
+2014/08/20 19:32:31 info: user 'alsoftpro:user' login.
+2014/08/20 19:33:20 info: user 'alsoftpro:user' logout.
+2014/08/20 19:35:26 info: >>>>>>>>> shutdown system immediately.
+2014/08/20 19:37:38 info: >>>>>>>>> system startup started.
+2014/08/20 19:37:38 info: DB Connection pool created: pool_name = ebizPool
+2014/08/20 19:37:38 info: WebServer started: port = 8080, SSL = false
+2014/08/20 19:37:38 info: <<<<<<<<< system startup completed.
+2014/08/20 19:39:50 info: user 'alsoftpro:user' login.
+2014/08/20 19:41:36 info: user 'alsoftpro:user' logout.
+2014/08/20 19:41:49 info: user 'alsoftpro:webuiadmin' login.
+2014/08/20 19:44:58 info: user 'alsoftpro:user' login.
+2014/08/20 19:49:01 info: >>>>>>>>> shutdown system immediately.
+2014/08/20 19:49:18 info: >>>>>>>>> system startup started.
+2014/08/20 19:49:18 info: DB Connection pool created: pool_name = ebizPool
+2014/08/20 19:49:18 info: WebServer started: port = 8080, SSL = false
+2014/08/20 19:49:18 info: <<<<<<<<< system startup completed.
+2014/08/20 19:50:29 info: user 'alsoftpro:user' login.
+2014/08/20 19:50:47 info: user 'alsoftpro:user' logout.
+2014/08/20 19:50:58 info: user 'system:admin' login.
+2014/08/20 19:51:04 info: >>>>>>>>> shutdown system immediately.
+2014/08/20 19:53:18 info: >>>>>>>>> system startup started.
+2014/08/20 19:53:18 info: DB Connection pool created: pool_name = ebizPool
+2014/08/20 19:53:18 info: WebServer started: port = 8080, SSL = false
+2014/08/20 19:53:18 info: <<<<<<<<< system startup completed.
+2014/08/20 19:54:02 info: user 'alsoftpro:user' login.
+2014/08/20 20:18:14 info: user 'alsoftpro:user' logout.
+2014/08/20 20:18:21 info: user 'alsoftpro:user' login.
+2014/08/20 20:22:43 info: user 'alsoftpro:user' logout.
+2014/08/20 20:23:47 info: user 'alsoftpro:user' login.
+2014/08/20 20:34:49 info: user 'alsoftpro:user' logout.
+2014/08/20 20:41:07 info: user 'alsoftpro:user' login.
+2014/08/20 20:54:08 info: garbage collection: recycled = 11865, used = 183788, total = 233480
+2014/08/20 21:09:05 info: user 'alsoftpro:user' logout.
+2014/08/20 21:09:12 info: user 'system:admin' login.
+2014/08/20 21:09:18 info: >>>>>>>>> shutdown system immediately.
+2014/08/20 23:17:03 info: >>>>>>>>> system startup started.
+2014/08/20 23:17:03 info: DB Connection pool created: pool_name = ebizPool
+2014/08/20 23:17:03 info: WebServer started: port = 8080, SSL = false
+2014/08/20 23:17:03 info: <<<<<<<<< system startup completed.
+2014/08/20 23:17:35 info: user 'alsoftpro:user' login.
+2014/08/20 23:19:35 info: user 'alsoftpro:user' logout.
+2014/08/20 23:19:46 info: user 'system:admin' login.
+2014/08/20 23:19:52 info: >>>>>>>>> shutdown system immediately.
+2014/08/21 11:44:37 info: >>>>>>>>> system startup started.
+2014/08/21 11:44:37 info: DB Connection pool created: pool_name = ebizPool
+2014/08/21 11:44:37 info: WebServer started: port = 8080, SSL = false
+2014/08/21 11:44:37 info: <<<<<<<<< system startup completed.
+2014/08/21 11:50:21 info: user 'alsoftpro:user' login.
+2014/08/21 11:53:28 info: user 'alsoftpro:user' logout.
+2014/08/21 11:53:44 info: >>>>>>>>> shutdown system immediately.
+2014/08/21 16:29:10 info: >>>>>>>>> system startup started.
+2014/08/21 16:29:10 info: DB Connection pool created: pool_name = ebizPool
+2014/08/21 16:29:10 info: WebServer started: port = 8080, SSL = false
+2014/08/21 16:29:10 info: <<<<<<<<< system startup completed.
+2014/08/21 16:29:49 info: user 'alsoftpro:user' login.
+2014/08/21 16:35:34 info: user 'alsoftpro:user' logout.
+2014/08/21 16:35:43 info: user 'system:admin' login.
+2014/08/21 16:35:49 info: >>>>>>>>> shutdown system immediately.
+2014/08/21 21:08:43 info: >>>>>>>>> system startup started.
+2014/08/21 21:08:43 info: DB Connection pool created: pool_name = ebizPool
+2014/08/21 21:08:43 info: WebServer started: port = 8080, SSL = false
+2014/08/21 21:08:43 info: <<<<<<<<< system startup completed.
+2014/08/21 21:09:08 info: user 'alsoftpro:user' login.
+2014/08/21 21:16:02 info: user 'alsoftpro:user' logout.
+2014/08/21 21:16:11 info: user 'system:admin' login.
+2014/08/21 21:16:17 info: >>>>>>>>> shutdown system immediately.
+2014/08/21 21:22:32 info: >>>>>>>>> system startup started.
+2014/08/21 21:22:32 info: DB Connection pool created: pool_name = ebizPool
+2014/08/21 21:22:32 info: WebServer started: port = 8080, SSL = false
+2014/08/21 21:22:32 info: <<<<<<<<< system startup completed.
+2014/08/21 21:23:09 info: user 'alsoftpro:user' login.
+2014/08/21 21:29:30 info: user 'alsoftpro:user' logout.
+2014/08/21 21:29:39 info: user 'system:admin' login.
+2014/08/21 21:29:45 info: >>>>>>>>> shutdown system immediately.
+2014/08/21 21:30:24 info: >>>>>>>>> system startup started.
+2014/08/21 21:30:24 info: DB Connection pool created: pool_name = ebizPool
+2014/08/21 21:30:24 info: WebServer started: port = 8080, SSL = false
+2014/08/21 21:30:24 info: <<<<<<<<< system startup completed.
+2014/08/21 21:31:22 info: user 'alsoftpro:user' login.
+2014/08/21 21:32:54 info: user 'alsoftpro:user' logout.
+2014/08/21 21:33:04 info: user 'system:admin' login.
+2014/08/21 21:33:09 info: >>>>>>>>> shutdown system immediately.
+2014/08/21 21:43:15 info: >>>>>>>>> system startup started.
+2014/08/21 21:43:15 info: DB Connection pool created: pool_name = ebizPool
+2014/08/21 21:43:15 info: WebServer started: port = 8080, SSL = false
+2014/08/21 21:43:15 info: <<<<<<<<< system startup completed.
+2014/08/21 21:46:36 info: user 'alsoftpro:user' login.
+2014/08/21 21:48:13 info: user 'alsoftpro:user' logout.
+2014/08/21 21:48:27 info: user 'system:admin' login.
+2014/08/21 21:48:33 info: >>>>>>>>> shutdown system immediately.
+2014/08/21 21:54:55 info: >>>>>>>>> system startup started.
+2014/08/21 21:54:55 info: DB Connection pool created: pool_name = ebizPool
+2014/08/21 21:54:55 info: WebServer started: port = 8080, SSL = false
+2014/08/21 21:54:55 info: <<<<<<<<< system startup completed.
+2014/08/21 21:55:18 info: user 'alsoftpro:user' login.
+2014/08/21 21:56:56 info: user 'alsoftpro:user' logout.
+2014/08/21 21:57:07 info: >>>>>>>>> shutdown system immediately.
+2014/08/21 22:13:31 info: >>>>>>>>> system startup started.
+2014/08/21 22:13:31 info: DB Connection pool created: pool_name = ebizPool
+2014/08/21 22:13:31 info: WebServer started: port = 8080, SSL = false
+2014/08/21 22:13:31 info: <<<<<<<<< system startup completed.
+2014/08/21 22:13:48 info: user 'alsoftpro:user' login.
+2014/08/21 22:17:52 info: user 'alsoftpro:user' logout.
+2014/08/21 22:18:01 info: user 'system:admin' login.
+2014/08/21 22:18:07 info: >>>>>>>>> shutdown system immediately.
+2014/08/23 20:49:27 info: >>>>>>>>> system startup started.
+2014/08/23 20:49:27 info: DB Connection pool created: pool_name = ebizPool
+2014/08/23 20:49:27 info: WebServer started: port = 8080, SSL = false
+2014/08/23 20:49:27 info: <<<<<<<<< system startup completed.
+2014/08/23 20:50:27 info: user 'alsoftpro:user' login.
+2014/08/23 20:51:31 info: user 'alsoftpro:user' logout.
+2014/08/23 20:51:42 info: user 'system:admin' login.
+2014/08/23 20:51:49 info: >>>>>>>>> shutdown system immediately.
+2014/08/23 21:36:35 info: >>>>>>>>> system startup started.
+2014/08/23 21:36:35 info: DB Connection pool created: pool_name = ebizPool
+2014/08/23 21:36:35 info: WebServer started: port = 8080, SSL = false
+2014/08/23 21:36:35 info: <<<<<<<<< system startup completed.
+2014/08/23 21:36:54 info: user 'alsoftpro:user' login.
+2014/08/23 21:45:10 info: user 'alsoftpro:user' logout.
+2014/08/23 21:45:19 info: user 'system:admin' login.
+2014/08/23 21:45:26 info: >>>>>>>>> shutdown system immediately.
+2014/08/24 13:30:02 info: >>>>>>>>> system startup started.
+2014/08/24 13:30:02 info: DB Connection pool created: pool_name = ebizPool
+2014/08/24 13:30:02 info: WebServer started: port = 8080, SSL = false
+2014/08/24 13:30:02 info: <<<<<<<<< system startup completed.
+2014/08/24 13:31:08 info: user 'alsoftpro:user' login.
+2014/08/24 13:42:36 info: user 'alsoftpro:user' logout.
+2014/08/24 13:42:49 info: user 'alsoftpro:webuiadmin' login.
+2014/08/24 13:43:38 info: user 'alsoftpro:webuiadmin' logout.
+2014/08/24 13:45:25 info: user 'alsoftpro:user' login.
+2014/08/24 13:58:31 info: >>>>>>>>> shutdown system immediately.
+2014/09/03 15:40:15 info: >>>>>>>>> system startup started.
+2014/09/03 15:40:15 info: DB Connection pool created: pool_name = ebizPool
+2014/09/03 15:40:19 info: WebServer started: port = 8080, SSL = false
+2014/09/03 15:40:19 info: <<<<<<<<< system startup completed.
+2014/09/03 15:40:53 info: user 'alsoftpro:user' login.
+2015/05/09 16:46:05 info: >>>>>>>>> system startup started.
+2015/05/09 16:46:05 info: DB Connection pool created: pool_name = ebizPool
+2015/05/09 16:46:08 info: WebServer started: port = 8080, SSL = false
+2015/05/09 16:46:08 info: <<<<<<<<< system startup completed.
+2015/05/09 16:46:45 info: user 'alsoftpro:user' login.
+2015/05/09 16:52:07 info: user 'alsoftpro:user' logout.
+2015/05/09 16:52:23 info: user 'system:admin' login.
+2015/05/09 16:52:31 info: >>>>>>>>> shutdown system immediately.
+2015/06/24 16:29:38 info: >>>>>>>>> system startup started.
+2015/06/24 16:29:38 info: DB Connection pool created: pool_name = ebizPool
+2015/06/24 16:29:38 info: WebServer started: port = 8080, SSL = false
+2015/06/24 16:29:38 info: <<<<<<<<< system startup completed.
+2015/06/24 16:30:41 info: user 'alsoftpro:user' login.
+2015/06/24 17:29:38 info: garbage collection: recycled = 0, used = 148253, total = 176731
+2015/06/24 18:57:40 info: garbage collection: recycled = 0, used = 147314, total = 176731
+2015/06/24 19:50:23 info: user 'alsoftpro:user' logout.
+2015/06/24 19:50:38 info: user 'system:admin' login.
+2015/06/24 19:50:45 info: >>>>>>>>> shutdown system immediately.
+2015/10/14 17:13:54 error: DB Connection Pool Creation falied: pool_name = ebizPool: sql: connect error: [Microsoft][ODBC Driver Manager] データ ソース名および指定された既定のドライバーが見つかりません。
+2015/10/14 17:13:54 info: >>>>>>>>> shutdown system immediately.
+2015/10/14 17:15:20 info: >>>>>>>>> system startup started.
+2015/10/14 17:15:20 info: DB Connection pool created: pool_name = ebizPool
+2015/10/14 17:15:24 info: WebServer started: port = 8080, SSL = false
+2015/10/14 17:15:24 info: <<<<<<<<< system startup completed.
+2015/10/14 17:16:23 info: user 'alsoftpro:user' login.
+2015/10/14 17:16:47 info: user 'alsoftpro:user' logout.
+2015/10/14 17:17:08 info: >>>>>>>>> shutdown system immediately.
+2015/10/28 16:30:41 error: DB Connection Pool Creation falied: pool_name = ebizPool: sql: connect error: Could not connect to the server;
+No connection could be made because the target machine actively refused it.
+ [127.0.0.1:5432]
+2015/10/28 16:30:41 info: >>>>>>>>> shutdown system immediately.
+2016/10/04 10:33:15 info: >>>>>>>>> system startup started.
+2016/10/04 10:33:15 info: DB Connection pool created: pool_name = ebizPool
+2016/10/04 10:33:17 info: WebServer started: port = 8080, SSL = false
+2016/10/04 10:33:17 info: <<<<<<<<< system startup completed.
+2016/10/04 10:34:34 info: user 'alsoftpro:user' login.
+2016/10/04 10:34:51 info: user 'alsoftpro:user' logout.
+2016/10/04 10:35:06 info: >>>>>>>>> shutdown system immediately.
+2018/09/28 20:56:26 info: >>>>>>>>> system startup started.
+2018/09/28 20:56:26 info: DB Connection pool created: pool_name = ebizPool
+2018/09/28 20:56:26 info: WebServer started: port = 8080, SSL = false
+2018/09/28 20:56:26 info: <<<<<<<<< system startup completed.
+2018/09/28 20:59:54 info: user 'alsoftpro:user' login.
+2018/09/28 21:03:36 info: user 'alsoftpro:user' logout.
+2018/09/28 21:03:56 info: user 'system:admin' login.
+2018/09/28 21:04:13 info: >>>>>>>>> shutdown system immediately.
+2018/09/28 21:05:47 info: >>>>>>>>> system startup started.
+2018/09/28 21:05:47 info: DB Connection pool created: pool_name = ebizPool
+2018/09/28 21:05:47 info: WebServer started: port = 8080, SSL = false
+2018/09/28 21:05:47 info: <<<<<<<<< system startup completed.
+2018/09/28 21:10:34 info: user 'alsoftpro:user' login.
+2018/09/28 21:11:00 info: user 'alsoftpro:user' logout.
+2018/09/28 21:11:14 info: user 'system:admin' login.
+2018/09/28 21:12:21 info: >>>>>>>>> shutdown system immediately.
+2019/07/27 09:03:07 info: >>>>>>>>> system startup started.
+2019/07/27 09:03:07 info: DB Connection pool created: pool_name = ebizPool
+2019/07/27 09:03:07 info: WebServer started: port = 8080, SSL = false
+2019/07/27 09:03:08 info: <<<<<<<<< system startup completed.
+2019/07/27 09:12:37 info: >>>>>>>>> system startup started.
+2019/07/27 09:12:37 info: DB Connection pool created: pool_name = ebizPool
+2019/07/27 09:12:37 info: WebServer started: port = 8080, SSL = false
+2019/07/27 09:12:37 info: <<<<<<<<< system startup completed.
+2019/07/27 09:45:27 info: >>>>>>>>> system startup started.
+2019/07/27 09:45:27 info: DB Connection pool created: pool_name = ebizPool
+2019/07/27 09:45:27 info: WebServer started: port = 8080, SSL = false
+2019/07/27 09:45:27 info: <<<<<<<<< system startup completed.
+2019/07/27 09:47:37 info: user 'alsoftpro:user' login.
+2019/07/27 09:48:46 info: user 'alsoftpro:user' logout.
+2019/07/27 09:49:09 info: user 'system:admin' login.
+2019/07/27 09:49:18 info: >>>>>>>>> shutdown system immediately.

@@ -1,0 +1,2 @@
+2012/01/08 17:13:39 error: DB Connection Pool Creation falied: pool_name = ebizPool: sql: connect error: FATAL: ユーザ"inamoto"のパスワード認証に失敗しました
+2012/01/08 17:13:39 info: >>>>>>>>> shutdown system immediately.

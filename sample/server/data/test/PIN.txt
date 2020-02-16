@@ -1,0 +1,41 @@
+--8SXVTUQE51SRI8I4J0Q068N05EO032OEL5G9LX3IE18J4QYO32ZQC9AWQHXLB3AU
+Content-Type: multipart/related; boundary="HN4UXLH1MW2MX6SX93LDDD8EIO4ZYRGK8LA1GJW2TJDR4CRB3B3TWB8LAGIW113B"
+Content-Description: This is the RosettaNet Business Message
+
+--HN4UXLH1MW2MX6SX93LDDD8EIO4ZYRGK8LA1GJW2TJDR4CRB3B3TWB8LAGIW113B
+Content-Type: application/xml; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Location: RN-Preamble
+Content-Description: RosettaNet-Service-Preamble
+Content-ID: <20020515.050019.53.Preamble@foo.jp>
+
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE Preamble SYSTEM "Preamble_MS_V02_00.dtd"><Preamble><standardName><GlobalAdministeringAuthorityCode>RosettaNet</GlobalAdministeringAuthorityCode></standardName><standardVersion><VersionIdentifier>V02.00</VersionIdentifier></standardVersion></Preamble>
+--HN4UXLH1MW2MX6SX93LDDD8EIO4ZYRGK8LA1GJW2TJDR4CRB3B3TWB8LAGIW113B
+Content-Type: application/xml; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Location: RN-Delivery-Header
+Content-Description: RosettaNet-Delivery-Header
+Content-ID: <20020515.050019.53.DeliveryHeader@foo.jp>
+
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE DeliveryHeader SYSTEM "DeliveryHeader_MS_V02_00.dtd"><DeliveryHeader><isSecureTransportRequired><AffirmationIndicator>Yes</AffirmationIndicator></isSecureTransportRequired><messageDateTime><DateTimeStamp>20020514T200023.000Z</DateTimeStamp></messageDateTime><messageReceiverIdentification><PartnerIdentification><GlobalBusinessIdentifier>000000000</GlobalBusinessIdentifier></PartnerIdentification></messageReceiverIdentification><messageSenderIdentification><PartnerIdentification><GlobalBusinessIdentifier>999999999</GlobalBusinessIdentifier></PartnerIdentification></messageSenderIdentification><messageTrackingID><InstanceIdentifier>TRCKID20020515050023SEQ28</InstanceIdentifier></messageTrackingID></DeliveryHeader>
+--HN4UXLH1MW2MX6SX93LDDD8EIO4ZYRGK8LA1GJW2TJDR4CRB3B3TWB8LAGIW113B
+Content-Type: application/xml; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Location: RN-Service-Header
+Content-Description: RosettaNet-Service-Header
+Content-ID: <20020515.050019.53.ServiceHeader@foo.jp>
+
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE ServiceHeader SYSTEM "ServiceHeader_MS_V02_00.dtd"><ServiceHeader><ProcessControl><ActivityControl><BusinessActivityIdentifier>Distribute New Product Information</BusinessActivityIdentifier><MessageControl><fromRole><GlobalPartnerRoleClassificationCode>Product Information Distributor</GlobalPartnerRoleClassificationCode></fromRole><fromService><GlobalBusinessServiceCode>Product Information Distributor Service</GlobalBusinessServiceCode></fromService><Manifest><numberOfAttachments><CountableAmount>0</CountableAmount></numberOfAttachments><ServiceContentControl><ActionIdentity><GlobalBusinessActionCode>Product Resource Update Action</GlobalBusinessActionCode></ActionIdentity></ServiceContentControl></Manifest><toRole><GlobalPartnerRoleClassificationCode>Product Information User</GlobalPartnerRoleClassificationCode></toRole><toService><GlobalBusinessServiceCode>Product Information User Service</GlobalBusinessServiceCode></toService></MessageControl></ActivityControl><GlobalUsageCode>Product</GlobalUsageCode><pipCode><GlobalProcessIndicatorCode>2A1</GlobalProcessIndicatorCode></pipCode><pipInstanceId><InstanceIdentifier>PROCID20020515050022SEQ5</InstanceIdentifier></pipInstanceId><pipVersion><VersionIdentifier>1.0</VersionIdentifier></pipVersion><KnownInitiatingPartner><PartnerIdentification><GlobalBusinessIdentifier>999999999</GlobalBusinessIdentifier></PartnerIdentification></KnownInitiatingPartner></ProcessControl></ServiceHeader>
+--HN4UXLH1MW2MX6SX93LDDD8EIO4ZYRGK8LA1GJW2TJDR4CRB3B3TWB8LAGIW113B
+Content-Type: application/xml; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Location: RN-Service-Content
+Content-Description: RosettaNet-Service-Content
+Content-ID: <20020515.050019.53.ServiceContent@foo.jp>
+
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE Pip2A1ProductResourceUpdate SYSTEM "Pip2A1ProductResourceUpdateGuideline.dtd"><Pip2A1ProductResourceUpdate><fromRole><PartnerRoleDescription><GlobalPartnerRoleClassificationCode>Product Information Distributor</GlobalPartnerRoleClassificationCode><PartnerDescription><GlobalPartnerClassificationCode>Manufacturer</GlobalPartnerClassificationCode><BusinessDescription><GlobalBusinessIdentifier>000000000</GlobalBusinessIdentifier><GlobalSupplyChainCode>Information Technology</GlobalSupplyChainCode></BusinessDescription></PartnerDescription><ContactInformation><contactName><FreeFormText>Mr. xxx</FreeFormText></contactName><telephoneNumber><CommunicationsNumber>03-3333-4444</CommunicationsNumber></telephoneNumber><EmailAddress>xxx@nec.co.jp</EmailAddress></ContactInformation></PartnerRoleDescription></fromRole><toRole><PartnerRoleDescription><GlobalPartnerRoleClassificationCode>Product Information User</GlobalPartnerRoleClassificationCode><PartnerDescription><GlobalPartnerClassificationCode>End User</GlobalPartnerClassificationCode><BusinessDescription><GlobalBusinessIdentifier>999999999</GlobalBusinessIdentifier><GlobalSupplyChainCode>Information Technology</GlobalSupplyChainCode></BusinessDescription></PartnerDescription></PartnerRoleDescription></toRole><thisDocumentGenerationDateTime><DateTimeStamp>20020514T200019.000Z</DateTimeStamp></thisDocumentGenerationDateTime><thisDocumentIdentifier><ProprietaryDocumentIdentifier>DOCID20020515050019SEQ14</ProprietaryDocumentIdentifier></thisDocumentIdentifier><GlobalDocumentFunctionCode>Request</GlobalDocumentFunctionCode><SalesCatalog><ProductLineItem><authorizationPrerequirements><FreeFormText>N/A</FreeFormText></authorizationPrerequirements><minimumOrderQuantity><ProductQuantity>1 </ProductQuantity></minimumOrderQuantity><warrantyDescription><FreeFormText>N/A</FreeFormText></warrantyDescription><productUnit><ProductPackageDescription><ProductDescription><productName><FreeFormText>PC9821RA</FreeFormText></productName><GlobalProductIdentifier>4988621588434 </GlobalProductIdentifier><ProprietaryProductIdentifier>PC9821RA40Y60CZ</ProprietaryProductIdentifier><GlobalSerialIdentifier>12345678901234 </GlobalSerialIdentifier><GlobalProductClassificationCode>141115 </GlobalProductClassificationCode></ProductDescription></ProductPackageDescription></productUnit><productAvailableInCountries><GlobalCountryCode>JPN</GlobalCountryCode></productAvailableInCountries><GlobalProductUnitOfMeasureCode>Each</GlobalProductUnitOfMeasureCode><unitPrice><FinancialAmount><GlobalCurrencyCode>JPY</GlobalCurrencyCode><MonetaryAmount>191800 </MonetaryAmount></FinancialAmount></unitPrice><SpecialHandlingInstruction><GlobalSpecialHandlingCode>Attension</GlobalSpecialHandlingCode></SpecialHandlingInstruction></ProductLineItem><catalogIdentifier><ProprietaryDocumentIdentifier>PC00-09-001</ProprietaryDocumentIdentifier></catalogIdentifier><effectiveDate><DateStamp>20000901T000000.000Z</DateStamp></effectiveDate><GlobalActionCode>Add</GlobalActionCode></SalesCatalog></Pip2A1ProductResourceUpdate>
+--HN4UXLH1MW2MX6SX93LDDD8EIO4ZYRGK8LA1GJW2TJDR4CRB3B3TWB8LAGIW113B--
+
+
+--8SXVTUQE51SRI8I4J0Q068N05EO032OEL5G9LX3IE18J4QYO32ZQC9AWQHXLB3AU--
+

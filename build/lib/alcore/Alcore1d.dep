@@ -1,0 +1,1309 @@
+# Microsoft Developer Studio Generated Dependency File, included by Alcore1d.mak
+
+..\..\Src\Dev\Advcapp.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\dev\socket.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Dev\Advcedit.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Dev\Advcvw.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Dev\Advwnd.cpp : \
+	"..\..\include\altair\resource.h"\
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\General\Alcore.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Gdm\big_int.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\big_int.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Dev\Bitmap.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Cui\Body.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Cui\Body_in.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Cui\Body_out.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Cui\Class.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Gdm\Copy.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Gdm\crypt.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\big_int.h"\
+	"..\..\include\gdm\crypt.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Cui\Cui.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Gdm\Debug.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Dev\dllcall.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Gdm\Error.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Dev\File.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Gdm\Gc.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Interp\Gdb_intp.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Gdm\Gdm.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Interp\Gp_intp.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Interp\Interp1.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Interp\Interp2.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Gdm\j_code.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\j_code.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Dev\Mainfrm.cpp : \
+	"..\..\include\altair\resource.h"\
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Gdm\Matrix.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Cui\Member.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Dev\Ocx.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Dev\olectrl.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Interp\Parallel.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Gdm\Pict.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Interp\Prcsmgr.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Interp\Prog_if.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Cui\Project.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Dev\Shell.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Dev\socket.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\dev\socket.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\General\Stdafx.cpp : \
+	"..\..\..\program files\microsoft visual studio\vc98\include\basetsd.h"\
+	"..\..\..\program files\microsoft visual studio\vc98\mfc\src\occimpl.h"\
+	"..\..\..\program files\microsoft visual studio\vc98\mfc\src\ocdb.h"\
+	"..\..\..\program files\microsoft visual studio\vc98\mfc\src\ocdbid.h"\
+	"..\..\..\program files\microsoft visual studio\vc98\mfc\src\olebind.h"\
+	"..\..\include\altair\alext.h"\
+	"..\..\include\altair\libinc.h"\
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	"..\..\src\general\stdafx.h"\
+	
+
+..\..\Src\Gdm\String.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Interp\Sysfunc1.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Interp\Sysfunc2.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Interp\Sysfunc3.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\big_int.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\j_code.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	
+
+..\..\Src\Xml\xml.cpp : \
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcedit.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\bitmap.h"\
+	"..\..\include\dev\event.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\mainfrm.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\debug.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\matrix.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\basefunc.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	"..\..\include\interp\prog_if.h"\
+	"..\..\include\interp\sysfunc.h"\
+	

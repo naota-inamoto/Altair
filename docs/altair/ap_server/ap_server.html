@@ -1,0 +1,307 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>AltairServer</TITLE>
+</HEAD>
+
+<BODY>
+<H1>Altair AP Server</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.27版 2002年 6月19日<BR>
+
+<HR>
+バージョン 0.27から簡易APサーバを付けました。<BR>
+この上にRosettaNetのRNIF2.0と代表的なPIPの実装を行っている簡易RosettaNetサーバでもあります。<BR>
+<BR>
+以下の特徴があります。
+<UL>
+<LI>
+DTDさえあれば、業務APの下位のXMLメッセージの格納と取り出しを行う部分の<BR>
+プログラムの作成が不要。
+<LI>
+業務フローの実行管理を行うシンプルなプロセスエンジンを提供。
+<LI>
+ランタイム時にサーバを動かしながら、画面のカスタマイズ<BR>
+(表の項目に何を表示するかの指定、表の項目の表示する順番の変更)が可能な<BR>
+メタWebUIを提供。
+</UL>
+
+<HR>
+<H3><A NAME="xml_utility">XMLユーティリティ</A></H3>
+XMLメッセージを分解してDBに格納、<BR>
+逆にDBに保存してあるデータからXMLメッセージの組み立ては、<BR>
+多くの場合、業務アプリケーションのプログラム以外に<BR>
+そのためのプログラムを作成しなければならず、<BR>
+DTDが変更されてXMLメッセージの構造が一部修正されると多くの場合は、<BR>
+業務アプリケーション以外の XMLを扱う部分のプログラム修正が必要となり、<BR>
+改造/拡張コストが高くつきます。<BR>
+<BR>
+この簡易APサーバでは、業務アプリケーション以外のプログラム修正はほとんど不要で<BR>
+XMLを扱う場合の改造/拡張コストが安いです。<BR>
+<BR>
+
+DTDをロードして内部データにするDTDローダー、<BR>
+DTDローダーでロードしたデータを基に<BR>
+XMLデータのデータ構造を検証するDTDバリデーター、<BR>
+XMLのバリデーターの派生クラスでXMLデータを分解してDBへ格納するクラス、<BR>
+ほぼ同じロジックでDBから取り出したデータを組み立ててXMLデータを作成するクラス、<BR>
+DBスキーマを意識しないで済むインターフェースを使って<BR>
+XMLデータの作成および要素の値の取り出しを行うクラス、<BR>
+XMLデータの要素の値をランダムアクセスで取り出すためのクラスなどがあります。<BR>
+<BR>
+
+XMLの構造が変わってもDBスキーマは固定です。<BR>
+ただし１タグ１レコードなので性能要件が厳しい場合は厳しいです。<BR>
+しかし、XML形式が変わることによって毎回DBスキーマやプログラムを<BR>
+作成をする必要がないので、たくさんの形式のXMLを扱わなければならない場合や、<BR>
+DTDが頻繁に変更される場合はこれは有効です。<BR>
+性能要件と開発/保守コストとのトレードオフになります。<BR>
+性能問題はDBがボトルネックになっていますが、DBの使い方は限定しているので<BR>
+(少数の簡単なSQL文しか使っていないので)、これ用のファイルベースのリポジトリを<BR>
+作成してこれに置き換えれば性能は向上します。<BR>
+<BR>
+XMLデータの格納と取り出しおよびXMLデータの作成は、<BR>
+DBスキーマを意識しないで済むインターフェースと<BR>
+XPathを使って行うことができます。<BR>
+<BR>
+<A HREF="xml_util.html">詳細</A>
+<BR>
+
+<HR>
+<H3><A NAME="process_engine">プロセスエンジン</A></H3>
+会社の業務をITによって効率化する場合に、<BR>
+社内の業務フローを実行/管理するコンピュータプログラムが必要になります。<BR>
+このプログラムは一般的にプロセスエンジンとよばれます。<BR>
+<BR>
+この簡易APサーバは高機能ではないですがシンプルなプロセスエンジンを備えています。<BR>
+商用のプロセスエンジンは高機能で複雑なものが多いです。<BR>
+複雑であれば、プロセス定義の作成などの業務アプリケーションの開発コスト、<BR>
+保守サポート障害対応やプロセスエンジン自体の改造/拡張コストが高くつきます。<BR>
+開発要員や保守サポート要員の育成にも高いコストがかかります。<BR>
+構造がシンプルだとこれらのコストが軽減されると思います。<BR>
+<BR>
+
+ProcessEngineは永続性が必要なプロセスフローの実行制御を行い、<BR>
+プロセスの実行状況の状態管理ができるものです。<BR>
+<BR>
+単純なプログラムでは、マシンがダウンした場合などに<BR>
+正しく再開することができないですが、<BR>
+プロセスエンジンを使うと、トランザクションがcommitされる前の状態から<BR>
+再開することができます。<BR>
+<BR>
+単純なプログラムでは、しっかりとした設計書がない限り、<BR>
+制御の流れを理解することは困難ですが、<BR>
+プロセスエンジンのプロセスのプロセスフローは<BR>
+フローをビジュアルに表示するツールを後付けで作成することができ、<BR>
+そのビジュアルな表示が実行モジュールと直結した陳腐化しない<BR>
+設計書の一部にすることができます。<BR>
+これは、そのプログラムを作成した開発者以外の人が<BR>
+保守をする場合に有効です。<BR>
+<BR>
+
+<HR>
+<H3><A NAME="meta_web_ui">メタWebUI</A></H3>
+Web画面を作成する場合、同じような画面で少し異なる画面を<BR>
+多数作成しなければならないことが多いです。<BR>
+画面と画面操作で動くロジック部分を毎回ハンドコーディングしていると、<BR>
+開発コストが高くつきます。<BR>
+画面に限らず業務ロジック/DBスキーマ/DBアクセスについても同様ですが、<BR>
+このコストを軽減する手段として、必要な情報だけをまとめ、<BR>
+これを入力としてターゲットの開発物件を自動生成することができればベストです。<BR>
+<BR>
+しかしながら、このための使いやすくて非常に有効な自動生成装置は現時点ではないです。<BR>
+(私はこれに使える自動生成装置を数年以内に作成したいです)<BR>
+サンプル簡易APサーバでは、必要な情報からプログラムを自動生成する代わりに、<BR>
+メタWebUIを持っています。画面のHTMLを生成や、画面とプログラムロジック層の間の<BR>
+データの受け渡しを、DBに保存してある必要な情報から行います。<BR>
+<BR>
+一般的なプログラムの作成には、様々な知識が必要となり、<BR>
+ミスも入りやすく、開発要員育成も時間がかかりますが、<BR>
+必要な情報だけまとめたものを作成し、これから自動生成を行えば、ミスも入りにくく、<BR>
+スキルが低くても多くの開発要員に単純作業を行ってもらうことが可能です。<BR>
+長期的に見て最後に残るのこのようなやり方に従ったものと思っています。<BR>
+<BR>
+
+メタWebUIは、Web画面上で、アプリケーションの画面の構成要素を編集し、<BR>
+画面を生成するServlet、JSP、ASP、CGIなどのコードを作成することなく<BR>
+アプリケーションのWeb画面の作成や変更ができるものです。<BR>
+画面の構成要素を限定しているので凝った画面は作成できませんが、<BR>
+シンプルな管理UIなどを作成するには十分です。<BR>
+<BR>
+ボタン、テキストフィールド、チェックボタン、ラジオボタン、<BR>
+ファイルアップロード、コンボボックス<BR>
+などが使えることに加えて、テーブルをサポートしています。<BR>
+<BR>
+テーブルを使ったWeb画面では、テーブルに何を表示するか、<BR>
+テーブルを使ったデータの更新などは<BR>
+通常はコーディングを行わなければなりませんが、<BR>
+XMLユーティリティのクラスののXmlDbAccessor、XmlDbObjectをベースにした表データは、<BR>
+プログラミングなしでテーブルの表示やデータの選択ができます。<BR>
+<BR>
+
+画面のデザイン情報、画面とプログラムロジックで受け渡すデータを<BR>
+必要な情報としてプログラムから分離しています。<BR>
+<BR>
+<A HREF="meta_webui.html">詳細</A>
+<BR>
+
+<HR>
+<H3><A NAME="rosetta">簡易RosettaNetサーバ</A></H3>
+
+<A HREF="http://www.rosettanet.org/">RosettaNet</A>は、
+企業間取引で使用するXMLの形式やプロトコルを<BR>
+電子部品、情報機器の分野で標準化しようとしている団体が策定した仕様です。<BR>
+今後、B2B分野で各パートナー企業のシステムを連携、統合した情報システムが<BR>
+構築されていきますが、RosettaNetは、SOAPを使ったebXMLと並んで<BR>
+そこで採用される標準の１候補となっています。<BR>
+<BR>
+
+この簡易RosettaNetサーバはフリーソフトのLinuxとPostgresQLでも動作するので<BR>
+SIコスト、保守などのサービスコストを少なく抑えることができれば<BR>
+多額の投資ができない中小零細企業が少ない投資で使うことができます。<BR>
+大規模システムでは構造がしばしば複雑になりすぎ、様々なコストが高くついたり<BR>
+大幅な変更ができにくかったり、顧客の要求への対応に時間がかかったりしますが、<BR>
+この簡易RosettaNetサーバは構造が比較的シンプルです。<BR>
+<BR>
+
+ソフトの開発コストを高くする原因のひとつとして複雑になったシステムの環境設定があります。<BR>
+環境設定が行いやすいように考えながら設定項目を厳選してソフトを開発していればよいのですが、<BR>
+多くの場合は、開発速度やその他の優先事項を優先させるため、おもに開発者の都合で<BR>
+設定項目の数が加速度的に増大し、環境設定作業が複雑になり、<BR>
+結果として引き続き開発するSEの開発コストや高くなりがちで、<BR>
+また高度な専門知識を持った人でないと、システムの運用できにくいという面があります。<BR>
+この簡易RossetaNetサーバ(簡易APサーバ)はできるだけ環境設定が簡単になるようにしています。<BR>
+<BR>
+
+OpenSSLを使った128bitのセキュアな通信と、OpenSSLのSMIMEを使った暗号化、署名もできます。<BR>
+<BR>
+
+<HR>
+<H3><A NAME="class">クラス一覧と簡単な説明</A></H3>
+<PRE>
+AlObject
+    AlException
+
+    AltairServer  ... APサーバを統括するクラス、APサーバのstart,shutdown関数がある
+        LogObj    ... ログファイルを書き出すためのクラス
+        WaitObj   ... 待ち合わせのためのクラス
+
+        WebServer                   ... Webサーバを統括するクラス
+            HttpServerConnectionMgr ... クライアントからの接続を待つクラス
+            HttpServerConnection    ... HTTPのサーバコネクション
+            HttpClientConnection    ... HTTPのクライアントコネクション
+            HttpServlet             ... サーブレットの基底クラス。
+                WebUIServlet        ... WebUIサーブレット基底クラス
+                    WebUIrosettaServlet ... RosettaNet固有部分WebUIのサーブレッド
+                        WebUIrosettaSampleBuyerServlet    ... RosettaNetサンプルBuyer固有部分WebUIのサーブレッド
+                        WebUIrosettaSampleSupplierServlet ... RosettaNetサンプルSupplier固有部分WebUIのサーブレッド
+                TransportServlet  ... メッセージ受信サーブレット基底クラス
+                    RNIF20Servlet ... RosettaNet RNIF2.0メッセージ受信サーブレット
+                TestServlet1 ... 簡単なテスト用サンプルサーブレット
+                TestServlet2 ... 簡単なテスト用サンプルサーブレット
+            HttpRequest   ... サーブレットで使うHTTPリクエストを表すクラス
+            HttpResponse  ... サーブレットで使うHTTPレスポンスを表すクラス
+            HttpSession   ...  サーブレットで使うHTTPセッションを表すクラス
+            TransportTransmitter    ... メッセージ送信の基底クラス
+                RNIF20Transmitter   ... RosetteNet RNIF2.0メッセージ送信クラス
+
+        ProxyServer                  ... Proxyサーバを統括するクラス
+            ProxyServerConnectionMgr ... クライアントからの接続を待つクラス
+            ProxyServerConnection    ... クライアントからのコネクション
+            ProxyClientConnection    ... 実際のサーバへのコネクション
+
+        InetClient
+            SmtpClient          ... SMTPクライアント
+            PopClient           ... POPクライアント
+                RNIF20PopClient ... RosettaNet RNIF2.0メッセージを受信するPOPクライアント
+
+        Poller                  ... メッセージをPollingするクラスの基底クラス
+            RNIF20ProxyPoller   ... RosettaNet RNIF2.0メッセージをProxyサーバからPollingするクラス
+            RNIF20PopPoller     ... RosettaNet RNIF2.0メッセージをPOPサーバからPollingするクラス
+
+        MultipartSecureMessage ... Mime/Multipartを扱うためのユーティリティクラス
+
+        XmlUtility ... XMLユーティリティを統括するクラス
+            DtdLoader ... DTDローダー
+                ExtendedDtdLoader ... 拡張DTDローダー
+            DtdItr      ... DTDの木構造の要素を順番に取り出すイテレータ
+            DtdHandler  ... DtdItrで開始タグ、終了タグの出現の通知を受ける
+                XmlComposerHandler
+            XmlItr  ... XMLパースツリーからXML要素を順番に取り出すイテレータ
+            XmlValidator ... XMLのDTDバリデーションを行うクラス
+                SimpleXml2Db ... XMLメッセージをDBに格納するクラス
+            XmlComposer  ... XMLメッセージを組み立てる基底クラス
+                SimpleDb2Xml ... DBからXMLメッセージを取り出すクラス
+            XmlDataRetriver ... XMLパースツリーからランダムにXPathで要素の値を取り出すクラス
+            XmlDbAccessor ... DBに格納されたXMLの繰り返しタグ前の要素をランダムに読み書きするクラス
+                XmlDbTableAccessor ... 既存DBテーブルをXmlDbAccessorとして要素をランダムに読み出すクラス
+            XmlDbObject ... DBに格納されたXMLデータの繰り返しタグ後の要素をランダムに読み書きするクラス
+                XmlDbTableObject ... 既存DBテーブルをXmlDbObjectとして要素をランダムに読み出すクラス
+            Csv1Data ... XMLと相互に変換するためのCSV形式のデータを表すクラス
+                Csv1DataItr ... Csv1Dataの要素を順番に取り出すイテレータ
+
+        ProcessEngine ... プロセスエンジンを統括するクラス
+            ProcMgr ... プロセスに外部からアクセスするためのクラス
+            ProcSched ... プロセスの実行を行うクラス
+            Process ... プロセス定義の基底クラス(便利クラス、なくてもよい)
+                RNIF20SendProcess     ... RosettaNet RNIF2.0のトランスポート層送信プロセス
+                RNIF20ReceiveProcess  ... RosettaNet RNIF2.0のトランスポート層受信プロセス
+                PoSendProcess     ... RosettaNetサンプルBuyerの発注プロセス
+                PoReceiveProcess  ... RosettaNetサンプルSupplierの受注プロセス
+                PoCompleteProcess ... RosettaNetサンプルBuyerの発注プロセスを完了させるためのプロセス
+                TestProcess1 ... 簡単なテスト用プロセス
+                TestProcess2 ... 簡単なテスト用プロセス
+            PeService ... プロセスのアクティビティに対応するサービスの基底クラス
+                ServiceClass ... ServiceHandlerクラスの「invoke + Activity名」のメソッドを呼び出すクラス
+                PoSyncAcceptService ... RosettaNetサンプルで同期通信のResponseメッセージを作成するクラス
+                TestPeService1 ... 簡単なテスト用サービス
+                TestPeService2 ... 簡単なテスト用サービス
+            ServiceHandler ... ServiceClassから呼び出されるサービスハンドラの基底クラス
+                RNIF20ServiceHandler ... RosettaNet RNIF2.0の送受信プロセスのサービスハンドラ
+                SampleBuyerServiceHandler    ... RosettaNetサンプルBuyerの発注プロセスのサービスハンドラ
+                SampleSupplierServiceHandler ... RosettaNetサンプルSupplierの受注プロセスのサービスハンドラ
+
+        DbUtility ... DBアクセスを統括するクラス
+            DbConnection ... DBコネクション
+                DbPoolConnection ... DBコネクションプールのDBコネクション
+            DbConnectionPool ... DBコネクションプール
+            DbManager ... DBコネクション管理を行うクラス
+
+        FileUtility ... ファイルを扱うためのユーティリティクラス
+            FileItr    ... 再帰的にファイルパスを取得するクラス、ディレクトリはファイルより先に現れる
+            RevFileItr ... 再帰的にファイルパスを取得するクラス、ディレクトリはファイルの後に現れる
+
+        Context ... 通信先のパートナー情報と、自分の情報の管理をクラス
+            RNContext ... RosettaNet用の通信先のパートナー情報と、自分の情報の管理をクラス
+
+        DataMgr ... メッセージとログのバックアップとリストアを行うクラス
+            RNDataMgr ... RNIF2.0のメッセージの添付ファイルを扱うためのクラス
+
+        InitWebServiceDB ... DBの初期化を行うためのクラス
+
+        Test_HttpClientConnection   ... HttpClientConnectionのテスト用クラス
+        Test_XmlUtility             ... XmlUtilityのテスト用クラス
+        Test_ProcessEngine          ... ProcessEngineのテスト用クラス
+        Test_MultipartSecureMessage ... MultipartSecureMessageのテスト用クラス
+        Test_Csv           ... CSVファイルに関するテスト用クラス
+        Test_Misc          ... もろもろのテスト用クラス
+        Test_Rosetta       ... RosettaNetのテスト用クラス
+             perform_test_pru_1()    繰り返し項目が1個の2A1ProductResourceUpdate送受信
+             perform_test_pru_100()  繰り返し項目が100個の2A1ProductResourceUpdate送受信
+             perform_test_pru_500()  繰り返し項目が500個の2A1ProductResourceUpdate送受信
+             perform_test_pru_1000() 繰り返し項目が1000個の2A1ProductResourceUpdate送受信（for 性能検査）
+             long_run_test_pin()     1000回 2A1ProductInfoNotify送受信（for 耐久検査）
+             retry_over()       メッセージリトライオーバー検査
+             retry_ok()         メッセージリトライOK検査
+             ack_retry_over()   Ackリトライオーバー検査
+             ack_retry_ok()     AckリトライOK検査
+        Test_FileUtility   ... FileUtlityに関するもろもろのテスト用クラス
+        Test_ProxyServer   ... Proxyサーバのテスト用クラス
+        Test_InetClient    ... SMTP/POPクライアントのテスト用クラス
+        Test_SoapEbxml     ... SOAP/ebxmlのサンプルメッセージのDBへのセーブとDBからのロードを行うクラス
+<PRE>
+
+<HR>
+</BODY>
+</HTML>

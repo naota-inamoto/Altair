@@ -1,0 +1,285 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Altair OLE Control</TITLE>
+</HEAD>
+
+<BODY>
+<H1>Altair OLE Control</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.06版 1996年11月23日<BR>
+
+<HR>
+<H3>概要</H3>
+AlCtrlはAltairで作成された
+プログラム/オブジェクトを元にして動くActiveX(OCX)です。<BR>
+AlCtrlに乗せるプログラム/データをAltairで作成し、テスト実行させ、<BR>
+動作を確認の上、それらのプログラムやデータをファイルに落とし、<BR>
+別のWebブラウザ(OCXコンテナ)上に持っていってこれらを実行させることができます。<BR>
+Altair上でのテスト実行はもちろんインタプリタ実行です。別のOCXコンテナで<BR>
+AlCtrlを動かす場合もAlCtrlはインタプリタ実行で動作します。<BR>
+<BR>
+AlCtrlは、AltairのコアDLL alcore1.dllを必要とします。<BR>
+OCXが利用するDLLはパスの通ったところにそのDLLを置く必要があります。<BR>
+VC++のDLL mfc140.dll 等もパスの通ったところに置きます。<BR>
+OCXを使うためには、管理者権限で、regsvr32.exeでOCXをレジストリに登録する必要があります。<BR>
+
+<HR>
+<H3><A NAME="name_prog_id">名前とProgID</A></H3>
+
+名前は、「AlCtrl Control」で、ProgIDは、「ALCTRL.AlCtrlCtrl.1」です。<BR>
+
+<HR>
+<H1><A NAME="pointer">AltairのオブジェクトのOLEオートメーションでの受け渡し</A></H1>
+IUnknownの派生クラスでIAGmNodeというインターフェースを用意し、<BR>
+これを用いてAltairオブジェクトをあらわすポインタの受け渡しをします。<BR>
+AlCtrlのメソッドの引数にVARIANT型の引数があれば、<BR>
+AlCtrlはそれがIAGmNodeか調べ、IAGmNodeだったらポインタを取り出して<BR>
+それをAltairのオブジェクトとして用います。メソッドのVARIAN型の戻り値、<BR>
+イベントの付帯データはIAGmNodeで、Altair側でこれを参照するときには<BR>
+これらはAltairのオブジェクトになります。<BR>
+Altair以外のOCXコンテナではこれらのVARIANTはIAGmNodeのまま使われます。<BR>
+
+<HR>
+<H1>AlCtrlのメソッド</H1>
+
+<H3><A NAME="InetLibrary">short InetLibrary(LPCSTR url);</A></H3>
+Altair OLEコントロールにhttp/httpsで始まるurlのAltairライブラリを<BR>
+ダウンロードして読み込みます。<BR>
+成功すると0が返ります。失敗すると例外が発生するか0以外の値が返ります。<BR>
+
+<H3><A NAME="InetProgram">short InetProgram(LPCSTR url);</A></H3>
+Altair OLEコントロールにhttp/httpsで始まるurlのAltairプログラムを<BR>
+ダウンロードして読み込みます。<BR>
+Altairプログラムで使用しているAltairライブラリは<BR>
+InetLibraryで読み込み済みであることが必要です。<BR>
+成功すると0が返ります。失敗すると例外が発生するか0以外の値が返ります。<BR>
+
+<H3><A NAME="InetBody">short InetBody(LPCSTR url);</A></H3>
+Altair OLEコントロールにhttp/httpsで始まるurlのOCXの実体を表わすオブジェクトを<BR>
+ダウンロードして読み込みます。<BR>
+成功すると0が返ります。失敗すると例外が発生するか0以外の値が返ります。<BR>
+
+<H3><A NAME="SetRootClass">short SetRootClass(VARIANT rootClass);</A></H3>
+クラス階層を表わすルートのランタイム構造体をAlCtrlにセットします。<BR>
+これはAlCtrlにプログラムをセットすることに相当するメソッドです。<BR>
+Altairからは、o.object()はOCXのオブジェクトのvariant型の値を返すとして<BR>
+<PRE>
+    o.object().SetRootClass(al_root_class());
+</PRE>
+のように用いると、Altair側と同じクラス階層が使えるようになります。<BR>
+最低限、SetRootClassとGetWndがあればAlCtrlをAltairから使うことができます。<BR>
+
+<H3><A NAME="GetWnd">VARIANT GetWnd();</A></H3>
+コンテナ側にOCXのウィンドウを渡すためのメソッドです。<BR>
+Altairからは、o.object()はOCXのオブジェクトのvariant型の値を返すとして<BR>
+<PRE>
+    var window w;
+    w = o.object().GetWnd();
+</PRE>
+のように用い、返ってきたwindowに対してAltairから値を設定したりできます。<BR>
+windowに値を設定するもっとも典型的なパターンは以下のようなものです。<BR>
+<PRE>
+    var RootGlyph root;
+    root = new RootGlyph;
+    al_set_window_arg(w, "root", root);
+    al_set_window_arg(w, "w", w);
+    al_set_draw_proc(w, Window::DrawProc);
+    al_set_event_proc(w, Window::EventProc);
+</PRE>
+最低限、SetRootClassとGetWndがあればAlCtrlをAltairから使うことができます。<BR>
+
+<H3><A NAME="SaveBody">short SaveBody(LPCSTR fileName);</A></H3>
+OCXの実体を表わすオブジェクトをファイルに落とします。<BR>
+成功すると0が、失敗すると0以外の値が返ります。<BR>
+
+<H3><A NAME="SetLibraryPath">void SetLibraryPath(LPCSTR path);</A></H3>
+LoadProgramするさいに、Altairライブラリのあるパスを指定します。<BR>
+このパスは複数設定可能です。同じライブラリ名があった場合は先に設定したパスが<BR>
+有効になります。このメソッドはグローバルに効きます。<BR>
+
+<H3><A NAME="LoadProgram">shot LoadProgram(LPCSTR dir, LPCSTR name);</A></H3>
+Altair以外のコンテナでAlCtrlにプログラムをセットするためのメソッドです。<BR>
+dirにはAltairプロジェクトのあるディレクトリ、nameには拡張子が.aprの<BR>
+Altairプロジェクトファイルを指定します。<BR>
+Altairプロジェクトが読み込まれ、クラス階層を表わすルートのランタイム構造体が<BR>
+セットされます。成功すると0が、失敗すると0以外の値が返ります。<BR>
+<BR>
+LoadProgramを実行すると、ロードされたプログラムのGUI::Initialize();を実行します。<BR>
+<BR>
+最低限、LoadProgramとLoadBodyがあればAlCtrlをAltair以外のOCXコンテナから<BR>
+用いることができます。<BR>
+
+<H3><A NAME="LoadBody">short LoadBody(LPCSTR fileName);</A></H3>
+OCXの実体を表わすオブジェクトをファイルから読み込みます。<BR>
+成功すると0が返ります。失敗すると例外が発生するか0以外の値が返ります。<BR>
+<BR>
+LoadBodyを実行すると、OCXのウィンドウにDrawProcとしてWindow::DrawProcをセットし、<BR>
+EventProcとしてWindow::EventProcをセットします。また、これらの関数の引数として<BR>
+"w"という名前の引数にOCXのウィンドウ自身を、"root"という名前の変数に読み込んだ<BR>
+オブジェクトのルートをセットします。これらに失敗すると0以外の値を返します。<BR>
+<BR>
+最低限、LoadProgramとLoadBodyがあればAlCtrlをAltair以外のOCXコンテナから<BR>
+用いることができます。<BR>
+
+<H3><A NAME="GetRootClass">VARIANT GetRootClass();</A></H3>
+AlCtrlにセットされているクラス階層のルートのランタイム構造体と同じものを<BR>
+別のAlCtrlのクラス階層のルートに設定します。以下の2つは同じ意味になります。<BR>
+<PRE>
+    o1.object().LoadProgram("a:\proj", "test.apr");
+    o2.object().LoadProgram("a:\proj", "test.apr");
+と
+    o1.object().LoadProgram("a:\proj", "test.apr");
+    o2.object().SetRootClass(o1.object().GetRootClass());
+</PRE>
+
+<H3><A NAME="Invoke">VARIANT Invoke(LPCSTR methodName, VARIANT args);</A></H3>
+wはOCXのwindowとして、al_set_method(w, methodName, obj, func);で設定したメソッドを<BR>
+argsを引数として呼び出します。<BR>
+argsは、Altair側ではal_arg、OCX側ではArgで作成された名前付き引数リストです。<BR>
+
+<H3><A NAME="Arg">VARIANT Arg(LPCSTR name, VALIANT value, VARIANT args);</A></H3>
+Invoke(methodName, args);に渡す名前付き引数リストargsを作成します。<BR>
+al_set_method(w, methodName, obj, A::func)でメソッドが設定されていたとして、<BR>
+A::funcが、A:func(integer x, integer y, string text);だったとした場合、<BR>
+以下のようにして引数リストを作成します。<BR>
+<PRE>
+Altairの場合以下のように書けるものが、
+    var list args;
+    args = al_arg("x", 1, args);
+    args = al_arg("y", 2, args);
+    args = al_arg("text", "abc", args);
+    o.object().Invoke("method1", args);
+他のOCXコンテナの場合、（Altairの記法では）
+    var variant args;
+    args = o.object().Arg("x", 1, null);
+    args = o.object().Arg("y", 2, args);
+    args = o.object().Arg("text", "abc", args);
+    o.object().Invoke("method1", args);
+となります。
+</PRE>
+引数リストの引数は名前で識別しているので、引数の順番は入れ換えても構いません。<BR>
+
+<H3><A NAME="Param">VARIANT Param(VARIANT params, short index);</A></H3>
+OCX側でインタプリタ実行中にal_fire_event(w, eventName, params);を実行すると<BR>
+コンテナ側にFireEvent(LPCSTR eventName, VARIANT params);というイベントが発生します。<BR>
+paramsはイベントの付帯データです。<BR>
+Paramはイベント付帯データをばらして参照するために用います。<BR>
+Param(params, index);はparamsをリストとしてindex番目の要素を取り出してそれを返します。<BR>
+indexは1からです。<BR>
+
+<H3><A NAME="DebugMode">void DebugMode(short mode);</A></H3>
+AlCtrl内でal_printで出力したテキストは、アウトプットウィンドウが<BR>
+Altairメインフレームのチャイルドウィンドウとしてあればそこへ出力されますが、<BR>
+アウトプットウィンドウがない場合は、デフォルトでどこへも出力されません。<BR>
+modeを0以外に設定すると、SDIウィンドウが開かれテキストがそこへ出力されるように<BR>
+なります。このメソッドはグローバルにききます。デフォルトに戻すときはmodeに0を<BR>
+設定します。<BR>
+
+<H3><A NAME="Refresh">void Refresh();</A></H3>
+OCXを強制再描画させます。<BR>
+
+<H3><A NAME="AboutBox">void AboutBox();</A></H3>
+OCXのバージョン情報を含むダイアログを出します。<BR>
+
+<HR>
+<H1>AlCtrlのプロパティ</H1>
+
+<H3><A NAME="Transparent">boolean Transparent</A></H3>
+描画するときバックグラウンドを塗りつぶさないかどうかの指定をします。<BR>
+デフォルトはFALSEです。（塗りつぶす）<BR>
+
+<H3><A NAME="BackColor">OLE_COLOR BackColor</A></H3>
+バックグラウンドを塗りつぶす場合のカラーを指定します。<BR>
+デフォルトはウィンドウカラーです。
+
+<H3><A NAME="BorderWidth">short BorderWidth</A></H3>
+枠線の幅を指定します。デフォルトは1です。<BR>
+
+<H3><A NAME="LightColor">OLE_COLOR LightColor</A></H3>
+枠線の左辺と上辺の色を指定します。デフォルトはウィンドウテキストカラーです。<BR>
+
+<H3><A NAME="ShadowColor">OLE_COLOR ShadowColor</A></H3>
+枠線の右辺と下辺の色を指定します。デフォルトはウィンドウテキストカラーです。<BR>
+
+<H3><A NAME="EventName">CString EventName();</A></H3>
+FireEventでWebブラウザ(OCXコンテナ)にイベントを通知するとき、<BR>
+WebブラウザによってはFireEventイベントの付帯データを<BR>
+取得できないことがあります。<BR>
+FireEventイベントの最中にこのプロパティでイベント付帯データの<BR>
+第1引数のイベント名を取得することができます。<BR>
+
+<H3><A NAME="EventParam">VARIANT EventParam(short index);</A></H3>
+FireEventでWebブラウザ(OCXコンテナ)にイベントを通知するとき、<BR>
+WebブラウザによってはFireEventイベントの付帯データを<BR>
+取得できないことがあります。<BR>
+FireEventイベントの最中にこのプロパティでイベント付帯データの<BR>
+第2引数の引数リストのindex番目の値を取得することができます。<BR>
+indexは1から始まります。<BR>
+
+<HR>
+<H1>AlCtrlのイベント</H1>
+
+<H3><A NAME="FireEvent">void FireEvent(LPCSTR eventName, VARIANT params);</A></H3>
+OCX側でインタプリタ実行中にal_fire_event(w, eventName, params);を実行すると<BR>
+コンテナ側にFireEvent(LPCSTR eventName, VARIANT params);というイベントが発生します。<BR>
+paramsはイベントの付帯データです。<BR>
+
+<HR>
+<H1>サンプル</H1>
+
+<H3>前準備</H3>
+<A HREF="sample.html#prepare">Altairのサンプルの前準備</A>で、
+ライブラリguicore.albが作成されていることを<BR>
+確認してください。<BR>
+
+<H3><A NAME="sample_graph">グラフ構造エディタ</A></H3>
+プロジェクトalctrl.aprを開いてください。クラスTPをダブルクリック<BR>
+してください。関数ocx_graph_sdiがOCXのグラフ構造エディタのサンプルになっています。<BR>
+<BR>
+OCXを作成するにあたって、このサンプルでは並列処理を使っています。<BR>
+なぜこんなことをしているかというと、このサンプルでは、OCXの実体はOCXの描画の<BR>
+タイミングで作成されています。OLEオートメーションはOCXの実体が作成されていないと<BR>
+行なえないので、OCXの実体が作成されているかをチェックし作成されたらOLEオートメーションを<BR>
+行なうという処理を並列プロセスで行なわせています。<BR>
+
+<H3><A NAME="sample_button">プッシュボタン</A></H3>
+プロジェクトalctrl.aprを開いてください。クラスTPをダブルクリック<BR>
+してください。関数ocx_buttonがOCXのプッシュボタンのサンプルになっています。<BR>
+ボタンをクリックすると、アウトプットウィンドウにイベント名、クリックしたときの<BR>
+x座標、y座標が出るようになっています。<BR>
+
+<H3><A NAME="sample_button200">プッシュボタン200</A></H3>
+プロジェクトalctrl.aprを開いてください。クラスTPをダブルクリック<BR>
+してください。関数ocx_button200がOCXのプッシュボタンを200個出したのサンプルに<BR>
+なっています。<BR>
+このサンプルを実行してみれば分かりますが、画面がすべて表示されされるまでにかなりの<BR>
+時間がかかります。OCXは単純な機能のものをたくさん配置するのには不向きで、<BR>
+高機能のものを少数配置するのに適していると言えるでしょう。<BR>
+
+<H3><A NAME="sample_web">Webページのサンプル</A></H3>
+index.htmlがAltair OLEコントロールを貼りつけたサンプルWebページです。<BR>
+ページのloadのタイミングで、Altairライブラリ/Altairプログラム/OCXのデータを<BR>
+Webサーバからダウンロードするようになっています。<BR>
+Webサーバとしては、Altair簡易HTTPサーバを使用することができます。<BR>
+<BR>
+ただし、実行するためには、GUIクラスライブラリのGuicore.alb、<BR>
+VB上のAlCtrlサンプル(AlCtrl/AlCtrl.apr, AlCtrl/AlButton.dat, AlCtrl/AlGraph.dat)を<BR>
+Webサーバに置き、Page1.htm中のInetLibrary/InetProgram/InetBodyに与えるURLを<BR>
+適当なものに書きかえる必要があります。<BR>
+また、IEのセキュリティの設定を「イントラネットゾーン/インターネットゾーン」で<BR>
+「安全だとマークされていないActiveXコントロールの初期化とスクリプト実行」を<BR>
+有効にする必要があります。<BR>
+<BR>
+注意：このOCXにはJavaアプレットのようなセキュリティの機能はありません。<BR>
+もしも使う場合は、信頼済できるサイトだけからしかプログラムがダウンロードが<BR>
+できないようにする仕掛けが必要です。<BR>
+<BR>
+注意：このサンプルは実現可能性を示すためのものです。<BR>
+ライブラリguicore.albのサイズはかなり大きく、回線か細い場合は使い物になりません。<BR>
+実際に使う場合は、サイズの小さいライブラリを作成して使わなければなりません。<BR>
+
+<HR>
+</BODY>
+</HTML>

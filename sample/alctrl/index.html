@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD W3 HTML//EN"><HTML>
+<HEAD>
+
+<META content="text/html; charset=SHIF-JIS" http-equiv=Content-Type>
+<TITLE>AlCtrl Web Sample</TITLE>
+<SCRIPT ID=clientEventHandlersJS LANGUAGE=javascript>
+<!--
+
+function Save_FireEvent() {
+	Ed.Invoke("Save");
+	text1.value = Save.EventName + "(" + Save.EventParam(1) + ", " + Save.EventParam(2) + ")";
+}
+
+function Load_FireEvent() {
+	Ed.Invoke("Load");
+	text1.value = Load.EventName + "(" + Load.EventParam(1) + ", " + Load.EventParam(2) + ")";
+}
+
+function Rectangle_FireEvent() {
+	Ed.Invoke("Rectangle");
+	text1.value = Rectangle.EventName + "(" + Rectangle.EventParam(1) + ", " + Rectangle.EventParam(2) + ")";
+}
+
+function Ellipse_FireEvent() {
+	Ed.Invoke("Ellipse");
+	text1.value = Ellipse.EventName + "(" + Ellipse.EventParam(1) + ", " + Ellipse.EventParam(2) + ")";
+}
+
+function Label_FireEvent() {
+	Ed.Invoke("Label");
+	text1.value = Label.EventName + "(" + Label.EventParam(1) + ", " + Label.EventParam(2) + ")";
+}
+
+function Arc_FireEvent() {
+	Ed.Invoke("Arc");
+	text1.value = Arc.EventName + "(" + Arc.EventParam(1) + ", " + Arc.EventParam(2) + ")";
+}
+
+function Reconnect_FireEvent() {
+	Ed.Invoke("Reconnect");
+	text1.value = Reconnect.EventName + "(" + Reconnect.EventParam(1) + ", " + Reconnect.EventParam(2) + ")";
+}
+
+function Delete_FireEvent() {
+	Ed.Invoke("Delete");
+	text1.value = Delete.EventName + "(" + Delete.EventParam(1) + ", " + Delete.EventParam(2) + ")";
+}
+
+function window_onload() {
+	Ed.DebugMode(1);
+	
+	Ed.InetLibrary("http://localhost:12345/../gui/guicore.alb");
+	Ed.InetProgram("http://localhost:12345/alctrl.apr");
+	Ed.InetBody("http://localhost:12345/algraph.dat");
+
+	Save.SetRootClass(Ed.GetRootClass());
+	Load.SetRootClass(Ed.GetRootClass());
+	Rectangle.SetRootClass(Ed.GetRootClass());
+	Ellipse.SetRootClass(Ed.GetRootClass());
+	Label.SetRootClass(Ed.GetRootClass());
+	Arc.SetRootClass(Ed.GetRootClass());
+	Reconnect.SetRootClass(Ed.GetRootClass());
+	Delete.SetRootClass(Ed.GetRootClass());
+
+	Save.InetBody("http://localhost:12345/albutton.dat");
+	Load.InetBody("http://localhost:12345/albutton.dat");
+	Rectangle.InetBody("http://localhost:12345/albutton.dat");
+	Ellipse.InetBody("http://localhost:12345/albutton.dat");
+	Label.InetBody("http://localhost:12345/albutton.dat");
+	Arc.InetBody("http://localhost:12345/albutton.dat");
+	Reconnect.InetBody("http://localhost:12345/albutton.dat");
+	Delete.InetBody("http://localhost:12345/albutton.dat");
+
+	args = Ed.Arg("text", "Save");
+	Save.Invoke("SetText", args);
+	args = Ed.Arg("text", "Load");
+	Load.Invoke("SetText", args);
+	args = Ed.Arg("text", "Rectangle");
+	Rectangle.Invoke("SetText", args);
+	args = Ed.Arg("text", "Ellipse");
+	Ellipse.Invoke("SetText", args);
+	args = Ed.Arg("text", "Label");
+	Label.Invoke("SetText", args);
+	args = Ed.Arg("text", "Arc");
+	Arc.Invoke("SetText", args);
+	args = Ed.Arg("text", "Reconnect");
+	Reconnect.Invoke("SetText", args);
+	args = Ed.Arg("text", "Delete");
+	Delete.Invoke("SetText", args);
+}
+
+function button1_onclick() {
+	window_onload();
+}
+
+//-->
+</SCRIPT>
+<SCRIPT LANGUAGE=javascript FOR=Save EVENT=FireEvent>
+<!--
+ Save_FireEvent()
+//-->
+</SCRIPT>
+<SCRIPT LANGUAGE=javascript FOR=Load EVENT=FireEvent>
+<!--
+ Load_FireEvent()
+//-->
+</SCRIPT>
+<SCRIPT LANGUAGE=javascript FOR=Rectangle EVENT=FireEvent>
+<!--
+ Rectangle_FireEvent()
+//-->
+</SCRIPT>
+<SCRIPT LANGUAGE=javascript FOR=Ellipse EVENT=FireEvent>
+<!--
+ Ellipse_FireEvent()
+//-->
+</SCRIPT>
+<SCRIPT LANGUAGE=javascript FOR=Label EVENT=FireEvent>
+<!--
+ Label_FireEvent()
+//-->
+</SCRIPT>
+<SCRIPT LANGUAGE=javascript FOR=Arc EVENT=FireEvent>
+<!--
+ Arc_FireEvent()
+//-->
+</SCRIPT>
+<SCRIPT LANGUAGE=javascript FOR=Reconnect EVENT=FireEvent>
+<!--
+ Reconnect_FireEvent()
+//-->
+</SCRIPT>
+<SCRIPT LANGUAGE=javascript FOR=Delete EVENT=FireEvent>
+<!--
+ Delete_FireEvent()
+//-->
+</SCRIPT>
+
+<BODY BGCOLOR="#77FF77" LANGUAGE=javascript onload="return window_onload()">
+
+<H3>Altair OLE Control Web Sample</H3>
+
+<INPUT id=button1 name=button1 type=button value=Reload LANGUAGE=javascript onclick="return button1_onclick()">
+<INPUT id=text1 name=text1>
+
+<HR>
+
+<OBJECT classid=clsid:CBE7BC03-1F9E-11D0-B34E-444553540000 height=26 id=Save style="HEIGHT: 26px; LEFT: 0px; TOP: 0px; WIDTH: 85px" width=85>
+	<PARAM NAME="_Version" VALUE="65536">
+	<PARAM NAME="_ExtentX" VALUE="2249">
+	<PARAM NAME="_ExtentY" VALUE="688">
+	<PARAM NAME="_StockProps" VALUE="1">
+	<PARAM NAME="BackColor" VALUE="16777215">
+	<PARAM NAME="Transparent" VALUE="0">
+	<PARAM NAME="BorderWidth" VALUE="0">
+	<PARAM NAME="LightColor" VALUE="0">
+	<PARAM NAME="ShadowColor" VALUE="0">
+</OBJECT>
+
+<OBJECT classid=clsid:CBE7BC03-1F9E-11D0-B34E-444553540000 height=26 id=Load style="HEIGHT: 26px; LEFT: 0px; TOP: 0px; WIDTH: 85px" width=85>
+	<PARAM NAME="_Version" VALUE="65536">
+	<PARAM NAME="_ExtentX" VALUE="2249">
+	<PARAM NAME="_ExtentY" VALUE="688">
+	<PARAM NAME="_StockProps" VALUE="1">
+	<PARAM NAME="BackColor" VALUE="16777215">
+	<PARAM NAME="Transparent" VALUE="0">
+	<PARAM NAME="BorderWidth" VALUE="0">
+	<PARAM NAME="LightColor" VALUE="0">
+	<PARAM NAME="ShadowColor" VALUE="0">
+</OBJECT>
+
+<OBJECT classid=clsid:CBE7BC03-1F9E-11D0-B34E-444553540000 height=26 id=Rectangle style="HEIGHT: 26px; LEFT: 0px; TOP: 0px; WIDTH: 85px" width=85>
+	<PARAM NAME="_Version" VALUE="65536">
+	<PARAM NAME="_ExtentX" VALUE="2249">
+	<PARAM NAME="_ExtentY" VALUE="688">
+	<PARAM NAME="_StockProps" VALUE="1">
+	<PARAM NAME="BackColor" VALUE="16777215">
+	<PARAM NAME="Transparent" VALUE="0">
+	<PARAM NAME="BorderWidth" VALUE="0">
+	<PARAM NAME="LightColor" VALUE="0">
+	<PARAM NAME="ShadowColor" VALUE="0">
+</OBJECT>
+
+<OBJECT classid=clsid:CBE7BC03-1F9E-11D0-B34E-444553540000 height=26 id=Ellipse style="HEIGHT: 26px; LEFT: 0px; TOP: 0px; WIDTH: 85px" width=85>
+	<PARAM NAME="_Version" VALUE="65536">
+	<PARAM NAME="_ExtentX" VALUE="2249">
+	<PARAM NAME="_ExtentY" VALUE="688">
+	<PARAM NAME="_StockProps" VALUE="1">
+	<PARAM NAME="BackColor" VALUE="16777215">
+	<PARAM NAME="Transparent" VALUE="0">
+	<PARAM NAME="BorderWidth" VALUE="0">
+	<PARAM NAME="LightColor" VALUE="0">
+	<PARAM NAME="ShadowColor" VALUE="0">
+</OBJECT>
+
+<OBJECT classid=clsid:CBE7BC03-1F9E-11D0-B34E-444553540000 height=26 id=Arc style="HEIGHT: 26px; LEFT: 0px; TOP: 0px; WIDTH: 85px" width=85>
+	<PARAM NAME="_Version" VALUE="65536">
+	<PARAM NAME="_ExtentX" VALUE="2249">
+	<PARAM NAME="_ExtentY" VALUE="688">
+	<PARAM NAME="_StockProps" VALUE="1">
+	<PARAM NAME="BackColor" VALUE="16777215">
+	<PARAM NAME="Transparent" VALUE="0">
+	<PARAM NAME="BorderWidth" VALUE="0">
+	<PARAM NAME="LightColor" VALUE="0">
+	<PARAM NAME="ShadowColor" VALUE="0">
+</OBJECT>
+
+<OBJECT classid=clsid:CBE7BC03-1F9E-11D0-B34E-444553540000 height=26 id=Label style="HEIGHT: 26px; LEFT: 0px; TOP: 0px; WIDTH: 85px" width=85>
+	<PARAM NAME="_Version" VALUE="65536">
+	<PARAM NAME="_ExtentX" VALUE="2249">
+	<PARAM NAME="_ExtentY" VALUE="688">
+	<PARAM NAME="_StockProps" VALUE="1">
+	<PARAM NAME="BackColor" VALUE="16777215">
+	<PARAM NAME="Transparent" VALUE="0">
+	<PARAM NAME="BorderWidth" VALUE="0">
+	<PARAM NAME="LightColor" VALUE="0">
+	<PARAM NAME="ShadowColor" VALUE="0">
+</OBJECT>
+
+<OBJECT classid=clsid:CBE7BC03-1F9E-11D0-B34E-444553540000 height=26 id=Reconnect style="HEIGHT: 26px; LEFT: 0px; TOP: 0px; WIDTH: 85px" width=85>
+	<PARAM NAME="_Version" VALUE="65536">
+	<PARAM NAME="_ExtentX" VALUE="2249">
+	<PARAM NAME="_ExtentY" VALUE="688">
+	<PARAM NAME="_StockProps" VALUE="1">
+	<PARAM NAME="BackColor" VALUE="16777215">
+	<PARAM NAME="Transparent" VALUE="0">
+	<PARAM NAME="BorderWidth" VALUE="0">
+	<PARAM NAME="LightColor" VALUE="0">
+	<PARAM NAME="ShadowColor" VALUE="0">
+</OBJECT>
+
+<OBJECT classid=clsid:CBE7BC03-1F9E-11D0-B34E-444553540000 height=26 id=Delete style="HEIGHT: 26px; LEFT: 0px; TOP: 0px; WIDTH: 85px" width=85>
+	<PARAM NAME="_Version" VALUE="65536">
+	<PARAM NAME="_ExtentX" VALUE="2249">
+	<PARAM NAME="_ExtentY" VALUE="688">
+	<PARAM NAME="_StockProps" VALUE="1">
+	<PARAM NAME="BackColor" VALUE="16777215">
+	<PARAM NAME="Transparent" VALUE="0">
+	<PARAM NAME="BorderWidth" VALUE="0">
+	<PARAM NAME="LightColor" VALUE="0">
+	<PARAM NAME="ShadowColor" VALUE="0">
+</OBJECT>
+
+<HR>
+
+<OBJECT classid=clsid:CBE7BC03-1F9E-11D0-B34E-444553540000 height=362 id=Ed style="HEIGHT: 362px; LEFT: 0px; TOP: 0px; WIDTH: 403px" width=403>
+	<PARAM NAME="_Version" VALUE="65536">
+	<PARAM NAME="_ExtentX" VALUE="10663">
+	<PARAM NAME="_ExtentY" VALUE="9578">
+	<PARAM NAME="_StockProps" VALUE="1">
+	<PARAM NAME="BackColor" VALUE="16777215">
+	<PARAM NAME="Transparent" VALUE="0">
+	<PARAM NAME="BorderWidth" VALUE="0">
+	<PARAM NAME="LightColor" VALUE="0">
+	<PARAM NAME="ShadowColor" VALUE="0">
+</OBJECT>
+
+<HR>
+
+</BODY>
+</HTML>

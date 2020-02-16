@@ -1,0 +1,92 @@
+# Microsoft Developer Studio Generated Dependency File, included by Altair.mak
+
+..\Src\Altair\Altair.cpp : \
+	"..\include\altair\docvdef.h"\
+	"..\include\cui\cui.h"\
+	"..\include\cui\member.h"\
+	"..\include\dev\advcapp.h"\
+	"..\include\dev\advcvw.h"\
+	"..\include\dev\mainfrm.h"\
+	"..\include\dev\olectrl.h"\
+	"..\include\dev\shell.h"\
+	"..\include\gdm\gdm.h"\
+	"..\include\gdm\vmkey.h"\
+	"..\src\altair\altair.h"\
+	"..\src\altair\altairdoc.h"\
+	"..\src\altair\altairview.h"\
+	
+
+..\Src\Altair\res\Altair.RC : \
+	"..\Src\Altair\res\Res\Altaidoc.ico"\
+	"..\Src\Altair\res\Res\Altair.ico"\
+	"..\Src\Altair\res\res\altair.rc2"\
+	
+
+..\Src\Altair\AltairDoc.cpp : \
+	"..\include\altair\docvdef.h"\
+	"..\include\cui\cui.h"\
+	"..\include\cui\member.h"\
+	"..\include\dev\advcapp.h"\
+	"..\include\dev\advcvw.h"\
+	"..\include\dev\mainfrm.h"\
+	"..\include\dev\olectrl.h"\
+	"..\include\dev\shell.h"\
+	"..\include\gdm\gdm.h"\
+	"..\include\gdm\vmkey.h"\
+	"..\src\altair\altair.h"\
+	"..\src\altair\altairdoc.h"\
+	
+
+..\Src\Altair\AltairView.cpp : \
+	"..\include\altair\docvdef.h"\
+	"..\include\cui\cui.h"\
+	"..\include\cui\member.h"\
+	"..\include\dev\advcapp.h"\
+	"..\include\dev\advcvw.h"\
+	"..\include\dev\mainfrm.h"\
+	"..\include\dev\olectrl.h"\
+	"..\include\dev\shell.h"\
+	"..\include\gdm\gdm.h"\
+	"..\include\gdm\vmkey.h"\
+	"..\src\altair\altair.h"\
+	"..\src\altair\altairdoc.h"\
+	"..\src\altair\altairview.h"\
+	
+
+..\Src\Altair\StdAfx.cpp : \
+	"..\..\program files\microsoft visual studio\vc98\include\basetsd.h"\
+	"..\..\program files\microsoft visual studio\vc98\mfc\src\occimpl.h"\
+	"..\..\program files\microsoft visual studio\vc98\mfc\src\ocdb.h"\
+	"..\..\program files\microsoft visual studio\vc98\mfc\src\ocdbid.h"\
+	"..\..\program files\microsoft visual studio\vc98\mfc\src\olebind.h"\
+	"..\include\altair\alext.h"\
+	"..\include\altair\libinc.h"\
+	"..\include\altair\strres.h"\
+	"..\include\cui\body.h"\
+	"..\include\cui\class.h"\
+	"..\include\cui\cui.h"\
+	"..\include\cui\member.h"\
+	"..\include\cui\project.h"\
+	"..\include\dev\advcapp.h"\
+	"..\include\dev\advcedit.h"\
+	"..\include\dev\advcvw.h"\
+	"..\include\dev\advwnd.h"\
+	"..\include\dev\bitmap.h"\
+	"..\include\dev\event.h"\
+	"..\include\dev\file.h"\
+	"..\include\dev\mainfrm.h"\
+	"..\include\dev\ocx.h"\
+	"..\include\dev\olectrl.h"\
+	"..\include\dev\shell.h"\
+	"..\include\gdm\debug.h"\
+	"..\include\gdm\gdm.h"\
+	"..\include\gdm\matrix.h"\
+	"..\include\gdm\pict.h"\
+	"..\include\gdm\vmkey.h"\
+	"..\include\interp\basefunc.h"\
+	"..\include\interp\interp.h"\
+	"..\include\interp\prcsmgr.h"\
+	"..\include\interp\prog_if.h"\
+	"..\include\interp\sysfunc.h"\
+	"..\src\altair\stdafx.h"\
+	

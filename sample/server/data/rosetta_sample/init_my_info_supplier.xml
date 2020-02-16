@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE User SYSTEM "Partner.dtd">
+<MyInfo>
+    <Target>rosetta</Target>
+    <Id>rosetta:SampleSupplier</Id>
+    <BusinessId>000000000</BusinessId>
+    <MyRole>supplier</MyRole>
+
+    <Properties>
+        <Name>Class</Name>
+        <Value>Manufacturer</Value>
+    </Properties>
+    <Properties>
+        <Name>Supply Chain</Name>
+        <Value>Information Technology</Value>
+    </Properties>
+
+    <!-- encryption, sign -->
+    <Properties>
+        <Name>cert</Name>
+        <Value>./keystore/supplier/cert.pem</Value>
+    </Properties>
+    <Properties>
+        <Name>key</Name>
+        <Value>./keystore/supplier/private/key.pem</Value>
+    </Properties>
+    <Properties>
+        <Name>ca.cert</Name>
+        <Value>./keystore/ca/cert.pem</Value>
+    </Properties>
+</MyInfo>

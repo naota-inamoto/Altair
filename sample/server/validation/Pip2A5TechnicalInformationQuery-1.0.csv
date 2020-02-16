@@ -1,0 +1,1766 @@
+dic-1,Exclusively-requires,  A component can exclusively require another functional component in order for it to operate. E.g. a memory slot is exclusively required by a memory module. The slot cannot be shared.
+dic-1,Implements,  The physical component in the association that implements a particular function.
+dic-1,Performs,  The functional component in the association that performs a particular function for a physical component.
+dic-1,Provides,  A component can provide other functional components. E.g. a laptop provides a serial port.
+dic-1,Recommended,"  The recommended association is a constraining heuristic that provides some indication of optional configuration for performing a function. For example, a specific processor clock rate will be recommended for a computer configuration that is needs to execute a particular software package."
+dic-1,Requires,  A component can require other functional components. This is a shared component. E.g. a laptop requires a hard disk to operate. Software also requires a hard disk to operate.
+dic-1,Subcomponent,  A physical component that is an assembly can have other assemblies and parts as sub-components.
+dic-1,Supports,  A constraining association between components that denotes the capability of the source component to be able to satisfy the functional requirements of the destination component.
+end-dic-1,,
+dic,/Pip2A5TechnicalInformationQuery/ComponentTechnicalSpecificationQuery/ComponentTechnicalSpecification/SubComponent/GlobalSubComponentRelationshipCode,dic-1
+dic-2,Abbreviated Description,
+dic-2,Acoustic Impedance,
+dic-2,Ambient Light Rejection,
+dic-2,Amplitude,
+dic-2,Analog Control,
+dic-2,Annotation,
+dic-2,Architecture Feature
+dic-2,Asynchronous Burst Maximum Data Bit Rate
+dic-2,Asynchronous Sustained Maximum Data Bit Rate
+dic-2,Audio Controls
+dic-2,Auto Discrimination
+dic-2,Automatic Features
+dic-2,Average Acceleration Time
+dic-2,Average Compact Disk Access Time
+dic-2,Average Coverage
+dic-2,Average DVD Access Time
+dic-2,Average Ready Time
+dic-2,Average Rotational Delay
+dic-2,Average Seek Time
+dic-2,Bandwidth
+dic-2,Basefilm Thickness
+dic-2,Basis Weight
+dic-2,Beam Focus Method
+dic-2,Bell Standard
+dic-2,Bit Error Rate
+dic-2,Bit Error Rate after Error Correction
+dic-2,Bottom Mechanical Margin
+dic-2,Brightness
+dic-2,Burst Data Bit Rate
+dic-2,Burst External Data Bit Rate
+dic-2,Burst Internal Data Bit Rate
+dic-2,Button Function
+dic-2,Cabinet Material
+dic-2,Cable Functionality
+dic-2,Cable Grade
+dic-2,Cable Shielding Material
+dic-2,Cable Technology
+dic-2,Cache Bus Clock Rate
+dic-2,Case Material
+dic-2,Cathode Ray Tube Design
+dic-2,Cell Technology
+dic-2,Central Processing Unit Bus Clock Rate
+dic-2,Central Processor Unit Socket Standard
+dic-2,Certifications
+dic-2,Channel Bonding
+dic-2,Characteristics Measured
+dic-2,Check Width
+dic-2,Circuit Protection
+dic-2,Clocking
+dic-2,Code Base
+dic-2,Coercivity
+dic-2,Color
+dic-2,Color Scan Rate
+dic-2,Communication Direction
+dic-2,Communication Functions
+dic-2,Communication Line
+dic-2,Compact Disk Write Data Transfer Rate
+dic-2,Compliance
+dic-2,Component Category
+dic-2,Computer System Emulation
+dic-2,Connector Gender
+dic-2,Connector Standard
+dic-2,Continuous Plotting Rate
+dic-2,Cooling Method
+dic-2,Copy Color
+dic-2,Cushioning Material
+dic-2,DVD Write Data Transfer Rate
+dic-2,Data Bit Rate
+dic-2,Data Compression Method
+dic-2,Data Density
+dic-2,Data Format
+dic-2,Data Port Standard
+dic-2,Data Transmission
+dic-2,Data Width
+dic-2,Depth
+dic-2,Design Methodology
+dic-2,Device Location
+dic-2,Diagnostics
+dic-2,Diameter
+dic-2,Die Size
+dic-2,Digital Audio
+dic-2,Digital Control
+dic-2,Disk Change Time
+dic-2,Disk Inner Diameter
+dic-2,Disk Load Design
+dic-2,Disk Outer Diameter
+dic-2,Display Color
+dic-2,Display Technology
+dic-2,Distribution Media
+dic-2,Drawer Extension Mechanism
+dic-2,Drop Height
+dic-2,Drum Life
+dic-2,Electromagnetic Interference Protection
+dic-2,Electrostatic Discharge Resistance
+dic-2,Emulation Mode
+dic-2,Estimated Maximum Cartridge Life
+dic-2,Estimated Maximum Fax Page Memory Capacity
+dic-2,Estimated Maximum Head Life
+dic-2,Estimated Maximum Operational Recharge Time
+dic-2,Estimated Maximum Standby Recharge Time
+dic-2,Estimated Minimum Operational Recharge Time
+dic-2,Estimated Minimum Standby Recharge Time
+dic-2,Estimated Shelf Life
+dic-2,Expansion Bus Clock Rate
+dic-2,Exposure Time
+dic-2,External Color
+dic-2,Fabrication Material
+dic-2,Fax Service Class
+dic-2,Feeder Capability
+dic-2,Finish
+dic-2,Flash Modes
+dic-2,Focus Method
+dic-2,Font Standard
+dic-2,Form Factor
+dic-2,Formatted Storage Capacity
+dic-2,Forwarding Data Bit Rate
+dic-2,Global Product Identification
+dic-2,Greyscale Scan Rate
+dic-2,Head Technology
+dic-2,Height
+dic-2,Horizontal Display Length
+dic-2,Horizontal Interlaced Resolution
+dic-2,Horizontal Non-Interlaced Resolution
+dic-2,Horizontal Resolution
+dic-2,Horizontal Stage Length
+dic-2,Hub Outer Diameter
+dic-2,Image Sensor Horizontal Resolution
+dic-2,Image Sensor Technology
+dic-2,Image Sensor Vertical Resolution
+dic-2,Image Storage Method
+dic-2,Ink Color
+dic-2,Installed Buffer Memory Storage Capacity
+dic-2,Installed Cache Memory Storage Capacity
+dic-2,Installed L2 Cache Memory Storage Capacity
+dic-2,Installed L3 Cache Memory Storage Capacity
+dic-2,Installed System Memory Storage Capacity
+dic-2,Interface Standard
+dic-2,Internal Clock Rate
+dic-2,Internal Data Width
+dic-2,International Standards Organization Equivalency
+dic-2,International Telecommunications Union Standard
+dic-2,Key Angle
+dic-2,Key Spacing
+dic-2,Keyboard Encoding
+dic-2,Lamp Life
+dic-2,Lamp Technology
+dic-2,Lead Plating
+dic-2,Left Mechanical Margin
+dic-2,Lens Mounting
+dic-2,Lens Type
+dic-2,License Type
+dic-2,Light Transmission
+dic-2,Line Interaction
+dic-2,Line Protection
+dic-2,Linear Travel
+dic-2,Load Balancing
+dic-2,Load Bearing Capacity
+dic-2,Load Host
+dic-2,Local Area Network Architecture
+dic-2,Locale Language
+dic-2,Magnetic Disk Technology
+dic-2,Magnetic Layer Thickness
+dic-2,Magnetic Tape Technology
+dic-2,Manufacturer Name
+dic-2,Manufacturer Part Number
+dic-2,Max Estimated Operational Battery Life
+dic-2,Max Estimated Standby Battery Life
+dic-2,Maximum Accuracy
+dic-2,Maximum Amplitude Modulation Radio Frequency
+dic-2,Maximum Aperture
+dic-2,Maximum Backplane Data Bit Rate
+dic-2,Maximum Bit Depth
+dic-2,Maximum Buffer Storage
+dic-2,Maximum Color Copy Rate
+dic-2,Maximum Color Plotting Rate
+dic-2,Maximum Color Print Rate
+dic-2,Maximum Color Resolution
+dic-2,Maximum Compact Disk Read Data Transfer Rate
+dic-2,Maximum Compressed Asynchronous Data Transfer Rate - Reading
+dic-2,Maximum Compressed Asynchronous Data Transfer Rate - Writing
+dic-2,Maximum Compressed Data Tranfer Rate - Reading
+dic-2,Maximum Compressed Data Transfer Rate - Writing
+dic-2,Maximum Compressed Storage Capacity
+dic-2,Maximum Compressed Synchronous Data Transfer Rate - Reading
+dic-2,Maximum Compressed Synchronous Data Transfer Rate - Writing
+dic-2,Maximum Conductor Cross-Sectional Area
+dic-2,Maximum DVD Read Data Transfer Rate
+dic-2,Maximum Data Bit Rate
+dic-2,Maximum Depth of Field
+dic-2,Maximum Disk Storage Capacity
+dic-2,Maximum Distance Range
+dic-2,Maximum Electrical Power Rating
+dic-2,Maximum Enlargement
+dic-2,Maximum Extension length
+dic-2,Maximum Extremely Low Frequency Reduction
+dic-2,Maximum Fax Bit Rate
+dic-2,Maximum Focal Length
+dic-2,Maximum Forwarding Packet Size
+dic-2,Maximum Frame Capture Rate
+dic-2,Maximum Frequency Modulation Radio Frequency
+dic-2,Maximum Frequency Response
+dic-2,Maximum Gain
+dic-2,Maximum Heat Dissipation
+dic-2,Maximum Horizontal Media Length
+dic-2,Maximum Horizontal Scan Frequency
+dic-2,Maximum Horizontal Scan Length
+dic-2,Maximum Horizontal Synchronization
+dic-2,Maximum Image Capacity
+dic-2,Maximum Image Output Rate
+dic-2,Maximum Input Current
+dic-2,Maximum Input Frequency
+dic-2,Maximum Input Sheet Capacity
+dic-2,Maximum Input Voltage
+dic-2,Maximum Installable Buffer Memory Storage Capacity
+dic-2,Maximum Installable Cache Memory Storage Capacity
+dic-2,Maximum Installable L2 Cache Memory Storage Capacity
+dic-2,Maximum Installable L3 Cache Memory Storage Capacity
+dic-2,Maximum Installable System Memory Storage Capacity
+dic-2,Maximum Installable Video Memory Storage Capacity
+dic-2,Maximum Interpolated Resolution
+dic-2,Maximum Monochrome Copy Rate
+dic-2,Maximum Monochrome Plotting Rate
+dic-2,Maximum Monochrome Print Rate
+dic-2,Maximum Monochrome Resolution
+dic-2,Maximum Network Switch Throughput
+dic-2,Maximum Number of Attendant Consoles
+dic-2,Maximum Number of Copies
+dic-2,Maximum Number of Multiplexing Talk Slots
+dic-2,Maximum Number of Power Outlets
+dic-2,Maximum Number of Simultaneous Multiplexing Conversations
+dic-2,Maximum Number of Simultaneous System Conversations
+dic-2,Maximum Number of Stations
+dic-2,Maximum Number of System Talk Slots
+dic-2,Maximum Number of Trunk Groups
+dic-2,Maximum Number of Trunks
+dic-2,Maximum Number of Trunks Per Group
+dic-2,Maximum Number of Users
+dic-2,Maximum Number of Virtual Local Area Networks
+dic-2,Maximum Operating Ambient Temperature
+dic-2,Maximum Operating Humidity
+dic-2,Maximum Optical Resolution
+dic-2,Maximum Output Frequency
+dic-2,Maximum Output Power
+dic-2,Maximum Output Sheet Capacity
+dic-2,Maximum Output Voltage
+dic-2,Maximum Peak Current Capacity
+dic-2,Maximum Photopic Reflectance
+dic-2,Maximum Power Consumption
+dic-2,Maximum Print Contrast Signal Value
+dic-2,Maximum Privacy Cone Angle
+dic-2,Maximum Projected Brightness
+dic-2,Maximum Projection Distance
+dic-2,Maximum Read Power Dissipation
+dic-2,Maximum Reading Resolution
+dic-2,Maximum Recording Area
+dic-2,Maximum Recording Capacity
+dic-2,Maximum Recording Rate
+dic-2,Maximum Recording Time
+dic-2,Maximum Reduction
+dic-2,Maximum Response Time
+dic-2,Maximum Sag Energy Rating
+dic-2,Maximum Sampling Frequency
+dic-2,Maximum Scan Rate
+dic-2,Maximum Scanning Noise Level
+dic-2,Maximum Sector Capacity
+dic-2,Maximum Self Timer Duration
+dic-2,Maximum Sheet Capacity
+dic-2,Maximum Shutter Speed
+dic-2,Maximum Supply Voltage
+dic-2,Maximum Surge Energy Rating
+dic-2,Maximum Switchover Time
+dic-2,Maximum Tilt Angle
+dic-2,Maximum Time Lapse Duration
+dic-2,Maximum Transmission Distance
+dic-2,Maximum Ultraviolet A
+dic-2,Maximum Ultraviolet B
+dic-2,Maximum Uncompressed Storage Capacity
+dic-2,Maximum Vertical Media Length
+dic-2,Maximum Vertical Scan Length
+dic-2,Maximum Vertical Synchronization
+dic-2,Maximum Very Low Frequency Reduction
+dic-2,Maximum Video Refresh Rate
+dic-2,Maximum Weight
+dic-2,Maximum Write Power Dissipation
+dic-2,Maximum Zoom
+dic-2,Mean Time Between Failures
+dic-2,Mechanical Features
+dic-2,Media Format
+dic-2,Media Technology
+dic-2,Memory Bus Clock Rate
+dic-2,Memory Module Configuration
+dic-2,Memory Module Outline
+dic-2,Memory Socket Standard
+dic-2,Memory Technology
+dic-2,Microcom Networking Protocol Class
+dic-2,Microphone Technology
+dic-2,Min Estimated Operational Battery Life
+dic-2,Min Estimated Standby Battery Life
+dic-2,Minimum Accuracy
+dic-2,Minimum Amplitude Modulation Radio Frequency
+dic-2,Minimum Aperture
+dic-2,Minimum Color Plotting Rate
+dic-2,Minimum Color Print Rate
+dic-2,Minimum Compact Disk Read Data Transfer Rate
+dic-2,Minimum Conductor Cross-Sectional Area
+dic-2,Minimum DVD Read Data Transfer Rate
+dic-2,Minimum Data Bit Rate
+dic-2,Minimum Depth of Field
+dic-2,Minimum Dynamic Range
+dic-2,Minimum Focal Length
+dic-2,Minimum Forwarding Packet Size
+dic-2,Minimum Frequency Modulation Radio Frequency
+dic-2,Minimum Frequency Response
+dic-2,Minimum Gain
+dic-2,Minimum Heat Dissipation
+dic-2,Minimum Horizontal Media Length
+dic-2,Minimum Horizontal Scan Frequency
+dic-2,Minimum Horizontal Synchronization
+dic-2,Minimum Input Current
+dic-2,Minimum Input Frequency
+dic-2,Minimum Input Voltage
+dic-2,Minimum Macro Focus Distance
+dic-2,Minimum Monochrome Plotting Rate
+dic-2,Minimum Monochrome Print Rate
+dic-2,Minimum Operating Ambient Temperature
+dic-2,Minimum Operating Humidity
+dic-2,Minimum Output Frequency
+dic-2,Minimum Output Voltage
+dic-2,Minimum Power Consumption
+dic-2,Minimum Print Contrast Signal Value
+dic-2,Minimum Projection Distance
+dic-2,Minimum Read Power Dissipation
+dic-2,Minimum Reading Resolution
+dic-2,Minimum Recording Area
+dic-2,Minimum Recording Rate
+dic-2,Minimum Response Time
+dic-2,Minimum Scan Rate
+dic-2,Minimum Self Timer Duration
+dic-2,Minimum Shutter Speed
+dic-2,Minimum Supply Voltage
+dic-2,Minimum Switchover Time
+dic-2,Minimum Telephoto Focus Distance
+dic-2,Minimum Tilt Angle
+dic-2,Minimum Time Lapse Duration
+dic-2,Minimum Vertical Media Length
+dic-2,Minimum Vertical Synchronization
+dic-2,Minimum Wide Angle Focus Distance
+dic-2,Minimum Write Power Dissipation
+dic-2,Minimum Zoom
+dic-2,Modem Capability
+dic-2,Mounting Capability
+dic-2,Mounting Position
+dic-2,Multiplexing Technology
+dic-2,Name
+dic-2,Native Image Format
+dic-2,Noise Suppression
+dic-2,Nominal Input Sheet Capacity
+dic-2,Nominal Output Sheet Capacity
+dic-2,Nominal Wavelength
+dic-2,Nominal Weight
+dic-2,Non-Magnetic Layer Thickness
+dic-2,Number of Analog Lines Supported
+dic-2,Number of Battery Bays
+dic-2,Number of Buttons
+dic-2,Number of Cooling Device Slots
+dic-2,Number of Disk Slots
+dic-2,Number of Display Presets
+dic-2,Number of Display User Settings
+dic-2,Number of Drive Mechanisms
+dic-2,Number of Expansion Slots
+dic-2,Number of Expansion/Module Slots
+dic-2,Number of Extensions
+dic-2,Number of Ink Colors
+dic-2,Number of Input-Output Channels
+dic-2,Number of Keys
+dic-2,Number of Leads
+dic-2,Number of Lines
+dic-2,Number of Memory Packages
+dic-2,Number of Modular Slots
+dic-2,Number of Passes for Color
+dic-2,Number of Pens
+dic-2,Number of Pins
+dic-2,Number of Pockets
+dic-2,Number of Pouches
+dic-2,Number of Power Supply Slots
+dic-2,Number of Pressure Levels
+dic-2,Number of Rings Supported
+dic-2,Number of Sectors Per Track
+dic-2,Number of Segments Per Shelf
+dic-2,Number of Sessions
+dic-2,Number of Sessions Per Port
+dic-2,Number of Sides
+dic-2,Number of Tracks
+dic-2,Number of Tracks per Surface
+dic-2,Number of Transistors
+dic-2,Number of Wires
+dic-2,On Screen Analog Control
+dic-2,On Screen Digital Control
+dic-2,On-Board System Memory Storage Capacity
+dic-2,Operating System
+dic-2,Optical Technology
+dic-2,Output Impedence
+dic-2,Output Waveform
+dic-2,Package Height
+dic-2,Package Length
+dic-2,Package Outline Designator
+dic-2,Package Width
+dic-2,Packet Forwarding/Filtering Rate
+dic-2,Panel Controls
+dic-2,Paper Feed Method
+dic-2,Paper Path
+dic-2,Parallel Transfer Mode
+dic-2,Phosphor Persistence
+dic-2,Pickup Pattern
+dic-2,Pitch Type
+dic-2,Pitch Width
+dic-2,Pixel Pitch
+dic-2,Plotter Technology
+dic-2,Pointing Device Technology
+dic-2,Port Direction
+dic-2,Port Function
+dic-2,Portability Parameter
+dic-2,Print Color
+dic-2,Printing Method
+dic-2,Printing Noise Level
+dic-2,Product Name
+dic-2,Programmability
+dic-2,Projection Direction
+dic-2,Proprietary or Industry Standard
+dic-2,Provides Cache Technology
+dic-2,Provides Central Processor Unit Slot Standard
+dic-2,Provides Central Processor Unit Socket Standard
+dic-2,Provides Channel Data Bit Rate
+dic-2,Provides Data Channel
+dic-2,Provides Error Checking Method
+dic-2,Provides Expansion Bus Standard
+dic-2,Provides Expansion Bus Width
+dic-2,Provides Expansion Slot Convention
+dic-2,Provides Expansion Slot Standard
+dic-2,Provides External Drive Bay Dimension
+dic-2,Provides Internal Drive Bay Dimension
+dic-2,Provides L1 Cache Memory Storage Capacity
+dic-2,Provides L2 Cache Memory Storage Capacity
+dic-2,Provides Local Area Network Architecture
+dic-2,Provides Local Area Network Management Protocol
+dic-2,Provides Maximum Formatted Storage Capacity
+dic-2,Provides Memory Bus Width
+dic-2,Provides Memory Management
+dic-2,Provides Memory Socket Standard
+dic-2,Provides Number of Bits
+dic-2,Provides Number of Cooling Devices
+dic-2,Provides Printer Page Description Language
+dic-2,Provides System Chip Set
+dic-2,Proximity
+dic-2,Pulse Width
+dic-2,Random Access Memory Digital to Analog Converter Speed
+dic-2,Re-Writable Write Data Transfer Rate
+dic-2,Read Channel
+dic-2,Recommended Maximum Supply Voltage
+dic-2,Recommended Minimum Supply Voltage
+dic-2,Recordable Data Transfer Rate
+dic-2,Recordable Write Method
+dic-2,Recording Layer Material
+dic-2,Recording Method
+dic-2,Refractive Index
+dic-2,Remote Management Capability
+dic-2,Requires Central Processor Unit Slot Standard
+dic-2,Requires Central Processor Unit Socket Standard
+dic-2,Requires Direct Memory Access Channel Setting
+dic-2,Requires Expansion Slot Convention
+dic-2,Requires Expansion Slot Standard
+dic-2,Requires I/O Base Address Setting
+dic-2,Requires Interrupt Request Line Setting
+dic-2,Requires Maximum Memory Device Access Time
+dic-2,Requires Minimum Central Processing Unit Internal Clock Rate
+dic-2,Requires System Board Bus Clock Rate
+dic-2,Requires System Board Central Processing Unit Bus Clock Rate
+dic-2,Resource Allocation Method
+dic-2,Right Mechanical Margin
+dic-2,Roll Length
+dic-2,Roller Life
+dic-2,Rotational Speed
+dic-2,Scan Color
+dic-2,Scanning Technology
+dic-2,Screen Treatment
+dic-2,Security Features
+dic-2,Sensor Resolution
+dic-2,Sensor Width
+dic-2,Signal Acquisition System Bandwidth
+dic-2,Signal Conversion Type
+dic-2,Size Classification
+dic-2,Sleep Power Dissipation
+dic-2,Sound Synthesis Method
+dic-2,Sound Transmission
+dic-2,Speaker Type
+dic-2,Stage Temperature
+dic-2,Standard Rack Height
+dic-2,Standby Noise Level
+dic-2,Status Alert Condition
+dic-2,Status Indicator
+dic-2,Status Notification Method
+dic-2,Storage Capacity
+dic-2,Storage Density
+dic-2,Stranding
+dic-2,Substrate Material
+dic-2,Substrate Thickness
+dic-2,Supplies Supply Voltage
+dic-2,Supports Asynchronous Data Bit Rate
+dic-2,Supports Authentication Protocol
+dic-2,Supports Battery Cell Technology
+dic-2,Supports Battery Size Classification
+dic-2,Supports Bearer Channel Protocol
+dic-2,Supports Cache Technology
+dic-2,Supports Data Channel
+dic-2,Supports Delta Channel Protocol
+dic-2,Supports Error Checking Method
+dic-2,Supports Feed Method
+dic-2,Supports Local Area Network Architecture
+dic-2,Supports Local Area Network Management Capability
+dic-2,Supports Local Area Network Management Protocol
+dic-2,Supports Maximum Height
+dic-2,Supports Maximum Label Width
+dic-2,Supports Maximum Length
+dic-2,Supports Maximum Media Weight
+dic-2,Supports Maximum Number of Instruments
+dic-2,Supports Maximum Number of Message Authentication Code Addresses
+dic-2,Supports Maximum Number of Systems
+dic-2,Supports Maximum Number of Voices
+dic-2,Supports Maximum Physical Addressable Storage Capacity
+dic-2,Supports Maximum Port Data Bit Rate
+dic-2,Supports Maximum Power
+dic-2,Supports Maximum Virtual Addressable Storage Capacity
+dic-2,Supports Maximum Weight
+dic-2,Supports Maximum Width
+dic-2,Supports Media Technology
+dic-2,Supports Memory Device Number of Leads
+dic-2,Supports Memory Technology
+dic-2,Supports Minimum Label Width
+dic-2,Supports Network Protocol
+dic-2,Supports Number of Broadcast Channels
+dic-2,Supports Number of Carbon Part Forms
+dic-2,Supports Number of Carbon-less Part Forms
+dic-2,Supports Number of Data Bits
+dic-2,Supports Number of Devices
+dic-2,Supports Number of Ink Cartridges
+dic-2,Supports Number of Stop Bits
+dic-2,Supports Parity
+dic-2,Supports Power Management
+dic-2,Supports Printer Page Description Language
+dic-2,Supports Radio Broadcast Standard
+dic-2,Supports Redundant Array of Independent Disks Level
+dic-2,Supports Sound Command Set
+dic-2,Supports Switching Layers
+dic-2,Supports Synchronous Data Bit Rate
+dic-2,Supports Television Broadcast Standard
+dic-2,Supports Transfer Mode
+dic-2,Supports Video Standard
+dic-2,Supports Wide Area Network Protocol
+dic-2,Sustained Data Bit Rate
+dic-2,Sustained External Data Bit Rate
+dic-2,Sustained Frame Capture Rate
+dic-2,Sustained Internal Data Bit Rate
+dic-2,Swap Capability
+dic-2,Switching Design
+dic-2,Switching Layers
+dic-2,Switching Method
+dic-2,Synchronous Burst Maximum Data Bit Rate
+dic-2,Synchronous Sustained Maximum Data Bit Rate
+dic-2,System Traffic Rating
+dic-2,Tape Length
+dic-2,Tape Thickness
+dic-2,Tape Width
+dic-2,Test Signal Output
+dic-2,Thickness
+dic-2,Toner Color
+dic-2,Top Mechanical Margin
+dic-2,Touch Quality
+dic-2,Track Pitch
+dic-2,Transceiver Design
+dic-2,Transfer Roll Life
+dic-2,Transmission Method
+dic-2,Transmission Protocol
+dic-2,Typical Access Time
+dic-2,Typical Color Duty Cycle
+dic-2,Typical Contrast Ratio
+dic-2,Typical Monochrome Duty Cycle
+dic-2,Typical Operating Noise Level
+dic-2,Typical Page Coverage
+dic-2,Typical Refresh Cycle
+dic-2,Unformatted Storage Capacity
+dic-2,Usage Agreement Location
+dic-2,Version
+dic-2,Vertical Display Length
+dic-2,Vertical Interlaced Resolution
+dic-2,Vertical Non-Interlaced Resolution
+dic-2,Vertical Resolution
+dic-2,Vertical Scan Frequency
+dic-2,Vertical Stage Length
+dic-2,Video Chipset,
+dic-2,Viewable Display Diagonal Length,
+dic-2,Viewfinder Diagonal Length,
+dic-2,Viewfinder Technology,
+dic-2,Voltage Differential,
+dic-2,Voltage Phase,
+dic-2,Wide Area Network Architecture,
+dic-2,Wide Area Network Data Bit Rate,
+dic-2,Width,
+dic-2,Width of Field,
+dic-2,Wire Material,
+end-dic-2,,
+dic,/Pip2A5TechnicalInformationQuery/ComponentTechnicalSpecificationQuery/ComponentTechnicalSpecification/Quantity/GlobalSpecificationNameCode,dic-2
+dic,/Pip2A5TechnicalInformationQuery/ComponentTechnicalSpecificationQuery/ComponentTechnicalSpecification/Quality/GlobalSpecificationNameCode,dic-2
+dic-3,1/2 Card,
+dic-3,100Base-FX,
+dic-3,100Base-T4
+dic-3,100Base-TX
+dic-3,100VG AnyLAN
+dic-3,10Base 2
+dic-3,10Base 5
+dic-3,10Base-T
+dic-3,2.5 Half-Height
+dic-3,2.5 Internal Low Profile
+dic-3,2.5 Low Profile
+dic-3,2/3 AT
+dic-3,2/3 Card
+dic-3,3.5 Full-Height
+dic-3,3.5 Half-Height
+dic-3,3.5 Internal Full-Height
+dic-3,3.5 Internal Half-Height
+dic-3,3.5 Internal Low Profile
+dic-3,3.5 Low Profile
+dic-3,3/4 Card
+dic-3,5.25 Full Height
+dic-3,5.25 Full-Height
+dic-3,5.25 Half-Height
+dic-3,5.25 Internal Full-Height
+dic-3,5.25 Internal Half-Height
+dic-3,5.25 Internal Low Profile
+dic-3,5.25 Low Profile
+dic-3,5ESS
+dic-3,ACPI
+dic-3,ADPCM
+dic-3,AGP
+dic-3,ALDC
+dic-3,AM
+dic-3,APM
+dic-3,ARCnet
+dic-3,AS/400 (5250)
+dic-3,ATM
+dic-3,Acecad Acecat
+dic-3,Activation Key
+dic-3,Activity Status
+dic-3,Add-On
+dic-3,Advanced Technology Attachment Packet Interface
+dic-3,Air
+dic-3,Alarm
+dic-3,Alarm Test
+dic-3,Alkaline
+dic-3,Aluminum
+dic-3,Aluminum Mylar
+dic-3,Aluminum Oxygen
+dic-3,Amber (Monochrome)
+dic-3,Analog Telephone
+dic-3,Anti-Glare
+dic-3,Anti-Reflection
+dic-3,Anti-Static
+dic-3,Aperture Grill
+dic-3,AppleTalk
+dic-3,Asynch/Synch PPP
+dic-3,Asynchronous
+dic-3,Attenuation
+dic-3,Attenuation to Cross-talk Ratio
+dic-3,Audible Alarm
+dic-3,Audio
+dic-3,Auto Answer
+dic-3,Automatic
+dic-3,Automatic Answer
+dic-3,Automatic Authentication
+dic-3,Automatic Call Back
+dic-3,Automatic Call Detection
+dic-3,Automatic Circuit Breaker
+dic-3,Automatic Configuration
+dic-3,Automatic Cover Sheet
+dic-3,Automatic Data/Fax Call Discrimination
+dic-3,Automatic Dial
+dic-3,Automatic Fall-Back/Fall-Forward
+dic-3,Automatic Fax/Voice Detection
+dic-3,Automatic Flash
+dic-3,Automatic Gain Control
+dic-3,Automatic Idle Mode
+dic-3,Automatic Log-On
+dic-3,Automatic Negotiation
+dic-3,Automatic Power Down
+dic-3,Automatic Power Management
+dic-3,Automatic Power-On
+dic-3,Automatic Rate Adaption
+dic-3,Automatic Redial
+dic-3,Automatic Roam
+dic-3,Automatic Sheet Feeder
+dic-3,Automatic Sleep Mode
+dic-3,Automatic Speed Selection
+dic-3,Automatic Synchronization
+dic-3,Automatic Wake-Up
+dic-3,BEDO DRAM
+dic-3,BMP File
+dic-3,Baby AT
+dic-3,Backpack
+dic-3,Backplane Fault
+dic-3,Balance Equalizer
+dic-3,Band
+dic-3,Bar Code
+dic-3,Base Pack
+dic-3,Bass
+dic-3,Beacon
+dic-3,Beige
+dic-3,Bell 103
+dic-3,Bell 103J
+dic-3,Bell 113
+dic-3,Bell 201B
+dic-3,Bell 201C
+dic-3,Bell 202
+dic-3,Bell 208A
+dic-3,Bell 208B
+dic-3,Bell 209
+dic-3,Bell 212
+dic-3,Bell 212A
+dic-3,Bi-Directional
+dic-3,Biaural
+dic-3,Bitmapped
+dic-3,Black
+dic-3,Blue
+dic-3,Boot
+dic-3,Bottom
+dic-3,Brackets
+dic-3,Braid
+dic-3,Bunched
+dic-3,Burst Mode DMA
+dic-3,Bus Master DMA
+dic-3,Bypass Feeder
+dic-3,CCD
+dic-3,CD
+dic-3,CDDI
+dic-3,CDIP,
+dic-3,CERQUAD,
+dic-3,CGA,
+dic-3,CHAP,
+dic-3,CISC,"  A processor where each instruction can perform several low-level operations such as memory access, arithmetic operations or address calculations."
+dic-3,CLCC,
+dic-3,CMOS,
+dic-3,CUT,
+dic-3,Caddy,
+dic-3,CalComp,
+dic-3,Carbon Zinc,
+dic-3,CardBus,
+dic-3,CardBus Type II,
+dic-3,CardBus Type III,
+dic-3,Carousel,
+dic-3,Carrier Detect,
+dic-3,Cartridge
+dic-3,Category 1
+dic-3,Category 2
+dic-3,Category 3
+dic-3,Category 4
+dic-3,Category 5
+dic-3,Ceiling
+dic-3,Center
+dic-3,Channelized E1
+dic-3,Channelized E3
+dic-3,Channelized T1
+dic-3,Channelized T3
+dic-3,Chassis
+dic-3,Class 1
+dic-3,Class 2
+dic-3,Class 3
+dic-3,Clean Sine Wave
+dic-3,Clear
+dic-3,Clear to Send
+dic-3,Coaxial
+dic-3,Codabar
+dic-3,Code 11
+dic-3,Code 128
+dic-3,Code 16K
+dic-3,Code 2 of 5
+dic-3,Code 39
+dic-3,Code 49
+dic-3,Code 93
+dic-3,Collision
+dic-3,Color
+dic-3,Color Super Twisted Nematic
+dic-3,Compact
+dic-3,Competitive Trade-in
+dic-3,Competitive Upgrade
+dic-3,Composite
+dic-3,Compressed
+dic-3,Compression Active
+dic-3,Concentric
+dic-3,Conditioned Sine
+dic-3,Connection Speed
+dic-3,Contour
+dic-3,Cooling Fan
+dic-3,Copper
+dic-3,Copper Spiral
+dic-3,Copper Tape
+dic-3,Creative Labs®\ Sound Blaster
+dic-3,Crossover
+dic-3,Cut Sheet Tray
+dic-3,Cut Through
+dic-3,Cyan
+dic-3,DC 1000
+dic-3,DC 100A
+dic-3,DC 2000
+dic-3,DC 2080
+dic-3,DC 2120
+dic-3,DC 2155
+dic-3,DC 2255
+dic-3,DC 2300
+dic-3,DC 2500
+dic-3,DC 2555
+dic-3,DC 2750
+dic-3,DC 300A
+dic-3,DC 300XL/P
+dic-3,DC 600A
+dic-3,DC 600HW
+dic-3,DC 6037
+dic-3,DC 6150
+dic-3,DC 615A
+dic-3,DC 6250
+dic-3,DC 6350
+dic-3,DC 6525
+dic-3,DCLZ
+dic-3,DDR SDRAM
+dic-3,DDS - Switched 56/64K
+dic-3,DECnet
+dic-3,DFT
+dic-3,DIP
+dic-3,DOS
+dic-3,DPMI
+dic-3,DVD
+dic-3,Data Carrier Detect
+dic-3,Data Communication
+dic-3,Data Mode
+dic-3,Data Set Ready
+dic-3,Data Terminal Ready
+dic-3,Date
+dic-3,Desktop
+dic-3,Digital
+dic-3,Digital Light Processing
+dic-3,Digital Theater Systems®
+DIMM,
+dic-3,Dip Switch Configurable
+dic-3,Disable Status
+dic-3,Disc-at-Once
+dic-3,Display Panel
+dic-3,Distributed
+dic-3,Dolby®\ Digital
+dic-3,Dolby®\ Pro Logic
+dic-3,Dolby®\ Surround
+dic-3,Dot Pitch
+dic-3,Double
+dic-3,Double-Side/Dual-Layer
+dic-3,Double-Side/Single-Layer
+dic-3,Double-layer Super Twisted Nematic
+dic-3,Drum
+dic-3,Dual Scan LCD
+dic-3,Dual-Chip CCD
+dic-3,Dual-Port
+dic-3,Duplex Operation
+dic-3,Dye Sublimation
+dic-3,Dynamic
+dic-3,Dynamic Beam Forming
+dic-3,Dynamic Execution
+dic-3,Dynamic Focus
+dic-3,E1
+dic-3,E3
+dic-3,EAN
+dic-3,ECC
+dic-3,EDO DRAM
+dic-3,EDRAM
+dic-3,EEPROM
+dic-3,EGA
+dic-3,EIDE
+dic-3,EISA
+dic-3,EPA Energy Star
+dic-3,EPRML
+dic-3,EPROM
+dic-3,Eject
+dic-3,Electret Bias Condenser
+dic-3,Electro-optical
+dic-3,Electroluminescent Display
+dic-3,Enhanced Capabilities Port
+dic-3,Enhanced Dot Pitch
+dic-3,Enhanced Parallel Port
+dic-3,Enterprise
+dic-3,Envelope
+dic-3,Envelope Tray
+dic-3,Equal-Level Far-End Crosstalk
+dic-3,Error Control Active
+dic-3,EtherTalk
+dic-3,Ethernet Network
+dic-3,Euro ISDN
+dic-3,Even
+dic-3,Expanded
+dic-3,Expansion Board
+dic-3,Extended
+dic-3,Extended ASCII
+dic-3,External
+dic-3,External Bias Condenser
+dic-3,FAX Communication
+dic-3,FDDI
+dic-3,FM
+dic-3,FM Synthesis
+dic-3,FPM DRAM
+dic-3,Fake Parity
+dic-3,Fan Fault
+dic-3,Fast Ethernet Network
+dic-3,Fast Narrow SCSI
+dic-3,Fast Response Super Twisted Nematic
+dic-3,Fast SCSI
+dic-3,Fast Wide SCSI
+dic-3,Fault
+dic-3,Female
+dic-3,Fiber
+dic-3,Fiber Optic Network
+dic-3,Fibre Channel
+dic-3,Figure-Eight
+dic-3,Film
+dic-3,Film-Compensated Super Twisted Nematic
+dic-3,Fingerprint Image
+dic-3,Fixed
+dic-3,Fixed Module
+dic-3,Flash Off
+dic-3,Flash On
+dic-3,Flash ROM
+dic-3,Flat Square Tube
+dic-3,Flatbed
+dic-3,Flatpack
+dic-3,Floppy
+dic-3,Fluorescent Lamp
+dic-3,Foam
+dic-3,Four-Wire
+dic-3,Fractional E1
+dic-3,Fractional T1
+dic-3,Frame Relay
+dic-3,French Pharm Code
+dic-3,Frequency Division
+dic-3,Friction
+dic-3,Friction - Continuous
+dic-3,Friction - Sheet Fed
+dic-3,Front
+dic-3,Front Projection
+dic-3,Full - NWay
+dic-3,Full AT
+dic-3,Full ATX
+dic-3,Full Card
+dic-3,Full Desktop
+dic-3,Full Duplex
+dic-3,Full LPX
+dic-3,Full NLX
+dic-3,Full Product
+dic-3,Full Tower
+dic-3,Full-Range
+dic-3,Fuse
+dic-3,GIF
+dic-3,GSM
+dic-3,Genderless
+dic-3,Gigabit Ethernet
+dic-3,Glass
+dic-3,Glossy
+dic-3,Gold
+dic-3,Gold Plated
+dic-3,Good Read
+dic-3,Gray
+dic-3,Gray Scale
+dic-3,Green
+dic-3,Green (Monochrome)
+dic-3,Grey
+dic-3,Grey Scale
+dic-3,Group III
+dic-3,Group IV
+dic-3,Gun
+dic-3,HDLC
+dic-3,HDTV
+dic-3,Half Duplex
+dic-3,Handheld
+dic-3,Hands Free
+dic-3,Heat Sink
+dic-3,Hemispherical
+dic-3,Hermaphroditic
+dic-3,High
+dic-3,High Capacity Floppy
+dic-3,High Speed
+dic-3,High Voltage
+dic-3,High Voltage Differential
+dic-3,High-Contrast Super Twisted Nematic
+dic-3,High-Performance Addressing
+dic-3,Hopper
+dic-3,Horizontal
+dic-3,Hot
+dic-3,Hot Swap Module
+dic-3,IBM-Style Mainframe (3270)
+dic-3,IDE
+dic-3,IDE - ATA
+dic-3,IEEE 1394 High-Speed Serial
+dic-3,INS Net 64
+dic-3,IP
+dic-3,IPX
+dic-3,ISA
+dic-3,ISBN
+dic-3,ITF
+dic-3,ITR6
+dic-3,Incremental Packet
+dic-3,Industrial 25
+dic-3,Infrared
+dic-3,Inkjet
+dic-3,Intellifont
+dic-3,Intel®\ 380FB
+dic-3,Intel®\ 430FX
+dic-3,Intel®\ 430HX PCIset
+dic-3,Intel®\ 430MX
+dic-3,Intel®\ 430TX PCIset
+dic-3,Intel®\ 430VX PCIset
+dic-3,Intel®\ 440BX AGPset
+dic-3,Intel®\ 440EX AGPset
+dic-3,Intel®\ 440FX PCIset
+dic-3,Intel®\ 440GX AGPset
+dic-3,Intel®\ 440LX AGPset
+dic-3,Intel®\ 450NX PCIset
+dic-3,Interchangable
+dic-3,Interleaved 2 of 5
+dic-3,Internal
+dic-3,Internal - Hard Drive
+dic-3,Internal - Memory
+dic-3,Interrupt A
+dic-3,Interrupt B
+dic-3,Interrupt C
+dic-3,Interrupt D
+dic-3,Italy Pharma Code
+dic-3,Ivory
+dic-3,JAN
+dic-3,JPEG
+dic-3,Jumper Configurable
+dic-3,Key Lock
+dic-3,Keyboard
+dic-3,Keyboard Scanner
+dic-3,Kodak®\ FlashPix
+dic-3,LAN Wake-UP
+dic-3,LAP
+dic-3,LCD
+dic-3,LED
+dic-3,Label
+dic-3,Laminate
+dic-3,Laptop
+dic-3,Laser
+dic-3,Layer 1
+dic-3,Layer 2
+dic-3,Layer 3
+dic-3,Lead Acid
+dic-3,Leather
+dic-3,Left Volume
+dic-3,Length
+dic-3,Level 0
+dic-3,Level 1
+dic-3,Level 10
+dic-3,Level 2
+dic-3,Level 3
+dic-3,Level 30
+dic-3,Level 4
+dic-3,Level 5
+dic-3,Level 50
+dic-3,Level 6
+dic-3,Line Fault
+dic-3,Line Good
+dic-3,Line Interactive
+dic-3,Line Matrix
+dic-3,Link
+dic-3,Link Status
+dic-3,Lithium Ion
+dic-3,Load
+dic-3,LocalTalk,
+dic-3,Logmars,
+dic-3,Long Persistence,
+dic-3,Loop Back Testing,
+dic-3,Low Battery,
+dic-3,Low Voltage,
+dic-3,Low Voltgae Differential,
+dic-3,Lucasfilm THX®\ Certified,
+dic-3,MAC System Mouse,
+dic-3,MCA,
+dic-3,MM Tablet,
+dic-3,MMX,  A set of 57 instructions built into some versions of central processors units for supporting SIMD operations on multimedia and communications data types.
+dic-3,MPPP,
+dic-3,MSI,
+dic-3,Macintosh,
+dic-3,Macro,
+dic-3,Magazine
+dic-3,Magenta
+dic-3,Magnetoresistive
+dic-3,Magnus 1.0
+dic-3,Magnus 1.2
+dic-3,Magnus 1.35
+dic-3,Magnus 1.6
+dic-3,Magnus 2.0
+dic-3,Magnus 2.1
+dic-3,Male
+dic-3,Manageable
+dic-3,Managed
+dic-3,Management
+dic-3,Manual
+dic-3,Manual Circuit Breaker
+dic-3,Manual Sheet Feeder
+dic-3,Master Volume
+dic-3,Matrix 25
+dic-3,Matte
+dic-3,Mechanical
+dic-3,Mechano-Optical
+dic-3,Medium Long Persistence
+dic-3,Medium Persistence
+dic-3,Medium Short Persistence
+dic-3,Memo
+dic-3,Memory Mapped Input/Output
+dic-3,Merced
+dic-3,Microsoft(R) Mouse(TM)
+dic-3,Microsoft®\ Direct Sound
+dic-3,Microwave
+dic-3,Mid AT
+dic-3,Mid-Range
+dic-3,Mid-Tower
+dic-3,Midsize Desktop
+dic-3,Mini ATX
+dic-3,Mini LPX
+dic-3,Mini-Tower
+dic-3,Modem
+dic-3,Modem Ready
+dic-3,Modified Sinewave
+dic-3,Modular
+dic-3,Module
+dic-3,Monaural
+dic-3,Monitor
+dic-3,Monitoring
+dic-3,Monochrome
+dic-3,Motion
+dic-3,Mouse
+dic-3,Mouse Systems(R) Mouse(TM)
+dic-3,Multi-Port
+dic-3,Multipurpose Tray
+dic-3,Multisession
+dic-3,NEXT
+dic-3,NI-1
+dic-3,NTSC
+dic-3,Neon
+dic-3,Network
+dic-3,Nickel Cadmium
+dic-3,Nickel Metal Hydride
+dic-3,No Flash
+dic-3,No Signal
+dic-3,Non-Parity
+dic-3,None
+dic-3,Normal Operation
+dic-3,Normal Voltage
+dic-3,NuBus
+dic-3,Null Modem
+dic-3,Numeric
+dic-3,OEM
+dic-3,OK
+dic-3,Odd
+dic-3,Off Hook
+dic-3,Omni-directional
+dic-3,On-Battery
+dic-3,On-Line
+dic-3,One-Wire
+dic-3,Open VES
+dic-3,Open VMS Alpha
+dic-3,Optical
+dic-3,Organic Dye
+dic-3,Out of Frame
+dic-3,Out of Service
+dic-3,Overheat
+dic-3,Overload
+dic-3,PAL
+dic-3,PATHWORKS
+dic-3,PC
+dic-3,PC Card
+dic-3,PC Card Type I
+dic-3,PC Card Type II
+dic-3,PC Card Type III
+dic-3,PCI
+dic-3,PICT
+dic-3,PNG
+dic-3,PPP
+dic-3,PRML
+dic-3,PROM
+dic-3,PVC
+dic-3,Packet Reception
+dic-3,Packet Transmission
+dic-3,Paint
+dic-3,Palmrest
+dic-3,Paper - Blend
+dic-3,Paper - Cotton
+dic-3,Paper - Vellum
+dic-3,Paper Cassette
+dic-3,Parallel
+dic-3,Parity
+dic-3,Particle Board
+dic-3,Partition Status
+dic-3,Patch
+dic-3,Pause
+dic-3,Pen
+dic-3,Phantom Power
+dic-3,Phase Change Recording Material
+dic-3,Phase-Change
+dic-3,Physical Modeling
+dic-3,Piezo Electric
+dic-3,Pink
+dic-3,Pivoting Display
+dic-3,Plasma Display Panel
+dic-3,Plastic
+dic-3,Play
+dic-3,Plenum
+dic-3,Plessey
+dic-3,Plug and Play
+dic-3,Point-to-Point
+dic-3,Pointing Stick
+dic-3,Polarity
+dic-3,Polycarbonate
+dic-3,Port
+dic-3,Port Activity
+dic-3,Portable
+dic-3,Postscript
+dic-3,Power
+dic-3,Power Failure Simulation
+dic-3,Power On
+dic-3,Power Saver
+dic-3,Power Supply
+dic-3,Preset
+dic-3,Printer
+dic-3,Programmable
+dic-3,Programmed Input/Output
+dic-3,Proprietary
+dic-3,Protected Mode
+dic-3,Protection Working
+dic-3,Pseudo DMA
+dic-3,Pulse Width Modulate
+dic-3,Pure Sinewave
+dic-3,QIC-100-MC
+dic-3,QIC-1000-DC
+dic-3,QIC-120-DC
+dic-3,QIC-128-MC
+dic-3,QIC-150-DC
+dic-3,QIC-2100-DC
+dic-3,QIC-24-DC
+dic-3,QIC-2GB-DC
+dic-3,QIC-3010-MC
+dic-3,QIC-3020-MC
+dic-3,QIC-3030-MC
+dic-3,QIC-3040-MC,
+dic-3,QIC-3070-MC,
+dic-3,QIC-3080-MC,
+dic-3,QIC-3090-MC,
+dic-3,QIC-40-MC,
+dic-3,QIC-5010-DC,
+dic-3,QIC-525-DC,
+dic-3,QIC-5GB-DC,
+dic-3,QIC-80-MC,
+dic-3,QSound®\ Q1(TM) 3-D Positional Audio,
+dic-3,QSound®\ QSurround(TM),
+dic-3,Quasi Sine,
+dic-3,RIMM,
+dic-3,RISC,  A processor whose design is based on the rapid execution of a sequence of simple instructions rather than on the provision of a large variety of complex instructions.
+dic-3,RLL,
+dic-3,RMON,
+dic-3,RMON II
+dic-3,ROM
+dic-3,ROM Based
+dic-3,Rackmount
+dic-3,Radio Frequency
+dic-3,Rails
+dic-3,Re-Writable Compact Disk
+dic-3,Read Only Compact Disk
+dic-3,Read Only DVD
+dic-3,Read Status
+dic-3,Real Mode
+dic-3,Real Time Messaging
+dic-3,Rear
+dic-3,Rear Projection
+dic-3,Receive Data
+dic-3,Receiving Data
+dic-3,Recordable Compact Disk
+dic-3,Recordable DVD
+dic-3,Red
+dic-3,Red-Eye Reduction
+dic-3,Removable - Compact Flash Memory
+dic-3,Removable - Floppy Drive
+dic-3,Removable - PC Card Hard Drive
+dic-3,Removable - PC Card Memory
+dic-3,Removable - SSFDC
+dic-3,Removable Module
+dic-3,Repackaged
+dic-3,Replace Battery
+dic-3,Request to Send
+dic-3,Resident
+dic-3,Resin Thermal Transfer
+dic-3,Resistance
+dic-3,Return Loss
+dic-3,Ribbon
+dic-3,Right Volume
+dic-3,Right to Use
+dic-3,Rope
+dic-3,Rubber
+dic-3,SCSI
+dic-3,SCSI - 1
+dic-3,SDLC
+dic-3,SDRAM
+dic-3,SECAM
+dic-3,SIMM
+dic-3,SIP
+dic-3,SLR
+dic-3,SNA
+dic-3,SNMP
+dic-3,SO-DIMM
+dic-3,SOJ
+dic-3,SRS Labs®\ AVT(TM) Speaker Design
+dic-3,SRS Labs®\ FOCUS(TM)
+dic-3,SRS Labs®\ SRS®\ 3D Sound
+dic-3,SRS Labs®\ TruBass(TM)
+dic-3,SRS Labs®\ TruSurround(TM)
+dic-3,SVGA
+dic-3,Scrolling
+dic-3,Security Violation
+dic-3,Self Test
+dic-3,Semi-Gloss
+dic-3,Send Data
+dic-3,Serial
+dic-3,Serial Storage Architecture
+dic-3,Server
+dic-3,Shadow Mask
+dic-3,Sheetfed
+dic-3,Sheetfed/Flatbed
+dic-3,Sheetfed/Handheld
+dic-3,Shelf
+dic-3,Shielded
+dic-3,Shielded Twisted Pair
+dic-3,Short Neck CRT
+dic-3,Short Persistence
+dic-3,Shotgun
+dic-3,Shuttle Matrix
+dic-3,SiS 5597
+dic-3,Side Mount Hangers
+dic-3,Silent Tactile
+dic-3,Silica Coating
+dic-3,Silver
+dic-3,Sinewave
+dic-3,Single
+dic-3,Single Ended
+dic-3,Single-Chip CCD
+dic-3,Single-Side/Dual-Layer
+dic-3,Single-Side/Single Layer
+dic-3,Sinusoidal Wave
+dic-3,Site
+dic-3,Skip Backward
+dic-3,Skip Foward
+dic-3,Slide
+dic-3,Slimline
+dic-3,Slimline Desktop
+dic-3,Slot
+dic-3,Slot 1
+dic-3,Slot 2
+dic-3,Slot Mask
+dic-3,Slot Pitch
+dic-3,Socket 1
+dic-3,Socket 2
+dic-3,Socket 3
+dic-3,Socket 4
+dic-3,Socket 5
+dic-3,Socket 6
+dic-3,Socket 7
+dic-3,Socket 8
+dic-3,Soft Click
+dic-3,Software Configurable
+dic-3,Software Control
+dic-3,Solid
+dic-3,Spatializer®\ 3-D Imaging(TM)
+dic-3,Spatializer®\ N-2-2(TM)
+dic-3,Spatializer®\ enCOMPASS(TM)
+dic-3,Speed
+dic-3,Spheric CRT
+dic-3,Spin Coating
+dic-3,Spring Loaded
+dic-3,Square
+dic-3,Stackable
+dic-3,Stacker
+dic-3,Stand Alone
+dic-3,Standalone
+dic-3,Standard 1024
+dic-3,Standard ASCII
+dic-3,Standard Parallel Port
+dic-3,Standby
+dic-3,Stationary
+dic-3,Steel
+dic-3,Step Sinewave
+dic-3,Still
+dic-3,Stop
+dic-3,Store and Forward
+dic-3,Stranded Wire
+dic-3,Stress Patterns
+dic-3,Stripe Pitch
+dic-3,Stylus
+dic-3,Subwoofer
+dic-3,Summa MM1201
+dic-3,Super RMON
+dic-3,Super-cardioid
+dic-3,Superscalar
+dic-3,Switch 56
+dic-3,Sync Link DRAM
+dic-3,Synchronous
+dic-3,Synchronous Flow-Through
+dic-3,Synchronous Pipelined Burst
+dic-3,System/36 (5250)
+dic-3,System/38 (5250)
+dic-3,T1
+dic-3,T3
+dic-3,TAD
+dic-3,TELCO
+dic-3,TFT LCD
+dic-3,TIFF
+dic-3,TPH 1962
+dic-3,TTL
+dic-3,Tactile Click
+dic-3,Tag Switching
+dic-3,Tape - Digital Video
+dic-3,Tape - Mini DVC
+dic-3,Telephoto
+dic-3,Telescoping
+dic-3,Test
+dic-3,Test Mode
+dic-3,Test Patterns
+dic-3,Test in Progress
+dic-3,Thermal
+dic-3,Thin Film
+dic-3,Three
+dic-3,Three-Chip CCD
+dic-3,Time
+dic-3,Time Division
+dic-3,Tin
+dic-3,Tinted Glass
+dic-3,Title
+dic-3,Token Ring
+dic-3,Token Ring Network
+dic-3,Top
+dic-3,Track
+dic-3,Track Advance
+dic-3,Track Reverse
+dic-3,Track-at-Once
+dic-3,Trackball
+dic-3,Tractor
+dic-3,Tractor - Continuous Fed
+dic-3,Trade Up
+dic-3,Transmit Data
+dic-3,Transmitting Data
+dic-3,Transparency
+dic-3,Trapezoidal
+dic-3,Tray
+dic-3,Treble
+dic-3,Tripod
+dic-3,True Type
+dic-3,Tweeter
+dic-3,Two-Wire
+dic-3,ULTRIX
+dic-3,UNIX
+dic-3,UPC
+dic-3,Ultra ATA
+dic-3,Ultra Narrow SCSI
+dic-3,Ultra Wide SCSI
+dic-3,Ultra2 Narrow SCSI
+dic-3,Ultra2 Wide SCSI
+dic-3,Unformatted
+dic-3,Uni-Directional
+dic-3,Unit ID
+dic-3,Unmanaged
+dic-3,Unshielded
+dic-3,Unshielded Twisted Pair
+dic-3,Upgrade
+dic-3,Utilization
+dic-3,V.120
+dic-3,V.17
+dic-3,V.21
+dic-3,V.22
+dic-3,V.22 bis
+dic-3,V.23
+dic-3,V.27ter
+dic-3,V.29
+dic-3,V.32
+dic-3,V.32 bis
+dic-3,V.33
+dic-3,V.34
+dic-3,V.42,
+dic-3,V.42 bis,
+dic-3,V.61,
+dic-3,V.70,
+dic-3,V.75,
+dic-3,V.90,
+dic-3,VCPI,
+dic-3,VESA 1024,
+dic-3,VESA 1280,
+dic-3,VESA 640,
+dic-3,VESA 800,
+dic-3,VESA Local Bus,
+dic-3,VGA,
+dic-3,VMS,
+dic-3,VN3,
+dic-3,VRAM,  Memory used for video functions.
+dic-3,Variable Packet
+dic-3,Vertical
+dic-3,Video
+dic-3,Virtual Memory Support
+dic-3,Voice Communication
+dic-3,Voltage Meter
+dic-3,Volume
+dic-3,WORM Disk
+dic-3,Wake-Up
+dic-3,Wallmount
+dic-3,Wand
+dic-3,Warm
+dic-3,Wave Table Synthesis
+dic-3,Wavelength Division
+dic-3,Wax Thermal Transfer
+dic-3,White
+dic-3,White (Monochrome)
+dic-3,Wide Angle
+dic-3,Wide SCSI
+dic-3,Wire
+dic-3,Wireless
+dic-3,Wiremap
+dic-3,Wood
+dic-3,Write-Back
+dic-3,Write-Through
+dic-3,Wrong Ring Speed Detect
+dic-3,X.25
+dic-3,X.75
+dic-3,XGA
+dic-3,Yellow
+dic-3,ZIP
+dic-3,rDRAM
+end-dic-3,,
+dic,/Pip2A5TechnicalInformationQuery/ComponentTechnicalSpecificationQuery/ComponentTechnicalSpecification/Quality/GlobalSpecificationValueCode,dic-3
+dic-5,Analog Modem,  [Modem] A device that performs modulation and demodulation functions necessary to transmit signals over communication lines.
+dic-5,Bar Code Reader,  An optical scanner used to read a bar-code using reflected light.
+dic-5,Battery,  A device that stores energy and produces electric current by chemical action. A group of two or more cells are electrically connected in series or parallel.
+dic-5,Battery Charger,  A device that brings all the individual cells within a battery pack up to an equal charge level.
+dic-5,Bridge,"  In networking, a device that connects two systems using the similar or identical data link layer protocols"
+dic-5,Cable,  Cable - The physical medium for transmitting signals; it includes copper conductors and optical fibers.
+dic-5,Cable Tester,  A device that measures certain eletrical characteristics of a cable.
+dic-5,Carrying Case,  A container used to transport a device.
+dic-5,Central Processing Unit,"  That unit of a computer system which fetches, decodes and executes programmed instructions and maintains the status of results as the program is executed."
+dic-5,Central Processing Unit Card,  A cartridge or expansion board that contains a central processing unit.
+dic-5,Channel,"  A one-way path for transmission of signals between two or more points; for example, an output channel or a data channel."
+dic-5,Channel Service Unit,"  A device that performs transmit and receive filtering, signal shaping, longitudinal balance, voltage isolation, equalization, and remote loopback testing in a digital communications environment."
+dic-5,Chassis,  A physical structure that serves as the structural support for devices with modular form factors.
+dic-5,Communication Switch,"  A device that responds to originator signals and dynamically accepts, routes, and places or forwards a call or other transmission."
+dic-5,Computer Cabinet,  A physical structure that holds a computer system's devices.
+dic-5,Connector,  An electrical part used to join two or more other electrical parts.
+dic-5,Connector Knockout,  Holes in a computer cabinet that allow for the ports of a system board or other internal device to be externally accessible.
+dic-5,Controlled Access Unit,"  In token ring networks, the term for intelligent hub. The controlled access unit is the chassis in which lobe attachment modules can be attached."
+dic-5,Controller Card,  [Controller] A functional unit in a computer system that controls one or more units of the peripheral equipment.
+dic-5,Controller Chip,  [Controller] A functional unit in a computer system that controls one or more units of the peripheral equipment.
+dic-5,Copier,  A machine used to make photographic copies of pages.
+dic-5,Data Service Unit,  A device that provides bipolar conversion functions to ensure proper signal shaping and adequate signal strength in a digital communications environment.
+dic-5,Desk Accessory,  An device that aids in the use of a computer system and its components.
+dic-5,Desktop System,  A computer designed to be placed on a desk or table.
+dic-5,Digital Camera,  A camera that breaks up a picture into a fixed number of pixels and converts the light intensity (or the intensities of each of the primary colors) in each pixel to one of a finite set of numbers.
+dic-5,Direct Memory Access,  A method for transferring data between an external device and memory without interrupting program flow or requiring CPU intervention.
+dic-5,Display Filter,  A substrate that is attached to a monitor disply to reduce glare or harmful electromagnetic emissions.
+dic-5,Docking Station,  A base station for a laptop computer that turns the portable computer into a desktop system. It uses a large plug and socket to quickly connect the laptop computer which duplicates all the cable lines for peripheral devices.
+dic-5,Dot Matrix Printer,  An impact printer in which each character is represented by a pattern of dots selected from a matrix of available dot positions.
+dic-5,Drive Cabinet,  A physical structure that holds drive-type devices such as a hard disk drive or magnetic tape drive.
+dic-5,Emulation Adapter,  An expansion board that enables a device to imitate another device.
+dic-5,Expansion Slot Expander,  An expansion card that is used to physically extend a slot for a chip or expansion card in a fully-loaded computer to make room to plug it in.
+dic-5,Facsimile Machine,  Fax machines scan a paper form and transmit a coded image over the telephone system.
+dic-5,Flat Panel Display,  A display device whose physical depth (front-to-back) is relatively small.
+dic-5,Flat Panel Projector,  A data projector that accepts computer output and displays it on a see-through liquid crystal screen that is placed on top of an overhead projector.
+dic-5,Furniture,"  Equipment such as chairs, tables, or desks."
+dic-5,Fuser Roller,  The device in a printer that heats the toner and melts it to the printer media.
+dic-5,General Software,  System software is made up of control programs such as the operating system and database management system (DBMS). Application software is any program that processes data for the user.
+dic-5,Graphics Tablet,"  A data tablet or digitizer that can be used with a stylus to trace existing graphic images, or for entering new images."
+dic-5,Hard Disk Drive,  [Hard Disk] A magnetic disk that consists of a rigid platter.
+dic-5,Hard Disk Storage,  Storage on a magnetic disk that consists of a rigid platter.
+dic-5,Headset,  A device for converting electric signals into sounds; it is held over or inserted into the ear.
+dic-5,Hub,  A device to which multiple LAN station lobes are connected.
+dic-5,I/O Base,  An input/output port though which data can be sent and received.
+dic-5,Ink Cartridge,  The cartridge that supplies ink for a imaging device.
+dic-5,Inkjet Printer,  A nonimpact printer in which the characters are formed by projecting a jet of ink droplets onto paper.
+dic-5,Input-Output Card,"  A card, or board, that controls one or more input-output channels."
+dic-5,Integrated Services Digital Network Terminal Adapter,"  A device that adapts a computer to a digital ISDN line. Like a modem, it plugs into the serial port of the computer or into an expansion slot."
+dic-5,Intelligent Multiport Serial Adapter,  A circuit board that contains multiple serial ports for connection to serial devices such as a modem.
+dic-5,Interrupt Request,  A signal or other input requesting that the currently executing process be suspended to permit performance of another process.
+dic-5,Keyboard,"  An input device consisting of a systematic arrangement or layout of keys, used to encode data."
+dic-5,Keypad,  A small group of keys that are set up for convenience and greater flexibility such that they are grouped together physically on a keyboard.
+dic-5,L1 Cache Memory,"  [Cache] A small portion of high-speed memory used for temporary storage of frequently-used data, instructions, or operands. L1 Cache Memory is located on the central processing unit."
+dic-5,L2 Cache Memory,"  [Cache] A small portion of high-speed memory used for temporary storage of frequently-used data, instructions, or operands. L2 cache memory is located on a central processing unit card or the system board."
+dic-5,L3 Cache Memory,"  [Cache] A small portion of high-speed memory used for temporary storage of frequently-used data, instructions, or operands. L3 cache memory is located on a central processing unit card or the system board."
+dic-5,Label Printer,"  A printer that prints labels, such as barcodes."
+dic-5,Laptop Computer System,  [Laptop Computer] A portable computer designed for use on one's lap.
+dic-5,Laser Printer,"  A nonimpact, xerographic printer that uses a laser beam to create a latent image which is then made visible by a toner and transferred and fixed on paper."
+dic-5,Light Emitting Diode Printer,  An electrophotographic printer that uses a matrix of LEDs as its light source.
+dic-5,Light Source,  The generic term including all sources of visible radiation from burning matter to ionized vapors and lasers.
+dic-5,Line Conditioner,"  In telecommunications, a device that improves the performance of a line by reducing distortion and amplifying weak signals."
+dic-5,Line Printer,  A printer that prints a line of characters as a unit.
+dic-5,Lobe Attachment Module,"  In a token ring network, a LAM is a box with multiple interfaces to which new nodes, or lobes, for the network can be attached."
+dic-5,Magnetic Disk Media,"  [Magnetic Disk] A disk made of plastic or metal that is coated with a magnetizable surface on one or both sides, on which information can be stored."
+dic-5,Magnetic Tape Drive,  An input device that reads magnetic tape.
+dic-5,Magnetic Tape Media,  [Magnetic Tape] A storage medium made of a flexible plastic ribbon that is coated with magnetic material (such as iron oxide compound) on which information can be stored.
+dic-5,Magnetic Tape Tower,  A tower-style drive cabinet containing multiple magnetic tape drives.
+dic-5,Magneto-Optical Media,"  [Magneto-optical Disk] A disk that uses optical methods, such as a laser, to record information on a magnetic storage medium."
+dic-5,Media,"  Consumable paper such as printer paper, envelopes, or transparencies."
+dic-5,Media Filter,  A device for converting the output signal of a token ring network interface card to work with a particular type of cable medium.
+dic-5,Memory Device,  Data storage that comes in the form of a chip or module.
+dic-5,Memory Socket,  A receptacle for a memory module.
+dic-5,Microphone,  An electroacoustic transducer whereby sound waves are caused to generate or modulate an electric current usually for the purpose of transmitting or recording sound.
+dic-5,Monitor,  A display screen that uses a cathod ray tube (CRT) to present video output.
+dic-5,Mounting Hardware,  Equipment used to affix a device to another device or structure.
+dic-5,Multifunction Printer,  A device that combines several imaging functions into one component.
+dic-5,Multimedia Kit,  The hardware and software needed to have multimedia capabilities.
+dic-5,Multiplexor,  A device that allows the transmission of a number of different signals simultaneously over a single channel or transmission facility.
+dic-5,Multistation Access Unit,"  In a token ring network, a device in which multiple lobes, or nodes, are connected."
+dic-5,Network Chassis,"  In a network environment, a physical structure that serves as the structural support for devices with modular form factors."
+dic-5,Network Interface Card,  An expansion card that allows a computer system to connect to a network.
+dic-5,Network Management Module,"  A modular device that provides a management function defined by monitoring, controlling, and coordinating the resources which allow communication to take place."
+dic-5,Network Switch,"  In a local area network, a device that forwards and filters data between segments of the same network architecture."
+dic-5,Optical Media,"  [Optical Disk] A disk on which information is stored and retrieved by optical means, using a laser."
+dic-5,Overhead Projector,  A projector used to project transparencies.
+dic-5,Palmtop System,  A small computer system that fits in the palm of a hand and has a keyboard for an input device.
+dic-5,Personal Digital Assistant,  A handheld computer system that serves as a personal organizer. It uses a stylus for an input device.
+dic-5,Physical Addressable,  address space - The range of addresses available to a computer program.
+dic-5,Plotter,  An output device that presents data on paper in the form of a two-dimensional graphic representation.
+dic-5,Pointing Device,  An instrument used to move an aiming symbol on a screen.
+dic-5,Port,  A port provides an electrical and physical interface between a component and other devices.
+dic-5,Port Replicator,  A device used to connect multiple peripherals to a laptop computer.
+dic-5,Power Adapter,"  A unit that converts voltage from one level to another, usually regulating the output."
+dic-5,Print Drum,"  In a drum printer, a rotating cylinder that presentscharacters at more than one printing position."
+dic-5,Print Head,  A head within a printer that mechanically controls the creation of an image on paper.
+dic-5,Print Server,"  On a network, a server that is dedicated to queuing and sending printer output from the networked computers to a shared printer."
+dic-5,Print Sharing Device,  A device that allows a user to share several systems and peripherals.
+dic-5,Printer,  An output device that produces a hard copy record of data mainly in the form of discrete graphic characters belonging to one or more predetermined character sets.
+dic-5,Printer Distance Extender,  A device that connects to a printer to enable a longer transmission distance between the printer and connected systems.
+dic-5,Printer Feeder,  A device that inserts sheets of media into a printer.
+dic-5,Printer Ribbon,  A narrow strip of inked material used for printing.
+dic-5,Printer Tray,  A device that holds media before and after printing.
+dic-5,Private Branch Exchange,"  A telephone exchange on the user's premises, providing a switching facility for telephones on extension lines within the premises and access to the public telephone network."
+dic-5,Projector,  A device that displays a video output from a computer onto a remote screen.
+dic-5,Rack,"  A structure, such as shelves or a cabinet, into which other components can be mounted."
+dic-5,Rackmount Modem,  A group of modular analog modems mounted in a chassis.
+dic-5,Radio Card,  An expansion board used in a system to receive radio broadcast frequencies.
+dic-5,Re-Writable Optical Changer,  A drive that can hold multiple re-writable optical disks.
+dic-5,Re-Writable Optical Drive,"  A drive that accepts optical media that can be written, erased and rewritten many times."
+dic-5,Re-Writable Optical Tower,  A drive cabinet that contains multiple re-writable optical drives.
+dic-5,Read Only Memory,  A memory chip that permanently stores instructions and data.
+dic-5,Read Only Memory Card,  A credit-card-sized card that contains permanent data.
+dic-5,Read Only Optical Changer,  A drive that can hold multiple read only optical disks.
+dic-5,Read Only Optical Drive,  A drive that can read data from optical media using a laser.
+dic-5,Read Only Optical Tower,  A drive cabinet that contains multiple read only optical drives.
+dic-5,Recordable Optical Changer,  A drive that can hold multiple recordable optical disks.
+dic-5,Recordable Optical Drive,  A drive that can read and record data onto optical medium using a laser.
+dic-5,Recordable Optical Tower,  A drive cabinet that contains multiple recordable optical drives.
+dic-5,Redundant Array of Independent Disks Controller Card,  An expansion board that controls one or more input-output channels in a RAID system.
+dic-5,Remote Control,  A device for controlling something from a distance.
+dic-5,Removable Magnetic Disk Drive,  A drive that can read and write data to a magnetic medium that can be physically removed from the drive.
+dic-5,Repeater,  A device that restores signals to their original shape and transmission level at the physical layer only.
+dic-5,Router,"  In networking, a device that interconnects two networks using the network layer (layer 3) address."
+dic-5,Scanner,  A graphic input device that automatically digitizes images for input to a computer.
+dic-5,Server,  The computer in a client/server architecture that supplies files or services
+dic-5,Sound Card,  An expansion board that records and plays back sound waves.
+dic-5,Sound Chip,  A chip that records and plays back sound waves.
+dic-5,Speaker,  A transducer that converts electrical energy into sound waves.
+dic-5,Surge Suppressor,  A device that employs some method of surge suppression to protect electronic equipment from spikes and power surges in a power signal.
+dic-5,Switch Box,  A device used to allow a user to have access to multiple systems.
+dic-5,System Board,"  [Motherboard] The main circuit board within a computer, bearing the primary components of a computer system, including the processor, main storage, support circuitry, bus controller and bus connector."
+dic-5,System Bus Clock Rate,"  The operation frequency for electronic devices including, channels, buses, quartz crystal timing devices and central processing units."
+dic-5,System Memory,  The memory in a system.
+dic-5,Television Card,  An expansion board that contains a television tuner.
+dic-5,Terminal,  An input-output peripheral device capable of transmitting entries to and obtaining output from a system.
+dic-5,Terminal Server,  A system used to connect multiple terminals to a network or host computer.
+dic-5,Thermal Printer,  A nonimpact printer in which the characters are produced by applying heated elements to heat-sensitive paper directly or by melting ink from a ribbon onto normal paper.
+dic-5,Toner Cartridge,  A cartridge containing an electrically charged ink used in copy machines and laser printers.
+dic-5,Touchpad,  [Touch Panel] A touch-sensitive input device that allows users to interact with a computer system by touching an area on the panel.
+dic-5,Tower System,  A computer system designed to be placed on the floor.
+dic-5,Transceiver,  A device that both transmits and receives data.
+dic-5,Transfer Roll,  The roller that presses against the drum to pick up the pattern of charges on the drum.
+dic-5,Uninterruptable Power Supply,  A device that supplies backup power when the electrical power fails or drops to an unacceptable voltage level.
+dic-5,Video Accelerator,  A video expansion card that has an integrated central processing unit to improve performance.
+dic-5,Video Capture Card,  An expansion board that digitizes full-motion video from a video source.
+dic-5,Video Card,"  [Graphics Adapter] An expansion board that enhances the computer's ability to control the display device; for example, a graphics adapter that allows color output, or non-interlacing."
+dic-5,Video Chip,"  A chip that enhances the computer's ability to control the display device; for example, a graphics chip that allows color output, or non-interlacing."
+dic-5,Video Memory,  Vido memory is used for storing and reading information for video display.
+dic-5,Video Resolution,  The pixel density of a video display defined by a standard.
+dic-5,Virtual Addressable,  The storage space that may be regarded as addressable main storage by the user of a computer system in which virtual addresses are mapped into real addresses.
+dic-5,Wide Area Network Card,  An expansion card that allows a device to connect to a wide area network.
+end-dic-5,,
+dic,/Pip2A5TechnicalInformationQuery/ComponentTechnicalSpecificationQuery/ComponentTechnicalSpecification/GlobalComponentNameCode,dic-5
+dic-6,Product Information User,  This partner role uses product information for updating the enterprise systems and online promotion systems such as electronic catalog systems.
+end-dic-6,,
+dic,/Pip2A5TechnicalInformationQuery/fromRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-6
+dic,/Pip2A5TechnicalInformationQuery/toRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-9
+dic-7,Carrier,  Product carrier for transporting goods in supply chain.
+dic-7,Distributor,  Product distributor in supply chain.
+dic-7,End User,  Product end user in supply chain.
+dic-7,End User Government,  End user government.
+dic-7,Financier,  Financial service provider in supply chain
+dic-7,Freight Forwarder,  Product freight forwarder for transporting goods in supply chain.
+dic-7,Manufacturer,  Product manufacturer in supply chain.
+dic-7,Retailer,  Product retailer in supply chain.
+dic-7,Shopper,  Product shopper in supply chain.
+end-dic-7,,
+dic,/Pip2A5TechnicalInformationQuery/fromRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-7
+dic,/Pip2A5TechnicalInformationQuery/toRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-7
+dic-8,Electronic Components,  The electronic components supply chain.
+dic-8,Information Technology,  The information technology supply chain.
+end-dic-8,,
+dic,/Pip2A5TechnicalInformationQuery/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-8
+dic,/Pip2A5TechnicalInformationQuery/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-8
+dic-9,Product Information Distributor,  The partner role that distributes new product information to product information users and buyers.,,,
+end-dic-9,,,,,
+dic-12,Request,  The business document is a request for a business action to be performed by a partner.,,,
+end-dic-12,,,,,
+dic,/Pip2A5TechnicalInformationQuery/GlobalDocumentFunctionCode,dic-12,,,
+type,/Pip2A5TechnicalInformationQuery/ComponentTechnicalSpecificationQuery/ComponentTechnicalSpecification/SubComponent/GlobalSubComponentRelationshipCode,String,1,,
+type,/Pip2A5TechnicalInformationQuery/ComponentTechnicalSpecificationQuery/ComponentTechnicalSpecification/SubComponent/externalComponentSpecification/UniversalResourceIdentifier,String,1,,
+type,/Pip2A5TechnicalInformationQuery/ComponentTechnicalSpecificationQuery/ComponentTechnicalSpecification/SubComponent/atLeast/Cardinality,NaturalNumber,1,10,9(10)
+type,/Pip2A5TechnicalInformationQuery/ComponentTechnicalSpecificationQuery/ComponentTechnicalSpecification/SubComponent/atMost/Cardinality,NaturalNumber,1,10,9(10)
+type,/Pip2A5TechnicalInformationQuery/ComponentTechnicalSpecificationQuery/ComponentTechnicalSpecification/Quantity/Magnitude,Real,3,,
+type,/Pip2A5TechnicalInformationQuery/ComponentTechnicalSpecificationQuery/ComponentTechnicalSpecification/Quantity/GlobalSpecificationNameCode,String,1,,
+type,/Pip2A5TechnicalInformationQuery/ComponentTechnicalSpecificationQuery/ComponentTechnicalSpecification/Quality/GlobalSpecificationNameCode,String,1,,
+type,/Pip2A5TechnicalInformationQuery/ComponentTechnicalSpecificationQuery/ComponentTechnicalSpecification/Quality/GlobalSpecificationValueCode,String,,,
+type,/Pip2A5TechnicalInformationQuery/ComponentTechnicalSpecificationQuery/ComponentTechnicalSpecification/Quality/Value,String,1,,
+type,/Pip2A5TechnicalInformationQuery/ComponentTechnicalSpecificationQuery/ComponentTechnicalSpecification/GlobalProductIdentifier,String,14,14,9(14)
+type,/Pip2A5TechnicalInformationQuery/ComponentTechnicalSpecificationQuery/ComponentTechnicalSpecification/TextualDescription/primary/FreeFormText,String,1,,
+type,/Pip2A5TechnicalInformationQuery/ComponentTechnicalSpecificationQuery/ComponentTechnicalSpecification/TextualDescription/detail/FreeFormText,String,1,,
+type,/Pip2A5TechnicalInformationQuery/ComponentTechnicalSpecificationQuery/ComponentTechnicalSpecification/TextualDescription/summary/FreeFormText,String,1,,
+type,/Pip2A5TechnicalInformationQuery/ComponentTechnicalSpecificationQuery/ComponentTechnicalSpecification/manufacturerName/FreeFormText,String,1,,
+type,/Pip2A5TechnicalInformationQuery/fromRole/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1,,
+type,/Pip2A5TechnicalInformationQuery/toRole/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1,,
+type,/Pip2A5TechnicalInformationQuery/ComponentTechnicalSpecificationQuery/ComponentTechnicalSpecification/GlobalComponentNameCode,String,1,,
+type,/Pip2A5TechnicalInformationQuery/ComponentTechnicalSpecificationQuery/QueryConstraint,String,1,,
+type,/Pip2A5TechnicalInformationQuery/fromRole/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip2A5TechnicalInformationQuery/toRole/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip2A5TechnicalInformationQuery/fromRole/PartnerRoleDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip2A5TechnicalInformationQuery/toRole/PartnerRoleDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip2A5TechnicalInformationQuery/fromRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1,,
+type,/Pip2A5TechnicalInformationQuery/toRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1,,
+type,/Pip2A5TechnicalInformationQuery/fromRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip2A5TechnicalInformationQuery/toRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip2A5TechnicalInformationQuery/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip2A5TechnicalInformationQuery/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip2A5TechnicalInformationQuery/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip2A5TechnicalInformationQuery/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip2A5TechnicalInformationQuery/thisDocumentGenerationDateTime/DateTimeStamp,DateTime,13,20,9(8)X9(6)V9(3)X
+type,/Pip2A5TechnicalInformationQuery/thisDocumentIdentifier/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip2A5TechnicalInformationQuery/GlobalDocumentFunctionCode,String,1,,

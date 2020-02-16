@@ -1,0 +1,73 @@
+dic-1,Invoice Reject Provider,  The organization that rejects an invoice.
+end-dic-1,,
+dic,/Pip3C4InvoiceRejectNotification/fromRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-1
+dic,/Pip3C4InvoiceRejectNotification/toRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-7
+dic-2,Electronic Components,  The electronic components supply chain.
+dic-2,Information Technology,  The information technology supply chain.
+end-dic-2,,
+dic,/Pip3C4InvoiceRejectNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3C4InvoiceRejectNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic-3,Broker,  Representative of a third party.
+dic-3,Carrier,  Product carrier for transporting goods in supply chain.
+dic-3,Contract Manufacturer,  The party responsible for the services rendered.
+dic-3,Customs Broker,  Product customs broker in supply chain.
+dic-3,Distribution Center,  Product distributor in supply chain.
+dic-3,Distributor,  Product distributor in supply chain.
+dic-3,End User,  Product end user in supply chain.
+dic-3,End User Government,  End user government.
+dic-3,Financier,  Financial service provider in supply chain
+dic-3,Freight Forwarder,  Product freight forwarder for transporting goods in supply chain.
+dic-3,Manufacturer,  Product manufacturer in supply chain.
+dic-3,Original Equipment Manufacturer,  Product manufacturer of original equipment in the supply chain.
+dic-3,Reseller,  A party buys goods from a manufacturer and resells them to customers unchanged.
+dic-3,Retailer,  Product retailer in supply chain.
+dic-3,Shopper,  Product shopper in supply chain.
+dic-3,Warehouser,  Product warehouser in supply chain.
+end-dic-3,,
+dic,/Pip3C4InvoiceRejectNotification/fromRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3C4InvoiceRejectNotification/toRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic-4,Response,  The business document is a response to a requesting partner.
+end-dic-4,,
+dic,/Pip3C4InvoiceRejectNotification/GlobalDocumentFunctionCode,dic-4
+dic-5,Credit,
+dic-5,Debit,,
+end-dic-5,,,
+dic,/Pip3C4InvoiceRejectNotification/Invoice/FinancialAmount/GlobalMonetaryAmountTypeCode,dic-5,
+dic-6,Incorrect part identifier,,
+dic-6,Incorrect pricing,,
+dic-6,Incorrect quantity,,
+dic-6,Invalid purchase order number,,
+dic-6,Shipment not received,,
+end-dic-6,,,
+dic,/Pip3C4InvoiceRejectNotification/Invoice/GlobalInvoiceRejectionCode,dic-6,
+dic-7,Invoice Reject Receiver,  The organization being issued an Invoice Reject Notification.,
+end-dic-7,,,
+type,/Pip3C4InvoiceRejectNotification/fromRole/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3C4InvoiceRejectNotification/Invoice/FreeFormText,String,1
+type,/Pip3C4InvoiceRejectNotification/toRole/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3C4InvoiceRejectNotification/fromRole/PartnerRoleDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3C4InvoiceRejectNotification/toRole/PartnerRoleDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip3C4InvoiceRejectNotification/fromRole/PartnerRoleDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3C4InvoiceRejectNotification/fromRole/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3C4InvoiceRejectNotification/toRole/PartnerRoleDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3C4InvoiceRejectNotification/toRole/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3C4InvoiceRejectNotification/fromRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1,,
+type,/Pip3C4InvoiceRejectNotification/toRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1,,
+type,/Pip3C4InvoiceRejectNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3C4InvoiceRejectNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3C4InvoiceRejectNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3C4InvoiceRejectNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3C4InvoiceRejectNotification/fromRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3C4InvoiceRejectNotification/toRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3C4InvoiceRejectNotification/GlobalDocumentFunctionCode,String,1,,
+type,/Pip3C4InvoiceRejectNotification/Invoice/FinancialAmount/GlobalMonetaryAmountTypeCode,String,1,,
+type,/Pip3C4InvoiceRejectNotification/Invoice/Financing/approvalIdentifier/ProprietaryReferenceIdentifier,String,1,255,
+type,/Pip3C4InvoiceRejectNotification/Invoice/GlobalInvoiceRejectionCode,String,1,,
+type,/Pip3C4InvoiceRejectNotification/Invoice/InvoiceLineItem/LineNumber,String,1,6,X(6)
+type,/Pip3C4InvoiceRejectNotification/Invoice/InvoiceLineItem/purchaseOrderNumber/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip3C4InvoiceRejectNotification/Invoice/purchaseOrderNumber/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip3C4InvoiceRejectNotification/Invoice/salesOrderIdentifier/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip3C4InvoiceRejectNotification/requestingDocumentIdentifier/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip3C4InvoiceRejectNotification/thisDocumentIdentifier/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip3C4InvoiceRejectNotification/requestingDocumentDateTime/DateTimeStamp,DateTime,13,20,9(8)X9(6)V9(3)X
+type,/Pip3C4InvoiceRejectNotification/thisDocumentGenerationDateTime/DateTimeStamp,DateTime,13,20,9(8)X9(6)V9(3)X

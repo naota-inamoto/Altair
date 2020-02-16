@@ -1,0 +1,214 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Meta-WebUI</TITLE>
+</HEAD>
+
+<BODY>
+<H1>メタWebUI</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.39版 2010年 9月23日<BR>
+
+<HR>
+● 画面データの初期化/バックアップに使用するXMLの定義(dtd/WebUiData.dtd)
+
+<PRE>
+&lt;!ELEMENT WebUiData (Target, MenuItem*)&gt;
+&lt;!ELEMENT Target (#PCDATA)&gt;
+&lt;!ELEMENT MenuItem (LineNumber, Name, Kind, Text, View?)&gt;
+
+フレームの左側は、表示文字列がMenuItem/TextのMenuItem/LineNumber順の
+メニューに相当です。MenuItem/KindはTitleかViewです。
+Titleなら静的ラベル、Viewならフレームの右側の画面を指定するリンク。
+KindがViewのリンクをクリックすると、
+WebUI`Target`Servlet::invoke`Name`(list params, DbConnection conn);
+が呼び出されます。
+
+&lt;!ELEMENT View (RoleName*, UiElem*)&gt;
+&lt;!ELEMENT RoleName (#PCDATA)&gt;
+&lt;!ELEMENT UiElem (LineNumber, Name, Kind, Text?, Selectable?)&gt;
+
+Viewの画面を表示するには、RoleNameで指定した役割を、
+ログインユーザが持っている必要があります。
+Viewは、UiElem/Kindで指定される画面要素(UiElem)が
+UiElem/LineNumber順に並んだ画面となります。
+以下は画面要素一覧です。
+</PRE>
+
+<TABLE BORDER="1">
+  <TR>
+    <TD>Kind</TD>
+    <TD>出力HTML</TD>
+    <TD>備考</TD>
+  </TR>
+  <TR>
+    <TD>Title</TD>
+    <TD>&lt;H3&gt;Text&lt;/H3&gt;</TD>
+    <TD>タイトル</TD>
+  </TR>
+  <TR>
+    <TD>Text</TD>
+    <TD>Text</TD>
+    <TD>テキスト</TD>
+  </TR>
+  <TR>
+    <TD>Link</TD>
+    <TD>&lt;A HREF="`Name`"&gt;`Text`&lt;/A&gt;</TD>
+    <TD>リンク</TD>
+  </TR>
+  <TR>
+    <TD>BR</TD>
+    <TD>&lt;BR/&gt;</TD>
+    <TD>改行</TD>
+  </TR>
+  <TR>
+    <TD>HR</TD>
+    <TD>&lt;HR/&gt;</TD>
+    <TD>水平線</TD>
+  </TR>
+  <TR>
+    <TD>Button</TD>
+    <TD>&lt;INPUT TYPE="submit" NAME="`Name`" VALUE="`Text`"/&gt;</TD>
+    <TD>プッシュボタン</TD>
+  </TR>
+  <TR>
+    <TD>Check</TD>
+    <TD>&lt;INPUT TYPE="checkBox" NAME="`Name`"/&gt;`Text`</TD>
+    <TD>チェックボタン</TD>
+  </TR>
+  <TR>
+    <TD>Radio</TD>
+    <TD>&lt;INPUT TYPE="radio" NAME="`Name`" VALUE="`Text2`"/&gt;`Text2`</TD>
+    <TD>ラジオボタン</TD>
+  </TR>
+  <TR>
+    <TD>TextField</TD>
+    <TD>&lt;INPUT TYPE="text" NAME="`Name`" VALUE="`Text2`" SIZE="20"/&gt;</TD>
+    <TD>テキスト入力フィールド</TD>
+  </TR>
+  <TR>
+    <TD>Password</TD>
+    <TD>&lt;INPUT TYPE="password" NAME="`Name`" VALUE="`Text2`" SIZE="20"/&gt;</TD>
+    <TD>パスワード入力フィールド</TD>
+  </TR>
+  <TR>
+    <TD>Hidden</TD>
+    <TD>&lt;INPUT TYPE="hidden" NAME="`Name`" VALUE="`Text2`"/&gt;</TD>
+    <TD>隠しパラメタ</TD>
+  </TR>
+  <TR>
+    <TD>Upload</TD>
+    <TD>&lt;INPUT TYPE="file" NAME="`Name`"/&gt;</TD>
+    <TD>ファイルアップロード</TD>
+  </TR>
+  <TR>
+    <TD>TextArea</TD>
+    <TD>&lt;TEXTAREA NAME="`Name`" ROWS="20" COLS="72" &gt;`Text2`&lt;/TEXTAREA&gt;</TD>
+    <TD>複数行入力エリア</TD>
+  </TR>
+  <TR>
+    <TD>Select</TD>
+    <TD>&lt;SELECT&gt;○○○&lt;/SELECT&gt;</TD>
+    <TD>コンボボックス</TD>
+  </TR>
+  <TR>
+  <TR>
+    <TD>Table1</TD>
+    <TD>&lt;TABLE BORDER="1"&gt;○○○&lt;/TABLE&gt;</TD>
+    <TD>１レコードでカラムを縦に並べる表</TD>
+  </TR>
+  <TR>
+  <TR>
+    <TD>Table2</TD>
+    <TD>&lt;TABLE BORDER="1"&gt;○○○&lt;/TABLE&gt;</TD>
+    <TD>複数レコードでレコードを縦に並べる表</TD>
+  </TR>
+  <TR>
+</TABLE>
+<PRE>
+Text2となっている所は、頭の１文字が「@」ならServletのメンバー変数の値、
+頭の１文字が「#」ならsessionの属性値に変換されます。
+
+UiElem/KindがSelect,Table1,Table2の時は、可変数個の出力を含み、
+UiElem/Selectableのタグを持ち、表示項目をここで指定します。
+
+&lt;!ELEMENT Selectable (Children*, Condition2?, TableItem*)&gt;
+
+&lt;!ELEMENT Condition2 (
+    RangePath, RangeType, From, To,
+    OrderByPath, OrderByType, Desc, CountFrom, CountMax,
+    ColumnName, ColumnValue, ColumnName2, ColumnValue2)&gt;
+
+XPathがRangePath(型はintegerかstringでRangeTypeで指し)でその値がFromからToまでのレコードを、
+XPathがOrderByPath(型はintegerかstring)でその値(型はintegerかstringでOrderByTypeで指定)でソートした、
+レコード群に相当するXmlDbObjectのコレクションを取得する時の条件に追加します。
+Descが非trueの時は昇順、trueの場合は降順でソートします。
+レコードの数が多い場合、CountFromからCountMaxまでのレコードが対象になります。
+ColumnName/ColumnName2で指定されるXPathの値が空でない場合、
+ColumnValue/ColumnValue2が(likeで)マッチするという条件が追加されます。
+
+&lt;!ELEMENT Children (LineNumber, ((MsgType, MsgVersion, DTDfilename) | ChildPath), Condition*, Type, Default?)&gt;
+
+Selectable/Childrenは(MsgType, MsgVersion, DTDfilename)の場合、
+メッセージ種類を指定します。XmlUtilityのXmlDbAccessorの以下のメソッドに渡されます。
+    void create(string msgType, string msgVersion, DbConnection conn);
+    void setDTDfilename(string dtd_filename);
+MsgTypeは、DTDで指定されたXML形式のトップタグ、
+MsgVersionはバージョンが有る場合、DTDのバージョン、無ければdefaultです。
+通常表に表示する対象は、XMLユーティリティですが、フラットなDBテーブルも
+対象にすることが出来、その場合、MsgVersionの値はdbTalbeにします。
+DTDfilenameはDTDのファイル名です。このXmlDbAccessorで通常以下の事が出来ます。
+    - 様々な条件でXmlDbObjectの取得。
+    - XMLメッセージの一括格納。
+    - XMLメッセージの一括取出し。
+
+Selectable/Children/ChildPathの場合は、
+(MsgType, MsgVersion, DTDfilename)で得られたXmlDbObjectが１個で、
+このXmlDbObjectに対しXPathで指定されるpathで以下のメソッドに渡されます。
+    list getChildren(string path);
+
+&lt;!ELEMENT Condition (LineNumber, Path, Value)&gt;
+
+Selectable/Children/Conditionは、
+XPathがPathで指定される値がValueの値と(likeで)等しいという条件を追加します。
+
+Selectable/Children/Typeは、取得されるXmlDbObjectが１個の場合はsingle、
+複数個の場合はmultipleを入れます。
+
+Selectable/Children/Defaultは、KindがSelectの時に、
+selected=trueにするOPTION値を指定します。
+
+&lt;!ELEMENT TableItem (LineNumber, Path, Editable, Password?)&gt;
+
+Selectable/TableItemは表を表示する時に、行をLineNumber順にし、
+各カラムを表示するか、カラムの値が編集可能か、パスワードの様に
+入力時に入力文字列を隠すかを指定します。
+</PRE>
+
+<TABLE BORDER="1">
+  <TR>
+  <TD>Kind</TD>
+  <TD>Text2</TD>
+  <TD>TableItem/Path</TD>
+  <TD>TableItem/Editable</TD>
+  <TD>TableItem/Password</TD>
+  </TR>
+  <TR>
+  <TD>Table1</TD>
+  <TD>edit_mode</TD>
+  <TD>このタグで指定された項目だけ表示。</TD>
+  <TD>このタグの値がedit_mode以上なら編集状態で表示。</TD>
+  <TD>このタグの値がtrueの時、文字列を隠す。</TD>
+  </TR>
+  <TR>
+  <TD>Table2</TD>
+  <TD>radio</TD>
+  <TD>このタグで指定された項目だけ表示。</TD>
+  <TD>radioの値がcheckならチェックボタン付き、checkでないならラジオボタン付き。</TD>
+  <TD></TD>
+  </TR>
+</TABLE>
+
+</BODY>
+</HTML>

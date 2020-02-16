@@ -1,0 +1,1078 @@
+$END_LIB
+TEXT
+AlObject
+class TP
+class FileBuffer
+end_class
+end_class
+$END_CLASS
+TEXT
+AlObject
+class TP
+member
+public: static void main();
+member
+public: static list generate_nrsa_keypair();
+member
+public: static list encrypt_by_nrsa_public_key();
+member
+public: static list encrypt_by_nrsa_public_key(string infile, string outfile);
+member
+public: static list decrypt_by_nrsa_secret_key();
+member
+public: static list decrypt_by_nrsa_secret_key(string infile, string outfile);
+member
+public: static list encrypt_by_nrsa_secret_key();
+member
+public: static list encrypt_by_nrsa_secret_key(string infile, string outfile);
+member
+public: static list decrypt_by_nrsa_public_key();
+member
+public: static list decrypt_by_nrsa_public_key(string infile, string outfile);
+member
+public: static list generate_common_key();
+member
+public: static list encrypt_by_common_key();
+member
+public: static list encrypt_by_common_key(string infile, string outfile);
+member
+public: static list decrypt_by_common_key();
+member
+public: static list decrypt_by_common_key(string infile, string outfile);
+member
+public: static list get_random();
+member
+public: static list print_md5_digest();
+member
+public: static list print_sha1_digest();
+member
+public: static list public_key;
+member
+public: static list secret_key;
+member
+public: static integer len_m;
+member
+public: static list common_key;
+member
+public: static integer block;
+member
+public: static list export_common_key();
+member
+public: static list export_common_key(string outfile);
+member
+public: static list import_common_key();
+member
+public: static list import_common_key(string infile);
+member
+public: static list export_public_key();
+member
+public: static list export_public_key(string outfile);
+member
+public: static list import_public_key();
+member
+public: static list import_public_key(string infile);
+member
+public: static list export_secret_key();
+member
+public: static list export_secret_key(string outfile);
+member
+public: static list import_secret_key();
+member
+public: static list import_secret_key(string infile);
+class FileBuffer
+member
+public: list open_readfile(integer buffer_size);
+member
+public: list open_readfile(integer buffer_size, string infile);
+member
+public: list read();
+member
+public: list open_writefile(integer buffer_size);
+member
+public: list open_writefile(integer buffer_size, string outfile);
+member
+public: list write();
+member
+public: integer buffer_size;
+member
+public: list buffer;
+member
+public: file f;
+member
+public: integer read_size;
+member
+public: integer align_size;
+member
+public: integer total_size;
+member
+public: integer total_read_size;
+member
+public: integer write_size;
+end_class
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class TP
+member
+public: static void main();
+body
+{
+	al_print("======== 共通鍵生成 ========\n");
+	generate_common_key();
+	al_print("======== 共通鍵エクスポート ========\n");
+	export_common_key("key-common.txt");
+	al_print("======== 共通鍵インポート ========\n");
+	import_common_key("key-common.txt");
+	al_print("======== 共通鍵で暗号化 ========\n");
+	encrypt_by_common_key("m.txt", "m-e-c.txt");
+	al_print("======== 共通鍵で復号化 ========\n");
+	decrypt_by_common_key("m-e-c.txt", "m-d-c.txt");
+	al_print("======== 公開鍵鍵ペア生成 ========\n");
+	generate_nrsa_keypair();
+	al_print("======== 公開鍵エクスポート ========\n");
+	export_public_key("key-public.txt");
+	al_print("======== 秘密鍵エクスポート ========\n");
+	export_secret_key("key-secret.txt");
+	al_print("======== 公開鍵インポート ========\n");
+	import_public_key("key-public.txt");
+	al_print("======== 秘密鍵インポート ========\n");
+	import_secret_key("key-secret.txt");
+	al_print("======== 公開鍵で暗号化 ========\n");
+	encrypt_by_nrsa_public_key("m.txt", "m-e-p.txt");
+	al_print("======== 秘密鍵で復号化 ========\n");
+	decrypt_by_nrsa_secret_key("m-e-p.txt", "m-d-s.txt");
+	al_print("======== 秘密鍵で暗号化 ========\n");
+	encrypt_by_nrsa_secret_key("m.txt", "m-e-s.txt");
+	al_print("======== 公開鍵で復号化 ========\n");
+	decrypt_by_nrsa_public_key("m-e-s.txt", "m-d-p.txt");
+}
+end_body
+member
+public: static list generate_nrsa_keypair();
+body
+{
+	var list keypair, key_spec;
+	var list p_hint, q_hint, e_hint;
+	p_hint = get_random();
+	q_hint = get_random();
+	e_hint = get_random();
+	{
+		al_print("p_hint = " + (string)p_hint + "\n");
+		al_print("q_hint = " + (string)q_hint + "\n");
+		al_print("e_hint = " + (string)e_hint + "\n");
+	}
+	key_spec = al_list3(p_hint, q_hint, e_hint);
+	keypair = al_crypt("generate_keypair", "N-RSA", key_spec, null);
+	if (keypair == null) {
+		al_print("fail to generate keypair.\n");
+		al_print("end: " + (string)al_file_manip("current_datetime", null, null) + "\n");
+		return 1;
+	} else {
+	}
+	public_key = keypair.head;
+	secret_key = keypair.tail.head;
+	len_m = al_misc("integer_size", public_key.tail.head, null);
+	if (len_m < 2) {
+		al_print("modulo is lower than 2.\n");
+		return 1;
+	} else {
+	}
+	block = len_m - 1;
+	al_print("keypair generated.\n");
+	{
+		var integer e, d, m;
+		e = secret_key.head;
+		d = public_key.head;
+		m = public_key.tail.head;
+		al_print("secret_key = (" + (string)e + ", " + (string)m + ")\n");
+		al_print("public_key = (" + (string)d + ", " + (string)m + ")\n");
+		al_print("block size = " + (string)block + "\n");
+	}
+	return null;
+}
+end_body
+member
+public: static list encrypt_by_nrsa_public_key();
+body
+{
+	var list context;
+	var FileBuffer in, out;
+	in = new FileBuffer;
+	out = new FileBuffer;
+	if (in.open_readfile(block * 512)) {
+		al_print("canceled.\n");
+		return 1;
+	} else {
+	}
+	if (out.open_writefile(len_m * 512)) {
+		al_print("canceled.\n");
+		return 1;
+	} else {
+	}
+	if (context = al_crypt("encrypt_init", "N-RSA", public_key, block)) {
+	} else {
+		al_print("fail to initialize crypt context.\n");
+		return 1;
+	}
+	loop {
+		in.read();
+		al_crypt("encrypt", context, al_list3(in.buffer, 0, in.align_size), al_list2(out.buffer, 0));
+		out.write_size = in.align_size / block * len_m;
+		out.write();
+		if (in.read_size) {
+			break;
+		} else {
+		}
+	}
+	al_crypt("encrypt_final", context, null, null);
+	al_print("encrypt by public_key is done.\n");
+	return null;
+}
+end_body
+member
+public: static list encrypt_by_nrsa_public_key(string infile, string outfile);
+body
+{
+	var list context;
+	var FileBuffer in, out;
+	in = new FileBuffer;
+	out = new FileBuffer;
+	if (in.open_readfile(block * 512, infile)) {
+		al_print("canceled.\n");
+		return 1;
+	} else {
+	}
+	if (out.open_writefile(len_m * 512, outfile)) {
+		al_print("canceled.\n");
+		return 1;
+	} else {
+	}
+	if (context = al_crypt("encrypt_init", "N-RSA", public_key, block)) {
+	} else {
+		al_print("fail to initialize crypt context.\n");
+		return 1;
+	}
+	loop {
+		in.read();
+		al_crypt("encrypt", context, al_list3(in.buffer, 0, in.align_size), al_list2(out.buffer, 0));
+		out.write_size = in.align_size / block * len_m;
+		out.write();
+		if (in.read_size) {
+			break;
+		} else {
+		}
+	}
+	al_crypt("encrypt_final", context, null, null);
+	al_print("encrypt by public_key is done.\n");
+	return null;
+}
+end_body
+member
+public: static list decrypt_by_nrsa_secret_key();
+body
+{
+	var list context;
+	var FileBuffer in, out;
+	in = new FileBuffer;
+	out = new FileBuffer;
+	if (in.open_readfile(len_m * 512)) {
+		al_print("canceled.\n");
+		return 1;
+	} else {
+	}
+	if (out.open_writefile(block * 512)) {
+		al_print("canceled.\n");
+		return 1;
+	} else {
+	}
+	if (context = al_crypt("decrypt_init", "N-RSA", secret_key, block)) {
+	} else {
+		al_print("fail to initialize crypt context.\n");
+		return 1;
+	}
+	loop {
+		in.read();
+		al_crypt("decrypt", context, al_list3(in.buffer, 0, in.align_size), al_list2(out.buffer, 0));
+		out.write_size = in.align_size / len_m * block;
+		out.write();
+		if (in.read_size) {
+			break;
+		} else {
+		}
+	}
+	al_crypt("decrypt_final", context, null, null);
+	al_print("decrypt by secret_key is done.\n");
+	return null;
+}
+end_body
+member
+public: static list decrypt_by_nrsa_secret_key(string infile, string outfile);
+body
+{
+	var list context;
+	var FileBuffer in, out;
+	in = new FileBuffer;
+	out = new FileBuffer;
+	if (in.open_readfile(len_m * 512, infile)) {
+		al_print("canceled.\n");
+		return 1;
+	} else {
+	}
+	if (out.open_writefile(block * 512, outfile)) {
+		al_print("canceled.\n");
+		return 1;
+	} else {
+	}
+	if (context = al_crypt("decrypt_init", "N-RSA", secret_key, block)) {
+	} else {
+		al_print("fail to initialize crypt context.\n");
+		return 1;
+	}
+	loop {
+		in.read();
+		al_crypt("decrypt", context, al_list3(in.buffer, 0, in.align_size), al_list2(out.buffer, 0));
+		out.write_size = in.align_size / len_m * block;
+		out.write();
+		if (in.read_size) {
+			break;
+		} else {
+		}
+	}
+	al_crypt("decrypt_final", context, null, null);
+	al_print("decrypt by secret_key is done.\n");
+	return null;
+}
+end_body
+member
+public: static list encrypt_by_nrsa_secret_key();
+body
+{
+	var list context;
+	var FileBuffer in, out;
+	in = new FileBuffer;
+	out = new FileBuffer;
+	if (in.open_readfile(block * 512)) {
+		al_print("canceled.\n");
+		return 1;
+	} else {
+	}
+	if (out.open_writefile(len_m * 512)) {
+		al_print("canceled.\n");
+		return 1;
+	} else {
+	}
+	if (context = al_crypt("encrypt_init", "N-RSA", secret_key, block)) {
+	} else {
+		al_print("fail to initialize crypt context.\n");
+		return 1;
+	}
+	loop {
+		in.read();
+		al_crypt("encrypt", context, al_list3(in.buffer, 0, in.align_size), al_list2(out.buffer, 0));
+		out.write_size = in.align_size / block * len_m;
+		out.write();
+		if (in.read_size) {
+			break;
+		} else {
+		}
+	}
+	al_crypt("encrypt_final", context, null, null);
+	al_print("encrypt by secret_key is done.\n");
+	return null;
+}
+end_body
+member
+public: static list encrypt_by_nrsa_secret_key(string infile, string outfile);
+body
+{
+	var list context;
+	var FileBuffer in, out;
+	in = new FileBuffer;
+	out = new FileBuffer;
+	if (in.open_readfile(block * 512, infile)) {
+		al_print("canceled.\n");
+		return 1;
+	} else {
+	}
+	if (out.open_writefile(len_m * 512, outfile)) {
+		al_print("canceled.\n");
+		return 1;
+	} else {
+	}
+	if (context = al_crypt("encrypt_init", "N-RSA", secret_key, block)) {
+	} else {
+		al_print("fail to initialize crypt context.\n");
+		return 1;
+	}
+	loop {
+		in.read();
+		al_crypt("encrypt", context, al_list3(in.buffer, 0, in.align_size), al_list2(out.buffer, 0));
+		out.write_size = in.align_size / block * len_m;
+		out.write();
+		if (in.read_size) {
+			break;
+		} else {
+		}
+	}
+	al_crypt("encrypt_final", context, null, null);
+	al_print("encrypt by secret_key is done.\n");
+	return null;
+}
+end_body
+member
+public: static list decrypt_by_nrsa_public_key();
+body
+{
+	var list context;
+	var FileBuffer in, out;
+	in = new FileBuffer;
+	out = new FileBuffer;
+	if (in.open_readfile(len_m * 512)) {
+		al_print("canceled.\n");
+		return 1;
+	} else {
+	}
+	if (out.open_writefile(block * 512)) {
+		al_print("canceled.\n");
+		return 1;
+	} else {
+	}
+	if (context = al_crypt("decrypt_init", "N-RSA", public_key, block)) {
+	} else {
+		al_print("fail to initialize crypt context.\n");
+		return 1;
+	}
+	loop {
+		in.read();
+		al_crypt("decrypt", context, al_list3(in.buffer, 0, in.align_size), al_list2(out.buffer, 0));
+		out.write_size = in.align_size / len_m * block;
+		out.write();
+		if (in.read_size) {
+			break;
+		} else {
+		}
+	}
+	al_crypt("decrypt_final", context, null, null);
+	al_print("decrypt by public_key is done.\n");
+	return null;
+}
+end_body
+member
+public: static list decrypt_by_nrsa_public_key(string infile, string outfile);
+body
+{
+	var list context;
+	var FileBuffer in, out;
+	in = new FileBuffer;
+	out = new FileBuffer;
+	if (in.open_readfile(len_m * 512, infile)) {
+		al_print("canceled.\n");
+		return 1;
+	} else {
+	}
+	if (out.open_writefile(block * 512, outfile)) {
+		al_print("canceled.\n");
+		return 1;
+	} else {
+	}
+	if (context = al_crypt("decrypt_init", "N-RSA", public_key, block)) {
+	} else {
+		al_print("fail to initialize crypt context.\n");
+		return 1;
+	}
+	loop {
+		in.read();
+		al_crypt("decrypt", context, al_list3(in.buffer, 0, in.align_size), al_list2(out.buffer, 0));
+		out.write_size = in.align_size / len_m * block;
+		out.write();
+		if (in.read_size) {
+			break;
+		} else {
+		}
+	}
+	al_crypt("decrypt_final", context, null, null);
+	al_print("decrypt by public_key is done.\n");
+	return null;
+}
+end_body
+member
+public: static list generate_common_key();
+body
+{
+	var integer len;
+	len = 16;
+	var list binary;
+	var integer i;
+	var integer rand;
+	binary = al_misc("binary", len, null);
+	i = 0;
+	loop {
+		if (i < len) {
+		} else {
+			break;
+		}
+		rand = al_misc("random", null, null);
+		al_misc("put_byte", al_list2(binary, i), rand);
+		i = i + 1;
+	}
+	common_key = binary;
+	block = 8;
+	al_print("common key generated.\n");
+}
+end_body
+member
+public: static list encrypt_by_common_key();
+body
+{
+	var list context;
+	var FileBuffer in, out;
+	in = new FileBuffer;
+	out = new FileBuffer;
+	if (in.open_readfile(block * 512)) {
+		al_print("canceled.\n");
+		return 1;
+	} else {
+	}
+	if (out.open_writefile(block * 512)) {
+		al_print("canceled.\n");
+		return 1;
+	} else {
+	}
+	al_print("start: " + (string)al_file_manip("current_datetime", null, null) + "\n");
+	if (context = al_crypt("encrypt_init", "N-DES", common_key, block)) {
+	} else {
+		al_print("fail to initialize crypt context.\n");
+		return 1;
+	}
+	loop {
+		in.read();
+		al_crypt("encrypt", context, al_list3(in.buffer, 0, in.align_size), al_list2(out.buffer, 0));
+		out.write_size = in.align_size;
+		out.write();
+		if (in.read_size) {
+			break;
+		} else {
+		}
+	}
+	al_crypt("encrypt_final", context, null, null);
+	al_print("encrypt by common_key is done.\n");
+	al_print("end: " + (string)al_file_manip("current_datetime", null, null) + "\n");
+	return null;
+}
+end_body
+member
+public: static list encrypt_by_common_key(string infile, string outfile);
+body
+{
+	var list context;
+	var FileBuffer in, out;
+	in = new FileBuffer;
+	out = new FileBuffer;
+	if (in.open_readfile(block * 512, infile)) {
+		al_print("canceled.\n");
+		return 1;
+	} else {
+	}
+	if (out.open_writefile(block * 512, outfile)) {
+		al_print("canceled.\n");
+		return 1;
+	} else {
+	}
+	if (context = al_crypt("encrypt_init", "N-DES", common_key, block)) {
+	} else {
+		al_print("fail to initialize crypt context.\n");
+		return 1;
+	}
+	loop {
+		in.read();
+		al_crypt("encrypt", context, al_list3(in.buffer, 0, in.align_size), al_list2(out.buffer, 0));
+		out.write_size = in.align_size;
+		out.write();
+		if (in.read_size) {
+			break;
+		} else {
+		}
+	}
+	al_crypt("encrypt_final", context, null, null);
+	al_print("encrypt by common_key is done.\n");
+	return null;
+}
+end_body
+member
+public: static list decrypt_by_common_key();
+body
+{
+	var list context;
+	var FileBuffer in, out;
+	in = new FileBuffer;
+	out = new FileBuffer;
+	if (in.open_readfile(block * 512)) {
+		al_print("canceled.\n");
+		return 1;
+	} else {
+	}
+	if (out.open_writefile(block * 512)) {
+		al_print("canceled.\n");
+		return 1;
+	} else {
+	}
+	al_print("start: " + (string)al_file_manip("current_datetime", null, null) + "\n");
+	if (context = al_crypt("decrypt_init", "N-DES", common_key, block)) {
+	} else {
+		al_print("fail to initialize crypt context.\n");
+		return 1;
+	}
+	loop {
+		in.read();
+		al_crypt("decrypt", context, al_list3(in.buffer, 0, in.align_size), al_list2(out.buffer, 0));
+		out.write_size = in.align_size;
+		out.write();
+		if (in.read_size) {
+			break;
+		} else {
+		}
+	}
+	al_crypt("decrypt_final", context, null, null);
+	al_print("decrypt by common_key is done.\n");
+	al_print("end: " + (string)al_file_manip("current_datetime", null, null) + "\n");
+	return null;
+}
+end_body
+member
+public: static list decrypt_by_common_key(string infile, string outfile);
+body
+{
+	var list context;
+	var FileBuffer in, out;
+	in = new FileBuffer;
+	out = new FileBuffer;
+	if (in.open_readfile(block * 512, infile)) {
+		al_print("canceled.\n");
+		return 1;
+	} else {
+	}
+	if (out.open_writefile(block * 512, outfile)) {
+		al_print("canceled.\n");
+		return 1;
+	} else {
+	}
+	if (context = al_crypt("decrypt_init", "N-DES", common_key, block)) {
+	} else {
+		al_print("fail to initialize crypt context.\n");
+		return 1;
+	}
+	loop {
+		in.read();
+		al_crypt("decrypt", context, al_list3(in.buffer, 0, in.align_size), al_list2(out.buffer, 0));
+		out.write_size = in.align_size;
+		out.write();
+		if (in.read_size) {
+			break;
+		} else {
+		}
+	}
+	al_crypt("decrypt_final", context, null, null);
+	al_print("decrypt by common_key is done.\n");
+	return null;
+}
+end_body
+member
+public: static list get_random();
+body
+{
+	return al_misc("random", null, null);
+}
+end_body
+member
+public: static list print_md5_digest();
+body
+{
+	var list digest;
+	var list context;
+	var FileBuffer in;
+	block = 1;
+	in = new FileBuffer;
+	if (in.open_readfile(256)) {
+		al_print("canceled.\n");
+		return 1;
+	} else {
+	}
+	al_print("start: " + (string)al_file_manip("current_datetime", null, null) + "\n");
+	if (context = al_crypt("digest_init", "MD5", null, null)) {
+	} else {
+		al_print("fail to initialize crypt context.\n");
+		return 1;
+	}
+	var integer j;
+	j = 0;
+	loop {
+		in.read();
+		al_crypt("digest_update", context, al_list3(in.buffer, 0, in.align_size), null);
+		if (in.read_size) {
+			break;
+		} else {
+		}
+	}
+	digest = al_crypt("digest_final", context, null, null);
+	var string str;
+	var file sf;
+	var integer i;
+	str = al_copy("");
+	sf = al_file_open(str, "sw");
+	i = 0;
+	al_file_write(sf, "string", "md5 digest =");
+	loop {
+		if (i < 16) {
+		} else {
+			break;
+		}
+		al_file_write(sf, "string", " ");
+		al_file_write(sf, "hex", al_misc("get_byte", al_list2(digest, i), null));
+		i = i + 1;
+	}
+	al_file_write(sf, "string", "\n");
+	al_print(str);
+	al_print("end: " + (string)al_file_manip("current_datetime", null, null) + "\n");
+	return null;
+}
+end_body
+member
+public: static list print_sha1_digest();
+body
+{
+	var list digest;
+	var list context;
+	var FileBuffer in;
+	block = 1;
+	in = new FileBuffer;
+	if (in.open_readfile(256)) {
+		al_print("canceled.\n");
+		return 1;
+	} else {
+	}
+	al_print("start: " + (string)al_file_manip("current_datetime", null, null) + "\n");
+	if (context = al_crypt("digest_init", "SHA-1", null, null)) {
+	} else {
+		al_print("fail to initialize crypt context.\n");
+		return 1;
+	}
+	loop {
+		in.read();
+		al_crypt("digest_update", context, al_list3(in.buffer, 0, in.align_size), null);
+		if (in.read_size) {
+			break;
+		} else {
+		}
+	}
+	digest = al_crypt("digest_final", context, null, null);
+	var string str;
+	var file sf;
+	var integer i;
+	str = al_copy("");
+	sf = al_file_open(str, "sw");
+	i = 0;
+	al_file_write(sf, "string", "sha-1 digest =");
+	loop {
+		if (i < 20) {
+		} else {
+			break;
+		}
+		al_file_write(sf, "string", " ");
+		al_file_write(sf, "hex", al_misc("get_byte", al_list2(digest, i), null));
+		i = i + 1;
+	}
+	al_file_write(sf, "string", "\n");
+	al_print(str);
+	al_print("end: " + (string)al_file_manip("current_datetime", null, null) + "\n");
+	return null;
+}
+end_body
+member
+public: static list public_key;
+member
+public: static list secret_key;
+member
+public: static integer len_m;
+member
+public: static list common_key;
+member
+public: static integer block;
+member
+public: static list export_common_key();
+body
+{
+	var list dir_name, ret;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return 1;
+	}
+	return export_common_key((string)(dir_name.head + "/" + dir_name.tail.head));
+}
+end_body
+member
+public: static list export_common_key(string outfile);
+body
+{
+	var file f;
+	if (f = al_file_open(outfile, "w")) {
+	} else {
+		return 1;
+	}
+	al_file_write(f, "graph", common_key);
+	return null;
+}
+end_body
+member
+public: static list import_common_key();
+body
+{
+	var list dir_name;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return 1;
+	}
+	return import_common_key((string)(dir_name.head + "/" + dir_name.tail.head));
+}
+end_body
+member
+public: static list import_common_key(string infile);
+body
+{
+	var file f;
+	if (f = al_file_open(infile, "r")) {
+	} else {
+		return 1;
+	}
+	common_key = al_file_read(f, "graph");
+	block = 8;
+	return null;
+}
+end_body
+member
+public: static list export_public_key();
+body
+{
+	var list dir_name;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return 1;
+	}
+	return export_public_key((string)(dir_name.head + "/" + dir_name.tail.head));
+}
+end_body
+member
+public: static list export_public_key(string outfile);
+body
+{
+	var file f;
+	if (f = al_file_open(outfile, "w")) {
+	} else {
+		return 1;
+	}
+	al_file_write(f, "graph", public_key);
+	return null;
+}
+end_body
+member
+public: static list import_public_key();
+body
+{
+	var list dir_name;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return 1;
+	}
+	return import_public_key((string)(dir_name.head + "/" + dir_name.tail.head));
+}
+end_body
+member
+public: static list import_public_key(string infile);
+body
+{
+	var file f;
+	if (f = al_file_open(infile, "r")) {
+	} else {
+		return 1;
+	}
+	public_key = al_file_read(f, "graph");
+	len_m = al_misc("integer_size", public_key.tail.head, null);
+	block = len_m - 1;
+	al_print("public_key = " + (string)public_key + "\n");
+	al_print("block_size = " + (string)block + "\n");
+	return null;
+}
+end_body
+member
+public: static list export_secret_key();
+body
+{
+	var list dir_name;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return 1;
+	}
+	return export_secret_key((string)(dir_name.head + "/" + dir_name.tail.head));
+}
+end_body
+member
+public: static list export_secret_key(string outfile);
+body
+{
+	var file f;
+	if (f = al_file_open(outfile, "w")) {
+	} else {
+		return 1;
+	}
+	al_file_write(f, "graph", secret_key);
+	return null;
+}
+end_body
+member
+public: static list import_secret_key();
+body
+{
+	var list dir_name;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return 1;
+	}
+	return import_secret_key((string)(dir_name.head + "/" + dir_name.tail.head));
+}
+end_body
+member
+public: static list import_secret_key(string infile);
+body
+{
+	var file f;
+	if (f = al_file_open(infile, "r")) {
+	} else {
+		return 1;
+	}
+	secret_key = al_file_read(f, "graph");
+	len_m = al_misc("integer_size", secret_key.tail.head, null);
+	block = len_m - 1;
+	al_print("secret_key = " + (string)secret_key + "\n");
+	al_print("block_size = " + (string)block + "\n");
+	return null;
+}
+end_body
+class FileBuffer
+member
+public: list open_readfile(integer buffer_size);
+body
+{
+	var list dir_name;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return 1;
+	}
+	return open_readfile(buffer_size, (string)(dir_name.head + "/" + dir_name.tail.head));
+}
+end_body
+member
+public: list open_readfile(integer buffer_size, string infile);
+body
+{
+	this.buffer_size = buffer_size;
+	buffer = al_misc("binary", buffer_size, null);
+	f = al_file_open(infile, "rb");
+	total_size = al_file_manip("get_size", infile, null);
+	total_read_size = 0;
+	return null;
+}
+end_body
+member
+public: list read();
+body
+{
+	if (read_size) {
+		return read_size;
+	} else {
+	}
+	if (read_size = al_file_read(f, al_list3(buffer, 0, buffer_size))) {
+		align_size = read_size;
+		if (read_size < 0) {
+			align_size = 0;
+			al_print("read error.\n");
+			return 1;
+		} else {
+		}
+		if (read_size == 0) {
+			return 1;
+		} else {
+		}
+		total_read_size = total_read_size + read_size;
+	} else {
+		align_size = buffer_size;
+		total_read_size = total_read_size + buffer_size;
+		al_print("### total_size, total_read_size = " + (string)total_size + ", " + (string)total_read_size + "\n");
+	}
+	loop {
+		if (align_size % block == 0) {
+			break;
+		} else {
+		}
+		al_misc("put_byte", al_list2(buffer, align_size), 0x00000020);
+		align_size = align_size + 1;
+	}
+	if (total_read_size >= total_size) {
+		return 1;
+	} else {
+	}
+	return null;
+}
+end_body
+member
+public: list open_writefile(integer buffer_size);
+body
+{
+	var list dir_name;
+	if (dir_name = al_get_write_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return 1;
+	}
+	return open_writefile(buffer_size, (string)(dir_name.head + "/" + dir_name.tail.head));
+}
+end_body
+member
+public: list open_writefile(integer buffer_size, string outfile);
+body
+{
+	this.buffer_size = buffer_size;
+	buffer = al_misc("binary", buffer_size, null);
+	f = al_file_open(outfile, "wb");
+	return null;
+}
+end_body
+member
+public: list write();
+body
+{
+	if (al_file_write(f, al_list3(buffer, 0, write_size), null)) {
+		al_print("write error.\n");
+		return 1;
+	} else {
+	}
+	return null;
+}
+end_body
+member
+public: integer buffer_size;
+member
+public: list buffer;
+member
+public: file f;
+member
+public: integer read_size;
+member
+public: integer align_size;
+member
+public: integer total_size;
+member
+public: integer total_read_size;
+member
+public: integer write_size;
+end_class
+end_class
+$END_BODY

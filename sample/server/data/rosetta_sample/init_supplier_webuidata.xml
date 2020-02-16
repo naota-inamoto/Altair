@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE WebUiData SYSTEM "WebUiData.dtd">
+<WebUiData>
+    <Target>rosettaSampleSupplier</Target>
+    <MenuItem>
+        <LineNumber>1</LineNumber>
+        <Name>Process</Name>
+        <Kind>Title</Kind>
+        <Text>Tasks</Text>
+    </MenuItem>
+    <MenuItem>
+        <LineNumber>2</LineNumber>
+        <Name>Receipt</Name>
+        <Kind>View</Kind>
+        <Text>Receipt</Text>
+        <View>
+            <RoleName>supplier</RoleName>
+        </View>
+    </MenuItem>
+    <MenuItem>
+        <LineNumber>3</LineNumber>
+        <Name>Inventory</Name>
+        <Kind>View</Kind>
+        <Text>Inventory</Text>
+        <View>
+            <RoleName>supplier</RoleName>
+        </View>
+    </MenuItem>
+    <MenuItem>
+        <LineNumber>4</LineNumber>
+        <Name>Fulfill</Name>
+        <Kind>View</Kind>
+        <Text>Fulfill</Text>
+        <View>
+            <RoleName>supplier</RoleName>
+        </View>
+    </MenuItem>
+    <MenuItem>
+        <LineNumber>5</LineNumber>
+        <Name>Invoice</Name>
+        <Kind>View</Kind>
+        <Text>Invoice</Text>
+        <View>
+            <RoleName>supplier</RoleName>
+        </View>
+    </MenuItem>
+</WebUiData>

@@ -1,0 +1,731 @@
+guicore.alb
+$END_LIB
+TEXT
+AlButton
+class OcPushButton
+end_class
+TEXT
+Glyph
+class AlCtrl
+class AlGraphEditor
+end_class
+class AlPushButtonClick
+end_class
+class AlPushButton
+end_class
+end_class
+TEXT
+AlObject
+class TP
+class GedCtrl
+end_class
+class MenuCtrl
+end_class
+end_class
+$END_CLASS
+TEXT
+AlButton
+class OcPushButton
+member
+public: list _Clicked(Hit h);
+member
+public: void Click(AlCtrl o, array arg);
+end_class
+TEXT
+Glyph
+class AlCtrl
+member
+public: void Create();
+member
+public: list IsCreated();
+member
+public: void MoveControl(window w);
+member
+public: void Destroy();
+member
+public: variant object();
+member
+public: list SetCallback(string eventName, GUI obj, GUIfunc func);
+member
+public: list _ocx;
+member
+public: RootGlyph root;
+member
+public: void PreLoad();
+member
+public: void PostLoad();
+member
+public: void Load();
+class AlGraphEditor
+member
+public: void Load();
+end_class
+class AlPushButtonClick
+member
+public: void Load();
+member
+public: void SetText(string text);
+member
+public: void ChangeText();
+member
+public: void PackBody();
+member
+public: void TestLoadBody();
+end_class
+class AlPushButton
+member
+public: void Load();
+end_class
+end_class
+TEXT
+AlObject
+class TP
+member
+public: static void ocx_graph_sdi();
+member
+public: static void ocx_button();
+member
+public: static void ocx_button200();
+class GedCtrl
+member
+public: GraphEditor editor;
+member
+public: void Save();
+member
+public: void Load();
+member
+public: void InputRectangle();
+member
+public: void InputEllipse();
+member
+public: void InputArc();
+member
+public: void InputLabel();
+member
+public: void ReconnectArc();
+member
+public: void Copy();
+member
+public: void Paste();
+member
+public: void Delete();
+end_class
+class MenuCtrl
+member
+public: void Save();
+member
+public: void Load();
+member
+public: void Rectangle();
+member
+public: void Ellipse();
+member
+public: void Arc();
+member
+public: void Label();
+member
+public: void Reconnect();
+member
+public: void Copy();
+member
+public: void Paste();
+member
+public: void Delete();
+member
+public: AlGraphEditor o;
+member
+public: void PackBody();
+member
+public: void TestLoadBody();
+member
+public: void TestLoadProg();
+end_class
+end_class
+$END_MEMBER
+TEXT
+AlButton
+class OcPushButton
+member
+public: list _Clicked(Hit h);
+body
+{
+	var list xy;
+	var integer x, y;
+	x = h.event.tail.head;
+	y = h.event.tail.tail.head;
+	xy = al_inverse_xy(h.tm, x, y);
+	x = xy.head;
+	y = xy.tail.head;
+	al_fire_event(h.wnd, "Click", al_list2(x, y));
+	return Glyph::_Clicked(h);
+}
+end_body
+member
+public: void Click(AlCtrl o, array arg);
+body
+{
+	var string eventName;
+	var list params;
+	var integer x, y;
+	eventName = arg[0];
+	params = arg[1];
+	x = params.head;
+	y = params.tail.head;
+	al_print("eventName, x, y, = ");
+	al_print(eventName);
+	al_print(", ");
+	al_print(x);
+	al_print(", ");
+	al_print(y);
+	al_print("\n");
+}
+end_body
+end_class
+TEXT
+Glyph
+class AlCtrl
+member
+public: void Create();
+body
+{
+	Glyph::Create();
+	Glyph::Resize(0, 0, 100, 100);
+	_ocx = al_ocx("pre_create", "ALCTRL.AlCtrlCtrl.1", 1, "subStgID");
+}
+end_body
+member
+public: list IsCreated();
+body
+{
+	return al_ocx("is_created", _ocx, null, null);
+}
+end_body
+member
+public: void MoveControl(window w);
+body
+{
+	if (IsCreated()) {
+	} else {
+		if (al_ocx("create", _ocx, w, null)) {
+			al_print("move mfc42.dll,msvcrt.dll,olepro32.dll,oleaut32.dll and alcore1.dll to /windows/system,\n");
+			al_print("and register control by the command 'regsvr32 alctrl.ocx'\n");
+			return;
+		} else {
+		}
+	}
+	var list rect;
+	rect = al_transform_rect(al_window_tm(w), left, top, right, bottom);
+	al_ocx("place", _ocx, rect, null);
+}
+end_body
+member
+public: void Destroy();
+body
+{
+	al_ocx("destroy", _ocx, null, null);
+}
+end_body
+member
+public: variant object();
+body
+{
+	return al_ocx("object", _ocx, null, null);
+}
+end_body
+member
+public: list SetCallback(string eventName, GUI obj, GUIfunc func);
+body
+{
+	return al_ocx("callback", _ocx, eventName, al_list3(this, obj, func));
+}
+end_body
+member
+public: list _ocx;
+member
+public: RootGlyph root;
+member
+public: void PreLoad();
+body
+{
+	loop {
+		if (IsCreated()) {
+			break;
+		} else {
+		}
+		al_next_process();
+	}
+	object().DebugMode(1);
+	object().SetRootClass(al_root_class());
+	root = new RootGlyph;
+	var window w;
+	w = object().GetWnd();
+	root.wnd = w;
+	al_set_window_arg(w, "root", root);
+	al_set_window_arg(w, "w", w);
+	al_set_draw_proc(w, Window::DrawProc);
+	al_set_event_proc(w, Window::EventProc);
+}
+end_body
+member
+public: void PostLoad();
+body
+{
+	al_wnd_message(root.wnd, "size", null, null);
+	al_redraw(root.wnd);
+}
+end_body
+member
+public: void Load();
+body
+{
+}
+end_body
+class AlGraphEditor
+member
+public: void Load();
+body
+{
+	PreLoad();
+	var GraphEditor ed;
+	ed = new GraphEditor;
+	ed.Create(0, 0, 2000, 2000);
+	var GedCtrl ctrl;
+	ctrl = new GedCtrl;
+	ctrl.editor = ed;
+	root.Body(ed);
+	al_set_method(root.wnd, "Save", ctrl, GedCtrl::Save);
+	al_set_method(root.wnd, "Load", ctrl, GedCtrl::Load);
+	al_set_method(root.wnd, "Rectangle", ctrl, GedCtrl::InputRectangle);
+	al_set_method(root.wnd, "Ellipse", ctrl, GedCtrl::InputEllipse);
+	al_set_method(root.wnd, "Arc", ctrl, GedCtrl::InputArc);
+	al_set_method(root.wnd, "Label", ctrl, GedCtrl::InputLabel);
+	al_set_method(root.wnd, "Reconnect", ctrl, GedCtrl::ReconnectArc);
+	al_set_method(root.wnd, "Copy", ctrl, GedCtrl::Copy);
+	al_set_method(root.wnd, "Paste", ctrl, GedCtrl::Paste);
+	al_set_method(root.wnd, "Delete", ctrl, GedCtrl::Delete);
+	PostLoad();
+}
+end_body
+end_class
+class AlPushButtonClick
+member
+public: void Load();
+body
+{
+	PreLoad();
+	var AlButton btn;
+	btn = new OcPushButton;
+	btn.Create(0, 0, 120, 30, "Button");
+	btn.status = Status::Execute;
+	root.Body(btn);
+	al_set_method(root.wnd, "SetText", this, AlPushButtonClick::SetText);
+	if (SetCallback("FireEvent", btn, OcPushButton::Click)) {
+		al_print("Fail at AlCtrl::SetCallback.\n");
+	} else {
+	}
+	PostLoad();
+}
+end_body
+member
+public: void SetText(string text);
+body
+{
+	var AlButton btn;
+	btn = root.child;
+	btn.face_text = text;
+	btn.Damage();
+}
+end_body
+member
+public: void ChangeText();
+body
+{
+	var string text;
+	text = al_ask("input text", "text");
+	if (text) {
+	} else {
+		return;
+	}
+	SetText(text);
+}
+end_body
+member
+public: void PackBody();
+body
+{
+	var list data;
+	var string dir, name;
+	data = al_get_write_filename("Data Files (*.dat)|*.dat| All Files (*.*)|*.*||", null);
+	if (data) {
+	} else {
+		return;
+	}
+	dir = data.head;
+	name = data.tail.head;
+	object().SaveBody(dir + "/" + name);
+}
+end_body
+member
+public: void TestLoadBody();
+body
+{
+	var list data;
+	var string dir, name;
+	data = al_get_read_filename("Data Files (*.dat)|*.dat| All Files (*.*)|*.*||", null);
+	if (data) {
+	} else {
+		return;
+	}
+	dir = data.head;
+	name = data.tail.head;
+	var integer r;
+	r = object().LoadBody(dir + "/" + name);
+	if (r == 0) {
+		al_print("Test load OK\n");
+	} else {
+		al_print("Test load NG\n");
+	}
+}
+end_body
+end_class
+class AlPushButton
+member
+public: void Load();
+body
+{
+	PreLoad();
+	var AlButton btn;
+	btn = new OcPushButton;
+	btn.Create(0, 0, 120, 30, "Button");
+	btn.status = Status::Execute;
+	root.Body(btn);
+	PostLoad();
+}
+end_body
+end_class
+end_class
+TEXT
+AlObject
+class TP
+member
+public: static void ocx_graph_sdi();
+body
+{
+	GUI::Initialize();
+	var AlCtrl o;
+	o = new AlGraphEditor;
+	o.Create();
+	para o.Load();
+	var AlMenu menu, file_menu, edit_menu, pack_menu;
+	var MenuCtrl ctrl;
+	menu = new AlMenu;
+	file_menu = new AlMenu;
+	pack_menu = new AlMenu;
+	edit_menu = new AlMenu;
+	ctrl = new MenuCtrl;
+	ctrl.o = o;
+	file_menu.Append("Save", (AlMenu)null, (GUI)ctrl, (GUIfunc)MenuCtrl::Save);
+	file_menu.Append("Load", (AlMenu)null, (GUI)ctrl, (GUIfunc)MenuCtrl::Load);
+	edit_menu.Append("Rectangle", (AlMenu)null, (GUI)ctrl, (GUIfunc)MenuCtrl::Rectangle);
+	edit_menu.Append("Ellipse", (AlMenu)null, (GUI)ctrl, (GUIfunc)MenuCtrl::Ellipse);
+	edit_menu.Append("Arc", (AlMenu)null, (GUI)ctrl, (GUIfunc)MenuCtrl::Arc);
+	edit_menu.Append("Label", (AlMenu)null, (GUI)ctrl, (GUIfunc)MenuCtrl::Label);
+	edit_menu.Append("Reconnect", (AlMenu)null, (GUI)ctrl, (GUIfunc)MenuCtrl::Reconnect);
+	edit_menu.Append("Copy", (AlMenu)null, (GUI)ctrl, (GUIfunc)MenuCtrl::Copy);
+	edit_menu.Append("Paste", (AlMenu)null, (GUI)ctrl, (GUIfunc)MenuCtrl::Paste);
+	edit_menu.Append("Delete", (AlMenu)null, (GUI)ctrl, (GUIfunc)MenuCtrl::Delete);
+	pack_menu.Append("Save Object", (AlMenu)null, (GUI)ctrl, (GUIfunc)MenuCtrl::PackBody);
+	pack_menu.Append("Object Test Load", (AlMenu)null, (GUI)ctrl, (GUIfunc)MenuCtrl::TestLoadBody);
+	pack_menu.Append("Program Test Load", (AlMenu)null, (GUI)ctrl, (GUIfunc)MenuCtrl::TestLoadProg);
+	menu.Append("file", file_menu, (GUI)null, (GUIfunc)null);
+	menu.Append("edit", edit_menu, (GUI)null, (GUIfunc)null);
+	menu.Append("pack", pack_menu, (GUI)null, (GUIfunc)null);
+	var Window w;
+	w = new Window;
+	w.Create(o, (list)al_list3(0x00002000, null, null));
+	w.SetTitle("AlCtrl Graph Editor");
+	al_set_menu(w.wnd, menu);
+}
+end_body
+member
+public: static void ocx_button();
+body
+{
+	GUI::Initialize();
+	var AlCtrl o;
+	o = new AlPushButtonClick;
+	o.Create();
+	o.Resize(0, 0, 100, 30);
+	para o.Load();
+	var PolyGlyph pg;
+	pg = new PolyGlyph;
+	pg.Resize(0, 0, 100, 100);
+	pg.Append(o, 50, 50);
+	var AlMenu menu;
+	menu = new AlMenu;
+	menu.Append("ChangeText", (AlMenu)null, o, AlPushButtonClick::ChangeText);
+	menu.Append("PackBody", (AlMenu)null, o, AlPushButtonClick::PackBody);
+	menu.Append("TestLoadBody", (AlMenu)null, o, AlPushButtonClick::TestLoadBody);
+	var FormGlyph form;
+	form = FormGlyph::FormWithScroll(menu, pg);
+	form.status = Status::Execute;
+	var Window w;
+	w = new Window;
+	w.Create(form, null);
+}
+end_body
+member
+public: static void ocx_button200();
+body
+{
+	GUI::Initialize();
+	var PolyGlyph pg;
+	pg = new PolyGlyph;
+	pg.Resize(0, 0, 400, 400);
+	var integer i, j;
+	var AlCtrl o;
+	i = 0;
+	loop {
+		if (i < 10) {
+		} else {
+			break;
+		}
+		j = 0;
+		loop {
+			if (j < 20) {
+			} else {
+				break;
+			}
+			o = new AlPushButton;
+			o.Create();
+			o.Resize(i * 60, j * 20, i * 60 + 59, j * 20 + 19);
+			para o.Load();
+			pg.Append(o, 0, 0);
+			j = j + 1;
+		}
+		i = i + 1;
+	}
+	var Window w;
+	w = new Window;
+	w.Create(pg, null);
+	w.SetTitle("OCX button 200");
+}
+end_body
+class GedCtrl
+member
+public: GraphEditor editor;
+member
+public: void Save();
+body
+{
+	editor.Save();
+}
+end_body
+member
+public: void Load();
+body
+{
+	editor.Load();
+}
+end_body
+member
+public: void InputRectangle();
+body
+{
+	var RectangleGlyph pict;
+	pict = new RectangleGlyph;
+	pict.Create(0, 0, 30, 30);
+	editor.insert_object = pict;
+	editor.status = Status::InputNode;
+}
+end_body
+member
+public: void InputEllipse();
+body
+{
+	var EllipseGlyph pict;
+	pict = new EllipseGlyph;
+	pict.Create(0, 0, 30, 30);
+	editor.insert_object = pict;
+	editor.status = Status::InputNode;
+}
+end_body
+member
+public: void InputArc();
+body
+{
+	editor.status = Status::InputArc;
+}
+end_body
+member
+public: void InputLabel();
+body
+{
+	editor.status = Status::InputLabel;
+}
+end_body
+member
+public: void ReconnectArc();
+body
+{
+	editor.status = Status::SelectArc;
+}
+end_body
+member
+public: void Copy();
+body
+{
+	editor.Copy();
+}
+end_body
+member
+public: void Paste();
+body
+{
+	editor.Paste();
+}
+end_body
+member
+public: void Delete();
+body
+{
+	editor.Delete();
+}
+end_body
+end_class
+class MenuCtrl
+member
+public: void Save();
+body
+{
+	o.object().Invoke("Save", null);
+}
+end_body
+member
+public: void Load();
+body
+{
+	o.object().Invoke("Load", null);
+}
+end_body
+member
+public: void Rectangle();
+body
+{
+	o.object().Invoke("Rectangle", null);
+}
+end_body
+member
+public: void Ellipse();
+body
+{
+	o.object().Invoke("Ellipse", null);
+}
+end_body
+member
+public: void Arc();
+body
+{
+	o.object().Invoke("Arc", null);
+}
+end_body
+member
+public: void Label();
+body
+{
+	o.object().Invoke("Label", null);
+}
+end_body
+member
+public: void Reconnect();
+body
+{
+	o.object().Invoke("Reconnect", null);
+}
+end_body
+member
+public: void Copy();
+body
+{
+	o.object().Invoke("Copy", null);
+}
+end_body
+member
+public: void Paste();
+body
+{
+	o.object().Invoke("Paste", null);
+}
+end_body
+member
+public: void Delete();
+body
+{
+	o.object().Invoke("Delete", null);
+}
+end_body
+member
+public: AlGraphEditor o;
+member
+public: void PackBody();
+body
+{
+	var list data;
+	var string dir, name;
+	data = al_get_write_filename("Data Files (*.dat)|*.dat| All Files (*.*)|*.*||", null);
+	if (data) {
+	} else {
+		return;
+	}
+	dir = data.head;
+	name = data.tail.head;
+	o.object().SaveBody(dir + "/" + name);
+}
+end_body
+member
+public: void TestLoadBody();
+body
+{
+	var list data;
+	var string dir, name;
+	data = al_get_read_filename("Data Files (*.dat)|*.dat| All Files (*.*)|*.*||", null);
+	if (data) {
+	} else {
+		return;
+	}
+	dir = data.head;
+	name = data.tail.head;
+	var integer r;
+	r = o.object().LoadBody(dir + "/" + name);
+	if (r == 0) {
+		al_print("Test Load OK\n");
+	} else {
+		al_print("Test Load NG\n");
+	}
+}
+end_body
+member
+public: void TestLoadProg();
+body
+{
+	var list data;
+	var string dir, name;
+	data = al_get_read_filename("Altair Files (*.apr)|*.apr| All Files (*.*)|*.*||", null);
+	if (data) {
+	} else {
+		return;
+	}
+	dir = data.head;
+	name = data.tail.head;
+	var integer r;
+	r = o.object().LoadProgram(dir, name);
+	if (r == 0) {
+		al_print("Test Load OK\n");
+	} else {
+		al_print("Test Load NG\n");
+	}
+}
+end_body
+end_class
+end_class
+$END_BODY

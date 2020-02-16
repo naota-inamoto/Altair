@@ -1,0 +1,48 @@
+
+var ƒ¡1[N][N][N]
+var ƒ¡[N][N][N]
+
+for l in 0..N-1 {
+  for i in 0..N-1 {
+    for j in 0..N-1 {
+      if (i <= j) {
+        ƒ¡1[l][i][j] := (diff(g[l][j],u[i])+diff(g[i][l],u[j])-diff(g[i][j],u[l]))/2
+      }
+    }
+  }
+}
+
+for l in 0..N-1 {
+  for i in 0..N-1 {
+    for j in 0..N-1 {
+      if (i > j) {
+        ƒ¡1[l][i][j] := ƒ¡1[l][j][i]
+      }
+    }
+  }
+}
+
+for k in 0..N-1 {
+  for i in 0..N-1 {
+    for j in 0..N-1 {
+      if (i <= j) {
+        sum := 0
+        for l in 0..N-1 {
+          sum := sum + gi[k][l]*ƒ¡1[l][i][j]
+        }
+        ƒ¡[k][i][j] := sum
+      }
+    }
+  }
+}
+
+for k in 0..N-1 {
+  for i in 0..N-1 {
+    for j in 0..N-1 {
+      if (i > j) {
+        ƒ¡[k][i][j] := ƒ¡[k][j][i]
+      }
+    }
+  }
+}
+

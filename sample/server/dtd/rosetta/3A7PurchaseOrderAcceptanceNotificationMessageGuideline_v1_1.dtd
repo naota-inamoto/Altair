@@ -1,0 +1,222 @@
+<!--
+
+   RosettaNet XML Message Schema.
+   http://www.rosettanet.org
+   PIP 3 A7 Purchase Order Acceptance Notification
+   Version 1.0
+   
+   Created using Edifecs Commerce SpecBuilder. 
+   http://www.edifecs.com
+   http://www.commercedesk.com
+   Build # 19
+-->
+
+
+<!ENTITY % common-attributes "id  CDATA #IMPLIED" >
+ 
+<!ELEMENT Pip3A7PurchaseOrderAcceptanceNotification ( 
+          fromRole ,
+          GlobalDocumentFunctionCode ,
+          PurchaseOrderAcceptance ,
+          thisDocumentGenerationDateTime ,
+          thisDocumentIdentifier ,
+          toRole ) > 
+
+<!ELEMENT fromRole
+            ( PartnerRoleDescription ) > 
+
+<!ELEMENT PartnerRoleDescription ( 
+          ContactInformation? ,
+          GlobalPartnerRoleClassificationCode ,
+          PartnerDescription ) > 
+
+<!ELEMENT ContactInformation ( 
+          contactName ,
+          EmailAddress ,
+          telephoneNumber ) > 
+
+<!ELEMENT contactName
+           ( FreeFormText ) > 
+
+<!ELEMENT FreeFormText
+           ( #PCDATA ) >
+<!ATTLIST FreeFormText
+           xml:lang CDATA #IMPLIED >
+
+<!ELEMENT EmailAddress
+           ( #PCDATA ) >
+
+<!ELEMENT telephoneNumber
+           ( CommunicationsNumber ) > 
+
+<!ELEMENT CommunicationsNumber
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalPartnerRoleClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT PartnerDescription ( 
+          BusinessDescription ,
+          GlobalPartnerClassificationCode ) > 
+
+<!ELEMENT BusinessDescription ( 
+          GlobalBusinessIdentifier ,
+          GlobalSupplyChainCode ) > 
+
+<!ELEMENT GlobalBusinessIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalSupplyChainCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalPartnerClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalDocumentFunctionCode
+           ( #PCDATA ) >
+
+<!ELEMENT PurchaseOrderAcceptance ( 
+          PurchaseOrder ,
+          purchaseOrderAcceptanceRevisionNumber ) > 
+
+<!ELEMENT PurchaseOrder ( 
+          comment? ,
+          deliverTo? ,
+          GlobalPurchaseOrderAcknowledgementReasonCode? ,
+          GlobalPurchaseOrderStatusCode ,
+          GlobalShipmentTermsCode ,
+          ProductLineItem* ,
+          purchaseOrderNumber ,
+          RevisionNumber ,
+          salesOrderIdentifier* ) > 
+
+<!ELEMENT comment
+            ( FreeFormText ) > 
+
+<!ELEMENT deliverTo
+            ( PhysicalAddress ) > 
+
+<!ELEMENT PhysicalAddress ( 
+          addressLine1? ,
+          addressLine2? ,
+          addressLine3? ,
+          cityName? ,
+          GlobalCountryCode? ,
+          GlobalLocationIdentifier? ,
+          NationalPostalCode? ,
+          regionName? ) > 
+
+<!ELEMENT addressLine1
+            ( FreeFormText ) > 
+
+<!ELEMENT addressLine2
+            ( FreeFormText ) > 
+
+<!ELEMENT addressLine3
+            ( FreeFormText ) > 
+
+<!ELEMENT cityName
+            ( FreeFormText ) > 
+
+<!ELEMENT GlobalCountryCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalLocationIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT NationalPostalCode
+           ( #PCDATA ) >
+
+<!ELEMENT regionName
+            ( FreeFormText ) > 
+
+<!ELEMENT GlobalPurchaseOrderAcknowledgementReasonCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalPurchaseOrderStatusCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalShipmentTermsCode
+           ( #PCDATA ) >
+
+<!ELEMENT ProductLineItem ( 
+          GlobalPurchaseOrderAcknowledgementReasonCode? ,
+          GlobalPurchaseOrderStatusCode ,
+          GlobalShippingServiceLevelCode? ,
+          LineNumber ,
+          ProductQuantity? ,
+          productUnit ,
+          scheduledShipDate ,
+          scheduledShipQuantity* ) > 
+
+<!ELEMENT GlobalShippingServiceLevelCode
+           ( #PCDATA ) >
+
+<!ELEMENT LineNumber
+           ( #PCDATA ) >
+
+<!ELEMENT ProductQuantity
+           ( #PCDATA ) >
+
+<!ELEMENT productUnit
+            ( ProductPackageDescription ) > 
+
+<!ELEMENT ProductPackageDescription ( 
+          ProductDescription ,
+          unitPrice ) > 
+
+<!ELEMENT ProductDescription ( 
+          GlobalProductIdentifier ) > 
+
+<!ELEMENT GlobalProductIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT unitPrice
+            ( FinancialAmount ) > 
+
+<!ELEMENT FinancialAmount ( 
+          GlobalCurrencyCode ,
+          MonetaryAmount ) > 
+
+<!ELEMENT GlobalCurrencyCode
+           ( #PCDATA ) >
+
+<!ELEMENT MonetaryAmount
+           ( #PCDATA ) >
+
+<!ELEMENT scheduledShipDate
+           ( DateStamp ) > 
+
+<!ELEMENT DateStamp
+           ( #PCDATA ) >
+
+<!ELEMENT scheduledShipQuantity
+            ( ProductQuantity ) > 
+
+<!ELEMENT purchaseOrderNumber
+           ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT ProprietaryDocumentIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT RevisionNumber
+           ( #PCDATA ) >
+
+<!ELEMENT salesOrderIdentifier
+            ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT purchaseOrderAcceptanceRevisionNumber
+            ( RevisionNumber ) > 
+
+<!ELEMENT thisDocumentGenerationDateTime
+           ( DateTimeStamp ) > 
+
+<!ELEMENT DateTimeStamp
+           ( #PCDATA ) >
+
+<!ELEMENT thisDocumentIdentifier
+            ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT toRole
+            ( PartnerRoleDescription ) > 
+

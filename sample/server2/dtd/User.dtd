@@ -1,0 +1,10 @@
+
+<!ELEMENT User (Target, Id, UserId, Password, RoleName*)>
+
+<!ELEMENT Target (#PCDATA)>
+<!ELEMENT Id     (#PCDATA)>
+
+<!ELEMENT UserId (#PCDATA)>
+<!ELEMENT Password (#PCDATA)>
+
+<!ELEMENT RoleName (#PCDATA)>

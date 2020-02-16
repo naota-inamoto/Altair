@@ -1,0 +1,14 @@
+
+<!ELEMENT ProxyLog (ProxyLogId,
+        Time,
+        FromIP, Path, Reason)>
+
+<!ELEMENT ProxyLogId (#PCDATA)>
+<!ATTLIST ProxyLogId primary-key CDATA #IMPLIED>
+
+<!ELEMENT Time (#PCDATA)>
+
+<!ELEMENT FromIP (#PCDATA)>
+<!ELEMENT Path (#PCDATA)>
+<!ELEMENT Reason (#PCDATA)>
+

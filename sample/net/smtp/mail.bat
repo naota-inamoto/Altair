@@ -1,0 +1,1 @@
+altair -h -file mail.apr -class SMTPClient -method send server mail.kt.rim.or.jp from inamoto@kt.rim.or.jp to inamoto@kt.rim.or.jp cc inamoto@muf.biglobe.ne.jp subject "ƒeƒXƒg" text "mail.txt" error "error.txt"

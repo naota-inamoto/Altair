@@ -1,0 +1,268 @@
+
+1/2+1/3;
+
+(a+b)*(a-b);
+
+(a-b)^3;
+
+(a^2-b^2)-(a^2+a*b);
+
+(a^2-b^2)/(a+b);
+
+((1+y)*x^4+(1+y-y^2-y*z)*x^3
++(-1-y+z-2*y^2-2*y*z-z^2)*x^2
++(-2-y+3*z+y^2+2*y*z-z^2+y^3+y^2*z)*x
++(-1+y+3*z-2*y*z-3*z^2+y*z^2+z^3))/(x-y-z+1);
+
+((-1+z)*x^4
++(-4+y+2*z-y*z-z^2)*x^3
++(-2+4*y+3*z)*x^2
++(3+y-2*z-y^2-y*z)*x
++(2-y-3*z-y^2+z^2))/(x-y-z+1);
+
+(a^2+a*b)/(a*c+a*d);
+(-a^2+a*b)/(-a*c+a*d);
+
+(a*d+d^2)/(c*d+d^2);
+(a*d+d^2)/(-c*d+d^2);
+
+(a()^2+a()*b())/(a()*c()+a()*d());
+
+(a(x, y)*d(x, y)+d(x, y)^2)/(c(x, y)*d(x, y)+d(x, y)^2);
+
+{
+  var a[4]
+  for i in 0..3 {
+    a[i] := i
+  }
+};
+
+{
+  var C[2][2]
+  A := { { a00, a01 }, { a10, a11 } }
+  B := { { b00, b01 }, { b10, b11 } }
+  for i in 0..1 {
+    for j in 0..1 {
+      sum := 0
+      for k in 0..1 {
+        sum := sum + A[i][k]*B[k][i]
+      }
+      C[i][j] := sum
+    }
+  }
+};
+
+{
+  n := 2
+  var C[n][n]
+  A := { { a00, a01 }, { a10, a11 } }
+  B := { { b00, b01 }, { b10, b11 } }
+  for i in 0..n-1 {
+    for j in 0..n-1 {
+      sum := 0
+      for k in 0..n-1 {
+        sum := sum + A[i][k]*B[k][i]
+      }
+      C[i][j] := sum
+    }
+  }
+};
+
+{
+  n := 3
+  var A[n][n]
+  for i in 0..n-1 {
+    for j in 0..n-1 {
+      if (i == j) {
+        A[i][j] := diagnal
+      } else if (i > j) {
+        A[i][j] := down_triangle
+      } else {
+        A[i][j] := up_triangle
+      }
+    }
+  }
+};
+
+if (not 1 == 2) res := ok else res := ng ;
+if (not 1 == 1) res := ng else res := ok ;
+
+if (1 == 1 and 2 == 2) res := ok else res := ng ;
+if (1 == 1 and 1 == 2) res := ng else res := ok ;
+if (1 == 2 and 2 == 2) res := ng else res := ok ;
+if (1 == 2 and 1 == 2) res := ng else res := ok ;
+
+if (1 == 1 or 2 == 2) res := ok else res := ng ;
+if (1 == 1 or 1 == 2) res := ok else res := ng ;
+if (1 == 2 or 2 == 2) res := ok else res := ng ;
+if (1 == 2 or 1 == 2) res := ng else res := ok ;
+
+{
+  A := { { a, b }, { c, d } }
+  At := transpose(A)
+};
+
+{
+  A := { { a, b }, { c, d } }
+  B := { { d, -b }, { -c, a } }
+  C := A * B
+};
+
+{
+  A := { { a, b }, { c, d } }
+  det := determinant(A)
+  AI := inverse(A)
+  I1 := A * AI
+  I2 := AI * A
+};
+
+{
+  A := { { a11, a12, a13 }, { a21, a22, a23 }, { a31, a32, a33 } }
+  AT := transpose(A)
+  det := determinant(A)
+  AI := inverse(A)
+  I1 := A * AI
+  I2 := AI * A
+};
+
+(a*b+a*c+b*c)/(a*b+a*c+b*c);
+
+diff(f, x);
+diff(f+g, x);
+diff(f-g, x);
+diff(f*g, x);
+diff(f/g, x);
+
+diff(f(x), x);
+diff(f(x)+g(x), x);
+diff(f(x)-g(x), x);
+diff(f(x)*g(x), x);
+diff(f(x)/g(x), x);
+
+diff(%e, x);
+
+diff(x^15+x^2+1, x);
+
+diff(exp(x), x);
+diff(sin(x), x);
+diff(cos(x), x);
+diff(tan(x), x);
+diff(log(x), x);
+diff(asin(x), x);
+diff(acos(x), x);
+diff(atan(x), x);
+diff(sqrt(x), x);
+
+diff(exp(f), x);
+diff(sin(f), x);
+diff(cos(f), x);
+diff(tan(f), x);
+diff(log(f), x);
+diff(asin(f), x);
+diff(acos(f), x);
+diff(atan(f), x);
+diff(sqrt(f), x);
+
+diff(f, x^2);
+diff(f, x, y);
+diff(f, y, x);
+diff(f, x, y, x);
+diff(f, y, x, y);
+
+(2)/(4);
+(-2)/(2);
+(2)/(-2);
+
+(1/2)*(-2*r*diff(r,t)-2*cos(É∆)*diff(É∆,t)*sin(É∆));
+(1/2)*(-2*r*d1-2*cos(É∆)*d2*sin(É∆));
+(1/2)*(-2*r*d1-2*c*d2*s);
+(1/2)*(-2*r*d1);
+
+diff(r^2*sin(É∆)^2,É∆)/2;
+diff(f*g(x),x);
+
+ezgcd((a^3-1)/(a^2-1));
+ezgcd((125*a^3-1)/(25*a^2-1));
+
+(a+b)/(a^2+a*b+b^2);
+
+ezgcd((a-b)^2/(a-b)^3);
+
+ezgcd((a^3-b^3)/(a^2-b^2));
+ezgcd((a^2-b^2)/(a^3-b^3));
+
+ezgcd((a^2-2*a*b+b^2)/(a^2-b^2));
+
+ezgcd((b^3-a^3)/(b^2-a^2));
+ezgcd((a-b)/(a^2-b^2));
+ezgcd((b-a)/(b^2-a^2));
+
+(a^3-b^3)/(a^2+b^2);
+
+(-%Éø*r^4*sin(É∆)^2+r^5*sin(É∆)^2)/(%Éø-r);
+(-Éø*r^4*sin(É∆)^2+r^5*sin(É∆)^2)/(Éø-r);
+
+include "physics/schwarzshild.math";
+
+include "physics/ricci.math";
+include "physics/ricci_print.math";
+
+include "physics/lorents_transform.math";
+
+include "physics/potential.math";
+
+(x^8+x^6-3*x^4+4*x^3-5*x^2+4*x-3)/(3*x^6-2*x^4-5*x^2+7*x-13);
+
+ezgcd(((1+y)*x^4+(1+y-y^2-y*z)*x^3
++(-1-y+z-2*y^2-2*y*z-z^2)*x^2
++(-2-y+3*z+y^2+2*y*z-z^2+y^3+y^2*z)*x
++(-1+y+3*z-2*y*z-3*z^2+y*z^2+z^3))/
+((-1+z)*x^4
++(-4+y+2*z-y*z-z^2)*x^3
++(-2+4*y+3*z)*x^2
++(3+y-2*z-y^2-y*z)*x
++(2-y-3*z-y^2+z^2)));
+
+ezgcd(((-1+z)*x^4
++(-4+y+2*z-y*z-z^2)*x^3
++(-2+4*y+3*z)*x^2
++(3+y-2*z-y^2-y*z)*x
++(2-y-3*z-y^2+z^2))/
+((1+y)*x^4+(1+y-y^2-y*z)*x^3
++(-1-y+z-2*y^2-2*y*z-z^2)*x^2
++(-2-y+3*z+y^2+2*y*z-z^2+y^3+y^2*z)*x
++(-1+y+3*z-2*y*z-3*z^2+y*z^2+z^3)));
+
+ezgcd((x^4+x^3-x^2-2*x-1)/(-x^4-4*x^3-2*x^2+3*x+2));
+
+Maxima
+	gcd((1+y)*x^4+(1+y-y^2-y*z)*x^3
+	+(-1-y+z-2*y^2-2*y*z-z^2)*x^2
+	+(-2-y+3*z+y^2+2*y*z-z^2+y^3+y^2*z)*x
+	+(-1+y+3*z-2*y*z-3*z^2+y*z^2+z^3),
+	(-1+z)*x^4
+	+(-4+y+2*z-y*z-z^2)*x^3
+	+(-2+4*y+3*z)*x^2
+	+(3+y-2*z-y^2-y*z)*x
+	+(2-y-3*z-y^2+z^2));
+
+	((1+y)*x^4+(1+y-y^2-y*z)*x^3
+	+(-1-y+z-2*y^2-2*y*z-z^2)*x^2
+	+(-2-y+3*z+y^2+2*y*z-z^2+y^3+y^2*z)*x
+	+(-1+y+3*z-2*y*z-3*z^2+y*z^2+z^3))/
+	(x-y-z+1);
+
+	((-1+z)*x^4
+	+(-4+y+2*z-y*z-z^2)*x^3
+	+(-2+4*y+3*z)*x^2
+	+(3+y-2*z-y^2-y*z)*x
+	+(2-y-3*z-y^2+z^2))/
+	(x-y-z+1);
+
+	gcd(x^4+x^3-x^2-2*x-1, -x^4-4*x^3-2*x^2+3*x+2);
+
+sympy
+	f = (1+y)*x**4+(1+y-y**2-y*z)*x**3+(-1-y+z-2*y**2-2*y*z-z**2)*x**2+(-2-y+3*z+y**2+2*y*z-z**2+y**3+y**2*z)*x+(-1+y+3*z-2*y*z-3*z**2+y*z**2+z**3)
+	g = (-1+z)*x**4+(-4+y+2*z-y*z-z**2)*x**3+(-2+4*y+3*z)*x**2+(3+y-2*z-y**2-y*z)*x+(2-y-3*z-y**2+z**2)
+
+

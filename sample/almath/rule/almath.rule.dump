@@ -1,0 +1,11 @@
+B 5
+N 1 L
+N 2 S "program"
+N 3 L
+N 4 L
+N 5 S "{}*"
+h 1 2
+t 1 3
+h 3 4
+h 4 5
+E

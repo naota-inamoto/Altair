@@ -1,0 +1,1409 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Altair Home Page Menu</TITLE>
+<SCRIPT SRC="js/jquery.js" type="text/javascript"></SCRIPT>
+<SCRIPT SRC="js/jquery.cookie.js" type="text/javascript"></SCRIPT>
+<SCRIPT SRC="js/jquery.treeview.js" type="text/javascript"></SCRIPT>
+<LINK REL="stylesheet" HREF="js/jquery.treeview.css" />
+  <SCRIPT type="text/javascript">
+    $(function() {
+      $("#myTreeview").treeview({
+        collapsed: true
+      });
+    });
+  </SCRIPT>
+</HEAD>
+<BASE TARGET="content"></HEAD>
+<BODY>
+
+<H3>目次</H3>
+<UL id="myTreeview" class="filetree">
+<LI><SPAN CLASS="file"><A HREF="home.html">ホーム</A></SPAN>
+<LI><SPAN CLASS="folder"><A HREF="release.html">ダウンロード</A></SPAN>
+	<UL>
+	<LI><SPAN CLASS="file"><A HREF="release.html#license">ライセンス</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="release.html#download">ダウンロード</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="release.html#files">配布ファイル</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="release.html#support">サポート</A></SPAN>
+	</UL>
+<LI><SPAN CLASS="folder"><A HREF="tokucho.html">Altairの特徴</A></SPAN>
+	<UL>
+	<LI><SPAN CLASS="file"><A HREF="tokucho.html#interactive">実行しながら修正が可能</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="tokucho.html#browser">クラスブラウザがそのままエディタ</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="tokucho.html#editor">構造エディタ</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="tokucho.html#no_wait">インタプリタなので待ち時間がない</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="tokucho.html#memory_mgr">メモリ管理にいっさい気を使う必要がない</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="tokucho.html#error_level">C++レベルエラーとインタプリタレベルエラーを分離</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="tokucho.html#graph_data">双方向グラフデータ構造がベース</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="tokucho.html#file_io">ファイルIOが容易</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="tokucho.html#lib_mgr">ライブラリ管理可能</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="tokucho.html#platform">マルチプラットホーム展開が比較的容易</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="tokucho.html#relation">オブジェクト間の関係付けが容易</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="tokucho.html#n_n_relation">多対多の関係を容易に表現できる</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="tokucho.html#parallel">並列処理のシミュレーションが可能</A></SPAN>
+</UL>
+<LI><SPAN CLASS="folder"><A HREF="gaiyo.html">使い方の概要</A></SPAN>
+	<UL>
+	<LI><SPAN CLASS="file"><A HREF="gaiyo.html#new_proj">新規プロジェクト作成</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="gaiyo.html#input_class">クラスの入力とクラス登録</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="gaiyo.html#input_member">メンバー変数/メンバー関数の入力</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="gaiyo.html#input_body">関数の中身の編集</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="gaiyo.html#execute">インタプリタの実行</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="gaiyo.html#save">プログラムの保存</A></SPAN>
+	</UL>
+<LI><SPAN CLASS="folder"><A HREF="grphdata.html">ベースとしているデータ構造について</A></SPAN>
+	<UL>
+	<LI><SPAN CLASS="folder">双方向グラフデータ構造の特徴</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="grphdata.html#representation">データの表現</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="grphdata.html#dual">双方向性</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="grphdata.html#struct">構造体の表現</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="grphdata.html#typeless">タイプレス</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="grphdata.html#pointer">ポインタのお化けを抽象化</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="grphdata.html#reduce">汎用的データ構造によりプログラムサイズを縮小化</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="grphdata.html#collection">コレクションとイテレータ</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="grphdata.html#relation1">オブジェクト間の関係付け（１）</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="grphdata.html#relation2">オブジェクト間の関係付け（２）</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="file"><A HREF="grphdata.html#definition">双方向グラフデータ構造</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="grphdata.html#kiho">記法</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="grphdata.html#reference">参考文献</A></SPAN>
+	</UL>
+<LI><SPAN CLASS="folder"><A HREF="editor.html">エディタの使い方</A></SPAN>
+	<UL>
+	<LI><SPAN CLASS="file"><A HREF="editor.html#input">データ入力方法の原則</A></SPAN>
+	<LI><SPAN CLASS="folder">使われるウィンドウ</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="editor.html#proj_window">プロジェクトウィンドウ</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="editor.html#class_window">クラスウィンドウ</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="editor.html#member_window">メンバーウィンドウ</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="editor.html#body_window">ボディウィンドウ</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="editor.html#output_window">アウトプットウィンドウ</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="editor.html#user_window">ユーザー定義ウィンドウ</A></SPAN>
+		</UL>
+	<BR>
+	<LI><SPAN CLASS="folder">メニュー項目</SPAN>
+		<UL>
+		<LI><SPAN CLASS="folder">プロジェクトウィンドウのメニュー項目</SPAN>
+			<UL>
+			<LI><SPAN CLASS="folder">ファイル</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#file_new">新規作成</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#file_open">開く</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#file_close">閉じる</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#file_exit">終了</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">編集</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#proj_up">上へ移動</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#proj_down">下へ移動</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">ウィンドウ</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#window_redraw">再表示</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#window_close">閉じる</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">その他</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#mark_output">アウトプットにマーク</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#load_with_output">ソースを出力しながら開く</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#gc">ガーベージコレクション</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#update_vtbl">VTBLアップデート</A></SPAN>
+				</UL>
+			</UL>
+		<LI><SPAN CLASS="folder">クラスウィンドウのメニュー項目</SPAN>
+			<UL>
+			<LI><SPAN CLASS="folder">ファイル</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#file_new">新規作成</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#file_open">開く</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#file_save">上書き保存</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#file_save_as">名前を変えて保存</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#file_print">印刷</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#file_exit">終了</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">編集</SPAN>
+				<UL>
+				<LI><SPAN CLASS="folder">挿入位置</SPAN>
+					<UL>
+					<LI><SPAN CLASS="file"><A HREF="editor.html#class_elder_brother">兄</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="editor.html#class_brother">弟</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="editor.html#class_child">子</A></SPAN>
+					</UL>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#class_up">上へ移動</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#class_down">下へ移動</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#class_left">左へ移動</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#class_right">右へ移動</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#class_delete">削除</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">クラス登録</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#class_regist_list">登録クラスリスト</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#class_regist">登録</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#class_unregist">登録解除</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">ライブラリ</SPAN>
+				<UL>
+				<LI><SPAN CLASS="folder">作成</SPAN>
+					<UL>
+					<LI><SPAN CLASS="file"><A HREF="editor.html#class_mklib">テキスト形式</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="editor.html#class_mklib">グラフ形式</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="editor.html#class_mklib2">テキスト２形式</A></SPAN>
+						<UL>
+						<LI>クリア
+						<LI>クラスリスト
+						<LI>クラスの追加
+						<LI>作成
+						</UL>
+					</UL>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#class_lib_load">ロード</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#class_lib_tmp_load">一時ロード</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">ウィンドウ</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#window_redraw">再表示</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#window_close">閉じる</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#window_close_all">すべて閉じる</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">その他</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#mark_output">アウトプットにマーク</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#class_memory">メモリサイズ</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#gc">ガーベージコレクション</A></SPAN>
+				</UL>
+			</UL>
+		<LI><SPAN CLASS="folder">メンバーウィンドウのメニュー項目</SPAN>
+			<UL>
+			<LI><SPAN CLASS="folder">ファイル</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#file_new">新規作成</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#file_open">開く</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#file_save">上書き保存</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#file_save_as">名前を変えて保存</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#file_print">印刷</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#file_exit">終了</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">編集</SPAN>
+				<UL>
+				<LI><SPAN CLASS="folder">挿入位置</SPAN>
+					<UL>
+					<LI><SPAN CLASS="file"><A HREF="editor.html#member_upper">上</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="editor.html#member_lower">下</A></SPAN>
+					</UL>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#member_up">上へ移動</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#member_down">下へ移動</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#member_delete">削除</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">ウィンドウ</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#window_redraw">再表示</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#window_parent">親エディタ</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#window_close">閉じる</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#window_close_all">すべて閉じる</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">インタプリタ</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#interp_test">テスト実行</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#interp">実行</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">その他</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#mark_output">アウトプットにマーク</A></SPAN>
+				</UL>
+			</UL>
+		<LI><SPAN CLASS="folder">ボディウィンドウのメニュー項目</SPAN>
+			<UL>
+			<LI><SPAN CLASS="folder">ファイル</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#file_new">新規作成</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#file_open">開く</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#file_save">上書き保存</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#file_save_as">名前を変えて保存</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#file_print">印刷</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#file_exit">終了</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">編集</SPAN>
+				<UL>
+				<LI><SPAN CLASS="folder">挿入位置</SPAN>
+					<UL>
+					<LI><SPAN CLASS="file"><A HREF="editor.html#body_upper">上</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="editor.html#body_lower">下</A></SPAN>
+					</UL>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#body_cut">カット</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#body_copy">コピー</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#body_paste">貼り付け</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#body_delete">削除</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">ウィンドウ</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#window_redraw">再表示</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#window_parent">親エディタ</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#window_close">閉じる</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#window_close_all">すべて閉じる</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">その他</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="editor.html#mark_output">アウトプットにマーク</A></SPAN>
+				</UL>
+			</UL>
+		<LI><SPAN CLASS="file"><A HREF="editor.html#user_menu">ユーザー定義ウィンドウのメニュー項目</A></SPAN>
+		</UL>
+	</UL>
+<LI><SPAN CLASS="folder"><A HREF="langspec.html">言語仕様</A></SPAN>
+	<UL>
+	<LI><SPAN CLASS="file"><A HREF="langspec.html#syntax">文法</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="langspec.html#type">型</A></SPAN>
+	<LI><SPAN CLASS="folder">一次式</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="langspec.html#const">定数</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="langspec.html#arg">引数</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="langspec.html#loc">ローカル変数</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="langspec.html#class_var">クラス変数</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="langspec.html#obj_var">オブジェクト変数</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="langspec.html#class_func">クラス関数</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="langspec.html#obj_func">オブジェクト関数</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="langspec.html#func_ptr">関数ポインタ</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="langspec.html#sys_func">システム関数</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="langspec.html#new">new</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="langspec.html#this">this</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">演算子</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="langspec.html#comp_op">比較演算子</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="langspec.html#assign_op">代入演算子</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="langspec.html#arith_op">算術演算子</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="langspec.html#logic_op">論理演算子</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="langspec.html#shift_op">シフト演算子</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="langspec.html#unary_op">一項演算子</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">制御演算子</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="langspec.html#cond_op">条件式三項演算子</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="langspec.html#cond_logic_op">条件式論理演算子</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="file"><A HREF="langspec.html#ctrl">制御文</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="langspec.html#oleauto">OLEオートメーション</A></SPAN>
+	</UL>
+<LI><SPAN CLASS="folder"><A HREF="sysfunc.html">システム関数</A></SPAN>
+	<UL>
+	<LI><SPAN CLASS="folder">算術関数</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_sqrt">al_sqrt</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_sin">al_sin</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_cos">al_cos</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_tan">al_tan</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_asin">al_asin</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_acos">al_acos</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_atan">al_atan</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_exp">al_exp</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_log">al_log</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_max">al_max</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_min">al_min</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_abs">al_abs</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_math_misc">al_math_misc</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">リスト操作関数</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_cons">al_cons</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_append_list">al_append_list</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_list2">al_list2</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_list3">al_list3</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_list4">al_list4</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_list5">al_list5</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_list6">al_list6</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_list7">al_list7</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_list8">al_list8</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_scan_list">al_scan_list</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_print_list">al_print_list</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_list_elem">al_list_elem</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_set_list_elem">al_set_list_elem</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_list_misc">al_list_misc</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">配列操作関数</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_create_array">al_create_array</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">グラフ操作関数</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_dst_itr">al_dst_itr</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_src_itr">al_src_itr</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_next">al_next</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_next_a">al_next_a</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_next_a2">al_next_a2</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_prev">al_prev</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_prev_a">al_prev_a</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_prev_a2">al_prev_a2</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_component">al_component</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_insert">al_insert</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_append">al_append</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_remove">al_remove</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_arc_a">al_arc_a</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_set_arc_a">al_set_arc_a</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_count">al_count</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_count2">al_count2</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_index_pos">al_index_pos</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_search">al_search</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_create_arc">al_create_arc</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_create_assoc_arc">al_create_assoc_arc</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_create_ordered_arc">al_create_ordered_arc</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_dst_node">al_dst_node</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_dst_node_i">al_dst_node_i</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_src_node">al_src_node</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_set_dst_node">al_set_dst_node</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_next_dst_node">al_next_dst_node</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_prev_dst_node">al_prev_dst_node</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_next_src_node">al_next_src_node</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_prev_src_node">al_prev_src_node</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_insert_before">al_insert_before</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_append_after">al_append_after</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_remove_from">al_remove_from</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_copy">al_copy</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_dst_itr2">al_dst_itr2</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_arc_dst">al_arc_dst</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_src_itr2">al_src_itr2</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_arc_src">al_arc_src</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc1.html#al_graph_misc">al_graph_misc</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">ポリポリゴン操作関数</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_create_poly_poly">al_create_poly_poly</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_create_next_poly">al_create_next_poly</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_add_point_to_poly">al_add_point_to_poly</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_add_rect_to_poly">al_add_rect_to_poly</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_add_curve_to_poly">al_add_curve_to_poly</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_intersection">al_intersection</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_union">al_union</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">3x3行列操作関数</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_unit_tm">al_unit_tm</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_translate_tm">al_translate_tm</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_sacle_tm">al_scale_tm</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_rotate_tm">al_rotate_tm</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_transform">al_transform</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_inverse">al_inverse</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_transform_poly">al_transform_poly</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_inverse_poly">al_inverse_poly</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_transform_rect">al_transform_rect</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">GUI関数</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_print">al_print</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_ask">al_ask</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_menu_select">al_menu_select</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_get_read_filename">al_get_read_filename</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_get_write_filename">al_get_write_filename</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_get_color">al_get_color</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_get_font">al_get_font</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_message_text">al_message_text</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_input_by_cedit">al_input_by_cedit</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_create_window">al_create_window</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_user_edit">al_user_edit</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_set_window_arg">al_set_window_arg</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_set_draw_proc">al_set_draw_proc</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_set_event_proc">al_set_event_proc</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_set_move_ctrl_proc">al_set_move_ctrl_proc</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_set_destroy_proc">al_set_destroy_proc</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_set_activate_proc">al_set_activate_proc</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_set_text_ins_proc">al_set_text_ins_proc</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_set_title">al_set_title</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_get_title">al_get_title</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_set_menu">al_set_menu</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_get_window_rect">al_get_window_rect</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_set_window_rect">al_set_window_rect</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_resize_window">al_resize_window</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_move_window">al_move_window</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_show_window">al_show_window</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_hide_window">al_hide_window</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_destroy_window">al_destroy_window</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_push_clipping">al_push_clipping</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_pop_clipping">al_pop_clipping</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_clipping">al_clipping</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_is_clipped">al_is_clipped</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_push_bg_color">al_push_bg_color</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_pop_bg_color">al_pop_bg_color</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_push_color_func">al_push_color_func</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_pop_color_func">al_pop_color_func</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_get_sys_color">al_get_sys_color</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_push_pen">al_push_pen</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_pop_pen">al_pop_pen</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_push_brush">al_push_brush</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_pop_brush">al_pop_brush</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_push_font">al_push_font</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_pop_font">al_pop_font</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_push_font_ex">al_push_font_ex</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_push_tm">al_push_tm</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_pop_tm">al_pop_tm</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_window_tm">al_window_tm</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_is_printing">al_is_printing</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_start_quick_draw">al_start_quick_draw</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_end_quick_draw">al_end_quick_draw</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_point">al_point</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_line">al_line</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_rectangle">al_rectangle</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_ellipse">al_ellipse</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_polyline">al_polyline</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_polygon">al_polygon</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_text">al_text</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_text_width">al_text_width</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_text_from_to">al_text_from_to</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_text_width_from_to">al_text_width_from_to</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_m_text">al_m_text</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_pie">al_pie</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_bitmap">al_bitmap</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_image">al_image</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_damage">al_damage</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_damage_rect_poly">al_damage_rect_poly</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_is_damaged">al_is_damaged</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_repair">al_repair</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_redraw">al_redraw</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_local_loop">al_local_loop</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_exit_loop">al_exit_loop</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_file_print">al_file_print</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc2.html#al_gui_misc">al_gui_misc</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">ファイル入出力関数</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_file_open">al_file_open</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_file_read">al_file_read</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_file_write">al_file_write</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_file_manip">al_file_manip</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_file_match_str">al_file_match_str</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">文字列処理関数</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_strlen">al_strlen</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_get_char">al_get_char</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_set_char">al_set_char</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_substr">al_substr</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_match_str">al_match_str</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_tail_str">al_tail_str</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_insert_char">al_insert_char</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_delete_char">al_delete_char</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_search_str">al_search_str</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_replace_str">al_replace_str</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_append_str">al_append_str</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_is_first_char">al_is_first_char</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_is_normal_char">al_is_normal_char</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_str_misc">al_str_misc</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">Socket関数</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_socket">al_socket</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">暗号関数</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_crypt">al_crypt</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">RDBアクセス関数</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_sql">al_sql</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">XML関数</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_xml">al_xml</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">プロファイリング関数</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_prof">al_prof</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">ソリッドモデリング関数</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_solid">al_solid</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">日本語自然言語処理関数</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_jp_ana">al_jp_ana</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">汎用パーサー・汎用ジェネレータ・汎用グラフデータ操作</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_symbol_manip">al_symbol_manip</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">その他</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_is_type">al_is_type</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_addr_eq">al_addr_eq</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_get_id">al_get_id</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_release_id">al_release_id</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_is_class">al_is_class</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_is_derived">al_is_derived</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_gp">al_gp</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_next_process">al_next_process</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_exit_process">al_exit_process</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_wait">al_wait</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_notify">al_notify</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_set_clipboard">al_set_clipboard</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_get_clipboard">al_get_clipboard</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_gc">al_gc</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_exec">al_exec</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_library">al_library</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_wnd_message">al_wnd_message</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_script">al_script</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_dll">al_dll</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_misc">al_misc</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">OCX関連</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_ocx">al_ocx</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_set_method">al_set_method</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_arg">al_arg</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_fire_event">al_fire_event</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_root_class">al_root_class</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sysfunc3.html#al_ole_misc">al_ole_misc</A></SPAN>
+		</UL>
+	</UL>
+<LI><SPAN CLASS="folder"><A HREF="filelib.html">ライブラリについて</A></SPAN>
+	<UL>
+	<LI><SPAN CLASS="file"><A HREF="filelib.html#create">ライブラリの作成</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="filelib.html#load">ライブラリのロードについて</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="filelib.html#derived">ライブラリクラスの派生</A></SPAN>
+	</UL>
+<LI><SPAN CLASS="file"><A HREF="cmdline.html">コマンドラインからの実行</A></SPAN>
+<LI><SPAN CLASS="folder"><A HREF="sample.html">サンプル</A></SPAN>
+	<UL>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#scribble">GUI基本サンプル</A></SPAN>
+	<LI>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#prepare">前準備</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#usage">サンプルの使い方</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#gui">GUIクラスライブラリ</A></SPAN>
+	<LI><SPAN CLASS="folder"><A HREF="sample.html#gbgp">GUIビルダ&amp;結線プログラミング</A></SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="gbgp/gbgp.html">GbGpのマニュアル</A></SPAN>
+		<LI><SPAN CLASS="folder"><A HREF="gbgp/project.html">プロジェクト管理/部品管理</A></SPAN>
+			<UL>
+			<LI><SPAN CLASS="file"><A HREF="gbgp/project.html#startup">GbGpの起動</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="gbgp/project.html#new">プロジェクト新規作成</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="gbgp/project.html#open">プロジェクトを開く</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="gbgp/project.html#save">プロジェクトの保存</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="gbgp/project.html#close">プロジェクトを閉じる</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="gbgp/project.html#execute">プロジェクトの実行</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="gbgp/project.html#package">プロジェクトのパッケージング</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="gbgp/project.html#select">画面種の選択</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="gbgp/project.html#new_gamen">新規画面の作成</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="gbgp/project.html#open_gamen">画面を開く</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="gbgp/project.html#delete_gamen">画面の削除</A></SPAN>
+			</UL>
+		<LI><SPAN CLASS="folder"><A HREF="gbgp/guibuild.html">GUIビルダ</A></SPAN>
+			<UL>
+			<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#new_open">新規作成/開く</A></SPAN>
+			<LI><SPAN CLASS="folder">メニュー項目</A></SPAN>
+				<UL>
+				<LI><SPAN CLASS="folder">配置</SPAN>
+					<UL>
+					<LI><SPAN CLASS="folder">図形</SPAN>
+						<UL>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#place_rectangle">四角形</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#place_ellipse">楕円</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#place_line">線分</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#place_arrow_line">矢印付き線分</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#place_path">パス</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#place_arrow_path">矢印付きパス</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#place_label">ラベル</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#place_m_label">折り返しラベル</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#place_frame_label">枠付きラベル</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#place_static_label">編集禁止ラベル</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#place_image">イメージ</A></SPAN>
+						</UL>
+					<LI><SPAN CLASS="folder">コントロール</SPAN>
+						<UL>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#place_button">ボタン</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#place_v_scroll">垂直スクロールバー</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#place_h_scroll">水平スクロールバー</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#place_listbox">リストボックス</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#place_combobox">コンボボックス</A></SPAN>
+						</UL>
+					<LI><SPAN CLASS="folder">エディタ</SPAN>
+						<UL>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#place_pict_editor">図形エディタ</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#place_graph_editor">グラフエディタ</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#place_hier_editor">階層エディタ</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#place_tbl_editor">表エディタ</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#place_text_editor">テキストエディタ</A></SPAN>
+						</UL>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#place_ocx">OCX</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#place_subgui">サブGUI画面</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#place_custom">カスタム</A></SPAN>
+					</UL>
+				<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#genarate">ソース生成</A></SPAN>
+				<LI><SPAN CLASS="folder">編集</SPAN>
+					<UL>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#edit_raise">Raise</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#edit_lower">Lower</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#edit_delete">削除</A></SPAN>
+					</UL>
+				<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#name">名前</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#x_pos">X座標</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#y_pos">Y座標</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#attrib">属性</A></SPAN>
+				<LI><SPAN CLASS="folder">位置揃え</SPAN>
+					<UL>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#align_h_top">横 上</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#align_h_center">横 中</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#align_h_bottom">横 下</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#align_v_left">縦 左</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#align_v_center">縦 中</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#align_v_right">縦 右</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#align_h">横 均等</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#align_v">縦 均等</A></SPAN>
+					</UL>
+				<LI><SPAN CLASS="folder">アタッチメント</SPAN>
+					<UL>
+					<LI><SPAN CLASS="folder">追加/修正</SPAN>
+						<UL>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#attach_left">左</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#attach_top">上</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#attach_right">右</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#attach_bottom">下</A></SPAN>
+						</UL>
+					<LI><SPAN CLASS="folder">Opposite追加/修正</SPAN>
+						<UL>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#o_attach_left">左</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#o_attach_top">上</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#o_attach_right">右</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#o_attach_bottom">下</A></SPAN>
+						</UL>
+					<LI><SPAN CLASS="folder">削除</SPAN>
+						<UL>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#d_attach_left">左</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#d_attach_top">上</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#d_attach_right">右</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#d_attach_bottom">下</A></SPAN>
+						</UL>
+					</UL>
+				<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#connect_scroll">コネクトスクロール</A></SPAN>
+				<LI><SPAN CLASS="folder">モード</SPAN>
+					<UL>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#mode_layout">レイアウト</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#mode_exec">実行</A></SPAN>
+					</UL>
+				<LI><SPAN CLASS="file"><A HREF="gbgp/guibuild.html#add_custom">カスタム追加</A></SPAN>
+				</UL>
+			</UL>
+		<LI><SPAN CLASS="folder"><A HREF="gbgp/lineconn.html">結線プログラミング</A></SPAN>
+			<UL>
+			<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#open_prog">プログラム画面を開く</A></SPAN>
+			<LI><SPAN CLASS="folder">画面ウィンドウのメニュー項目</SPAN>
+				<UL>
+				<LI><SPAN CLASS="folder">ノード</SPAN>
+					<UL>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#prog_class">既存クラス</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#prog_new_class">新規クラス</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#prog_new_var">新規変数</A></SPAN>
+					</UL>
+				<LI><SPAN CLASS="folder">編集</SPAN>
+					<UL>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#prog_delete">削除</A></SPAN>
+					</UL>
+				</UL>
+			<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#open_class">クラスウィンドウを開く</A></SPAN>
+			<LI><SPAN CLASS="folder">クラスウィンドウのメニュー項目</SPAN>
+				<UL>
+				<LI><SPAN CLASS="folder">ノード</SPAN>
+					<UL>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#object">オブジェクト</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#new_v_func">新規virtual関数</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#new_s_func">新規static関数</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#child_port">子ポート</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#insert_port">ポート挿入</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#append_port">ポート追加</A></SPAN>
+					</UL>
+				<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#arc">アーク</A></SPAN>
+				<LI><SPAN CLASS="folder">編集</SPAN>
+					<UL>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#class_delete">削除</A></SPAN>
+					</UL>
+				<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#regist_func">関数登録</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#generate">ソース生成</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#use_for_exec">実行に使用</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#open_member">メンバーウィンドウを開く</A></SPAN>
+			<LI><SPAN CLASS="folder">メンバーウィンドウのメニュー項目</SPAN>
+				<UL>
+				<LI><SPAN CLASS="folder">ノード</SPAN>
+					<UL>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#class">クラス</A></SPAN>
+					<LI><SPAN CLASS="folder">オブジェクト</SPAN>
+						<UL>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#object">新規</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#ident">分身</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#const">定数</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#this">this</A></SPAN>
+						</UL>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#member_var">メンバー変数</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#member_func">メンバー関数</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#sys_func">システム関数</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#macro">マクロ</A></SPAN>
+					<LI><SPAN CLASS="folder">ポート</SPAN>
+						<UL>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#child_port">子ポート</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#insert_port">挿入</A></SPAN>
+						<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#append_port">追加</A></SPAN>
+						</UL>
+					</UL>
+				<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#arc">アーク</A></SPAN>
+				<LI><SPAN CLASS="folder">編集</SPAN>
+					<UL>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#member_copy">コピー</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#member_paste">ペースト</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#member_delete">削除</A></SPAN>
+					</UL>
+				<LI><SPAN CLASS="folder">表示</SPAN>
+					<UL>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#view_large">拡大</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#view_small">縮小</A></SPAN>
+					</UL>
+				<LI><SPAN CLASS="folder">Wizard</SPAN>
+					<UL>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#wizard_new">New</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#wizard_window">Window</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="gbgp/lineconn.html#wizard_callback">Callback</A></SPAN>
+					</UL>
+				</UL>
+			</UL>
+		</UL>
+	<LI>
+	<LI><SPAN CLASS="folder"><A HREF="sample.html#para">並列処理サンプル</A></SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="sample.html#kaijo">階乗計算</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sample.html#sosu">エラトステネスのふるい</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#ocx">OCXサンプル</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#build">ビルドサンプル</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#build2">ビルドサンプル2</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#stdio">起動EXEの標準入出力(パイプ)サンプル</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#mapfile">共有メモリサンプル</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#script">Altairスクリプトサンプル</A></SPAN>
+	<LI><SPAN CLASS="folder"><A HREF="sample.html#orb">プロセス間プロシージャコールサンプル</A></SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="sample/orb.html">概要</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sample/orb.html#sample">サンプル</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sample/orb.html#struct">サンプルの構造</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sample/orb.html#api">共通ライブラリの主なAPI</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sample/orb.html#code">サンプルコード</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="sample/orb.html#seq">メッセージシーケンスチャート</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder"><A HREF="sample.html#javaide">簡易JavaIDEサンプル</A></SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="sample/javaide.html">概要</A></SPAN>
+		<LI><SPAN CLASS="folder">使われるウィンドウ</SPAN>
+			<UL>
+			<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#main_window">Mainウィンドウ</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#project_window">Projectウィンドウ</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#class_window">Classウィンドウ</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#member_window">Memberウィンドウ</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#bean_window">Beanウィンドウ</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_window">Debugウィンドウ</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#output_window">Outputウィンドウ</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#breakpoint_window">Breakpointウィンドウ</A></SPAN>
+			</UL>
+		<LI><SPAN CLASS="folder">Mainウィンドウのメニュー項目</SPAN>
+			<UL>
+			<LI><SPAN CLASS="folder">File</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#main_file_exit">Exit</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">Edit</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#main_edit_new">New</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#main_edit_open">Open</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#main_edit_close">Close</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">Environment</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#main_env_texteditor">TextEditor</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#main_env_srcpath">SourcePath</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#main_env_verctrl">VersionControl</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#main_env_browser">WebBrowser</A></SPAN>
+				</UL>
+			</UL>
+		<LI><SPAN CLASS="folder">Projectウィンドウのメニュー項目</SPAN>
+			<UL>
+			<LI><SPAN CLASS="folder">File</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_file_close">Close</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">Edit</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_edit_open_editor">OpenEditor</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_edit_open_debugview">OpenDebugView</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_edit_addfile">AddFile</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_edit_remfile">RemoveFile</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_edit_addallfiles">AddAllFiles</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">Tool</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_tool_classbrowser">ClassBrowser</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_tool_texteditor">TextEditor</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">Project</SPAN>
+				<UL>
+				<LI><SPAN CLASS="folder">Debug</SPAN>
+					<UL>
+					<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_run">Run</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_stop">Stop</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_command">Command</A></SPAN>
+					</UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_build">Build</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_rebuild">Rebuild</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_deprecation">Deprecation</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_stop_build">StopBuild</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_clear">Clear</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_run">Run</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_stop">Stop</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">Environment</SPAN>
+				<UL>
+				<LI><SPAN CLASS="folder">Kind</SPAN>
+					<UL>
+					<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_env_application">Application</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_env_applet">Applet</A></SPAN>
+					</UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_env_dstdir">DestinationDirectory</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_env_import">Import</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_env_srcpath">SourcePath</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">VersionControl</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_ver_ci">CheckIn</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_ver_co">CheckOut</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_ver_get">Get</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_ver_lock">Lock</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_ver_unlock">Unlock</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_ver_log">History</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#proj_ver_diff">Diff</A></SPAN>
+				</UL>
+			</UL>
+		<LI><SPAN CLASS="folder">Classウィンドウのメニュー項目</SPAN>
+			<UL>
+			<LI><SPAN CLASS="folder">File</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#class_file_close">Close</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">Edit</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#class_edit_archive">Archive</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#class_edit_projclasses">ProjectClasses</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#class_edit_addclass">AddClass</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#class_edit_find">Find</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#class_edit_findnext">FindNext</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">View</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#class_view_classinfo">ClassInfo</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#class_view_memberinfo">MemberInfo</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#class_view_beaninfo">BeanInfo</A></SPAN>
+				</UL>
+			</UL>
+		<LI><SPAN CLASS="folder">Memberウィンドウのメニュー項目</SPAN>
+			<UL>
+			<LI><SPAN CLASS="folder">File</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#member_file_close">Close</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">Edit</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#member_edit_find">Find</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#member_edit_findnext">FindNext</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">View</SPAN>
+				<UL>
+				<LI><SPAN CLASS="folder">Declared</SPAN>
+					<UL>
+					<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#member_view_dec">declared only (default)</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#member_view_dec_all">All</A></SPAN>
+					</UL>
+				<LI><SPAN CLASS="folder">Protection</SPAN>
+					<UL>
+					<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#member_view_pro_public">public only</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#member_view_pro_public_protected">public protected only</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#member_view_pro_all">All (default)</A></SPAN>
+					</UL>
+				<LI><SPAN CLASS="folder">Static</SPAN>
+					<UL>
+					<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#member_view_static_not">not static only</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#member_view_static">static only</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#member_view_static_all">All (default)</A></SPAN>
+					</UL>
+				<LI><SPAN CLASS="folder">Kind</SPAN>
+					<UL>
+					<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#member_view_kind_field">field only</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#member_view_kind_constuctor">constructor only</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#member_view_kind_method">method only</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#member_view_kind_all">All (default)</A></SPAN>
+					</UL>
+				</UL>
+			</UL>
+		<LI><SPAN CLASS="folder">Beanウィンドウのメニュー項目</SPAN>
+			<UL>
+			<LI><SPAN CLASS="folder">File
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#bean_file_close">Close</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">Edit</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#bean_edit_find">Find</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#bean_edit_findnext">FindNext</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">View</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#bean_view_all">All (default)</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#bean_view_method">Method only</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#bean_view_property">Property only</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#bean_view_event">Event only</A></SPAN>
+				</UL>
+			</UL>
+		<LI><SPAN CLASS="folder">Debugウィンドウのメニュー項目</SPAN>
+			<UL>
+			<LI><SPAN CLASS="folder">File</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_file_new">New</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_file_open">Open</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_file_save">Save</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_file_save_as">Save As</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_file_close">Close</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">Edit</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_edit_cut">Cut</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_edit_copy">Copy</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_edit_paste">Paste</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_edit_clear">Cear</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_edit_jump">Jump</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_edit_lno">LineNumber</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">Search</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_search_find">Find</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_search_findnext">FindNext</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_search_rep">Replace</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_search_repnext">ReplaceNext</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_search_grep">Grep</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">Debug</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_cont">Continue</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_step_in">StepIn</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_step_over">StepOver</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_step_out">StepOut</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_run">Run</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_stop">Stop</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_watch">watch</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_command">Command</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#debug_jdb">jdb</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">BreakPoint</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#break_set">Set</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#break_unset">Unset</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#break_list">List</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">Watch</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#watch_add">AddVariable</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#watch_rem">RemoveVariable</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#watch_list">List</A></SPAN>
+				</UL>
+			</UL>
+		<LI><SPAN CLASS="folder">Outputウィンドウのメニュー項目</SPAN>
+			<UL>
+			<LI><SPAN CLASS="folder">File</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#out_file_close">Close</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">Edit</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#out_edit_copy">Copy</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#out_edit_clear">Cear</A></SPAN>
+				</UL>
+			</UL>
+		<LI><SPAN CLASS="folder">BreaPointウィンドウのメニュー項目</SPAN>
+			<UL>
+			<LI><SPAN CLASS="folder">File</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#break_file_close">Close</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">Edit</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#break_edit_jump">Jump</A></SPAN>
+				</UL>
+			</UL>
+		<LI><SPAN CLASS="folder">制限事項</SPAN>
+			<UL>
+			<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#windows_only">動作するプラットフォーム</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="sample/javaide.html#browse_ng_class">クラスブラウズ不可能なクラス</A></SPAN>
+			</UL>
+		</UL>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#xml">XMLサンプル</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#socket">Socketサンプル</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#dll">ダイナミックロードとネイティブ呼び出しサンプル</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#httpd">簡易HTTPサーバ/簡単なHTTPクライアント</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#mail">簡易STMPクライアント</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#crypt">暗号化/認証基本機能テストサンプル</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#sql">DBアクセス基本機能テストサンプル</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#db2csv">DBテーブルの内容をCSVファイルにダンプするサンプル</A></H3></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#csv2db">CSVファイルの内容をDBテーブルにストアするサンプル</A></H3></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#httpsd">簡易HTTPSサーバ/簡単なHTTPSクライアント</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#smime">SMIME 暗号/署名サンプル</A></SPAN>
+	<LI><SPAN CLASS="folder"><A HREF="sample.html#prof">性能測定のためのプロファイリングサンプル</A></SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="seino.html">概要</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="seino.html#basic">基本性能</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="seino.html#xml_parser">XMLパーサの性能</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="seino.html#gui">スタンドアロンプログラムのGUIの性能</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="seino.html#socket">簡易HTTPサーバの性能</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="seino.html#db">DBアクセスの性能</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#servlet">簡易サーブレットエンジンサンプル</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#xslt">簡易XSLTプロセッサ</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#solid">ソリッドモデリング</A></SPAN>
+	<LI>
+	<LI><SPAN CLASS="folder"><A HREF="sample.html#account">財務会計ソフト</A></SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="account/account.html">概要</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="account/account.html#ah">勘定科目</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="account/account.html#chk">伝票</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="account/account.html#ldgr">元帳</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="account/account.html#stmt">財務諸表</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="account/account.html#backup">バックアップ</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder"><A HREF="sample.html#web_shop">Webショッピングサイトサンプル</A></SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="web_shop/web_shop.html">概要</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="web_shop/web_shop.html#cart">カート</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="web_shop/web_shop.html#regist">ユーザ登録</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="web_shop/web_shop.html#buy">購入</A></SPAN>
+		<LI>
+		<LI><SPAN CLASS="file"><A HREF="web_shop/web_shop.html#order">注文確認</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="web_shop/web_shop.html#seller">在庫確認、発送、入金確認</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="web_shop/web_shop.html#backup">バックアップ</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder"><A HREF="sample.html#server">簡易APサーバ</A></SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="ap_server/ap_server.html">概要</A></SPAN>
+		<LI><SPAN CLASS="folder"><A HREF="ap_server/ap_server.html#xml_utility">XMLユーティリティ</A></SPAN>
+			<UL>
+			<LI><SPAN CLASS="file"><A HREF="ap_server/xml_util.html">概要</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="ap_server/xml_util_acc.html">XmlDbAccessor</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="ap_server/xml_util_obj.html">XmlDbObject</A></SPAN>
+			</UL>
+		<LI><SPAN CLASS="file"><A HREF="ap_server/ap_server.html#process_engine">プロセスエンジン</A></SPAN>
+		<LI><SPAN CLASS="folder"><A HREF="ap_server/ap_server.html#meta_web_ui">メタWebUI</A></SPAN>
+			<UL>
+			<LI><SPAN CLASS="file"><A HREF="ap_server/meta_webui.html">詳細</A></SPAN>
+			</UL>
+		<LI>
+		<LI><SPAN CLASS="folder"><A HREF="ap_server/ap_server.html#rosetta">簡易RosettaNetサーバ</A></SPAN>
+			<UL>
+			<LI><SPAN CLASS="folder">初期設定とサンプルの動かし方</SPAN>
+				<UL>
+				<LI><SPAN CLASS="folder">初期設定</SPAN>
+					<UL>
+					<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_start.html#db_create_table">DBテーブルの作成</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_start.html#db_conn_info">DB接続設定</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_start.html#db_init">DB初期化</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_start.html#login">画面からログイン</A></SPAN>
+					</UL>
+				<LI><SPAN CLASS="folder">サンプルの動かし方</SPAN>
+					<UL>
+					<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_start.html#sample_overview">サンプル概要</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_start.html#buyer_login">バイヤーログイン</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_start.html#buyer_catalog">バイヤー購買登録</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_start.html#buyer_approval">バイヤー購買承認</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_start.html#buyer_transmit">バイヤー発注</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_start.html#po_comm_log1">発注メッセージ通信ログ</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_start.html#supplier_login">サプライヤーログイン</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_start.html#supplier_catalog">サプライヤー受付</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_start.html#supplier_inventory">サプライヤー在庫確認</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_start.html#supplier_fulfill">サプライヤー配送</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_start.html#supplier_invoice">サプライヤー請求</A></SPAN>
+					<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_start.html#po_comm_log2">受注/配送/請求メッセージ通信ログ</A></SPAN>
+					</UL>
+				<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_start.html#smtp">SMTP通信</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_start.html#sync">同期通信</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_start.html#proxy">Proxy経由通信</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">管理画面</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_admin_ui.html#login">ログイン</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_admin_ui.html#home">管理画面ホーム</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_admin_ui.html#proc_def">プロセス定義</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_admin_ui.html#proc_inst">プロセスインスタンス</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_admin_ui.html#system_log">システムログ</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_admin_ui.html#comm_log">通信ログ</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_admin_ui.html#access_log">アクセスログ</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_admin_ui.html#process_log">プロセスログ</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_admin_ui.html#backup">バックアップとリストア</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_admin_ui.html#user">ユーザ管理</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_admin_ui.html#my_info">自社情報管理</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_admin_ui.html#partner_info">パートナー情報管理</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_admin_ui.html#pip_info">PIPメッセージプロパティ管理</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">メタWebUI画面</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_metawebui.html#login">ログイン</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_metawebui.html#menu">メニュー編集</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_metawebui.html#view">ビュー編集</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_metawebui.html#selectable">セレクタブル編集</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">環境設定項目</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_setting.html#config_xml">config.xml</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_setting.html#my_info">自社サーバーの設定</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_setting.html#partner_info">パートナー毎の設定</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_setting.html#pip_info">PIPの設定</A></SPAN>
+				</UL>
+			<LI><SPAN CLASS="folder">性能</SPAN>
+				<UL>
+				<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_perform.html#large_message">サイズの大きいXMLメッセージの処理時間</A></SPAN>
+				<LI><SPAN CLASS="file"><A HREF="ap_server/rosetta_perform.html#throughput">スループット</A></SPAN>
+				</UL>
+			</UL>
+		<LI><SPAN CLASS="file"><A HREF="ap_server/ap_server.html#class">クラス一覧と簡単な説明</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#mapper">XMLマッパー</A></SPAN>
+	<LI>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#jp_nl">日本語自然言語処理</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#parser_generator">汎用パーサー＆汎用ジェネレーター</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#prolog">Prolog</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="sample.html#almath">数式処理システム</A></SPAN>
+	</UL>
+<LI><SPAN CLASS="folder"><A HREF="seino.html">性能について</A></SPAN>
+	<UL>
+	<LI><SPAN CLASS="file"><A HREF="seino.html#basic">基本性能</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="seino.html#xml_parser">XMLパーサの性能</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="seino.html#gui">スタンドアロンプログラムのGUIの性能</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="seino.html#socket">簡易HTTPサーバの性能</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="seino.html#db">DBアクセスの性能</A></SPAN>
+	</UL>
+<LI><SPAN CLASS="folder"><A HREF="debug.html">デバッグ機能</A></SPAN>
+	<UL>
+	<LI><SPAN CLASS="file"><A HREF="debug.html#basho_tokutei">エラーを起こした場所の特定</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="debug.html#print_bun">実行中のプリント文挿入</A></SPAN>
+	</UL>
+<LI><SPAN CLASS="folder"><A HREF="chuui.html">注意事項/制限事項</A></SPAN>
+	<UL>
+	<LI><SPAN CLASS="folder">一般的なこと</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#exit">終了する前に</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#exec">インタプリタ実行前に</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#infinite_loop">無限ループ</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#interactive">プログラムを実行しながらのプログラム修正</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#method_invoke">リフレクションでのメソッド呼び出し</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#single_thread">シングルスレッド</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#heap_size">ヒープサイズ</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#stack_size">スタックサイズ</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#print">プリント文字列長</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#sample">サンプルの上位互換性</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">言語/エディタ</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#same_class_name">クラス名の衝突</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#member_var">情報隠蔽</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#same_name">変数名の重複チェック</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#chg_member_var">メンバー変数名の変更</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#arg_of_override">オーバーライド関数の仮引数</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#chg_class_name">クラス名の変更</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#chg_member_func">メンバー関数名の変更</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#const">const</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#op_overload">オペレータオーバーロード</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#replace_ctrl">制御文の置き換え</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#insert_pos">テキスト挿入位置</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#close_wnd">ウィンドウのクローズ</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#class_delete">クラスの削除</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#cast_null_string">nullのキャスト</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">並列処理</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#parallel">ラウンドロビン</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">シリアライズ</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#serialize">シリアライズ可能オブジェクト</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">ライブラリ</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#kyodo_sagyo">テキスト２形式ライブラリ</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#graph_lib">グラフ形式ライブラリ</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#graph_lib2">ソースにAlObject、AlExceptionを含むライブラリ</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">GUI</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#wnd_size">GUI関係メッセージ</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">Linux版の注意事項/制限事項</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#not_implemented">Linux版未実装機能</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#ole2_ocx">OLE2/OCX機能</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#wnd_msg">ウィンドウメッセージ機能</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#shared_mem">プロセス間共有メモリ</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">Socket通信</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#async_send_linux">Socket非同期送信中の終了</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#ssl_socket">SSLソケットの制限</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">RDBアクセス</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#rdb_sync">SQL文実行でのメインスレッド停止</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#rdb_postgreSQL-MySQL-ODBC">PostgrSQL/MySQL ODBC</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">XML</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#dtd_loader">サンプルDTDローダー</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#put_xml">putXML</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#xslt">簡易XSLTプロセッサ</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">文字コード変換</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#convert">文字コード変換について</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">CSVファイル</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#csv">CSVファイル書き出しについて</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">スタンドアロンGUIサンプル</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#eval_gui">サンプルGUIクラスライブラリ</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#focus">タブ遷移</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#class_delete2">サンプルGUIビルダー/結線プログラミング(クラスの削除)</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">簡易APサーバサンプル</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#process_engine">プロセスエンジン</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#encoding">エンコーディング</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#ap_server_charset">文字コードセット</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#pop">POPクライアント</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">簡易Proxyサーバサンプル</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#proxy_perfrom">Proxyサーバの性能問題</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#web_proxy">WebサーバとProxyサーバのプロセス</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#proxy_ap">ProxyサーバとAPサーバのプロセス</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">ソリッドモデリング</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#solid_setop">形状の集合演算の制限</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">数式処理システム</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#math">多変数多項式の約分の制限</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">日本語形態素解析構文解析</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#jana">文字コードによる制限</A></SPAN>
+		</UL>
+	<LI><SPAN CLASS="folder">Altair OLEコントロール</SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="chuui.html#ocx">AlCtrlの制限事項</A></SPAN>
+		</UL>
+	</UL>
+<LI><SPAN CLASS="folder"><A HREF="diff.html">履歴情報</A></SPAN>
+	<UL>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#045">第0.45版 20xx年xx月xx日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#044">第0.44版 2020年 2月16日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#043">第0.43版 2016年10月23日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#042">第0.42版 2015年 9月 7日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#041">第0.41版 2015年 1月25日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#040">第0.40版 2013年 5月19日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#039">第0.39版 2010年 9月23日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#038">第0.38版 2008年 2月10日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#037">第0.37版 2006年 4月 2日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#035">第0.35版 2004年 5月30日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#033">第0.33版 2003年 8月31日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#032">第0.32版 2003年 8月15日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#031">第0.31版 2003年 7月29日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#030">第0.30版 2003年 6月29日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#029">第0.29版 2003年 4月13日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#028">第0.28版 2003年 1月 3日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#027">第0.27版 2002年 6月19日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#026">第0.26版 2001年11月23日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#025">第0.25版 2001年 9月23日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#024">第0.24版 2001年 9月 1日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#023">第0.23版 2001年 8月18日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#022">第0.22版 2001年 7月20日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#021">第0.21版 2001年 5月 5日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#020">第0.20版 2001年 2月11日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#019">第0.19版 2000年12月17日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#018">第0.18版 2000年 9月15日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#017">第0.17版 2000年 4月 2日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#016">第0.16版 2000年 2月11日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#015">第0.15版 1999年12月23日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#014">第0.14版 1999年11月 3日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#013">第0.13版 1999年 5月 4日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#012">第0.12版 1998年11月23日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#011">第0.11版 1998年 5月30日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#010">第0.10版 1997年12月23日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#008">第0.08版 1997年 2月11日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#006">第0.06版 1996年11月23日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#005">第0.05版 1996年 9月30日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#004">第0.04版 1996年 8月15日</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="diff.html#003">第0.03版 1996年 5月 3日</A></SPAN>
+	<LI>第0.00版 1996年 2月11日
+	</UL>
+<LI><SPAN CLASS="folder"><A HREF="yotei.html">今後の予定</A></SPAN>
+	<UL>
+	<LI><SPAN CLASS="file"><A HREF="yotei.html#linux">Linux対応</A></SPAN>
+	<LI><SPAN CLASS="file"><A HREF="yotei.html#gdb">グラフデータベース</A></SPAN>
+	</UL>
+<LI><SPAN CLASS="folder">OLE2/OCX関連(Windows only)</SPAN>
+	<UL>
+	<LI><SPAN CLASS="folder"><A HREF="alctrl.html">Altair OLE コントロール</A></SPAN>
+		<UL>
+		<LI><SPAN CLASS="file"><A HREF="alctrl.html#name_prog_id">名前とProgID</A></SPAN>
+		<LI><SPAN CLASS="file"><A HREF="alctrl.html#pointer">AltairのオブジェクトのOLEオートメーションでの受け渡し</A></SPAN>
+		<LI><SPAN CLASS="folder">AlCtrlのメソッド</SPAN>
+			<UL>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#InetLibrary">InetLibrary</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#InetProgram">InetProgram</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#InetBody">InetBody</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#SetRootClass">SetRootClass</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#GetWnd">GetWnd</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#SaveBody">SaveBody</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#SetLibraryPath">SetLibraryPath</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#LoadProgram">LoadProgram</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#LoadBody">LoadBody</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#GetRootClass">GetRootClass</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#Invoke">Invoke</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#Arg">Arg</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#Param">Param</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#DebugMode">DebugMode</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#Refresh">Refresh</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#AboutBox">AboutBox</A></SPAN>
+			</UL>
+		<LI><SPAN CLASS="folder">AlCtrlのプロパティ</SPAN>
+			<UL>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#Transparent">Transparent</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#BackColor">BackColor</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#BorderWidth">BorderWdith</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#LightColor">LightColor</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#ShadowColor">ShadowColor</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#EventName">EventName</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#EventParam">EventParam</A></SPAN>
+			</UL>
+		<LI><SPAN CLASS="folder">AlCtrlのイベント</SPAN>
+			<UL>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#FireEvent">FireEvent</A></SPAN>
+			</UL>
+		<LI><SPAN CLASS="folder">サンプル</SPAN>
+			<UL>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#sample_graph">グラフ構造エディタ</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#sample_button">プッシュボタン</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#sample_button200">プッシュボタン200</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="alctrl.html#sample_web">Webページのサンプル</A></SPAN>
+			</UL>
+		</UL>
+	<LI><SPAN CLASS="folder"><A HREF="olesvr.html">OLEサーバー機能</A></SPAN>
+		<UL>
+		<LI><SPAN CLASS="folder">メソッド</SPAN>
+			<UL>
+			<LI><SPAN CLASS="file"><A HREF="olesvr.html#Open">Open</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="olesvr.html#Run">Run</A></SPAN>
+			<LI><SPAN CLASS="file"><A HREF="olesvr.html#MakeGraphLibrary">MakeGraphLibrary</A></SPAN>
+			</UL>
+		</UL>
+	</UL>
+</UL>
+
+</BODY>
+</HTML>

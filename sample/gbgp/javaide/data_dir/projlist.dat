@@ -1,0 +1,34 @@
+B 18
+N 1 L
+N 2 S "TextEditor"
+N 3 S "C:/tool/Hidemaru/Hidemaru.exe"
+N 4 S "SourcePath"
+N 5 S "D:/jdk1.2/src"
+N 6 S "VersionControlCommandPath"
+N 7 S "D:/cyclic/bin"
+N 8 S "arctest.jpr    C:/altair/sample/gbgp/javaide/projects/arctest"
+N 9 S "classvw.jpr    C:/altair/sample/gbgp/javaide/projects/classvw"
+N 10 S "ftclient.jpr    C:/altair/sample/gbgp/javaide/projects/ftclient"
+N 11 S "ftserver.jpr    C:/altair/sample/gbgp/javaide/projects/ftserver"
+N 12 S "hostaddr.jpr    C:/altair/sample/gbgp/javaide/projects/hostaddr"
+N 13 S "jdbc.jpr    C:/altair/sample/gbgp/javaide/projects/jdbc"
+N 14 S "key.jpr    C:/altair/sample/gbgp/javaide/projects/key"
+N 15 S "netlib.jpr    C:/altair/sample/gbgp/javaide/projects/netlib"
+N 16 S "smplclnt.jpr    C:/altair/sample/gbgp/javaide/projects/smplclnt"
+N 17 S "smplsvr.jpr    C:/altair/sample/gbgp/javaide/projects/smplsvr"
+N 18 S "test.jpr    C:/altair/sample/gbgp/javaide/projects/test"
+a 1 3 2 0
+a 1 5 4 0
+a 1 7 6 0
+a 1 8 0 0
+a 1 9 0 0
+a 1 10 0 0
+a 1 11 0 0
+a 1 12 0 0
+a 1 13 0 0
+a 1 14 0 0
+a 1 15 0 0
+a 1 16 0 0
+a 1 17 0 0
+a 1 18 0 0
+E

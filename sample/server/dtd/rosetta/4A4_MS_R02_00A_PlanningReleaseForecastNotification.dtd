@@ -1,0 +1,284 @@
+<!--
+
+   RosettaNet XML Message Schema
+   4A4_MS_R02_00A_PlanningReleaseForecastNotification.dtd (16-May-2001 12:03)
+   This document has been prepared by Edifecs (http://www.edifecs.com/)
+   based On the Business Collaboration Framework from requirements
+   in conformance with the RosettaNet methodology.
+
+-->
+
+
+<!ENTITY % common-attributes "id  CDATA #IMPLIED" >
+ 
+<!ELEMENT Pip4A4PlanningReleaseForecastNotification ( 
+          CoreForecast ,
+          fromRole ,
+          GlobalDocumentFunctionCode ,
+          thisDocumentGenerationDateTime ,
+          thisDocumentIdentifier ,
+          toRole ) > 
+
+<!ELEMENT CoreForecast ( 
+          forecastGenerationDateTime ,
+          ForecastIdentifierReference* ,
+          GlobalForecastEventCode? ,
+          isFinalForecast ,
+          PartnerProductForecast+ ,
+          RevisionNumber ) > 
+
+<!ELEMENT forecastGenerationDateTime
+           ( DateTimeStamp ) > 
+
+<!ELEMENT DateTimeStamp
+           ( #PCDATA ) >
+
+<!ELEMENT ForecastIdentifierReference ( 
+          GlobalForecastReferenceTypeCode ,
+          LineNumber? ,
+          ProprietaryReferenceIdentifier ) > 
+
+<!ELEMENT GlobalForecastReferenceTypeCode
+           ( #PCDATA ) >
+
+<!ELEMENT LineNumber
+           ( #PCDATA ) >
+
+<!ELEMENT ProprietaryReferenceIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalForecastEventCode
+           ( #PCDATA ) >
+
+<!ELEMENT isFinalForecast
+           ( AffirmationIndicator ) > 
+
+<!ELEMENT AffirmationIndicator
+           ( #PCDATA ) >
+
+<!ELEMENT PartnerProductForecast ( 
+          ForecastPartner+ ,
+          ProductForecast+ ) > 
+
+<!ELEMENT ForecastPartner ( 
+          GlobalPartnerReferenceTypeCode ,
+          PartnerDescription ) > 
+
+<!ELEMENT GlobalPartnerReferenceTypeCode
+           ( #PCDATA ) >
+
+<!ELEMENT PartnerDescription ( 
+          BusinessDescription ,
+          ContactInformation? ,
+          GlobalPartnerClassificationCode ,
+          PhysicalAddress? ) > 
+
+<!ELEMENT BusinessDescription ( 
+          GlobalBusinessIdentifier ,
+          GlobalSupplyChainCode? ) > 
+
+<!ELEMENT GlobalBusinessIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT ContactInformation ( 
+          contactName ,
+          EmailAddress? ,
+          facsimileNumber? ,
+          telephoneNumber? ) > 
+
+<!ELEMENT contactName
+           ( FreeFormText ) > 
+
+<!ELEMENT FreeFormText
+           ( #PCDATA ) >
+<!ATTLIST FreeFormText
+           xml:lang CDATA #IMPLIED >
+
+<!ELEMENT EmailAddress
+           ( #PCDATA ) >
+
+<!ELEMENT facsimileNumber
+           ( CommunicationsNumber ) > 
+
+<!ELEMENT CommunicationsNumber
+           ( #PCDATA ) >
+
+<!ELEMENT telephoneNumber
+            ( CommunicationsNumber ) > 
+
+<!ELEMENT GlobalPartnerClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT PhysicalAddress ( 
+          addressLine1? ,
+          addressLine2? ,
+          addressLine3? ,
+          cityName? ,
+          GlobalCountryCode? ,
+          GlobalLocationIdentifier? ,
+          NationalPostalCode? ,
+          postOfficeBoxIdentifier? ,
+          regionName? ) > 
+
+<!ELEMENT addressLine1
+            ( FreeFormText ) > 
+
+<!ELEMENT addressLine2
+            ( FreeFormText ) > 
+
+<!ELEMENT addressLine3
+            ( FreeFormText ) > 
+
+<!ELEMENT cityName
+            ( FreeFormText ) > 
+
+<!ELEMENT GlobalCountryCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalLocationIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT NationalPostalCode
+           ( #PCDATA ) >
+
+<!ELEMENT postOfficeBoxIdentifier
+            ( FreeFormText ) > 
+
+<!ELEMENT regionName
+            ( FreeFormText ) > 
+
+<!ELEMENT ProductForecast ( 
+          ForecastProductIdentification ,
+          ForecastProductInventory* ,
+          GlobalForecastEventCode? ,
+          GlobalProductUnitOfMeasureCode ,
+          productForecastIdentifier* ,
+          ProductSchedule+ ,
+          TradeOffZone? ,
+          unitPrice? ) > 
+
+<!ELEMENT ForecastProductIdentification ( 
+          GlobalProductIdentifier? ,
+          PartnerProductIdentification* ) > 
+
+<!ELEMENT GlobalProductIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT PartnerProductIdentification ( 
+          GlobalPartnerClassificationCode ,
+          ProprietaryProductIdentifier ,
+          revisionIdentifier? ) > 
+
+<!ELEMENT ProprietaryProductIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT revisionIdentifier
+            ( FreeFormText ) > 
+
+<!ELEMENT ForecastProductInventory ( 
+          GlobalForecastInventoryTypeCode ,
+          ProductQuantity ) > 
+
+<!ELEMENT GlobalForecastInventoryTypeCode
+           ( #PCDATA ) >
+
+<!ELEMENT ProductQuantity
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalProductUnitOfMeasureCode
+           ( #PCDATA ) >
+
+<!ELEMENT productForecastIdentifier
+            ( ForecastIdentifierReference ) > 
+
+<!ELEMENT ProductSchedule ( 
+          ForecastProductSchedule+ ,
+          GlobalForecastQuantityTypeCode ) > 
+
+<!ELEMENT ForecastProductSchedule ( 
+          ForecastPeriod ,
+          ProductQuantity ,
+          scheduleProductForecastIdentifier* ,
+          shipTo? ) > 
+
+<!ELEMENT ForecastPeriod ( 
+          DatePeriod ,
+          GlobalIntervalCode ,
+          GlobalTransportEventCode ) > 
+
+<!ELEMENT DatePeriod ( 
+          beginDate ,
+          endDate? ) > 
+
+<!ELEMENT beginDate
+           ( DateStamp ) > 
+
+<!ELEMENT DateStamp
+           ( #PCDATA ) >
+
+<!ELEMENT endDate
+            ( DateStamp ) > 
+
+<!ELEMENT GlobalIntervalCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalTransportEventCode
+           ( #PCDATA ) >
+
+<!ELEMENT scheduleProductForecastIdentifier
+            ( ForecastIdentifierReference ) > 
+
+<!ELEMENT shipTo
+            ( PartnerDescription ) > 
+
+<!ELEMENT GlobalForecastQuantityTypeCode
+           ( #PCDATA ) >
+
+<!ELEMENT TradeOffZone ( 
+          DatePeriod ) > 
+
+<!ELEMENT unitPrice
+            ( FinancialAmount ) > 
+
+<!ELEMENT FinancialAmount ( 
+          GlobalCurrencyCode ,
+          MonetaryAmount ) > 
+
+<!ELEMENT GlobalCurrencyCode
+           ( #PCDATA ) >
+
+<!ELEMENT MonetaryAmount
+           ( #PCDATA ) >
+
+<!ELEMENT RevisionNumber
+           ( #PCDATA ) >
+
+<!ELEMENT fromRole
+            ( PartnerRoleDescription ) > 
+
+<!ELEMENT PartnerRoleDescription ( 
+          ContactInformation? ,
+          GlobalPartnerRoleClassificationCode ,
+          PartnerDescription ) > 
+
+<!ELEMENT GlobalPartnerRoleClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalSupplyChainCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalDocumentFunctionCode
+           ( #PCDATA ) >
+
+<!ELEMENT thisDocumentGenerationDateTime
+            ( DateTimeStamp ) > 
+
+<!ELEMENT thisDocumentIdentifier
+           ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT ProprietaryDocumentIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT toRole
+            ( PartnerRoleDescription ) > 
+

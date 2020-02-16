@@ -1,0 +1,71 @@
+
+<!ELEMENT WebUiData (Target, MenuItem*)>
+
+<!ELEMENT Target (#PCDATA)>
+
+<!-- Menu -->
+<!ELEMENT MenuItem (LineNumber, Name, Kind, Text, View?)>
+    <!-- Kind:  "Title" | "View" -->
+
+<!-- View -->
+<!ELEMENT View (RoleName*, UiElem*)>
+<!ELEMENT RoleName (#PCDATA)>
+
+<!ELEMENT UiElem (LineNumber, Name, Kind, Text?, Selectable?)>
+
+    <!-- Kind:  "Title" | "Text" |  "Link" | "BR" |
+                "Button" | "Check" | "Radio"  | "TextField" | "TextArea" | "Password" | "Upload" |
+                "Select" | "Table1" | "Table2" -->
+
+<!ELEMENT Selectable (Children*, Condition2?, TableItem*)>
+
+<!ELEMENT Children (LineNumber, ((MsgType, MsgVersion, DTDfilename) | ChildPath), Condition*, Type, Default?)>
+<!ELEMENT MsgType     (#PCDATA)>
+<!ELEMENT MsgVersion  (#PCDATA)>
+<!ELEMENT DTDfilename (#PCDATA)>
+<!ELEMENT ChildPath   (#PCDATA)>
+<!ELEMENT Type        (#PCDATA)>
+<!ELEMENT Default     (#PCDATA)>
+
+    <!-- Type: single or multiple -->
+
+<!ELEMENT Condition (LineNumber, Path, Value)>
+<!ELEMENT Path  (#PCDATA)>
+<!ELEMENT Value (#PCDATA)>
+
+<!ELEMENT Condition2 (
+    RangePath, RangeType, From, To,
+    OrderByPath, OrderByType, Desc, CountFrom, CountMax,
+    ColumnName, ColumnValue, ColumnName2, ColumnValue2)>
+<!ELEMENT RangePath (#PCDATA)>
+<!ELEMENT RangeType (#PCDATA)>
+<!ELEMENT From (#PCDATA)>
+<!ELEMENT To (#PCDATA)>
+<!ELEMENT OrderByPath (#PCDATA)>
+<!ELEMENT OrderByType (#PCDATA)>
+<!ELEMENT Desc (#PCDATA)>
+<!ELEMENT CountFrom (#PCDATA)>
+<!ELEMENT CountMax  (#PCDATA)>
+<!ELEMENT ColumnName  (#PCDATA)>
+<!ELEMENT ColumnValue (#PCDATA)>
+<!ELEMENT ColumnName2  (#PCDATA)>
+<!ELEMENT ColumnValue2 (#PCDATA)>
+
+<!ELEMENT TableItem (LineNumber, Path, Editable, Password?)>
+<!ELEMENT Editable (#PCDATA)>
+<!ELEMENT Password (#PCDATA)>
+
+    <!-- MsgVersion, From, To, Value, CountFrom, CountMax:  xxxx fixed value,
+                                                            @name variable,
+                                                            #name session variable
+                                                            name=default - TextField,
+                                                            * - ignore
+         RangeType, OrderByType: integer or string,
+         Desc, Editable, Password: false or true      -->
+
+<!-- Common -->
+<!ELEMENT LineNumber (#PCDATA)>
+<!ELEMENT Name (#PCDATA)>
+<!ELEMENT Kind (#PCDATA)>
+<!ELEMENT Text (#PCDATA)>
+

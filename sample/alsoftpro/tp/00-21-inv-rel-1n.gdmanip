@@ -1,0 +1,61 @@
+
+g == cons(null, null), var("g1", g1) == 1, init(g, g1, g2), inv_rel_11(g2, g3), write(dump(g3, 1)) == 1 .
+
+init(g, g1, g2) :- 
+ pm_rep(g, g1, g2)
+
+  before := {
+    invariant,
+    g
+  }
+  after := {
+    g1:(null)-/1/->g11:("1"),
+                   g11-/11/->("11"),
+                   g11-/12/->g2:("share"),
+                   g11-/13/->("13"),
+    g1       -/2/->("2"),
+    g1       -/3/->g13:("3"),
+                   g13-/31/->("31"),
+                   g13-/32/->g2,
+                   g13-/33/->("33")
+  }
+  common := {
+   where .
+  }
+  tail := {
+   where .
+  }
+
+  final := {
+   where .
+  }
+
+  .
+
+inv_rel_11(g2, g3) :- 
+ pm_rep(g2, g3)
+
+  before := {
+    invariant,
+    <<<1
+      g2:("share")<-/i/=(n1)
+    >>>1
+  }
+  after := {
+    <<<1
+      g3:(null)-/i/=>(n1)
+    >>>1
+  }
+  common := {
+   where .
+  }
+  tail := {
+   where .
+  }
+
+  final := {
+   where .
+  }
+
+  .
+

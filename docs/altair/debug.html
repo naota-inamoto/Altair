@@ -1,0 +1,78 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Debug of Altair Program</TITLE>
+</HEAD>
+
+<BODY>
+<H1>Altairのデバッグ機能</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.00版 1996年 2月11日<BR>
+
+<HR>
+<H3>概要</H3>
+Altairは、インタプリタ実行でエラーが発生した場合、<BR>
+そのエラーがどこで発生したかの特定ができるようになっています。<BR>
+Altairにはブレークポイントやトレースの機能はありませんが、<BR>
+プログラム実行中にプリント文等を適宜挿入することにより<BR>
+デバッグ情報を得ることができます。
+
+<HR>
+<UL>
+<LI><A HREF="#basho_tokutei">エラーを起こした場所の特定</A>
+<LI><A HREF="#print_bun">実行中のプリント文挿入</A>
+</UL>
+
+<HR>
+<H3><A NAME="basho_tokutei">エラーを起こした場所の特定</A></H3>
+
+ある場所でインタプリタエラーが発生するとアウトプットウィンドウに<BR>
+以下の情報が出力されます。<BR>
+<UL>
+<LI>スタックトレース
+<LI>エラーを起こした行から10数行のソース
+<LI>簡単なメッセージ
+</UL>
+たとえば、以下のようなソースコードを挿入すると必ずエラーになりますが<BR>
+<PRE>
+var list ls;
+ls.head = 1;
+</PRE>
+この場合アウトプットウィンドウには以下のような出力がなされます。<BR>
+<PRE>
+        Rectangle::Draw
+        MonoGlyph::Draw
+        TMGlyph::Draw
+        PolyGlyph::Draw
+        GlyphEditor::Draw
+        MonoGlyph::Draw
+        RootGlyph::Draw
+=========================
+  ls.head = 1;
+  al_push_pen(w, line_style, line_width, line_color);
+  al_push_brush(w, fill_style, fill_color, fill_pattern);
+  al_rectangle(w, left, top, right, bottom);
+  al_pop_brush(w);
+  al_pop_pen(w);
+}
+END
+インタプリタ実行でエラーが起きました。(SetHead)
+</PRE>
+注: インタプリタ実行中に上記のフォーマット以外の<BR>
+エラーメッセージが出た場合はAltairをできるだけすみやかに<BR>
+終了してください。<BR>
+Altairはその他のエラー処理があまいので落ちる可能性があります。
+
+<HR>
+<H3><A NAME="print_bun">実行中のプリント文挿入</A></H3>
+
+Altairではよぼどのことがない限り、プログラム実行中にソースを<BR>
+修正することができます。<BR>
+ブレークポイントで止めて変数の値を参照する代わりに、<BR>
+適宜プリント文を挿入することによりそれの<BR>
+代わりをさせることがほとんどすべての場合に可能です。<BR>
+
+<HR>
+</BODY>
+</HTML>

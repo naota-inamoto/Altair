@@ -1,0 +1,191 @@
+/* -------- ‚P•Ï”®ŒW”‘½€Ž®‚Ì•W€Œ`
+("poly",
+  (
+    ((cn, 1), (("var", v, il, dn)), null)
+      ...
+    ((c2, 1), (("var", v, il, d2)), null)
+    ((c1, 1), (("var", v, il, d1)), null)
+    ((c0, 1), null, null)
+  ), opt
+)
+
+or
+
+("poly",
+  (
+    ((cn, 1), null, (("func", v, al, dn)))
+      ...
+    ((c2, 1), null, (("func", v, al, d2)))
+    ((c1, 1), null, (("func", v, al, d1)))
+    ((c0, 1), null, null)
+  ), opt
+)
+   -------- */
+
+/* -------- ‚P•Ï”‘½€Ž®‚Ìmod”‘Ìã‚Å‚Ìb‚ða‚ÅŠ„‚Á‚½—]‚è‚ð‹‚ß‚é -------- */
+rem_on_mod_poly(b, a, vf, v, l) {
+debug("rem_on_mod_poly: b = ", b),
+debug("rem_on_mod_poly: a = ", a),
+    (q, r) == divmod_poly2_tl(b, a, vf, v, l)
+      -> r;
+}
+/* -------- ‚P•Ï”‘½€Ž®‚Ìmod”‘Ìã‚Å‚Ìa‚Æb‚ÌÅ‘åŒö–ñ”‚ð‹‚ß‚é -------- */
+gcd_on_mod_poly(a, b, vf, v, l) {
+  d1 == degree_poly(a, vf, v, l),
+  d2 == degree_poly(b, vf, v, l) -> {
+    d2 >= d1 -> gcd_on_mod_poly2(a, b, vf, v, l);
+    d2 <  d1 -> gcd_on_mod_poly2(b, a, vf, v, l);
+  }
+}
+gcd_on_mod_poly2(a, b, vf, v, l) prog { /* deg(b) >= deg(a) */
+  while (a != null) {
+    c = a;
+    r = rem_on_mod_poly(b, a, vf, v, l);
+    a = r;
+    b = c;
+  }
+  return c;
+}
+
+/* -------- ˆöŽq‚É“ü‚Á‚Ä‚¢‚é‚© -------- */
+c_min_member(facts, c0, m1, m2) {
+  c0 > 0 -> {
+    member(c0, facts) -> 1;
+    member(-c0+m1*m2, facts) -> 1;
+    true -> null;
+  }
+  c0 < 0 -> {
+    member(-c0, facts) -> 1;
+    member(c0+m1*m2, facts) -> 1;
+    true -> null;
+  }
+}
+
+/* -------- •„†Œó•âì¬ -------- */
+gcd_sign_tree(len) prog {
+  if (len == 1) {
+    return ((0), (1));
+  }
+  tree = null;
+  tree2 = gcd_sign_tree(len - 1);
+  for t2 in tree2 {
+    tree = append(tree, (append(t2, (0))));
+    tree = append(tree, (append(t2, (1))));
+  }
+  return tree;
+}
+
+/* -------- •„†‚ð’²®‚µ‚½‘½€Ž® -------- */
+gcd_v1_sign_poly(tl, m12, t) {
+  tl == null -> null;
+  tl == (((c1, 1), vl, fl), tlt...), t == (s, tt...),
+  tl2 == gcd_v1_sign_poly(tlt, m12, tt) -> {
+    s == 0 -> add_poly_tl((((c1      , 1), vl, fl)), tl2);
+    s == 1 -> add_poly_tl((((c1 - m12, 1), vl, fl)), tl2);
+  }
+}
+
+/* -------- ‚P•Ï”‘½€Ž®tl01‚Ætl02‚ÌÅ‘åŒö–ñ‘½€Ž®‚ð‹‚ß‚é -------- */
+gcd_v1_poly(tl01, tl02, vf, v, l) {
+  true -> ("poly", gcd_v1_poly_tl(tl01, tl02, vf, v, l), null);
+}
+
+gcd_v1_poly_tl(tl01, tl02, vf, v, l) prog {
+  m1 = 5;
+  m2 = 7;
+  while (1) {
+    gcd = gcd_v1_poly1(tl01, tl02, m1, m2, vf, v, l);
+    if (gcd) {
+      return gcd;
+    }
+    m1 = m2;
+    m2 = next_prime(m2);
+  }
+}
+
+gcd_v1_poly1(tl01, tl02, m1, m2, vf, v, l) {
+  tl11 == to_gfp_poly(tl01, m1),
+  tl12 == to_gfp_poly(tl02, m1),
+  tl21 == to_gfp_poly(tl01, m2),
+  tl22 == to_gfp_poly(tl02, m2)
+   -> {
+
+    length(tl11) < length(tl01) -> null;
+    length(tl12) < length(tl02) -> null;
+    length(tl21) < length(tl01) -> null;
+    length(tl22) < length(tl02) -> null;
+
+    g01 == gcd_on_mod_poly(tl11, tl12, vf, v, l),
+    deg1 == degree_poly(g01, vf, v, l),
+
+    g02 == gcd_on_mod_poly(tl21, tl22, vf, v, l),
+    deg2 == degree_poly(g02, vf, v, l) -> {
+
+      deg1 != deg2 -> null;
+      deg1 == 0 -> const_tl(1);
+
+      deg01 == degree_poly(tl01, vf, v, l),
+      deg02 == degree_poly(tl02, vf, v, l),
+      c_max_1 == coef_poly2(tl01, vf, v, l, deg01),
+      c_max_2 == coef_poly2(tl02, vf, v, l, deg02),
+      c_min_1 == coef_poly2(tl01, vf, v, l, 0),
+      c_min_2 == coef_poly2(tl02, vf, v, l, 0),
+      c_max_facts == factor(gcd(c_max_1, c_max_2)),
+      c_min_facts == factor(gcd(c_min_1, c_min_2))
+        -> gcd_v1_poly2(tl01, tl01, m1, m2, g01, g02, deg1, c_max_facts, c_min_facts, vf, v, l);
+    }
+  }
+}
+gcd_v1_poly2(tl01, tl02, m1, m2, g01, g02, deg, c_max_facts, c_min_facts, vf, v, l) prog {
+  g1 == from_gfp_poly(g01);
+  g2 == from_gfp_poly(g02);
+  for x in c_max_facts {
+    cm1 = inv_mod_m(coef_poly2(g1, vf, v, l, deg), m1) * x;
+    cm2 = inv_mod_m(coef_poly2(g2, vf, v, l, deg), m2) * x;
+    c0 = crt(cm1 * coef_poly2(g1, vf, v, l, 0), m1,
+             cm2 * coef_poly2(g2, vf, v, l, 0), m2);
+    if (c_min_member(c_min_facts, c0, m1, m2)) {
+      d01 = mul_poly_tl(g01, const_gfp(cm1, m1));
+      d02 = mul_poly_tl(g02, const_gfp(cm2, m2));
+      d1 = from_gfp_poly(d01);
+      d2 = from_gfp_poly(d02);
+      c = null;
+      for i in [0..deg] {
+        ci = crt(coef_poly2(d1, vf, v, l, i), m1,
+                 coef_poly2(d2, vf, v, l, i), m2);
+        if (ci > m1*m2/2) ci = ci - m1*m2;
+        if (ci < -m1*m2/2) ci = ci + m1*m2;
+        if (ci != 0) {
+          c = add_poly_tl(c, vf_to_poly_tl(ci, vf, v, l, i));
+        }
+      }
+      cc = gcd_v1_poly3(tl01, tl02, m1 * m2, c);
+      if (cc) return cc;
+    }
+  }
+  return const_tl(1);
+}
+gcd_v1_poly3(tl01, tl02, m12, c) prog {
+  len = length(c);
+  tree = gcd_sign_tree(len);
+  for t in tree {
+    s = gcd_v1_sign_poly(c, m12, t);
+    r1 = mod_poly_tl(tl01, s);
+    if (r1) continue;
+    r2 = mod_poly_tl(tl02, s);
+    if (r2) continue;
+    return math("normalize", s);
+  }
+  return null;
+}
+
+to_gfp_poly(tl, m) {
+  true -> math("to_gfp_poly", tl, m);
+}
+from_gfp_poly(tl) {
+  true -> math("from_gfp_poly", tl);
+}
+const_gfp(c, m) {
+  true -> math("to_gfp_poly", const_tl(c), m);
+}
+

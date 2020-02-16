@@ -1,0 +1,100 @@
+<!--
+
+   RosettaNet XML Message Guideline.
+   http://www.rosettanet.org
+   2 A1 Product Information Notification Version 1.0
+   
+   This DTD has been prepared by Edifecs Commerce. 
+   http://www.edifecs.com
+   http://www.commercedesk.com
+-->
+
+
+<!ENTITY % common-attributes "id  CDATA #IMPLIED" >
+ 
+<!ELEMENT Pip2A1ProductInformationNotification ( 
+          ProductNotice+ ,
+          fromRole ,
+          toRole ,
+          thisDocumentGenerationDateTime ,
+          thisDocumentIdentifier ,
+          GlobalDocumentFunctionCode ) > 
+
+<!ELEMENT ProductNotice ( 
+          theNotice ,
+          GlobalProductIdentifier ) > 
+
+<!ELEMENT theNotice
+           ( FreeFormText ) > 
+
+<!ELEMENT FreeFormText
+           ( #PCDATA ) >
+<!ATTLIST FreeFormText
+           xml:lang CDATA #IMPLIED >
+
+<!ELEMENT GlobalProductIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT fromRole
+            ( PartnerRoleDescription ) > 
+
+<!ELEMENT PartnerRoleDescription ( 
+          GlobalPartnerRoleClassificationCode ,
+          PartnerDescription ,
+          ContactInformation? ) > 
+
+<!ELEMENT ContactInformation ( 
+          contactName ,
+          telephoneNumber ,
+          EmailAddress ) > 
+
+<!ELEMENT contactName
+            ( FreeFormText ) > 
+
+<!ELEMENT telephoneNumber
+           ( CommunicationsNumber ) > 
+
+<!ELEMENT CommunicationsNumber
+           ( #PCDATA ) >
+
+<!ELEMENT EmailAddress
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalPartnerRoleClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT PartnerDescription ( 
+          GlobalPartnerClassificationCode ,
+          BusinessDescription ) > 
+
+<!ELEMENT GlobalPartnerClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT BusinessDescription ( 
+          GlobalBusinessIdentifier ,
+          GlobalSupplyChainCode ) > 
+
+<!ELEMENT GlobalBusinessIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalSupplyChainCode
+           ( #PCDATA ) >
+
+<!ELEMENT toRole
+            ( PartnerRoleDescription ) > 
+
+<!ELEMENT thisDocumentGenerationDateTime
+           ( DateTimeStamp ) > 
+
+<!ELEMENT DateTimeStamp
+           ( #PCDATA ) >
+
+<!ELEMENT thisDocumentIdentifier
+           ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT ProprietaryDocumentIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalDocumentFunctionCode
+           ( #PCDATA ) >
+

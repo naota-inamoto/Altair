@@ -1,0 +1,217 @@
+
+indent+ "    " "{" ;
+-indent "}" ;
+post newline indent "{" ;
+post newline indent "}" ;
+post newline indent ";" ;
+
+<comment_1>  = comment_begin_end     "/*" "*/" ;
+<comment_2>  = comment_until_newline "//"      ;
+
+<program> = program
+            {
+                cpp_include_app "#" "include" "\"" <filename> "\"" |
+                cpp_include_sys "#" "include" "<" <filename>  ">"  |
+                class_def   <class>        |
+                constractor <cntrctr_imp>  |
+                destructor  <dstrctr_imp>  |
+                member_var  <mem_var_imp>  |
+                member_func <mem_func_imp> |
+
+                global_var  <var_dcl>      |
+                global_func <func_dcl>     |
+
+                typedef "typedef" <type_spec> <type_name> ";" |
+                struct_def <struct> ";" |
+                union_def  <union>  ";" |
+                enum_def   <enum>   ";"
+            }* EOF;
+
+<class> = class "class" <ident> { super ":" { p_inherit "public" }? <ident> }? "{" {
+              public    "public"    ":" |
+              protected "protected" ":" |
+              private   "private"   ":" |
+              cntrctr_dcl                               <cls_name> "(" <param_ls> ")" <stat> |
+              dstrctr_dcl  { d_virtual "virtual" }? "~" <cls_name> "("            ")" <stat> |
+              mem_var_dcl  { mv_static "static" }?                        
+                  <type> <ident>  { mv_ary_dim "[" <const_int> "]" }* ";" |
+              mem_func_dcl { mf_static "static" | mf_virtual "virtual" }?
+                  <type> <ident> "(" <param_ls> ")" <stat>
+          }* "}" ";" ;
+
+<cntrctr_imp>  = cntrctr_imp   <cls_name> "::"     <cls_name> "(" <param_ls> ")" <block_stat> ;
+<dstrctr_imp>  = dstrctr_imp   <cls_name> "::" "~" <cls_name> "("            ")" <block_stat> ;
+<mem_var_imp>  = mv_imp <type> <cls_name> "::"     <ident>    { mv_ary "[" "]" }* { mv_init "=" <var_init> }? ";" ;
+<mem_func_imp> = mf_imp <type> <cls_name> "::"     <ident>    "(" <param_ls> ")" <block_stat> ;
+
+<var_dcl>      = var_dcl  { v_static "static" }? <type> <ident> {
+                     dim_ary   { ary_dim "[" <const_int> "]" }+  |
+                     const_ary { ary_init "[" "]" }+ { a_var_init "=" <var_init> }? |
+                     var_init  { e_var_init "=" <var_init> }?
+                 } ";" ;
+<func_dcl>     = func_dcl { f_static "static" }? <type> <ident> "(" <param_ls> ")" <stat> ;
+
+<var_init> = var_init_exp <exp> |
+             var_init_ary "{" <var_init> { var_init_ary_n "," <var_init> }* "}" ;
+
+<param_ls> = param_ls <param> { param_ls_n "," <param> }* ;
+
+<param>    = param <type> { param_nm <ident> }? { param_ary "[" "]" }* ;
+
+<block_stat> = block_stat "{" { block_stat_n <stat> }* "}" ;
+
+<stat> = block <block_stat> |
+         if "if" "(" <exp> ")" <stat> { if_else "else" <stat> }? |
+         switch "switch" "(" <exp> ")" "{"
+             {
+                 switch_case    "case" <exp> ":" |
+                 switch_default "default" ":" |
+                 switch_stat    <stat>
+             }*
+         "}" |
+         for "for" "("
+             { for_init_var <var_dcl> | for_init_exp <exp> }? ";"
+             { for_cond <exp> }? ";"
+             { for_next <exp>  }?  ")" <stat> |
+         while "while" "(" <exp> ")" <stat> |
+         do "do" <stat> "while" "(" <exp> ")" ";" |
+         continue "continue" { cont_ident <ident> }? ";" |
+         break    "break"    { brk_ident  <ident> }? ";" |
+         return   "return"   { ret_exp <exp> }? ";" |
+         label    <ident> ":" |
+         goto     "goto" <ident> ";" |
+         try "try" <block_stat>
+             { catch   "catch" "(" <param> ")" <block_stat> }* |
+         throw "throw" <exp> ";" |
+         stat_var_dcl <var_dcl> |
+         stat_exp <exp> ";" |
+         stat_colon ";" ;
+
+<exp> = p_exp <arg> { p_exp_n "," <arg> }* ;
+
+<arg> = exp <e_asgn> ;
+
+<op_asgn> = asgn "=" | asgn_add "+=" | asgn_sub "-=" |
+            asgn_mul "*="  | asgn_div "/=" | asgn_mod "%=" |
+            asgn_sr ">>=" | asgn_sl "<<=" |
+            asgn_and "&=" | asgn_xor "^=" | asgn_or "|=" ;
+
+<op_eq>  = eq "==" | ne "!=" ;
+<op_cmp> = ge ">=" | gt ">" | le "<=" | lt "<" ;
+<op_sft> = sr ">>" | sl "<<" ;
+<op_add> = add "+" | sub "-" ;
+<op_mul> = mul "*" | div "/" | mod "%" ;
+<op_u_left>  = pre_inc  "++" | pre_dec  "--" | plus "+" | minus "-" | bit_not "~" | logic_not "!" |
+               address "&" | indirect "*" ;
+<op_u_right> = post_inc "++" | post_dec "--" ;
+
+<e_asgn>   = e_asgn_1 { e_asgn_n <lhs> <op_asgn> }* <e_cond> ;
+<e_cond>   = e_cond <e_oror>   { e_cond_1   "?"   <e_cond> ":" <e_cond> }? ;
+<e_oror>   = e_oror <e_andand> { e_oror_n   "||"  <e_andand> }* ;
+<e_andand> = e_andand <e_or>   { e_andand_n "&&"  <e_or> }* ;
+<e_or>     = e_or  <e_xor>     { e_or_n     "|"   <e_xor> }* ;
+<e_xor>    = e_xor <e_and>     { e_xor_n    "^"   <e_and> }* ;
+<e_and>    = e_and <e_eq>      { e_and_n    "&"   <e_eq> }* ;
+<e_eq>     = e_eq  <e_cmp>     { e_eq_1  <op_eq>  <e_cmp> }? ;
+<e_cmp>    = e_cmp <e_sft>     { e_cmp_1 <op_cmp> <e_sft> }? ;
+<e_sft>    = e_sft <e_add>     { e_sft_n <op_sft> <e_add> }? ;
+<e_add>    = e_add <e_mul>     { e_add_n <op_add> <e_mul> }* ;
+<e_mul>    = e_mul <e_mem>     { e_mul_n <op_mul> <e_mem> }* ;
+<e_mem>    = obj_ptr_func <e_new> { obj_ptr_func_1 ".*"  <ident> <a_ls> }? |
+             ptr_ptr_func <e_new> { ptr_ptr_func_1 "->*" <ident> <a_ls> }? ;
+<e_new>    = e_new_obj "new" <cls_name> <a_ls> |
+             e_new_ary "new" <type> "[" <exp> "]" |
+             e_delete  "delete" { del_ary "[" "]" }? <u_right> |
+             e_cast "(" <type> ")" <u_right> |
+             e_braket "(" <exp> ")" |
+             e_sizeof "sizeof" "(" <type> ")" |
+             u_left { u_left_1 <op_u_left>  }* <u_right> ;
+<u_right> = u_right <prim> { u_right_1 <op_u_right> }? ;
+
+<prim> = prim
+         {
+            this "this" | func { g_func "::" }? <ident> <a_ls> |
+            var <ident> | cls <cls_name> | const <const>
+         }
+         {
+            array "[" <exp> "]" |
+            cls_mem "::" <ident> { cm_a_ls <a_ls> }? |
+            obj_mem "."  <ident> { om_a_ls <a_ls> }? |
+            ptr_mem "->" <ident> { pm_a_ls <a_ls> }? 
+         }* ;
+
+<lhs> = lhs
+         {
+            lhs_this "this" | lhs_func { lhs_g_func "::" }? <ident> <a_ls> |
+            lhs_var <ident> | lhs_cls <cls_name>
+         }
+         {
+            lhs_array "[" <exp> "]" |
+            lhs_cls_mem "::" <ident> { lhs_cm_a_ls <a_ls> }? |
+            lhs_obj_mem "."  <ident> { lhs_om_a_ls <a_ls> }? |
+            lhs_ptr_mem "->" <ident> { lhs_pm_a_ls <a_ls> }? 
+         }* ;
+
+<a_ls> = a_ls "(" { a_ls_1 <arg> { a_ls_n "," <arg> }* }? ")" ;
+
+<const> =  const_int    <const_int> |
+           const_float  <float>     |
+           const_string <string>    ;
+
+<const_int> = decimal_int <decimal_int> | char_int <char_int> |
+              octed_int <octed_int> | hexa_int <hexa_int> ;
+
+<type> = type { c "const" }? { signed "signed" | unsigned "unsigned" }?
+                 <type_spec> { ary "[" "]" | ptr "*" }* { ref "&" }? ;
+
+<type_spec> = char       "char"    |
+              wchar_t    "wchar_t" |
+              bool       "bool"    |
+              short      "short"   |
+              int        "int"     |
+              long       "long"    |
+              float      "float"   |
+              double     "double"  |
+              void       "void"    |
+              struct_ref "struct" <ident> |
+              struct_sec <struct>  |
+              union_ref  "union"  <ident> |
+              union_sec  <union>   |
+              type_cls <cls_name>  |
+              type_type <type_name> ;
+
+<struct> = struct "struct" { struct_name <ident> }? "{"
+              { sv_dcl <type> <ident> { sv_ary_dim "[" <const_int> "]" }* ";" }*
+          "}" ;
+
+<union>  = union "union" { union_name <ident> }? "{"
+              { uv_dcl <type> <ident> { uv_ary_dim "[" <const_int> "]" }* ";" }*
+          "}" ;
+
+<enum> = enum "enum" "{"
+              <ident> { ee_init_1 "=" <const_int> }?
+              { ee_n ", " <ident> { ee_init_n "=" <const_int> }? }* 
+         "}" ;
+
+<cls_name> = cls_name <ident> ;
+
+<type_name> = type_name <ident> ;
+
+<reserve> = reserve  class
+                     public protected private static struct union typedef
+                     if else for while do break continue switch case default
+                     new delete this return try catch throw
+                     char wchar_t bool short int long signed unsigned float double void ;
+
+<ident>       = regex [a-zA-Z_\$][a-zA-Z_0-9\$]* string ;
+
+<decimal_int> = regex \-[1-9][0-9]*   string ;
+<char_int>    = regex '([^\\]|\\.)'   string ;
+<octed_int>   = regex 0[0-7]*         string ;
+<hexa_int>    = regex 0x[0-9a-fA-F]*  string ;
+
+<float>       = regex \-?([0-9]+(\.[0-9]*)?|\.?[0-9]+)((e|E)(\+|\-)?[0-9]+)? string ;
+
+<string>      = regex  "([^\\"]|\\.)*" string ;
+
+<filename>    = regex [a-zA-Z_0-9\-\.M\/]+ string ;

@@ -1,0 +1,293 @@
+# Microsoft Developer Studio Project File - Name="Alcore1d" - Package Owner=<4>
+# Microsoft Developer Studio Generated Build File, Format Version 5.00
+# ** 編集しないでください **
+
+# TARGTYPE "Win32 (x86) Dynamic-Link Library" 0x0102
+
+CFG=Alcore1d - Win32 Release
+!MESSAGE これは有効なﾒｲｸﾌｧｲﾙではありません。 このﾌﾟﾛｼﾞｪｸﾄをﾋﾞﾙﾄﾞするためには NMAKE を使用してください。
+!MESSAGE [ﾒｲｸﾌｧｲﾙのｴｸｽﾎﾟｰﾄ] ｺﾏﾝﾄﾞを使用して実行してください
+!MESSAGE 
+!MESSAGE NMAKE /f "Alcore1d.mak".
+!MESSAGE 
+!MESSAGE NMAKE の実行時に構成を指定できます
+!MESSAGE ｺﾏﾝﾄﾞ ﾗｲﾝ上でﾏｸﾛの設定を定義します。例:
+!MESSAGE 
+!MESSAGE NMAKE /f "Alcore1d.mak" CFG="Alcore1d - Win32 Release"
+!MESSAGE 
+!MESSAGE 選択可能なﾋﾞﾙﾄﾞ ﾓｰﾄﾞ:
+!MESSAGE 
+!MESSAGE "Alcore1d - Win32 Release" ("Win32 (x86) Dynamic-Link Library" 用)
+!MESSAGE "Alcore1d - Win32 Debug" ("Win32 (x86) Dynamic-Link Library" 用)
+!MESSAGE 
+
+# Begin Project
+# PROP Scc_ProjName ""
+# PROP Scc_LocalPath ""
+CPP=cl.exe
+MTL=midl.exe
+RSC=rc.exe
+
+!IF  "$(CFG)" == "Alcore1d - Win32 Release"
+
+# PROP BASE Use_MFC 2
+# PROP BASE Use_Debug_Libraries 0
+# PROP BASE Output_Dir ".\WinRel"
+# PROP BASE Intermediate_Dir ".\WinRel"
+# PROP Use_MFC 2
+# PROP Use_Debug_Libraries 0
+# PROP Output_Dir ".\WinRel"
+# PROP Intermediate_Dir ".\WinRel"
+# PROP Ignore_Export_Lib 0
+# ADD BASE CPP /nologo /MD /W3 /GX /O1 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR /YX /c
+# ADD CPP /nologo /MD /W4 /GX /Gf /D "NDEBUG" /D "WIN32" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_AFXEXT" /D "_MBCS" /D "AL_CORE_DLL" /D "AL_LANG_JAPANESE" /D "AL_USE_PCH" /Yu"STDAFX.H" /FD /c
+# SUBTRACT CPP /Gy
+# ADD BASE MTL /nologo /D "NDEBUG" /win32
+# ADD MTL /nologo /D "NDEBUG" /mktyplib203 /win32
+# ADD BASE RSC /l 0x411 /d "NDEBUG" /d "_AFXDLL"
+# ADD RSC /l 0x411 /d "NDEBUG" /d "_AFXDLL"
+BSC32=bscmake.exe
+# ADD BASE BSC32 /nologo
+# ADD BSC32 /nologo
+LINK32=link.exe
+# ADD BASE LINK32 oldnames.lib ldllcew.lib winnls.lib /nologo /subsystem:windows /dll /map:"FULL" /machine:IX86
+# ADD LINK32 /nologo /subsystem:windows /dll /pdb:none /map /machine:IX86 /out:".\WinRel\Alcore1.dll"
+
+!ELSEIF  "$(CFG)" == "Alcore1d - Win32 Debug"
+
+# PROP BASE Use_MFC 2
+# PROP BASE Use_Debug_Libraries 1
+# PROP BASE Output_Dir ".\WinDebug"
+# PROP BASE Intermediate_Dir ".\WinDebug"
+# PROP Use_MFC 2
+# PROP Use_Debug_Libraries 1
+# PROP Output_Dir ".\WinDebug"
+# PROP Intermediate_Dir ".\WinDebug"
+# PROP Ignore_Export_Lib 0
+# ADD BASE CPP /nologo /G3 /MD /W3 /GX /Zi /Od /Gf /Gy /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR /YX /c
+# ADD CPP /nologo /MD /W4 /Gm /GX /Zi /Od /Gf /D "_DEBUG" /D "WIN32" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_AFXEXT" /D "_MBCS" /D "AL_CORE_DLL" /D "AL_LANG_JAPANESE" /D "AL_USE_PCH" /Yu"STDAFX.H" /FD /c
+# SUBTRACT CPP /Gy
+# ADD BASE MTL /nologo /D "_DEBUG" /win32
+# ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
+# ADD BASE RSC /l 0x411 /d "_DEBUG" /d "_AFXDLL"
+# ADD RSC /l 0x411 /d "_DEBUG" /d "_AFXDLL"
+BSC32=bscmake.exe
+# ADD BASE BSC32 /nologo
+# ADD BSC32 /nologo
+LINK32=link.exe
+# ADD BASE LINK32 oldnames.lib ldllcew.lib /nologo /subsystem:windows /dll /map:"FULL" /debug /machine:IX86
+# ADD LINK32 /nologo /subsystem:windows /dll /debug /machine:IX86 /nodefaultlib:"MSVCRT"
+# SUBTRACT LINK32 /profile /map
+
+!ENDIF 
+
+# Begin Target
+
+# Name "Alcore1d - Win32 Release"
+# Name "Alcore1d - Win32 Debug"
+# Begin Group "Source Files"
+
+# PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;hpj;bat;for;f90"
+# Begin Source File
+
+SOURCE=A:\ALTAIR\SRC\DEV\ADVCAPP.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=A:\ALTAIR\SRC\DEV\ADVCEDIT.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=A:\ALTAIR\SRC\DEV\ADVCVW.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=A:\ALTAIR\SRC\DEV\ADVWND.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=A:\ALTAIR\SRC\GENERAL\ALCORE.CPP
+
+!IF  "$(CFG)" == "Alcore1d - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "Alcore1d - Win32 Debug"
+
+# ADD CPP /Yu
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\ALCORE1.DEF
+
+!IF  "$(CFG)" == "Alcore1d - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "Alcore1d - Win32 Debug"
+
+# PROP Exclude_From_Build 1
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=A:\Altair\Src\Res\Alcore1.rc
+# End Source File
+# Begin Source File
+
+SOURCE=.\ALCORE1D.DEF
+
+!IF  "$(CFG)" == "Alcore1d - Win32 Release"
+
+# PROP Exclude_From_Build 1
+
+!ELSEIF  "$(CFG)" == "Alcore1d - Win32 Debug"
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=A:\ALTAIR\SRC\DEV\BITMAP.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=A:\ALTAIR\SRC\CUI\BODY.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=A:\ALTAIR\SRC\CUI\BODY_IN.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=A:\ALTAIR\SRC\CUI\BODY_OUT.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=A:\ALTAIR\SRC\CUI\CLASS.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=A:\ALTAIR\SRC\GDM\COPY.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=A:\ALTAIR\SRC\CUI\CUI.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=A:\ALTAIR\SRC\GDM\DEBUG.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=A:\ALTAIR\SRC\GDM\ERROR.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=A:\Altair\Src\Dev\File.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=A:\ALTAIR\SRC\GDM\GC.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=A:\Altair\Src\Interp\Gdb_intp.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=A:\ALTAIR\SRC\GDM\GDM.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=A:\ALTAIR\SRC\INTERP\GP_INTP.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=A:\Altair\Src\Interp\Interp1.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=A:\Altair\Src\Interp\Interp2.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=A:\Altair\Src\Dev\Mainfrm.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=A:\ALTAIR\SRC\GDM\MATRIX.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=A:\ALTAIR\SRC\CUI\MEMBER.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=A:\Altair\Src\Dev\ocx.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=A:\Altair\Src\Dev\olectrl.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=A:\ALTAIR\SRC\INTERP\PARALLEL.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=A:\ALTAIR\SRC\GDM\PICT.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=A:\ALTAIR\SRC\INTERP\PRCSMGR.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=A:\ALTAIR\SRC\INTERP\PROG_IF.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=A:\ALTAIR\SRC\CUI\PROJECT.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=A:\ALTAIR\SRC\DEV\SHELL.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=A:\Altair\Src\General\Stdafx.cpp
+# ADD CPP /Yc"STDAFX.H"
+# End Source File
+# Begin Source File
+
+SOURCE=A:\ALTAIR\SRC\GDM\STRING.CPP
+# End Source File
+# Begin Source File
+
+SOURCE=A:\Altair\Src\Interp\Sysfunc1.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=A:\Altair\Src\Interp\Sysfunc2.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=A:\Altair\Src\Interp\Sysfunc3.cpp
+# End Source File
+# End Group
+# Begin Group "Header Files"
+
+# PROP Default_Filter "h;hpp;hxx;hm;inl;fi;fd"
+# Begin Source File
+
+SOURCE=A:\Altair\Src\General\Stdafx.h
+# End Source File
+# End Group
+# Begin Group "Resource Files"
+
+# PROP Default_Filter "ico;cur;bmp;dlg;rc2;rct;bin;cnt;rtf;gif;jpg;jpeg;jpe"
+# End Group
+# End Target
+# End Project

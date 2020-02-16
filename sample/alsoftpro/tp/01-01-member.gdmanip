@@ -1,0 +1,358 @@
+
+depend_to_model(depend, model) .
+var("model", model) == 1, write(dump(model, 1)) == 1 .
+
+depend_to_model(depend, model) :- var("depend", depend) == 1, var("model", model) == 1, 
+                                  g == cons(null, null), init(g, depend, model),
+                                  class(depend, model), member(model) .
+
+init(g, depend, model) :-
+  pm_rep(g, depend, model)
+
+    before := {
+      invariant,
+      g
+    }
+    after := {
+      depend:("program") -/"body"/-> scls:("classes"),
+                    scls -/1/-> scl:("class_def"),
+                                scl -/"name"/-> ("AlObject"),
+                                scl -/"sub_class"/->scls2:("classes"),
+                                     scls2-/1/->scl2:("class_def"),
+                                     scl2-/"name"/->tp:("TP"),
+                                         tp-/1/->f:("func"),
+                                             f-/"protection"/->("public"),
+                                             f-/"type"/->("void"),
+                                             f-/"name"/->("main"),
+                                             f-/"static"/->("true"),
+                                             f-/"arg_dcl"/->("arg_dcl"),
+                                     scl2 -/"sub_class"/->("classes"),
+
+      model:("class_defs") -/(null, "AlObject")/-> alobj:("class_def"),
+                                  alobj -/"name"/-> ("AlObject"),
+                                  alobj -/"cls_vars"/-> ("cls_vars"),
+                                  alobj -/"obj_vars"/-> ("obj_vars"),
+                                  alobj -/"cls_funcs"/-> ("cls_funcs"),
+                                  alobj -/"obj_funcs"/-> ("obj_funcs"),
+                                  alobj -/"cls_f_types"/-> ("cls_f_types"),
+                                  alobj -/"obj_f_types"/-> ("obj_f_types"),
+
+      model                -/(null, "AlException")/-> alexcp:("class_def"),
+                                  alexcp -/"name"/-> ("AlException"),
+                                  alexcp -/"super"/-> alobj,
+                                  alexcp -/"cls_vars"/-> ("cls_vars"),
+                                  alexcp -/"obj_vars"/-> ovs:("obj_vars"),
+                                  alexcp -/"cls_funcs"/-> ("cls_funcs"),
+                                  alexcp -/"obj_funcs"/-> ("obj_funcs"),
+                                  alexcp -/"cls_f_types"/-> ("cls_f_types"),
+                                  alexcp -/"obj_f_types"/-> ("obj_f_types"),
+                                    ovs -/"msg"/-> ov1:("obj_var"),
+                                              ov1 -/"type"/-> ("string"),
+                                              ov1 -/"name"/-> ("msg"),
+                                    ovs -/"stack_frame"/-> ov2:("obj_var"),
+                                              ov2 -/"type"/-> ("list"),
+                                              ov2 -/"name"/-> ("stack_frame"),
+                                    ovs -/"pos"/-> ov3:("obj_var"),
+                                              ov3 -/"type"/-> ("integer"),
+                                              ov3 -/"name"/-> ("pos"),
+                                    ovs -/"exception"/-> ov4:("obj_var"),
+                                              ov4 -/"type"/-> alexcp,
+                                              ov4 -/"name"/-> ("exception")
+   }
+    common := {
+      where .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+class(depend, model) :- 
+  pm_rep(depend, model)
+
+    before := {
+      invariant,
+      depend:("program") -/"body"/-> scls:("classes"),
+      <<<1
+                    scls -/i/=> scl:("class_def"),
+                                scl -/"name"/-> (name),
+                                scl -/"sub_class"/->scls2:("classes")
+      >>>1
+    }
+    after := {
+      model:("class_defs")
+    }
+    common := {
+      where next_if_false(is_type(i, "integer") == null),
+            class2(scls2, dst_node(model, (null, name)), model) .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* -------------------------------- class2 -------------------------------- */
+class2(scls, super, model) :- 
+  pm_rep(scls, super, model)
+
+    before := {
+      invariant,
+      <<<1
+        scls:("classes") -/i/=> scl:("class_def") ,
+                              scl -/"name"/-> (name),
+                              scl -/"sub_class"/->scls2:("classes")
+      >>>1
+    }
+    after := {
+      <<<1
+        model:("class_defs") -/(null, name)/=> dcl:("class_def"),
+                                  dcl -/"name"/-> (name),
+                                  dcl -/"super"/-> super,
+                                  dcl -/"cls_vars"/-> ("cls_vars"),
+                                  dcl -/"obj_vars"/-> ("obj_vars"),
+                                  dcl -/"cls_funcs"/-> ("cls_funcs"),
+                                  dcl -/"obj_funcs"/-> ("obj_funcs"),
+                                  dcl -/"cls_f_types"/-> ("cls_f_types"),
+                                  dcl -/"obj_f_types"/-> ("obj_f_types"),
+        ?2 scl -/ref:"$refer"/-> dcl
+      >>>1
+    }
+    common := {
+      where next_if_false(is_type(i, "integer") == null),
+            name == "AlObject", not_exist(ref) == null .
+            next_if_false(is_type(i, "integer") == null),
+            name == "AlException", not_exist(ref) == null .
+            next_if_false(is_type(i, "integer") == null),
+            exist(ref) == null .
+    }
+    tail := {
+      where name != "AlObject", name != "AlException", class2(scls2, dcl, model) .
+            .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* ================================ member ================================ */
+member(model) :- 
+  pm_rep(model)
+
+    before := {
+      invariant,
+      <<<1
+        model:("class_defs") -/(null, cname)/=> dcl:("class_def"),
+          dcl -/"cls_vars"/-> cvs:("cls_vars"),
+          dcl -/"obj_vars"/-> ovs:("obj_vars"),
+          dcl -/"cls_funcs"/-> cfs:("cls_funcs"),
+          dcl -/"obj_funcs"/-> ofs:("obj_funcs"),
+          dcl -/"cls_f_types"/-> cfts:("cls_f_types"),
+          dcl -/"obj_f_types"/-> ofts:("obj_f_types"),
+
+        ?2 [[[3
+            dcl <-/ref:"$refer"/- scl:("class_def"),
+              <<<4
+                scl -/i/=> mem:var_func,
+                           mem -/"static"/->static,
+                           mem -/"type"/->st,
+                           mem -/"name"/->(name),
+                           ?5 mem -/args:"arg_dcl"/->sad:("arg_dcl") ,
+                [%5
+                  %1 var_func == "var", static == "true". ,
+                  %2 var_func == "var", static == "false". ,
+                  %3 var_func == "func", static == "true". ,
+                  %4 var_func == "func", static == "false". ,
+                  %5 var_func == "func_type", static == "true". ,
+                  %6 var_func == "func_type", static == "false".
+                ]%5
+              >>>4
+        ]]]3
+      >>>1
+    }
+    after := {
+      <<<4
+        [%5
+          %1
+            cvs -/name/=> cv:("cls_var"),
+                          cv -/"type"/->dt,
+                          cv -/"name"/->(name) . ,
+          %2
+            ovs -/name/=> ov:("obj_var"),
+                          ov -/"type"/->dt,
+                          ov -/"name"/->(name) . ,
+          %3
+            cfs -/name/=> cf:("cls_func"),
+                          cf -/"type"/->dt,
+                          cf -/"name"/->(name),
+                          cf -/"arg_dcl"/->dad:("arg_dcl") . ,
+          %4
+            ofs -/name/=> of:("obj_func"),
+                          of -/"type"/->dt,
+                          of -/"name"/->(name),
+                          of -/"arg_dcl"/->dad:("arg_dcl") . ,
+          %5
+            cfts -/name/=> cft:("cls_f_type"),
+                           cft -/"type"/->dt,
+                           cft -/"name"/->(name),
+                           cft -/"arg_dcl"/->dad:("arg_dcl") . ,
+          %6
+            ofts -/name/=> oft:("obj_f_type"),
+                           oft -/"type"/->dt,
+                           oft -/"name"/->(name),
+                           oft -/"arg_dcl"/->dad:("arg_dcl") .
+        ]%5
+      >>>4
+    }
+    common := {
+      where next_if_false(if_exist(ref) == null, is_type(cname, "string") == null, is_type(i,"integer") == null),
+            if_exist(args) == null, type(model, st, dt), arg_dcl(model, sad, dad) .
+            next_if_false(if_exist(ref) == null, is_type(cname, "string") == null, is_type(i,"integer") == null),
+            if_not_exist(args) == null, type(model, st, dt) .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+   .
+
+/* ================================ type ================================ */
+type(model, st, dt) :-
+  pm_rep(model, st, dt)
+
+    /* ---------------- class ---------------- */
+    before := {
+      invariant,
+      st:("ident") -/"name"/->(name),
+      model -/(null, name)/-> cls
+    }
+    after := {
+      dt:("class") -/"class"/-> cls
+    }
+    common := {
+      where is_type(name, "string") == null.
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- class function type ---------------- */
+    before := {
+      invariant,
+      st:("ident") -/"name"/-> (name),
+      <<<1
+        model:("class_defs") -/cid:(null, cname)/=> cl:("class_def"),
+              cl -/"cls_f_types"/-> cfts:("cls_f_types"),
+                                    cfts -/name/-> cft:("cls_f_type"),
+                                                   cft -/"name"/-> (name)
+      >>>1
+    }
+    after := {
+      dt:("cls_f_type") -/"name"/-> (name)
+    }
+    common := {
+      where break_if_fonud(cid) == null .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- object function type ---------------- */
+    before := {
+      invariant,
+      st:("ident") -/"name"/-> (name),
+      <<<1
+        model:("class_defs") -/cid:(null, cname)/=> cl:("class_def"),
+              cl -/"obj_f_types"/-> ofts:("obj_f_types"),
+                                    ofts -/name/-> oft:("obj_f_type"),
+                                                   oft -/"name"/-> (name)
+      >>>1
+    }
+    after := {
+      dt:("obj_f_type") -/"name"/-> (name)
+    }
+    common := {
+      where break_if_found(cid) == null.
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- system type ---------------- */
+    before := {
+      invariant,
+      st:(sts)
+    }
+    after := {
+      dt:(dts)
+    }
+    common := {
+      where sts == "integer", dts == "integer" .
+            sts == "real",    dts == "real" .
+            sts == "string",  dts == "string" .
+            sts == "list",    dts == "list" .
+            sts == "array",   dts == "array" .
+            sts == "file",    dts == "file" .
+            sts == "void",    dts == "void" .
+            sts == "matrix",  dts == "matrix" .
+            sts == "window",  dts == "window" .
+            sts == "variant", dts == "variant" .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* ================================ argument declaration ================================ */
+arg_dcl(model, sad, dad) :-
+  pm_rep(model, sad, dad)
+
+    before := {
+      invariant,
+      <<<1
+        sad:("arg_dcl") -/n/=> sa:("arg"),
+                               sa -/"type"/-> st,
+                               sa -/"name"/-> (name)
+      >>>1
+    }
+    after := {
+      <<<1
+        dad:("arg_dcl") -/m/=> da:("arg"),
+                               da -/"type"/-> dt,
+                               da -/"name"/-> (name)
+      >>>1
+    }
+    common := {
+      where next_if_false(is_type(n, "integer") == null),
+            sequence(m, 1, 1) == null, type(model, st, dt) .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+

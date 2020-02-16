@@ -1,0 +1,72 @@
+<html>
+<body>
+<pre>
+<h1>ﾋﾞﾙﾄﾞのﾛｸﾞ</h1>
+<h3>
+--------------------構成: AlCtrl - Win32 Release--------------------
+</h3>
+<h3>ｺﾏﾝﾄﾞ ﾗｲﾝ</h3>
+ｺﾏﾝﾄﾞ ﾗｲﾝ "midl.exe /nologo /D "NDEBUG" /tlb ".\Release/alctrl.tlb" /mktyplib203 /win32 "C:\altair\src\src\alctrl\alctrl.odl"" の作成中
+Creating command line "rc.exe /l 0x411 /fo".\Release/AlCtrl.res" /i "\altair\src\src\alctrl" /i ".\Release" /d "NDEBUG" /d "_AFXDLL" "C:\altair\src\src\alctrl\AlCtrl.rc"" 
+一時ﾌｧｲﾙ "C:\DOCUME~1\inamoto\LOCALS~1\Temp\RSPB9.tmp" を作成し、次の内容を記録します
+[
+/nologo /MD /W4 /GX /O2 /D "NDEBUG" /D "_MBCS" /D "WIN32" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_USRDLL" /D "AL_LANG_JAPANESE" /Fp".\Release/AlCtrl.pch" /Yu"stdafx.h" /Fo".\Release/" /Fd".\Release/" /FD /c 
+"C:\altair\src\src\alctrl\alctrl.cpp"
+"C:\altair\src\src\alctrl\alctrlctl.cpp"
+"C:\altair\src\src\alctrl\alctrlppg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\inamoto\LOCALS~1\Temp\RSPB9.tmp" 
+一時ﾌｧｲﾙ "C:\DOCUME~1\inamoto\LOCALS~1\Temp\RSPBA.tmp" を作成し、次の内容を記録します
+[
+/nologo /MD /W4 /GX /O2 /D "NDEBUG" /D "_MBCS" /D "WIN32" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_USRDLL" /D "AL_LANG_JAPANESE" /Fp".\Release/AlCtrl.pch" /Yc"stdafx.h" /Fo".\Release/" /Fd".\Release/" /FD /c 
+"C:\altair\src\src\alctrl\stdafx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\inamoto\LOCALS~1\Temp\RSPBA.tmp" 
+一時ﾌｧｲﾙ "C:\DOCUME~1\inamoto\LOCALS~1\Temp\RSPBB.tmp" を作成し、次の内容を記録します
+[
+alcore1.lib /nologo /subsystem:windows /dll /incremental:no /pdb:".\Release/AlCtrl.pdb" /machine:I386 /def:"..\..\..\src\src\alctrl\alctrl.def" /out:".\Release/AlCtrl.ocx" /implib:".\Release/AlCtrl.lib" 
+.\Release\alctrl.obj
+.\Release\alctrlctl.obj
+.\Release\alctrlppg.obj
+.\Release\stdafx.obj
+.\Release\AlCtrl.res
+]
+ｺﾏﾝﾄﾞ ﾗｲﾝ "link.exe @C:\DOCUME~1\inamoto\LOCALS~1\Temp\RSPBB.tmp" の作成中
+一時ﾌｧｲﾙ "C:\DOCUME~1\inamoto\LOCALS~1\Temp\RSPBC.bat" を作成し、次の内容を記録します
+[
+@echo off
+regsvr32 /s /c ".\Release\AlCtrl.ocx"
+echo regsvr32 exec. time > ".\Release\regsvr32.trg"
+]
+ｺﾏﾝﾄﾞ ﾗｲﾝ "C:\DOCUME~1\inamoto\LOCALS~1\Temp\RSPBC.bat" の作成中
+ﾀｲﾌﾟ ﾗｲﾌﾞﾗﾘを作成中...
+Processing C:\altair\src\src\alctrl\alctrl.odl
+alctrl.odl
+Processing C:\Program Files\Microsoft Visual Studio\VC98\INCLUDE\oaidl.idl
+oaidl.idl
+Processing C:\Program Files\Microsoft Visual Studio\VC98\INCLUDE\objidl.idl
+objidl.idl
+Processing C:\Program Files\Microsoft Visual Studio\VC98\INCLUDE\unknwn.idl
+unknwn.idl
+Processing C:\Program Files\Microsoft Visual Studio\VC98\INCLUDE\wtypes.idl
+wtypes.idl
+ﾘｿｰｽをｺﾝﾊﾟｲﾙ中...
+ｺﾝﾊﾟｲﾙ中...
+stdafx.cpp
+ｺﾝﾊﾟｲﾙ中...
+alctrl.cpp
+alctrlctl.cpp
+alctrlppg.cpp
+ｺｰﾄﾞを生成中...
+ﾘﾝｸ中...
+   ﾗｲﾌﾞﾗﾘ .\Release/AlCtrl.lib とｵﾌﾞｼﾞｪｸﾄ .\Release/AlCtrl.exp を作成中
+<h3>ｱｳﾄﾌﾟｯﾄ ｳｨﾝﾄﾞｳ</h3>
+OLE ｺﾝﾄﾛｰﾙを登録しています...
+
+
+
+<h3>結果</h3>
+AlCtrl.ocx - ｴﾗｰ 0、警告 0
+</pre>
+</body>
+</html>

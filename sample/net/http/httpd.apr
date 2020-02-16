@@ -1,0 +1,1013 @@
+$END_LIB
+TEXT
+AlObject
+class HttpServer
+class HttpConnectionMgr
+end_class
+class HttpConnection
+end_class
+class HttpTimer
+end_class
+class HttpWait
+end_class
+end_class
+$END_CLASS
+TEXT
+AlObject
+class HttpServer
+member
+public: static void start();
+member
+public: static void stop();
+member
+public: static void prof_start();
+member
+public: static void prof_stop();
+member
+public: static HttpServer inst;
+member
+public: void Create();
+member
+public: list Start();
+member
+public: void Close();
+member
+public: string wwwroot;
+member
+public: integer port;
+member
+public: integer ss_id;
+member
+public: HttpConnectionMgr connMgr;
+member
+public: string GetContentType(string suffix);
+member
+public: list headers;
+member
+funcType: void CallbackFunc();
+member
+public: static list debug;
+class HttpConnectionMgr
+member
+public: void Create(HttpServer server);
+member
+public: void Close();
+member
+public: list connections;
+member
+public: void accepted();
+member
+public: HttpServer server;
+end_class
+class HttpConnection
+member
+public: void Create(integer socket_id, HttpServer server);
+member
+public: void Close();
+member
+public: list Start();
+member
+public: list Start2(integer len);
+member
+public: integer hwnd;
+member
+public: integer msg;
+member
+public: integer s_id;
+member
+public: HttpServer server;
+member
+public: integer buffer_size;
+member
+public: list buffer;
+member
+public: integer read_bytes;
+member
+public: void received();
+member
+public: integer state;
+member
+public: list request;
+member
+public: string dir;
+member
+public: string path;
+member
+public: string cgi_args;
+member
+public: string suffix;
+member
+public: string GetAbsolutePath(string path);
+member
+public: void DoGet(string dir, string path, string cgi_args, string suffix);
+member
+public: void DoPost(string dir, string path, string cgi_args, string suffix);
+member
+public: list Send(string msg);
+member
+public: list Send(list binary, integer idx, integer size);
+member
+public: string ExecCGI(string request_method, string dir, string path, string cgi_args, string suffix);
+member
+public: file stdout;
+member
+public: string cgi_out;
+member
+public: void TimerCB();
+member
+public: HttpTimer timer;
+member
+public: HttpWait wait;
+end_class
+class HttpTimer
+member
+public: void Create(integer millisecond, AlObject obj, CallbackFunc func);
+member
+public: void Start();
+member
+public: void Stop();
+member
+public: void Close();
+member
+public: integer millisecond;
+member
+public: AlObject obj;
+member
+public: CallbackFunc func;
+member
+public: integer timer_id;
+member
+public: void Callback();
+end_class
+class HttpWait
+member
+public: void Notify();
+member
+public: void Wait();
+member
+public: list notified;
+end_class
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class HttpServer
+member
+public: static void start();
+body
+{
+	if (inst) {
+		al_print("[ERROR] http server is already started.\n");
+		return;
+	} else {
+	}
+	var HttpServer server;
+	var list err;
+	server = new HttpServer;
+	server.Create();
+	if (err = server.Start()) {
+		al_print("[ERROR] " + err + "\n");
+		return;
+	} else {
+	}
+	inst = server;
+}
+end_body
+member
+public: static void stop();
+body
+{
+	if (inst) {
+	} else {
+		al_print("[ERROR] http server is not started.\n");
+		return;
+	}
+	var HttpServer server;
+	var list err;
+	server = inst;
+	server.Close();
+	inst = null;
+}
+end_body
+member
+public: static void prof_start();
+body
+{
+	al_prof("set", "http_prof", null);
+	al_prof("start", "http_prof", al_list2(1, null));
+	start();
+}
+end_body
+member
+public: static void prof_stop();
+body
+{
+	stop();
+	al_prof("stop", "http_prof", null);
+	var list result, itr, rec;
+	result = al_prof("result", "http_prof", 4);
+	var file out;
+	out = al_file_open("http_prof.txt", "w");
+	al_file_write(out, "string", "count\ttotal\taverage\tclass\tfunc\n");
+	al_file_write(out, "string", "\t(msec)\t(msec)\t\t\n");
+	itr = al_dst_itr(result);
+	loop {
+		if (rec = al_next(itr)) {
+		} else {
+			break;
+		}
+		al_file_write(out, "string", (string)rec.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.tail.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.head + "\n");
+	}
+	al_prof("clear", "http_prof", null);
+}
+end_body
+member
+public: static HttpServer inst;
+member
+public: void Create();
+body
+{
+	// debug = null;
+	debug = 1;
+	wwwroot = "D:/Temp";
+	// wwwroot = "D:/temp/langspec-1.0";
+	// wwwroot = "/proj/altair/tmp/langspec-1.0";
+	port = 80;
+	headers = al_cons(null, null);
+	al_create_arc(headers, "Content-Type: text/plain \n", ".txt");
+	al_create_arc(headers, "Content-Type: text/html \n", ".html");
+	al_create_arc(headers, "Content-Type: text/html \n", ".htm");
+	al_create_arc(headers, "Content-Type: image/gif \n", ".gif");
+	al_create_arc(headers, "Content-Type: image/jpeg \n", ".jpeg");
+	al_create_arc(headers, "Content-Type: image/jpeg \n", ".jpg");
+	al_create_arc(headers, "Content-Type: image/jpeg \n", ".jpe");
+}
+end_body
+member
+public: list Start();
+body
+{
+	var string err;
+	if (ss_id = al_socket("socket", null, null, null)) {
+	} else {
+		return "faile to create socket.";
+	}
+	if (debug) {
+		al_print("[Debug INFO] create server socket: socket id = " + (string)ss_id + "\n");
+	} else {
+	}
+	if (al_socket("bind", ss_id, al_list2(0, port), null)) {
+		err = (string)al_socket("get_last_error", ss_id, null, null);
+		Close();
+		return "fail to bind socket with port = " + (string)port + ". (" + err + ")";
+	} else {
+	}
+	if (al_socket("listen", ss_id, null, null)) {
+		err = (string)al_socket("get_last_error", ss_id, null, null);
+		Close();
+		return "fail to listen socket. (" + err + ")";
+	} else {
+	}
+	var integer hwnd, msg;
+	hwnd = al_wnd_message(null, "hwnd", null, null);
+	msg = al_wnd_message(null, "register_msg", "ACCEPT", null);
+	var list cb;
+	connMgr = new HttpConnectionMgr;
+	connMgr.Create(this);
+	cb = al_list3(al_root_class(), connMgr, HttpConnectionMgr::accepted);
+	al_wnd_message(null, "msg_callback", msg, cb);
+	if (al_socket("accept_que", ss_id, al_list2(hwnd, msg), null)) {
+		err = (string)al_socket("get_last_error", ss_id, null, null);
+		Close();
+		return "fail to accept socket. (" + err + ")";
+	} else {
+	}
+}
+end_body
+member
+public: void Close();
+body
+{
+	al_socket("close", ss_id, null, null);
+	if (debug) {
+		al_print("[Debug INFO] close server socket: socket id = " + (string)ss_id + "\n");
+	} else {
+	}
+	var integer msg;
+	msg = al_wnd_message(null, "register_msg", "ACCEPT", null);
+	al_wnd_message(null, "msg_callback", msg, null);
+	if (connMgr) {
+		connMgr.Close();
+		connMgr = null;
+	} else {
+	}
+}
+end_body
+member
+public: string wwwroot;
+member
+public: integer port;
+member
+public: integer ss_id;
+member
+public: HttpConnectionMgr connMgr;
+member
+public: string GetContentType(string suffix);
+body
+{
+	var string str;
+	if (str = al_dst_node(headers, suffix)) {
+		return str;
+	} else {
+		return "Content-Type: text/plain \n";
+	}
+}
+end_body
+member
+public: list headers;
+member
+funcType: void CallbackFunc();
+body
+{
+}
+end_body
+member
+public: static list debug;
+class HttpConnectionMgr
+member
+public: void Create(HttpServer server);
+body
+{
+	this.server = server;
+	connections = al_cons(null, null);
+}
+end_body
+member
+public: void Close();
+body
+{
+	var list itr;
+	var HttpConnection conn;
+	loop {
+		itr = al_dst_itr(connections);
+		if (conn = al_next(itr)) {
+		} else {
+			break;
+		}
+		conn.Close();
+	}
+	server = null;
+}
+end_body
+member
+public: list connections;
+member
+public: void accepted();
+body
+{
+	var integer server_socket_id, socket_id;
+	server_socket_id = al_wnd_message(null, "wParam", null, null);
+	if (socket_id = al_socket("get_socket", server_socket_id, null, null)) {
+	} else {
+		al_print("[ERROR] fail to get socket created by accept.\n");
+		return;
+	}
+	if (socket_id < 0) {
+		al_print("[ERROR] fail to accept socket.\n");
+		return;
+	} else {
+	}
+	if (debug) {
+		var list ip_port;
+		var integer fromIP;
+		var string fromIP_str;
+		ip_port = al_socket("getpeername", socket_id, null, null);
+		fromIP = ip_port.head;
+		fromIP_str = al_socket("address_string", fromIP, null, null);
+		al_print("fromIP = " + fromIP_str + "\n");
+	} else {
+	}
+	var HttpConnection conn;
+	conn = new HttpConnection;
+	conn.Create(socket_id, server);
+	al_create_arc(connections, conn, socket_id);
+	var list err;
+	if (err = conn.Start()) {
+		conn.Close();
+		al_print("[ERROR] " + (string)err + "\n");
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: HttpServer server;
+end_class
+class HttpConnection
+member
+public: void Create(integer socket_id, HttpServer server);
+body
+{
+	this.server = server;
+	s_id = socket_id;
+	if (debug) {
+		al_print("[Debug INFO] accept socket: socket id = " + (string)s_id + "\n");
+	} else {
+	}
+	buffer_size = 1024;
+	buffer = al_misc("binary", buffer_size, null);
+	state = 0;
+	hwnd = al_wnd_message(null, "hwnd", null, null);
+	msg = al_wnd_message(null, "register_msg", "RECV" + (string)s_id, null);
+	var list cb;
+	cb = al_list3(al_root_class(), this, HttpConnection::received);
+	al_wnd_message(null, "msg_callback", msg, cb);
+	request = al_cons(null, null);
+}
+end_body
+member
+public: void Close();
+body
+{
+	al_socket("close", s_id, null, null);
+	if (debug) {
+		al_print("[Debug INFO] close socket: socket id = " + (string)s_id + "\n");
+	} else {
+	}
+	al_wnd_message(null, "msg_callback", msg, null);
+	al_wnd_message(null, "unregister_msg", msg, null);
+	var list connections;
+	if (connections = al_src_node(this, s_id)) {
+		al_set_dst_node(connections, s_id, null);
+	} else {
+	}
+	server = null;
+}
+end_body
+member
+public: list Start();
+body
+{
+	var list buf, err;
+	buf = al_list3(buffer, 0, buffer_size);
+	if (al_socket("recv", s_id, buf, al_list3(hwnd, msg, 1))) {
+		err = (string)al_socket("get_last_error", s_id, null, null);
+		return "recv err(" + err + ")";
+	} else {
+	}
+	return null;
+}
+end_body
+member
+public: list Start2(integer len);
+body
+{
+	var list buf, err;
+	buf = al_list3(buffer, 0, buffer_size);
+	if (al_socket("recv", s_id, buf, al_list4(hwnd, msg, 3, len))) {
+		err = (string)al_socket("get_last_error", s_id, null, null);
+		return "recv err(" + err + ")";
+	} else {
+	}
+	return null;
+}
+end_body
+member
+public: integer hwnd;
+member
+public: integer msg;
+member
+public: integer s_id;
+member
+public: HttpServer server;
+member
+public: integer buffer_size;
+member
+public: list buffer;
+member
+public: integer read_bytes;
+member
+public: void received();
+body
+{
+	var integer socket_id, content_length;
+	var list err;
+	var string req;
+	socket_id = al_wnd_message(null, "wParam", null, null);
+	read_bytes = al_wnd_message(null, "lParam", null, null);
+	if (read_bytes < 0) {
+		err = (string)al_socket("get_last_error", socket_id, null, null);
+		al_print("[ERROR] recv error. (" + err + ")\n");
+		Close();
+		return;
+	} else {
+	}
+	req = al_misc("binary_to_string", al_list3(buffer, 0, read_bytes), null);
+	if (state == 0) {
+		if (req != "\r") {
+			al_create_arc(request, req, null);
+			if (err = Start()) {
+				Close();
+				al_print("[ERROR] " + (string)err + "\n");
+			} else {
+			}
+			return;
+		} else {
+		}
+		if (debug) {
+			al_print("[Debug INFO] request =\n");
+			var list itr;
+			var string str;
+			itr = al_dst_itr(request);
+			loop {
+				if (str = al_next(itr)) {
+				} else {
+					break;
+				}
+				al_print(str + "\n");
+				if (al_str_misc("starts_with", str, "Content-Length: ")) {
+					content_length = (integer)al_tail_str(str, 16);
+				} else {
+				}
+			}
+		} else {
+		}
+		req = al_dst_node(request, null);
+		var file in;
+		var string order;
+		var integer idx;
+		in = al_file_open(req, "sr");
+		order = al_file_read(in, "string");
+		path = al_file_read(in, "string");
+		if (path) {
+		} else {
+			Close();
+			return;
+		}
+		idx = al_search_str(path, 0, "?");
+		if (idx > 0) {
+			cgi_args = al_substr(path, idx + 1, al_strlen(path));
+			path = al_substr(path, 0, idx);
+		} else {
+			cgi_args = "";
+		}
+		if (debug) {
+			al_print("order = " + (string)order + "\n");
+			al_print("path = " + (string)path + "\n");
+			al_print("cgi_args = " + (string)cgi_args + "\n");
+		} else {
+		}
+		var list dir_path;
+		if (dir_path = GetAbsolutePath(path)) {
+		} else {
+			Close();
+			return;
+		}
+		dir = dir_path.head;
+		path = dir_path.tail.head;
+		if (debug) {
+			al_print("absolute path = " + (string)path + "\n");
+		} else {
+		}
+		suffix = al_str_misc("file_ext", path, null);
+		if (order == "GET") {
+			para this.DoGet(dir, path, cgi_args, suffix);
+			return;
+		} else {
+		}
+		if (order == "POST") {
+			state = 1;
+			if (content_length) {
+				if (err = Start2(content_length)) {
+					Close();
+					al_print("[ERROR] " + (string)err + "\n");
+				} else {
+				}
+			} else {
+				if (err = Start()) {
+					Close();
+					al_print("[ERROR] " + (string)err + "\n");
+				} else {
+				}
+			}
+			return;
+		} else {
+		}
+		Close();
+		return;
+	} else {
+	}
+	if (state == 1) {
+		cgi_args = al_misc("binary_to_string", al_list3(buffer, 0, read_bytes), null);
+		if (debug) {
+			al_print("cgi_args(2) = " + (string)cgi_args + "\n");
+		} else {
+		}
+		para this.DoPost(dir, path, cgi_args, suffix);
+		return;
+	} else {
+	}
+	Close();
+}
+end_body
+member
+public: integer state;
+member
+public: list request;
+member
+public: string dir;
+member
+public: string path;
+member
+public: string cgi_args;
+member
+public: string suffix;
+member
+public: string GetAbsolutePath(string path);
+body
+{
+	var list dirs, itr;
+	var string filepath, tmp, dir, name;
+	filepath = server.wwwroot;
+	dirs = al_str_misc("split", path, '/');
+	itr = al_dst_itr(dirs);
+	loop {
+		if (tmp = al_next(itr)) {
+		} else {
+			break;
+		}
+		dir = filepath;
+		if (tmp != "") {
+			filepath = filepath + "/" + tmp;
+		} else {
+		}
+		name = tmp;
+	}
+	if (al_file_manip("does_exist", filepath, null)) {
+		if (al_file_manip("is_dir", filepath, null)) {
+			var string tmp_path;
+			tmp_path = filepath + "/index.html";
+			if (al_file_manip("does_exist", tmp_path, null)) {
+				dir = filepath;
+				filepath = tmp_path;
+			} else {
+				return null;
+			}
+		} else {
+		}
+	} else {
+		return null;
+	}
+	return al_list2(dir, filepath);
+}
+end_body
+member
+public: void DoGet(string dir, string path, string cgi_args, string suffix);
+body
+{
+	var list block;
+	var string header;
+	var integer file_size, transfered_size, read_size;
+	var file in;
+	file_size = al_file_manip("get_size", path, null);
+	transfered_size = 0;
+	if (in = al_file_open(path, "rb")) {
+	} else {
+		al_print("[ERROR] cannot open \"" + path + "\"");
+		Close();
+		return;
+	}
+	if (suffix == ".cgi" || suffix == ".pl") {
+		var string out;
+		out = ExecCGI("GET", dir, path, cgi_args, suffix);
+		if (out == null || Send(out)) {
+			Close();
+			return;
+		} else {
+		}
+		Send("\r\n");
+		Close();
+		return;
+	} else {
+	}
+	header = "HTTP/1.0 200 OK\n";
+	header = header + server.GetContentType(suffix);
+	header = header + "MIME-Version: 1.0\n";
+	header = header + "Content-Length: " + (string)file_size + "\n\n";
+	header = al_str_misc("u_to_d", header, null);
+	if (Send(header)) {
+		Close();
+		return;
+	} else {
+	}
+	loop {
+		if (transfered_size >= file_size) {
+			break;
+		} else {
+		}
+		block = al_list3(buffer, 0, buffer_size);
+		read_size = al_file_read(in, block);
+		if (read_size) {
+			if (read_size < 0) {
+				al_print("[ERROR] file read error \"" + path + "\"");
+				Close();
+				return;
+			} else {
+			}
+		} else {
+			read_size = buffer_size;
+		}
+		if (Send(buffer, 0, read_size)) {
+			Close();
+			return;
+		} else {
+		}
+		transfered_size = transfered_size + read_size;
+	}
+	Send("\r\n");
+	Close();
+}
+end_body
+member
+public: void DoPost(string dir, string path, string cgi_args, string suffix);
+body
+{
+	var list block;
+	var string header;
+	var integer file_size, transfered_size, read_size;
+	var file in;
+	file_size = al_file_manip("get_size", path, null);
+	transfered_size = 0;
+	if (in = al_file_open(path, "rb")) {
+	} else {
+		al_print("[ERROR] cannot open \"" + path + "\"");
+		Close();
+		return;
+	}
+	if (suffix == ".cgi" || suffix == ".pl") {
+		var string out;
+		out = ExecCGI("POST", dir, path, cgi_args, suffix);
+		if (out == null || Send(out)) {
+			Close();
+			return;
+		} else {
+		}
+		Send("\r\n");
+		Close();
+		return;
+	} else {
+	}
+	header = "HTTP/1.0 200 OK\n";
+	header = header + server.GetContentType(suffix);
+	header = header + "MIME-Version: 1.0\n";
+	header = header + "Content-Length:" + (string)file_size + "\n\n";
+	if (Send(header)) {
+		Close();
+		return;
+	} else {
+	}
+	loop {
+		if (transfered_size >= file_size) {
+			break;
+		} else {
+		}
+		block = al_list3(buffer, 0, buffer_size);
+		read_size = al_file_read(in, block);
+		if (read_size) {
+			if (read_size < 0) {
+				al_print("[ERROR] file read error \"" + path + "\"");
+				Close();
+				return;
+			} else {
+			}
+		} else {
+			read_size = buffer_size;
+		}
+		if (Send(buffer, 0, read_size)) {
+			Close();
+			return;
+		} else {
+		}
+		transfered_size = transfered_size + read_size;
+	}
+	Send("\r\n");
+	Close();
+}
+end_body
+member
+public: list Send(string msg);
+body
+{
+	if (al_socket("send", s_id, msg, null)) {
+		var list err;
+		err = (string)al_socket("get_last_error", s_id, null, null);
+		al_print("[ERROR] send error (" + err + ")\n");
+		return err;
+	} else {
+	}
+	return null;
+}
+end_body
+member
+public: list Send(list binary, integer idx, integer size);
+body
+{
+	var list block;
+	block = al_list3(binary, idx, size);
+	if (al_socket("send", s_id, block, null)) {
+		var list err;
+		err = (string)al_socket("get_last_error", s_id, null, null);
+		al_print("[ERROR] send error (" + err + ")\n");
+		return err;
+	} else {
+	}
+	return null;
+}
+end_body
+member
+public: string ExecCGI(string request_method, string dir, string path, string cgi_args, string suffix);
+body
+{
+	if (suffix == ".cgi") {
+		var file in;
+		var string line, perl;
+		if (in = al_file_open(path, "r")) {
+		} else {
+			return null;
+		}
+		if (line = al_file_read(in, "line")) {
+		} else {
+			return null;
+		}
+		in = al_file_open(line, "sr");
+		if (perl = al_file_read(in, "string")) {
+		} else {
+			return null;
+		}
+		if (perl == "#!/usr/local/bin/perl") {
+		} else {
+			return null;
+		}
+	} else {
+	}
+	stdout = al_file_open("", "pipe");
+	al_misc("set_env", "REQUEST_METHOD", request_method);
+	if (request_method == "GET") {
+		al_misc("set_env", "QUERY_STRING", cgi_args);
+		cgi_out = "";
+		if (al_exec("perl " + path, dir, null, stdout)) {
+		} else {
+			al_print("[ERROR] fail to execute 'perl'\n");
+			return null;
+		}
+		wait = new HttpWait;
+		timer = new HttpTimer;
+		timer.Create(100, this, HttpConnection::TimerCB);
+		timer.Start();
+		wait.Wait();
+		return cgi_out;
+	} else {
+	}
+	if (request_method == "POST") {
+		al_misc("set_env", "CONTENT_LENGTH", (string)al_strlen(cgi_args));
+		cgi_out = "";
+		if (al_exec("perl " + path, dir, null, stdout)) {
+		} else {
+			al_print("[ERROR] fail to execute 'perl'\n");
+			return null;
+		}
+		al_file_write(stdout, "string", cgi_args + "\n");
+		wait = new HttpWait;
+		timer = new HttpTimer;
+		timer.Create(100, this, HttpConnection::TimerCB);
+		timer.Start();
+		wait.Wait();
+		return cgi_out;
+	} else {
+	}
+	return null;
+}
+end_body
+member
+public: file stdout;
+member
+public: string cgi_out;
+member
+public: void TimerCB();
+body
+{
+	var string line;
+	loop {
+		if (line = al_file_read(stdout, "line")) {
+		} else {
+			break;
+		}
+		if (line == 0x0000000080000000) {
+			al_next_process();
+			continue;
+		} else {
+		}
+		line = line + "\n";
+		cgi_out = cgi_out + line;
+	}
+	timer.Stop();
+	timer.Close();
+	wait.Notify();
+}
+end_body
+member
+public: HttpTimer timer;
+member
+public: HttpWait wait;
+end_class
+class HttpTimer
+member
+public: void Create(integer millisecond, AlObject obj, CallbackFunc func);
+body
+{
+	this.millisecond = millisecond;
+	this.obj = obj;
+	this.func = func;
+}
+end_body
+member
+public: void Start();
+body
+{
+	if (timer_id) {
+		return;
+	} else {
+	}
+	timer_id = al_get_id();
+	al_gui_misc("timer", al_list2(timer_id, millisecond), al_list3(al_root_class(), this, HttpTimer::Callback));
+}
+end_body
+member
+public: void Stop();
+body
+{
+	if (timer_id) {
+		al_gui_misc("timer", al_list2(timer_id, millisecond), null);
+		al_release_id(timer_id);
+		timer_id = null;
+	} else {
+	}
+}
+end_body
+member
+public: void Close();
+body
+{
+	Stop();
+	obj = func = null;
+}
+end_body
+member
+public: integer millisecond;
+member
+public: AlObject obj;
+member
+public: CallbackFunc func;
+member
+public: integer timer_id;
+member
+public: void Callback();
+body
+{
+	if (obj && func) {
+		obj.*func();
+	} else {
+	}
+}
+end_body
+end_class
+class HttpWait
+member
+public: void Notify();
+body
+{
+	notified = 1;
+}
+end_body
+member
+public: void Wait();
+body
+{
+	loop {
+		if (notified) {
+			break;
+		} else {
+		}
+		al_next_process();
+	}
+}
+end_body
+member
+public: list notified;
+end_class
+end_class
+$END_BODY

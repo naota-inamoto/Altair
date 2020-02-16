@@ -1,0 +1,609 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Altair Simple Java IDE</TITLE>
+</HEAD>
+
+<BODY>
+<H1>Altair簡易JavaIDE</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.13版 1999年 5月 4日<BR>
+
+<HR>
+<H3>概要</H3>
+Javaの簡易IDEです。<BR>
+プロジェクト管理、クラスブラウザ、ビルド、jdbをラップしたデバッガが使用できます。<BR>
+プロジェクトファイルのファイルフォーマットはXML形式のファイルを使用しています。<BR>
+ビルドはpackage分を抽出しパッケージに相当したディレクトリを自動的に掘ります。<BR>
+デバッガでは、簡単なパーサによってクラス名を抽出しています。<BR>
+JDKのソースにステップインすることが可能です。<BR>
+テキストエディタは秀丸等のエディタを使用することができます。<BR>
+GnuのRCSを使用してソースの版管理ができます。<BR>
+Javaとの連携ではおもに標準入出力をパイプにつないで行っています。<BR>
+
+<HR>
+<H3><A NAME="main_window">Mainウィンドウ</A></H3>
+Altair簡易JavaIDEのメインウィンドウです。<BR>
+プロジェクトの一覧を表示します。<BR>
+
+<HR>
+<H3><A NAME="project_window">Projectウィンドウ</A></H3>
+ひとつのプロジェクトに対応するウィンドウです。<BR>
+Mainウィンドウから開かれます。<BR>
+プロジェクトに含まれるソースの一覧を表示します。<BR>
+
+<HR>
+<H3><A NAME="class_window">Classウィンドウ</A></H3>
+クラスブラウザのメインウィンドウです。<BR>
+Projectウィンドウから開かれます。<BR>
+アーカイブに含まれるクラスの一覧や<BR>
+プロジェクトに含まれるクラスの一覧を表示します。<BR>
+
+<HR>
+<H3><A NAME="member_window">Memberウィンドウ</A></H3>
+クラスのメンバー一覧を表示するウィンドウです。<BR>
+Classウィンドウから開かれます。<BR>
+
+<HR>
+<H3><A NAME="bean_window">Beanウィンドウ</A></H3>
+クラスのJavaBeansとしてのAPIを表示するウィンドウです。<BR>
+Classウィンドウから開かれます。<BR>
+
+<HR>
+<H3><A NAME="debug_window">Debugウィンドウ</A></H3>
+jdbでデバッグトレースするためのウィンドウです。<BR>
+ProjectウィンドウおよびDebugウィンドウから開かれます。<BR>
+簡単な編集機能を備えています。<BR>
+
+<HR>
+<H3><A NAME="output_window">Outputウィンドウ</A></H3>
+ビルドの結果やjdbの出力を表示するウィンドウです。<BR>
+
+<HR>
+<H3><A NAME="breakpoint_window">Breakpointウィンドウ</A></H3>
+ブレークポイントの一覧を表示するウィンドウです。<BR>
+Debugウィンドウから開かれます。<BR>
+
+<HR>
+<H3><A NAME="main_file_exit">Exit</A></H3>
+MainウィンドウとMainウィンドウから開いたウィンドウを<BR>
+すべて閉じます。（Altair簡易JavaIDEを終了します。）<BR>
+
+<HR>
+<H3><A NAME="main_edit_new">New</A></H3>
+新規Javaプロジェクトを作成します。<BR>
+ファイルダイアログでプロジェクトディレクトリを作成し、<BR>
+拡張子.jprのプロジェクトファイルをそこに作成してください。<BR>
+
+<HR>
+<H3><A NAME="main_edit_open">Open</A></H3>
+Mainウィンドウでプロジェクトが選択されている場合は、<BR>
+そのプロジェクトがオープンされ、Projectウィンドウが表示されます。<BR>
+Mainウィンドウでプロジェクトが選択されていない場合は、<BR>
+既存のJavaプロジェクトをファイルダイアログで選択し、<BR>
+JavaプロジェクトをMainウィンドウに登録します。<BR>
+注：登録されているプロジェクトでもパスが違っているとオープンできません。<BR>
+パスが違っている場合は、一度下記「Close」で閉じてから開き直して<BR>
+ください。<BR>
+
+<HR>
+<H3><A NAME="main_edit_close">Close</A></H3>
+Mainウィンドウに登録されているJavaプロジェクトを<BR>
+Mainウィンドウから削除します。<BR>
+Mainウィンドウから削除してもJavaプロジェクト自体は<BR>
+削除されませんので、本当に削除する場合は、<BR>
+エクスプローラで削除してください。<BR>
+
+<HR>
+<H3><A NAME="main_env_texteditor">TextEditor</A></H3>
+標準で用いるテキストエディタの設定を行います。<BR>
+デフォルトでは、「C:\Program Files\Hidemaru\Hidemaru.exe」が<BR>
+設定されています。<BR>
+
+<HR>
+<H3><A NAME="main_env_srcpath">SourcePath</A></H3>
+すべてのJavaプロジェクトで共通に用いるソースのパスを指定します。<BR>
+JDKのソースのアーカイブを解凍したディレクトリを指定しておくと<BR>
+デバッガからJDKのソースにステップインすることができます。<BR>
+デフォルトでは、「D:\jdk1.2\src」が設定されています。<BR>
+
+<HR>
+<H3><A NAME="main_env_verctrl">VersionControl</A></H3>
+Gnuのci,co,rlog,rcs,rcsdiffのコマンドのあるパスを指定します。<BR>
+正しく設定されているとGnuのRCSを用いてソースの版管理を<BR>
+行うことができます。<BR>
+デフォルトでは、「D:\usr\local\bin」が設定されています。<BR>
+
+<HR>
+<H3><A NAME="main_env_browser">WebBrowser</A></H3>
+Webブラウザの設定を行います。デフォルトでは、<BR>
+「C:\Program Files\Internet Explorer\Iexplore.exe」が<BR>
+設定されています。<BR>
+(Appletの動作確認に用いるためのものです。)<BR>
+
+<HR>
+<H3><A NAME="proj_file_close">Close</A></H3>
+ProjectウィンドウとProjectウィンドウから開いたウィンドウを<BR>
+すべて閉じます。<BR>
+注：クラスブラウズ情報、ブレークポイント情報は失われます。<BR>
+
+<HR>
+<H3><A NAME="proj_edit_open_editor">OpenEditor</A></H3>
+選択されたソース(.java/.html)を設定されたテキストエディタでオープンします。<BR>
+
+<HR>
+<H3><A NAME="proj_edit_open_debugview">OpenDebugView</A></H3>
+選択されたソース(.java)をDebugウィンドウでオープンします。<BR>
+
+<HR>
+<H3><A NAME="proj_edit_addfile">AddFile</A></H3>
+プロジェクトにソース(.java/.html)を追加します。<BR>
+追加するソースは&ltプロジェクトディレクトリ&gt/src/の下に<BR>
+置かなければなりません。<BR>
+同じファイルが既に含まれている場合は追加されません。<BR>
+
+<HR>
+<H3><A NAME="proj_edit_remfile">RemoveFile</A></H3>
+プロジェクトに含まれるソース(.java/.html)をプロジェクトから削除します。<BR>
+ソースファイル自体は&ltプロジェクトディレクトリ&gt/src/の下に<BR>
+残ったままなので、本当に削除する場合は、エクスプローラ等で<BR>
+削除してください。<BR>
+
+<HR>
+<H3><A NAME="proj_edit_addallfiles">AddAllFiles</A></H3>
+&ltプロジェクトディレクトリ&gt/src/の下にあるソース(.java/.html)を<BR>
+プロジェクトに一括して追加します。<BR>
+同じファイルが既に含まれている場合は追加されません。<BR>
+
+<HR>
+<H3><A NAME="proj_tool_classbrowser">ClassBrowser</A></H3>
+クラスブラウザをオープンします。<BR>
+
+<HR>
+<H3><A NAME="proj_tool_texteditor">TextEditor</A></H3>
+設定されているテキストエディタをオープンします。<BR>
+
+<HR>
+<H3><A NAME="proj_build">Build</A></H3>
+プロジェクトのビルドを行います。<BR>
+ソースをデスティネーションディレクトリにコピーし、<BR>
+そこで「javac -g」でコンパイルします。<BR>
+クラスファイル(.class)の日付がソースファイル(.java)の日付より<BR>
+新しい場合はコンパイルはされません。<BR>
+デフォルトではデスティネーションディレクトリは<BR>
+&ltプロジェクトディレクトリ&gt/classes/になっています。<BR>
+ソースにpackage文が含まれている場合は、<BR>
+デスティネーションディレクトリにディレクトリを掘り、<BR>
+そこにソースファイルをコピーします。<BR>
+コピーされたソースファイルは削除しません。<BR>
+コンパイラの標準出力、標準エラー出力は<BR>
+Outputウィンドウに出力されます。<BR>
+コンパイルエラーを表示した行をダブルクリックすると<BR>
+ソースを開きます。<BR>
+
+<HR>
+<H3><A NAME="proj_rebuild">Rebuild</A></H3>
+プロジェクトのリビルドを行います。<BR>
+上記「Build」とだいたい同じですが、Rebuildは<BR>
+ソースファイル(.java)に対応するクラスファイル(.class)がある場合、<BR>
+クラスファイルを削除してからビルドを行います。<BR>
+
+<HR>
+<H3><A NAME="proj_deprecation">Deprecation</A></H3>
+JDKのバージョンアップで推奨されないメソッドに関する詳しい情報を<BR>
+出力しながら、プロジェクトのビルドを行います。<BR>
+
+<HR>
+<H3><A NAME="proj_stop_build">StopBuild</A></H3>
+ビルドを中止します。<BR>
+
+<HR>
+<H3><A NAME="proj_clear">Clear</A></H3>
+デスティネーションディレクトリ配下に<BR>
+コピーされたソースファイルを削除します。<BR>
+
+<HR>
+<H3><A NAME="proj_run">Run</A></H3>
+プロジェクトを実行します。<BR>
+標準出力、標準エラー出力はOutputウィンドウに出力されます。<BR>
+
+<HR>
+<H3><A NAME="proj_stop">Stop</A></H3>
+実行中のプロジェクトを終了します。<BR>
+
+<HR>
+<H3><A NAME="proj_env_application">Application</A></H3>
+プロジェクトの種別をJavaアプリケーションにします。<BR>
+ソースファイル(.java)を選択してから実行します。<BR>
+ソースファイルで定義されるpublic classが実行するクラス名に<BR>
+なります。ソースファイルにpublic static void main(String[] arg);が<BR>
+なければなりません。コマンド引数も設定可能になっています。<BR>
+
+<HR>
+<H3><A NAME="proj_env_applet">Applet</A></H3>
+プロジェクトの種別をJavaアプレットにします。<BR>
+ソースファイル(.html)を選択してから実行します。<BR>
+ソースファイル中に&ltAPPLET&gtタグがあることが必要です。<BR>
+
+<HR>
+<H3><A NAME="proj_env_dstdir">DestinationDirectory</A></H3>
+デスティネーションディレクトリの設定を行います。<BR>
+デフォルトでは（特に設定がない場合は）、<BR>
+&ltプロジェクトディレクトリ&gt/classes/になっています。<BR>
+デスティネーションディレクトリの設定は、<BR>
+複数のプロジェクトで同じパッケージを作成する場合に有効です。<BR>
+
+<HR>
+<H3><A NAME="proj_env_import">Import</A></H3>
+プロジェクトがインポートするパッケージや<BR>
+使用するクラスファイルが展開さているディレクトリを設定します。<BR>
+プロジェクトがライブラリプロジェクトを使用している場合、<BR>
+ライブラリプロジェクトのデスティネーションディレクトリを設定します。<BR>
+パッケージやディレクトリが複数ある場合は「;」で区切ります。<BR>
+ここで設定したパッケージやディレクトリは、コンパイル時や実行時の<BR>
+クラスパスになります。<BR>
+
+<HR>
+<H3><A NAME="proj_env_srcpath">SourcePath</A></H3>
+プロジェクトがライブラリプロジェクトを使用している場合、<BR>
+ライブラリプロジェクトのデスティネーションディレクトリを<BR>
+設定することによってデバッグ時にライブラリプロジェクトのソースに<BR>
+ステップインすることができます。ただし、<BR>
+ライブラリプロジェクトのデスティネーションディレクトリ配下の<BR>
+ソースが削除されていてはなりません。<BR>
+
+<HR>
+<H3><A NAME="proj_ver_ci">CheckIn</A></H3>
+Gnuのciコマンドでソースファイルをチェックインします。<BR>
+チェックインするためには、初めてのチェックインでない場合は<BR>
+ファイルにロックがかかっていることが必要です。<BR>
+コメントは、初めてのチェックインの場合、ファイル全体についてのコメント、<BR>
+２回目以降のチェックインの場合、差分についてのコメントになります。<BR>
+バージョン番号を省略した場合は最新版を指します。<BR>
+注：このコマンドを実行すると&ltプロジェクトディレクトリ&gt/src/の下から<BR>
+ソースがなくなってしまいます。ソースを復元するには、<BR>
+このコマンドを実行した後で「Get」を行ってください。<BR>
+「Get」を行うと書き込み禁止のソースが復元されます。<BR>
+
+<HR>
+<H3><A NAME="proj_ver_co">CheckOut</A></H3>
+Gnuのcoコマンドでロックをかけてソースファイルをチェックアウトします。<BR>
+バージョン番号を省略した場合は最新版を指します。<BR>
+注：書き込み可能なソースが置いてあるとこのコマンドの実行に失敗します。<BR>
+書き込み可能なファイルが置いてある場合は、削除するか書き込み禁止にして<BR>
+ください。置いてあるファイルは上書きされます。<BR>
+
+<HR>
+<H3><A NAME="proj_ver_get">Get</A></H3>
+Gnuのcoコマンドでロックをかけずにファイルを取得します。<BR>
+バージョン番号を省略した場合は最新版を指します。<BR>
+ファイルは上書き禁止になります。<BR>
+注：書き込み可能なソースが置いてあるとこのコマンドの実行に失敗します。<BR>
+書き込み可能なファイルが置いてある場合は、削除するか書き込み禁止にして<BR>
+ください。置いてあるファイルは上書きされます。<BR>
+
+<HR>
+<H3><A NAME="proj_ver_lock">Lock</A></H3>
+Gnuのrcsコマンドでソースファイルをロックします。<BR>
+
+<HR>
+<H3><A NAME="proj_ver_unlock">Unlock</A></H3>
+Gnuのrcsコマンドでソースファイルをアンロックします。<BR>
+
+<HR>
+<H3><A NAME="proj_ver_log">History</A></H3>
+Gnuのrlogコマンドで版管理されたソースファイルの履歴を<BR>
+Outputウィンドウに出力します。<BR>
+
+<HR>
+<H3><A NAME="proj_ver_diff">Diff</A></H3>
+Gnuのrcsdiffコマンドでソースファイルの２つのバージョンの差分を<BR>
+Outputウィンドウに出力します。<BR>
+
+<HR>
+<H3><A NAME="class_file_close">Close</A></H3>
+クラスブラウザを閉じます。<BR>
+
+<HR>
+<H3><A NAME="class_edit_archive">Archive</A></H3>
+クラスブラウザのClassウィンドウに、<BR>
+指定されたArchive(.jar/.zip)に含まれるクラス名一覧を表示します。<BR>
+注：Archiveのサイズが大きい場合、少々時間がかかります。<BR>
+
+<HR>
+<H3><A NAME="class_edit_projclasses">ProjectClasses</A></H3>
+クラスブラウザのClassウィンドウに、<BR>
+コンパイル済のプロジェクトに含まれるクラス名一覧を表示します。<BR>
+注：クラスの数が多い場合、少々時間がかかります。<BR>
+
+<HR>
+<H3><A NAME="class_edit_addclass">AddClass</A></H3>
+クラスブラウザのClassウィンドウに、パッケージ名を含むクラス名を<BR>
+追加します。<BR>
+
+<HR>
+<H3><A NAME="class_edit_find">Find</A></H3>
+Classウィンドウの中で、指定された文字列と一致する文字列を検索します。<BR>
+
+<HR>
+<H3><A NAME="class_edit_findnext">FindNext</A></H3>
+Classウィンドウの中で、指定された文字列と次に一致する文字列を検索します。<BR>
+
+<HR>
+<H3><A NAME="class_view_classinfo">ClassInfo</A></H3>
+クラスのクラス情報（実装しているインターフェース一覧等）を<BR>
+Outputウィンドウに出力します。<BR>
+
+<HR>
+<H3><A NAME="class_view_memberinfo">MemberInfo</A></H3>
+クラスのfield, constructor, methodを表示するMemberウィンドウを出します。<BR>
+
+<HR>
+<H3><A NAME="class_view_beaninfo">BeanInfo</A></H3>
+クラスのJavaBeansとしてのAPIを表示するBeanウィンドウを出します。<BR>
+
+<HR>
+<H3><A NAME="member_file_close">Close</A></H3>
+Memberウィンドウを閉じます。<BR>
+
+<HR>
+<H3><A NAME="member_edit_find">Find</A></H3>
+Memberウィンドウの中で、指定された文字列と一致する文字列を検索します。<BR>
+
+<HR>
+<H3><A NAME="member_edit_findnext">FindNext</A></H3>
+Memberウィンドウの中で、指定された文字列と次に一致する文字列を検索します。<BR>
+
+<HR>
+<H3><A NAME="member_view_dec">declared only (default)</A></H3>
+そのクラスで定義されているメンバーだけを表示します。<BR>
+
+<HR>
+<H3><A NAME="member_view_dec_all">All</A></H3>
+そのクラスで使用できるpublicなメンバーだけを表示します。<BR>
+
+<HR>
+<H3><A NAME="member_view_pro_public">public only</A></H3>
+publicなメンバーだけを表示します。<BR>
+
+<HR>
+<H3><A NAME="member_view_pro_public_protected">public protected only</A></H3>
+publicまたはprotectedなメンバーだけを表示します。<BR>
+
+<HR>
+<H3><A NAME="member_view_pro_all">All (default)</A></H3>
+すべてのプロテクションのメンバーを表示します。<BR>
+
+<HR>
+<H3><A NAME="member_view_static_not">not static only</A></H3>
+staticでないメンバーだけを表示します。<BR>
+
+<HR>
+<H3><A NAME="member_view_static">static only</A></H3>
+staticなメンバーだけを表示します。<BR>
+
+<HR>
+<H3><A NAME="member_view_static_all">All (default)</A></H3>
+staticでないメンバーとstaticなメンバーの両方を表示します。<BR>
+
+<HR>
+<H3><A NAME="member_view_kind_field">field only</A></H3>
+fieldのみを表示します。<BR>
+
+<HR>
+<H3><A NAME="member_view_kind_constuctor">constructor only</A></H3>
+constructorのみを表示します。<BR>
+
+<HR>
+<H3><A NAME="member_view_kind_method">method only</A></H3>
+methodのみを表示します。<BR>
+
+<HR>
+<H3><A NAME="member_view_kind_all">All (default)</A></H3>
+field, constructor, methodすべてを表示します。<BR>
+
+<HR>
+<H3><A NAME="bean_file_close">Close</A></H3>
+Beanウィンドウを閉じます。<BR>
+
+<HR>
+<H3><A NAME="bean_edit_find">Find</A></H3>
+Beanウィンドウの中で、指定された文字列と一致する文字列を検索します。<BR>
+
+<HR>
+<H3><A NAME="bean_edit_findnext">FindNext</A></H3>
+Beanウィンドウの中で、指定された文字列と次に一致する文字列を検索します。<BR>
+
+<HR>
+<H3><A NAME="bean_view_all">All (default)</A></H3>
+Method, Property, Eventのすべてを表示します。<BR>
+
+<HR>
+<H3><A NAME="bean_view_method">Method only</A></H3>
+Methodのみを表示します。<BR>
+
+<HR>
+<H3><A NAME="bean_view_property">Property only</A></H3>
+Propertyのみを表示します。<BR>
+
+<HR>
+<H3><A NAME="bean_view_event">Event only</A></H3>
+Eventのみを表示します。<BR>
+
+<HR>
+<H3><A NAME="debug_file_new">New</A></H3>
+新しいDebugウィンドウをオープンします。<BR>
+内容は空です。<BR>
+
+<HR>
+<H3><A NAME="debug_file_open">Open</A></H3>
+ファイルを指定してDebugウィンドウをオープンします。<BR>
+
+<HR>
+<H3><A NAME="debug_file_save">Save</A></H3>
+Debugウィンドウの内容を保存します。<BR>
+
+<HR>
+<H3><A NAME="debug_file_save_as">Save As</A></H3>
+Debugウィンドウの内容を別のファイル名で保存します。<BR>
+
+<HR>
+<H3><A NAME="debug_file_close">Close</A></H3>
+Debugウィンドウを閉じます。<BR>
+
+<HR>
+<H3><A NAME="debug_edit_cut">Cut</A></H3>
+選択された領域の内容をクリップボードにコピーし、<BR>
+選択された領域を空にします。<BR>
+
+<HR>
+<H3><A NAME="debug_edit_copy">Copy</A></H3>
+選択された領域の内容をクリップボードにコピーします。<BR>
+
+<HR>
+<H3><A NAME="debug_edit_paste">Paste</A></H3>
+クリップボードの内容を選択された領域にペーストします。<BR>
+
+<HR>
+<H3><A NAME="debug_edit_clear">Cear</A></H3>
+選択された領域を空にします。<BR>
+
+<HR>
+<H3><A NAME="debug_edit_jump">Jump</A></H3>
+指定された行番号へジャンプします。<BR>
+
+<HR>
+<H3><A NAME="debug_edit_lno">LineNumber</A></H3>
+現在キャレットのある行の行番号を表示します。<BR>
+
+<HR>
+<H3><A NAME="debug_search_find">Find</A></H3>
+指定された文字列と一致する文字列を検索します。<BR>
+
+<HR>
+<H3><A NAME="debug_search_findnext">FindNext</A></H3>
+指定された文字列と次に一致する文字列を検索します。<BR>
+
+<HR>
+<H3><A NAME="debug_search_grep">Grep</A></H3>
+指定されたファイル指定されたファイルパスのファイルから<BR>
+指定された文字列を再帰的に検索します。<BR>
+検索結果はアウトプットウィンドウに出力され、<BR>
+そこでダブルクリックするとソースを開きます。<BR>
+
+<HR>
+<H3><A NAME="debug_search_rep">Replace</A></H3>
+指定された文字列と一致する文字列を別の文字列で置換します。<BR>
+
+<HR>
+<H3><A NAME="debug_search_repnext">ReplaceNext</A></H3>
+指定された文字列と次に一致する文字列を別の文字列で置換します。<BR>
+
+<HR>
+<H3><A NAME="debug_cont">Continue</A></H3>
+デバッグ実行を続行します。<BR>
+注：このメニュー項目を実行するためには<BR>
+Debugウィンドウ中でブレークしていることが必要です。<BR>
+
+<HR>
+<H3><A NAME="debug_step_in">StepIn</A></H3>
+デバッグ実行でステップインします。<BR>
+注：このメニュー項目を実行するためには<BR>
+Debugウィンドウ中でブレークしていることが必要です。<BR>
+
+<HR>
+<H3><A NAME="debug_step_over">StepOver</A></H3>
+デバッグ実行でステップオーバーします。<BR>
+注：このメニュー項目を実行するためには<BR>
+Debugウィンドウ中でブレークしていることが必要です。<BR>
+
+<HR>
+<H3><A NAME="debug_step_out">StepOut</A></H3>
+デバッグ実行でステップアウトします。<BR>
+注：このメニュー項目を実行するためには<BR>
+Debugウィンドウ中でブレークしていることが必要です。<BR>
+
+<HR>
+<H3><A NAME="debug_run">Run</A></H3>
+デバッグ実行を開始します。<BR>
+
+<HR>
+<H3><A NAME="debug_stop">Stop</A></H3>
+デバック実行を終了します。<BR>
+
+<HR>
+<H3><A NAME="debug_watch">Watch</A></H3>
+変数の値をアウトプットウィンドウに出します。<BR>
+これは、メニュー項目Commandの初期コマンドを用意するもので<BR>
+選択文字列を対象としてjdbのprint文を実行するためのメニュー項目です。<BR>
+
+<HR>
+<H3><A NAME="debug_command">Command</A></H3>
+jdbにコマンドを入力します。<BR>
+スタックトレースの表示はこのメニュー項目でwhereとやってください。<BR>
+
+<HR>
+<H3><A NAME="debug_jdb">jdb</A></H3>
+jdbでよく使用するコマンドをサブメニューにまとめてあります。<BR>
+
+<HR>
+<H3><A NAME="break_set">Set</A></H3>
+ブレークポイントのセットを行います。<BR>
+
+<HR>
+<H3><A NAME="break_unset">Unset</A></H3>
+ブレークポイントの解除を行います。<BR>
+
+<HR>
+<H3><A NAME="break_list">List</A></H3>
+設定されているブレークポイントの一覧を表示する<BR>
+Breakpointウィンドウを表示します。<BR>
+
+<HR>
+<H3><A NAME="watch_add">AddVariable</A></H3>
+ブレークポイントにヒットしたときにprintする変数を追加します。<BR>
+変数の値はOutputウィンドウに出力されます。<BR>
+
+<HR>
+<H3><A NAME="watch_rem">RemoveVariable</A></H3>
+ブレークポイントにヒットしたときにprintする変数を削除します。<BR>
+
+<HR>
+<H3><A NAME="watch_list">List</A></H3>
+ブレークポイントにヒットしたときにprintする変数の一覧を<BR>
+Outputウィンドウに出力します。<BR>
+
+<HR>
+<H3><A NAME="out_file_close">Close</A></H3>
+Outputウィンドウを閉じます。<BR>
+
+<HR>
+<H3><A NAME="out_edit_copy">Copy</A></H3>
+選択された領域の文字列をクリップボードにコピーします。<BR>
+
+<HR>
+<H3><A NAME="out_edit_clear">Cear</A></H3>
+Outputウィンドウの内容をクリアします。<BR>
+
+<HR>
+<H3><A NAME="break_file_close">Close</A></H3>
+Breakpointウィンドウを閉じます。<BR>
+
+<HR>
+<H3><A NAME="break_edit_jump">Jump</A></H3>
+ブレークポイントが設定されているソースにジャンプします。<BR>
+
+<HR>
+<H2>制限事項</H2>
+<H3><A NAME="windows_only">動作するプラットフォーム</A></H3>
+動作するプラットフォームはWindowsのみです。<BR>
+
+<H3><A NAME="browse_ng_class">クラスブラウズ不可能なクラス</A></H3>
+Jarに含まれるクラスの階層構造およびクラスのメソッド一覧を表示する機能がありますが、<BR>
+これが使えるクラスは、static initializerで特別な設定が要らないもののみです。<BR>
+また、static initializeしたときに標準出力に出力するクラスは表示内容が不正になります。<BR>
+
+<HR>
+</BODY>
+</HTML>

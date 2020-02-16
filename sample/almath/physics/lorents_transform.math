@@ -1,0 +1,23 @@
+
+G := {
+       { -1, 0, 0, 0 },
+       { 0,  1, 0, 0 },
+       { 0,  0, 1, 0 },
+       { 0,  0, 0, 1 }
+     }
+
+É¿ := (vx^2+vy^2+vz^2)/c^2
+
+L := 1/sqrt(1-É¿)*{
+       { 1,      -vx/c,       -vy/c,       -vz/c       },
+       { -vx/c,  1,           %mp*%i*vz/c, %pm*%i*vy/c },
+       { -vy/c,  %pm*%i*vz/c, 1,           %mp*%i*vx/c },
+       { -vz/c,  %mp*%i*vy/c, %pm*%i*vx/c, 1           }
+     }
+
+LT := transpose(L)
+
+G2 := LT * G * L
+
+print G2;
+

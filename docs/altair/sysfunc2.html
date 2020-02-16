@@ -1,0 +1,691 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Altair System Function(2)</TITLE>
+</HEAD>
+
+<BODY>
+<H1>システム関数(2/3)</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.00版 1996年 2月11日<BR>
+
+<HR>
+<H3><A NAME="al_create_poly_poly">list al_create_poly_poly();</A></H3>
+ポリポリゴンはグラフィクス関数等で使用する汎用的なデータ構造です。<BR>
+polypolygon-/-/=>polygon-/-/=>(x, y) という形をしています。<BR>
+ポリポリゴンは複数のポリゴンからなり、ポリゴンは点列からなるです。<BR>
+この関数は、空のポリポリゴンを作成し返します。<BR>
+
+<HR>
+<H3><A NAME="al_create_next_poly">void al_create_next_poly(list polypolygon);</A></H3>
+ポリポリゴンにポリゴンを追加し、それをカレントポリゴンにします。<BR>
+
+<HR>
+<H3><A NAME="al_add_point_to_poly">void al_add_point_to_poly(list polypolygon, real x, real y);</A></H3>
+カレントポリゴンに点を追加します。<BR>
+
+<HR>
+<H3><A NAME="al_add_rect_to_poly">void al_add_rect_to_poly(list polypolygon, real l,real t, real r, real b);</A></H3>
+カレントポリゴンに矩形を追加します。<BR>
+
+<HR>
+<H3><A NAME="al_add_curve_to_poly">void al_add_curve_to_poly(list polypolygon, real cx1, real cy1, real cx2, real cy2, real x, real y);</A></H3>
+カレントポリゴンにベジェ曲線を追加します。<BR>
+
+<HR>
+<H3><A NAME="al_intersection">list al_intersection(list poly1, list poly2);</A></H3>
+ふたつのポリポリゴンの積のポリポリゴンを返します。<BR>
+<BR>
+現状は、それぞれのポリポリゴンを囲む最小矩形の積になっています。<BR>
+
+<HR>
+<H3><A NAME="al_union">list al_union(list poly1, list poly2);</A></H3>
+ふたつのポリポリゴンの和のポリポリゴンを返します。<BR>
+<BR>
+現状は、それぞれのポリポリゴンを囲む最小矩形の和になっています。<BR>
+
+<HR>
+<H3><A NAME="al_unit_tm">matrix al_unit_tm();</A></H3>
+大きさが3x3の単位行列を作成し返します。<BR>
+
+<HR>
+<H3><A NAME="al_translate_tm">matrix al_translate_tm(real dx, real dy);</A></H3>
+(dx, dy)だけ平行移動する3x3の座標変換行列を作成し返します。<BR>
+
+<HR>
+<H3><A NAME="al_sacle_tm">matrix al_scale_tm(real dx, real sy);</A></H3>
+x軸方向にsx倍、y軸方向にsy倍する3x3の座標変換行列を作成し返します。<BR>
+
+<HR>
+<H3><A NAME="al_rotate_tm">matrix al_rotate_tm(real angle);</A></H3>
+angleだけ回転させる3x3の座標変換行列を作成し返します。<BR>
+
+<HR>
+<H3><A NAME="al_transform">list al_transform(matrix tm, real x, real y);</A></H3>
+座標(x, y)を変換行列tmで変換した座標を返します。<BR>
+戻り値は(xx, yy)の形のリスト。<BR>
+変換行列がnullのときは単位行列とみなされます。<BR>
+
+<HR>
+<H3><A NAME="al_inverse">list al_inverse(matrix tm, real x, real y);</A></H3>
+座標(x, y)を変換行列tmで逆変換した座標を返します。<BR>
+戻り値は(xx, yy)の形のリスト。<BR>
+変換行列がnullのときは単位行列とみなされます。<BR>
+
+<HR>
+<H3><A NAME="al_transform_poly">list al_transform_poly(matrix tm, list poly);</A></H3>
+ポリポリゴンpolyを変換行列tmで変換したポリポリゴンを返します。<BR>
+変換行列がnullのときは単位行列とみなされます。<BR>
+
+<HR>
+<H3><A NAME="al_inverse_poly">list al_inverse_poly(matrix tm, list poly);</A></H3>
+ポリポリゴンpolyを変換行列tmで逆変換したポリポリゴンを返します。<BR>
+変換行列がnullのときは単位行列とみなされます。<BR>
+
+<HR>
+<H3><A NAME="al_transform_rect">list al_transform_rect(matrix tm, real l, real t, real r, real b);</A></H3>
+矩形を変換行列tmで変換したときの最小内接矩形を返します。<BR>
+戻り値は(ll, tt, rr, bb)の形のリスト。<BR>
+変換行列がnullのときは単位行列とみなされます。<BR>
+
+<HR>
+<H3><A NAME="al_print">void al_print(any obj);</A></H3>
+オブジェクトobjをアウトプットウィンドウに出力します。<BR>
+
+<HR>
+<H3><A NAME="al_ask">string al_ask(string title, string text);</A></H3>
+文字列入力用のウィンドウを出します。ウィンドウタイトルはtitleになり、<BR>
+文字列の初期値はtextになります。文字列を入力してOKボタンを押すと<BR>
+入力した文字列を戻り値として関数から戻ります。<BR>
+キャンセルボタンを押すと空文字列 "" が返ります。<BR>
+
+<HR>
+<H3><A NAME="al_menu_select">list al_menu_select(window w, list event, list menu);</A></H3>
+ウィンドウwとイベントeventで指定される位置にmenuで指定される内容のメニュー<BR>
+を出します。項目が選択されるとmenu内の対応するリストが返ります。<BR>
+<BR>
+第３引数menuの構造は以下のようになっています。<BR>
+menu:()-/-/=>(menuItemName, submenu, ... )<BR>
+menuItemNameはstring型です。submenuがnullでないときはサブメニューを<BR>
+持つことを表わします。<BR>
+al_dst_node(submenu, "menu")はmenuと同じ構造をしていなれればなりません。<BR>
+ヒットしたメニュー項目があればそれに対応する<BR>
+(menuItemName, null, ...)が返ります。<BR>
+...のところにはユーザが使いたいデータを好きなように設定しておく<BR>
+ことができます。<BR>
+
+<HR>
+<H3><A NAME="al_get_read_filename">list al_get_read_filename(string file_ext, list opt);</A></H3>
+ファイルダイアログを開き読み込みファイルの場所とファイル名を<BR>
+指定しそれらを返します。file_extには<BR>
+"Text Files (*.txt)|*.txt| All Files (*.*)|*.*||"などと<BR>
+書いてファイルの拡張子を指定することができます。<BR>
+戻り値はファイル名が選択されなかった場合はnullが、選択された場合は<BR>
+以下のリストが返ります。<BR>
+(dir, name)<BR>
+dirはファイルのあるディレクトリのパス、nameはファイル名です。<BR>
+optは、通常nullを入れます。<BR>
+ダイアログのtitle/initial_file/default_file_extension/initial_directoryを変える場合は、<BR>
+optに(title, initial_file, default_file_extension, initial_directory)を入れます。<BR>
+これらは文字列を入れずにnullであっても構いません。<BR>
+
+<HR>
+<H3><A NAME="al_get_write_filename">list al_get_write_filename(string file_ext);</A></H3>
+ファイルダイアログを開き書き込みファイルの場所とファイル名を<BR>
+指定しそれらを返します。file_extには<BR>
+"Text Files (*.txt)|*.txt| All Files (*.*)|*.*||"などと<BR>
+書いてファイルの拡張子を指定することができます。<BR>
+戻り値はファイル名が指定されなかった場合はnullが、指定された場合は<BR>
+以下のリストが返ります。<BR>
+(dir, name)<BR>
+dirはファイルのあるディレクトリのパス、nameはファイル名です。<BR>
+optは、通常nullを入れます。<BR>
+ダイアログのtitle/initial_file/default_file_extension/initial_directoryを変える場合は、<BR>
+optに(title, initial_file, default_file_extension, initial_directory)を入れます。<BR>
+これらは文字列を入れずにnullであっても構いません。<BR>
+
+<HR>
+<H3><A NAME="al_get_color">list al_get_color();</A></H3>
+色選択ダイアログを開き、色を選択します。色が選択されなかった場合は<BR>
+nullが、選択された場合は、bit0-7がR、bit8-15がG、bit16-23がBの<BR>
+integerが返ります。<BR>
+
+<HR>
+<H3><A NAME="al_get_font">list al_get_font();</A></H3>
+フォント選択ダイアログを開き、フォントを選択します。フォントが選択<BR>
+されなかった場合はnullが返り、選択された場合は、以下のリストが返り<BR>
+ます。<BR>
+(fontName, fontHeight, 0, color, bold, italic, underline)<BR>
+
+<HR>
+<H3><A NAME="al_message_text">void al_message_text(windoiw w, string msg);</A></H3>
+ステータスバーにmsgの文字列を表示します。<BR>
+
+<HR>
+<H3><A NAME="al_input_by_cedit">string al_input_by_cedit(window w, real l, real t, real r, real b, string text);</A></H3>
+(l, t, r, b)で指定される矩形領域にテキストエディタを出し、<BR>
+テキスト入力します。文字列textはテキストエディタの初期内容になります。<BR>
+リターンを押すか他の所でクリックすると現在のテキストエディタ内の<BR>
+内容が返り値の内容になります。<BR>
+
+<HR>
+<H3><A NAME="al_create_window">window al_create_window(list opt);</A></H3>
+ウィンドウを作成しそれを返します。<BR>
+optがnullのときはAltairチャイルドウィンドウを返します。<BR>
+optがnullでないときはoptは(style, ...)のリストでなければなりません。<BR>
+<PRE>
+   style   意味<BR>
+   0x8000  MDIフレームウィンドウ
+   0x4000  MDIチャイルドウィンドウ
+   0x2000  SDIウィンドウ
+   （上記以外 Altairチャイルドウィンドウ）
+
+   0x0001 システムメニューなし
+   0x0002 タイトルバーなし（MDIフレームウィンドウ、SDIウィンドウのみ）
+   0x0004 メニューバーなし（MDIフレームウィンドウ、SDIウィンドウのみ）
+   0x0008 ステータスバーなし（MDIフレームウィンドウ、SDIウィンドウのみ）
+   0x0010 タイトル文字列固定（MDIフレームウィンドウのみ）
+   0x0020 メニューバー固定（MDIフレームウィンドウのみ）
+
+   0x0040 ユーザ定義エディットウィンドウ
+</PRE>
+styleがMDIチャイルドウィンドウのときは、optは(style, parent, ...)のリスト<BR>
+でなければなりません。parentはMDIフレームウィンドウでなければなりません。<BR>
+<BR>
+optを(style, parent, (x, y, width, height))にすることによって<BR>
+ウィンドウの位置/大きさを指定することができます。<BR>
+MDIチャイルドウィンドウ以外はparentはnullでかまいません。<BR>
+<BR>
+ウィンドウの作成に失敗するとnullを返します。<BR>
+
+<HR>
+<H3><A NAME="al_user_edit">any al_user_edit(string cmd, window w, any arg1, any arg2);</A></H3>
+ユーザ定義エディットウィンドウの操作をする関数です。<BR>
+<PRE>
+      cmd             w      arg1   arg2   意味
+      "get_sel"       wnd    -      -      エディットのカレントセレクションの位置を
+                                           (from, to) の形式で返します。
+      "set_sel"       wnd    from   to     エディットのカレントセレクションの位置を
+                                           from ～ to に設定します。
+      "replace_sel"   wnd    str    -      エディットのカレントセレクションのテキストを
+                                           文字列 str で置き換えます。
+      "line_count"    wnd    -      -      エディットの総行数を返します。
+      "line_index"    wnd    lno    -      行番号 lno の行の先頭のテキスト位置を返します。
+                                           lno は 0 から始まります。
+                                           省略するとカレントセレクションに近い行が対象となります。
+      "line_length"   wnd    lno    -      行番号 lno の行の文字列長を返します。
+                                           lno は 0 から始まります。
+                                           省略するとカレントセレクションに近い行が対象となります。
+      "get_line"      wnd    lno    -      行番号 lno の行の文字列を返します。
+                                           lno は 0 から始まります。
+                                           省略するとカレントセレクションに近い行が対象となります。
+      "line_from_pos" wnd    pos    -      テキスト位置 pos の行番号を返します。
+
+      "use_as_output" wnd    pos    -      ユーザ定義エディットウィンドウをアウトプットウィンドウにします。
+                                           al_print等の出力がユーザ定義エディットウィンドウに出力されます。
+</PRE>
+
+<HR>
+<H3><A NAME="al_set_window_arg">void al_set_window_arg(window w, string arg, any value);</A></H3>
+以下の５個の関数で関数を設定するさい、関数の引数として渡される引数名と<BR>
+その値をウィンドウに設定します。ウィンドウwに引き数名argとその値value<BR>
+を設定します。<BR>
+
+<HR>
+<H3><A NAME="al_set_draw_proc">void al_set_draw_proc(window w, funcType f);</A></H3>
+ウィンドウが再描画されるときに呼ばれる関数を指定します。<BR>
+set_window_argで設定した値を呼ばれる関数の引数にできます。<BR>
+
+<HR>
+<H3><A NAME="al_set_event_proc">void al_set_event_proc(window w, funcType f);</A></H3>
+ウィンドウでイベントが発生したときに呼ばれる関数を指定します。<BR>
+set_window_argで設定した値を呼ばれる関数の引数にできます。<BR>
+eventという名前の引数は予約済みで、以下のようなリストが関数が<BR>
+呼ばれるときに引数として渡されます。<BR>
+(type, x, y, code, modifier)<BR>
+このイベントの意味を下に示します。<BR>
+<PRE>
+イベント               type   x     y     code
+左ボタンプレス          0    x座標 y座標  - 
+左ボタンリリース        1    x座標 y座標  -
+左ボタンダブルクリック  2    x座標 y座標  -
+右ボタンプレス          3    x座標 y座標  -
+右ボタンリリース        4    x座標 y座標  -
+右ボタンダブルクリック  5    x座標 y座標  -
+マウスムーブ            6    x座標 y座標  -
+キープレス              7    -     -      文字コード
+キーリリース            8    -     -      文字コード
+入力文字列              9    -     -      文字コード
+ドラッグアンドドロップ 11    x座標 y座標  ファイル名コレクション
+サイズ変更             12    幅    高さ    - 
+</PRE>
+modifierには、イベントが発生したときの<BR>
+シフトキー、コントロールキー、ALTキーが押されていたかどうかの情報が入ります。<BR>
+<PRE>
+Shift      0x0001
+Control    0x0002
+Alt(Graph) 0x0004
+</PRE>
+
+<HR>
+<H3><A NAME="al_set_move_ctrl_proc">void al_set_move_ctrl_proc(window w, funcType f);</A></H3>
+ウィンドウの再描画が開始される直前に呼ばれる関数を指定します。<BR>
+al_set_draw_procで呼ばれる関数の中ではウィンドウにdamageを与えるような<BR>
+ことは許されませんが、al_move_ctrl_procで呼ばれる関数ではdamagを与えるような<BR>
+ことが許されます。<BR>
+set_window_argで設定した値を呼ばれる関数の引数にできます。<BR>
+
+<HR>
+<H3><A NAME="al_set_destroy_proc">void al_set_destroy_proc(window w, funcType f);</A></H3>
+ウィンドウが破壊される直前に呼ばれる関数を指定します。<BR>
+set_window_argで設定した値を呼ばれる関数の引数にできます。<BR>
+有効なウィンドウはAltairのチャイルドウィンドウ、SDIフレームウィンドウ、MDIフレームウィンドウ、<BR>
+MDIチャイルドウィンドウです。SDI/MDIフレームウィンドウではコールバックで null を返すようにすると<BR>
+ウィンドウの破壊がキャンセルされます。<BR>
+
+<HR>
+<H3><A NAME="al_set_activate_proc">void al_set_activate_proc(window w, funcType f);</A></H3>
+ウィンドウがアクティブになるとき呼ばれる関数を指定します。<BR>
+set_window_argで設定した値を呼ばれる関数の引数にできます。<BR>
+有効なウィンドウは、MDIフレームウィンドウ、SDIフレームウィンドウのみです。<BR>
+
+<HR>
+<H3><A NAME="al_set_text_ins_proc">void al_set_text_ins_proc(window w, funcType f);</A></H3>
+ユーザ定義エディットウィンドウに "replace_sel"でテキストがインサートされた場合に呼ばれる関数を指定します。<BR>
+set_window_argで設定した値を呼ばれる関数の引数にできます。<BR>
+関数 f の引数には list event がなければなりません。<BR>
+呼び出されたとき引数 event には、(最後の行の行番号, 最後の行の行の長さ) のデータが入っています。<BR>
+
+<HR>
+<H3><A NAME="al_set_title">void al_set_title(window w, string title);</A></H3>
+ウィンドウwのタイトルをtitleで指定される文字列にします。<BR>
+
+<H3><A NAME="al_get_title">string al_get_title(window w);</A></H3>
+ウィンドウwのタイトルの文字列を取得します。<BR>
+
+<HR>
+<H3><A NAME="al_set_menu">void al_set_menu(window w, list menu);</A></H3>
+wで指定されるMDIフレームウィンドウまたはSDIウィンドウのメニューを<BR>
+menuで指定されるメニューにします。<BR>
+第２引数menuの構造は以下のようになっています。<BR>
+menu:()-/"menu"/->()-/-/=>(menuItemName, submenu, obj, func)<BR>
+menuItemNameはstring型です。<BR>
+submenuがnullでないときはサブメニューを持つことを表わします。<BR>
+submenuはmenuと同じ構造をしていなれればなりません。<BR>
+メニュー項目が選択されるとオブジェクトobjのメンバー関数funcが呼ばれます。<BR>
+
+<HR>
+<H3><A NAME="al_get_window_rect">list al_get_window_rect(window w, integer opt);</A></H3>
+ウィンドウwの位置と大きさを以下のリストの形式で返します。<BR>
+(left, top, width, height)<BR>
+<PRE>
+   optの値  意味
+   0        フレームウィンドウの位置と大きさ
+   1        クライアント領域の大きさ
+</PRE>
+
+<HR>
+<H3><A NAME="al_set_window_rect">void al_set_window_rect(window w, integer x, integer y, integer width, integer height);</A></H3>
+ウィンドウwの左上隅を(x, y)に、大きさを(width, height)にします。<BR>
+(x, y, width, height)はフレームウィンドウの位置と大きさです。<BR>
+
+<HR>
+<H3><A NAME="al_resize_window">void al_resize_window(window w, integer width, integer height);</A></H3>
+ウィンドウwの大きさを(width, height)にします。<BR>
+(width, height)はフレームウィンドウの大きさです。<BR>
+
+<HR>
+<H3><A NAME="al_move_window">void al_move_window(window w, integer x, integer y);</A></H3>
+ウィンドウwの左上隅を(x, y)にします。<BR>
+
+<HR>
+<H3><A NAME="al_show_window">void al_show_window(window w);</A></H3>
+ウィンドウwが非表示の状態になっていたら表示します。<BR>
+wがnullだったらAltairメインウィンドウをshowします。<BR>
+
+<HR>
+<H3><A NAME="al_hide_window">void al_hide_window(window w);</A></H3>
+ウィンドウwが表示されていたら非表示にします。<BR>
+wがnullだったらAltairメインウィンドウをhideします。<BR>
+
+<HR>
+<H3><A NAME="al_destroy_window">void al_destroy_window(window w);</A></H3>
+ウィンドウwを破壊します。<BR>
+wがnullの場合は、アウトプットウィンドウが出ている場合にはそれを破壊します。<BR>
+
+<HR>
+<H3><A NAME="al_push_clipping">void al_push_clipping(window w, list polypolygon);</A></H3>
+カレントのクリッピング領域をスタックにセーブし、ポリポリゴン<BR>
+polypolygonをカレントのクリッピング領域として設定します。<BR>
+実際のクリップ領域はpolypolygonにウィンドウの変換行列がかかった<BR>
+ものになります。<BR>
+polypolygonがnullならまったくクリップしないことを表わします。<BR>
+デフォルトはこれです。<BR>
+
+<HR>
+<H3><A NAME="al_pop_clipping">void al_pop_clipping(window w);</A></H3>
+カレントのクリッピング領域をスタックにセーブされていたものに戻します。<BR>
+
+<HR>
+<H3><A NAME="al_clipping">list al_clipping(window w);</A></H3>
+カレントのクリッピング領域を指定するポリポリゴンを返します。<BR>
+
+<HR>
+<H3><A NAME="al_is_clipped">list al_is_clipped(window w, matrix tm, real l, real t, real r, real b);</A></H3>
+(r, t, r, b)で指定される矩形を変換行列tmで変換したものが完全に<BR>
+クリップ領域の外にある場合１が、そうでない場合nullが返ります。<BR>
+
+<HR>
+<H3><A NAME="al_push_bg_color">void al_push_bg_color(window w, integer color);</A></H3>
+カレントの背景色をスタックにセーブし、引数colorで指定される色を<BR>
+カレントの背景色として設定します。<BR>
+デフォルトの背景色はウィンドウの背景色です。<BR>
+
+<HR>
+<H3><A NAME="al_pop_bg_color">void al_pop_bg_color(window w);</A></H3>
+カレントの背景色をスタックにセーブされていたものに戻します。<BR>
+
+<HR>
+<H3><A NAME="al_push_color_func">void al_push_color_func(window w, integer func);</A></H3>
+カレントの描画ルールをスタックにセーブし、引数funcで指定される<BR>
+描画ルールを設定します。<BR>
+<PRE>
+    func    意味
+    1       Copyで書く（上書き）
+    2       Xorで書く（２回書くと元に戻る）
+</PRE>
+
+<HR>
+<H3><A NAME="al_pop_color_func">void al_pop_color_func(window w);</A></H3>
+カレントの背景色をスタックにセーブされていたものに戻します。<BR>
+
+<HR>
+<H3><A NAME="al_get_sys_color">long al_get_sys_color(integer kind);</A></H3>
+システムカラーの値を取得する関数です。<BR>
+<PRE>
+    kind    意味
+    0       ウィンドウの背景色（バックグラウンドカラー）
+    1       ウィンドウの前景色（フォアグラウンドカラー）
+</PRE>
+
+<HR>
+<H3><A NAME="al_push_pen">void al_push_pen(window w, string style, integer width, integer color);</A></H3>
+カレントのペンをスタックにセーブし、引数で指定されるペンを<BR>
+カレントのペンとして設定します。<BR>
+<PRE>
+    style        意味
+    "Solid"      実線
+    "Dot"        点線
+    "Null"       線を描かない
+</PRE>
+widthはペンの幅、colorは線の色です。<BR>
+デフォルトはstyleが"Solid", 線幅が0, 色がウィンドウテキストの色です。<BR>
+線幅0にするとデバイス単位で幅1の線になります。<BR>
+
+<HR>
+<H3><A NAME="al_pop_pen">void al_pop_pen(window w);</A></H3>
+カレントのペンをスタックにセーブされていたものに戻します。<BR>
+
+<HR>
+<H3><A NAME="al_push_brush">void al_push_brush(window w, string style, integer color, binary pattern);</A></H3>
+カレントのブラシをスタックにセーブし、引数で指定されるブラシを<BR>
+カレントのブラシとして設定します。<BR>
+<PRE>
+    style            意味
+    "Solid"          パターンなしで塗りつぶし
+    "Null"           塗りつぶしをしない
+</PRE>
+colorは塗りつぶしの色です。<BR>
+デフォルトはstyleが"Solid", 色がウィンドウテキストの色, パターンは<BR>
+nullです。<BR>
+
+<HR>
+<H3><A NAME="al_pop_brush">void al_pop_brush(window w);</A></H3>
+カレントのブラシをスタックにセーブされていたものに戻します。<BR>
+
+<HR>
+<H3><A NAME="al_push_font">void al_push_font(window w, string name, integer height, integer width, integer color);</A></H3>
+カレントのフォントをスタックにセーブし、引数で指定されるフォントを<BR>
+カレントのフォントとして設定します。<BR>
+height/widthはフォントの高と幅、colorはフォントの色です。<BR>
+フォントの高さ/幅の単位はポイントではなく画面のドットです。<BR>
+デフォルトはnameが"ＭＳ ゴシック"、heightが12、widthが6、<BR>
+colorはウィンドウテキストの色です。<BR>
+
+<HR>
+<H3><A NAME="al_pop_font">void al_pop_font(window w);</A></H3>
+カレントのフォントをスタックにセーブされていたものに戻します。<BR>
+
+<HR>
+<H3><A NAME="al_push_font_ex">void al_push_font_ex(window w, list font_info);</A></H3>
+この関数は、al_push_fontをボールド/イタリック/アンダーラインの設定が<BR>
+できるように拡張したものです。<BR>
+引数のfont_infoに以下のようなリストを与えます。<BR>
+(name, height, width, color, bold, italic, underline)<BR>
+bold/italic/underlineは通常はnullを入れて、それにしたいときには1を<BR>
+入れます。<BR>
+
+<HR>
+<H3><A NAME="al_push_tm">void al_push_tm(window w, matrix tm);</A></H3>
+カレントの座標変換行列をスタックにセーブし、引数で指定される<BR>
+座標変換行列をカレントの座標変換行列として設定します。<BR>
+座標変換行列のデフォルトは単位行列です。<BR>
+
+<HR>
+<H3><A NAME="al_pop_tm">void al_pop_tm(window w);</A></H3>
+カレントの座標変換行列をスタックにセーブされていたものに戻します。<BR>
+
+<HR>
+<H3><A NAME="al_window_tm">matrix al_window_tm(window w);</A></H3>
+カレントの座標変換行列を返します。<BR>
+
+<HR>
+<H3><A NAME="al_is_printing">list al_is_printing(window w);</A></H3>
+ウィンドウの描画モードが印刷になっている場合は非nullを返します。<BR>
+
+<HR>
+<H3><A NAME="al_start_quick_draw">void al_start_quick_draw(window w);</A></H3>
+al_set_draw_procで設定した関数内では、ウィンドウにデバイスコンテキスト<BR>
+（以下DCと略）というものが作成されていて、このDCを介して描画を行います。<BR>
+al_set_event_procで設定した関数内では、DCが作成されていませんので<BR>
+そのままでは描画ができません。この関数はウィンドウにDCを作成し、DCが<BR>
+ない場合でも描画を可能にします。<BR>
+
+<HR>
+<H3><A NAME="al_end_quick_draw">void al_end_quick_draw(window w);</A></H3>
+al_start_quick_drawで作成したデバイスコンテキストを破壊します。<BR>
+al_end_quick_drawはal_start_quick_drawと対をなしていなければ<BR>
+なりません。また、ネストさせてもいけません。<BR>
+
+<HR>
+<H3><A NAME="al_point">void al_point(window w, real x, real y, integer color);</A></H3>
+点(x, y)に点をカラーcolorでプロットします<BR>
+実際の描画点はウィンドウの座標変換行列がかかったものになります。<BR>
+
+<HR>
+<H3><A NAME="al_line">void al_line(window w, real x1, real y1, real x2, real y2);</A></H3>
+点(x1, y1)と点(x2, y2)を結ぶ線を<BR>
+カレントのペンを使って描画します。<BR>
+実際の描画領域はウィンドウの座標変換行列がかかったものになります。<BR>
+
+<HR>
+<H3><A NAME="al_rectangle">void al_rectangle(window w, real l, real t, real r, real b);</A></H3>
+(l, t, r, b)で指定される矩形を<BR>
+カレントのペンとブラシを使って描画します。<BR>
+実際の描画領域はウィンドウの座標変換行列がかかったものになります。<BR>
+
+<HR>
+<H3><A NAME="al_ellipse">void al_ellipse(window w, real l, real t, real r, real b);</A></H3>
+(l, t, r, b)で指定される楕円を<BR>
+カレントのペンとブラシを使って描画します。<BR>
+実際の描画領域はウィンドウの座標変換行列がかかったものになります。<BR>
+
+<HR>
+<H3><A NAME="al_polyline">void al_polyline(window w, list poly);</A></H3>
+ポリポリゴンpolyで指定される線分を<BR>
+カレントのペンを使って描画します。<BR>
+実際の描画領域はウィンドウの座標変換行列がかかったものになります。<BR>
+
+<HR>
+<H3><A NAME="al_polygon">void al_polygon(window w, list poly);</A></H3>
+ポリポリゴンpolyで指定される多角形を<BR>
+カレントのペンとブラシを使って描画します。<BR>
+実際の描画領域はウィンドウの座標変換行列がかかったものになります。<BR>
+
+<HR>
+<H3><A NAME="al_text">void al_text(window w, real x, real y, string s);</A></H3>
+sで指定される文字列をカレントのフォントを使って<BR>
+(x, y)で指定される位置に描画します。<BR>
+実際の描画領域はウィンドウの座標変換行列がかかったものになります。<BR>
+
+<HR>
+<H3><A NAME="al_text_width">list al_text_width(window w, string s);</A></H3>
+カレントのフォントを使って文字列sを出力した場合の<BR>
+文字列の幅と高さ(width, height)を返します。<BR>
+
+<HR>
+<H3><A NAME="al_text_from_to">void al_text_from_to(window w, real x, real y, string s, integer from, integer to);</A></H3>
+sで指定される文字列をインデックスfromからtoまで<BR>
+カレントのフォントを使って<BR>
+(x, y)で指定される位置に描画します。<BR>
+実際の描画領域はウィンドウの座標変換行列がかかったものになります。<BR>
+
+<HR>
+<H3><A NAME="al_text_width_from_to">list al_text_width_from_to(window w, string s, integer from, integer to);</A></H3>
+カレントのフォントを使って<BR>
+文字列sをインデックスfromからtoまで出力した場合の<BR>
+文字列の幅と高さ(width, height)を返します。<BR>
+
+<HR>
+<H3><A NAME="al_m_text">void al_m_text(window w, real l, real t, real r, real b, string s);</A></H3>
+(l, t, r, b)で指定される矩形領域にクリップをかけ、その内部に<BR>
+折り返しをしながら文字列を描画します。<BR>
+実際の描画領域はウィンドウの座標変換行列がかかったものになります。<BR>
+
+<HR>
+<H3><A NAME="al_pie">void al_pie(window w, real l, real t, real r, real b, real sx, real sy, real ex, real ey);</A></H3>
+(l, t, r, b)で指定される楕円を<BR>
+(sx, sy)で指定される角度から(ex, ey)で指定される角度まで<BR>
+カレントのペンとブラシを使って描画します。<BR>
+実際の描画領域はウィンドウの座標変換行列がかかったものになります。<BR>
+
+<HR>
+<H3><A NAME="al_bitmap">any al_bitmap(string command, any arg1, any arg2);</A></H3>
+<PRE>
+    command     arg1    arg2      戻り値       意味
+    "create"    -       -         bitmap       bitmapオブジェクトを作成します。
+    "set_file"  bitmap  filename  -            ファイル名をセットします。
+    "get_file"  bitmap  -         filename     ファイル名を取得します。
+    "load"      bitmap  dirctory  成否         画像ファイルをロードします。
+                                               BMP,PNG,GIF,JPEG形式の画像が読めます。
+                                               エラーがなければnullが返ります。
+    "width"     bitmap  -         幅           ロードした画像ファイルの幅を返します。
+    "height"    bitmap  -         高さ         ロードした画像ファイルの高さを返します。
+
+    "save_bmp"  bitmap  filepath  成否         BMP形式で画像ファイルを保存します。
+                                               エラーがなければnullが返ります。
+    "save_png"  bitmap  filepath  成否         PNG形式で画像ファイルを保存します。
+                                               エラーがなければnullが返ります。
+    "save_gif"  bitmap  filepath  成否         GIF形式で画像ファイルを保存します。
+                     　                        エラーがなければnullが返ります。
+    "save_jpeg" bitmap  filepath  成否         JPEG形式で画像ファイルを保存します。
+                                               エラーがなければnullが返ります。
+</PRE>
+使用例<BR>
+<PRE>
+    var list bitmap;
+    // 作成
+    bitmap = al_bitmap("create", null, null);
+    // ファイル名設定（ファイル拡張子は.bmp）
+    al_bitmap("set_file", bitmap, ファイル名);
+    // ロード
+    al_bitmap("load", bitmap, ディレクトリ名);
+        ...
+    // 描画
+    al_image(w, x, y, bitmap, 0, 0);
+</PRE>
+
+<HR>
+<H3><A NAME="al_image">void al_image(window w, real x, real y, list bitmap, real w, real h);</A></H3>
+bitmapで指定されるイメージをを(x, y)で指定される位置に(w, h)で指定される大きさに<BR>
+スケーリングして描画します。(w, h)に(0, 0)を入れるとイメージが持っている大きさで<BR>
+表示されます。実際の描画はウィンドウの座標変換行列がかかったものになります。<BR>
+
+<HR>
+<H3><A NAME="al_damage">void al_damage(window w, list poly);</A></H3>
+ポリポリゴンpolyで指定される領域を再描画領域にするために<BR>
+更新領域として登録します。<BR>
+
+<HR>
+<H3><A NAME="al_damage_rect_poly">list al_damage_rect_poly(window w);</A></H3>
+現在登録されている更新領域を囲う最小矩形を以下のリストで返します。<BR>
+(l, t, r, b)<BR>
+
+<HR>
+<H3><A NAME="al_is_damaged">list al_is_damaged(window w, matrix tm, real l, real t, real r, real b);</A></H3>
+(r, t, r, b)で指定される矩形を変換行列tmで変換したものが完全に<BR>
+更新領域の外にある場合nullが、そうでない場合１が返ります。<BR>
+
+<HR>
+<H3><A NAME="al_repair">void al_repair(window w);</A></H3>
+更新領域がある場合、強制的にその領域の再描画を行わさせます。<BR>
+
+<HR>
+<H3><A NAME="al_redraw">void al_redraw(window w);</A></H3>
+ウィンドウの再描画を行います。<BR>
+
+<HR>
+<H3><A NAME="al_local_loop">void al_local_loop(window w);</A></H3>
+あるイベントが起こるまで待って次を実行するという場合に使われる<BR>
+関数です。この関数を実行するとどこかで下記のal_exit_loopが実行<BR>
+されるまで、イベントループをローカルに回します。<BR>
+
+<HR>
+<H3><A NAME="al_exit_loop">void al_exit_loop(window w);</A></H3>
+上のローカルなイベントループから抜け出すための関数です。<BR>
+
+<HR>
+<H3><A NAME="al_file_print">void al_file_print(string cmd, any arg);</A></H3>
+<PRE>
+  cmd        arg      意味
+  "preview"  window   印刷プレビューを行います。
+  "print"    window   印刷を行います。
+  "scale"    real     1dotが何dpiに相当するかを入れます。デフォルトは4です。
+</PRE>
+
+<HR>
+<H3><A NAME="al_gui_misc">any al_gui_misc(string cmd, any arg1, any arg2);</A></H3>
+<PRE>
+  cmd             arg1           arg2       意味
+  "timer"         (id, period)    cb     タイマーコールバックを設定・解除します。
+                                         idはユニークなID, periodはミリ秒単位の時間、
+                                         cbには、(root_class, obj, func_ptr)を入れます。
+                                         例: al_list3(al_root_class(), this, A::func)
+                                         cbにnullを入れると設定解除になります。
+
+  "unload"        -               cb     アンロードコールバックを設定・解除します。
+                                         cbには、(root_class, obj, func_ptr)を入れます。
+                                         例: al_list3(al_root_class(), this, A::func)
+                                         cbにnullを入れると設定解除になります。
+                                                  
+  "ok_dlg"        title           text   OKダイアログを表示します。
+  "ok_cancel_dlg" title           text   OK-Cancelダイアログを表示します。
+                                         OKを押すと 1が Cancelを押すと nullが返ります。
+  "yes_no_dlg"    title           text   Yes-Noダイアログを表示します。
+                                         Yesを押すと 1が Noを押すと nullが返ります。
+  "input_dlg"     title           text   Inputダイアログを表示します。textは初期文字列です。
+                                         OKを押すと入力テキスト文字列が、Cancelを押すと nullが返ります。
+  "combo_dlg"     title           coll   Choiceダイアログを表示します。collはドロップダウンリストに入る
+                                         文字列集合です。形式は (*)-/*/=>text です。
+                                         OKを押すと選択された文字列が、Cancelを押すと nullが返ります。
+
+  "point_to_dot"  ポイントサイズ  -      ポイントサイズからドットサイズを求めます。
+
+  "raise"         ウィンドウ      -      ウィンドウをレイズします。
+
+</PRE>
+<HR>
+</BODY>
+</HTML>
+

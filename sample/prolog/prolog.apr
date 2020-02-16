@@ -1,0 +1,101 @@
+$END_LIB
+TEXT
+AlObject
+class Prolog
+end_class
+$END_CLASS
+TEXT
+AlObject
+class Prolog
+member
+public: static void main();
+member
+public: static void mem_check();
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class Prolog
+member
+public: static void main();
+body
+{
+	var file f;
+	var list syntax, parse_tree, ret, env, opt;
+	if (f = al_file_open("system.syntax", "r")) {
+	} else {
+		al_print("can't open system.syntax\n");
+		return;
+	}
+	syntax = al_symbol_manip("compile_syntax", f, null, null, null);
+	if (al_is_type(syntax, "string")) {
+		al_print("error: " + syntax + "\n");
+		return;
+	} else {
+	}
+	var list dir_name;
+	var string dir, name;
+	if (dir_name = al_get_read_filename("Prolog Files (*.prolog)|*.prolog||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	if (f = al_file_open(dir + "/" + name, "r")) {
+	} else {
+		al_print("can't open " + dir + "/" + name + "\n");
+		return;
+	}
+	parse_tree = al_symbol_manip("parse", f, syntax, "program", null);
+	if (al_is_type(parse_tree, "string")) {
+		al_print("error (" + name + "): " + parse_tree + "\n");
+		return;
+	} else {
+	}
+	env = al_symbol_manip("plisp_load", env, parse_tree, null, null);
+	opt = al_cons(null, null);
+	var list logging;
+	// logging = 1;
+	try {
+		if (logging) {
+			al_misc("output", "debug.txt", null);
+			// al_misc("output", "debug.txt", "no_gui");
+			al_set_dst_node(opt, "debug_pred", 1);
+			al_set_dst_node(opt, "debug_dump", 1);
+		} else {
+		}
+		ret = al_symbol_manip("prolog_exec", env, null, null, opt);
+		if (ret == null) {
+			al_print("Yes.\n");
+		} else {
+			if (ret == 1) {
+				al_print("No.\n");
+			} else {
+				al_print("error: " + (string)ret + "\n");
+			}
+		}
+		if (logging) {
+			al_misc("output", null, "gui");
+		} else {
+		}
+	} catch (AlException e) {
+		al_print("Exception: " + e.msg + "\n");
+		if (logging) {
+			al_misc("output", null, "gui");
+		} else {
+		}
+	}
+	mem_check();
+}
+end_body
+member
+public: static void mem_check();
+body
+{
+	al_print("ref_count_check = " + (string)al_gc("ref_count") + "\n");
+	al_print("cyclic_check = " + (string)al_gc("cyclic") + "\n");
+	// al_print("gc = " + (string)al_gc(null) + "\n");
+}
+end_body
+end_class
+$END_BODY

@@ -1,0 +1,30 @@
+// Altair.odl : type library source of Altair.exe
+
+[ uuid(56EF30D2-48F1-11D2-86B0-444553540000), version(1.0) ]
+library Altair
+{
+    importlib("stdole32.tlb");
+    
+
+    [ uuid(56EF30D3-48F1-11D2-86B0-444553540000) ]
+    dispinterface IAltair
+    {
+        properties:
+            //{{AFX_ODL_PROP(CAltairDoc)
+            //}}AFX_ODL_PROP
+            
+        methods:
+            //{{AFX_ODL_METHOD(CAltairDoc)
+            //}}AFX_ODL_METHOD
+
+    };
+
+    [ uuid(56EF30D1-48F1-11D2-86B0-444553540000) ]
+    coclass Document
+    {
+        [default] dispinterface IAltair;
+    };
+
+    //{{AFX_APPEND_ODL}}
+    //}}AFX_APPEND_ODL}}
+};

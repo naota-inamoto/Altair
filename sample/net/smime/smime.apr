@@ -1,0 +1,306 @@
+$END_LIB
+TEXT
+AlObject
+class SMIME
+end_class
+$END_CLASS
+TEXT
+AlObject
+class SMIME
+member
+public: static void smime_encrypt();
+member
+public: static void smime_decrypt();
+member
+public: static void smime_sign();
+member
+public: static void smime_verify1();
+member
+public: static void smime_verify2();
+member
+public: static void mime_multipart();
+member
+public: static void mime_headers();
+member
+public: static void base64_encode();
+member
+public: static void base64_decode();
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class SMIME
+member
+public: static void smime_encrypt();
+body
+{
+	var list dir_name, dir_name2;
+	var string dir, name, dir2, name2, in_file, out_file;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	in_file = dir + "/" + name;
+	if (dir_name2 = al_get_write_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir2 = dir_name2.head;
+	name2 = dir_name2.tail.head;
+	out_file = dir2 + "/" + name2;
+	var list info;
+	info = al_list4("des3", "server/cert.pem", null, null);
+	if (al_crypt("smime_encrypt", in_file, out_file, info)) {
+		al_print("encrypt OK\n");
+	} else {
+		al_print("encrypt Error\n");
+	}
+}
+end_body
+member
+public: static void smime_decrypt();
+body
+{
+	var list dir_name, dir_name2;
+	var string dir, name, dir2, name2, in_file, out_file;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	in_file = dir + "/" + name;
+	if (dir_name2 = al_get_write_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir2 = dir_name2.head;
+	name2 = dir_name2.tail.head;
+	out_file = dir2 + "/" + name2;
+	var list info;
+	info = al_list4("des3", "server/cert.pem", "server/private/key.pem", null);
+	if (al_crypt("smime_decrypt", in_file, out_file, info)) {
+		al_print("decrypt OK\n");
+	} else {
+		al_print("decrypt Error\n");
+	}
+}
+end_body
+member
+public: static void smime_sign();
+body
+{
+	var list dir_name, dir_name2;
+	var string dir, name, dir2, name2, in_file, out_file;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	in_file = dir + "/" + name;
+	if (dir_name2 = al_get_write_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir2 = dir_name2.head;
+	name2 = dir_name2.tail.head;
+	out_file = dir2 + "/" + name2;
+	var list info;
+	info = al_list4(null, "server/cert.pem", "server/private/key.pem", null);
+	if (al_crypt("smime_sign", in_file, out_file, info)) {
+		al_print("sign OK\n");
+	} else {
+		al_print("sign Error\n");
+	}
+}
+end_body
+member
+public: static void smime_verify1();
+body
+{
+	var list dir_name;
+	var string dir, name, in_file;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	in_file = dir + "/" + name;
+	var list info;
+	info = al_list4(null, "server/cert.pem", null, "ca/cert.pem");
+	if (al_crypt("smime_verify", in_file, null, info)) {
+		al_print("verify OK\n");
+	} else {
+		al_print("verify Error\n");
+	}
+}
+end_body
+member
+public: static void smime_verify2();
+body
+{
+	var list dir_name;
+	var string dir, name, in_file;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	in_file = dir + "/" + name;
+	var list info;
+	info = al_list4(null, "server2/cert.pem", null, "ca/cert.pem");
+	if (al_crypt("smime_verify", in_file, null, info)) {
+		al_print("verify OK\n");
+	} else {
+		al_print("verify Error\n");
+	}
+}
+end_body
+member
+public: static void mime_multipart();
+body
+{
+	var list dir_name, dir_name2;
+	var string dir, name, dir2, name2, in_file, out_file;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	in_file = dir + "/" + name;
+	if (dir_name2 = al_get_write_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir2 = dir_name2.head;
+	name2 = dir_name2.tail.head;
+	out_file = dir2 + "/" + name2;
+	// *** read headers & multipart ***
+	var integer size, index;
+	var list in_bin, out_bin, result, headers, multipart;
+	var file in, out;
+	size = al_file_manip("get_size", in_file, null);
+	in_bin = al_misc("binary", size, null);
+	in = al_file_open(in_file, "rb");
+	al_file_read(in, al_list3(in_bin, 0, size));
+	result = al_crypt("mime_headers_read", al_list3(in_bin, 0, size), null, null);
+	headers = result.head;
+	index = result.tail.head;
+	multipart = al_crypt("mime_multipart_read", al_list3(in_bin, index, size - index), headers, null);
+	// *** write headers & multipart ***
+	var list headers_bin, content_bin;
+	var integer headers_size, content_size;
+	headers_bin = al_crypt("mime_headers_write", headers, null, null);
+	content_bin = al_crypt("mime_multipart_write", multipart, null, null);
+	headers_size = al_misc("binary_size", headers_bin, null);
+	content_size = al_misc("binary_size", content_bin, null);
+	out_bin = al_misc("binary", headers_size + content_size, null);
+	al_misc("binary_copy", al_list2(out_bin, 0), al_list3(headers_bin, 0, headers_size));
+	al_misc("binary_copy", al_list2(out_bin, headers_size), al_list3(content_bin, 0, content_size));
+	out = al_file_open(out_file, "wb");
+	al_file_write(out, al_list3(out_bin, 0, headers_size + content_size), null);
+}
+end_body
+member
+public: static void mime_headers();
+body
+{
+	var list dir_name, dir_name2;
+	var string dir, name, dir2, name2, in_file, out_file;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	in_file = dir + "/" + name;
+	if (dir_name2 = al_get_write_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir2 = dir_name2.head;
+	name2 = dir_name2.tail.head;
+	out_file = dir2 + "/" + name2;
+	// *** read headers ***
+	var integer size, index;
+	var list in_bin, out_bin, result, headers;
+	var file in, out;
+	size = al_file_manip("get_size", in_file, null);
+	in_bin = al_misc("binary", size, null);
+	in = al_file_open(in_file, "rb");
+	al_file_read(in, al_list3(in_bin, 0, size));
+	result = al_crypt("mime_headers_read", al_list3(in_bin, 0, size), null, null);
+	headers = result.head;
+	// *** write headers ***
+	var list headers_bin;
+	var integer headers_size;
+	headers_bin = al_crypt("mime_headers_write", headers, null, null);
+	headers_size = al_misc("binary_size", headers_bin, null);
+	out_bin = al_misc("binary", headers_size, null);
+	al_misc("binary_copy", al_list2(out_bin, 0), al_list3(headers_bin, 0, headers_size));
+	out = al_file_open(out_file, "wb");
+	al_file_write(out, al_list3(out_bin, 0, headers_size), null);
+}
+end_body
+member
+public: static void base64_encode();
+body
+{
+	var list dir_name, dir_name2;
+	var string dir, name, dir2, name2, in_file, out_file;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	in_file = dir + "/" + name;
+	if (dir_name2 = al_get_write_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir2 = dir_name2.head;
+	name2 = dir_name2.tail.head;
+	out_file = dir2 + "/" + name2;
+	if (al_crypt("base64_encode", in_file, out_file, null)) {
+		al_print("encode OK\n");
+	} else {
+		al_print("encode NG\n");
+	}
+}
+end_body
+member
+public: static void base64_decode();
+body
+{
+	var list dir_name, dir_name2;
+	var string dir, name, dir2, name2, in_file, out_file;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	in_file = dir + "/" + name;
+	if (dir_name2 = al_get_write_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir2 = dir_name2.head;
+	name2 = dir_name2.tail.head;
+	out_file = dir2 + "/" + name2;
+	if (al_crypt("base64_decode", in_file, out_file, null)) {
+		al_print("decode OK\n");
+	} else {
+		al_print("decode NG\n");
+	}
+}
+end_body
+end_class
+$END_BODY

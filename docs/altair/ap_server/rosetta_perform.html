@@ -1,0 +1,82 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>RosettaNet Server Performance</TITLE>
+</HEAD>
+
+<BODY>
+<H1>性能</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.27版 2002年 6月19日<BR>
+
+<HR>
+<H3><A NAME="large_message">サイズの大きいXMLメッセージの処理時間</A></H3>
+
+繰り返し項目が1個のPip2A1ProductResourceUpdateメッセージの送受信にかかる時間、<BR>
+繰り返し項目が1000個のPip2A1ProductResourceUpdateメッセージの送受信にかかる時間を<BR>
+以下のマシン構成で測定。
+<PRE>
+●DBサーバマシン
+    マシン機種：DELL PowerEdge 1300 (CPU：550Hz メモリ： 896M)
+    OS：TurboLinux7.0
+    DB
+       Oracle：    Oracle 8.1.7 for Linux
+       PostgresQL：PostgresQL 7.1.2
+
+●APサーバマシン
+    マシン機種： NEC ValueStar VG10J (CPU 1GHz メモリ 512M)
+    OS: Windows2000 Professional
+    Altair：バージョン 0.27
+</PRE>
+
+<TABLE BORDER="1">
+<TR><TD>メッセージの種類</TD><TD>繰り返し項目の数</TD><TD>メッセージサイズ</TD><TD>Oracleでの処理時間</TD><TD>PostgresQLでの処理時間</TD><TD>OracleでのAPサーバの使用メモリ容量</TD><TD>PostgresQLでのAPサーバの使用メモリ容量</TD></TR>
+<TR><TD>Pip2A1ProductResourceUpdate</TD><TD>1</TD><TD>5K</TD><TD>16 sec</TD><TD>7 sec</TD><TD>-</TD><TD>-</TD></TR>
+<TR><TD>Pip2A1ProductResourceUpdate</TD><TD>1000</TD><TD>1.1M</TD><TD>308 sec</TD><TD>216 sec</TD><TD>43 M</TD><TD>39 M</TD></TR>
+</TABLE>
+注１：自分から自分にメッセージを投げているので２台のマシンでは処理時間は約半分になります。<BR>
+注２：メッセージを作成する時間(メッセージ内容をDBに格納する時間)は含んでいません。<BR>
+<BR>
+サイズ1MのメッセージでOracleで約５分、PostgresQLで約３分４０秒です。<BR>
+XMLのタグ１個でDBスキーマの１レコードになっているので<BR>
+SQLのINSERT文の発行回数が多くこれがボトルネックです。<BR>
+使用しているSQL文は限定しているのでDBを専用のファイルベースのリポジトリに<BR>
+置き換えれば高速化がはかれます。<BR>
+XMLの形式の種類は多いがDTDのバージョン等で形式が変化することがないなら、<BR>
+そのためのDBスキーマの自動生成プログラムを作成し、<BR>
+自動生成したDBスキーマを使うDBスキーマに依存しないプログラム作成するという高速化手段もあります。<BR>
+<HR>
+<H3><A NAME="throughput">スループット</A></H3>
+
+簡単なPip2A1ProductInformationNotificationメッセージを100回送受信し、<BR>
+処理が完全に終了するまでの時間を以下のマシン構成で測定。
+<PRE>
+●DBサーバマシン
+    マシン機種：DELL PowerEdge 1300 (CPU：550Hz メモリ： 896M)
+    OS：TurboLinux7.0
+    DB
+       Oracle：    Oracle 8.1.7 for Linux
+       PostgresQL：PostgresQL 7.1.2
+
+●APサーバマシン
+    マシン機種： NEC ValueStar VG10J (CPU 1GHz メモリ 512M)
+    OS: Windows2000 Professional
+    Altair：バージョン 0.27
+</PRE>
+
+<TABLE BORDER="1">
+<TR><TD>メッセージの種類</TD><TD>Oracleでの処理時間</TD><TD>PostgresQLでの処理時間</TD><TD>OracleでのAPサーバの使用メモリ容量</TD><TD>PostgresQLでのAPサーバの使用メモリ容量</TD></TR>
+<TR><TD>Pip2A1ProductInformationNotification</TD><TD>1582 sec</TD><TD>843 sec</TD><TD>29 M</TD><TD>25 M</TD></TR>
+</TABLE>
+注１：自分から自分にメッセージを投げているので２台のマシンでは処理時間は約半分になります。<BR>
+注２：メッセージを100回作成する時間(メッセージ内容をDBに格納する時間)も含んでいます。<BR>
+<BR>
+
+スループットはおそらく、<BR>
+Oracleで１メッセージあたり 約 7.4 sec、<BR>
+PostgresQLで１メッセージあたり 約 4.2 sec と思われます。<BR>
+
+<HR>
+</BODY>
+</HTML>

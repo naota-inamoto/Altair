@@ -1,0 +1,323 @@
+dic-1,Consignee, The receiver of the shipment.
+end-dic-1,,
+dic,/Pip4B2ShipmentReceiptNotification/fromRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-1
+dic,/Pip4B2ShipmentReceiptNotification/toRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-11
+dic-2,Electronic Components, The electronic components supply chain.
+dic-2,Information Technology, The information technology supply chain.
+end-dic-2,,
+dic,/Pip4B2ShipmentReceiptNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/receivedBy/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip4B2ShipmentReceiptNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic-3,Broker, Representative of a third party.
+dic-3,Carrier, Product carrier for transporting goods in supply chain.
+dic-3,Contract Manufacturer, The party responsible for the services rendered.
+dic-3,Customs Broker, Product customs broker in supply chain.
+dic-3,Distribution Center, Product distributor in supply chain.
+dic-3,Distributor, Product distributor in supply chain.
+dic-3,End User, Product end user in supply chain.
+dic-3,End User Government, End user government.
+dic-3,Financier, Financial service provider in supply chain
+dic-3,Freight Forwarder, Product freight forwarder for transporting goods in supply chain.
+dic-3,Manufacturer, Product manufacturer in supply chain.
+dic-3,Original Equipment Manufacturer, Product manufacturer of original equipment in the supply chain.
+dic-3,Reseller, A party buys goods from a manufacturer and resells them to customers unchanged.
+dic-3,Retailer, Product retailer in supply chain.
+dic-3,Shopper, Product shopper in supply chain.
+dic-3,Warehouser, Product warehouser in supply chain.
+end-dic-3,,
+dic,/Pip4B2ShipmentReceiptNotification/fromRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/ProductIdentification/PartnerProductIdentification/GlobalPartnerClassificationCode,dic-3
+dic,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/receivedBy/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip4B2ShipmentReceiptNotification/toRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic-4,Request, The business document is a request for a business action to be performed by a partner.
+end-dic-4,,
+dic,/Pip4B2ShipmentReceiptNotification/GlobalDocumentFunctionCode,dic-4
+dic-5,Contract,
+dic-5,Delivery Note,
+dic-5,Invoice,
+dic-5,Purchase Order,
+dic-5,Quote,
+dic-5,Sales Order,
+dic-5,Work Order,
+end-dic-5,,
+dic,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/DocumentSubLineReference/GlobalDocumentReferenceTypeCode,dic-5
+dic-6,10 Kilogram Drum,
+dic-6,"10,000 Gallon Tankcar",
+dic-6,100 Board Feet,
+dic-6,100 Pound Drum,
+dic-6,100-Pack,
+dic-6,115 Kilogram Drum
+dic-6,15 Kilogram Drum
+dic-6,20 Foot Container
+dic-6,"20,000 Gallon Tankcar"
+dic-6,20-Pack
+dic-6,25 Kilogram Bulk Bag
+dic-6,300 Kilogram Bulk Bag
+dic-6,40 Foot Container
+dic-6,50 Pound Bag
+dic-6,500 Kilogram Bulk Bag
+dic-6,55 Gallon Drum
+dic-6,Actual Pounds
+dic-6,Aluminum Pounds Only
+dic-6,Bag
+dic-6,Bale
+dic-6,Ball
+dic-6,Band
+dic-6,Bar
+dic-6,Barrel
+dic-6,"Barrel, Imperial"
+dic-6,Barrels Per Day
+dic-6,Barrels Per Minute
+dic-6,Base Box
+dic-6,Base Weight
+dic-6,Basket
+dic-6,Batch
+dic-6,Batt
+dic-6,Batting Pound
+dic-6,Beam
+dic-6,Belt
+dic-6,Billet
+dic-6,Bin
+dic-6,Block
+dic-6,Board
+dic-6,Board Feet
+dic-6,Bolt
+dic-6,Bottle
+dic-6,Box
+dic-6,British Thermal Unit (BTU)
+dic-6,British Thermal Units (BTUs) Per Cubic Foot
+dic-6,British Thermal Units (BTUs) Per Pound
+dic-6,Bucket
+dic-6,Bulk
+dic-6,Bulk Car Load
+dic-6,Bulk Pack
+dic-6,Bundle
+dic-6,Bunks
+dic-6,Bushel
+dic-6,"Bushel, Dry Imperial"
+dic-6,Calorie
+dic-6,Can
+dic-6,Car
+dic-6,Carat
+dic-6,Card
+dic-6,Carload
+dic-6,Carton
+dic-6,Cartridge
+dic-6,Case
+dic-6,Cask
+dic-6,Cassette
+dic-6,Catchweight
+dic-6,Cell
+dic-6,Centipoise (CPS)
+dic-6,Chains (Land Survey)
+dic-6,Chest
+dic-6,Coil
+dic-6,Coil Group
+dic-6,Composite Product Pounds (Total Weight)
+dic-6,Cone
+dic-6,Connector
+dic-6,Container
+dic-6,Cover
+dic-6,Crate
+dic-6,Cup
+dic-6,Cycles
+dic-6,Cylinder
+dic-6,Deal
+dic-6,Disk (Disc)
+dic-6,Dispenser
+dic-6,Display
+dic-6,Dozen
+dic-6,Dram
+dic-6,Drum
+dic-6,Dry Pounds
+dic-6,Each
+dic-6,Fluid Ounce
+dic-6,Fluid Ounce (Imperial)
+dic-6,Fuel Usage (Gallons)
+dic-6,Gage Systems
+dic-6,Gallon
+dic-6,Gigajoules
+dic-6,Gill (Imperial)
+dic-6,Grain
+dic-6,Gram
+dic-6,Grams Per 100 Centimeters
+dic-6,Grams Per 100 Grams
+dic-6,Grams Per Cubic Centimeter
+dic-6,Grams Per Kilogram
+dic-6,Grams Per Liter
+dic-6,Grams Per Milliliter
+dic-6,Grams Per Square Centimeter
+dic-6,Grams Per Square Meter
+dic-6,Great Gross (Dozen Gross)
+dic-6,Gross
+dic-6,Gross Barrels
+dic-6,Gross Gallons
+dic-6,Gross Kilogram
+dic-6,Gross Ton
+dic-6,Gross Yard
+dic-6,Group
+dic-6,Half Gallon
+dic-6,Half Hour
+dic-6,Half Liter
+dic-6,Hank
+dic-6,Heat lots
+dic-6,Hours
+dic-6,Hundred Boxes
+dic-6,Hundred Count
+dic-6,Hundred Sheets
+dic-6,Hundredth of a Carat
+dic-6,Imperial Gallons
+dic-6,Jar
+dic-6,Joint
+dic-6,Lifts
+dic-6,Link
+dic-6,Liquid Pounds
+dic-6,Load
+dic-6,Lot
+dic-6,Lug
+dic-6,Mat
+dic-6,Megagram
+dic-6,Megagrams Per Hour
+dic-6,Micrograms Per Cubic Meter
+dic-6,Milligrams Per Cubic Meter
+dic-6,Milligrams Per Square Meter
+dic-6,Millimeter H20
+dic-6,Million BTU's
+dic-6,Net Barrels
+dic-6,Net Gallons
+dic-6,Net Imperial Gallons
+dic-6,Net Liters
+dic-6,Pack (PAK)
+dic-6,Package
+dic-6,Packet
+dic-6,Pad
+dic-6,Pail
+dic-6,Pallet (Lift)
+dic-6,Pallet/Unit Load
+dic-6,Panel
+dic-6,Pennyweight
+dic-6,Percent
+dic-6,Percent Per 1000 Hours
+dic-6,Percent Weight
+dic-6,Piece
+dic-6,Pint U.S. Dry
+dic-6,Plate
+dic-6,Pound
+dic-6,Pounds Per 1000 Square Feet
+dic-6,Pounds Per Foot
+dic-6,Pounds Per Gallon
+dic-6,Pounds Per Piece of Product
+dic-6,Pounds Per Pound of Product
+dic-6,Pounds Per Thousand
+dic-6,Rack
+dic-6,Reel
+dic-6,Ring
+dic-6,Rod
+dic-6,Sack
+dic-6,Sheet
+dic-6,Sheet-Metric measure
+dic-6,Shipment
+dic-6,Shot
+dic-6,Skein
+dic-6,Skid
+dic-6,Sleeve
+dic-6,Slip Sheet
+dic-6,Spool
+dic-6,Square
+dic-6,Statute Mile
+dic-6,Stick
+dic-6,Strip
+dic-6,Super Bulk Bag
+dic-6,Tablet
+dic-6,Tank
+dic-6,Tank Truck
+dic-6,Torr
+dic-6,Tote
+dic-6,Track Foot
+dic-6,Trailer
+dic-6,Train
+dic-6,Tray
+dic-6,Truckload
+dic-6,Tube,
+dic-6,Vial,
+dic-6,Wrap,
+end-dic-6,,
+dic,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/GlobalProductUnitOfMeasureCode,dic-6
+dic-8,On Hold,
+dic-8,Rejected,
+end-dic-8,,
+dic,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/ShipmentReceiptDiscrepancyInformation/GlobalReceivingDiscrepancyCode,dic-8
+dic-9,Damage,
+dic-9,Item Not Marked, No GTIN or serial number
+dic-9,No Packing Slip,
+dic-9,No Purchase Order,
+dic-9,Over-ship,
+dic-9,Packing List Discrepancy,
+dic-9,Shortage,
+dic-9,Wrong Item,
+dic-9,Wrong Packaging,
+dic-9,Wrong Purchase Order,
+end-dic-9,,
+dic,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/ShipmentReceiptDiscrepancyInformation/GlobalReceivingDiscrepancyReasonCode,dic-9
+dic-10,Bill of Lading Number,
+dic-10,Booking Number,
+dic-10,Carrier Reference Number,
+dic-10,House Airwaybill Number,
+dic-10,Master Airwaybill Number,
+dic-10,Ocean Bill of Lading Number,
+dic-10,Packing Slip Number,
+dic-10,Pro Number,
+dic-10,Sales Order Number,
+dic-10,Seal Identifier,
+dic-10,Shipper Reference Number,
+dic-10,Trailer Number,,,,
+end-dic-10,,,,,
+dic,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/TrackingReference/GlobalTrackingReferenceTypeCode,dic-10,,,
+dic-11,Shipment Information User, The party who receives shipment status information.,,,
+end-dic-11,,,,,
+type,/Pip4B2ShipmentReceiptNotification/fromRole/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/ProductIdentification/PartnerProductIdentification/revisionIdentifier/FreeFormText,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/receivedBy/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/toRole/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/fromRole/PartnerRoleDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/toRole/PartnerRoleDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/fromRole/PartnerRoleDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4B2ShipmentReceiptNotification/fromRole/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4B2ShipmentReceiptNotification/toRole/PartnerRoleDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4B2ShipmentReceiptNotification/toRole/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4B2ShipmentReceiptNotification/fromRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/toRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/receivedBy/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip4B2ShipmentReceiptNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip4B2ShipmentReceiptNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/receivedBy/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/fromRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/ProductIdentification/PartnerProductIdentification/GlobalPartnerClassificationCode,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/receivedBy/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/toRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/GlobalDocumentFunctionCode,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/shipmentIdentifier/ProprietaryReferenceIdentifier,String,1,255,
+type,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/acceptedQuantity/ProductQuantity,Real,1,,
+type,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/receivedQuantity/ProductQuantity,Real,1,,
+type,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/DocumentSubLineReference/GlobalDocumentReferenceTypeCode,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/DocumentSubLineReference/LineNumber,String,1,6,X(6)
+type,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/DocumentSubLineReference/subLineNumber/LineNumber,String,1,6,X(6)
+type,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/DocumentSubLineReference/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/thisDocumentIdentifier/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/GlobalProductUnitOfMeasureCode,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/ProductIdentification/GlobalProductIdentifier,String,14,14,9(14)
+type,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/ProductIdentification/PartnerProductIdentification/ProprietaryProductIdentifier,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/ProprietarySerialIdentifier,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/receivedBy/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip4B2ShipmentReceiptNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/ShipmentReceiptDiscrepancyInformation/GlobalReceivingDiscrepancyCode,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/ShipmentReceiptDiscrepancyInformation/GlobalReceivingDiscrepancyReasonCode,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/ShipmentReceiptNotificationLineItem/shipmentReceiptReportDateTime/DateTimeStamp,DateTime,13,20,9(8)X9(6)V9(3)X
+type,/Pip4B2ShipmentReceiptNotification/thisDocumentGenerationDateTime/DateTimeStamp,DateTime,13,20,9(8)X9(6)V9(3)X
+type,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/TrackingReference/GlobalTrackingReferenceTypeCode,String,1,,
+type,/Pip4B2ShipmentReceiptNotification/ShipmentReceiptInformationResource/TrackingReference/ProprietaryShipmentTrackingIdentifier,String,1,,

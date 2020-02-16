@@ -1,0 +1,6 @@
+; othello.def : DLL のモジュール パラメータを宣言します。
+
+LIBRARY      "othello"
+
+EXPORTS
+    ; 明示的なエクスポートはここへ記述できます

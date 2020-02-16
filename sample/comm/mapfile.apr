@@ -1,0 +1,178 @@
+$END_LIB
+TEXT
+AlObject
+class TP
+end_class
+$END_CLASS
+TEXT
+AlObject
+class TP
+member
+public: static void send_test1();
+member
+public: integer recv1();
+member
+public: static void send();
+member
+public: static void post_test2();
+member
+public: void recv2();
+member
+public: static void post();
+member
+public: static integer hmap;
+member
+public: void ack2();
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class TP
+member
+public: static void send_test1();
+body
+{
+	var integer hwnd, msg;
+	hwnd = al_wnd_message(null, "hwnd", null, null);
+	al_print("hwnd = ");
+	al_print(hwnd);
+	al_print("\n");
+	msg = al_wnd_message(null, "register_msg", "Send", null);
+	al_print("msg = ");
+	al_print(msg);
+	al_print("\n");
+	var TP tp;
+	tp = new TP;
+	al_wnd_message(null, "msg_callback", msg, al_list3(al_root_class(), tp, TP::recv1));
+	var string cmd;
+	cmd = "altair -file mapfile.apr -class TP -method send " + (string)hwnd;
+	al_exec(cmd, ".", 1, null);
+}
+end_body
+member
+public: integer recv1();
+body
+{
+	var string fname, str;
+	fname = "file" + (string)al_wnd_message(null, "wParam", null, null);
+	str = al_wnd_message(null, "get_map", fname, null);
+	al_print(str);
+	al_print("\n");
+	return 2001;
+}
+end_body
+member
+public: static void send();
+body
+{
+	var integer hwnd, msg, hmap;
+	var string fname, str;
+	hwnd = (integer)al_misc("get_cmd_line", null, null);
+	al_print("hwnd = ");
+	al_print(hwnd);
+	al_print("\n");
+	msg = al_wnd_message(null, "register_msg", "Send", null);
+	al_print("msg = ");
+	al_print(msg);
+	al_print("\n");
+	fname = "file1";
+	str = "Hello!!";
+	hmap = al_wnd_message(null, "create_map", fname, str);
+	al_print("hmap = ");
+	al_print(hmap);
+	al_print("\n");
+	// ---- verify
+	al_print("verify: ");
+	al_print(al_wnd_message(null, "get_map", fname, null));
+	al_print("\n");
+	// ----
+	var integer ret;
+	ret = al_wnd_message(hwnd, "send_msg", msg, al_list2(1, 0));
+	al_wnd_message(null, "close_map", hmap, null);
+	al_print("ret = " + (string)ret + "\n");
+}
+end_body
+member
+public: static void post_test2();
+body
+{
+	var integer hwnd, msg;
+	hwnd = al_wnd_message(null, "hwnd", null, null);
+	al_print("hwnd = ");
+	al_print(hwnd);
+	al_print("\n");
+	msg = al_wnd_message(null, "register_msg", "Post", null);
+	al_print("msg = ");
+	al_print(msg);
+	al_print("\n");
+	var TP tp;
+	tp = new TP;
+	al_wnd_message(null, "msg_callback", msg, al_list3(al_root_class(), tp, TP::recv2));
+	var string cmd;
+	cmd = "altair -file mapfile.apr -class TP -method post " + (string)hwnd;
+	al_exec(cmd, ".", 1, null);
+}
+end_body
+member
+public: void recv2();
+body
+{
+	var string fname, str;
+	fname = "file" + (string)al_wnd_message(null, "wParam", null, null);
+	str = al_wnd_message(null, "get_map", fname, null);
+	al_print(str);
+	al_print("\n");
+	var integer ack_msg, child_hwnd;
+	ack_msg = al_wnd_message(null, "register_msg", "PostAck", null);
+	child_hwnd = al_wnd_message(null, "lParam", null, null);
+	al_wnd_message(child_hwnd, "post_msg", ack_msg, al_list2(0, 0));
+}
+end_body
+member
+public: static void post();
+body
+{
+	var integer hwnd, msg, ack_msg, child_hwnd;
+	var string fname, str;
+	hwnd = (integer)al_misc("get_cmd_line", null, null);
+	al_print("hwnd = ");
+	al_print(hwnd);
+	al_print("\n");
+	msg = al_wnd_message(null, "register_msg", "Post", null);
+	al_print("msg = ");
+	al_print(msg);
+	al_print("\n");
+	ack_msg = al_wnd_message(null, "register_msg", "PostAck", null);
+	al_print("ack_msg = ");
+	al_print(ack_msg);
+	al_print("\n");
+	var TP tp;
+	tp = new TP;
+	al_wnd_message(null, "msg_callback", ack_msg, al_list3(al_root_class(), tp, TP::ack2));
+	fname = "file2";
+	str = "My Name is Naota Inamoto.";
+	hmap = al_wnd_message(null, "create_map", fname, str);
+	al_print("hmap = ");
+	al_print(hmap);
+	al_print("\n");
+	// ---- verify
+	al_print("verify: ");
+	al_print(al_wnd_message(null, "get_map", fname, null));
+	al_print("\n");
+	// ----
+	child_hwnd = al_wnd_message(null, "hwnd", null, null);
+	al_wnd_message(hwnd, "post_msg", msg, al_list2(2, child_hwnd));
+}
+end_body
+member
+public: static integer hmap;
+member
+public: void ack2();
+body
+{
+	al_wnd_message(null, "close_map", hmap, null);
+	al_print("PostAck: memory maped file handle is closed.\n");
+}
+end_body
+end_class
+$END_BODY

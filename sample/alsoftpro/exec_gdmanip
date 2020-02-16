@@ -1,0 +1,1 @@
+altair -dir . -file test.apr -class TP3 -method exec_gdmanip

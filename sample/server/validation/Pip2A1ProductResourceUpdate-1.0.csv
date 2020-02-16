@@ -1,0 +1,2914 @@
+dic-1,Already customs cleared in the importing country,Arrangements for inspection are not necessary because they were cleared before.
+dic-1,Clearance,The cargo will be or has been cleared.
+dic-1,Detention,The cargo has been or will be detained.
+dic-1,Documents required,Pertinent documents are required.
+dic-1,Documents requirements completed,All requirements for documents have been completed.
+dic-1,Fumigation,The cargo has been or will be fumigated.
+dic-1,Inspection,The cargo has been or will be inspected.
+dic-1,Inspection arrangements completed,Arrangements for inspection of the cargo have been completed.
+dic-1,Inspection arrangements required,Arrangements for inspection of the cargo are required.
+dic-1,No customs procedure,Customs clearance not required.
+dic-1,Safety arrangements completed,Arrangements for safeguarding the cargo have been completed.
+dic-1,Safety arrangements required,Arrangements for safeguarding the cargo are required.
+dic-1,Security,The cargo has been or will be secured.
+dic-1,Security arrangements required,Arrangements for the security of the cargo are required.
+dic-1,Storage arrangements completed,Arrangements for storing the cargo have been completed.
+dic-1,Storage arrangements required,Arrangements for storing the cargo are required.
+dic-1,Transport arrangements completed,All arrangements for transport have been completed.
+dic-1,Transport arrangements required,Transport has to be arranged.
+end-dic-1,,
+dic,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/ProductDescription/NationalExportControlClassificationCode,dic-1
+dic,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/ProductDescription/NationalExportControlClassificationCode,dic-1
+dic-2,141115,  Office supplies; Printing and writing paper
+dic-2,261117,  Batteries and accessories
+dic-2,26111704,  Battery chargers
+dic-2,261216,  Electical cable
+dic-2,302115,  Power conversion
+dic-2,30211502,  Power supply units
+dic-2,30211504,  Power adapters or inverters
+dic-2,30211704,  Switch boxes
+dic-2,302118,"  Lugs, connectors, and terminals"
+dic-2,3116,  Hardware
+dic-2,312615,  Housings and Cabinets
+dic-2,321015,  Printed circuits and circuit card assemblies
+dic-2,321016,  Monolithic memory or smart cards
+dic-2,321017,  Hybrid Integrated Circuits
+dic-2,321615,  Housings and cabinets
+dic-2,39,  Lighting and Electrical Accessories and Supplies
+dic-2,411136,  Electrical measuring equipment
+dic-2,41181805,  Video Display Filters
+dic-2,4316,  Software
+dic-2,431715,  Telephony equipment
+dic-2,43171506,  Private Branch Exchange (PBX) systems
+dic-2,43171517,  Telephone headsets
+dic-2,43171801,  Notebook computers
+dic-2,43171802,  Docking stations
+dic-2,43171803,"  Workstations, desktop computers"
+dic-2,43171804,  Personal digital assistants (PDA's) or pen-based computers
+dic-2,43171806,  Servers
+dic-2,43171807,  Port replicators
+dic-2,43171902,  Central processing unit (CPU) processors
+dic-2,43171903,  Central processing unit (CPU) motherboards or daughterboards
+dic-2,431720,  Computer control and interface boards and cards
+dic-2,43172004,  Video accelerator cards
+dic-2,43172006,  Network interface cards
+dic-2,43172007,  Audio cards
+dic-2,43172008,  Emulation adapters
+dic-2,43172009,  Serial port cards
+dic-2,43172103,  Video capture boards
+dic-2,43172104,  Television cards
+dic-2,43172105,  Radio cards
+dic-2,43172106,  Multimedia kits
+dic-2,43172107,  Computer speakers
+dic-2,43172201,  Bar code readers
+dic-2,43172202,  Graphics tablets or digitizers
+dic-2,43172204,  Keyboards or keypads
+dic-2,43172205,  Computer mice
+dic-2,43172206,  Remote user interface
+dic-2,43172207,  Scanners
+dic-2,43172208,  Touch pads
+dic-2,43172210,  Trackballs
+dic-2,43172211,"  Voice microphones, computer"
+dic-2,431723,  Electronic data storage equipment
+dic-2,43172301,  Read-only compact disc (CD) drives
+dic-2,43172302,  CD jukeboxes or changers
+dic-2,43172306,  High capacity removable media drives
+dic-2,43172308,  Recordable compact disc (CD) drives
+dic-2,43172309,  Reel to reel tape drives
+dic-2,43172311,  Tape arrays
+dic-2,43172313,  Hard drives
+dic-2,431724,  Monitors and displays
+dic-2,43172401,  Monitors
+dic-2,43172402,  Flat panel displays
+dic-2,431725,  Printers
+dic-2,43172501,  Plotters
+dic-2,43172503,  Dot matrix printers
+dic-2,43172504,  Label printers
+dic-2,43172506,  Line matrix printers
+dic-2,43172508,  Thermal tape printers
+dic-2,43172509,  Inkjet printers
+dic-2,43172510,  Laser printers
+dic-2,43172601,  Chassis
+dic-2,43172602,  Network chassis
+dic-2,43172604,  Expansion Slot Expander
+dic-2,43172605,  Racks
+dic-2,431727,"  Network hardware, components, and assemblies"
+dic-2,43172701,  Hubs
+dic-2,43172702,  Routers
+dic-2,43172704,  Network Bridges
+dic-2,43172706,  Media filters
+dic-2,43172707,  Wide area network (WAN) cards
+dic-2,43172708,  Multistation Access Units (MAU's)
+dic-2,43172709,  Data service units (DSU's)
+dic-2,43172802,  Modems
+dic-2,43172803,  Integrated services digital network (ISDN) adapters
+dic-2,43172804,  Modem banks
+dic-2,431729,  Network switches
+dic-2,431730,  Network repeaters
+dic-2,431816,  Floppy diskettes/high density removable media blank disks
+dic-2,43181602,  Recordable compact disks (CD's)
+dic-2,43181603,  Blank data tapes
+dic-2,43181604,  High density removable media blank disks
+dic-2,44101501,  Photocopiers
+dic-2,44101502,  Facsimile machines
+dic-2,441017,"  Printer, photocopier and facsimile accessories"
+dic-2,44101705,  Printer trays
+dic-2,441030,  Fusers and accessories
+dic-2,441031,"  Printer, facsimile and photocopier supplies"
+dic-2,44103102,"  Printer, facsimile, and copier ribbons"
+dic-2,44103103,  Toner
+dic-2,44103104,  Transfer rolls
+dic-2,44103105,  Ink cartridges
+dic-2,4411,  Office and desk accessories
+dic-2,4412,  Office supplies; Printing and writing paper
+dic-2,45111606,  Liquid crystal display projection panels
+dic-2,45111607,  Overhead projectors
+dic-2,45111609,  Computer screen projector
+dic-2,45121504,  Digital cameras
+dic-2,521115,  Furniture
+end-dic-2,,
+dic,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/ProductDescription/GlobalProductClassificationCode,dic-2
+dic,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/ProductDescription/GlobalProductClassificationCode,dic-2
+dic-3,ADP,  ANDORRA (multiple)
+dic-3,AED,  UNITED ARAB EMIRATES
+dic-3,AFA,  AFGHANISTAN
+dic-3,ALL,  ALBANIA
+dic-3,AMD,  ARMENIA
+dic-3,ANG,  NETHERLANDS ANTILLES
+dic-3,AON,  ANGOLA (multiple)
+dic-3,AOR,  ANGOLA (multiple)
+dic-3,ARS,  ARGENTINA
+dic-3,ATS,  AUSTRIA
+dic-3,AUD,  AUSTRALIA
+dic-3,AUD,  CHRISTMAS ISLAND
+dic-3,AUD,  COCOS (KEELING) ISLANDS
+dic-3,AUD,  KIRIBATI
+dic-3,AUD,  NAURU
+dic-3,AUD,  NORFOLK ISLAND
+dic-3,AUD,  TUVALU
+dic-3,AUD,  HEARD AND MCDONALD ISLANDS
+dic-3,AWG,  ARUBA
+dic-3,AZM,  AZERBAIJAN
+dic-3,BAM,  BOSNIA AND HERZEGOVINA
+dic-3,BBD,  BARBADOS
+dic-3,BDT,  BANGLADESH
+dic-3,BEF,  BELGIUM
+dic-3,BGL,  BULGARIA
+dic-3,BHD,  BAHRAIN
+dic-3,BIF,  BURUNDI
+dic-3,BMD,  BERMUDA
+dic-3,BND,  BRUNEI DARUSSALAM
+dic-3,BOB,  BOLIVIA (multiple)
+dic-3,BOV,  BOLIVIA (multiple)
+dic-3,BRL,  BRAZIL
+dic-3,BSD,  BAHAMAS
+dic-3,BTN,  BHUTAN (multiple)
+dic-3,BWP,  BOTSWANA
+dic-3,BYB,  BELARUS
+dic-3,BZD,  BELIZE
+dic-3,CAD,  CANADA
+dic-3,CHF,  LIECHTENSTEIN
+dic-3,CHF,  SWITZERLAND
+dic-3,CLP,  CHILE
+dic-3,CNY,  CHINA
+dic-3,COP,  COLOMBIA
+dic-3,CRC,  COSTA RICA
+dic-3,CUP,  CUBA
+dic-3,CVE,  CAPE VERDE
+dic-3,CYP,  CYPRUS
+dic-3,CZK,  CZECH REPUBLIC
+dic-3,DEM,  GERMANY
+dic-3,DJF,  DJIBOUTI
+dic-3,DKK,  DENMARK
+dic-3,DKK,  FAEROE ISLANDS
+dic-3,DKK,  GREENLAND
+dic-3,DOP,  DOMINICAN REPUBLIC
+dic-3,DZD,  ALGERIA
+dic-3,ECS,  ECUADOR
+dic-3,EEK,  ESTONIA
+dic-3,EGP,  EGYPT
+dic-3,ERN,  ERITREA
+dic-3,ESP,  ANDORRA (multiple)
+dic-3,ESP,  SPAIN
+dic-3,ETB,  ETHIOPIA
+dic-3,FIM,  FINLAND
+dic-3,FJD,  FIJI
+dic-3,FKP,  FALKLAND ISLANDS(MALVINAS)
+dic-3,FRF,  ANDORRA (multiple)
+dic-3,FRF,  MARTINIQUE
+dic-3,FRF,  MONACO
+dic-3,FRF,  REUNION
+dic-3,FRF,  SAINT PIERRE AND MIQUELON
+dic-3,FRF,  FRANCE
+dic-3,FRF,  FRENCH GUIANA
+dic-3,FRF,  FRENCH SOUTHERN TERRITORIES
+dic-3,FRF,  GUADELOUPE
+dic-3,GBP,  UNITED KINGDOM
+dic-3,GEL,  GEORGIA
+dic-3,GHC,  GHANA
+dic-3,GIP,  GIBRALTAR
+dic-3,GMD,  GAMBIA
+dic-3,GNF,  GUINEA
+dic-3,GRD,  GREECE
+dic-3,GTQ,  GUATEMALA
+dic-3,GWP,  GUINEA-BISSAU
+dic-3,GYD,  GUYANA
+dic-3,HKD,  HONG KONG
+dic-3,HNL,  HONDURAS
+dic-3,HRK,  CROATIA
+dic-3,HTG,  HAITI
+dic-3,HUF,  HUNGARY
+dic-3,IDR,  INDONESIA
+dic-3,IEP,  IRELAND
+dic-3,ILS,  ISRAEL
+dic-3,INR,  BHUTAN (multiple)
+dic-3,INR,  INDIA
+dic-3,IQD,  IRAQ
+dic-3,IRR,  IRAN (ISLAMIC REPUBLIC OF)
+dic-3,ISK,  ICELAND
+dic-3,ITL,  ITALY
+dic-3,ITL,  SAN MARINO
+dic-3,ITL,  VATICAN CITY STATE (HOLY SEE)
+dic-3,JMD,  JAMAICA
+dic-3,JOD,  JORDAN
+dic-3,JPY,  JAPAN
+dic-3,KES,  KENYA
+dic-3,KGS,  KYRGYZSTAN
+dic-3,KHR,  CAMBODIA
+dic-3,KMF,  COMOROS
+dic-3,KPW,"  KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF"
+dic-3,KRW,"  KOREA, REPUBLIC OF"
+dic-3,KWD,  KUWAIT
+dic-3,KYD,  CAYMAN ISLANDS
+dic-3,KZT,  KAZAKHSTAN
+dic-3,LAK,  LAO PEOPLE'S DEMOCRATIC REPUBLIC
+dic-3,LBP,  LEBANON
+dic-3,LKR,  SRI LANKA
+dic-3,LRD,  LIBERIA
+dic-3,LTL,  LITHUANIA
+dic-3,LUF,  LUXEMBOURG
+dic-3,LVL,  LATVIA
+dic-3,LYD,  LIBYAN ARAB JAMAHIRIYA
+dic-3,MAD,  MOROCCO
+dic-3,MAD,  WESTERN SAHARA
+dic-3,MDL,"  MOLDOVA, REPUBLIC OF"
+dic-3,MGF,  MADAGASCAR
+dic-3,MKD,"  MACEDONIA, THE FORMER  YUGOSLAV REPUBLIC OF"
+dic-3,MMK,  MYANMAR
+dic-3,MNT,  MONGOLIA
+dic-3,MOP,  MACAU
+dic-3,MRO,  MAURITANIA
+dic-3,MTL,  MALTA
+dic-3,MUR,  MAURITIUS
+dic-3,MVR,  MALDIVES
+dic-3,MWK,  MALAWI
+dic-3,MXN,  MEXICO
+dic-3,MYR,  MALAYSIA
+dic-3,MZM,  MOZAMBIQUE
+dic-3,NGN,  NIGERIA
+dic-3,NIO,  NICARAGUA
+dic-3,NLG,  NETHERLANDS
+dic-3,NOK,  BOUVET ISLAND
+dic-3,NOK,  NORWAY
+dic-3,NOK,  SVALBARD AND JAN MAYEN ISLANDS
+dic-3,NPR,  NEPAL
+dic-3,NZD,  COOK ISLANDS
+dic-3,NZD,  NEW ZEALAND
+dic-3,NZD,  NIUE
+dic-3,NZD,  PITCAIRN
+dic-3,NZD,  TOKELAU
+dic-3,OMR,  OMAN
+dic-3,PAB,  PANAMA
+dic-3,PEN,  PERU
+dic-3,PGK,  PAPUA NEW GUINEA
+dic-3,PHP,  PHILIPPINES
+dic-3,PKR,  PAKISTAN
+dic-3,PLN,  POLAND
+dic-3,PTE,  PORTUGAL
+dic-3,PYG,  PARAGUAY
+dic-3,QAR,  QATAR
+dic-3,ROL,  ROMANIA
+dic-3,RUR,  RUSSIAN FEDERATION
+dic-3,RWF,  RWANDA
+dic-3,SAR,  SAUDI ARABIA
+dic-3,SBD,  SOLOMON ISLANDS
+dic-3,SCR,  SEYCHELLES
+dic-3,SDD,  SUDAN
+dic-3,SEK,  SWEDEN
+dic-3,SGD,  SINGAPORE
+dic-3,SHP,  SAINT HELENA
+dic-3,SIT,  SLOVENIA
+dic-3,SKK,  SLOVAKIA
+dic-3,SLL,  SIERRA LEONE
+dic-3,SOS,  SOMALIA
+dic-3,SRG,  SURINAME
+dic-3,STD,  SAO TOME AND PRINCIPE
+dic-3,SVC,  EL SALVADOR
+dic-3,SYP,  SYRIAN ARAB REPUBLIC
+dic-3,SZL,  SWAZILAND
+dic-3,THB,  THAILAND
+dic-3,TJR,  TAJIKISTAN
+dic-3,TMM,  TURKMENISTAN
+dic-3,TND,  TUNISIA
+dic-3,TOP,  TONGA
+dic-3,TPE,  EAST TIMOR
+dic-3,TRL,  TURKEY
+dic-3,TTD,  TRINIDAD AND TOBAGO
+dic-3,TWD,"  TAIWAN, PROVINCE OF CHINA"
+dic-3,TZS,"  TANZANIA, UNITED REPUBLIC OF"
+dic-3,UAH,  UKRAINE
+dic-3,UGX,  UGANDA
+dic-3,USD,  AMERICAN SAMOA
+dic-3,USD,  BRITISH INDIAN OCEAN TERRITORY
+dic-3,USD,  MARSHALL ISLANDS
+dic-3,USD,  MICRONESIA
+dic-3,USD,  NORTHERN MARIANA ISLANDS
+dic-3,USD,  PALAU
+dic-3,USD,  PUERTO RICO
+dic-3,USD,  TURKS AND CAICOS ISLANDS
+dic-3,USD,  UNITED STATES
+dic-3,USD,  UNITED STATES MINOR  OUTLYING ISLANDS
+dic-3,USD,  VIRGIN ISLANDS (BRITISH)
+dic-3,USD,  VIRGIN ISLANDS (U.S.)
+dic-3,USD,  GUAM
+dic-3,UYU,  URUGUAY
+dic-3,UZS,  UZBEKISTAN
+dic-3,VEB,  VENEZUELA
+dic-3,VND,  VIETNAM
+dic-3,VUV,  VANUATU
+dic-3,WST,  SAMOA
+dic-3,XAF,  CAMEROON
+dic-3,XAF,  CENTRAL AFRICAN REP.
+dic-3,XAF,  CHAD
+dic-3,XAF,  CONGO
+dic-3,XAF,  EQUATORIAL GUINEA
+dic-3,XAF,  GABON
+dic-3,XCD,  ANGUILLA
+dic-3,XCD,  ANTIGUA AND BARBUDA
+dic-3,XCD,  MONTSERRAT
+dic-3,XCD,  SAINT KITTS AND NEVIS
+dic-3,XCD,  SAINT LUCIA
+dic-3,XCD,  SAINT VINCENT AND THE GRENADINES
+dic-3,XCD,  DOMINICA
+dic-3,XCD,  GRENADA
+dic-3,XDR,  INTERNATIONAL MONETARY FUND
+dic-3,XEU,  EUROPEAN MONETARY COOP. FUND
+dic-3,XOF,  BENIN
+dic-3,XOF,  BURKINA FASO
+dic-3,XOF,  COTE D IVOIRE
+dic-3,XOF,  MALI
+dic-3,XOF,  NIGER
+dic-3,XOF,  SENEGAL
+dic-3,XOF,  TOGO
+dic-3,XPF,  NEW CALEDONIA
+dic-3,XPF,  WALLIS AND FUTUNA ISLANDS
+dic-3,XPR,  FRENCH POLYNESIA
+dic-3,YER,  YEMEN
+dic-3,YUM,  YUGOSLAVIA
+dic-3,ZAR,  LESOTHO
+dic-3,ZAR,  NAMIBIA
+dic-3,ZAR,  SOUTH AFRICA
+dic-3,ZMK,  ZAMBIA
+dic-3,ZRN,  ZAIRE
+dic-3,ZWD,  ZIMBABWE
+end-dic-3,,
+dic,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/unitPrice/FinancialAmount/GlobalCurrencyCode,dic-3
+dic,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/listPrice/FinancialAmount/GlobalCurrencyCode,dic-3
+dic,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/previousUnitPrice/FinancialAmount/GlobalCurrencyCode,dic-3
+dic,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/previousListPrice/FinancialAmount/GlobalCurrencyCode,dic-3
+dic,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/MultipleQuantityPrice/FinancialAmount/GlobalCurrencyCode,dic-3
+dic,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/unitPrice/FinancialAmount/GlobalCurrencyCode,dic-3
+dic,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/listPrice/FinancialAmount/GlobalCurrencyCode,dic-3
+dic,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/previousUnitPrice/FinancialAmount/GlobalCurrencyCode,dic-3
+dic,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/previousListPrice/FinancialAmount/GlobalCurrencyCode,dic-3
+dic,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/unitPrice/FinancialAmount/GlobalCurrencyCode,dic-3
+dic-8,Encryption,
+end-dic-8,,
+dic,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/GlobalRegulationCode,dic-8
+dic-9,AD,ANDORRA
+dic-9,AE,UNITED ARAB EMIRATES
+dic-9,AF,AFGHANISTAN
+dic-9,AG,ANTIGUA AND BARBUDA
+dic-9,AI,ANGUILLA
+dic-9,AL,ALBANIA
+dic-9,AM,ARMENIA
+dic-9,AN,NETHERLANDS ANTILLES
+dic-9,AO,ANGOLA
+dic-9,AQ,ANTARCTICA
+dic-9,AR,ARGENTINA
+dic-9,AS,AMERICAN SAMOA
+dic-9,AT,AUSTRIA
+dic-9,AU,AUSTRALIA
+dic-9,AW,ARUBA
+dic-9,AZ,AZERBAIJAN
+dic-9,BA,BOSNIA AND HERZEGOVINA
+dic-9,BB,BARBADOS
+dic-9,BD,BANGLADESH
+dic-9,BE,BELGIUM
+dic-9,BF,BURKINA FASO
+dic-9,BG,BULGARIA
+dic-9,BH,BAHRAIN
+dic-9,BI,BURUNDI
+dic-9,BJ,BENIN
+dic-9,BM,BERMUDA
+dic-9,BN,BRUNEI DARUSSALAM
+dic-9,BO,BOLIVIA
+dic-9,BR,BRAZIL
+dic-9,BS,BAHAMAS
+dic-9,BT,BHUTAN
+dic-9,BV,BOUVET ISLAND
+dic-9,BW,BOTSWANA
+dic-9,BY,BELARUS
+dic-9,BZ,BELIZE
+dic-9,CA,CANADA
+dic-9,CC,COCOS (KEELING) ISLANDS
+dic-9,CF,CENTRAL AFRICAN REPUBLIC
+dic-9,CG,CONGO
+dic-9,CH,SWITZERLAND
+dic-9,CI,CÃ”TE D'IVOIRE
+dic-9,CK,COOK ISLANDS
+dic-9,CL,CHILE
+dic-9,CM,CAMEROON
+dic-9,CN,CHINA
+dic-9,CO,COLOMBIA
+dic-9,CR,COSTA RICA
+dic-9,CU,CUBA
+dic-9,CV,CAPE VERDE
+dic-9,CX,CHRISTMAS ISLAND
+dic-9,CY,CYPRUS
+dic-9,CZ,CZECH REPUBLIC
+dic-9,DE,GERMANY
+dic-9,DJ,DJIBOUTI
+dic-9,DK,DENMARK
+dic-9,DM,DOMINICA
+dic-9,DO,DOMINICAN REPUBLIC
+dic-9,DZ,ALGERIA
+dic-9,EC,ECUADOR
+dic-9,EE,ESTONIA
+dic-9,EG,EGYPT
+dic-9,EH,WESTERN SAHARA
+dic-9,ER,ERITREA
+dic-9,ES,SPAIN
+dic-9,ET,ETHIOPIA
+dic-9,FI,FINLAND
+dic-9,FJ,FIJI
+dic-9,FK,FALKLAND ISLANDS (MALVINAS)
+dic-9,FM,"MICRONESIA, FEDERATED STATES"
+dic-9,FO,FAROE ISLANDS
+dic-9,FR,FRANCE
+dic-9,GA,GABON
+dic-9,GB,UNITED KINGDOM
+dic-9,GD,GRENADA
+dic-9,GE,GEORGIA
+dic-9,GF,FRENCH GUIANA
+dic-9,GH,GHANA
+dic-9,GI,GIBRALTAR
+dic-9,GL,GREENLAND
+dic-9,GM,GAMBIA
+dic-9,GN,GUINEA
+dic-9,GP,GUADELOUPE
+dic-9,GQ,EQUATORIAL GUINEA
+dic-9,GR,GREECE
+dic-9,GS,SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS
+dic-9,GT,GUATEMALA
+dic-9,GU,GUAM
+dic-9,GW,GUINEA-BISSAU
+dic-9,GY,GUYANA
+dic-9,HK,HONG KONG
+dic-9,HM,HEARD ISLAND AND MCDONALD ISLANDS
+dic-9,HN,HONDURAS
+dic-9,HR,CROATIA
+dic-9,HT,HAITI
+dic-9,HU,HUNGARY
+dic-9,ID,INDONESIA
+dic-9,IE,IRELAND
+dic-9,IL,ISRAEL
+dic-9,IN,INDIA
+dic-9,IO,BRITISH INDIAN OCEAN TERRITORY
+dic-9,IQ,IRAQ
+dic-9,IR,"IRAN, ISLAMIC REPUBLIC OF"
+dic-9,IS,ICELAND
+dic-9,IT,ITALY
+dic-9,JM,JAMAICA
+dic-9,JO,JORDAN
+dic-9,JP,JAPAN
+dic-9,KE,KENYA
+dic-9,KG,KYRGYSTAN
+dic-9,KH,CAMBODIA
+dic-9,KI,KIRIBATI
+dic-9,KM,COMOROS
+dic-9,KN,SAINT KITTS AND NEVIS
+dic-9,KP,"KOREA, DEMOCRATIC PEOPLE'S REP. OF"
+dic-9,KR,"KOREA, REPUBLIC OF"
+dic-9,KW,KUWAIT
+dic-9,KY,CAYMAN ISLANDS
+dic-9,KZ,KAZAKSTAN
+dic-9,LA,LAO PEOPLE'S DEMOCRATIC REPUBLIC
+dic-9,LB,LEBANON
+dic-9,LC,SAINT LUCIA
+dic-9,LI,LIECHTENSTEIN
+dic-9,LK,SRI LANKA
+dic-9,LR,LIBERIA
+dic-9,LS,LESOTHO
+dic-9,LT,LITHUANIA
+dic-9,LU,LUXEMBOURG
+dic-9,LV,LATVIA
+dic-9,LY,LIBYAN ARAB JAMAHIRIYA
+dic-9,MA,MOROCCO
+dic-9,MC,MONACO
+dic-9,MD,"MOLDOVA, REPUBLIC OF"
+dic-9,MG,MADAGASCAR
+dic-9,MH,MARSHALL ISLANDS
+dic-9,MK,"MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF"
+dic-9,ML,MALI
+dic-9,MM,MYANMAR
+dic-9,MN,MONGOLIA
+dic-9,MO,MACAU
+dic-9,MP,NORTHERN MARIANA ISLANDS
+dic-9,MQ,MARTINIQUE
+dic-9,MR,MAURITANIA
+dic-9,MS,MONTSERRAT
+dic-9,MT,MALTA
+dic-9,MU,MAURITIUS
+dic-9,MV,MALDIVES
+dic-9,MW,MALAWI
+dic-9,MX,MEXICO
+dic-9,MY,MALAYSIA
+dic-9,MZ,MOZAMBIQUE
+dic-9,NA,NAMIBIA
+dic-9,NC,NEW CALEDONIA
+dic-9,NE,NIGER
+dic-9,NF,NORFOLK ISLAND
+dic-9,NG,NIGERIA
+dic-9,NI,NICARAGUA
+dic-9,NL,NETHERLANDS
+dic-9,NO,NORWAY
+dic-9,NP,NEPAL
+dic-9,NR,NAURU
+dic-9,NT,NEUTRAL ZONE
+dic-9,NU,NIUE
+dic-9,NZ,NEW ZEALAND
+dic-9,OM,OMAN
+dic-9,PA,PANAMA
+dic-9,PE,PERU
+dic-9,PF,FRENCH POLYNESIA
+dic-9,PG,PAPUA NEW GUINEA
+dic-9,PH,PHILIPPINES
+dic-9,PK,PAKISTAN
+dic-9,PL,POLAND
+dic-9,PM,SAINT PIERRE AND MIQUELON
+dic-9,PN,PITCAIRN
+dic-9,PR,PUERTO RICO
+dic-9,PT,PORTUGAL
+dic-9,PW,PALAU
+dic-9,PY,PARAGUAY
+dic-9,QA,QATAR
+dic-9,RE,REUNION
+dic-9,RO,ROMANIA
+dic-9,RU,RUSSIAN FEDERATION
+dic-9,RW,RWANDA
+dic-9,SA,SAUDI ARABIA
+dic-9,SB,SOLOMON ISLANDS
+dic-9,SC,SEYCHELLES
+dic-9,SD,SUDAN
+dic-9,SE,SWEDEN
+dic-9,SG,SINGAPORE
+dic-9,SH,SAINT HELENA
+dic-9,SI,SLOVENIA
+dic-9,SJ,SVALBARD AND JAN MAYEN ISLANDS
+dic-9,SK,SLOVAKIA
+dic-9,SL,SIERRA LEONE
+dic-9,SM,SAN MARINO
+dic-9,SN,SENEGAL
+dic-9,SO,SOMALIA
+dic-9,SR,SURINAME
+dic-9,ST,SAO TOME AND PRINCIPE
+dic-9,SV,EL SALVADOR
+dic-9,SY,SYRIAN ARAB REPUBLIC
+dic-9,SZ,SWAZILAND
+dic-9,TC,TURKS AND CAICOS ISLANDS
+dic-9,TD,CHAD
+dic-9,TF,FRENCH SOUTHERN TERRITORIES
+dic-9,TG,TOGO
+dic-9,TH,THAILAND
+dic-9,TJ,TAJIKISTAN
+dic-9,TK,TOKELAU
+dic-9,TM,TURKMENISTAN
+dic-9,TN,TUNISIA
+dic-9,TO,TONGA
+dic-9,TP,EAST TIMOR
+dic-9,TR,TURKEY
+dic-9,TT,TRINIDAD AND TOBAGO
+dic-9,TV,TUVALU
+dic-9,TW,"TAIWAN, PROVINCE OF CHINA"
+dic-9,TZ,"TANZANIA, UNITED REPUBLIC OF"
+dic-9,UA,UKRAINE
+dic-9,UG,UGANDA
+dic-9,UM,UNITED STATES MINOR OUTLYING ISLANDS
+dic-9,US,UNITED STATES
+dic-9,UY,URUGUAY
+dic-9,UZ,UZBEKISTAN
+dic-9,VA,HOLY SEE (VATICAN CITY STATE)
+dic-9,VC,SAINT VINCENT AND THE GRENADINES
+dic-9,VE,VENEZUELA
+dic-9,VG,VIRGIN ISLANDS (BRITISH)
+dic-9,VI,VIRGIN ISLANDS (U.S.)
+dic-9,VN,VIET NAM
+dic-9,VU,VANUATU
+dic-9,WF,WALLIS AND FUTUNA ISLANDS
+dic-9,WS,SAMOA
+dic-9,YE,YEMEN
+dic-9,YT,MAYOTTE
+dic-9,YU,YUGOSLAVIA
+dic-9,ZA,SOUTH AFRICA
+dic-9,ZM,ZAMBIA
+dic-9,ZR,ZAIRE
+dic-9,ZW,ZIMBABWE
+end-dic-9,,
+dic,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/countryOfOrigin/GlobalCountryCode,dic-9
+dic,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productAvailableInCountries/GlobalCountryCode,dic-9
+dic-11,Each,
+end-dic-11,,
+dic,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/GlobalProductUnitOfMeasureCode,dic-11
+dic-13,24 Hour Availability,
+dic-13,A.M. Delivery Requirement,
+dic-13,Accepted by Carrier at Owner's Risk of Freezing,
+dic-13,Accessible Hazardous Material,
+dic-13,Additional Copy of Shipping Papers for Proof of Delivery,
+dic-13,Advance Loading,
+dic-13,Advanced Fee,
+dic-13,Aggregate Tender Discount,
+dic-13,Air Conditioning Disconnect and Connect
+dic-13,Air Ride Tractor Service
+dic-13,Air Ride Truck Service
+dic-13,Anchoring and Unanchoring
+dic-13,Annual Volume
+dic-13,Apply a Uniform Code Council/International Article Numbering Association (UCC/EAN) Serial Shipping Container Label to the Shipping Containers
+dic-13,Armed Guard Service
+dic-13,Assembly Service Requested
+dic-13,Attachment - Customer's Document
+dic-13,Attachment - Prepaid Waybill
+dic-13,Attachment - Shipper's Export Document
+dic-13,Attachment - Shipper's Manifest
+dic-13,Attachment - Shipper's Packing Instructions
+dic-13,Attachments - Advance Only Waybill
+dic-13,Auxiliary Service
+dic-13,Barge Freight All Kinds Service
+dic-13,Bill Consignee for Weigh Charges
+dic-13,Bill Shipper for Weigh Charge
+dic-13,Blind Shipment
+dic-13,Block Stowage
+dic-13,Blocking and Bracing
+dic-13,"Bolster Load, Do Not Switch"
+dic-13,Bulky Article
+dic-13,Bunker Adjustment
+dic-13,Bunker Adjustment - 20 Foot Container
+dic-13,Bunker Adjustment - 40 Foot Container
+dic-13,Bunker Surcharge Authorized
+dic-13,Bypass Consolidation Point
+dic-13,Cargo Aboard
+dic-13,Cargo Taxes
+dic-13,Cargo on Board Certification Required
+dic-13,Carrier
+dic-13,Carrier Caboose
+dic-13,Carrier Guard Car Service
+dic-13,Carrier Load and Carrier Unload
+dic-13,Carrier Load and Consignee Unload
+dic-13,Certificate of Origin
+dic-13,Certification
+dic-13,Certification That the Newsprint Winding Cores Being Returned Empty Were Received Filled by Rail Freight Service
+dic-13,Certification that the Containers Being Returned Empty Were Received Filled by Rail Freight Service
+dic-13,Certification that this Shipment is for Recycling as Defined in Applicable Tariffs Containing Such Provisions
+dic-13,Chain and Binders
+dic-13,Circuitous Routing
+dic-13,Class Rates Applied
+dic-13,Cleaning
+dic-13,Cleared for Border Crossing
+dic-13,Cleared for Export
+dic-13,Clearinghouse Balance
+dic-13,Comb. Rates over Detroit
+dic-13,Commercial Invoice Preparation
+dic-13,Commodity Loaded Less Than or Equal To the Car Ordered
+dic-13,Completing Shipment
+dic-13,Conductivity/Anti-static Additive
+dic-13,Consignee Unload
+dic-13,Consolidation
+dic-13,Consolidation and Line Haul
+dic-13,Constant Surveillance
+dic-13,Container Diversion
+dic-13,Container Lease
+dic-13,Container Mounting
+dic-13,"Container, Consolidator Load"
+dic-13,"Container, Factory Load"
+dic-13,Contract Rates Apply
+dic-13,Controlled Atmosphere
+dic-13,Convert Commercial Bill of Lading (BOL) to Government BOL
+dic-13,"Courier, Overnight"
+dic-13,"Courier, Same Day"
+dic-13,Cross Town
+dic-13,Currency Adjustment - 20 Foot Container
+dic-13,Currency Adjustment - 40 Foot Container
+dic-13,Customer Required Appointment Number
+dic-13,Customer Required PRO Number
+dic-13,Customer Required Packing List
+dic-13,Customs Fees - Container Level
+dic-13,Customs Fees - Lift Level
+dic-13,Customs Inspection
+dic-13,Customs Papers Mailed
+dic-13,DOD Constant Surveillance Service
+dic-13,Dangerous
+dic-13,Delivery Only on Surrender of Written Order
+dic-13,Delivery Service
+dic-13,Delivery Verification Not Required
+dic-13,Demurrage
+dic-13,Destination Weights Apply
+dic-13,Detention (Vehicle)
+dic-13,Detention With Power Units (30 minute periods)
+dic-13,Detention With Power Units (60 minute periods)
+dic-13,Detention of Conveying Equipment Excluding the Power Unit
+dic-13,Detention of Conveying Equipment and the Power Unit
+dic-13,Direct Delivery
+dic-13,Distribution Service Requested
+dic-13,Do Not Couple to Double Shelf Couples
+dic-13,Do Not Divert
+dic-13,Do Not Freeze
+dic-13,Do Not Hump
+dic-13,Do Not Pool
+dic-13,Do Not Transfer Contents
+dic-13,Do Not Uncouple
+dic-13,Do not Hump or Hump into
+dic-13,Documentation - Special
+dic-13,Domestic
+dic-13,Drayage at Port of Debarkation (Rate Zone)
+dic-13,Drayage at Port of Embarkation (Rate Zone)
+dic-13,Drop-Off Delivery
+dic-13,Electronic Equipment Transfer
+dic-13,Emergency Service
+dic-13,Empty Movement
+dic-13,Empty Return
+dic-13,Endorsed as Hazardous Material
+dic-13,Endorsement
+dic-13,Equipment
+dic-13,Escort
+dic-13,Escort Service with Overnight Subsistence
+dic-13,Escort Services (Telephone)
+dic-13,Escort/Courier Service
+dic-13,Excessive Valuation Authorized
+dic-13,Excessive Weight
+dic-13,Exclusive Use
+dic-13,Exclusive Use of Vehicle
+dic-13,Exempt Commodity
+dic-13,Expand Remove and Install
+dic-13,Expedite
+dic-13,Expedited Rates Applied
+dic-13,Expedited Service
+dic-13,Export
+dic-13,Export Preparation
+dic-13,Extra Driver
+dic-13,Extra Labor
+dic-13,Extra Lights
+dic-13,Filtration Service
+dic-13,Flatrack Surcharge
+dic-13,For Processing in Transit
+dic-13,For Storage in Transit
+dic-13,Fragile - Handle with Care
+dic-13,Full Service
+dic-13,Government Caboose
+dic-13,Government Guard Car
+dic-13,Government-Owned Containers
+dic-13,Greater Security Service
+dic-13,Handling
+dic-13,Harmless
+dic-13,Hazardous Cargo On Deck
+dic-13,Hazardous Materials Surcharge
+dic-13,Heat
+dic-13,Heat - Special
+dic-13,Heat in Transit
+dic-13,Heater or Refrigeration
+dic-13,High Cube Trailer Rates
+dic-13,High Value Load
+dic-13,Hold at Location
+dic-13,Hold for Orders
+dic-13,Home for Repair
+dic-13,If Bad Ordered Notify Shipper
+dic-13,Impactographs
+dic-13,Import Shipment
+dic-13,In Case of Fire Do Not Use Water
+dic-13,In-bond
+dic-13,Inaccessible Hazardous Material
+dic-13,Inside Delivery
+dic-13,Inside Pickup
+dic-13,Inspect Hourly if Car Stopped
+dic-13,Insulated
+dic-13,Interline Transfer Service
+dic-13,Intermodal Shipment Service
+dic-13,Intra-Plant Move
+dic-13,Joint Line Exception
+dic-13,Just-In-Time (JIT)
+dic-13,Keep From Freezing Percent Differential
+dic-13,Keep Material Dry
+dic-13,Labor Associated with Detention of Conveying Equipment
+dic-13,Labor Disturbance
+dic-13,Land Bridge (Import/Export)
+dic-13,Land Currency Adjustment - 40 Foot Container
+dic-13,Land Currency Adjustment Factor - 20 Foot Container
+dic-13,Layover
+dic-13,Layover Service
+dic-13,Less Than Container
+dic-13,"Less Than Container, Consolidator Load"
+dic-13,"Less Than Container, Factory Load"
+dic-13,Less Than Full Carload
+dic-13,Less Than Truckload
+dic-13,Liability of Carrier
+dic-13,Light Bar Service
+dic-13,Linehaul Percent Differential
+dic-13,Linehaul Service
+dic-13,Linehaul To Port of Embarkation
+dic-13,Linehaul from Port of Debarkation
+dic-13,Liner Terms at Port of Debarkation
+dic-13,Liner Terms at Port of Embarkation
+dic-13,Loaded to Full Visible Capacity
+dic-13,Loading Devices
+dic-13,Local Service Only
+dic-13,Low Boy Trailer/Flat Bed
+dic-13,Manifest Must Accompany Waybill
+dic-13,Mechanical Refrigeration
+dic-13,Modified Atmosphere
+dic-13,Motor Surveillance Service
+dic-13,Moving Under 
+dic-13,Multi-Tank Surveillance Service
+dic-13,Multiple Pickup
+dic-13,New Equipment First Transborder Movement
+dic-13,No Marshalling Required for Hazardous Materials
+dic-13,No Placards Required
+dic-13,No Special Entrainment Required
+dic-13,Nontransit Flat Shipment
+dic-13,Not Restricted Cargo
+dic-13,Not for Export
+dic-13,Notify Consignee Before Delivery
+dic-13,Notify Shipper Before Reconsignment
+dic-13,Notify Shipper Immediately if Shipment is Delayed en Route
+dic-13,Offshore - Alaska/Hawaii Service
+dic-13,On Deck Stowage
+dic-13,One Way Rates Applied
+dic-13,Other
+dic-13,Over Height Container
+dic-13,Overflow
+dic-13,Oversized Premium
+dic-13,Overweight
+dic-13,P.M. Delivery Requirement
+dic-13,PUP Trailer Rates Apply
+dic-13,Pack and Unpack
+dic-13,Pallets/Skids/Platforms
+dic-13,Partial Shipment
+dic-13,Per Hour Rates Applied
+dic-13,Per Mile Rates Apply
+dic-13,Percent Differential - Less Than Container
+dic-13,Pickup
+dic-13,Pickup and Delivery
+dic-13,Pickup and Delivery Beyond Service Area
+dic-13,Pickup and Delivery From Storage in Transit
+dic-13,Pickup of Shipments Requiring Same Day Delivery Service
+dic-13,Pickup of Shipments Requiring Same Day Delivery Service and/or Delivery at a Specified Time
+dic-13,"Pickup of Shipments on Saturday, Sunday, and/or Holidays Requiring Absolute Next Day Delivery"
+dic-13,Pier Time
+dic-13,Port Changes
+dic-13,Preparation of Air Waybill - Origin
+dic-13,Preparation of Canadian Customs Invoice
+dic-13,Preparation of Export Entry
+dic-13,Preparation of Insurance Certificate
+dic-13,Preparation of U.S. Export Documentation
+dic-13,Priority Service
+dic-13,Product Protection Service
+dic-13,Protect From Heat
+dic-13,Protect Lowest Through Rate
+dic-13,Protective Security Service
+dic-13,ROEE Van Type Truck
+dic-13,Radioactive Material
+dic-13,Railhead Handling
+dic-13,Railroad Controlled Private Equipment Subject to Demurrage
+dic-13,Reconsignment
+dic-13,Record for Transit
+dic-13,Redelivery
+dic-13,Reefer Cargo Percent Differential
+dic-13,Reefer Maintenance
+dic-13,Refrigerated
+dic-13,Released Value Charge in Excess of Carrier Maximum Liability
+dic-13,Render Bill for Charges
+dic-13,Requires Shelf Couplers
+dic-13,Reservations
+dic-13,Reshipment
+dic-13,Residential Delivery
+dic-13,Respotting
+dic-13,Return Authorization
+dic-13,Return Carrier Guard Car Service
+dic-13,Return Movement of Pallet
+dic-13,Return of Empty Container
+dic-13,Reweight Requested
+dic-13,Roadrailer Service
+dic-13,Roadway Easy Rates Applied
+dic-13,Round Trip Service
+dic-13,Rush Order
+dic-13,Satellite Surveillance Service
+dic-13,Satisfactory Service Standards
+dic-13,Saturday Delivery
+dic-13,Saturday Pick-Up
+dic-13,Saturday Pickup or Delivery
+dic-13,Security Signature Service
+dic-13,Service Charge Applies
+dic-13,Shiftable Load
+dic-13,Shipment Holdover for Holidays
+dic-13,Shipment Holdover for Weekends
+dic-13,Shipment Holdover on Holidays
+dic-13,Shipment Holdover on Weekdays
+dic-13,Shipment Holdover on Weekends
+dic-13,Shipment from Non-Temp Storage
+dic-13,Shipment to be Inspected at Destination and Disposition Instructions will be Furnished
+dic-13,Shipper Authorization Required for Diversion or Consignment
+dic-13,"Shipper Certifies Gross Weight under 240,000 pounds"
+dic-13,Shipper Export Declaration Required
+dic-13,Shipper Load
+dic-13,Shipper Load and Carrier Unload
+dic-13,Shipper Load and Consignee Unload
+dic-13,Shipper Load and Count
+dic-13,Shipper Load/Carrier Count
+dic-13,Shove to Rest and Cover
+dic-13,Signature and Tally Record
+dic-13,Single Factor Origination/Destination
+dic-13,Single Factor Origination/Port of Debarkation
+dic-13,Single Factor Port of Embarkation/Destination
+dic-13,Single Shipment
+dic-13,Small Package
+dic-13,Special Containers
+dic-13,Special Dromedary Service
+dic-13,Special Equipment Charge
+dic-13,Special Motor Surveillance
+dic-13,Special Permit
+dic-13,Special Permits
+dic-13,Special Train Movement
+dic-13,Speed Restricted
+dic-13,Speed Restricted to 15 Miles per Hour
+dic-13,Speed Restricted to 25 Miles per Hour
+dic-13,Speed Restricted to 35 Miles per Hour
+dic-13,Speed Restricted to 45 Miles per Hour
+dic-13,Split Delivery
+dic-13,Split Pickup
+dic-13,Spot for Storage - No Shipment
+dic-13,Stack Train
+dic-13,"Stairs, Elevator, Excess Carry"
+dic-13,Stop-off
+dic-13,Stop-off at Destination
+dic-13,Stop-off at Origination
+dic-13,Storage
+dic-13,Stow Away from Heat
+dic-13,Stowage
+dic-13,Stretch Wrap
+dic-13,"Stripping, Sorting & Consolidation"
+dic-13,Subject to Special Detention Rules/Charges
+dic-13,Substitute Service Not to be Used
+dic-13,Sunday or Holiday Pickup or Delivery
+dic-13,Supervisor Requested
+dic-13,Surveying Routes
+dic-13,Team Track Delivery
+dic-13,Temperature Control
+dic-13,Tendered as Truckload (Truckload Service Requested)
+dic-13,Tendering of Multiple Vehicles
+dic-13,Terminal Handling Charges
+dic-13,Termination
+dic-13,Third Party Service
+dic-13,Time Volume Rates Only
+dic-13,Time of Delivery and Signature Required
+dic-13,Top Load Only
+dic-13,Total Shipment
+dic-13,Trade Show
+dic-13,Trailer Preparation - Special
+dic-13,"Trailer, Consolidator Load"
+dic-13,"Trailer, Factory Load"
+dic-13,Transfer Product
+dic-13,Transit Shipment
+dic-13,Transmit a Ship Notice/Manifest Transaction Set
+dic-13,Truck Rates Applicable
+dic-13,Truckload-Double Operator-Common Carrier
+dic-13,Truckload-Double Operator-Padded Van
+dic-13,Unitized
+dic-13,Unload as Placarded
+dic-13,Unload from Left Side of Car
+dic-13,Unload from Right Side of Car
+dic-13,Unloading or Reloading
+dic-13,Unpacking
+dic-13,Unprotected Perishable
+dic-13,Use No Hooks
+dic-13,Use of Alternate Terminal
+dic-13,Ventilation Instructions
+dic-13,Verification Weigh
+dic-13,Waiting Time Authorized
+dic-13,Waive Inspection
+dic-13,Waived Inspection - Set Direct
+dic-13,Weigh Empty
+dic-13,Weigh to Check for Overload
+dic-13,Weight Verification,
+dic-13,Written Proof of Delivery,
+end-dic-13,,
+dic,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/SpecialHandlingInstruction/GlobalSpecialHandlingCode,dic-13
+dic-14,Add,  Add the business information to an information system.
+end-dic-14,,
+dic,/Pip2A1ProductResourceUpdate/SalesCatalog/GlobalActionCode,dic-14
+dic,/Pip2A1ProductResourceUpdate/ComponentTechnicalSpecification/GlobalActionCode,dic-14
+dic-15,Exclusively-requires,  A component can exclusively require another functional component in order for it to operate. E.g. a memory slot is exclusively required by a memory module. The slot cannot be shared.
+dic-15,Implements,  The physical component in the association that implements a particular function.
+dic-15,Performs,  The functional component in the association that performs a particular function for a physical component.
+dic-15,Provides,  A component can provide other functional components. E.g. a laptop provides a serial port.
+dic-15,Recommended,"  The recommended association is a constraining heuristic that provides some indication of optional configuration for performing a function. For example, a specific processor clock rate will be recommended for a computer configuration that is needs to execute a particular software package."
+dic-15,Requires,  A component can require other functional components. This is a shared component. E.g. a laptop requires a hard disk to operate. Software also requires a hard disk to operate.
+dic-15,Subcomponent,  A physical component that is an assembly can have other assemblies and parts as sub-components.
+dic-15,Supports,  A constraining association between components that denotes the capability of the source component to be able to satisfy the functional requirements of the destination component.
+end-dic-15,,
+dic,/Pip2A1ProductResourceUpdate/ComponentTechnicalSpecification/SubComponent/GlobalSubComponentRelationshipCode,dic-15
+dic-16,Ampere,
+dic-16,Angstrom,
+dic-16,Bit,
+dic-16,Bytes,
+dic-16,Centigram,
+dic-16,Coulomb,
+dic-16,Decagram,
+dic-16,Decibels,
+dic-16,Decigram,
+dic-16,Deciliter,
+dic-16,Decimeter,
+dic-16,Farad,
+dic-16,Gram,
+dic-16,Henry,
+dic-16,Hertz
+dic-16,Hour
+dic-16,Inch
+dic-16,Kilobyte
+dic-16,Kilogram
+dic-16,Kilometer
+dic-16,Kilowatt
+dic-16,Megabyte
+dic-16,Megagram
+dic-16,Megahertz
+dic-16,Meter
+dic-16,Microgram
+dic-16,Miles
+dic-16,Milliamperes
+dic-16,Milligram
+dic-16,Millimeter
+dic-16,Millivolts,
+dic-16,Ohm,
+dic-16,Picofarad,
+dic-16,Pound,
+dic-16,Volt,
+dic-16,Volts (Alternating Current),
+dic-16,Volts (Direct Current),
+dic-16,Volts Per Meter,
+dic-16,Watt,
+end-dic-16,,
+dic,/Pip2A1ProductResourceUpdate/ComponentTechnicalSpecification/Quantity/GlobalPhysicalUnitOfMeasureCode,dic-16
+dic-17,Abbreviated Description,
+dic-17,Acoustic Impedance,
+dic-17,Ambient Light Rejection,
+dic-17,Amplitude,
+dic-17,Analog Control,
+dic-17,Annotation
+dic-17,Architecture Feature
+dic-17,Asynchronous Burst Maximum Data Bit Rate
+dic-17,Asynchronous Sustained Maximum Data Bit Rate
+dic-17,Audio Controls
+dic-17,Auto Discrimination
+dic-17,Automatic Features
+dic-17,Average Acceleration Time
+dic-17,Average Compact Disk Access Time
+dic-17,Average Coverage
+dic-17,Average DVD Access Time
+dic-17,Average Ready Time
+dic-17,Average Rotational Delay
+dic-17,Average Seek Time
+dic-17,Bandwidth
+dic-17,Basefilm Thickness
+dic-17,Basis Weight
+dic-17,Beam Focus Method
+dic-17,Bell Standard
+dic-17,Bit Error Rate
+dic-17,Bit Error Rate after Error Correction
+dic-17,Bottom Mechanical Margin
+dic-17,Brightness
+dic-17,Burst Data Bit Rate
+dic-17,Burst External Data Bit Rate
+dic-17,Burst Internal Data Bit Rate
+dic-17,Button Function
+dic-17,Cabinet Material
+dic-17,Cable Functionality
+dic-17,Cable Grade
+dic-17,Cable Shielding Material
+dic-17,Cable Technology
+dic-17,Cache Bus Clock Rate
+dic-17,Case Material
+dic-17,Cathode Ray Tube Design
+dic-17,Cell Technology
+dic-17,Central Processing Unit Bus Clock Rate
+dic-17,Central Processor Unit Socket Standard
+dic-17,Certifications
+dic-17,Channel Bonding
+dic-17,Characteristics Measured
+dic-17,Check Width
+dic-17,Circuit Protection
+dic-17,Clocking
+dic-17,Code Base
+dic-17,Coercivity
+dic-17,Color
+dic-17,Color Scan Rate
+dic-17,Communication Direction
+dic-17,Communication Functions
+dic-17,Communication Line
+dic-17,Compact Disk Write Data Transfer Rate
+dic-17,Compliance
+dic-17,Component Category
+dic-17,Computer System Emulation
+dic-17,Connector Gender
+dic-17,Connector Standard
+dic-17,Continuous Plotting Rate
+dic-17,Cooling Method
+dic-17,Copy Color
+dic-17,Cushioning Material
+dic-17,DVD Write Data Transfer Rate
+dic-17,Data Bit Rate
+dic-17,Data Compression Method
+dic-17,Data Density
+dic-17,Data Format
+dic-17,Data Port Standard
+dic-17,Data Transmission
+dic-17,Data Width
+dic-17,Depth
+dic-17,Design Methodology
+dic-17,Device Location
+dic-17,Diagnostics
+dic-17,Diameter
+dic-17,Die Size
+dic-17,Digital Audio
+dic-17,Digital Control
+dic-17,Disk Change Time
+dic-17,Disk Inner Diameter
+dic-17,Disk Load Design
+dic-17,Disk Outer Diameter
+dic-17,Display Color
+dic-17,Display Technology
+dic-17,Distribution Media
+dic-17,Drawer Extension Mechanism
+dic-17,Drop Height
+dic-17,Drum Life
+dic-17,Electromagnetic Interference Protection
+dic-17,Electrostatic Discharge Resistance
+dic-17,Emulation Mode
+dic-17,Estimated Maximum Cartridge Life
+dic-17,Estimated Maximum Fax Page Memory Capacity
+dic-17,Estimated Maximum Head Life
+dic-17,Estimated Maximum Operational Recharge Time
+dic-17,Estimated Maximum Standby Recharge Time
+dic-17,Estimated Minimum Operational Recharge Time
+dic-17,Estimated Minimum Standby Recharge Time
+dic-17,Estimated Shelf Life
+dic-17,Expansion Bus Clock Rate
+dic-17,Exposure Time
+dic-17,External Color
+dic-17,Fabrication Material
+dic-17,Fax Service Class
+dic-17,Feeder Capability
+dic-17,Finish
+dic-17,Flash Modes
+dic-17,Focus Method
+dic-17,Font Standard
+dic-17,Form Factor
+dic-17,Formatted Storage Capacity
+dic-17,Forwarding Data Bit Rate
+dic-17,Global Product Identification
+dic-17,Greyscale Scan Rate
+dic-17,Head Technology
+dic-17,Height
+dic-17,Horizontal Display Length
+dic-17,Horizontal Interlaced Resolution
+dic-17,Horizontal Non-Interlaced Resolution
+dic-17,Horizontal Resolution
+dic-17,Horizontal Stage Length
+dic-17,Hub Outer Diameter
+dic-17,Image Sensor Horizontal Resolution
+dic-17,Image Sensor Technology
+dic-17,Image Sensor Vertical Resolution
+dic-17,Image Storage Method
+dic-17,Ink Color
+dic-17,Installed Buffer Memory Storage Capacity
+dic-17,Installed Cache Memory Storage Capacity
+dic-17,Installed L2 Cache Memory Storage Capacity
+dic-17,Installed L3 Cache Memory Storage Capacity
+dic-17,Installed System Memory Storage Capacity
+dic-17,Interface Standard
+dic-17,Internal Clock Rate
+dic-17,Internal Data Width
+dic-17,International Standards Organization Equivalency
+dic-17,International Telecommunications Union Standard
+dic-17,Key Angle
+dic-17,Key Spacing
+dic-17,Keyboard Encoding
+dic-17,Lamp Life
+dic-17,Lamp Technology
+dic-17,Lead Plating
+dic-17,Left Mechanical Margin
+dic-17,Lens Mounting
+dic-17,Lens Type
+dic-17,License Type
+dic-17,Light Transmission
+dic-17,Line Interaction
+dic-17,Line Protection
+dic-17,Linear Travel
+dic-17,Load Balancing
+dic-17,Load Bearing Capacity
+dic-17,Load Host
+dic-17,Local Area Network Architecture
+dic-17,Locale Language
+dic-17,Magnetic Disk Technology
+dic-17,Magnetic Layer Thickness
+dic-17,Magnetic Tape Technology
+dic-17,Manufacturer Name
+dic-17,Manufacturer Part Number
+dic-17,Max Estimated Operational Battery Life
+dic-17,Max Estimated Standby Battery Life
+dic-17,Maximum Accuracy
+dic-17,Maximum Amplitude Modulation Radio Frequency
+dic-17,Maximum Aperture
+dic-17,Maximum Backplane Data Bit Rate
+dic-17,Maximum Bit Depth
+dic-17,Maximum Buffer Storage
+dic-17,Maximum Color Copy Rate
+dic-17,Maximum Color Plotting Rate
+dic-17,Maximum Color Print Rate
+dic-17,Maximum Color Resolution
+dic-17,Maximum Compact Disk Read Data Transfer Rate
+dic-17,Maximum Compressed Asynchronous Data Transfer Rate - Reading
+dic-17,Maximum Compressed Asynchronous Data Transfer Rate - Writing
+dic-17,Maximum Compressed Data Tranfer Rate - Reading
+dic-17,Maximum Compressed Data Transfer Rate - Writing
+dic-17,Maximum Compressed Storage Capacity
+dic-17,Maximum Compressed Synchronous Data Transfer Rate - Reading
+dic-17,Maximum Compressed Synchronous Data Transfer Rate - Writing
+dic-17,Maximum Conductor Cross-Sectional Area
+dic-17,Maximum DVD Read Data Transfer Rate
+dic-17,Maximum Data Bit Rate
+dic-17,Maximum Depth of Field
+dic-17,Maximum Disk Storage Capacity
+dic-17,Maximum Distance Range
+dic-17,Maximum Electrical Power Rating
+dic-17,Maximum Enlargement
+dic-17,Maximum Extension length
+dic-17,Maximum Extremely Low Frequency Reduction
+dic-17,Maximum Fax Bit Rate
+dic-17,Maximum Focal Length
+dic-17,Maximum Forwarding Packet Size
+dic-17,Maximum Frame Capture Rate
+dic-17,Maximum Frequency Modulation Radio Frequency
+dic-17,Maximum Frequency Response
+dic-17,Maximum Gain
+dic-17,Maximum Heat Dissipation
+dic-17,Maximum Horizontal Media Length
+dic-17,Maximum Horizontal Scan Frequency
+dic-17,Maximum Horizontal Scan Length
+dic-17,Maximum Horizontal Synchronization
+dic-17,Maximum Image Capacity
+dic-17,Maximum Image Output Rate
+dic-17,Maximum Input Current
+dic-17,Maximum Input Frequency
+dic-17,Maximum Input Sheet Capacity
+dic-17,Maximum Input Voltage
+dic-17,Maximum Installable Buffer Memory Storage Capacity
+dic-17,Maximum Installable Cache Memory Storage Capacity
+dic-17,Maximum Installable L2 Cache Memory Storage Capacity
+dic-17,Maximum Installable L3 Cache Memory Storage Capacity
+dic-17,Maximum Installable System Memory Storage Capacity
+dic-17,Maximum Installable Video Memory Storage Capacity
+dic-17,Maximum Interpolated Resolution
+dic-17,Maximum Monochrome Copy Rate
+dic-17,Maximum Monochrome Plotting Rate
+dic-17,Maximum Monochrome Print Rate
+dic-17,Maximum Monochrome Resolution
+dic-17,Maximum Network Switch Throughput
+dic-17,Maximum Number of Attendant Consoles
+dic-17,Maximum Number of Copies
+dic-17,Maximum Number of Multiplexing Talk Slots
+dic-17,Maximum Number of Power Outlets
+dic-17,Maximum Number of Simultaneous Multiplexing Conversations
+dic-17,Maximum Number of Simultaneous System Conversations
+dic-17,Maximum Number of Stations
+dic-17,Maximum Number of System Talk Slots
+dic-17,Maximum Number of Trunk Groups
+dic-17,Maximum Number of Trunks
+dic-17,Maximum Number of Trunks Per Group
+dic-17,Maximum Number of Users
+dic-17,Maximum Number of Virtual Local Area Networks
+dic-17,Maximum Operating Ambient Temperature
+dic-17,Maximum Operating Humidity
+dic-17,Maximum Optical Resolution
+dic-17,Maximum Output Frequency
+dic-17,Maximum Output Power
+dic-17,Maximum Output Sheet Capacity
+dic-17,Maximum Output Voltage
+dic-17,Maximum Peak Current Capacity
+dic-17,Maximum Photopic Reflectance
+dic-17,Maximum Power Consumption
+dic-17,Maximum Print Contrast Signal Value
+dic-17,Maximum Privacy Cone Angle
+dic-17,Maximum Projected Brightness
+dic-17,Maximum Projection Distance
+dic-17,Maximum Read Power Dissipation
+dic-17,Maximum Reading Resolution
+dic-17,Maximum Recording Area
+dic-17,Maximum Recording Capacity
+dic-17,Maximum Recording Rate
+dic-17,Maximum Recording Time
+dic-17,Maximum Reduction
+dic-17,Maximum Response Time
+dic-17,Maximum Sag Energy Rating
+dic-17,Maximum Sampling Frequency
+dic-17,Maximum Scan Rate
+dic-17,Maximum Scanning Noise Level
+dic-17,Maximum Sector Capacity
+dic-17,Maximum Self Timer Duration
+dic-17,Maximum Sheet Capacity
+dic-17,Maximum Shutter Speed
+dic-17,Maximum Supply Voltage
+dic-17,Maximum Surge Energy Rating
+dic-17,Maximum Switchover Time
+dic-17,Maximum Tilt Angle
+dic-17,Maximum Time Lapse Duration
+dic-17,Maximum Transmission Distance
+dic-17,Maximum Ultraviolet A
+dic-17,Maximum Ultraviolet B
+dic-17,Maximum Uncompressed Storage Capacity
+dic-17,Maximum Vertical Media Length
+dic-17,Maximum Vertical Scan Length
+dic-17,Maximum Vertical Synchronization
+dic-17,Maximum Very Low Frequency Reduction
+dic-17,Maximum Video Refresh Rate
+dic-17,Maximum Weight
+dic-17,Maximum Write Power Dissipation
+dic-17,Maximum Zoom
+dic-17,Mean Time Between Failures
+dic-17,Mechanical Features
+dic-17,Media Format
+dic-17,Media Technology
+dic-17,Memory Bus Clock Rate
+dic-17,Memory Module Configuration
+dic-17,Memory Module Outline
+dic-17,Memory Socket Standard
+dic-17,Memory Technology
+dic-17,Microcom Networking Protocol Class
+dic-17,Microphone Technology
+dic-17,Min Estimated Operational Battery Life
+dic-17,Min Estimated Standby Battery Life
+dic-17,Minimum Accuracy
+dic-17,Minimum Amplitude Modulation Radio Frequency
+dic-17,Minimum Aperture
+dic-17,Minimum Color Plotting Rate
+dic-17,Minimum Color Print Rate
+dic-17,Minimum Compact Disk Read Data Transfer Rate
+dic-17,Minimum Conductor Cross-Sectional Area
+dic-17,Minimum DVD Read Data Transfer Rate
+dic-17,Minimum Data Bit Rate
+dic-17,Minimum Depth of Field
+dic-17,Minimum Dynamic Range
+dic-17,Minimum Focal Length
+dic-17,Minimum Forwarding Packet Size
+dic-17,Minimum Frequency Modulation Radio Frequency
+dic-17,Minimum Frequency Response
+dic-17,Minimum Gain
+dic-17,Minimum Heat Dissipation
+dic-17,Minimum Horizontal Media Length
+dic-17,Minimum Horizontal Scan Frequency
+dic-17,Minimum Horizontal Synchronization
+dic-17,Minimum Input Current
+dic-17,Minimum Input Frequency
+dic-17,Minimum Input Voltage
+dic-17,Minimum Macro Focus Distance
+dic-17,Minimum Monochrome Plotting Rate
+dic-17,Minimum Monochrome Print Rate
+dic-17,Minimum Operating Ambient Temperature
+dic-17,Minimum Operating Humidity
+dic-17,Minimum Output Frequency
+dic-17,Minimum Output Voltage
+dic-17,Minimum Power Consumption
+dic-17,Minimum Print Contrast Signal Value
+dic-17,Minimum Projection Distance
+dic-17,Minimum Read Power Dissipation
+dic-17,Minimum Reading Resolution
+dic-17,Minimum Recording Area
+dic-17,Minimum Recording Rate
+dic-17,Minimum Response Time
+dic-17,Minimum Scan Rate
+dic-17,Minimum Self Timer Duration
+dic-17,Minimum Shutter Speed
+dic-17,Minimum Supply Voltage
+dic-17,Minimum Switchover Time
+dic-17,Minimum Telephoto Focus Distance
+dic-17,Minimum Tilt Angle
+dic-17,Minimum Time Lapse Duration
+dic-17,Minimum Vertical Media Length
+dic-17,Minimum Vertical Synchronization
+dic-17,Minimum Wide Angle Focus Distance
+dic-17,Minimum Write Power Dissipation
+dic-17,Minimum Zoom
+dic-17,Modem Capability
+dic-17,Mounting Capability
+dic-17,Mounting Position
+dic-17,Multiplexing Technology
+dic-17,Name
+dic-17,Native Image Format
+dic-17,Noise Suppression
+dic-17,Nominal Input Sheet Capacity
+dic-17,Nominal Output Sheet Capacity
+dic-17,Nominal Wavelength
+dic-17,Nominal Weight
+dic-17,Non-Magnetic Layer Thickness
+dic-17,Number of Analog Lines Supported
+dic-17,Number of Battery Bays
+dic-17,Number of Buttons
+dic-17,Number of Cooling Device Slots
+dic-17,Number of Disk Slots
+dic-17,Number of Display Presets
+dic-17,Number of Display User Settings
+dic-17,Number of Drive Mechanisms
+dic-17,Number of Expansion Slots
+dic-17,Number of Expansion/Module Slots
+dic-17,Number of Extensions
+dic-17,Number of Ink Colors
+dic-17,Number of Input-Output Channels
+dic-17,Number of Keys
+dic-17,Number of Leads
+dic-17,Number of Lines
+dic-17,Number of Memory Packages
+dic-17,Number of Modular Slots
+dic-17,Number of Passes for Color
+dic-17,Number of Pens
+dic-17,Number of Pins
+dic-17,Number of Pockets
+dic-17,Number of Pouches
+dic-17,Number of Power Supply Slots
+dic-17,Number of Pressure Levels
+dic-17,Number of Rings Supported
+dic-17,Number of Sectors Per Track
+dic-17,Number of Segments Per Shelf
+dic-17,Number of Sessions
+dic-17,Number of Sessions Per Port
+dic-17,Number of Sides
+dic-17,Number of Tracks
+dic-17,Number of Tracks per Surface
+dic-17,Number of Transistors
+dic-17,Number of Wires
+dic-17,On Screen Analog Control
+dic-17,On Screen Digital Control
+dic-17,On-Board System Memory Storage Capacity
+dic-17,Operating System
+dic-17,Optical Technology
+dic-17,Output Impedence
+dic-17,Output Waveform
+dic-17,Package Height
+dic-17,Package Length
+dic-17,Package Outline Designator
+dic-17,Package Width
+dic-17,Packet Forwarding/Filtering Rate
+dic-17,Panel Controls
+dic-17,Paper Feed Method
+dic-17,Paper Path
+dic-17,Parallel Transfer Mode
+dic-17,Phosphor Persistence
+dic-17,Pickup Pattern
+dic-17,Pitch Type
+dic-17,Pitch Width
+dic-17,Pixel Pitch
+dic-17,Plotter Technology
+dic-17,Pointing Device Technology
+dic-17,Port Direction
+dic-17,Port Function
+dic-17,Portability Parameter
+dic-17,Print Color
+dic-17,Printing Method
+dic-17,Printing Noise Level
+dic-17,Product Name
+dic-17,Programmability
+dic-17,Projection Direction
+dic-17,Proprietary or Industry Standard
+dic-17,Provides Cache Technology
+dic-17,Provides Central Processor Unit Slot Standard
+dic-17,Provides Central Processor Unit Socket Standard
+dic-17,Provides Channel Data Bit Rate
+dic-17,Provides Data Channel
+dic-17,Provides Error Checking Method
+dic-17,Provides Expansion Bus Standard
+dic-17,Provides Expansion Bus Width
+dic-17,Provides Expansion Slot Convention
+dic-17,Provides Expansion Slot Standard
+dic-17,Provides External Drive Bay Dimension
+dic-17,Provides Internal Drive Bay Dimension
+dic-17,Provides L1 Cache Memory Storage Capacity
+dic-17,Provides L2 Cache Memory Storage Capacity
+dic-17,Provides Local Area Network Architecture
+dic-17,Provides Local Area Network Management Protocol
+dic-17,Provides Maximum Formatted Storage Capacity
+dic-17,Provides Memory Bus Width
+dic-17,Provides Memory Management
+dic-17,Provides Memory Socket Standard
+dic-17,Provides Number of Bits
+dic-17,Provides Number of Cooling Devices
+dic-17,Provides Printer Page Description Language
+dic-17,Provides System Chip Set
+dic-17,Proximity
+dic-17,Pulse Width
+dic-17,Random Access Memory Digital to Analog Converter Speed
+dic-17,Re-Writable Write Data Transfer Rate
+dic-17,Read Channel
+dic-17,Recommended Maximum Supply Voltage
+dic-17,Recommended Minimum Supply Voltage
+dic-17,Recordable Data Transfer Rate
+dic-17,Recordable Write Method
+dic-17,Recording Layer Material
+dic-17,Recording Method
+dic-17,Refractive Index
+dic-17,Remote Management Capability
+dic-17,Requires Central Processor Unit Slot Standard
+dic-17,Requires Central Processor Unit Socket Standard
+dic-17,Requires Direct Memory Access Channel Setting
+dic-17,Requires Expansion Slot Convention
+dic-17,Requires Expansion Slot Standard
+dic-17,Requires I/O Base Address Setting
+dic-17,Requires Interrupt Request Line Setting
+dic-17,Requires Maximum Memory Device Access Time
+dic-17,Requires Minimum Central Processing Unit Internal Clock Rate
+dic-17,Requires System Board Bus Clock Rate
+dic-17,Requires System Board Central Processing Unit Bus Clock Rate
+dic-17,Resource Allocation Method
+dic-17,Right Mechanical Margin
+dic-17,Roll Length
+dic-17,Roller Life
+dic-17,Rotational Speed
+dic-17,Scan Color
+dic-17,Scanning Technology
+dic-17,Screen Treatment
+dic-17,Security Features
+dic-17,Sensor Resolution
+dic-17,Sensor Width
+dic-17,Signal Acquisition System Bandwidth
+dic-17,Signal Conversion Type
+dic-17,Size Classification
+dic-17,Sleep Power Dissipation
+dic-17,Sound Synthesis Method
+dic-17,Sound Transmission
+dic-17,Speaker Type
+dic-17,Stage Temperature
+dic-17,Standard Rack Height
+dic-17,Standby Noise Level
+dic-17,Status Alert Condition
+dic-17,Status Indicator
+dic-17,Status Notification Method
+dic-17,Storage Capacity
+dic-17,Storage Density
+dic-17,Stranding
+dic-17,Substrate Material
+dic-17,Substrate Thickness
+dic-17,Supplies Supply Voltage
+dic-17,Supports Asynchronous Data Bit Rate
+dic-17,Supports Authentication Protocol
+dic-17,Supports Battery Cell Technology
+dic-17,Supports Battery Size Classification
+dic-17,Supports Bearer Channel Protocol
+dic-17,Supports Cache Technology
+dic-17,Supports Data Channel
+dic-17,Supports Delta Channel Protocol
+dic-17,Supports Error Checking Method
+dic-17,Supports Feed Method
+dic-17,Supports Local Area Network Architecture
+dic-17,Supports Local Area Network Management Capability
+dic-17,Supports Local Area Network Management Protocol
+dic-17,Supports Maximum Height
+dic-17,Supports Maximum Label Width
+dic-17,Supports Maximum Length
+dic-17,Supports Maximum Media Weight
+dic-17,Supports Maximum Number of Instruments
+dic-17,Supports Maximum Number of Message Authentication Code Addresses
+dic-17,Supports Maximum Number of Systems
+dic-17,Supports Maximum Number of Voices
+dic-17,Supports Maximum Physical Addressable Storage Capacity
+dic-17,Supports Maximum Port Data Bit Rate
+dic-17,Supports Maximum Power
+dic-17,Supports Maximum Virtual Addressable Storage Capacity
+dic-17,Supports Maximum Weight
+dic-17,Supports Maximum Width
+dic-17,Supports Media Technology
+dic-17,Supports Memory Device Number of Leads
+dic-17,Supports Memory Technology
+dic-17,Supports Minimum Label Width
+dic-17,Supports Network Protocol
+dic-17,Supports Number of Broadcast Channels
+dic-17,Supports Number of Carbon Part Forms
+dic-17,Supports Number of Carbon-less Part Forms
+dic-17,Supports Number of Data Bits
+dic-17,Supports Number of Devices
+dic-17,Supports Number of Ink Cartridges
+dic-17,Supports Number of Stop Bits
+dic-17,Supports Parity
+dic-17,Supports Power Management
+dic-17,Supports Printer Page Description Language
+dic-17,Supports Radio Broadcast Standard
+dic-17,Supports Redundant Array of Independent Disks Level
+dic-17,Supports Sound Command Set
+dic-17,Supports Switching Layers
+dic-17,Supports Synchronous Data Bit Rate
+dic-17,Supports Television Broadcast Standard
+dic-17,Supports Transfer Mode
+dic-17,Supports Video Standard
+dic-17,Supports Wide Area Network Protocol
+dic-17,Sustained Data Bit Rate
+dic-17,Sustained External Data Bit Rate
+dic-17,Sustained Frame Capture Rate
+dic-17,Sustained Internal Data Bit Rate
+dic-17,Swap Capability
+dic-17,Switching Design
+dic-17,Switching Layers
+dic-17,Switching Method
+dic-17,Synchronous Burst Maximum Data Bit Rate
+dic-17,Synchronous Sustained Maximum Data Bit Rate
+dic-17,System Traffic Rating
+dic-17,Tape Length
+dic-17,Tape Thickness
+dic-17,Tape Width
+dic-17,Test Signal Output
+dic-17,Thickness
+dic-17,Toner Color
+dic-17,Top Mechanical Margin
+dic-17,Touch Quality
+dic-17,Track Pitch
+dic-17,Transceiver Design
+dic-17,Transfer Roll Life
+dic-17,Transmission Method
+dic-17,Transmission Protocol
+dic-17,Typical Access Time
+dic-17,Typical Color Duty Cycle
+dic-17,Typical Contrast Ratio
+dic-17,Typical Monochrome Duty Cycle
+dic-17,Typical Operating Noise Level
+dic-17,Typical Page Coverage
+dic-17,Typical Refresh Cycle
+dic-17,Unformatted Storage Capacity
+dic-17,Usage Agreement Location
+dic-17,Version
+dic-17,Vertical Display Length
+dic-17,Vertical Interlaced Resolution
+dic-17,Vertical Non-Interlaced Resolution
+dic-17,Vertical Resolution
+dic-17,Vertical Scan Frequency
+dic-17,Vertical Stage Length,
+dic-17,Video Chipset,
+dic-17,Viewable Display Diagonal Length,
+dic-17,Viewfinder Diagonal Length,
+dic-17,Viewfinder Technology,
+dic-17,Voltage Differential,
+dic-17,Voltage Phase,
+dic-17,Wide Area Network Architecture,
+dic-17,Wide Area Network Data Bit Rate,
+dic-17,Width,
+dic-17,Width of Field,
+dic-17,Wire Material,
+end-dic-17,,
+dic,/Pip2A1ProductResourceUpdate/ComponentTechnicalSpecification/Quantity/GlobalSpecificationNameCode,dic-17
+dic,/Pip2A1ProductResourceUpdate/ComponentTechnicalSpecification/Quality/GlobalSpecificationNameCode,dic-17
+dic-18,1/2 Card,
+dic-18,100Base-FX
+dic-18,100Base-T4
+dic-18,100Base-TX
+dic-18,100VG AnyLAN
+dic-18,10Base 2
+dic-18,10Base 5
+dic-18,10Base-T
+dic-18,2.5 Half-Height
+dic-18,2.5 Internal Low Profile
+dic-18,2.5 Low Profile
+dic-18,2/3 AT
+dic-18,2/3 Card
+dic-18,3.5 Full-Height
+dic-18,3.5 Half-Height
+dic-18,3.5 Internal Full-Height
+dic-18,3.5 Internal Half-Height
+dic-18,3.5 Internal Low Profile
+dic-18,3.5 Low Profile
+dic-18,3/4 Card
+dic-18,5.25 Full Height
+dic-18,5.25 Full-Height
+dic-18,5.25 Half-Height
+dic-18,5.25 Internal Full-Height
+dic-18,5.25 Internal Half-Height
+dic-18,5.25 Internal Low Profile
+dic-18,5.25 Low Profile
+dic-18,5ESS
+dic-18,ACPI
+dic-18,ADPCM
+dic-18,AGP
+dic-18,ALDC
+dic-18,AM
+dic-18,APM
+dic-18,ARCnet
+dic-18,AS/400 (5250)
+dic-18,ATM
+dic-18,Acecad Acecat
+dic-18,Activation Key
+dic-18,Activity Status
+dic-18,Add-On
+dic-18,Advanced Technology Attachment Packet Interface
+dic-18,Air
+dic-18,Alarm
+dic-18,Alarm Test
+dic-18,Alkaline
+dic-18,Aluminum
+dic-18,Aluminum Mylar
+dic-18,Aluminum Oxygen
+dic-18,Amber (Monochrome)
+dic-18,Analog Telephone
+dic-18,Anti-Glare
+dic-18,Anti-Reflection
+dic-18,Anti-Static
+dic-18,Aperture Grill
+dic-18,AppleTalk
+dic-18,Asynch/Synch PPP
+dic-18,Asynchronous
+dic-18,Attenuation
+dic-18,Attenuation to Cross-talk Ratio
+dic-18,Audible Alarm
+dic-18,Audio
+dic-18,Auto Answer
+dic-18,Automatic
+dic-18,Automatic Answer
+dic-18,Automatic Authentication
+dic-18,Automatic Call Back
+dic-18,Automatic Call Detection
+dic-18,Automatic Circuit Breaker
+dic-18,Automatic Configuration
+dic-18,Automatic Cover Sheet
+dic-18,Automatic Data/Fax Call Discrimination
+dic-18,Automatic Dial
+dic-18,Automatic Fall-Back/Fall-Forward
+dic-18,Automatic Fax/Voice Detection
+dic-18,Automatic Flash
+dic-18,Automatic Gain Control
+dic-18,Automatic Idle Mode
+dic-18,Automatic Log-On
+dic-18,Automatic Negotiation
+dic-18,Automatic Power Down
+dic-18,Automatic Power Management
+dic-18,Automatic Power-On
+dic-18,Automatic Rate Adaption
+dic-18,Automatic Redial
+dic-18,Automatic Roam
+dic-18,Automatic Sheet Feeder
+dic-18,Automatic Sleep Mode
+dic-18,Automatic Speed Selection
+dic-18,Automatic Synchronization
+dic-18,Automatic Wake-Up
+dic-18,BEDO DRAM
+dic-18,BMP File
+dic-18,Baby AT
+dic-18,Backpack
+dic-18,Backplane Fault
+dic-18,Balance Equalizer
+dic-18,Band
+dic-18,Bar Code
+dic-18,Base Pack
+dic-18,Bass
+dic-18,Beacon
+dic-18,Beige
+dic-18,Bell 103
+dic-18,Bell 103J
+dic-18,Bell 113
+dic-18,Bell 201B
+dic-18,Bell 201C
+dic-18,Bell 202
+dic-18,Bell 208A
+dic-18,Bell 208B
+dic-18,Bell 209
+dic-18,Bell 212
+dic-18,Bell 212A
+dic-18,Bi-Directional
+dic-18,Biaural
+dic-18,Bitmapped
+dic-18,Black
+dic-18,Blue
+dic-18,Boot
+dic-18,Bottom
+dic-18,Brackets
+dic-18,Braid
+dic-18,Bunched
+dic-18,Burst Mode DMA
+dic-18,Bus Master DMA
+dic-18,Bypass Feeder
+dic-18,CCD
+dic-18,CD
+dic-18,CDDI,
+dic-18,CDIP,
+dic-18,CERQUAD,
+dic-18,CGA,
+dic-18,CHAP,
+dic-18,CISC,"  A processor where each instruction can perform several low-level operations such as memory access, arithmetic operations or address calculations."
+dic-18,CLCC,
+dic-18,CMOS,
+dic-18,CUT,
+dic-18,Caddy,
+dic-18,CalComp,
+dic-18,Carbon Zinc,
+dic-18,CardBus,
+dic-18,CardBus Type II,
+dic-18,CardBus Type III,
+dic-18,Carousel,
+dic-18,Carrier Detect
+dic-18,Cartridge
+dic-18,Category 1
+dic-18,Category 2
+dic-18,Category 3
+dic-18,Category 4
+dic-18,Category 5
+dic-18,Ceiling
+dic-18,Center
+dic-18,Channelized E1
+dic-18,Channelized E3
+dic-18,Channelized T1
+dic-18,Channelized T3
+dic-18,Chassis
+dic-18,Class 1
+dic-18,Class 2
+dic-18,Class 3
+dic-18,Clean Sine Wave
+dic-18,Clear
+dic-18,Clear to Send
+dic-18,Coaxial
+dic-18,Codabar
+dic-18,Code 11
+dic-18,Code 128
+dic-18,Code 16K
+dic-18,Code 2 of 5
+dic-18,Code 39
+dic-18,Code 49
+dic-18,Code 93
+dic-18,Collision
+dic-18,Color
+dic-18,Color Super Twisted Nematic
+dic-18,Compact
+dic-18,Competitive Trade-in
+dic-18,Competitive Upgrade
+dic-18,Composite
+dic-18,Compressed
+dic-18,Compression Active
+dic-18,Concentric
+dic-18,Conditioned Sine
+dic-18,Connection Speed
+dic-18,Contour
+dic-18,Cooling Fan
+dic-18,Copper
+dic-18,Copper Spiral
+dic-18,Copper Tape
+dic-18,Creative Labs®\ Sound Blaster
+dic-18,Crossover
+dic-18,Cut Sheet Tray
+dic-18,Cut Through
+dic-18,Cyan
+dic-18,DC 1000
+dic-18,DC 100A
+dic-18,DC 2000
+dic-18,DC 2080
+dic-18,DC 2120
+dic-18,DC 2155
+dic-18,DC 2255
+dic-18,DC 2300
+dic-18,DC 2500
+dic-18,DC 2555
+dic-18,DC 2750
+dic-18,DC 300A
+dic-18,DC 300XL/P
+dic-18,DC 600A
+dic-18,DC 600HW
+dic-18,DC 6037
+dic-18,DC 6150
+dic-18,DC 615A
+dic-18,DC 6250
+dic-18,DC 6350
+dic-18,DC 6525
+dic-18,DCLZ
+dic-18,DDR SDRAM
+dic-18,DDS - Switched 56/64K
+dic-18,DECnet
+dic-18,DFT
+dic-18,DIP
+dic-18,DOS
+dic-18,DPMI
+dic-18,DVD
+dic-18,Data Carrier Detect
+dic-18,Data Communication
+dic-18,Data Mode
+dic-18,Data Set Ready
+dic-18,Data Terminal Ready
+dic-18,Date
+dic-18,Desktop
+dic-18,Digital
+dic-18,Digital Light Processing
+dic-18,Digital Theater Systems®
+DIMM,
+dic-18,Dip Switch Configurable
+dic-18,Disable Status
+dic-18,Disc-at-Once
+dic-18,Display Panel
+dic-18,Distributed
+dic-18,Dolby®\ Digital
+dic-18,Dolby®\ Pro Logic
+dic-18,Dolby®\ Surround
+dic-18,Dot Pitch
+dic-18,Double
+dic-18,Double-Side/Dual-Layer
+dic-18,Double-Side/Single-Layer
+dic-18,Double-layer Super Twisted Nematic
+dic-18,Drum
+dic-18,Dual Scan LCD
+dic-18,Dual-Chip CCD
+dic-18,Dual-Port
+dic-18,Duplex Operation
+dic-18,Dye Sublimation
+dic-18,Dynamic
+dic-18,Dynamic Beam Forming
+dic-18,Dynamic Execution
+dic-18,Dynamic Focus
+dic-18,E1
+dic-18,E3
+dic-18,EAN
+dic-18,ECC
+dic-18,EDO DRAM
+dic-18,EDRAM
+dic-18,EEPROM
+dic-18,EGA
+dic-18,EIDE
+dic-18,EISA
+dic-18,EPA Energy Star
+dic-18,EPRML
+dic-18,EPROM
+dic-18,Eject
+dic-18,Electret Bias Condenser
+dic-18,Electro-optical
+dic-18,Electroluminescent Display
+dic-18,Enhanced Capabilities Port
+dic-18,Enhanced Dot Pitch
+dic-18,Enhanced Parallel Port
+dic-18,Enterprise
+dic-18,Envelope
+dic-18,Envelope Tray
+dic-18,Equal-Level Far-End Crosstalk
+dic-18,Error Control Active
+dic-18,EtherTalk
+dic-18,Ethernet Network
+dic-18,Euro ISDN
+dic-18,Even
+dic-18,Expanded
+dic-18,Expansion Board
+dic-18,Extended
+dic-18,Extended ASCII
+dic-18,External
+dic-18,External Bias Condenser
+dic-18,FAX Communication
+dic-18,FDDI
+dic-18,FM
+dic-18,FM Synthesis
+dic-18,FPM DRAM
+dic-18,Fake Parity
+dic-18,Fan Fault
+dic-18,Fast Ethernet Network
+dic-18,Fast Narrow SCSI
+dic-18,Fast Response Super Twisted Nematic
+dic-18,Fast SCSI
+dic-18,Fast Wide SCSI
+dic-18,Fault
+dic-18,Female
+dic-18,Fiber
+dic-18,Fiber Optic Network
+dic-18,Fibre Channel
+dic-18,Figure-Eight
+dic-18,Film
+dic-18,Film-Compensated Super Twisted Nematic
+dic-18,Fingerprint Image
+dic-18,Fixed
+dic-18,Fixed Module
+dic-18,Flash Off
+dic-18,Flash On
+dic-18,Flash ROM
+dic-18,Flat Square Tube
+dic-18,Flatbed
+dic-18,Flatpack
+dic-18,Floppy
+dic-18,Fluorescent Lamp
+dic-18,Foam
+dic-18,Four-Wire
+dic-18,Fractional E1
+dic-18,Fractional T1
+dic-18,Frame Relay
+dic-18,French Pharm Code
+dic-18,Frequency Division
+dic-18,Friction
+dic-18,Friction - Continuous
+dic-18,Friction - Sheet Fed
+dic-18,Front
+dic-18,Front Projection
+dic-18,Full - NWay
+dic-18,Full AT
+dic-18,Full ATX
+dic-18,Full Card
+dic-18,Full Desktop
+dic-18,Full Duplex
+dic-18,Full LPX
+dic-18,Full NLX
+dic-18,Full Product
+dic-18,Full Tower
+dic-18,Full-Range
+dic-18,Fuse
+dic-18,GIF
+dic-18,GSM
+dic-18,Genderless
+dic-18,Gigabit Ethernet
+dic-18,Glass
+dic-18,Glossy
+dic-18,Gold
+dic-18,Gold Plated
+dic-18,Good Read
+dic-18,Gray
+dic-18,Gray Scale
+dic-18,Green
+dic-18,Green (Monochrome)
+dic-18,Grey
+dic-18,Grey Scale
+dic-18,Group III
+dic-18,Group IV
+dic-18,Gun
+dic-18,HDLC
+dic-18,HDTV
+dic-18,Half Duplex
+dic-18,Handheld
+dic-18,Hands Free
+dic-18,Heat Sink
+dic-18,Hemispherical
+dic-18,Hermaphroditic
+dic-18,High
+dic-18,High Capacity Floppy
+dic-18,High Speed
+dic-18,High Voltage
+dic-18,High Voltage Differential
+dic-18,High-Contrast Super Twisted Nematic
+dic-18,High-Performance Addressing
+dic-18,Hopper
+dic-18,Horizontal
+dic-18,Hot
+dic-18,Hot Swap Module
+dic-18,IBM-Style Mainframe (3270)
+dic-18,IDE
+dic-18,IDE - ATA
+dic-18,IEEE 1394 High-Speed Serial
+dic-18,INS Net 64
+dic-18,IP
+dic-18,IPX
+dic-18,ISA
+dic-18,ISBN
+dic-18,ITF
+dic-18,ITR6
+dic-18,Incremental Packet
+dic-18,Industrial 25
+dic-18,Infrared
+dic-18,Inkjet
+dic-18,Intellifont
+dic-18,Intel®\ 380FB
+dic-18,Intel®\ 430FX
+dic-18,Intel®\ 430HX PCIset
+dic-18,Intel®\ 430MX
+dic-18,Intel®\ 430TX PCIset
+dic-18,Intel®\ 430VX PCIset
+dic-18,Intel®\ 440BX AGPset
+dic-18,Intel®\ 440EX AGPset
+dic-18,Intel®\ 440FX PCIset
+dic-18,Intel®\ 440GX AGPset
+dic-18,Intel®\ 440LX AGPset
+dic-18,Intel®\ 450NX PCIset
+dic-18,Interchangable
+dic-18,Interleaved 2 of 5
+dic-18,Internal
+dic-18,Internal - Hard Drive
+dic-18,Internal - Memory
+dic-18,Interrupt A
+dic-18,Interrupt B
+dic-18,Interrupt C
+dic-18,Interrupt D
+dic-18,Italy Pharma Code
+dic-18,Ivory
+dic-18,JAN
+dic-18,JPEG
+dic-18,Jumper Configurable
+dic-18,Key Lock
+dic-18,Keyboard
+dic-18,Keyboard Scanner
+dic-18,Kodak®\ FlashPix
+dic-18,LAN Wake-UP
+dic-18,LAP
+dic-18,LCD
+dic-18,LED
+dic-18,Label
+dic-18,Laminate
+dic-18,Laptop
+dic-18,Laser
+dic-18,Layer 1
+dic-18,Layer 2
+dic-18,Layer 3
+dic-18,Lead Acid
+dic-18,Leather
+dic-18,Left Volume
+dic-18,Length
+dic-18,Level 0
+dic-18,Level 1
+dic-18,Level 10
+dic-18,Level 2
+dic-18,Level 3
+dic-18,Level 30
+dic-18,Level 4
+dic-18,Level 5
+dic-18,Level 50
+dic-18,Level 6
+dic-18,Line Fault
+dic-18,Line Good
+dic-18,Line Interactive
+dic-18,Line Matrix
+dic-18,Link
+dic-18,Link Status
+dic-18,Lithium Ion
+dic-18,Load,
+dic-18,LocalTalk,
+dic-18,Logmars,
+dic-18,Long Persistence,
+dic-18,Loop Back Testing,
+dic-18,Low Battery,
+dic-18,Low Voltage,
+dic-18,Low Voltgae Differential,
+dic-18,Lucasfilm THX®\ Certified,
+dic-18,MAC System Mouse,
+dic-18,MCA,
+dic-18,MM Tablet,
+dic-18,MMX,  A set of 57 instructions built into some versions of central processors units for supporting SIMD operations on multimedia and communications data types.
+dic-18,MPPP,
+dic-18,MSI,
+dic-18,Macintosh,
+dic-18,Macro
+dic-18,Magazine
+dic-18,Magenta
+dic-18,Magnetoresistive
+dic-18,Magnus 1.0
+dic-18,Magnus 1.2
+dic-18,Magnus 1.35
+dic-18,Magnus 1.6
+dic-18,Magnus 2.0
+dic-18,Magnus 2.1
+dic-18,Male
+dic-18,Manageable
+dic-18,Managed
+dic-18,Management
+dic-18,Manual
+dic-18,Manual Circuit Breaker
+dic-18,Manual Sheet Feeder
+dic-18,Master Volume
+dic-18,Matrix 25
+dic-18,Matte
+dic-18,Mechanical
+dic-18,Mechano-Optical
+dic-18,Medium Long Persistence
+dic-18,Medium Persistence
+dic-18,Medium Short Persistence
+dic-18,Memo
+dic-18,Memory Mapped Input/Output
+dic-18,Merced
+dic-18,Microsoft(R) Mouse(TM)
+dic-18,Microsoft®\ Direct Sound
+dic-18,Microwave
+dic-18,Mid AT
+dic-18,Mid-Range
+dic-18,Mid-Tower
+dic-18,Midsize Desktop
+dic-18,Mini ATX
+dic-18,Mini LPX
+dic-18,Mini-Tower
+dic-18,Modem
+dic-18,Modem Ready
+dic-18,Modified Sinewave
+dic-18,Modular
+dic-18,Module
+dic-18,Monaural
+dic-18,Monitor
+dic-18,Monitoring
+dic-18,Monochrome
+dic-18,Motion
+dic-18,Mouse
+dic-18,Mouse Systems(R) Mouse(TM)
+dic-18,Multi-Port
+dic-18,Multipurpose Tray
+dic-18,Multisession
+dic-18,NEXT
+dic-18,NI-1
+dic-18,NTSC
+dic-18,Neon
+dic-18,Network
+dic-18,Nickel Cadmium
+dic-18,Nickel Metal Hydride
+dic-18,No Flash
+dic-18,No Signal
+dic-18,Non-Parity
+dic-18,None
+dic-18,Normal Operation
+dic-18,Normal Voltage
+dic-18,NuBus
+dic-18,Null Modem
+dic-18,Numeric
+dic-18,OEM
+dic-18,OK
+dic-18,Odd
+dic-18,Off Hook
+dic-18,Omni-directional
+dic-18,On-Battery
+dic-18,On-Line
+dic-18,One-Wire
+dic-18,Open VES
+dic-18,Open VMS Alpha
+dic-18,Optical
+dic-18,Organic Dye
+dic-18,Out of Frame
+dic-18,Out of Service
+dic-18,Overheat
+dic-18,Overload
+dic-18,PAL
+dic-18,PATHWORKS
+dic-18,PC
+dic-18,PC Card
+dic-18,PC Card Type I
+dic-18,PC Card Type II
+dic-18,PC Card Type III
+dic-18,PCI
+dic-18,PICT
+dic-18,PNG
+dic-18,PPP
+dic-18,PRML
+dic-18,PROM
+dic-18,PVC
+dic-18,Packet Reception
+dic-18,Packet Transmission
+dic-18,Paint
+dic-18,Palmrest
+dic-18,Paper - Blend
+dic-18,Paper - Cotton
+dic-18,Paper - Vellum
+dic-18,Paper Cassette
+dic-18,Parallel
+dic-18,Parity
+dic-18,Particle Board
+dic-18,Partition Status
+dic-18,Patch
+dic-18,Pause
+dic-18,Pen
+dic-18,Phantom Power
+dic-18,Phase Change Recording Material
+dic-18,Phase-Change
+dic-18,Physical Modeling
+dic-18,Piezo Electric
+dic-18,Pink
+dic-18,Pivoting Display
+dic-18,Plasma Display Panel
+dic-18,Plastic
+dic-18,Play
+dic-18,Plenum
+dic-18,Plessey
+dic-18,Plug and Play
+dic-18,Point-to-Point
+dic-18,Pointing Stick
+dic-18,Polarity
+dic-18,Polycarbonate
+dic-18,Port
+dic-18,Port Activity
+dic-18,Portable
+dic-18,Postscript
+dic-18,Power
+dic-18,Power Failure Simulation
+dic-18,Power On
+dic-18,Power Saver
+dic-18,Power Supply
+dic-18,Preset
+dic-18,Printer
+dic-18,Programmable
+dic-18,Programmed Input/Output
+dic-18,Proprietary
+dic-18,Protected Mode
+dic-18,Protection Working
+dic-18,Pseudo DMA
+dic-18,Pulse Width Modulate
+dic-18,Pure Sinewave
+dic-18,QIC-100-MC
+dic-18,QIC-1000-DC
+dic-18,QIC-120-DC
+dic-18,QIC-128-MC
+dic-18,QIC-150-DC
+dic-18,QIC-2100-DC
+dic-18,QIC-24-DC
+dic-18,QIC-2GB-DC
+dic-18,QIC-3010-MC
+dic-18,QIC-3020-MC
+dic-18,QIC-3030-MC,
+dic-18,QIC-3040-MC,
+dic-18,QIC-3070-MC,
+dic-18,QIC-3080-MC,
+dic-18,QIC-3090-MC,
+dic-18,QIC-40-MC,
+dic-18,QIC-5010-DC,
+dic-18,QIC-525-DC,
+dic-18,QIC-5GB-DC,
+dic-18,QIC-80-MC,
+dic-18,QSound®\ Q1(TM) 3-D Positional Audio,
+dic-18,QSound®\ QSurround(TM),
+dic-18,Quasi Sine,
+dic-18,RIMM,
+dic-18,RISC,  A processor whose design is based on the rapid execution of a sequence of simple instructions rather than on the provision of a large variety of complex instructions.
+dic-18,RLL,
+dic-18,RMON
+dic-18,RMON II
+dic-18,ROM
+dic-18,ROM Based
+dic-18,Rackmount
+dic-18,Radio Frequency
+dic-18,Rails
+dic-18,Re-Writable Compact Disk
+dic-18,Read Only Compact Disk
+dic-18,Read Only DVD
+dic-18,Read Status
+dic-18,Real Mode
+dic-18,Real Time Messaging
+dic-18,Rear
+dic-18,Rear Projection
+dic-18,Receive Data
+dic-18,Receiving Data
+dic-18,Recordable Compact Disk
+dic-18,Recordable DVD
+dic-18,Red
+dic-18,Red-Eye Reduction
+dic-18,Removable - Compact Flash Memory
+dic-18,Removable - Floppy Drive
+dic-18,Removable - PC Card Hard Drive
+dic-18,Removable - PC Card Memory
+dic-18,Removable - SSFDC
+dic-18,Removable Module
+dic-18,Repackaged
+dic-18,Replace Battery
+dic-18,Request to Send
+dic-18,Resident
+dic-18,Resin Thermal Transfer
+dic-18,Resistance
+dic-18,Return Loss
+dic-18,Ribbon
+dic-18,Right Volume
+dic-18,Right to Use
+dic-18,Rope
+dic-18,Rubber
+dic-18,SCSI
+dic-18,SCSI - 1
+dic-18,SDLC
+dic-18,SDRAM
+dic-18,SECAM
+dic-18,SIMM
+dic-18,SIP
+dic-18,SLR
+dic-18,SNA
+dic-18,SNMP
+dic-18,SO-DIMM
+dic-18,SOJ
+dic-18,SRS Labs®\ AVT(TM) Speaker Design
+dic-18,SRS Labs®\ FOCUS(TM)
+dic-18,SRS Labs®\ SRS®\ 3D Sound
+dic-18,SRS Labs®\ TruBass(TM)
+dic-18,SRS Labs®\ TruSurround(TM)
+dic-18,SVGA
+dic-18,Scrolling
+dic-18,Security Violation
+dic-18,Self Test
+dic-18,Semi-Gloss
+dic-18,Send Data
+dic-18,Serial
+dic-18,Serial Storage Architecture
+dic-18,Server
+dic-18,Shadow Mask
+dic-18,Sheetfed
+dic-18,Sheetfed/Flatbed
+dic-18,Sheetfed/Handheld
+dic-18,Shelf
+dic-18,Shielded
+dic-18,Shielded Twisted Pair
+dic-18,Short Neck CRT
+dic-18,Short Persistence
+dic-18,Shotgun
+dic-18,Shuttle Matrix
+dic-18,SiS 5597
+dic-18,Side Mount Hangers
+dic-18,Silent Tactile
+dic-18,Silica Coating
+dic-18,Silver
+dic-18,Sinewave
+dic-18,Single
+dic-18,Single Ended
+dic-18,Single-Chip CCD
+dic-18,Single-Side/Dual-Layer
+dic-18,Single-Side/Single Layer
+dic-18,Sinusoidal Wave
+dic-18,Site
+dic-18,Skip Backward
+dic-18,Skip Foward
+dic-18,Slide
+dic-18,Slimline
+dic-18,Slimline Desktop
+dic-18,Slot
+dic-18,Slot 1
+dic-18,Slot 2
+dic-18,Slot Mask
+dic-18,Slot Pitch
+dic-18,Socket 1
+dic-18,Socket 2
+dic-18,Socket 3
+dic-18,Socket 4
+dic-18,Socket 5
+dic-18,Socket 6
+dic-18,Socket 7
+dic-18,Socket 8
+dic-18,Soft Click
+dic-18,Software Configurable
+dic-18,Software Control
+dic-18,Solid
+dic-18,Spatializer®\ 3-D Imaging(TM)
+dic-18,Spatializer®\ N-2-2(TM)
+dic-18,Spatializer®\ enCOMPASS(TM)
+dic-18,Speed
+dic-18,Spheric CRT
+dic-18,Spin Coating
+dic-18,Spring Loaded
+dic-18,Square
+dic-18,Stackable
+dic-18,Stacker
+dic-18,Stand Alone
+dic-18,Standalone
+dic-18,Standard 1024
+dic-18,Standard ASCII
+dic-18,Standard Parallel Port
+dic-18,Standby
+dic-18,Stationary
+dic-18,Steel
+dic-18,Step Sinewave
+dic-18,Still
+dic-18,Stop
+dic-18,Store and Forward
+dic-18,Stranded Wire
+dic-18,Stress Patterns
+dic-18,Stripe Pitch
+dic-18,Stylus
+dic-18,Subwoofer
+dic-18,Summa MM1201
+dic-18,Super RMON
+dic-18,Super-cardioid
+dic-18,Superscalar
+dic-18,Switch 56
+dic-18,Sync Link DRAM
+dic-18,Synchronous
+dic-18,Synchronous Flow-Through
+dic-18,Synchronous Pipelined Burst
+dic-18,System/36 (5250)
+dic-18,System/38 (5250)
+dic-18,T1
+dic-18,T3
+dic-18,TAD
+dic-18,TELCO
+dic-18,TFT LCD
+dic-18,TIFF
+dic-18,TPH 1962
+dic-18,TTL
+dic-18,Tactile Click
+dic-18,Tag Switching
+dic-18,Tape - Digital Video
+dic-18,Tape - Mini DVC
+dic-18,Telephoto
+dic-18,Telescoping
+dic-18,Test
+dic-18,Test Mode
+dic-18,Test Patterns
+dic-18,Test in Progress
+dic-18,Thermal
+dic-18,Thin Film
+dic-18,Three
+dic-18,Three-Chip CCD
+dic-18,Time
+dic-18,Time Division
+dic-18,Tin
+dic-18,Tinted Glass
+dic-18,Title
+dic-18,Token Ring
+dic-18,Token Ring Network
+dic-18,Top
+dic-18,Track
+dic-18,Track Advance
+dic-18,Track Reverse
+dic-18,Track-at-Once
+dic-18,Trackball
+dic-18,Tractor
+dic-18,Tractor - Continuous Fed
+dic-18,Trade Up
+dic-18,Transmit Data
+dic-18,Transmitting Data
+dic-18,Transparency
+dic-18,Trapezoidal
+dic-18,Tray
+dic-18,Treble
+dic-18,Tripod
+dic-18,True Type
+dic-18,Tweeter
+dic-18,Two-Wire
+dic-18,ULTRIX
+dic-18,UNIX
+dic-18,UPC
+dic-18,Ultra ATA
+dic-18,Ultra Narrow SCSI
+dic-18,Ultra Wide SCSI
+dic-18,Ultra2 Narrow SCSI
+dic-18,Ultra2 Wide SCSI
+dic-18,Unformatted
+dic-18,Uni-Directional
+dic-18,Unit ID
+dic-18,Unmanaged
+dic-18,Unshielded
+dic-18,Unshielded Twisted Pair
+dic-18,Upgrade
+dic-18,Utilization
+dic-18,V.120
+dic-18,V.17
+dic-18,V.21
+dic-18,V.22
+dic-18,V.22 bis
+dic-18,V.23
+dic-18,V.27ter
+dic-18,V.29
+dic-18,V.32
+dic-18,V.32 bis
+dic-18,V.33
+dic-18,V.34
+dic-18,V.42
+dic-18,V.42 bis
+dic-18,V.61
+dic-18,V.70
+dic-18,V.75
+dic-18,V.90
+dic-18,VCPI
+dic-18,VESA 1024
+dic-18,VESA 1280
+dic-18,VESA 640
+dic-18,VESA 800
+dic-18,VESA Local Bus
+dic-18,VGA
+dic-18,VMS
+dic-18,VN3
+dic-18,VRAM,  Memory used for video functions.
+dic-18,Variable Packet,
+dic-18,Vertical,
+dic-18,Video,
+dic-18,Virtual Memory Support,
+dic-18,Voice Communication,
+dic-18,Voltage Meter,
+dic-18,Volume,
+dic-18,WORM Disk,
+dic-18,Wake-Up,
+dic-18,Wallmount,
+dic-18,Wand,
+dic-18,Warm,
+dic-18,Wave Table Synthesis,
+dic-18,Wavelength Division,
+dic-18,Wax Thermal Transfer,
+dic-18,White
+dic-18,White (Monochrome)
+dic-18,Wide Angle
+dic-18,Wide SCSI
+dic-18,Wire
+dic-18,Wireless
+dic-18,Wiremap
+dic-18,Wood
+dic-18,Write-Back
+dic-18,Write-Through
+dic-18,Wrong Ring Speed Detect
+dic-18,X.25
+dic-18,X.75
+dic-18,XGA
+dic-18,Yellow
+dic-18,ZIP
+dic-18,rDRAM,
+end-dic-18,,
+dic,/Pip2A1ProductResourceUpdate/ComponentTechnicalSpecification/Quality/GlobalSpecificationValueCode,dic-18
+dic-20,Analog Modem,  [Modem] A device that performs modulation and demodulation functions necessary to transmit signals over communication lines.
+dic-20,Bar Code Reader,  An optical scanner used to read a bar-code using reflected light.
+dic-20,Battery,  A device that stores energy and produces electric current by chemical action. A group of two or more cells are electrically connected in series or parallel.
+dic-20,Battery Charger,  A device that brings all the individual cells within a battery pack up to an equal charge level.
+dic-20,Bridge,"  In networking, a device that connects two systems using the similar or identical data link layer protocols"
+dic-20,Cable,  Cable - The physical medium for transmitting signals; it includes copper conductors and optical fibers.
+dic-20,Cable Tester,  A device that measures certain eletrical characteristics of a cable.
+dic-20,Carrying Case,  A container used to transport a device.
+dic-20,Central Processing Unit,"  That unit of a computer system which fetches, decodes and executes programmed instructions and maintains the status of results as the program is executed."
+dic-20,Central Processing Unit Card,  A cartridge or expansion board that contains a central processing unit.
+dic-20,Channel,"  A one-way path for transmission of signals between two or more points; for example, an output channel or a data channel."
+dic-20,Channel Service Unit,"  A device that performs transmit and receive filtering, signal shaping, longitudinal balance, voltage isolation, equalization, and remote loopback testing in a digital communications environment."
+dic-20,Chassis,  A physical structure that serves as the structural support for devices with modular form factors.
+dic-20,Communication Switch,"  A device that responds to originator signals and dynamically accepts, routes, and places or forwards a call or other transmission."
+dic-20,Computer Cabinet,  A physical structure that holds a computer system's devices.
+dic-20,Connector,  An electrical part used to join two or more other electrical parts.
+dic-20,Connector Knockout,  Holes in a computer cabinet that allow for the ports of a system board or other internal device to be externally accessible.
+dic-20,Controlled Access Unit,"  In token ring networks, the term for intelligent hub. The controlled access unit is the chassis in which lobe attachment modules can be attached."
+dic-20,Controller Card,  [Controller] A functional unit in a computer system that controls one or more units of the peripheral equipment.
+dic-20,Controller Chip,  [Controller] A functional unit in a computer system that controls one or more units of the peripheral equipment.
+dic-20,Copier,  A machine used to make photographic copies of pages.
+dic-20,Data Service Unit,  A device that provides bipolar conversion functions to ensure proper signal shaping and adequate signal strength in a digital communications environment.
+dic-20,Desk Accessory,  An device that aids in the use of a computer system and its components.
+dic-20,Desktop System,  A computer designed to be placed on a desk or table.
+dic-20,Digital Camera,  A camera that breaks up a picture into a fixed number of pixels and converts the light intensity (or the intensities of each of the primary colors) in each pixel to one of a finite set of numbers.
+dic-20,Direct Memory Access,  A method for transferring data between an external device and memory without interrupting program flow or requiring CPU intervention.
+dic-20,Display Filter,  A substrate that is attached to a monitor disply to reduce glare or harmful electromagnetic emissions.
+dic-20,Docking Station,  A base station for a laptop computer that turns the portable computer into a desktop system. It uses a large plug and socket to quickly connect the laptop computer which duplicates all the cable lines for peripheral devices.
+dic-20,Dot Matrix Printer,  An impact printer in which each character is represented by a pattern of dots selected from a matrix of available dot positions.
+dic-20,Drive Cabinet,  A physical structure that holds drive-type devices such as a hard disk drive or magnetic tape drive.
+dic-20,Emulation Adapter,  An expansion board that enables a device to imitate another device.
+dic-20,Expansion Slot Expander,  An expansion card that is used to physically extend a slot for a chip or expansion card in a fully-loaded computer to make room to plug it in.
+dic-20,Facsimile Machine,  Fax machines scan a paper form and transmit a coded image over the telephone system.
+dic-20,Flat Panel Display,  A display device whose physical depth (front-to-back) is relatively small.
+dic-20,Flat Panel Projector,  A data projector that accepts computer output and displays it on a see-through liquid crystal screen that is placed on top of an overhead projector.
+dic-20,Furniture,"  Equipment such as chairs, tables, or desks."
+dic-20,Fuser Roller,  The device in a printer that heats the toner and melts it to the printer media.
+dic-20,General Software,  System software is made up of control programs such as the operating system and database management system (DBMS). Application software is any program that processes data for the user.
+dic-20,Graphics Tablet,"  A data tablet or digitizer that can be used with a stylus to trace existing graphic images, or for entering new images."
+dic-20,Hard Disk Drive,  [Hard Disk] A magnetic disk that consists of a rigid platter.
+dic-20,Hard Disk Storage,  Storage on a magnetic disk that consists of a rigid platter.
+dic-20,Headset,  A device for converting electric signals into sounds; it is held over or inserted into the ear.
+dic-20,Hub,  A device to which multiple LAN station lobes are connected.
+dic-20,I/O Base,  An input/output port though which data can be sent and received.
+dic-20,Ink Cartridge,  The cartridge that supplies ink for a imaging device.
+dic-20,Inkjet Printer,  A nonimpact printer in which the characters are formed by projecting a jet of ink droplets onto paper.
+dic-20,Input-Output Card,"  A card, or board, that controls one or more input-output channels."
+dic-20,Integrated Services Digital Network Terminal Adapter,"  A device that adapts a computer to a digital ISDN line. Like a modem, it plugs into the serial port of the computer or into an expansion slot."
+dic-20,Intelligent Multiport Serial Adapter,  A circuit board that contains multiple serial ports for connection to serial devices such as a modem.
+dic-20,Interrupt Request,  A signal or other input requesting that the currently executing process be suspended to permit performance of another process.
+dic-20,Keyboard,"  An input device consisting of a systematic arrangement or layout of keys, used to encode data."
+dic-20,Keypad,  A small group of keys that are set up for convenience and greater flexibility such that they are grouped together physically on a keyboard.
+dic-20,L1 Cache Memory,"  [Cache] A small portion of high-speed memory used for temporary storage of frequently-used data, instructions, or operands. L1 Cache Memory is located on the central processing unit."
+dic-20,L2 Cache Memory,"  [Cache] A small portion of high-speed memory used for temporary storage of frequently-used data, instructions, or operands. L2 cache memory is located on a central processing unit card or the system board."
+dic-20,L3 Cache Memory,"  [Cache] A small portion of high-speed memory used for temporary storage of frequently-used data, instructions, or operands. L3 cache memory is located on a central processing unit card or the system board."
+dic-20,Label Printer,"  A printer that prints labels, such as barcodes."
+dic-20,Laptop Computer System,  [Laptop Computer] A portable computer designed for use on one's lap.
+dic-20,Laser Printer,"  A nonimpact, xerographic printer that uses a laser beam to create a latent image which is then made visible by a toner and transferred and fixed on paper."
+dic-20,Light Emitting Diode Printer,  An electrophotographic printer that uses a matrix of LEDs as its light source.
+dic-20,Light Source,  The generic term including all sources of visible radiation from burning matter to ionized vapors and lasers.
+dic-20,Line Conditioner,"  In telecommunications, a device that improves the performance of a line by reducing distortion and amplifying weak signals."
+dic-20,Line Printer,  A printer that prints a line of characters as a unit.
+dic-20,Lobe Attachment Module,"  In a token ring network, a LAM is a box with multiple interfaces to which new nodes, or lobes, for the network can be attached."
+dic-20,Magnetic Disk Media,"  [Magnetic Disk] A disk made of plastic or metal that is coated with a magnetizable surface on one or both sides, on which information can be stored."
+dic-20,Magnetic Tape Drive,  An input device that reads magnetic tape.
+dic-20,Magnetic Tape Media,  [Magnetic Tape] A storage medium made of a flexible plastic ribbon that is coated with magnetic material (such as iron oxide compound) on which information can be stored.
+dic-20,Magnetic Tape Tower,  A tower-style drive cabinet containing multiple magnetic tape drives.
+dic-20,Magneto-Optical Media,"  [Magneto-optical Disk] A disk that uses optical methods, such as a laser, to record information on a magnetic storage medium."
+dic-20,Media,"  Consumable paper such as printer paper, envelopes, or transparencies."
+dic-20,Media Filter,  A device for converting the output signal of a token ring network interface card to work with a particular type of cable medium.
+dic-20,Memory Device,  Data storage that comes in the form of a chip or module.
+dic-20,Memory Socket,  A receptacle for a memory module.
+dic-20,Microphone,  An electroacoustic transducer whereby sound waves are caused to generate or modulate an electric current usually for the purpose of transmitting or recording sound.
+dic-20,Monitor,  A display screen that uses a cathod ray tube (CRT) to present video output.
+dic-20,Mounting Hardware,  Equipment used to affix a device to another device or structure.
+dic-20,Multifunction Printer,  A device that combines several imaging functions into one component.
+dic-20,Multimedia Kit,  The hardware and software needed to have multimedia capabilities.
+dic-20,Multiplexor,  A device that allows the transmission of a number of different signals simultaneously over a single channel or transmission facility.
+dic-20,Multistation Access Unit,"  In a token ring network, a device in which multiple lobes, or nodes, are connected."
+dic-20,Network Chassis,"  In a network environment, a physical structure that serves as the structural support for devices with modular form factors."
+dic-20,Network Interface Card,  An expansion card that allows a computer system to connect to a network.
+dic-20,Network Management Module,"  A modular device that provides a management function defined by monitoring, controlling, and coordinating the resources which allow communication to take place."
+dic-20,Network Switch,"  In a local area network, a device that forwards and filters data between segments of the same network architecture."
+dic-20,Optical Media,"  [Optical Disk] A disk on which information is stored and retrieved by optical means, using a laser."
+dic-20,Overhead Projector,  A projector used to project transparencies.
+dic-20,Palmtop System,  A small computer system that fits in the palm of a hand and has a keyboard for an input device.
+dic-20,Personal Digital Assistant,  A handheld computer system that serves as a personal organizer. It uses a stylus for an input device.
+dic-20,Physical Addressable,  address space - The range of addresses available to a computer program.
+dic-20,Plotter,  An output device that presents data on paper in the form of a two-dimensional graphic representation.
+dic-20,Pointing Device,  An instrument used to move an aiming symbol on a screen.
+dic-20,Port,  A port provides an electrical and physical interface between a component and other devices.
+dic-20,Port Replicator,  A device used to connect multiple peripherals to a laptop computer.
+dic-20,Power Adapter,"  A unit that converts voltage from one level to another, usually regulating the output."
+dic-20,Print Drum,"  In a drum printer, a rotating cylinder that presentscharacters at more than one printing position."
+dic-20,Print Head,  A head within a printer that mechanically controls the creation of an image on paper.
+dic-20,Print Server,"  On a network, a server that is dedicated to queuing and sending printer output from the networked computers to a shared printer."
+dic-20,Print Sharing Device,  A device that allows a user to share several systems and peripherals.
+dic-20,Printer,  An output device that produces a hard copy record of data mainly in the form of discrete graphic characters belonging to one or more predetermined character sets.
+dic-20,Printer Distance Extender,  A device that connects to a printer to enable a longer transmission distance between the printer and connected systems.
+dic-20,Printer Feeder,  A device that inserts sheets of media into a printer.
+dic-20,Printer Ribbon,  A narrow strip of inked material used for printing.
+dic-20,Printer Tray,  A device that holds media before and after printing.
+dic-20,Private Branch Exchange,"  A telephone exchange on the user's premises, providing a switching facility for telephones on extension lines within the premises and access to the public telephone network."
+dic-20,Projector,  A device that displays a video output from a computer onto a remote screen.
+dic-20,Rack,"  A structure, such as shelves or a cabinet, into which other components can be mounted."
+dic-20,Rackmount Modem,  A group of modular analog modems mounted in a chassis.
+dic-20,Radio Card,  An expansion board used in a system to receive radio broadcast frequencies.
+dic-20,Re-Writable Optical Changer,  A drive that can hold multiple re-writable optical disks.
+dic-20,Re-Writable Optical Drive,"  A drive that accepts optical media that can be written, erased and rewritten many times."
+dic-20,Re-Writable Optical Tower,  A drive cabinet that contains multiple re-writable optical drives.
+dic-20,Read Only Memory,  A memory chip that permanently stores instructions and data.
+dic-20,Read Only Memory Card,  A credit-card-sized card that contains permanent data.
+dic-20,Read Only Optical Changer,  A drive that can hold multiple read only optical disks.
+dic-20,Read Only Optical Drive,  A drive that can read data from optical media using a laser.
+dic-20,Read Only Optical Tower,  A drive cabinet that contains multiple read only optical drives.
+dic-20,Recordable Optical Changer,  A drive that can hold multiple recordable optical disks.
+dic-20,Recordable Optical Drive,  A drive that can read and record data onto optical medium using a laser.
+dic-20,Recordable Optical Tower,  A drive cabinet that contains multiple recordable optical drives.
+dic-20,Redundant Array of Independent Disks Controller Card,  An expansion board that controls one or more input-output channels in a RAID system.
+dic-20,Remote Control,  A device for controlling something from a distance.
+dic-20,Removable Magnetic Disk Drive,  A drive that can read and write data to a magnetic medium that can be physically removed from the drive.
+dic-20,Repeater,  A device that restores signals to their original shape and transmission level at the physical layer only.
+dic-20,Router,"  In networking, a device that interconnects two networks using the network layer (layer 3) address."
+dic-20,Scanner,  A graphic input device that automatically digitizes images for input to a computer.
+dic-20,Server,  The computer in a client/server architecture that supplies files or services
+dic-20,Sound Card,  An expansion board that records and plays back sound waves.
+dic-20,Sound Chip,  A chip that records and plays back sound waves.
+dic-20,Speaker,  A transducer that converts electrical energy into sound waves.
+dic-20,Surge Suppressor,  A device that employs some method of surge suppression to protect electronic equipment from spikes and power surges in a power signal.
+dic-20,Switch Box,  A device used to allow a user to have access to multiple systems.
+dic-20,System Board,"  [Motherboard] The main circuit board within a computer, bearing the primary components of a computer system, including the processor, main storage, support circuitry, bus controller and bus connector."
+dic-20,System Bus Clock Rate,"  The operation frequency for electronic devices including, channels, buses, quartz crystal timing devices and central processing units."
+dic-20,System Memory,  The memory in a system.
+dic-20,Television Card,  An expansion board that contains a television tuner.
+dic-20,Terminal,  An input-output peripheral device capable of transmitting entries to and obtaining output from a system.
+dic-20,Terminal Server,  A system used to connect multiple terminals to a network or host computer.
+dic-20,Thermal Printer,  A nonimpact printer in which the characters are produced by applying heated elements to heat-sensitive paper directly or by melting ink from a ribbon onto normal paper.
+dic-20,Toner Cartridge,  A cartridge containing an electrically charged ink used in copy machines and laser printers.
+dic-20,Touchpad,  [Touch Panel] A touch-sensitive input device that allows users to interact with a computer system by touching an area on the panel.
+dic-20,Tower System,  A computer system designed to be placed on the floor.
+dic-20,Transceiver,  A device that both transmits and receives data.
+dic-20,Transfer Roll,  The roller that presses against the drum to pick up the pattern of charges on the drum.
+dic-20,Uninterruptable Power Supply,  A device that supplies backup power when the electrical power fails or drops to an unacceptable voltage level.
+dic-20,Video Accelerator,  A video expansion card that has an integrated central processing unit to improve performance.
+dic-20,Video Capture Card,  An expansion board that digitizes full-motion video from a video source.
+dic-20,Video Card,"  [Graphics Adapter] An expansion board that enhances the computer's ability to control the display device; for example, a graphics adapter that allows color output, or non-interlacing."
+dic-20,Video Chip,"  A chip that enhances the computer's ability to control the display device; for example, a graphics chip that allows color output, or non-interlacing."
+dic-20,Video Memory,  Vido memory is used for storing and reading information for video display.
+dic-20,Video Resolution,  The pixel density of a video display defined by a standard.
+dic-20,Virtual Addressable,  The storage space that may be regarded as addressable main storage by the user of a computer system in which virtual addresses are mapped into real addresses.
+dic-20,Wide Area Network Card,  An expansion card that allows a device to connect to a wide area network.
+end-dic-20,,
+dic,/Pip2A1ProductResourceUpdate/ComponentTechnicalSpecification/GlobalComponentNameCode,dic-20
+dic-22,Catalog Distributor,  The partner role that distributes catalog information to catalog producers and buyers.
+dic-22,Finance something (for 3C2),
+dic-22,Payee,
+dic-22,Payer,
+end-dic-22,,
+dic,/Pip2A1ProductResourceUpdate/fromRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-22
+dic,/Pip2A1ProductResourceUpdate/toRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-25
+dic-23,Carrier,  Product carrier for transporting goods in supply chain.
+dic-23,Distributor,  Product distributor in supply chain.
+dic-23,End User,  Product end user in supply chain.
+dic-23,End User Government,  End user government.
+dic-23,Financier,  Financial service provider in supply chain
+dic-23,Freight Forwarder,  Product freight forwarder for transporting goods in supply chain.
+dic-23,Manufacturer,  Product manufacturer in supply chain.
+dic-23,Retailer,  Product retailer in supply chain.
+dic-23,Shopper,  Product shopper in supply chain.
+end-dic-23,,
+dic,/Pip2A1ProductResourceUpdate/fromRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-23
+dic,/Pip2A1ProductResourceUpdate/toRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-23
+dic-24,Electronic Components,  The electronic components supply chain.
+dic-24,Information Technology,  The information technology supply chain.,
+end-dic-24,,,
+dic,/Pip2A1ProductResourceUpdate/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-24,
+dic,/Pip2A1ProductResourceUpdate/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-24,
+dic-25,Catalog Producer,  The partner role that produces catalog information for a partner type in the supply chain.,
+end-dic-25,,,
+dic-28,Request,  The business document is a request for a business action to be performed by a partner.,
+end-dic-28,,,
+dic,/Pip2A1ProductResourceUpdate/GlobalDocumentFunctionCode,dic-28,
+type,/Pip2A1ProductResourceUpdate/fromRole/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip2A1ProductResourceUpdate/toRole/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/authorizationPrerequirements/FreeFormText,String,1
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/warrantyDescription/FreeFormText,String,1
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/ProductDescription/TextualDescription/primary/FreeFormText,String,1
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/ProductDescription/TextualDescription/detail/FreeFormText,String,1
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/ProductDescription/TextualDescription/summary/FreeFormText,String,1
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/ProductDescription/productName/FreeFormText,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/ProductDescription/TextualDescription/primary/FreeFormText,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/ProductDescription/TextualDescription/detail/FreeFormText,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/ProductDescription/TextualDescription/summary/FreeFormText,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/ProductDescription/productName/FreeFormText,String,1,,
+type,/Pip2A1ProductResourceUpdate/ComponentTechnicalSpecification/TextualDescription/primary/FreeFormText,String,1,,
+type,/Pip2A1ProductResourceUpdate/ComponentTechnicalSpecification/TextualDescription/detail/FreeFormText,String,1,,
+type,/Pip2A1ProductResourceUpdate/ComponentTechnicalSpecification/TextualDescription/summary/FreeFormText,String,1,,
+type,/Pip2A1ProductResourceUpdate/ComponentTechnicalSpecification/manufacturerName/FreeFormText,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/minimumOrderQuantity/ProductQuantity,Real,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/palletQuantity/ProductQuantity,Real,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/ProductDescription/GlobalProductIdentifier,String,14,14,9(14)
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/replacementProductIdentifier/GlobalProductIdentifier,String,14,14,9(14)
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/ProductDescription/GlobalProductIdentifier,String,14,14,9(14)
+type,/Pip2A1ProductResourceUpdate/ComponentTechnicalSpecification/GlobalProductIdentifier,String,14,14,9(14)
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/ProductDescription/ProprietaryProductIdentifier,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/ProductDescription/ProprietaryProductIdentifier,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/ProductDescription/GlobalSerialIdentifier,NaturalNumber,14,14,9(14)
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/ProductDescription/GlobalSerialIdentifier,NaturalNumber,14,14,9(14)
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/ProductDescription/PhysicalDimension/LengthDimension,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/PhysicalDimension/LengthDimension,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/PhysicalDimension/LengthDimension,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/ProductDescription/PhysicalDimension/LengthDimension,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/PhysicalDimension/LengthDimension,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/PhysicalDimension/LengthDimension,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/ProductDescription/PhysicalDimension/WidthDimension,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/PhysicalDimension/WidthDimension,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/PhysicalDimension/WidthDimension,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/ProductDescription/PhysicalDimension/WidthDimension,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/PhysicalDimension/WidthDimension,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/PhysicalDimension/WidthDimension,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/ProductDescription/PhysicalDimension/HeightDimension,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/PhysicalDimension/HeightDimension,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/PhysicalDimension/HeightDimension,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/ProductDescription/PhysicalDimension/HeightDimension,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/PhysicalDimension/HeightDimension,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/PhysicalDimension/HeightDimension,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/ProductDescription/PhysicalDimension/WeightDimension,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/PhysicalDimension/WeightDimension,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/PhysicalDimension/WeightDimension,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/ProductDescription/PhysicalDimension/WeightDimension,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/PhysicalDimension/WeightDimension,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/PhysicalDimension/WeightDimension,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/ProductDescription/NationalHarmonizedTariffScheduleCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/ProductDescription/NationalHarmonizedTariffScheduleCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/ProductDescription/NationalExportControlClassificationCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/ProductDescription/NationalExportControlClassificationCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/ProductDescription/NationalHazardousMaterialUnitedNationsClassificationCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/ProductDescription/NationalHazardousMaterialUnitedNationsClassificationCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/ProductDescription/NationalFederalCommunicationsCommissionLicenseNumberClassificationCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/ProductDescription/NationalFederalCommunicationsCommissionLicenseNumberClassificationCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/ProductDescription/NationalFoodAndDrugAdministrationCertificationNumberClassificationCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/ProductDescription/NationalFoodAndDrugAdministrationCertificationNumberClassificationCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/ProductDescription/ProprietaryProductClassificationCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/ProductDescription/ProprietaryProductClassificationCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/ProductDescription/GlobalProductClassificationCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/ProductDescription/GlobalProductClassificationCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/unitPrice/FinancialAmount/GlobalCurrencyCode,String,3,3,XXX
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/listPrice/FinancialAmount/GlobalCurrencyCode,String,3,3,XXX
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/previousUnitPrice/FinancialAmount/GlobalCurrencyCode,String,3,3,XXX
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/previousListPrice/FinancialAmount/GlobalCurrencyCode,String,3,3,XXX
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/MultipleQuantityPrice/FinancialAmount/GlobalCurrencyCode,String,3,3,XXX
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/unitPrice/FinancialAmount/GlobalCurrencyCode,String,3,3,XXX
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/listPrice/FinancialAmount/GlobalCurrencyCode,String,3,3,XXX
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/previousUnitPrice/FinancialAmount/GlobalCurrencyCode,String,3,3,XXX
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/previousListPrice/FinancialAmount/GlobalCurrencyCode,String,3,3,XXX
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/unitPrice/FinancialAmount/GlobalCurrencyCode,String,3,3,XXX
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/unitPrice/FinancialAmount/MonetaryAmount,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/listPrice/FinancialAmount/MonetaryAmount,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/previousUnitPrice/FinancialAmount/MonetaryAmount,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productUnit/ProductPackageDescription/previousListPrice/FinancialAmount/MonetaryAmount,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/MultipleQuantityPrice/FinancialAmount/MonetaryAmount,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/unitPrice/FinancialAmount/MonetaryAmount,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/listPrice/FinancialAmount/MonetaryAmount,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/previousUnitPrice/FinancialAmount/MonetaryAmount,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/ShippingPackageDescription/ProductPackageDescription/previousListPrice/FinancialAmount/MonetaryAmount,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/unitPrice/FinancialAmount/MonetaryAmount,Real,1,15,9(13)V99
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/MultipleQuantityPrice/numberOfUnits/CountableAmount,PositiveInteger,1,15,9(15)
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/PalletDescription/numberOfShippingPackages/CountableAmount,PositiveInteger,1,15,9(15)
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/GlobalRegulationCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/countryOfOrigin/GlobalCountryCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/productAvailableInCountries/GlobalCountryCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/GlobalProductUnitOfMeasureCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem/SpecialHandlingInstruction/GlobalSpecialHandlingCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/thisDocumentIdentifier/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/catalogIdentifier/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/effectiveDate/DateStamp,Date,9,9,9(8)X
+type,/Pip2A1ProductResourceUpdate/SalesCatalog/GlobalActionCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/ComponentTechnicalSpecification/GlobalActionCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/ComponentTechnicalSpecification/SubComponent/GlobalSubComponentRelationshipCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/ComponentTechnicalSpecification/SubComponent/externalComponentSpecification/UniversalResourceIdentifier,String,1,,
+type,/Pip2A1ProductResourceUpdate/ComponentTechnicalSpecification/SubComponent/atLeast/Cardinality,NaturalNumber,1,10,9(10)
+type,/Pip2A1ProductResourceUpdate/ComponentTechnicalSpecification/SubComponent/atMost/Cardinality,NaturalNumber,1,10,9(10)
+type,/Pip2A1ProductResourceUpdate/ComponentTechnicalSpecification/Quantity/GlobalPhysicalUnitOfMeasureCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/ComponentTechnicalSpecification/Quantity/Magnitude,Real,3,,
+type,/Pip2A1ProductResourceUpdate/ComponentTechnicalSpecification/Quantity/GlobalSpecificationNameCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/ComponentTechnicalSpecification/Quality/GlobalSpecificationNameCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/ComponentTechnicalSpecification/Quality/GlobalSpecificationValueCode,String,,,
+type,/Pip2A1ProductResourceUpdate/ComponentTechnicalSpecification/Quality/Value,String,1,,
+type,/Pip2A1ProductResourceUpdate/ComponentTechnicalSpecification/GlobalComponentNameCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/fromRole/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip2A1ProductResourceUpdate/toRole/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip2A1ProductResourceUpdate/fromRole/PartnerRoleDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip2A1ProductResourceUpdate/toRole/PartnerRoleDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip2A1ProductResourceUpdate/fromRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/toRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/fromRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/toRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip2A1ProductResourceUpdate/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip2A1ProductResourceUpdate/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip2A1ProductResourceUpdate/thisDocumentGenerationDateTime/DateTimeStamp,DateTime,13,20,9(8)X9(6)V9(3)X
+type,/Pip2A1ProductResourceUpdate/GlobalDocumentFunctionCode,String,1,,

@@ -1,0 +1,200 @@
+<!--
+
+   RosettaNet XML Message Schema
+   4B2_MS_1_0_ShipmentReceiptNotification.dtd (02-Jan-2001 14:26)
+   This document has been prepared by Edifecs (http://www.edifecs.com/)
+   based On the Business Collaboration Framework from requirements
+   in conformance with the RosettaNet methodology.
+
+-->
+
+
+<!ENTITY % common-attributes "id  CDATA #IMPLIED" >
+ 
+<!ELEMENT Pip4B2ShipmentReceiptNotification ( 
+          fromRole ,
+          GlobalDocumentFunctionCode ,
+          ShipmentReceiptInformationResource+ ,
+          thisDocumentGenerationDateTime ,
+          thisDocumentIdentifier ,
+          toRole ) > 
+
+<!ELEMENT fromRole
+            ( PartnerRoleDescription ) > 
+
+<!ELEMENT PartnerRoleDescription ( 
+          ContactInformation? ,
+          GlobalPartnerRoleClassificationCode ,
+          PartnerDescription ) > 
+
+<!ELEMENT ContactInformation ( 
+          contactName ,
+          EmailAddress ,
+          facsimileNumber? ,
+          telephoneNumber ) > 
+
+<!ELEMENT contactName
+           ( FreeFormText ) > 
+
+<!ELEMENT FreeFormText
+           ( #PCDATA ) >
+<!ATTLIST FreeFormText
+           xml:lang CDATA #IMPLIED >
+
+<!ELEMENT EmailAddress
+           ( #PCDATA ) >
+
+<!ELEMENT facsimileNumber
+           ( CommunicationsNumber ) > 
+
+<!ELEMENT CommunicationsNumber
+           ( #PCDATA ) >
+
+<!ELEMENT telephoneNumber
+            ( CommunicationsNumber ) > 
+
+<!ELEMENT GlobalPartnerRoleClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT PartnerDescription ( 
+          BusinessDescription? ,
+          GlobalPartnerClassificationCode? ,
+          PhysicalAddress? ) > 
+
+<!ELEMENT BusinessDescription ( 
+          GlobalBusinessIdentifier ,
+          GlobalSupplyChainCode? ,
+          businessName? ) > 
+
+<!ELEMENT GlobalBusinessIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalSupplyChainCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalPartnerClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalDocumentFunctionCode
+           ( #PCDATA ) >
+
+<!ELEMENT ShipmentReceiptInformationResource ( 
+          shipmentIdentifier ,
+          ShipmentReceiptNotificationLineItem+ ,
+          TrackingReference* ) > 
+
+<!ELEMENT shipmentIdentifier
+           ( ProprietaryReferenceIdentifier ) > 
+
+<!ELEMENT ProprietaryReferenceIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT ShipmentReceiptNotificationLineItem ( 
+          acceptedQuantity ,
+          DocumentSubLineReference* ,
+          GlobalProductUnitOfMeasureCode ,
+          ProductIdentification ,
+          ProprietarySerialIdentifier* ,
+          receivedBy ,
+          receivedQuantity ,
+          ShipmentReceiptDiscrepancyInformation? ,
+          shipmentReceiptReportDateTime ) > 
+
+<!ELEMENT acceptedQuantity
+           ( ProductQuantity ) > 
+
+<!ELEMENT ProductQuantity
+           ( #PCDATA ) >
+
+<!ELEMENT DocumentSubLineReference ( 
+          GlobalDocumentReferenceTypeCode ,
+          LineNumber ,
+          ProprietaryDocumentIdentifier ,
+          subLineNumber? ) > 
+
+<!ELEMENT GlobalDocumentReferenceTypeCode
+           ( #PCDATA ) >
+
+<!ELEMENT LineNumber
+           ( #PCDATA ) >
+
+<!ELEMENT ProprietaryDocumentIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT subLineNumber
+            ( LineNumber ) > 
+
+<!ELEMENT GlobalProductUnitOfMeasureCode
+           ( #PCDATA ) >
+
+<!ELEMENT ProductIdentification ( 
+          GlobalProductIdentifier? ,
+          PartnerProductIdentification* ) > 
+
+<!ELEMENT GlobalProductIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT PartnerProductIdentification ( 
+          GlobalPartnerClassificationCode ,
+          ProprietaryProductIdentifier ,
+          revisionIdentifier? ) > 
+
+<!ELEMENT ProprietaryProductIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT revisionIdentifier
+            ( FreeFormText ) > 
+
+<!ELEMENT ProprietarySerialIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT receivedBy
+            ( PartnerDescription ) > 
+
+<!ELEMENT businessName
+            ( FreeFormText ) > 
+
+<!ELEMENT PhysicalAddress ( 
+          GlobalLocationIdentifier ) > 
+
+<!ELEMENT GlobalLocationIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT receivedQuantity
+            ( ProductQuantity ) > 
+
+<!ELEMENT ShipmentReceiptDiscrepancyInformation ( 
+          GlobalReceivingDiscrepancyCode ,
+          GlobalReceivingDiscrepancyReasonCode ) > 
+
+<!ELEMENT GlobalReceivingDiscrepancyCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalReceivingDiscrepancyReasonCode
+           ( #PCDATA ) >
+
+<!ELEMENT shipmentReceiptReportDateTime
+           ( DateTimeStamp ) > 
+
+<!ELEMENT DateTimeStamp
+           ( #PCDATA ) >
+
+<!ELEMENT TrackingReference ( 
+          GlobalTrackingReferenceTypeCode ,
+          ProprietaryShipmentTrackingIdentifier ) > 
+
+<!ELEMENT GlobalTrackingReferenceTypeCode
+           ( #PCDATA ) >
+
+<!ELEMENT ProprietaryShipmentTrackingIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT thisDocumentGenerationDateTime
+            ( DateTimeStamp ) > 
+
+<!ELEMENT thisDocumentIdentifier
+            ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT toRole
+            ( PartnerRoleDescription ) > 
+

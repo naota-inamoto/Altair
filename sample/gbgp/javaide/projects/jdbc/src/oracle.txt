@@ -1,0 +1,46 @@
+<create_account.sql>
+connect internal
+
+create tablespace usersdat
+  datafile  '/proj/oracle/8i/u01/app/oracle/oradata/milkyway/usersdat.ora'
+  size 10M reuse
+  autoextend on next 500k maxsize unlimited;
+
+create public rollback segment roll tablespace usersdat;
+alter rollback segment roll online;
+
+create tablespace userstmp
+  datafile  '/proj/oracle/8i/u01/app/oracle/oradata/milkyway/userstmp.ora'
+  size 10M reuse
+  autoextend on next 500k maxsize unlimited;
+
+create user inamoto
+  identified by chiaki
+  default tablespace usersdat
+  temporary tablespace userstmp;
+
+grant connect,resource,all privileges to inamoto;
+
+disconnect
+</create_account.sql>
+
+svrmgrl < create_account.sql
+
+---------------------------------------------------------------
++ Create Table
+create table accounts(id number(7), name varchar(32), balance integer)
+
++ Delete Table
+drop table accounts
+
++ Insert
+insert into accounts values('1234567', 'Naota Inamoto', 3000)
+insert into accounts values('0000000', 'Chiaki Tanaka', 7000)
+
++ Delete
+delete from accounts where id = '1234567'
+
++ Search
+select * from accounts
+select * from accounts order by balance desc
+select * from accounts order by id

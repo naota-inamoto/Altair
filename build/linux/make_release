@@ -1,0 +1,2 @@
+tar cvf alnxv043.tar altair alcore1.so jumanknp1.so altair.ini openssl libcrypto.so.1.0.0 libssl.so.1.0.0 libpq.so.5.7 libmysqlclient.so.18.1.0 mksymlink
+gzip alnxv043.tar

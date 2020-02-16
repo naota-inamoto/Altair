@@ -1,0 +1,165 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Introduction to Altair</TITLE>
+</HEAD>
+
+<BODY>
+<H1>Altairの使い方の概要</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.00版 1996年 2月11日<BR>
+
+<HR>
+<H3>概要</H3>
+ここでは以下のC++のプログラムを、Altairではどのように作って<BR>
+行くかについて概説します。このプログラムはバーチャル関数のもっとも<BR>
+簡単なテストプログラムになっています。<BR>
+<PRE>
+class A {
+public:
+    A() {}
+    virtual ~A() {}
+    virtual void f();
+};
+class B: public A {
+public:
+    B() {}
+    virtual ~B() {}
+    virtual void f();
+};
+void A::f() { printf("A::f()\n"); }
+void B::f() { printf("B::f()\n"); }
+main() {
+    A *a;
+    a = new A();
+    a->f();
+    delete a;
+    a = new B();
+    a->f();
+    delete a;
+}
+</PRE>
+これを実行すると、以下のように出力されるはずです。<BR>
+<PRE>
+A::f()
+B::f()
+</PRE>
+これに相当するプログラムをAltairで作成するとどのようになるかについて<BR>
+説明していきます。<BR>
+
+<HR>
+<H3><A NAME="new_proj">新規プロジェクトの作成</A></H3>
+新規にプロジェクトを作成する場合は、まずプロジェクトウィンドウ上で<BR>
+「<A HREF="editor.html#file_new">ファイル - 新規作成</A>」を実行します。ファイルダイアログが現れますので<BR>
+プロジェクト名とファイルの保管場所を入力してください。プロジェクト<BR>
+ファイルの拡張子は.aprです。プロジェクトを作成するとAlObjectという<BR>
+クラス名をルートに持つクラスウィンドウが現れます。<BR>
+
+<HR>
+<H3><A NAME="input_class">クラスの入力とクラス登録</A></H3>
+AlObjectのところにキャレットを置いてリターンを入力してください。<BR>
+クラスの入力モードになります。ここでAリターンを入力してください。<BR>
+クラスAがAlObjectの子クラスとして入力されます。続けてリターンBリターンと<BR>
+入力してください。クラスBがAの子クラスとして入力されます。<BR>
+main関数をメンバーに持つクラスの入力をしましょう。やはり同じ要領で<BR>
+AlObjectにキャレットを置きリターンMainリターンと入力してください。<BR>
+これでクラスの入力は終わりです。この時点ではクラス階層は、クラス<BR>
+ウィンドウのメニューの
+「<A HREF="editor.html#class_up">上へ移動</A>」
+「<A HREF="editor.html#class_down">下へ移動</A>」
+「<A HREF="editor.html#class_left">左へ移動</A>」
+「<A HREF="editor.html#class_right">右へ移動</A>」
+で<BR>
+自由に変更することができます。<BR>
+<BR>
+入力したクラスをセーブ対象とするためには、
+「<A HREF="editor.html#class_regist">クラス登録</A>」を行わなくては<BR>
+なりません。この例ではクラスAとクラスMainをクラス登録する必要があります。<BR>
+クラスBはクラスAの派生クラスになっているのでクラス登録する必要が<BR>
+ありませんし、クラス登録してもいけません。クラス登録するためには<BR>
+そのクラスにキャレットを置いてメニューの
+「<A HREF="editor.html#class_regist">クラス登録 - 登録</A>」を実行<BR>
+するだけです。登録が終わったら
+「<A HREF="editor.html#class_regist_list">クラス登録 - 登録クラスリスト</A>」で<BR>
+クラス登録が正しく行われているか確認してください。重複や抜けがあると<BR>
+ロードが正しく行われませんので注意してください。<BR>
+
+<HR>
+<H3><A NAME="input_member">メンバー変数/メンバー関数の入力</A></H3>
+クラスのメンバーを入力するためにはまず、クラスウィンドウ上の<BR>
+クラス上でダブルクリックしてメンバーウィンドウを出します。この例では、<BR>
+クラスAとクラスBでダブルクリック後、メンバーウィンドウ上でリターンを<BR>
+押した後、以下のような文字列を入力し最後にリターンを押します。<BR>
+<BR>
+public: void f();<BR>
+<BR>
+次にクラスMain上でダブルクリックし以下のような文字列を入力します。<BR>
+<BR>
+public: static void main();<BR>
+<BR>
+f();はA,Bのオブジェクト関数ですが、main();はMainのクラス関数です。<BR>
+インタプリタ実行の入り口は引数なしのクラス関数でなければなりません。<BR>
+<BR>
+クラスのメンバーの順番はメニューの
+「<A HREF="editor.html#member_up">上へ移動</A>」
+「<A HREF="editor.html#member_down">下へ移動</A>」
+でいつでも<BR>
+変更することができ、メンバーの順番を自分のわかりやすいように整理することが<BR>
+できます。
+																  
+<HR>
+<H3><A NAME="input_body">関数の中身の編集</A></H3>
+関数の中身を編集するためには、メンバーウィンドウのメンバー上でダブル<BR>
+クリックしボディウィンドウを出し、そこで編集を行います。<BR>
+リターンを押すと編集状態になり、空行でリターンを押すと編集状態から<BR>
+抜けます。クラスAのメンバーf();上でダブルクリックして以下の文字列を入力<BR>
+します。<BR>
+<PRE>
+    al_print("A::f()\n");
+</PRE>
+同様に、クラスBのメンバーf();上でダブルクリックして以下の文字列を入力<BR>
+します。<BR>
+<PRE>
+    al_print("B::f()\n");
+</PRE>
+クラスMainのメンバーmain();上でダブルクリックして以下のような文字列を<BR>
+入力します。<BR>
+<PRE>
+    var A a;
+    a = new A;
+    a.f();
+    a = new B;
+    a.f();
+</PRE>    
+Altairにはnew演算子はあってもdelete演算子はありません。オブジェクトの<BR>
+回収はそれがどこからも使われなくなったとき自動的に行われます。<BR>
+<BR>
+これでプログラムの入力は終了です。<BR>
+
+<HR>
+<H3><A NAME="execute">インタプリタの実行</A></H3>
+インタプリタ実行を行うためには、クラスMainのメンバーmain();にキャレット<BR>
+を置き、メニューの
+「<A HREF="editor.html#interp">インタプリタ - （テスト）実行</A>」
+を実行することで<BR>
+行われます。実行するとアウトプットウィンドウに以下のように出力される<BR>
+はずです。<BR>
+<PRE>
+A::f()
+B::f()
+</PRE>
+
+<HR>
+<H3><A NAME="save">プログラムの保存</A></H3>
+「<A HREF="editor.html#class_regist">クラス登録</A>」がちゃんとされていれば、
+「<A HREF="editor.html#file_save">ファイル - 上書き保存</A>」
+で<BR>
+プロジェクトは保存され、
+「<A HREF="editor.html#file_open">ファイル - 開く</A>」
+でプロジェクトを開くことが<BR>
+できます。<BR>
+
+<HR>
+</BODY>
+</HTML>

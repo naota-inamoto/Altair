@@ -1,0 +1,84 @@
+
+/* -------- ðŒŽ®‚Ì^‹U”»’è -------- */
+eval_cond(cond) {
+  cond == (h, t...) -> {
+    h == "or_1" -> eval_or(t);
+    h == "and_1" -> eval_and(t);
+    h == "not_1" -> eval_not(t);
+    h == "cmp" ->  eval_cmp(t);
+  }
+}
+
+eval_or(t) {
+  t == (e, (*, t2...)) -> {
+    eval_cond(e) -> 1;
+    true -> eval_or2(t2);
+  }
+}
+eval_or2(t) {
+  t == null -> null;
+  t == ((*, e), t2...) -> {
+    eval_cond(e) -> 1;
+    true -> eval_or2(t2);
+  }
+}
+eval_and(t) {
+  t == (e, (*, t2...)) -> {
+    eval_cond(e) -> eval_and2(t2);
+    true -> null;
+  }
+}
+eval_and2(t) {
+  t == null -> 1;
+  t == ((*, e), t2...) -> {
+    eval_cond(e) -> eval_and2(t2);
+    true -> null;
+  }
+}
+eval_not(t) {
+  t == (*, e)-> {
+    eval_cond(e) -> null;
+    true         -> 1;
+  }
+}
+eval_cmp(t) {
+  t == (ee1, ("{}?", (*, (op), ee2))) -> {
+    e1 == tree_to_alist(ee1), e2 == tree_to_alist(ee2) -> {
+      op == "eq" -> {
+        is_zero(e1), is_zero(e2) -> 1;
+        is_zero(e1), is_zero(e2) == null -> null;
+        is_zero(e1) == null, is_zero(e2) -> null;
+        e1 == e2 -> 1;
+        true     -> null;
+      }
+      op == "ne" -> {
+        is_zero(e1), is_zero(e2) -> null;
+        is_zero(e1), is_zero(e2) == null -> 1;
+        is_zero(e1) == null, is_zero(e2) -> 1;
+        e1 == e2 -> null;
+        true     -> 1;
+      }
+      e1 == ("poly", (((c11, c12), null, null)), opt),
+      e2 == ("poly", (((c21, c22), null, null)), opt),
+      c1 == c11 * c22, c2 == c21 * c12 -> {
+        op == "ge" -> {
+          c1 >= c2 -> 1;
+          true     -> null;
+        }
+        op == "gt" -> {
+          c1 > c2  -> 1;
+          true     -> null;
+        }
+        op == "le" -> {
+          c1 <= c2 -> 1;
+          true     -> null;
+        }
+        op == "lt" -> {
+          c1 < c2  -> 1;
+          true     -> null;
+        }
+      }
+    }
+  }
+}
+

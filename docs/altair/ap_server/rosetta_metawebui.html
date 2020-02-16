@@ -1,0 +1,54 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>RosettaNet Server Meta WebUI</TITLE>
+</HEAD>
+
+<BODY>
+<H1>ロゼッタネットサーバ メタWebUI</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.27版 2002年 6月19日<BR>
+
+<HR>
+<H3><A NAME="login">ログイン</A></H3>
+メタWebUI画面に入るためのログイン画面です。<BR>
+デフォルトでは URL http://localhost/admin/ を開き、<BR>
+ユーザID: webuiadmin、パスワード: webuiadmin でログインします。<BR>
+<BR>
+<IMG SRC="image/webuiadmin_login.jpg"><BR>
+
+<HR>
+<H3><A NAME="menu">メニュー編集</A></H3>
+Targetのフレームのメニューの参照と編集ができます。<BR>
+KindがViewとなっているもにについては、そのメニューを選択すると<BR>
+ターゲットのサーブレットのinvoke + &lt;Name&gt;のメソッドを呼びます。<BR>
+このサーブレットが返す画面のデフォルトのHTMLは次のビュー編集で定義されたものになります。<BR>
+<BR>
+<IMG SRC="image/webuiadmin_menu.jpg"><BR>
+
+<HR>
+<H3><A NAME="view">ビュー編集</A></H3>
+メニューの選択の結果返されるデフォルトのHTMLの構成要素の参照と編集ができます。<BR>
+HTMLの主なUI部品が使えます。<BR>
+ほとんどのものが、Nameの値がHTMLにしたときのアトリビュートNameに、<BR>
+TextがHTMLにしたときのアトリビュートValueになっています。<BR>
+<BR>
+<IMG SRC="image/webuiadmin_view.jpg"><BR>
+
+<HR>
+<H3><A NAME="selectable">セレクタブル編集</A></H3>
+Choice,Tableについては、HTMLにしたときに、不定個の要素を含みます。<BR>
+セレクタブル編集の画面では、ChoiceやTableに何をどんな条件で表示するか、<BR>
+Postしたときにサーバに渡すデータは何か、Parameterの名前を何にするかなどの<BR>
+参照と編集ができます。<BR>
+<BR>
+Tableについては、DTDをベースにしたXmlDbAccessor/XmlDbObjectを使っていて、<BR>
+DTDのタグに対応する項目で、どの項目をどんな順番で表示するかを指定することができます。<BR>
+これを使って、ログ参照画面に表示する項目や表示する順番を運用時に動的に変える事ができます。<BR>
+<BR>
+<IMG SRC="image/webuiadmin_selectable.jpg"><BR>
+
+<HR>
+</BODY>
+</HTML>

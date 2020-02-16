@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Alcore1d">
+</Property><Property Name="ソリューション ファイル" Value="C:\altair\build\lib\alcore\Alcore1d.sln">
+</Property><Property Name="ユーザー オプション ファイル" Value="C:\altair\build\lib\alcore\Alcore1d.suo">
+</Property><Property Name="Date" Value="2012年10月4日">
+</Property><Property Name="Time" Value="20:37">
+</Property><Property Name="ログ番号" Value="2">
+</Property></Properties><Event ErrorLevel="2" Project="" Source="Alcore1d.sln" Description="バックアップ ファイル C:\altair\build\lib\alcore\Alcore1d.sln.old の作成中にエラーが発生しました">
+</Event><Event ErrorLevel="2" Project="" Source="Alcore1d.suo" Description="バックアップ ファイル C:\altair\build\lib\alcore\Alcore1d.suo.old の作成中にエラーが発生しました">
+</Event><Event ErrorLevel="0" Project="Alcore1d" Source="Alcore1d.vcproj" Description="Converting project file 'C:\altair\build\lib\alcore\Alcore1d.vcproj'.">
+</Event><Event ErrorLevel="1" Project="Alcore1d" Source="Alcore1d.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="Alcore1d" Source="Alcore1d.vcproj" Description="MSB8012: $(TargetName) ('Alcore1d') does not match the Linker's OutputFile property value '.\WinRel\Alcore1.dll' ('Alcore1') in project configuration 'Release|Win32'. This may cause your project to build incorrectly. To correct this, please make sure that $(TargetName) property value matches the value specified in %(Link.OutputFile).">
+</Event><Event ErrorLevel="1" Project="Alcore1d" Source="Alcore1d.vcproj" Description="MSB8012: $(TargetPath) ('C:\altair\build\lib\alcore\.\WinRel\Alcore1d.dll') does not match the Linker's OutputFile property value '.\WinRel\Alcore1.dll' ('C:\altair\build\lib\alcore\WinRel\Alcore1.dll') in project configuration 'Release|Win32'. This may cause your project to build incorrectly. To correct this, please make sure that $(TargetPath) property value matches the value specified in %(Link.OutputFile).">
+</Event><Event ErrorLevel="1" Project="Alcore1d" Source="Alcore1d.vcproj" Description="MSB8012: $(TargetPath) ('C:\altair\build\lib\alcore\.\WinDebug\Alcore1d.dll') does not match the Linker's OutputFile property value '.\WinDebug/Alcore1d.dll' ('C:\altair\build\lib\alcore\WinDebug/Alcore1d.dll') in project configuration 'Debug|Win32'. This may cause your project to build incorrectly. To correct this, please make sure that $(TargetPath) property value matches the value specified in %(Link.OutputFile).">
+</Event><Event ErrorLevel="0" Project="Alcore1d" Source="Alcore1d.vcproj" Description="Done converting to new project file 'C:\altair\build\lib\alcore\Alcore1d.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="Alcore1d" Source="Alcore1d.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Alcore1d.sln" Description="ソリューションは正常に変換されました">
+</Event><Event ErrorLevel="3" Project="" Source="Alcore1d.sln" Description="Converted">
+</Event></UpgradeLog>

@@ -1,0 +1,202 @@
+$END_LIB
+TEXT
+AlObject
+class Csv2Db
+end_class
+$END_CLASS
+TEXT
+AlObject
+class Csv2Db
+member
+public: static void main();
+member
+public: void init_info();
+member
+public: string db_type;
+member
+public: string host;
+member
+public: integer port;
+member
+public: string db_name;
+member
+public: string user;
+member
+public: string pass;
+member
+public: string table_name;
+member
+public: file csv_file;
+member
+public: list types;
+member
+public: void connect();
+member
+public: list connection;
+member
+public: void column_name_retrive();
+member
+public: void store();
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class Csv2Db
+member
+public: static void main();
+body
+{
+	var Csv2Db db2csv;
+	db2csv = new Csv2Db;
+	var list dir_name;
+	if (dir_name = al_get_read_filename("|csv Files(*.csv)|*.csv||", null)) {
+	} else {
+		return;
+	}
+	db2csv.csv_file = al_file_open(dir_name.head + "/" + dir_name.tail.head, "r");
+	db2csv.init_info();
+	db2csv.connect();
+	db2csv.column_name_retrive();
+	db2csv.store();
+	al_print("OK\n");
+}
+end_body
+member
+public: void init_info();
+body
+{
+	db_type = al_ask("db_type", "oracle");
+	host = al_ask("host", "");
+	if (host == "") {
+		host = null;
+	} else {
+	}
+	port = al_ask("port", "");
+	if (port == "") {
+		port = null;
+	} else {
+		port = (integer)port;
+	}
+	db_name = al_ask("db_name", "ORCL");
+	user = al_ask("user", "scott");
+	pass = al_ask("password", "tiger");
+	table_name = al_ask("table_name", "");
+}
+end_body
+member
+public: string db_type;
+member
+public: string host;
+member
+public: integer port;
+member
+public: string db_name;
+member
+public: string user;
+member
+public: string pass;
+member
+public: string table_name;
+member
+public: file csv_file;
+member
+public: list types;
+member
+public: void connect();
+body
+{
+	var list conn_info;
+	conn_info = al_list5(host, port, db_name, user, pass);
+	connection = al_sql("connect", conn_info, db_type, null, null);
+	if (al_is_type(connection, "string")) {
+		al_print("[Error] " + connection + "\n");
+		connection = null;
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: list connection;
+member
+public: void column_name_retrive();
+body
+{
+	types = al_file_read(csv_file, "csv");
+}
+end_body
+member
+public: void store();
+body
+{
+	var list itr, first, statement, result_set, values;
+	var string name, sql;
+	sql = "insert into " + table_name + "(";
+	itr = al_dst_itr(types);
+	first = 1;
+	loop {
+		if (name = al_next(itr)) {
+		} else {
+			break;
+		}
+		if (first) {
+			first = null;
+		} else {
+			sql = sql + ",";
+		}
+		sql = sql + name;
+	}
+	sql = sql + ") values (";
+	itr = al_dst_itr(types);
+	first = 1;
+	loop {
+		if (name = al_next(itr)) {
+		} else {
+			break;
+		}
+		if (first) {
+			first = null;
+		} else {
+			sql = sql + ",";
+		}
+		sql = sql + "?";
+	}
+	sql = sql + ")";
+	statement = al_sql("statement", connection, null, null, null);
+	if (al_is_type(statement, "string")) {
+		al_print("[Error] " + statement + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("prepare", statement, sql, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print("[Error] " + result_set + "\n");
+		return;
+	} else {
+	}
+	loop {
+		if (values = al_file_read(csv_file, "csv")) {
+		} else {
+			break;
+		}
+		if (values == 1) {
+			break;
+		} else {
+		}
+		result_set = al_sql("execute", statement, null, values, null);
+		if (al_is_type(result_set, "string")) {
+			al_print("[Error] " + result_set + "\n");
+			return;
+		} else {
+		}
+	}
+	result_set = al_sql("commit", connection, null, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print("[Error] " + result_set + "\n");
+		return;
+	} else {
+	}
+}
+end_body
+end_class
+$END_BODY

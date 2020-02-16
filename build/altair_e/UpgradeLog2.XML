@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Altair">
+</Property><Property Name="ソリューション ファイル" Value="C:\altair\build\altair_e\Altair.sln">
+</Property><Property Name="ユーザー オプション ファイル" Value="C:\altair\build\altair_e\Altair.suo">
+</Property><Property Name="Date" Value="2012年10月6日">
+</Property><Property Name="Time" Value="10:53">
+</Property><Property Name="ログ番号" Value="2">
+</Property></Properties><Event ErrorLevel="2" Project="" Source="Altair.sln" Description="バックアップ ファイル C:\altair\build\altair_e\Altair.sln.old の作成中にエラーが発生しました">
+</Event><Event ErrorLevel="2" Project="" Source="Altair.suo" Description="バックアップ ファイル C:\altair\build\altair_e\Altair.suo.old の作成中にエラーが発生しました">
+</Event><Event ErrorLevel="0" Project="Altair" Source="Altair.vcproj" Description="Converting project file 'C:\altair\build\altair_e\Altair.vcproj'.">
+</Event><Event ErrorLevel="1" Project="Altair" Source="Altair.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="Altair" Source="Altair.vcproj" Description="MSB8012: $(TargetPath) ('C:\altair\build\altair_e\.\Debug\Altair.exe') does not match the Linker's OutputFile property value '.\Debug/Altair.exe' ('C:\altair\build\altair_e\Debug/Altair.exe') in project configuration 'Debug|Win32'. This may cause your project to build incorrectly. To correct this, please make sure that $(TargetPath) property value matches the value specified in %(Link.OutputFile).">
+</Event><Event ErrorLevel="1" Project="Altair" Source="Altair.vcproj" Description="MSB8012: $(TargetName) ('Altair') does not match the Linker's OutputFile property value 'Release/Altaire.exe' ('Altaire') in project configuration 'Release|Win32'. This may cause your project to build incorrectly. To correct this, please make sure that $(TargetName) property value matches the value specified in %(Link.OutputFile).">
+</Event><Event ErrorLevel="1" Project="Altair" Source="Altair.vcproj" Description="MSB8012: $(TargetPath) ('C:\altair\build\altair_e\.\Release\Altair.exe') does not match the Linker's OutputFile property value 'Release/Altaire.exe' ('C:\altair\build\altair_e\Release/Altaire.exe') in project configuration 'Release|Win32'. This may cause your project to build incorrectly. To correct this, please make sure that $(TargetPath) property value matches the value specified in %(Link.OutputFile).">
+</Event><Event ErrorLevel="0" Project="Altair" Source="Altair.vcproj" Description="Done converting to new project file 'C:\altair\build\altair_e\Altair.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="Altair" Source="Altair.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Altair.sln" Description="ソリューションは正常に変換されました">
+</Event><Event ErrorLevel="3" Project="" Source="Altair.sln" Description="Converted">
+</Event></UpgradeLog>

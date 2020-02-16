@@ -1,0 +1,234 @@
+<AltairServer>
+
+  <MaxLogSize>1000</MaxLogSize>
+
+  <SystemLog>./log/system.log</SystemLog>
+  <SystemLogDb>true</SystemLogDb>
+
+  <GcInterval>3600</GcInterval>
+
+  <WebServer name="PublicHttpServer">
+    <Port>8080</Port>
+    <DocumentRoot>./html</DocumentRoot>
+    <AccessLog>./log/access.log</AccessLog>
+    <AccessLogDb>true</AccessLogDb>
+    <MaxMessageSize>2000</MaxMessageSize>
+    <ConnectionTimeout>300</ConnectionTimeout>
+    <SessionTimeout>600</SessionTimeout>
+
+    <Servlet>
+      <Path>/rosetta</Path>
+      <Class>RNIF20Servlet</Class>
+<!-- when proxy
+      <Param>
+         <Name>proxy</Name>
+         <Value>true</Value>
+      </Param>
+      <Param>
+         <Name>inbound.dir</Name>
+         <Value>./tmp</Value>
+      </Param>
+-->
+    </Servlet>
+<!-- when proxy
+    <Servlet>
+      <Path>/proxyPollee</Path>
+      <Class>ProxyPolleeServlet</Class>
+      <Param>
+         <Name>inbound.dir</Name>
+         <Value>./tmp</Value>
+      </Param>
+      <Param>
+         <Name>password</Name>
+         <Value>proxy_pass</Value>
+      </Param>
+    </Servlet>
+-->
+    <Servlet>
+      <Path>/admin/ebiz</Path>
+      <Class>WebUIServlet</Class>
+    </Servlet>
+    <UploadServlet>
+      <Path>/admin/upload</Path>
+      <Class>WebUIServlet</Class>
+    </UploadServlet>
+
+    <Servlet>
+      <Path>/sample/servlet1</Path>
+      <Class>TestServlet1</Class>
+    </Servlet>
+    <Servlet>
+      <Path>/sample/servlet2</Path>
+      <Class>TestServlet2</Class>
+    </Servlet>
+    <Servlet>
+      <Path>/sample2/servlet1</Path>
+      <Class>TestServlet1</Class>
+    </Servlet>
+    <Servlet>
+      <Path>/sample2/servlet2</Path>
+      <Class>TestServlet2</Class>
+    </Servlet>
+
+    <Servlet>
+      <Path>/products/ebiz</Path>
+      <Class>WebUIbizsoftCustomerServlet</Class>
+      <Param>
+         <Name>from.mailaddress</Name>
+         <Value>abc@foo.co.jp</Value>
+      </Param>
+      <Param>
+         <Name>domain</Name>
+         <Value>empower.jp</Value>
+      </Param>
+      <Param>
+         <Name>smtp.host</Name>
+         <Value>mail.foo.co.jp</Value>
+      </Param>
+    </Servlet>
+
+  </WebServer>
+
+  <WebServer name="PublicHttpsServer">
+    <Port>8443</Port>
+    <DocumentRoot>./html</DocumentRoot>
+    <AccessLog>./log/access.log</AccessLog>
+    <AccessLogDb>true</AccessLogDb>
+    <MaxMessageSize>2000</MaxMessageSize>
+    <ConnectionTimeout>300</ConnectionTimeout>
+    <SessionTimeout>600</SessionTimeout>
+    <SSL>
+       <caCert>./keystore/ca/cert.pem</caCert>
+       <serverCert>./keystore/server/cert.pem</serverCert>
+       <serverKey>./keystore/server/private/key.pem</serverKey>
+       <clientAuth>false</clientAuth>
+       <dhParam>./keystore/dh/param.pem</dhParam>
+       <cipher>MEDIUM</cipher>
+    </SSL>
+
+    <Servlet>
+      <Path>/rosetta</Path>
+      <Class>RNIF20Servlet</Class>
+<!-- when proxy
+      <Param>
+         <Name>proxy</Name>
+         <Value>true</Value>
+      </Param>
+      <Param>
+         <Name>inbound.dir</Name>
+         <Value>./tmp</Value>
+      </Param>
+-->
+    </Servlet>
+    <Servlet>
+      <Path>/admin/ebiz</Path>
+      <Class>WebUIServlet</Class>
+    </Servlet>
+    <UploadServlet>
+      <Path>/admin/upload</Path>
+      <Class>WebUIServlet</Class>
+    </UploadServlet>
+
+    <Servlet>
+      <Path>/sample/servlet1</Path>
+      <Class>TestServlet1</Class>
+    </Servlet>
+    <Servlet>
+      <Path>/sample/servlet2</Path>
+      <Class>TestServlet2</Class>
+    </Servlet>
+    <Servlet>
+      <Path>/sample2/servlet1</Path>
+      <Class>TestServlet1</Class>
+    </Servlet>
+    <Servlet>
+      <Path>/sample2/servlet2</Path>
+      <Class>TestServlet2</Class>
+    </Servlet>
+
+    <Servlet>
+      <Path>/products/ebiz</Path>
+      <Class>WebUIbizsoftCustomerServlet</Class>
+      <Param>
+         <Name>from.mailaddress</Name>
+         <Value>abc@foo.co.jp</Value>
+      </Param>
+      <Param>
+         <Name>domain</Name>
+         <Value>empower.jp</Value>
+      </Param>
+      <Param>
+         <Name>smtp.host</Name>
+         <Value>mail.foo.co.jp</Value>
+      </Param>
+    </Servlet>
+
+  </WebServer>
+
+  <HttpClient>
+    <ConnectTimeout>60000</ConnectTimeout>
+  </HttpClient>
+
+<!--
+  <ProxyServer name="ProxyServer">
+    <Port>8086</Port>
+    <ProxyLog>./log/proxy.log</ProxyLog>
+    <ProxyLogDb>true</ProxyLogDb>
+    <ConnectionTimeout>300</ConnectionTimeout>
+    <ConnectTimeout>30000</ConnectTimeout>
+  </ProxyServer>
+-->
+
+  <XmlUtility>
+    <DtdBase>./dtd</DtdBase>
+    <XslBase>./xsl</XslBase>
+    <!-- Oracle 8.1.7 / PostgreSQL
+    <DbObjectMaxValueLength>3000</DbObjectMaxValueLength>
+     -->
+    <!-- MySQL -->
+    <DbObjectMaxValueLength>255</DbObjectMaxValueLength>
+    <ContentValidationBase>./validation</ContentValidationBase>
+  </XmlUtility>
+
+  <ProcessEngine>
+    <ProcessLog>./log/pe_audit.log</ProcessLog>
+    <ProcessLogDb>true</ProcessLogDb>
+    <MaxPropertyCache>100</MaxPropertyCache>
+    <TickerInterval>2000</TickerInterval>
+    <CleanupTime>24h</CleanupTime>
+    <DebugMode>false</DebugMode>
+    <ExceptionDetail>true</ExceptionDetail>
+  </ProcessEngine>
+
+  <DbConnectionPool name="ebizPool">
+<!--
+    <SqlTraceLog>./log/sql_trace.log</SqlTraceLog>
+-->
+<!--
+    <DbType>oracle</DbType>
+    <Host>locahost</Host>
+    <Port>1521</Port>
+    <DbName>ORCL</DbName>
+    <DbUser>scott</DbUser>
+    <DbPassword>tiger</DbPassword>
+-->
+    <DbType>postgresql</DbType>
+    <Host>localhost</Host>
+    <Port>5432</Port>
+    <DbName>testdb</DbName>
+    <DbUser>inamoto</DbUser>
+    <DbPassword>naota</DbPassword>
+<!--
+    <DbType>mysql</DbType>
+    <Host>localhost</Host>
+    <Port>3306</Port>
+    <DbName>MySQL</DbName>
+    <DbUser>inamoto</DbUser>
+    <DbPassword>naota</DbPassword>
+-->
+
+    <InitialCapacity>1</InitialCapacity>
+    <MaxCapacity>15</MaxCapacity>
+  </DbConnectionPool>
+
+</AltairServer>

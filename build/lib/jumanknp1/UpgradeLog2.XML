@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="jumanknp1">
+</Property><Property Name="ソリューション ファイル" Value="C:\altair\build\lib\jumanknp1\jumanknp1.sln">
+</Property><Property Name="ユーザー オプション ファイル" Value="C:\altair\build\lib\jumanknp1\jumanknp1.suo">
+</Property><Property Name="Date" Value="2012年10月4日">
+</Property><Property Name="Time" Value="20:30">
+</Property><Property Name="ログ番号" Value="2">
+</Property></Properties><Event ErrorLevel="2" Project="" Source="jumanknp1.sln" Description="バックアップ ファイル C:\altair\build\lib\jumanknp1\jumanknp1.sln.old の作成中にエラーが発生しました">
+</Event><Event ErrorLevel="2" Project="" Source="jumanknp1.suo" Description="バックアップ ファイル C:\altair\build\lib\jumanknp1\jumanknp1.suo.old の作成中にエラーが発生しました">
+</Event><Event ErrorLevel="0" Project="jumanknp1" Source="jumanknp1.vcproj" Description="Converting project file 'C:\altair\build\lib\jumanknp1\jumanknp1.vcproj'.">
+</Event><Event ErrorLevel="1" Project="jumanknp1" Source="jumanknp1.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="jumanknp1" Source="jumanknp1.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="jumanknp1" Source="jumanknp1.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="jumanknp1" Source="jumanknp1.vcproj" Description="MSB8012: $(TargetName) ('jumanknp1') does not match the Linker's OutputFile property value 'Debug\jumanknp1d.dll' ('jumanknp1d') in project configuration 'Debug|Win32'. This may cause your project to build incorrectly. To correct this, please make sure that $(TargetName) property value matches the value specified in %(Link.OutputFile).">
+</Event><Event ErrorLevel="1" Project="jumanknp1" Source="jumanknp1.vcproj" Description="MSB8012: $(TargetPath) ('C:\altair\build\lib\jumanknp1\Debug\jumanknp1.dll') does not match the Linker's OutputFile property value 'Debug\jumanknp1d.dll' ('C:\altair\build\lib\jumanknp1\Debug\jumanknp1d.dll') in project configuration 'Debug|Win32'. This may cause your project to build incorrectly. To correct this, please make sure that $(TargetPath) property value matches the value specified in %(Link.OutputFile).">
+</Event><Event ErrorLevel="0" Project="jumanknp1" Source="jumanknp1.vcproj" Description="Done converting to new project file 'C:\altair\build\lib\jumanknp1\jumanknp1.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="jumanknp1" Source="jumanknp1.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="jumanknp1.sln" Description="ソリューションは正常に変換されました">
+</Event><Event ErrorLevel="3" Project="" Source="jumanknp1.sln" Description="Converted">
+</Event></UpgradeLog>

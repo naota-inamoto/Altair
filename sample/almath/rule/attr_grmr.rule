@@ -1,0 +1,11 @@
+
+
+AttrGrmr() {
+  true -> attr_grmr(get_var("parse_tree"), get_var("attr_grmr"), get_var("opt"));
+}
+
+InvAttrGrmr() {
+  true -> inv_attr_grmr(get_var("graph"), get_var("attr_grmr"), get_var("syntax"), get_var("id"), get_var("opt"));
+}
+
+

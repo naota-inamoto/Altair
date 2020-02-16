@@ -1,0 +1,11 @@
+; AlCtrl.def : モジュール パラメータの宣言
+
+LIBRARY      "ALCTRL.OCX"
+
+EXPORTS
+	DllCanUnloadNow      PRIVATE
+	DllGetClassObject    PRIVATE
+	DllRegisterServer    PRIVATE
+	DllUnregisterServer  PRIVATE
+
+

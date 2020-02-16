@@ -1,0 +1,21 @@
+
+N := 4
+
+u := { ct, r, É∆, É” }
+
+coords(u)
+
+g := {
+       { -1+%Éø/r, 0,           0,   0             },
+       { 0,        1/(1-%Éø/r), 0,   0             },
+       { 0,        0,           r^2, 0             },
+       { 0,        0,           0,   r^2*sin(É∆)^2 }
+     }
+
+gi := inverse(g)
+
+include "physics/christof.math"
+include "physics/christof_print.math"
+//include "physics/ricci.math"
+//include "physics/ricci_print.math"
+

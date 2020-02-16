@@ -1,0 +1,137 @@
+<!--
+
+   RosettaNet XML Message Guideline.
+   http://www.rosettanet.org
+   PIP 0 A1 Failure Notification
+   Version 1.0
+   
+   Created using Edifecs Commerce SpecBuilder. 
+   http://www.edifecs.com
+   http://www.commercedesk.com
+   Build # 9
+-->
+
+
+<!ENTITY % common-attributes "id  CDATA #IMPLIED" >
+ 
+<!ELEMENT Pip0A1FailureNotification ( 
+          reason ,
+          ProcessIdentity ,
+          TransactionIdentity ,
+          ActionIdentity ,
+          fromRole ,
+          toRole ,
+          thisDocumentGenerationDateTime ,
+          thisDocumentIdentifier? ,
+          GlobalDocumentFunctionCode ) > 
+
+<!ELEMENT reason
+           ( FreeFormText ) > 
+
+<!ELEMENT FreeFormText
+           ( #PCDATA ) >
+<!ATTLIST FreeFormText
+           xml:lang CDATA #IMPLIED >
+
+<!ELEMENT ProcessIdentity ( 
+          GlobalProcessCode ,
+          VersionIdentifier ,
+          GlobalProcessIndicatorCode ,
+          InstanceIdentifier ,
+          description? ) > 
+
+<!ELEMENT GlobalProcessCode
+           ( #PCDATA ) >
+
+<!ELEMENT VersionIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalProcessIndicatorCode
+           ( #PCDATA ) >
+
+<!ELEMENT InstanceIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT description
+            ( FreeFormText ) > 
+
+<!ELEMENT TransactionIdentity ( 
+          GlobalTransactionCode ,
+          InstanceIdentifier ,
+          description? ) > 
+
+<!ELEMENT GlobalTransactionCode
+           ( #PCDATA ) >
+
+<!ELEMENT ActionIdentity ( 
+          GlobalBusinessActionCode ,
+          VersionIdentifier ,
+          InstanceIdentifier ,
+          description? ) > 
+
+<!ELEMENT GlobalBusinessActionCode
+           ( #PCDATA ) >
+
+<!ELEMENT fromRole
+            ( PartnerRoleDescription ) > 
+
+<!ELEMENT PartnerRoleDescription ( 
+          GlobalPartnerRoleClassificationCode ,
+          PartnerDescription ,
+          ContactInformation? ) > 
+
+<!ELEMENT ContactInformation ( 
+          contactName ,
+          telephoneNumber ,
+          EmailAddress ) > 
+
+<!ELEMENT contactName
+            ( FreeFormText ) > 
+
+<!ELEMENT telephoneNumber
+           ( CommunicationsNumber ) > 
+
+<!ELEMENT CommunicationsNumber
+           ( #PCDATA ) >
+
+<!ELEMENT EmailAddress
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalPartnerRoleClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT PartnerDescription ( 
+          GlobalPartnerClassificationCode ,
+          BusinessDescription ) > 
+
+<!ELEMENT GlobalPartnerClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT BusinessDescription ( 
+          GlobalBusinessIdentifier ,
+          GlobalSupplyChainCode ) > 
+
+<!ELEMENT GlobalBusinessIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalSupplyChainCode
+           ( #PCDATA ) >
+
+<!ELEMENT toRole
+            ( PartnerRoleDescription ) > 
+
+<!ELEMENT thisDocumentGenerationDateTime
+           ( DateTimeStamp ) > 
+
+<!ELEMENT DateTimeStamp
+           ( #PCDATA ) >
+
+<!ELEMENT thisDocumentIdentifier
+           ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT ProprietaryDocumentIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalDocumentFunctionCode
+           ( #PCDATA ) >
+

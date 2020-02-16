@@ -1,0 +1,498 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Altair Language Specification</TITLE>
+</HEAD>
+
+<BODY>
+<H1>Altairの言語仕様</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.00版 1996年 2月11日<BR>
+
+<HR>
+<H3><A NAME="syntax">文法</A></H3>
+メンバー関数およびメンバー関数の内容の記述のために<BR>
+Altairで使われている文法の大枠を以下に示します。<BR>
+<PRE>
+/* --------------- type --------------- */
+&lt;typeName&gt; = "integer" | "real" | "list" | "array" |
+             "string" | "matrix" | "file" | "window" |
+             "void" | "variant" | &lt;className&gt; ;
+
+/* --------------- member of class --------------- */
+&lt;memberVarDcl&gt; =	&lt;protection&gt; { "static" }? &lt;typeName&gt; &lt;memberVar&gt; ";" ;
+&lt;memberFuncDcl&gt; =	&lt;protection&gt; { "static" }? &lt;typeName&gt; &lt;memberFunc&gt; "("
+                   { &lt;typeName&gt; &lt;argVar&gt; { "," &lt;typeName&gt; &lt;argVar&gt; }* }? ")" ";" ;
+&lt;protection&gt; = "public:" | "protected:" | "private:" ;
+
+&lt;FuncPDcl&gt; =   "funcType:" { "static" }? &lt;typeName&gt; &lt;funcType&gt; "("
+                { &lt;typeName&gt; &lt;argVar&gt; { "," &lt;typeName&gt; &lt;argVar&gt; }* }? ")" ";" ;
+
+/* --------------- body of member function--------------- */
+/* ----- sentense ----- */
+&lt;stat&gt; =  "{" { &lt;stat&gt; }* "}"	|
+          "if" "(" &lt;exp&gt; ")" "{" { &lt;stat&gt; }* "}" "else" "{" { &lt;stat&gt; }* "}" |
+          "loop "{" { &lt;stat&gt; }* "}" |
+          "break" ";" | "continue" ";" |
+          "return" ";" | "return" &lt;exp&gt; ";" |
+          "var" &lt;typeName&gt; &lt;locVar&gt; { "," &lt;locVar&gt; }* ";" |
+          &lt;exp&gt; ";" |
+          "try" "{" { &lt;stat&gt; }* "}" "catch (AlException e)" "{" { &lt;stat&gt; }* "}" |
+          "throw" &lt;exp&gt; ";" |
+          "//" 空でない任意文字列 ;
+
+/* ----- expression ----- */
+&lt;exp&gt; =  &lt;cond_exp&gt; ;
+
+&lt;cond_exp&gt; =    &lt;or_or_exp&gt; { "?" &lt;cond_exp&gt; ":" &lt;cond_exp&gt; }? ;
+&lt;or_or_exp&gt; =   &lt;and_and_exp&gt; { "||" &lt;or_or_exp&gt; }* ;
+&lt;and_and_exp&gt; = &lt;comp_exp&gt; { "&&" &lt;and_and_exp&gt; }* ;
+
+&lt;comp_exp&gt; =  &lt;assign_exp&gt;  { &lt;comp_op&gt; &lt;assign_exp&gt; }? ;
+&lt;comp_op&gt; = "==" | "!=" | "&lt;" | "&lt;=" | "&gt;=" | "&gt;" ;
+
+&lt;assign_exp&gt; =  &lt;add_exp&gt; { "=" &lt;assign_exp&gt; }? ;
+
+&lt;add_exp&gt; =    &lt;mul_exp&gt;  { { "+" | "-" }       &lt;mul_exp&gt; }* ;
+&lt;mul_exp&gt; =    &lt;or_exp&gt;   { { "*" | "/" | "%" } &lt;or_exp&gt;  }* ;
+
+&lt;or_exp&gt; =     &lt;xor_exp&gt;   { "|" &lt;xor_exp&gt;   }* ;
+&lt;xor_exp&gt; =    &lt;and_exp&gt;   { "^" &lt;and_exp&gt;   }* ;
+&lt;and_exp&gt; =    &lt;shift_exp&gt; { "&" &lt;shift_exp&gt; }* ;
+
+&lt;shift_exp&gt; =  &lt;unary_exp&gt; { { "&lt;&lt;" | "&gt;&gt;" } &lt;unary_exp&gt; }? ;
+
+&lt;unary_exp&gt; =  &lt;constant&gt; |
+               { { "-" | "~" | "(" &lt;typeName&gt; ")" }?  &lt;obj_exp&gt; |
+               &lt;obj_exp&gt; { "[" &lt;exp&gt; "]" }+ ;
+
+&lt;obj_exp&gt; =  &lt;prim_exp&gt; { "." &lt;mem_exp&gt; }* ;
+&lt;mem_exp&gt; =  "head" | "tail" |
+             &lt;objVar&gt; |
+             &lt;objFunc&gt; "(" &lt;arg_ls&gt; ")" |
+             "*" &lt;exp&gt; "(" &lt;arg_ls&gt; ")" ;
+
+&lt;prim_exp&gt; =  "new" &lt;className&gt; | "this" | &lt;constant&gt; |
+              &lt;locVar&gt; | &lt;argVar&gt; | "(" &lt;exp&gt; ")" |
+              &lt;classVar&gt; |
+              &lt;objVar&gt;   |
+              &lt;className&gt; "::" &lt;classVar&gt; |
+              &lt;classFunc&gt; "(" &lt;arg_ls&gt; ")" |
+              &lt;objFunc&gt;   "(" &lt;arg_ls&gt; ")" |
+              &lt;className&gt; "::" &lt;classFunc&gt; "(" &lt;arg_ls&gt; ")" |
+              &lt;className&gt; "::" &lt;objFunc&gt;   "(" &lt;arg_ls&gt; ")" |
+              &lt;sysFunc&gt;   "(" &lt;arg_ls&gt; ")" | 
+              "*" &lt;exp&gt;   "(" &lt;arg_ls&gt; ")" |
+              &lt;className&gt; "::" &lt;classFunc&gt; |
+              &lt;className&gt; "::" &lt;objFunc&gt; ;
+
+&lt;arg_ls&gt; =   { &lt;exp&gt; { "," &lt;exp&gt; }* }? ;
+
+&lt;constant&gt; = &lt;const_decimal&gt; | &lt;const_hexa&gt; | &lt;const_char&gt; | &lt;const_string&gt; ;
+</PRE>
+
+<HR>
+<H3><A NAME="type">型</A></H3>
+Altairで使われる型は以下の通りです。<BR>
+<BR>
+Altairでは、オブジェクトは内部的にはタイプレスですが、<BR>
+オブジェクト指向プログラムのオーバーライド関数を実現するために<BR>
+以下のような型が存在します。<BR>
+これらはプログラム入力時に使われますが、実行時には使われません。<BR>
+ですが、許されない種類のオブジェクトが実行時にくるとエラーになります。<BR>
+
+<DL>
+<DT>integer<DD>
+32bit整数または可変長整数です。<BR>
+
+<DT>real<DD>
+64bitの浮動小数点数です。<BR>
+
+<DT>list<DD>
+headとtailフィールドを持つ２進木のノードです。<BR>
+LISPの２進木に相当します。<BR>
+Altairには入力アークのイテレータおよび出力アークのイテレータが<BR>
+ありますが、これもlistとして扱います。また、ビットマップがありますが<BR>
+これもリストとして扱います。<BR>
+
+<DT>array<DD>
+Altairのオブジェクトの１次元配列です。<BR>
+Altairは基本的にタイプレスなので配列の要素には任意のオブジェクトを<BR>
+格納することができます。<BR>
+
+<DT>ユーザ定義クラス<DD>
+ユーザ定義のクラスです。<BR>
+ユーザ定義クラスは必ずAlObjectクラスの派生クラスになります。<BR>
+
+<DT>string<DD>
+任意長の文字列です。<BR>
+
+<DT>matrix<DD>
+realの２次元配列です。<BR>
+
+<DT>file<DD>
+ファイルにアクセスするためのオブジェクトです。<BR>
+
+<DT>window<DD>
+プログラム中でユーザ定義ウィンドウを作成するとできるオブジェクトです。<BR>
+ユーザ定義ウィンドウの描画/イベント処理はこれを介して行います。<BR>
+
+<DT>variant<DD>
+OLEオートメーションを利用するための型です。<BR>
+この型のオブジェクトを利用することによって<BR>
+OLEサーバー/OCXのメソッド呼び出し、プロパティのセット/ゲットが行えます。<BR>
+
+<DT>その他の型<DD>
+グラフ構造データの出力アークのイテレータ/入力アークのイテレータ、<BR>
+ビットマップ、OCXのオブジェクト等はそれに相当する型を用意していません。<BR>
+これらのオブジェクトはlist型ではありませんが<BR>
+これらのオブジェクトを扱うときにはlist型を使います。<BR>
+内部的にはタイプレスなのでこのようなことが可能になります。<BR>
+
+</DL>
+
+<HR>
+<H3><A NAME="const">定数</A></H3>
+定数には以下の種類のものがあります。<BR>
+
+<DL>
+<DT>10進定数<DD>
+例 10 1234<BR>
+
+<DT>16進定数<DD>
+例 0xff 0x8000<BR>
+
+<DT>浮動小数点定数<DD>
+例 3.14 10. 1.e-30<BR>
+
+<DT>文字定数<DD>
+例 'a'<BR>
+
+<DT>文字列定数<DD>
+例 "hello!!\n" "a:/www/test.txt"<BR>
+
+<DT>null<DD>
+Altairでは、nullは特別扱いです。nullは0ではありません。<BR>
+条件式は成立すると非nullが返り、成立しないとnullが返ります。<BR>
+if文では条件の部分がnullかそうでないかだけを見ます。<BR>
+</DL>
+
+<H3><A NAME="arg">引数</A></H3>
+Altairでは、メンバー関数を書くときに必ず引数名を書かなければなりません。<BR>
+また、オーバーライドしたバーチャル関数を使う場合にはその引数名を同じに<BR>
+しなければなりません。<BR>
+<BR>
+Altairでは、引数名が重複した場合のチェックを行っていません。<BR>
+引数名が重複しないように注意してください。<BR>
+
+<H3><A NAME="loc">ローカル変数</A></H3>
+Altairでは以下の構文でローカル変数の宣言を関数中のどこでも<BR>
+行うことができます。<BR>
+<BR>
+var &lt;typeName&gt; 変数名1 ... 変数名n<BR>
+<BR>
+ローカル変数宣言後は宣言された変数を自由に使うことができます。<BR>
+また、ローカル変数は必ずnull初期化されています。<BR>
+<BR>
+Altairでは、ローカル変数名が重複した場合のチェックを行っていません。<BR>
+ローカル変数名が重複しないように注意してください。<BR>
+
+<H3><A NAME="class_var">クラス変数</A></H3>
+メンバー変数宣言で以下のようにstaticをつけたものはクラス変数に<BR>
+なります。<BR>
+<BR>
+public: static integer i;<BR>
+<BR>
+A::iの形でクラス変数にアクセスすることができます。<BR>
+
+<H3><A NAME="obj_var">オブジェクト変数</A></H3>
+メンバー変数宣言を以下のようにstaticをつけずに行ったものは<BR>
+オブジェクト変数になります。<BR>
+<BR>
+public: integer size;<BR>
+<BR>
+同じクラスのオブジェクト関数内ならsizeで、異なるクラスのメンバー関数内<BR>
+ならa.sizeのように"."をはさんでオブジェクト変数にアクセスすること<BR>
+ができます。<BR>
+
+<H3><A NAME="class_func">クラス関数</A></H3>
+メンバー関数宣言に以下のようにstaticをつけたものはクラス関数に<BR>
+なります。<BR>
+<BR>
+public: static void mode(integer i);<BR>
+<BR>
+A::mode(1);のような形でクラス関数を呼び出すことができます。<BR>
+
+<H3><A NAME="obj_func">オブジェクト関数</A></H3>
+メンバー関数宣言に以下のようにstaticをつけない場合はその関数は<BR>
+オブジェクトの関数になります。<BR>
+<BR>
+public: void f();<BR>
+<BR>
+同じクラスのオブジェクト関数内ならf();で、異なるクラスのメンバー関数内<BR>
+なら、a.f();のように"."をはさんでオブジェクトの関数を呼び出すことが<BR>
+できます。<BR>
+<BR>
+オブジェクト関数内で自分自身を対象オブジェクトとして<BR>
+先祖クラスのバーチャル関数を呼び出したい場合は<BR>
+A::f();のように記述してください。<BR>
+<BR>
+Altairのオブジェクト関数はすべてバーチャル関数になっています。<BR>
+
+<H3><A NAME="func_ptr">関数ポインタ</A></H3>
+Altairでは、変数に関数を覚えておいて、その変数を介して関数を<BR>
+呼び出す機能を備えています。<BR>
+この機能はメニューのコールバック等に用いることができます。<BR>
+<BR>
+まず、以下のように関数ポインタ型を宣言します。<BR>
+<DL>
+<DT>クラス関数の場合<DD>
+funcType: static void classCB();<BR>
+<DT>オブジェクト関数の場合<DD>
+funcType: void objCB();<BR>
+</DL>
+次にその型で宣言された変数に関数ポインタを代入します。<BR>
+<DL>
+<DT>クラス関数の場合<DD>
+var classCB class_func;<BR>
+class_func = A::mode;<BR>
+<DT>オブジェクト関数の場合<DD>
+var objCB obj_func;<BR>
+obj_func = A::f();<BR>
+</DL>
+関数呼び出しは以下のようにして行うことができます。<BR>
+<DL>
+<DT>クラス関数の場合<DD>
+*class_func(1);<BR>
+<DT>オブジェクト関数の場合<DD>
+a.*obj_func();
+</DL>
+
+<H3><A NAME="sys_func">システム関数</A></H3>
+システム関数とはAltairにはじめから組み込まれている関数を指します。<BR>
+システム関数は以下のような形で呼び出します。<BR>
+<BR>
+関数名(実引数1, ... , 実引数n);<BR>
+<BR>
+関数名は"al_"で始まります。<BR>
+Altairではシステム関数の引数の型チェックは行っていません。<BR>
+
+<H3><A NAME="new">new</A></H3>
+あるクラスのインスタンスを作成する場合に用いられます。以下の<BR>
+式を実行するとクラスAのインスタンスが生成されます。<BR>
+<BR>
+new A;<BR>
+<BR>
+Altairには、コンストラクタもデストラクタもありません。<BR>
+オブジェクトの初期化はバーチャル関数で行ってください。<BR>
+
+<H3><A NAME="this">this</A></H3>
+オブジェクト関数内で自分自身のインスタンスを参照する場合に使用されます。<BR>
+
+<HR>
+<H3><A NAME="comp_op">比較演算子</A></H3>
+<DL>
+<DT>==, !=<DD>
+オブジェクトを２進木とみなしてそれが等しいか等しくないかを調べる<BR>
+演算子です。<BR>
+成立すると1が、成立しないとnullが返ります。<BR>
+以下の型に使えます。<BR>
+integer, real, list, string<BR>
+
+<DT>&gt;, &gt;=, &lt;=, &lt;<DD>
+オブジェクトの大小関係を調べる演算子です。<BR>
+成立すると1が、成立しないとnullが返ります。<BR>
+以下の型に使えます。<BR>
+integer, real, string<BR>
+</DL>
+
+<H3><A NAME="assign_op">代入演算子</A></H3>
+<DL>
+<DT>=<DD>
+オブジェクトを変数に代入します。型チェックは行いません。<BR>
+</DL>
+
+<H3><A NAME="arith_op">算術演算子</A></H3>
+<DL>
+<DT>+<DD>
+加算演算子です。以下の型に使えます。<BR>
+integer, real, string<BR>
+<DT>-, *, /<DD>
+減算、乗算、除算演算子です。以下の型に使えます。<BR>
+integer, real<BR>
+<DT>%<DD>
+割った余りを得る演算子です。以下の型に使えます。<BR>
+integer
+</DL>
+
+<H3><A NAME="logic_op">論理演算子</A></H3>
+<DL>
+<DT>&amp;, |, ^<DD>
+論理積、論理和、排他的論理和を得る演算子です。以下の型に使えます。<BR>
+integer<BR>
+</DL>
+
+<H3><A NAME="shift_op">シフト演算子</A></H3>
+<DL>
+<DT>&lt;&lt;, &gt;&gt;<DD>
+左シフト、右シフトの演算子です。以下の型に使えます。<BR>
+integer<BR>
+</DL>
+
+<H3><A NAME="unary_op">一項演算子</A></H3>
+<DL>
+<DT>-, ~, (typeName)<DD>
+補数、否定、キャストの演算子です。<BR>
+integerの場合、"-"は符号反転したもの、"~"はNOTになります。<BR>
+キャストは任意の型について行えます。<BR>
+<BR>
+integer, real, listをstringにキャストすると値を文字列に自動変換します。<BR>
+stringをinteger, realにキャストすると文字列を値に自動変換します。<BR>
+</DL>
+
+<HR>
+<H3><A NAME="cond_op">条件式三項演算子</A></H3>
+<DL>
+<DT>? :<DD>
+第１項を評価し、非nullだったら第２項を評価、nullだったら第３項を評価し、<BR>
+評価結果が式の値になります。<BR>
+</DL>
+
+<H3><A NAME="cond_logic_op">条件式論理演算子</A></H3>
+<DL>
+<DT>&amp;&amp;, ||<DD>
+おもに条件式で、論理積、論理和を得る演算子です。<BR>
+論理積で第１項がnullだった場合は、第２項は評価されません。<BR>
+論理和で第１項が非nullだった場合は、第２項は評価されません。<BR>
+</DL>
+
+<HR>
+<H3><A NAME="ctrl">制御文</A></H3>
+Altairに現れる制御文は次の8つだけです。<BR>
+<BR>
+複文、if文、loop文、break文、continue文、return文、para文, try文<BR>
+<BR>
+複文は複数の文をまとめ、<BR>
+if文は分岐処理をし、<BR>
+loop文は繰り返し処理をします。<BR>
+break文はloop文から抜けるためのもの、<BR>
+continue文はloop文を繰り返し実行するためのものです。<BR>
+return文は関数から抜けます。<BR>
+para文は別プロセスを生成して並列処理を行います。<BR>
+try文はthrow文で投げた例外をキャッチします。<BR>
+以下に簡単な例を示します。<BR>
+<PRE>
+public: integer sum(integer n)
+{
+    var integer i, s;
+    i = 1;
+    s = 0;
+    loop {
+        if (i > n) {
+            break;
+        } else {
+        }
+        s = s + i;
+        i = i + 1;
+    }
+    return s;
+}
+</PRE>
+関数の戻り値の型がvoidのときはreturn文はreturn;になります。<BR>
+return文では戻り値の型のチェックは行いません。<BR>
+<BR>
+Altairのエディタは構造エディタになっています。制御文について<BR>
+複文の"{"を入力すれば対応する"}"が<BR>
+if文の"if (expression) {"を入力すれば対応する"} else {"と"}"が<BR>
+loop文の"loop {"を入力すれば対応する"}"が自動的に生成されます。<BR>
+<BR>
+次にpara文の説明をします。para文の構文は以下の通りです。<BR>
+<BR>
+para 関数式;<BR>
+<BR>
+paraの後に関数式を書けば関数を実行する子プロセスが生成されます。<BR>
+引数に親プロセスと共通の変数を持たせることによりプロセス間通信を<BR>
+行うことができます。<BR>
+(ここでいっているプロセスとはOSによって提供されているものではなく<BR>
+Altair本体が用意したソフトウェアシミュレーションのプロセスです)<BR>
+なおpara文で使用した関数式の戻り値は得られません。<BR>
+戻り値はvoidとして扱われます。<BR>
+<BR>
+次にtry文の例を示します。<BR>
+<PRE>
+    try {
+        foo();
+    } catch (AlException e) {
+        if (al_is_derived(e, runtime CreateException)) {
+            // eがCreateExceptionだった場合の処理
+        } else {
+        }
+        if (al_is_derived(e, runtime FindException)) {
+            // eがFindExceptionだった場合の処理
+        } else {
+        }
+    }
+</PRE>
+catchの部分のクラス名AlExceptionと変数名eは固定です。<BR>
+catchの部分のクラス名はAlExceptionになっていますが、<BR>
+関数foo();から例外がthrowされるとすべての例外がcatchされます。<BR>
+throwするオブジェクトはAlExceptionの派生クラスのオブジェクトでなくても構いません。<BR>
+例外の種類によって処理を分ける場合は上の例のように例外を<BR>
+動的型判定してください。
+例外がcatchされない場合は、アウトプットウィンドウに<BR>
+スタックとレースと例外がthrowされた場所の数行のソースコードが表示されます。<BR>
+なお、AlExceptionには以下のメンバー変数があります。
+<PRE>
+    string msg;
+    list stack_frame;
+    integer pos;
+</PRE>
+msgは、例外のメッセージを入れるための変数でユーザが自由に使えます。<BR>
+stack_frameとposは内部的に使用する変数でスタックとレースと数行のソースコードを<BR>
+示すための情報が入ります。<BR>
+
+<HR>
+<H3><A NAME="oleauto">OLEオートメーション</A></H3>
+<PRE>
+プロパティゲット/メソッド
+	&lt;variant exp&gt; "." &lt;method name&gt; "(" &lt;arg_ls&gt; ")"
+プロパティセット
+	&lt;variant exp&gt; "." &lt;property name&gt; "(" &lt;arg_ls&gt; ")" "=" &lt;exp&gt;
+</PRE>
+<DL>
+<DT>AltairからOLEオートメーションに値が渡されるときは、<DD>
+integer型はVT_I2に<BR>
+real型は、VT_R8に<BR>
+string型はVT_BSTRに<BR>
+nullはオプション引数に<BR>
+<DT>OLEオートメーションからAltairに値が渡されるときは、<DD>
+VT_I2, VT_I4. VT_UI1はinteger型に<BR>
+VT_R4, VT_R8はreal型に<BR>
+VT_BOOLはnullか1に<BR>
+VT_BSTRはstring型に<BR> 
+<DT>自動変換されます。その他はvariant型のオブジェクトのままです。<BR>
+VT_I4, VT_BOOLをOLEオートメーションに渡したい場合は、<DD>
+al_ole_misc("long", value, null);<BR>
+al_ole_misc("bool", value, null);<BR>
+<DT>でvariant型のオブジェクトを作成し、それを引数に渡してください。<BR>
+引数に値を返したい場合は、<DD>
+al_ole_misc("short", value, 1);<BR>
+al_ole_misc("long", value, 1);<BR>
+al_ole_misc("float", value, 1);<BR>
+al_ole_misc("double", value, 1);<BR>
+al_ole_misc("string", value, 1);<BR>
+al_ole_misc("bool", value, 1);<BR>
+al_ole_misc("dispatch", value, 1);<BR>
+al_ole_misc("unknown", value, 1);<BR>
+al_ole_misc("variant", value, 1);<BR>
+<DT>でvariant型のオブジェクトを作成し、それを引数に渡してください。<BR>
+引数に返ってきた値を取り出すときは、<BR>
+al_ocx("convert", value, null); を用いてください。<BR>
+ただし、変換できるのは
+VT_I2, VT_I4, VT_R4, VT_R8, VT_BSTR, VT_BOOLだけです。<DD> 
+</DL>
+
+<HR>
+</BODY>
+</HTML>

@@ -1,0 +1,17 @@
+,,,Pip2A1ProductInformationNotification/fromRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,,Catalog Distributor
+,,,Pip2A1ProductInformationNotification/fromRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,,default
+,,,Pip2A1ProductInformationNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,,0 
+,,,Pip2A1ProductInformationNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,,Information Technology
+,,,Pip2A1ProductInformationNotification/fromRole/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,,Mr. xxx
+,,,Pip2A1ProductInformationNotification/fromRole/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,,03-3333-4444
+,,,Pip2A1ProductInformationNotification/fromRole/PartnerRoleDescription/ContactInformation/EmailAddress,,xxx@nec.co.jp
+,,,Pip2A1ProductInformationNotification/toRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,,Buyer
+,,,Pip2A1ProductInformationNotification/toRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,,default
+,,,Pip2A1ProductInformationNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,,999999999 
+,,,Pip2A1ProductInformationNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,,Information Technology
+,,,Pip2A1ProductInformationNotification/thisDocumentGenerationDateTime/DateTimeStamp,,20010122T000000.000Z
+,,,Pip2A1ProductInformationNotification/thisDocumentIdentifier/ProprietaryDocumentIdentifier,,PIN-1000
+,,,Pip2A1ProductInformationNotification/GlobalDocumentFunctionCode,,Request
+ProductNotice,ProductNotice1,,Pip2A1ProductInformationNotification/ProductNotice,,
+,,ProductNotice1,theNotice/FreeFormText,,10.10 Release.
+,,ProductNotice1,GlobalProductIdentifier,,12345678901234

@@ -1,0 +1,264 @@
+
+ビルド方法
+
+/* ----------------------------------------------------------------------------- */
+● Windows8.1以降(64bit)版
+
+1. Visual C++ 2017が必要です。
+   インストールされていなかったら、Visual C++ 2017を入手してインストールします。
+
+2. alsrcXXX.tar.gz を C:/altair に展開します。
+     C:/altair/bin
+     C:/altair/build/*
+              /licence/*
+              /src/*
+   というディレクトリ構成になります。
+
+3. OpenSSLを入手してビルドします。
+
+    3.1 Perlが必要です。
+        インストールされていなかったら入手してインストールしてください。
+        ActivePerlは、http://perl.apache.org/ から入手できます。
+
+    3.2 OpenSSLを http://www.openssl.org/ から入手して展開します。
+        OpenSSLのホームディレクトリを<openssl-home>とします。
+
+    3.3 OpenSSLをビルドします。
+
+        3.3.1 <openssl-home>/INSTALL.W64を参照してOpenSSLをビルドします。
+                  ↓環境変数の設定。
+                  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Auxiliary\Build\vcvarsx86_amd64.bat
+
+        3.3.2 物件のコピー
+              <openssl-home>/out32dll/libeay32.dll
+              <openssl-home>/out32dll/ssleay32.dll
+              の２個のDLLを C:/altair/bin にコピーします。
+              <openssl-home>/out32dll/libeay32.lib
+              <openssl-home>/out32dll/ssleay32.lib
+              の２個のDLLを C:/altair/build/lib にコピーします。
+
+4. alcore1.dllの作成
+
+    4.1 Visual C++ 2017で、プロジェクト C:/altair/build/lib/jumanknp1/jumanknp1.sln を開きます。
+
+    4.2 メニューの「表示」-「プロパティページ」でプロパティページを開きます。
+        「構成プロパティ」-「VC++ディレクトリ」でパスの修正が必要だったら修正します。
+
+         OpenSSLのパスのヘッダ
+              <openssl-home>/inc32
+         Altairのパスのヘッダ
+              C:/altair/src/include
+         Altairのパスのライブラリ
+              C:/altair/build/lib
+
+    4.3 メニューの「ビルド」-「構成マネジャー」で「Release x64」にします。
+
+    4.4 メニューの「ビルド」-「ソリューションのリビルド」を実行します。
+        コンパイルとリンクが行われます。
+        C:/altair/build/lib に C:/altair/build/lib/jumanknp1/Release/jumanknp1.lib がコピーされます。
+        C:/altair/bin に       C:/altair/build/lib/jumanknp1/Release/jumanknp1.dll がコピーされます。
+
+    4.5 Visual C++ 2017で、プロジェクト C:/altair/build/lib/alcore/Alcore1d.sln を開きます。
+
+    4.6 メニューの「表示」-「プロパティページ」でプロパティページを開きます。
+        「構成プロパティ」-「VC++ディレクトリ」でパスの修正が必要だったら修正します。
+
+         OpenSSLのパスのヘッダ
+              <openssl-home>/inc32
+         Altairのパスのヘッダ
+              C:/altair/src/include
+         Altairのパスのライブラリ
+              C:/altair/build/lib
+
+    4.7 メニューの「ビルド」-「構成マネジャー」で「Release x64」にします。
+
+    4.8 メニューの「ビルド」-「ソリューションのリビルド」を実行します。
+        コンパイルとリンクが行われます。
+        C:/altair/build/lib に C:/altair/build/lib/alcore/WinRel/alcore1.lib がコピーされます。
+        C:/altair/bin に       C:/altair/build/lib/alcore/WinRel/alcore1.dll がコピーされます。
+
+5. altair.exeの作成
+
+    5.1 Visual C++ 2017で、プロジェクト C:/altair/build/altair/Altair.sln を開きます。
+
+    5.2 メニューの「表示」-「プロパティページ」でプロパティページを開きます。
+        「構成プロパティ」-「VC++ディレクトリ」でパスの修正が必要だったら修正します。
+
+         OpenSSLのパスのヘッダ
+              <openssl-home>/inc32
+         Altairのパスのヘッダ
+              C:/altair/src/include
+         Altairのパスのライブラリ
+              C:/altair/build/lib
+
+    5.3 メニューの「ビルド」-「構成マネジャー」で「Release x64」にします。
+
+    5.4 メニューの「ビルド」-「ソリューションのリビルド」を実行します。
+        コンパイルとリンクが行われます。
+        C:/altair/bin に C:/altair/build/altair/Release/altair.exe がコピーされます。
+
+/* ----------------------------------------------------------------------------- */
+● Linux版
+
+1. Linuxマシン以外に Windowsマシンを用意します。
+
+2. alsrcXXX.tar.gz を Windowsマシンの C:/altair に展開します。
+     C:/altair/bin/
+              /build/*
+              /licence/*
+              /src/*
+   というディレクトリ構成になります。
+
+   Windowsマシンに以下のディレクトリを作成します。
+     C:/vega_utf8/include
+                 /src
+                 /sample
+
+   Windows版Altair で C:/altair/build32/linux/sync.apr を開き、
+   TP::sync_d_to_u_utf8() を実行します。
+   SJISコードがUTF-8コードに変換され、改行コードが0D0Aから0Aに変換された同名のファイルが、
+   C:/vega_utf8下に作成されます。
+
+3. Linuxマシンにファイルを用意します。
+
+     Linuxマシンに以下のディレクトリを作成します。
+     /home/inamoto/altair/include/
+                         /src/
+                         /build/
+
+    Windowsマシンの C:/vega_utf8/include配下のファイルを /home/inamoto/altair/include下にコピーします。
+    Windowsマシンの C:/vega_utf8/src配下のファイルを /home/inamoto/altair/src下にコピーします。
+    Windowsマシンの C:/altair/build/linux配下のファイルを /home/inamoto/altair/build下にコピーします。
+
+4. OpenSSL, PostgreSQL, MySQL を用意します。
+
+    4.1 OpenSSLを入手してビルドします。
+        （OpenSSLを使わない場合は不要です。）
+
+        4.1.1 OpenSSLを http://www.openssl.org/ から入手して展開します。
+              OpenSSLのホームディレクトリを<openssl-home>とします。
+
+        4.1.2 <openssl-home>/INSTALLを参照してOpenSSLをビルドします。
+                 $ ./config shared
+                 $ make
+
+              以下に作成された物件ができます。
+                 <openssl-home>/apps/openssl
+                 <openssl-home>/libcrypto.so.X.X.X
+                 <openssl-home>/libssl.so.X.X.X
+               これらを /home/inamoto/altair/build にコピーします。
+
+              次に、
+                 $ cd /home/inamoto/altair/build
+                 $ ln -s libcrypt.so.X.X.X libcrypt.so
+                 $ ln -s libssl.so.X.X.X   libssl.so
+              でシンボリックリンクを作成します。
+
+    4.2 PostgreSQLクライアントがインストールされていなかったら入手してインストールしてください。
+        （PostgreSQLのRDBを使わない場合は不要です。）
+        （PostgreSQLは、Linuxのほとんどのディストリビューションに標準のRDBとして付属しています。）
+         (PostgreSQLに関して分からないことがあったら、
+          PostgreSQLユーザ会ホームページ http://www.PostgreSQL.jp/ などがら情報を入手してください。)
+
+         シェアドライブラリ、
+             <postgres>/lib/libpq.so.X.X を
+             /home/inamoto/altair/build にコピーします。
+
+         次に、
+             $ cd /home/inamoto/altair/build
+             $ ln -s libpq.so.X.X libpq.so.X
+             $ ln -s libpq.so.X   libpq.so
+         でシンボリックリンクを作成します。
+
+    4.3 MySQLクライアントがインストールされていなかったら入手してインストールしてください。
+       （MySQLのRDBを使わない場合は不要です。）
+       （MySQLは、Linuxのほとんどのディストリビューションに標準のRDBとして付属しています。）
+        (MySQLに関して分からないことがあったら、
+         MySQLホームページ http://www.mysql.com/ などがら情報を入手してください。)
+
+        シェアドライブラリ、
+            <mysql>/lib/libmysqlclient.so.X.X.X を
+            /home/inamoto/altair/build にコピーします。
+
+        次に、
+            $ cd /home/inamoto/altair/build
+            $ ln -s libmysqlclient.so.X.X.X libmysqlclient.so.X
+            $ ln -s libmysqlclient.so.X     libmysqlclient.so
+        でシンボリックリンクを作成します。
+
+5. Makefileを環境に合わせて修正します。
+
+    5.1  パスを修正します。
+
+        /home/inamoto/altair/build/Makefileの初めの方に、
+<PRE>
+ALTAIR_HOME=/home/inamoto/altair
+TARGET=altair
+ALCORE_LIB=alcore1.so
+JUMAN_KNP_LIB=jumanknp1.so
+
+OPENSSL_HOME=/usr/local/ssl
+OPENSSL_LIB=libssl.so libcrypto.so
+
+#ORACLE_HOME=/home/inamoto/altair/oracle-8.1.7
+#ORACLE_LIB=libclntsh.so
+ORACLE_HOME=
+ORACLE_LIB=
+
+POSTGRES_HOME=/usr/local/pgsql
+POSTGRES_LIB=libpq.so
+
+MYSQL_HOME=/usr/local/mysql
+MYSQL_LIB=libmysqlclient.so
+
+INC_DIR=\
+	-I/usr/lib64/glib-2.0/include\
+	-I/usr/lib64/gtk-2.0/include\
+	-I/usr/include/glib-2.0\
+	-I/usr/include/gtk-2.0\
+	-I/usr/include/atk-1.0\
+	-I/usr/include/pango-1.0\
+	-I/usr/include/cairo\
+	-I/usr/include/gdk-pixbuf-2.0\
+	-I$(ALTAIR_HOME)/include\
+	-I$(OPENSSL_HOME)/include\
+	-I$(ORACLE_HOME)/rdbms/demo\
+	-I$(ORACLE_HOME)/rdbms/public\
+	-I$(POSTGRES_HOME)/include\
+	-I$(MYSQL_HOME)/include\
+	-I$(MYSQL_HOME)/include/mysql
+</PRE>
+   というような部分があります。
+   これを環境に合わせて書き換えてください。
+
+    5.2 PostgreSQL,MySQL,OpenSSL,日本語構文解析の利用設定をします。
+
+<PRE>
+CPPFLAGS=-DNDEBUG  -D_LINUX -D_LINUX_POSTGRES -D_LINUX_MYSQL -D_AL_OPENSSL -DJUMAN_KNP -DAL_LANG_ENGLISH -D_64BIT $(INC_DIR) -O0 -pthread -fPIC
+</PRE>
+
+        + PostgreSQLが不要な場合、オプション -D_LINUX_POSTGRES を削除し、POSTGRES_LIB= の後を空欄にします。
+
+        + MySQLが不要な場合、オプション -D_LINUX_MYSQL を削除し、MYSQL_LIB= の後を空欄にします。
+
+        + OpenSSLが不要な場合、オプション -D_AL_OPENSSL を削除し、OPENSSL_LIB= の後を空欄にします。
+
+        + 日本語構文解析が不要な場合、オプション -DJUMAN_KNP を削除し、JUMAN_KNP_LIB= の後を空欄にします。
+
+6. Linuxマシンで、Linux版Altairをビルドします。
+
+    $ cd /home/inamoto/altair/build/
+    $ ./symlink
+         で、ソースファイルのシンボリックリンクファイルができます。
+    $ make
+         で、altair, alcore1.so, jumanknp1.so というターゲット物件が作成されます。
+
+7. LD_LIBRARY_PATHのを修正します。
+
+    シェアドライブラリ、alcore1.so,jumanknp1.so,libpq.so,libmysqlclient.so,libssl.so, libcrypto.so がロード出来るように、
+    /home/inamoto/altair/build を LD_LIBRARY_PATHに 加えてください。
+
+/* ----------------------------------------------------------------------------- */
+
+以上
+

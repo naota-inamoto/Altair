@@ -1,0 +1,505 @@
+/* -------- ‘½€®/—L—®‚Ì“à•”Œ`® --------
+ <A_list> = <rat> | <poly> | <mat>
+ <rat> = ("rat", <ploy>, <poly>)
+ <poly> = ("poly", <term_list>, opt) // opt is for extension.
+ <term_list> = (<term>, ...)
+ <term> = ((<const>, <const>), <var_list>, <func_list>)
+ <var_list>  = (<var>, ...)  // order of <var>  is order of strcmp of <name>
+ <func_list> = (<func>, ...) // order of <func> is order of strcmp of <name>
+ <var> = ("var", <name>, <index_list>, <degree>)
+ <index_list> = (<index-1>, ... , <index-k>)   // k >=0
+ <func> = ("func", <name>, <A_list_list>, <degree>)
+ <A_list_list> = (<A-list-1>, ..., <A-list-k>) // k >=0, order of <A_list> is order of listcmp of <A_list>
+ <index>  // integer of 0 or more, however, variable of 1st power without affixing character OK
+ <degree> // integer
+ <mat> = ("mat, n, array)
+   array -/  0/-> a[0]
+           ...
+         -/n-1/-> a[n-1]
+ */
+
+/* -------- ‘½€®/—L—®‚Ìl‘¥ -------- */
+add_alist(a1, a2) {
+  a1 == ("poly", ...),   a2 == ("poly", ...) -> add_poly(a1, a2);
+  a1 == ("poly", ...),   a2 == ("rat", m, d) -> div_alist(add_poly(mul_poly(a1, d), m), d);
+  a1 == ("rat", m, d),   a2 == ("poly", ...) -> div_alist(add_poly(m, mul_poly(a2, d)), d);
+  a1 == ("rat", m1, d1), a2 == ("rat", m2, d2) -> {
+    d1 == d2 -> div_alist(add_poly(m1, m2), d1);
+    true -> div_alist(add_poly(mul_poly(m1, d2), mul_poly(m2, d1)), mul_poly(d1, d2));
+  }
+  a1 == ("mat", ...), a2 == ("mat", ...) -> mat_add(a1, a2);
+}
+sub_alist(a1, a2) {
+  a1 == ("poly", ...),   a2 == ("poly", ...) -> sub_poly(a1, a2);
+  a1 == ("poly", ...),   a2 == ("rat", m, d) -> div_alist(sub_poly(mul_poly(a1, d), m), d);
+  a1 == ("rat", m, d),   a2 == ("poly", ...) -> div_alist(sub_poly(m, mul_poly(a2, d)), d);
+  a1 == ("rat", m1, d1), a2 == ("rat", m2, d2) -> {
+    d1 == d2 -> div_alist(sub_poly(m1, m2), d1);
+    true -> div_alist(sub_poly(mul_poly(m1, d2), mul_poly(m2, d1)), mul_poly(d1, d2));
+  }
+  a1 == ("mat", ...), a2 == ("mat", ...) -> mat_sub(a1, a2);
+}
+mul_alist(a1, a2) {
+  a1 == ("poly", ...),   a2 == ("poly", ...) -> mul_poly(a1, a2);
+  a1 == ("poly", ...),   a2 == ("rat", m, d)   -> div_alist(mul_poly(a1, m), d);
+  a1 == ("rat", m, d),   a2 == ("poly", ...)   -> div_alist(mul_poly(a2, m), d);
+  a1 == ("rat", m1, d1), a2 == ("rat", m2, d2) -> div_alist(mul_poly(m1, m2), mul_poly(d1, d2));
+  a1 == ("mat", ...),  a2 == ("poly", ...) -> mat_scalar_mul(a1, a2);
+  a1 == ("mat", ...),  a2 == ("rat", ...)  -> mat_scalar_mul(a1, a2);
+  a1 == ("poly", ...), a2 == ("mat", ...)  -> mat_scalar_mul(a2, a1);
+  a1 == ("rat", ...),  a2 == ("mat", ...)  -> mat_scalar_mul(a2, a1);
+  a1 == ("mat", ...),  a2 == ("mat", ...)  -> mat_mul(a1, a2);
+}
+div_alist(a1, a2) {
+  a2 == ("poly", ((c, null, ((f, "exp", al, d)))), null), al == (a) ->
+    mul_alist(a1, ("poly", ((c, null, ((f, "exp", (neg(a)), d)))), null));
+  a1 == ("poly", ...),   a2 == ("poly", ...) -> {
+    a1 == a2 -> ("poly", (((1, 1), null, null)), null);
+    (m1, d1) == normalize2(a1, a2) -> {
+      is_zero(m1) -> ("poly", null, null);
+      is_one(d1) -> m1;
+      is_minus_one(d1) -> neg(m1);
+      ml == poly_length(m1), dl == poly_length(d1) -> {
+        dl == 1 -> div_rat(m1, d1);
+        ml == 1 -> div_rat(m1, d1);
+        (d, m) == divmod_poly(m1, d1) -> {
+          is_zero(m) -> d;
+          true -> div_rat(m1, d1);
+        }
+      }
+    }
+  }
+  a1 == ("poly", ...),   a2 == ("rat", m, d)   -> div_alist(mul_poly(a1, d), m);
+  a1 == ("rat", m, d),   a2 == ("poly", ...)   -> div_alist(m, mul_poly(d, a2));
+  a1 == ("rat", m1, d1), a2 == ("rat", m2, d2) -> div_alist(mul_poly(m1, d2),  mul_poly(d1, m2));
+}
+div_rat(a1, a2) {
+  a1 == ("poly", (((c11, c12), vl1, fl1), tl1t...), opt1),
+  a2 == ("poly", (((c21, c22), vl2, fl2), tl2t...), opt2) -> {
+    c11 < 0, c21 < 0 -> ("rat",
+      ("poly", (((-c11, c12), vl1, fl1), tl1t...), opt1),
+      ("poly", (((-c21, c22), vl2, fl2), tl2t...), opt2));
+    true -> ("rat", a1, a2);
+  }
+}
+
+/* -------- ‘½€®‚Ì‰ÁZ -------- */
+add_poly(p1, p2) {
+  p1 == ("poly", tl1, opt1), p2 == ("poly", tl2, opt2) -> ("poly", add_poly_tl(tl1, tl2), null);
+}
+add_poly_tl(tl1, tl2) {
+//  true -> math("add_poly", tl1, tl2);
+  tl1 == null -> tl2;
+  tl2 == null -> tl1;
+  tl1 == (t1, tl1t...),
+  tl2 == (t2, tl2t...) -> {
+    t1 == ((0, *), *, *) -> {
+      t2 == ((0, *), *, *) -> add_poly_tl(tl1t,  tl2t);
+      true -> add_poly_tl(tl1t,  tl2);
+    }
+    t2 == ((0, *), *, *) -> add_poly_tl(tl1,  tl2t);
+    r == term_comp(t1, t2) -> {
+      r > 0 -> (t1, add_poly_tl(tl1t, tl2)...);
+      r < 0 -> (t2, add_poly_tl(tl1, tl2t)...);
+      s == add_term(t1, t2) -> {
+        s == null -> add_poly_tl(tl1t, tl2t);
+        true -> (s, add_poly_tl(tl1t, tl2t)...);
+      }
+    }
+  }
+}
+add_term(t1, t2) {
+  t1 == ((c11, c12), vl, fl),
+  t2 == ((c21, c22), vl, fl) -> {
+    c12 == 1, c22 == 1, c == c11 + c21 -> {
+      c == 0 -> null;
+      true -> ((c, 1), vl, fl);
+    }
+    c1 == c11 * c22 + c21 * c12 -> {
+      c1 == 0 -> null;
+      c2 == c12 * c22 -> {
+        c2 == 1 -> ((c1, c2), vl, fl);
+        gcd == gcd(c1, c2) -> {
+          gcd == 1 -> ((c1, c2), vl, fl);
+          true -> ((c1 / gcd, c2 / gcd), vl, fl);
+        }
+      }
+    }
+  }
+}
+
+/* -------- ‘½€®‚ÌŒ¸Z -------- */
+sub_poly(p1, p2) {
+  p1 == ("poly", tl1, opt1), p2 == ("poly", tl2, opt2) -> ("poly", sub_poly_tl(tl1, tl2), null);
+}
+sub_poly_tl(tl1, tl2) {
+//  true -> math("sub_poly", tl1, tl2);
+  tl1 == null -> neg_poly_tl(tl2);
+  tl2 == null -> tl1;
+  tl1 == (t1, tl1t...),
+  tl2 == (t2, tl2t...) -> {
+    t1 == ((0, *), *, *) -> {
+      t2 == ((0, *), *, *) -> sub_poly_tl(tl1t,  tl2t);
+      true -> sub_poly_tl(tl1t,  tl2);
+    }
+    t2 == ((0, *), *, *) -> sub_poly_tl(tl1,  tl2t);
+    r == term_comp(t1, t2) -> {
+      r > 0 -> (t1, sub_poly_tl(tl1t, tl2)...);
+      r < 0 -> (neg_term(t2), sub_poly_tl(tl1, tl2t)...);
+      s == sub_term(t1, t2) -> {
+        s == null -> sub_poly_tl(tl1t, tl2t);
+        true -> (s, sub_poly_tl(tl1t, tl2t)...);
+      }
+    }
+  }
+}
+sub_term(t1, t2) {
+  t1 == ((c11, c12), vl, fl),
+  t2 == ((c21, c22), vl, fl) -> {
+    c12 == 1, c22 == 1, c == c11 - c21 -> {
+      c == 0 -> null;
+      true -> ((c, 1), vl, fl);
+    }
+    c1 == c11 * c22 - c21 * c12 -> {
+      c1 == 0 -> null;
+      c2 == c12 * c22 -> {
+        c2 == 1 -> ((c1, c2), vl, fl);
+        gcd == gcd(c1, c2) -> {
+          gcd == 1 -> ((c1, c2), vl, fl);
+          true -> ((c1 / gcd, c2 / gcd), vl, fl);
+        }
+      }
+    }
+  }
+}
+neg_poly_tl(tl) {
+  tl == null -> null;
+  tl == (t, tlt...) -> (neg_term(t), neg_poly_tl(tlt)...);
+}
+neg_term(t) {
+  t == ((c1, c2), vl, fl) -> ((-c1, c2), vl, fl);
+} 
+
+term_comp(t1, t2) {
+  t1 == (*, vl1, fl1), t2 == (*, vl2, fl2) -> {
+    r == term_comp_by_var(vl1, vl2), r != 0 -> r;
+    r == term_comp_by_func(fl1, fl2) -> r;
+  }
+}
+term_comp_by_var(vl1 ,vl2) {
+  vl1 == null, vl2 == null -> 0;
+  vl1 == null -> -1;
+  vl2 == null -> 1;
+  vl1 == ((*, n1, il1, d1), vl1t...),
+  vl2 == ((*, n2, il2, d2), vl2t...) -> {
+    n1 < n2 -> 1;
+    n1 > n2 -> -1;
+    il1 < il2 -> 1;
+    il1 > il2 -> -1;
+    d1 > d2 -> 1;
+    d1 < d2 -> -1;
+    true -> term_comp_by_var(vl1t, vl2t);
+  }
+}
+term_comp_by_func(fl1, fl2) {
+  fl1 == null, fl2 == null -> 0;
+  fl1 == null -> -1;
+  fl2 == null -> 1;
+  fl1 == ((*, n1, al1, d1), fl1t...),
+  fl2 == ((*, n2, al2, d2), fl2t...) -> {
+    n1 < n2 -> 1;
+    n1 > n2 -> -1;
+    al1 < al2 -> 1;
+    al1 > al2 -> -1;
+    d1 > d2 -> 1;
+    d1 < d2 -> -1;
+    true -> term_comp_by_func(fl1t, fl2t);
+  }
+}
+
+/* -------- ‘½€®‚ÌæZ -------- */
+mul_poly(p1, p2) {
+  p1 == ("poly", tl1, opt1), p2 == ("poly", tl2, opt2) -> {
+    tl1 == (((c11, c12), vl1, fl1)),
+    tl2 == (((c21, c22), vl2, fl2)),
+    (a, fl) == sqrt_2(fl1, fl2), a != null -> {
+      c1 == c11 * c21, c2 == c12 * c22,
+      gcd == gcd(c1, c2), c == c1 / gcd, cc == c2 / gcd,
+      vl == mul_term_by_var(vl1, vl2) -> {
+        cc > 0 -> mul(("poly", (((c, cc), vl, fl)), null), a);
+        true -> mul(("poly", (((-c, -cc), vl, fl)), null), a);
+      }
+    }
+    true -> ("poly", mul_poly_tl(tl1, tl2), null);
+  }
+}
+mul_poly_tl(tl1, tl2) {
+//  true -> math("mul_poly", tl1, tl2);
+  tl1 == null -> null;
+  tl2 == null -> null;
+  tl2 == (t2, tl2t...) -> add_poly_tl(
+    mul_poly_tl_by_term(tl1, t2),
+    mul_poly_tl(tl1, tl2t)
+  );
+}
+mul_poly_tl_by_term(tl1, t2) {
+  tl1 == null -> null;
+  tl1 == (t1, tl1t...),
+  t == mul_term(t1, t2) -> {
+    t == null -> mul_poly_tl_by_term(tl1t, t2);
+    true -> add_poly_tl((t), mul_poly_tl_by_term(tl1t, t2));
+  }
+}
+mul_term(t1, t2) {
+  t1 == ((c11, c12), vl1, fl1),
+  t2 == ((c21, c22), vl2, fl2),
+  (cc, vl11, vl22) == img_pm(1, vl1, vl2),
+  vl3 == mul_term_by_var(vl11, vl22),
+  (fl11, fl22) == exp_exp(fl1, fl2),
+  fl3 == mul_term_by_func(fl11, fl22) -> {
+    c12 == 1, c22 == 1 -> {
+      c == c11 * c21 -> {
+        c == 0 -> null;
+        true -> ((c * cc, 1), vl3, fl3);
+      }
+    }
+    c1 == c11 * c21, c2 == c12 * c22, gcd == gcd(c1, c2) -> {
+      gcd == 1 -> ((c1 * cc, c2), vl3, fl3);
+      true -> ((c1 / gcd * cc, c2 / gcd), vl3, fl3);
+    }
+  }
+}
+mul_term_by_var(vl1, vl2) {
+  vl1 == null -> vl2;
+  vl2 == null -> vl1;
+  vl1 == (v1, vl1t...), vl2 == (v2, vl2t...),
+  v1 == (*, n1, il1, d1), v2 == (*, n2, il2, d2) -> {
+    n1 < n2 -> (v1, mul_term_by_var(vl1t, vl2)...);
+    n1 > n2 -> (v2, mul_term_by_var(vl1, vl2t)...);
+    il1 > il2 -> (v1, mul_term_by_var(vl1t, vl2)...);
+    il1 < il2 -> (v2, mul_term_by_var(vl1, vl2t)...);
+    d == d1 + d2 -> {
+      d == 0 -> mul_term_by_var(vl1t, vl2t);
+      true -> (("var", n1, il1, d), mul_term_by_var(vl1t, vl2t)...);
+    }
+  }
+}
+mul_term_by_func(fl1, fl2) {
+  fl1 == null -> fl2;
+  fl2 == null -> fl1;
+  fl1 == (f1, fl1t...), fl2 == (f2, fl2t...),
+  f1 == (*, n1, al1, d1), f2 == (*, n2, al2, d2) -> {
+    n1 < n2 -> (f1, mul_term_by_func(fl1t, fl2)...);
+    n1 > n2 -> (f2, mul_term_by_func(fl1, fl2t)...);
+    al1 > al2 -> (f1, mul_term_by_func(fl1t, fl2)...);
+    al1 < al2 -> (f2, mul_term_by_func(fl1, fl2t)...);
+    d == d1 + d2 -> {
+      d == 0 -> mul_term_by_func(fl1t, fl2t);
+      true -> (("func", n1, al1, d), mul_term_by_func(fl1t, fl2t)...);
+    }
+  }
+}
+img_pm(c, vl1, vl2) {
+  vl1 == null -> (c, null, vl2);
+  vl2 == null -> (c, vl1, null);
+  vl1 == (v1, vl1t...), v1 == (*, n1, il1, d1),
+  vl2 == (v2, vl2t...), v2 == (*, n2, il2, d2) -> {
+    il1 == null, il2 == null, d1 == 1, d2 == 1 -> {
+      n1 == "%i", n2 == "%i" -> img_pm(-c, vl1t, vl2t);
+      n1 == "%pm", n2 == "%pm" -> img_pm(c, vl1t, vl2t);
+      n1 == "%pm", n2 == "%mp" -> img_pm(-c, vl1t, vl2t);
+      n1 == "%mp", n2 == "%pm" -> img_pm(-c, vl1t, vl2t);
+      n1 == "%mp", n2 == "%mp" -> img_pm(c, vl1t, vl2t);
+      n1 == "%mp" ->
+        (cc, vl11, vl22) == img_pm(c, vl1t, vl2),
+        (-cc, (("var", "%pm", null, 1), vl11...), vl22);
+      n2 == "%mp" ->
+        (cc, vl11, vl22) == img_pm(c, vl1, vl2t),
+        (-cc, vl11, (("var", "%pm", null, 1), vl22...));
+      n1 < n2   -> (cc, vl11, vl22) == img_pm(c, vl1t, vl2), (cc, (v1, vl11...), vl22);
+      n1 > n2   -> (cc, vl11, vl22) == img_pm(c, vl1, vl2t), (cc, vl11, (v2, vl22...));
+      true ->
+        (cc, vl11, vl22) == img_pm(c, vl1t, vl2t),
+        (cc, (v1, vl11...), (v2, vl22...));
+    }
+    n1 < n2   -> (cc, vl11, vl22) == img_pm(c, vl1t, vl2), (cc, (v1, vl11...), vl22);
+    n1 > n2   -> (cc, vl11, vl22) == img_pm(c, vl1, vl2t), (cc, vl11, (v2, vl22...));
+    il1 > il2 -> (cc, vl11, vl22) == img_pm(c, vl1t, vl2), (cc, (v1, vl11...), vl22);
+    il1 < il2 -> (cc, vl11, vl22) == img_pm(c, vl1, vl2t), (cc, vl11, (v2, vl22...));
+    d == d1 + d2 -> {
+      (cc, vl11, vl22) == img_pm(c, vl1t, vl2t) -> {
+        d == 0 -> (cc, vl11, vl22);
+        d > 0 -> (cc, (("var", n1, il1, d), vl11...), vl22);
+        d < 0 -> (cc, vl11), (("var", n1, il1, d), vl22...);
+      }
+    }
+  }
+}
+sqrt_2(fl1, fl2) {
+  fl1 == null -> (null, fl2);
+  fl2 == null -> (null, fl1);
+  fl1 == (f1, fl1t...), fl2 == (f2, fl2t...),
+  f1 == (*, n1, al1, d1), f2 == (*, n2, al2, d2) -> {
+    n1 == "sqrt", n2 == "sqrt",
+    al1 == al2, al1 == (a), a != null, d1 == 1, d2 == 1 -> {
+      (a2, fl) == sqrt_2(fl1t, fl2t) -> {
+        a2 != null -> (mul(a, a2), fl);
+        true -> (a, fl);
+      }
+    }
+    n1 < n2 -> (a2, fl) == sqrt_2(fl1t, fl2), (a2, (("func", n1, al1, d1), fl...));
+    n1 > n2 -> (a2, fl) == sqrt_2(fl1, fl2t), (a2, (("func", n2, al2, d2), fl...));
+    al1 > al2 -> (a2, fl) == sqrt_2(fl1t, fl2), (a2, (("func", n1, al1, d1), fl...));
+    al1 < al2 -> (a2, fl) == sqrt_2(fl1, fl2t), (a2, (("func", n2, al2, d2), fl...));
+    d == d1 + d2 -> {
+      d == 0 -> sqrt_2(fl1t, fl2t);
+      true -> (a2, fl) == sqrt_2(fl1t, fl2t), (a2, (("func", n1, al1, d), fl...));
+    }
+  }
+}
+exp_exp(fl1, fl2) {
+  fl1 == null -> (null, fl2);
+  fl2 == null -> (fl1, null);
+  fl1 == (f1, fl1t...), f1 == (*, n1, al1, d1),
+  fl2 == (f2, fl2t...), f2 == (*, n2, al2, d2) -> {
+    n1 == "exp", n2 == "exp",
+    al1 == (a1), al2 == (a2), d1 == 1, d2 == 1 ->
+      (fl11, fl22) == exp_exp(fl1t, fl2t), a == add(a1, a2),
+      ((("func", "exp", (a), 1), fl11...), fl22);
+    n1 < n2 -> (fl11, fl22) == exp_exp(fl1t, fl2), ((("func", n1, al1, d1), fl11...), fl22);
+    n1 > n2 -> (fl11, fl22) == exp_exp(fl1, fl2t), (fl11, (("func", n2, al2, d2), fl22...));
+    al1 > al2 -> (fl11, fl22) == exp_exp(fl1t, fl2), ((("func", n1, al1, d1), fl11...), fl22);
+    al1 < al2 -> (fl11, fl22) == exp_exp(fl1, fl2t), (fl11, (("func", n2, al2, d2), fl22...));
+    d == d1 + d2 -> {
+      d == 0 -> exp_exp(fl1t, fl2t);
+      true -> (fl11, fl22) == exp_exp(fl1t, fl2t),
+        ((("func", n1, al1, d1), fl11...), (("func", n2, al2, d2), fl22...));
+    }
+  }
+}
+
+/* -------- ‘½€®‚ÌœZ -------- */
+divmod_poly(p1, p2) {
+  p1 == ("poly", tl1, opt1), p2 == ("poly", tl2, opt2),
+  (d, m) == divmod_poly_tl(tl1, tl2)
+    -> (("poly", d, null), ("poly", m, null));
+}
+div_poly(p1, p2) {
+  p1 == ("poly", tl1, opt1), p2 == ("poly", tl2, opt2) -> ("poly", div_poly_tl(tl1, tl2), null);
+}
+mod_poly(p1, p2) {
+  p1 == ("poly", tl1, opt1), p2 == ("poly", tl2, opt2) -> ("poly", mod_poly_tl(tl1, tl2), null);
+}
+div_poly_tl(tl1, tl2) {
+  (d, m) == divmod_poly_tl(tl1, tl2) -> d;
+}
+mod_poly_tl(tl1, tl2) {
+  (d, m) == divmod_poly_tl(tl1, tl2) -> m;
+}
+
+divmod_poly_tl(tl1, tl2) {
+//    true -> math("divmod_poly", tl1, tl2);
+  tl1 == null -> (null, null);
+  tl2 == null -> stop("divide by zero.");
+  v == get_candidate_var(tl1, tl2) -> {
+    v == null -> (null, tl1);
+    v == (vf, n, l) -> divmod_poly2_tl(tl1, tl2, vf, n, l);
+  }
+}
+
+get_candidate_var(tl11, tl22) {
+  length(tl11) <= 1 -> null;
+  length(tl22) <= 1 -> null;
+  tl1 == normalize(tl11),
+  tl2 == normalize(tl22),
+  vl1 == poly_get_vars(tl1),
+  fl1 == poly_get_funcs(tl1),
+  vl2 == poly_get_vars(tl2),
+  fl2 == poly_get_funcs(tl2),
+  vs == set2_intersection(vl1, vl2),
+  fs == set2_intersection(fl1, fl2),
+  vfs == set2_union(vs, fs)
+    -> get_candidate_var2(tl1, tl2, vfs);
+}
+get_candidate_var2(tl1, tl2, vfs) {
+  vfs == null -> null;
+  vfs == (e, vfst...), e == (vf, n, l),
+  ds1 == degrees_poly(tl1, vf, n, l),
+  d1_max == head_elem(ds1),
+  d1_min == last_elem(ds1),
+  ds2 == degrees_poly(tl2, vf, n, l),
+  d2_max == head_elem(ds2),
+  d2_min == last_elem(ds2) -> {
+    d1_max > d1_min, d2_max > d2_min -> (vf, n, l);
+    true -> get_candidate_var2(tl1, tl2, vfst);
+  }
+}
+poly_get_vars(tl) {
+  tl == null -> null;
+  tl == ((c, vl, *), tlt...)
+    -> set2_union(
+         poly_get_vars2(vl),
+         poly_get_vars(tlt)
+       );
+}
+poly_get_vars2(vl) {
+  vl == null -> null;
+  vl == (("var", n, il, d), vlt...)
+    -> set2_add_elem(poly_get_vars2(vlt), ("var", n, il));
+}
+poly_get_funcs(tl) {
+  tl == null -> null;
+  tl == ((c, *, fl), tlt...) 
+    -> set2_union(
+         poly_get_funcs2(fl),
+         poly_get_funcs(tlt)
+       );
+}
+poly_get_funcs2(fl) {
+  fl == null -> null;
+  fl == (("func", n, al, d), flt...)
+    -> set2_add_elem(poly_get_funcs2(flt), ("func", n, al));
+}
+
+divmod_poly2_tl(tl1, tl2, vf, n, l) {
+  d1 == degree_poly(tl1, vf, n, l),
+  d2 == degree_poly(tl2, vf, n, l) -> {
+    d2 > d1 -> (null, tl1);
+    k2 == coef_poly(tl2, vf, n, l, d2)
+      -> divmod_poly_by_term(tl1, tl2, k2, null, vf, n, l, d1, d2);
+  }
+}
+divmod_poly_by_term(tl1, tl2, k2, q, vf, n, l, d1, d2) {
+  k1 == coef_poly(tl1, vf, n, l, d1),
+  (kk1, kk2) == normalize2_tl(k1, k2) -> {
+    length(kk2) > 1 -> (q, tl1);
+    kk2 == (((c1, c2), nn, ll)) -> {
+      nn != null -> (q, tl1);
+      ll != null -> (q, tl1);
+      v == div_term(c1, c2, vf, n, l, d1, d2),
+      vv == mul_poly_tl_by_term(kk1, v),
+      qq == add_poly_tl(q, vv),
+      diff == mul_poly_tl(tl2, vv),
+      rr == sub_poly_tl(tl1, diff) -> {
+        rr == null -> (qq, null);
+        d3 == degree_poly(rr, vf, n, l) -> {
+          d3 < d2 -> (qq, rr);
+          true -> divmod_poly_by_term(rr, tl2, k2, qq, vf, n, l, d3, d2);
+        }
+      }
+    }
+  }
+}
+div_term(c1, c2, vf, n, l, d1, d2) {
+  d == d1 - d2 -> {
+    c1 > 0 -> {
+      d == 0 -> ((c2, c1), null, null);
+      vf == "var" -> ((c2, c1), (("var", n, l, d)), null);
+      vf == "func" -> ((c2, c1), null, (("func", n, l, d)));
+    }
+    d == 0 -> ((-c2, -c1), null, null);
+    vf == "var" -> ((-c2, -c1), (("var", n, l, d)), null);
+    vf == "func" -> ((-c2, -c1), null, (("func", n, l, d)));
+  }
+}
+

@@ -1,0 +1,1343 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Altair System Function(3)</TITLE>
+</HEAD>
+
+<BODY>
+<H1>システム関数(3/3)</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.00版 1996年 2月11日<BR>
+
+<HR>
+<H3><A NAME="al_file_open">file al_file_open(string name, string type);</A></H3>
+ファイルをオープンするための関数です。<BR>
+<PRE>
+    name        type     意味
+    ファイル名 "r"      ファイルをリードモードでオープン
+    ファイル名 "w"      ファイルをライトモードでオープン
+    ファイル名 "a"      ファイルをアペンドモードでオープン
+    文字列     "sr"     文字列オブジェクトをファイルとしてリードモードでオープン
+    文字列     "sw"     文字列オブジェクトをファイルとしてライトモードでオープン
+    文字列     "sa"     文字列オブジェクトをファイルとしてアペンドモードでオープン
+    ""         "stdin"  標準入力
+    ""         "stdout" 標準出力
+    ""         "stderr" 標準エラー出力
+    ""         "pipe"   パイプ(al_exec参照)
+    ファイル名 "lock"   プロセス間で排他制御するためのロックファイルの作成
+
+    ファイル名 "rb"     ファイルをバイナリリードモードでオープン
+    ファイル名 "wb"     ファイルをバイナリライトモードでオープン
+    ファイル名 "ab"     ファイルをバイナリアペンドモードでオープン
+</PRE>
+
+<HR>
+<H3><A NAME="al_file_read">any al_file_read(file f, string type);</A></H3>
+ファイルの内容を読み込むための関数です。<BR>
+<PRE>
+    type           意味
+    "space"        空白、タブ、改行を読み飛ばす
+                   （空白やタブや改行があった場合はその数を、ない場合はnullを返す）
+    "comment"      /*で始まって*/で終わるコメントと//で始まって改行で終わるコメントを読み飛ばす
+    "integer"      32bit-10進整数または可変長10進整数
+    "hex"          32bit-16進整数
+    "real"         64bit-浮動小数点実数
+    "char"         1文字
+    "ident"        識別子として使える文字列 ( [A-Z|a-z|_|2バイト文字][A-Z|a-z|0-9|_|2バイト文字]* )
+    "jident"       途中に「.」「$」があることを許す識別子として使える文字列
+    "xident"       途中に「.」「-」があることを許す識別子として使える文字列
+    "string"       空白/タブ/改行が来るまでの文字列
+    "line"         一行(改行がくるまで)
+    "quote_char"   引用符付き文字
+    "quote_string"        ダブルクォートで括られた引用符付き文字列
+    "single_quote_string" シングルクォートで括られた引用符付き文字列
+    "matrix"       ２次元の実数の配列
+    "list"         リストデータ
+    "tree"         木構造データ
+    "graph"        任意データ
+    "class"        クラスの派生クラスも含めたクラス情報（テキスト形式）
+    "member"       クラスの派生クラスも含めたメンバー情報（テキスト形式）
+    "body"         クラスの派生クラスも含めたボディ情報（テキスト形式）
+
+    リスト         typeの形式が、(binary, index, size)の場合は
+                   バイナリリードモードでオープンしたファイルから
+                   binary(バイト配列)にデータを読み込みます。
+                   fがバイナリ形式のファイルでないと負の整数が返ります。
+                   sizeの大きさだけ読み込めるとnullが、
+                   sizeより小さい大きさしか読み込めないと読み込んだバイト数が返ります。
+
+                   typeの形式が、("find", string)の場合は
+                   stringの文字列が現れるまで読み飛ばします。
+                   stringの文字列が見つかった場合は非nullが見つからなかった場合はnullが返ります。
+
+                   typeの形式が、("find", integer)の場合は
+                   integerの文字が現れるまで読み飛ばします。
+                   integerの文字が見つかった場合は非nullが見つからなかった場合はnullが返ります。
+
+    "csv"          カンマ「,」区切りのCSVファイルを一行読み込む。
+                   返り値の形式は、()-/col_number/=>value
+                   col_numberは1から。
+                   ファイルの終わりなら 1が返る。
+                   読み込みに失敗した場合は nullが返る。
+</PRE>
+typeが"graph"のとき読み込まれた文字列はal_gp("unique_str", ...)を通した<BR>
+ものになります。<BR>
+fがpipeのときで読み出すTokenがまだpipeに書き出されていない場合は、<BR>
+Windows版では制御が戻り、0x80000000を返し、<BR>
+Linux版では、読み出すTokenがすべてpipeに書き出されるまで制御が戻りません。<BR>
+
+<HR>
+<H3><A NAME="al_file_write">list al_file_write(file f, string type, any data);</A></H3>
+ファイルにデータを書き込むための関数です。<BR>
+書き込みに成功するとnullが返ります。<BR>
+DISKの空き容量がないなどの原因で書き込みに失敗するとnull以外の値が返ります。<BR>
+<PRE>
+    type           意味
+    "integer"      32bit-10進整数または可変長10進整数
+    "hex"          32bit-16進整数
+    "real"         64bit-浮動小数点実数
+    "char"         1文字
+    "string"       文字列
+    "quote_char"   引用符付き文字
+    "quote_string" 引用符付き文字列
+    "matrix"       ２次元の実数の配列
+    "list"         リストデータ
+    "tree"         木構造データ
+    "graph"        任意データ
+    "class"        クラスの派生クラスも含めたクラス情報（テキスト形式）
+    "member"       クラスの派生クラスも含めたメンバー情報（テキスト形式）
+    "body"         クラスの派生クラスも含めたボディ情報（テキスト形式）
+
+    リスト         バイナリライト/バイナリアペンドモードでオープンしたファイルへ
+                   binary(バイト配列)のデータを書き込みます。
+                   typeの形式は、(binary, index, size)で、dataにはnullを入れます。
+                   fがバイナリ形式のファイルでないと負の整数が返ります。
+                   sizeの大きさだけ書き込めるとnullが、
+                   sizeより小さい大きさしか書き込めないと書き込んだバイト数が返ります。
+
+    "csv"          カンマ「,」区切りのCSVファイルに一行書き出す。
+                   dataの形式は、()-/-/=>value
+</PRE>
+以下で作成したデータをtypeが"tree"で書き出すと
+<PRE>
+    var list n1, n2;
+    n1 = al_copy("Layout");
+    al_create_arc(n1, n2 = al_copy("Window1"), "name");
+    al_create_arc(n2, al_copy("sample.MainWindow"), "class");
+    al_create_arc(n2, al_copy("Hello!!"), "title");
+    al_create_arc(n2, al_list2(600, 400), "size");
+    al_create_arc(n1, n2 = al_copy("Button1"), "name");
+    al_create_arc(n2, al_copy("sample.Button"), "class");
+    al_create_arc(n2, al_copy("Push Me"), "title");
+    al_create_arc(n2, al_list2(100, 20), "size");
+</PRE>
+以下のようになります。
+<PRE>
+"Layout" {
+    "name"	"Window1" {
+        "class"	"sample.MainWindow"
+        "title"	"Hello!!"
+        "size"	(600, 400)
+    }
+    "name"	"Button1" {
+        "class"	"sample.Button"
+        "title"	"Push Me"
+        "size"	(100, 20)
+    }
+}
+</PRE>
+
+<HR>
+<H3><A NAME="al_file_manip">any al_file_manip(string command, any arg1, any arg2);</A></H3>
+ファイルを操作するための関数です。<BR>
+<PRE>
+    command            arg1          arg2        意味
+    "unput"            file(read)    文字数      ファイルの読み込み位置を文字数だけ戻す
+    "curr_pos"         file(read)    -           ファイルの現在の読み込み位置を取得
+    "back"             file(read)    位置        ファイルの読み込み位置を設定
+    "line_no"          file(read)    -           現在の行番号を返す
+    "flush"            file(write)   -           ファイルをフラッシュ
+
+    "get_dir"          -             -           カレントディレクトリの取得
+    "find_file"        ディレクトリ  name        エントリ名の取得
+                                                 nameで始まるエントリ名をすべて取得します。
+                                                 nameがnullの場合、すべてのエントリ名を取得します。
+    "does_exist"       エントリ      -           エントリが存在するか
+    "is_dir"           エントリ      -           エントリがディレクトリかどうか
+    "chg_dir"          ディレクトリ  -           カレントディレクトリの変更
+                                                     成功するとnullが返ります
+    "mk_dir"           ディレクトリ  -           ディレクトリの作成
+                                                     成功するとnullが返ります
+    "remove"           エントリ      -           エントリの削除
+                                                     成功するとnullが返ります
+    "rename"           現在の名前    新しい名前  エントリ名の変更
+                                                     成功するとnullが返ります
+    "copy"             ソースパス    デストパス  ファイルのコピー
+                                                     成功するとnullが返ります
+
+    "set_attrib"       パス          フラグ      ファイル属性の変更
+                                                     成功するとnullが返ります
+    "get_attrib"       パス          -           ファイル属性の取得
+    "set_datetime"     パス          時間        ファイルの日付時刻の変更
+                                                     成功するとnullが返ります
+    "get_datetime"     パス          -           ファイルの日付時刻の取得
+    "is_readonly"      パス          -           ファイルがリードオンリーかを返す
+    "set_readonly"     パス          フラグ      ファイルのリードオンリーの変更
+                                                 フラグはwritableにするなら非null、
+                                                 readonlyにするならnull。
+    "get_size"         パス          -           ファイルサイズの取得
+
+    "current_datetime" -             -           現在の日付時刻の取得
+    "get_dayofweek"    日付          -           日付から曜日の取得(1 日曜, 2 月曜, ... )
+
+    "tmp_dir"          -             -           TEMPディレクトリ名を取得します。
+    "tmp_file"         dir           -           一時ファイル名を取得します。
+
+    "get_code_type"    string       flag         flag == 0のとき、ファイル名stringのファイルの
+                                                 文字コードを判定します。
+                                                 flag == 1のとき、文字列stringの文字列の
+                                                 文字コードを判定します。
+                                                 戻り値は以下のstringです。
+                                                   NONE, JIS, SJIS, EUC,
+                                                   EUC_THAN_SJIS, EUC_OR_SJIS, UTF8_OR_SJIS
+</PRE>
+
+<HR>
+<H3><A NAME="al_file_match_str">list al_file_match_str(file f, string s);</A></H3>
+ファイルfから読み込んだ文字列が文字列sに一致したら1を返します。<BR>
+一致しなかったらnullを返し、この場合ファイルポインタは進みません。<BR>
+
+<HR>
+<H3><A NAME="al_strlen">integer al_strlen(string s);</A></H3>
+文字列sの長さを返します。<BR>
+２バイト文字は２と計算します。<BR>
+
+<HR>
+<H3><A NAME="al_get_char">integer al_get_char(string s, integer pos);</A></H3>
+文字列sのpos番目の文字コードを取り出します。<BR>
+
+<HR>
+<H3><A NAME="al_set_char">void al_set_char(string s, integer pos, integer c);</A></H3>
+文字列sのpos番目に文字コードcを代入します。<BR>
+<BR>
+注: この関数は文字列中の文字を変更するため、<BR>
+副作用があります。<BR>
+
+<HR>
+<H3><A NAME="al_substr">string al_substr(string s, integer from, integer to);</A></H3>
+文字列sのインデックスfromからtoまでの部分文字列を作成し返します。<BR>
+
+<HR>
+<H3><A NAME="al_match_str">list al_match_str(string s, integer pos, string s2);</A></H3>
+文字列sのpos番目からが文字列s2に一致するかどうか調べ、<BR>
+一致していなかったらnullが、一致していたら非nullが返ります。<BR>
+
+<HR>
+<H3><A NAME="al_tail_str">string al_tail_str(string s, integer pos);</A></H3>
+文字列sのpos番目から最後までの部分文字列を作成し返します。<BR>
+
+<HR>
+<H3><A NAME="al_insert_char">void al_insert_char(string s, integer pos, integer c);</A></H3>
+文字列sのpos番目と(pos+1)番目の間に文字コードcを挿入します。<BR>
+<BR>
+注: この関数は文字列中の文字を変更するため、<BR>
+副作用があります。<BR>
+
+<HR>
+<H3><A NAME="al_delete_char">void al_delete_char(string s, integer pos);</A></H3>
+文字列sのpos番目の文字コードを削除します。<BR>
+<BR>
+注: この関数は文字列中の文字を変更するため、<BR>
+副作用があります。<BR>
+
+<HR>
+<H3><A NAME="al_search_str">integer al_search_str(string s, integer pos, string s2);</A></H3>
+文字列sのpos番目から文字列s2を検索します。見つかった場合インデックスが<BR>
+見つからなかった場合-1が返ります。<BR>
+
+<HR>
+<H3><A NAME="al_replace_str">void al_replace_str(string s, integer from, integer to, string s2);</A></H3>
+文字列sのインデックスfromからtoまでの文字列をs2で指定される文字列に<BR>
+置き換えます。<BR>
+<BR>
+注: この関数は文字列中の文字を変更するため、<BR>
+副作用があります。<BR>
+
+<HR>
+<H3><A NAME="al_append_str">string al_append_str(string s1, string s2);<BR>
+or<BR>
+string al_append_str(string s1, integer ch);</A></H3>
+第2引数が文字列の時は文字列s1の後に文字列をs2追加し、その文字列を返します。<BR>
+第2引数が整数の時は文字列s1の後にchを文字として追加し、その文字列を返します。<BR>
+<BR>
+注: この関数は文字列を変更するため、副作用があります。<BR>
+返る値は文字列の足し算と同じですが、文字列オブジェクトを新しく生成しないため、<BR>
+この関数は文字列の足し算よりも高速です。<BR>
+
+<HR>
+<H3><A NAME="al_is_first_char">list al_is_first_char(integer c);</A></H3>
+文字コードcが２バイト文字の１文字目なら非nullを返し、そうでないなら<BR>
+nullを返します。<BR>
+
+<HR>
+<H3><A NAME="al_is_normal_char">list al_is_normal_char(integer c);</A></H3>
+文字コードが0x20から0x7eまでなら非nullが、そうでないならnullが返ります。<BR>
+
+<HR>
+<H3><A NAME="al_str_misc">any al_str_misc(string cmd, any arg1, any arg2);</A></H3>
+<PRE>
+  cmd              arg1        arg2     意味
+  "is_empty"       文字列      -        文字列がスペース、タブ、改行だけの場合非null、そうでないときnullを返します。
+  "starts_with"    文字列１    文字列２ 文字列１が文字列２で始まるとき非null、そうでないときnullを返します。
+  "ends_with"      文字列１    文字列２ 文字列１が文字列２で終わるとき非null、そうでないときnullを返します。
+  "trim"           文字列      -        文字列の末尾の空白を削除した文字列を返します。
+
+  "strcmp"         文字列１    文字列２ 大文字/小文字を区別して文字列の比較を行います。
+                                        等しければ0が返ります。
+  "strcmpi"        文字列１    文字列２ 大文字/小文字を区別しないで文字列の比較を行います。
+                                        等しければ0が返ります。
+
+  "to_upper"       文字列      -        文字列中の小文字を大文字にした文字列を返します。
+  "to_lower"       文字列      -        文字列中の大文字を小文字にした文字列を返します。
+  "is_alpha"       文字        -        文字がアルファベットなら1を返します。
+  "is_digit"       文字        -        文字が数字なら1を返します。
+
+  "is_ident"       文字列      -        識別子として使える文字列かどうかを返します。
+                                        ( [A-Z|a-z|_|2バイト文字][A-Z|a-z|0-9|_|2バイト文字]* )
+
+  "file_ext"       ファイル名  -        ファイル名の拡張子を返します。
+  "dir_of_path"    文字列      デリミタ 文字列をデリミタで区切ったときの
+                                        文字列の先頭から最後のデリミタの前までの文字列を返します。
+                                        デリミタを省略すると"/"が使われます。
+                                        文字列にデリミタが含まれない場合"."が返ります。
+  "name_of_path"   文字列      デリミタ 文字列をデリミタで区切ったときの
+                                        最後のデリミタの後から文字列の最後までの文字列を返します。
+                                        デリミタを省略すると"/"が使われます。
+                                        文字列にデリミタが含まれない場合同じ文字列が返ります。
+  "split"          文字列      文字　　 文字列を文字(デリミッタ)で分割し、
+                                       「(null)-/-/=>要素文字列」を返します。
+                                        デリミッタが続けて現れた場合は１つのデリミッタとみなします。
+  "chg_delimiter"  文字列 (文字1,文字2) 文字列中の文字1を文字2に置き換えた文字列を返します。
+
+  "u_to_d"         string      -        文字列中の改行コードLFをCR/LFに変換した文字列を返します。
+  "d_to_u"         string      -        文字列中の改行コードCR/LFをLFに変換した文字列を返します。
+
+  "jis_to_sjis"    string      -        文字列中のJIS日本語コードをSJISに変換した文字列を返します。
+                                        日本語コードが含まれていない場合はnullが返ります。
+  "sjis_to_jis"    string      -        文字列中のSJIS日本語コードをJISに変換した文字列を返します。
+                                        日本語コードが含まれていない場合はnullが返ります。
+  "euc_to_sjis"    string      -        文字列中のEUC日本語コードをSJISに変換した文字列を返します。
+                                        日本語コードが含まれていない場合はnullが返ります。
+  "sjis_to_euc"    string      -        文字列中のSJIS日本語コードをEUCに変換した文字列を返します。
+                                        日本語コードが含まれていない場合はnullが返ります。
+
+  "utf8_to_sjis"   string      -        文字列中のUTF8日本語コードをSJISに変換した文字列を返します。
+                                        日本語コードが含まれていない場合はnullが返ります。
+  "sjis_to_utf8"   string      -        文字列中のSJIS日本語コードをUTF8に変換した文字列を返します。
+                                        日本語コードが含まれていない場合はnullが返ります。
+  "utf8_to_euc"    string      -        文字列中のUTF8日本語コードをEUCに変換した文字列を返します。
+                                        日本語コードが含まれていない場合はnullが返ります。
+  "euc_to_utf8"    string      -        文字列中のEUC日本語コードをUTF8に変換した文字列を返します。
+                                        日本語コードが含まれていない場合はnullが返ります。
+
+  "zen_to_han"     string      -        文字列中の全角のアルファベット/記号を半角に変換した文字列を返します。
+  "han_to_zen"     string      -        文字列中の半角のアルファベット/記号を全角に変換した文字列を返します。
+
+  "param_to_string" string     -        WebブラウザからGET/POSTするときに日本語コードが
+                                        %でエスケープされたパラメータを
+                                        エスケープをはずした文字列にして返します。
+
+  "xml_encode"     string      opt      optが整数でbit0が1なら、文字列中の 「&amp;」を「&amp;amp;」に、
+                                       「&lt;」を「&amp;lt;」に、「&gt;」を「&amp;gt;」に、optが整数でbit1が1なら、
+                                        文字列中の 「"」を「&amp;quot;」に変えた文字列を返します。
+  "xml_decode"     string      opt      optが整数でbit0が1なら、文字列中の 「&amp;amp;」を「&amp;」に、
+                                       「&amp;lt;」を「&lt;」に、「&amp;gt;」を「&gt;」に、optが整数でbit1が1なら、
+                                        文字列中の 「&amp;quot;」を「"」に変えた文字列を返します。
+
+  "to_quote_string" string     -        文字列中の 「\」を「\\」に、TABを「\t」に、CRを「\r」に、
+                                        LFを「\n」に、「"」を「\"」に変えた文字列を返します。
+  "to_single_quote_string" string  -    文字列中の 「'」を「''」に変えた文字列を返します。
+
+  "to_csv_string"  string       -       文字列中に「,」または「"」があったら全体を「"」でくくり、
+                                        字列中の「"」は「""」に変えた文字列を返します。
+                                        （CSVファイルを作成するために使用）
+
+  "make_str_uniq"  グラフ       -       Altairでは、文字列をクイックソートし、文字列比較をアドレス比較しています。
+                                        データ中に現れる文字列をソートし、同じ文字列は同じオブジェクトになるようにします。
+</PRE>
+
+<HR>
+<H3><A NAME="al_xml">any al_xml(string cmd, any arg1, any arg2, any arg3);</A></H3>
+XML形式のファイルの処理を行います。<BR>
+<PRE>
+  cmd        arg1            arg2            arg3   意味
+　"parse"    file            opt1            opt2   XML形式ファイルからパースツリーを作成
+  "generate" file            parse_tree      opt    パースツリーからXML形式ファイルを生成
+  "xslt"     xsl_parse_tree  xml_parse_tree  file   簡易XSLTプロセッサを実行し出力
+</PRE>
+
+"parse"では(parse_tree, error)のリストが返ります。<BR>
+成功した場合はerrorにnullが返ります。<BR>
+"generate"では、成功したらnullが返ります。<BR>
+
+<PRE>
+パースツリーの構造
+
+○ 基本構造
+ &lt;body&gt; = (1)-/"!comment"/=>comment_text
+             -/tag_id/=&gt;&lt;tag&gt;
+             -/"!text"/=&gt;text
+
+ &lt;tag&gt; = (2)-/param_id/=&gt;(param_value)
+            -/"!body"/-&gt;&lt;body&gt;
+
+○ ネームスペース
+ tag_id-/namespace_prefix/-&gt;(namespace_url)
+ param_id-/namespace_prefix/-&gt;(namespace_url)
+</PRE>
+
+opt1, opt2に特定のシグニチャのメソッドを持つクラスのオブジェクトを渡すと、<BR>
+パースツリーを作成せずにそのメソッドが呼ばれるようにすることもできます。<BR>
+<BR>
+<A HREF ="xml.html">詳細</A><BR>
+
+<HR>
+<H3><A NAME="al_prof">any al_prof(string cmd, any arg1, any arg2);</A></H3>
+性能測定のための関数です。<BR>
+<PRE>
+  cmd        arg1     arg2         意味
+  "clear"    name      -           nameで識別されるプロファイリングの設定および結果を消去します。
+  "set"      name     method_list  nameで識別されるプロファイリング対象をセットします。
+                                   method_listの形式は以下です。
+                                   ()-/-/=>info
+                                   infoの形式は以下のいずれかです。
+                                       class_name                 そのクラスの全メソッドが対象。
+                                       (class_name, method_name)  指定されたメソッドが対象。
+                                   method_listがnullの場合は、全メソッドが対象になります。
+  "start"    name     prof_opt     nameで識別されるプロファイリングを開始します。
+                                   prof_optの形式は以下です。
+                                     (1, null)      通常のプロファイル。
+                                     (2, filename)  ファイルにメソッドに入った、抜けたのログを出力。
+                                                    filenameがnullでアウトプットウインドウの出力を
+                                                    ファイルに出力するモードだったら、そのファイルに
+                                                    メソッドに入った、抜けたのログを出力。
+                                                    通常のプロファイルは行わない。
+                                     (3, filename)  通常のプロファイルを行うと同時に
+                                                    ファイルにメソッドに入った、抜けたのログを出力。
+                                                    filenameがnullでアウトプットウインドウの出力を
+                                                    ファイルに出力するモードだったら、そのファイルに
+                                                    メソッドに入った、抜けたのログを出力。
+  "stop"     name      -           nameで識別されるプロファイリングを終了します。
+  "result"   name     opt          nameで識別されるプロファイリングの結果を取得します。
+                                   結果は以下の形式です。
+                                   ()-/-/=>(class_name, method_name, count, total_time, average_time)
+                                   optに以下の整数が入っていると以下の項目で結果をsortします。
+                                      3  count
+                                      4  total_time
+                                      5  average_time
+</PRE>
+countは、そのメソッドが呼ばれた回数です。<BR>
+total_timeは、そのメソッドに入ってから抜けるまでの時間の累積です。<BR>
+average_timeは、total_timeをcountで割ったものです。<BR>
+（timeは、そこから呼ばれる関数でかかった時間も含んでいます。<BR>
+  単純にtotal_timeを合計すると実際にかかった時間よりも大きくなります。<BR>
+  このプロファイリング機能は、独立な関数(片方がもう片方を呼び出すことがない関数)同士の<BR>
+  それらの関数でかかった時間の比較に向いています。<BR>
+  timeの単位は msecです。）<BR>
+<BR>
+注：プロファイリングの対象になった関数と関数名が同じで引数が異なる関数があった場合、<BR>
+その関数もプロファイリングの対象となり、プロファイリングの結果に同じ関数名の項目が<BR>
+複数表れます。現れる順番は、sortしていない場合はメンバーウィンドウに表示される順番になりますが、<BR>
+sortしてあると、どちらがどちらに対応するか分かりません。<BR>
+
+<HR>
+<H3><A NAME="al_socket">any al_socket(string cmd, any arg1, any arg2, any arg3);</A></H3>
+TCP/IPおよびUDPで通信するための関数です。<BR>
+<PRE>
+  cmd              arg1        arg2      arg3   意味
+  "is_available"   -           -         -      ソケット機能が使用可能かを返す。
+  "get_last_error" (socket_id) -         -      エラー情報を返す。
+
+  "gethostname"    -           -         -      ローカルマシンのホスト名を取得。
+
+  "gethostbyname"  hostname    -         -      ホスト名からIPアドレスを取得。
+                                                失敗するとnullが返る。
+  "bcast_address"  -           -         -      ブロードキャストIPアドレスの取得。
+                                                失敗するとnullが返る。
+  "ping"           addr        -         -      指定されたIPアドレスを１回 Ping する。
+                                                戻り値の形式は、(読んだバイト数、ミリ秒単位の応答時間)。
+                                                エラーが発生すると文字列が返る。
+
+  "getsockname"    socket_id   -         -      ソケットのIPアドレスとポート番号の取得。
+                                                戻り値の形式は、(ip_addr, port)。
+                                                失敗するとnullが返る。
+  "getpeername"    socket_id   -         -      相手側ソケットのIPアドレスとポート番号の取得。
+                                                戻り値の形式は、(ip_addr, port)。
+                                                失敗するとnullが返る。
+
+  "address_string" addr        -         -      IPアドレスをXXX.XXX.XXX.XXXの形式した文字列を返す。
+
+  "socket"         type        files     opt    type/files/optがnullの場合、TCP/IPソケットを作成し、
+                                                そのsocket_idを返す。
+                                                作成に失敗するとnullを返す。<BR>
+
+                                                typeが"SSL"の場合、SSLのTCP/IPソケットを作成し、
+                                                そのsocket_idを返す。
+                                                filesは鍵関係のファイル群を指定し、
+                                                optはOpenSSLの使用する暗号を指定する。
+
+                                                filesの形式は、クライアントソケットの場合は
+                                                (clientCert, clientKey, caCert, serverAuth)。
+                                                サーバソケットの場合は、
+                                                (serverCert, serverKey, caCert, clientAuth, dhParam)。
+                                                clientCert/serverCertは、公開鍵証明書ファイル名、
+                                                clientKey/serverKeyは、秘密鍵ファイル名、
+                                                caCertは、CAの公開鍵証明書ファイル名。
+                                                serverAuthは、サーバー認証する場合は 1、しない場合は 0。
+                                                clientAuthは、クライアント認証する場合は 1、しない場合は 0。
+                                                dhParamは、Diffie-Hellmanパラメータファイル名。
+                                                （不要なところはnullで構わない。）
+
+                                                optはnullだとOpenSSLの全種類の暗号が使用可能。
+                                                OpenSSLのs_serverのオプション -cipherで指定する文字列を
+                                                入れる。"MEDIUM"を入れると暗号強度が128bitになり、
+                                                これ未満の強度の暗号は使えなくなる。
+
+  "verify_depth"   depth       -         -      SSLでCAの署名検証をする場合の証明書連鎖の深さの設定/取得を行います。
+                                                depthがnullのときは設定してある深さが返ります。
+                                                depthがintegerのときはその深さに設定されます。
+                                                depthが0のときはルートCAの署名だけが許され、
+                                                depthがnのときはn個までの中間CAの連鎖が許されます。
+                                                depthのデフォルトは1で、中間CAが1つの証明書が使えます。
+
+  "cert_info"      socket_id   -         -      SSLソケットの接続相手側の公開鍵証明書の情報の取得。
+                                                戻り値の形式は、(subject, issuer)。失敗するとnull。
+                                                subjectの形式は、(CN, C, L, ST, O, OU, notBefore, notAfter)。
+                                                issuerの形式は、(CN, C, L, ST, O, OU)。
+                                                   CN ... CommonName
+                                                   C  ... ContryName
+                                                   L  ... LocalityName
+                                                   ST ... StateOrProvinceName
+                                                   O  ... OrganizationName
+                                                   OU ... OrganizationalUnitName
+                                                notBefore, notAfterの形式は、(yyyy, MM, dd, hh, mm, ss)。
+                                                notAfterは証明書がExpireする日時。
+
+  "dgram_socket"   -           -         -      UDPソケットを作成し、そのsocket_idを返す。
+
+  "close"          socket_id   -         -      ソケットをクローズ。
+
+  "bind"           socket_id   addr_port -      ソケットにIPアドレス、ポート番号をbind。
+                                                addr_portの形式は、(ip_addr, port)。
+                                                成功するとnullが返る。
+
+  "listen"         socket_id   -         -      ソケットでlisten。
+                                                成功するとnullが返る。
+
+  "accept"         socket_id   opt       -      optがnullの場合、acceptしたソケットを返す。
+                                                SSLサーバソケットの場合、SSL_acceptも行う。
+                                                acceptするまで制御が戻らない。
+
+                                                optが(hwnd, msg)の場合、
+                                                別スレッドまたはselectでacceptを待ち、
+                                                acceptしたらhwndにメッセージmsgをPostする。
+                                                (メッセージがPostされるまえに続けて呼ぶと
+                                                 エラーになる。)
+                                                成功するとnullが返る。
+                                                wParamは、listenしているソケットのsocket_id、
+                                                lParamは、acceptしたソケットのsocket_id。
+
+  "connect"       socket_id   addr_port timeout ソケットをIPアドレス、ポート番号にconnect。
+                                                addr_portの形式は、(ip_addr, port)。
+                                                成功するとnullが返る。
+                                                SSLクライアントの場合は、別途"SSL_connect"を行う。
+                                                timeoutに非負整数を入れるとミリ秒単位でタイムアウトする。
+                                                timeoutがnullの場合はタイムアウトなし。
+
+  "SSL_connect"    socket_id   -         -      SSL_connectを行う。
+                                                成功するとnullが返る。
+
+  "send"           socket_id   buffer    opt    optがnullの場合、bufferからデータを送信。
+                                                bufferの形式は、(binary, index, size)または文字列。
+                                                成功するとnullが返る。
+                                                sendするまで制御が戻らない。
+
+                                                optが(hwnd, msg)の場合、
+                                                別スレッドまたは別プロセスでsendし、
+                                                sendしたらhwndにメッセージmsgをPostする。
+                                                （メッセージがPostされるまえに続けて呼ぶと
+                                                エラーになる。）
+                                                成功するとnullが返る。
+                                                wParamは、sendで使ったソケットのsocket_id、
+                                                lParamは、成功したらsendしたバイト数、
+                                                失敗したら負の数。
+
+  "recv"           socket_id   buffer    opt    optがnullの場合、bufferにデータを受信。
+                                                bufferの形式は、(binary, index, size)。
+                                                成功すると読み込んだバイト数が返る。
+                                                失敗するとnullが返る。
+                                                recvするまで制御が戻らない。
+
+                                                optが(hwnd, msg)の場合、
+                                                別スレッドまたはselectでrecvし、
+                                                recvしたらhwndにメッセージmsgをPostする。
+                                                （メッセージがPostされるまえに続けて呼ぶと
+                                                エラーになる。）
+                                                成功するとnullが返る。
+                                                wParamは、recvしているソケットのsocket_id、
+                                                lParamは、成功したらrecvしたバイト数、
+                                                失敗したら負の数。
+
+                                                optが(hwnd, msg, 1)の場合、
+                                                '\n'があるところまで読み込む。
+                                                読み込んだ内容には'\n'は含まれない。
+                                                sizeは無視され、bufferのサイズが足らなかったら
+                                                bufferのサイズが拡張される。
+                                                
+                                                optが(hwnd, msg, 2)の場合、
+                                                "\r\n\r\n"があるところまで読み込む。
+                                                読み込んだ内容に"\r\n\r\n"は含まれる。
+                                                sizeは無視され、bufferのサイズが足らなかったら
+                                                bufferのサイズが拡張される。
+
+                                                optが(hwnd, msg, 3, size2)の場合、
+                                                size2文字読み込む。
+                                                sizeは無視され、bufferのサイズが足らなかったら
+                                                bufferのサイズが拡張される。
+
+  "setsockopt"     socket_id   sock_opt  value  ソケットオプションの設定。
+                                                sock_optは次のいずれか。
+                                                    "SO_BROADCAST"
+
+  "sendto"         socket_id   addr_port buffer ソケットからaddr_portへsendtoでデータを送信。
+                                                addr_portの形式は、(ip_addr, port)。
+                                                bufferの形式は、(binary, index, size)または文字列。
+                                                成功するとnullが返る。
+
+  "recvfrom"       socket_id   buffer    opt    optがnullの場合、bufferにrecvfromでデータを受信。
+                                                bufferの形式は、(binary, index, size)。
+                                                成功すると読み込んだバイト数が返る。
+                                                失敗するとnullが返る。
+                                                recvするまで制御が戻らない。
+
+                                                optが(hwnd, msg)の場合、
+                                                別スレッドまたはselectでrecvfromし、
+                                                recvfromしたらhwndにメッセージmsgをPostする。
+                                                (メッセージがPostされるまえに続けて呼ぶと
+                                                エラーになる。）
+                                                成功するとnullが返る。
+                                                wParamは、recvfromしているソケットのsocket_id、
+                                                lParamは、成功したらrecvfromしたバイト数、
+                                                失敗したら負の数。
+
+  "accept_que"     socket_id   opt       -      optの形式は、(hwnd, msg)。acceptキューを作成し、
+                                                別スレッドまたはselectでacceptを待つ。
+                                                SSLサーバソケットの場合、SSL_acceptも行う。
+                                                成功するとnullが返る。
+                                                acceptしたら、キューにデータを置いて
+                                                hwndにメッセージmsgをPostする。
+                                                クローズされるまでacceptを続ける。
+                                                wParamは、listenしているソケットのsocket_id、
+                                                lParamは0。
+
+  "recv_que"       socket_id   opt       -      optの形式は、(hwnd, msg)。
+                                                recvキューを作成し、別スレッドでrecvする。
+                                                成功するとnullが返る。
+                                                recvしたら、キューにデータを置いて
+                                                hwndにメッセージmsgをPostする。
+                                                ソケットがクローズするまでrecvを続ける。
+                                                wParamは、recvしているソケットのsocket_id、
+                                                lParamは0。
+                                                受け取れるデータは、
+                                                "put_msg"で"send_que"に置いたもののみ。
+
+  "send_que"       socket_id   -         -      sendキューを作成し、別スレッドまたはIdle状態時に
+                                                キューにデータがある間はデータを送信し続ける。
+                                                スレッドはソケットがクローズするまで停止しない。
+
+  "get_socket"     socket_id   -         -      acceptキューからacceptしたソケットの
+                                                socket_idを取得。
+                                                キューのデータは削除される。
+                                                キューが空の場合はnullが返る。
+                                                acceptでエラーが発生した場合は負の整数が返る。
+
+  "get_msg"        socket_id   -         -      recvキューからrecvしたデータを取得。
+                                                キューのデータは削除される。
+                                                キューが空の場合はnullが返る。
+                                                取得されるデータは、"put_msg"で置かれたデータが
+                                                    文字列なら文字列、
+                                                    バイナリならバイナリ( 形式は binary )。
+
+  "put_msg"        socket_id   data      -      sendキューにデータを置く。置けるデータは
+                                                    文字列 および
+                                                    バイナリ( 形式は(binary, index, size) )。
+</PRE>
+
+<HR>
+<H3><A NAME="al_crypt">any al_crypt(string cmd, any arg1, any arg2, any arg3);</A></H3>
+暗号・認証等に使用する関数です。<BR>
+<PRE>
+   cmd                   arg1        arg2       arg3      意味
+  "generate_keypair"     algorithm   key_spec   -         公開鍵暗号の鍵ペアを生成して返します。
+
+  "encrypt_init"         algorithm   key        block     暗号化を行うためのコンテキストを初期化して返します。
+  "encrypt"              context     src        dst       平文を暗号化します。
+  "encrypt_final"        context     -          -         コンテキストを開放し、暗号化を終了します。
+
+  "decrypt_init"         algorithm   key        size      復号化を行うためのコンテキストを初期化して返します。
+  "decrypt"              context     src        dst       暗号文を復号化した平文を返します。
+  "decrypt_final"        context     -          -         コンテキストを開放し、復号化を終了します。
+
+  "digest_init"          algorithm   -          -         メッセージダイジェストを計算するコンテキストを初期化して返します。
+  "digest_update"        context    data        -         メッセージダイジェスト計算します。
+  "digest_final"         context    -           -         コンテキストを開放し、メッセージダイジェストを返します。
+
+  "smime_encrypt"        in         out         files     SMIMEの暗号化を行います。
+  "smime_decyrypt"       in         out         files     SMIMEの暗号の復号化を行います。
+  "smime_sign"           in         out         files     SMIMEの署名を行います。
+  "smime_verify"         in         null        files     SMIMEの署名検証を行います。
+
+  "mime_headers_read"    in         -           -         Mimeヘッダーを読み込み内部データを作成して返します。
+  "mime_headers_write"   headers,   out         -         Mimeヘッダーの内部データのテキストを作成して返します。
+  "remove_header"        headers    type        -         Mimeヘッダーから指定された名前のものを除いて返します。
+  "add_header"           headers    line        -         Mimeヘッダーに指定されたものを追加して返します。
+  "get_header"           headers    type        -         Mimeヘッダーから指定された名前の値を返します。
+
+  "mime_multipart_read"  in         headers     -         MimeMultipartを読み込み内部データを作成します。
+  "mime_multipart_write  data       out         -         Multipartの内部データを書き出します。
+
+  "base64_encode"        in         out         -         base64のエンコードを行います。
+  "base64_decode"        in         out         -         base64のデコードを行います。
+
+  "random"               n          -           -         0-9とA-Zだけで構成されたランダムな文字列を返します。
+
+  "simple_encrypt"       key        infile      outfile   独自共通鍵暗号で暗号化したファイルを作成します。
+  "simple_decrypt"       key        infile      outfile   独自共通鍵暗号で暗号化されたファイルの複合化ファイルを作成します。
+</PRE>
+
+<A HREF ="crypt.html">詳細</A><BR>
+
+<HR>
+<H3><A NAME="al_sql">any al_sql(string cmd, any arg1, any arg2, any arg3, any arg4);</A></H3>
+リレーショナルDBにSQLでDBアクセスするための関数です。<BR>
+<PRE>
+  cmd           arg1           arg2        arg3        arg4   意味
+  "connect"     接続情報       dbType      -           -      DB接続を行いそのコネクションの作成。
+  "statement"   コネクション   -           -           -      SQLステートメントの作成。
+  "prepare"     ステートメント SQL文       -           -      SQL文の準備。
+  "execute"     ステートメント (SQL文)     値の集合    -      SQL文の実行。
+  "result"      ステートメント 型の集合    -           -      SQL文の実行結果の取得。
+  "commit"      コネクション   -           -           -      コミットを実行。
+  "rollback"    コネクション   -           -           -      ロールバックを実行。
+  "finalize"    -              -           -           -      クライアントの環境の終了処理
+  "col_names"   ステートメント -           -           -      DBテーブルのカラム名の取得。
+  "col_types"   ステートメント -           -           -      DBテーブルのカラムの型/桁数/NOT-NULL制約の取得。
+</PRE>
+
+<A HREF ="sql.html">詳細</A><BR>
+
+<HR>
+<H3><A NAME="al_solid">any al_solid(string cmd, any arg1, any arg2, any arg3, any arg4);</A></H3>
+ソリッドモデリング用関数です。<BR>
+
+<PRE>
+  cmd            arg1      arg2      arg3      arg4   意味
+  "block"        x         y         z         -      立方体を返します。
+  "cylinder"     半径      高さ      近似数    -      円柱を返します。
+  "cone"         半径      高さ      近似数    -      円錐を返します。
+  "sphere"       半径      近似数１  近似数２  -      球を返します。
+  "trans"        x         y         z                平行移動の４×４の行列を返します。
+  "rot_x"        角度      -         -         -      x軸の回りの回転移動の４×４の行列を返します。
+  "rot_y"        角度      -         -         -      y軸の回りの回転移動の４×４の行列を返します。
+  "rot_z"        角度      -         -         -      z軸の回りの回転移動の４×４の行列を返します。
+  "transform"    行列      形状      -         -      行列で座標変換した形状を返します。
+  "union"        形状１    形状２    -         -      ２つの形状の和を取ります。
+  "intersection" 形状１    形状２    -         -      ２つの形状の積を取ります。
+  "minus"        形状１    形状２    -         -      ２つの形状の差を取ります。
+  "view"          -        -         -         -      ビューを作成して返します。
+  "view_org"      ビュー   x         y         -      ビューの原点を指定します。
+  "view_lookat"   ビュー   x         y         z      ビューの見る対象点を指定します。
+  "view_lookfrom" ビュー   x         y         z      ビューの目の位置の点を指定します。
+  "view_lookup"   ビュー   x         y         z      ビューの上方向を指定します。
+  "draw"        ウィンドウ ビュー    形状      opt    形状をウィンドウに表示します。
+  "dump"        形状       -         -         -      形状データをダンプします。
+</PRE>
+
+<HR>
+<H3><A NAME="al_jp_ana">any al_jp_ana(string cmd, any arg1, any arg2, any arg3, any arg4);</A></H3>
+JUMAN/KNPを使った日本語自然言語処理関数です。<BR>
+
+<PRE>
+  cmd            arg1      arg2      arg3      arg4   意味
+  "juman_init"   dic_dir   -         -         -      （Windows）形態素解析のための辞書の読み込みと初期化をします。
+                                                      dic_dirには辞書のディレクトリを指定します。
+  "juman_init"   rc_dir    -         -         -      （Linux）形態素解析のための辞書の読み込みと初期化をします。
+                                                      rc_dirにはファイル jumanrc のあるディレクトリを指定します。
+  "juman_close"  -         -         -         -      形態素解析で使用したリソースを開放します。
+  "juman_ana"    infile    outfile   -         -      形態素解析を行います。
+                                                      infileで指定した名前のテキストファイルを読み込んで解析し、
+                                                      outfileで指定した名前のテキストファイルに形態素解析結果を書き込みます。
+                                                      フォーマットは JUMAN のデフォルトです。
+  "knp_init"     dic_dir   rule_dir  -         -      （Windows）構文解析のための辞書およびルールの読み込みと初期化をします。
+                                                      dic_dirには辞書のディレクトリを指定します。
+                                                      rule_dirにはルールのディレクトリを指定します。
+  "knp_init"     rc_dir    -         -         -      （Linux）構文解析のための辞書およびルールの読み込みと初期化をします。
+                                                      rc_dirにはファイル knprc のあるディレクトリを指定します。
+  "knp_close"    -         -         -         -      構文解析で使用したリソースを開放します。
+  "knp_ana"      infile    outfile   -         -      構文解析を行います。
+                                                      infileで指定した名前の形態素解析結果のテキストファイルを読み込んで解析し、
+                                                      outfileで指定した名前のテキストファイルに構文解析結果を書き込みます。
+                                                      フォーマットは KNP のデフォルトです。
+</PRE>
+
+<HR>
+<H3><A NAME="al_symbol_manip">any al_symbol_manip(string cmd, any arg1, any arg2, any arg3, any arg4);</A></H3>
+汎用パーサー・汎用ジェネレータ・汎用グラフデータ操作です。<BR>
+
+<PRE>
+  cmd               arg1    arg2             arg3        arg4  意味
+  "compile_syntax"  syntax  -                -           opt   syntaxで定義された文法を内部表現に変換してlist型を返します。
+                                                               syntaxの型は読み込みのfileです。
+                                                               変換エラーの場合、stringが返ります。
+
+  "parse"           input   compiled_syntax  id          opt   内部表現になった文法compiled_syntaxを用いてinputをパースし、
+                                                               パースツリーをlist型で返します。
+                                                               inputの型は読み込みのfileです。
+                                                               パースエラーの場合、エラー情報を含むstringが返ります。
+  "generate"        output  compiled_syntax  parse_tree  opt   内部表現になった文法compiled_syntaxとパースツリーparse_treeから
+                                                               parseで同じパースツリーが生成されるテキストを生成してoutputに書き込みます。
+                                                               outputの型は書き込みのfileです。
+                                                               テキスト生成エラー場合、エラー情報を含むstringが返ります。
+                                                               エラーのない場合は nullが返ります。
+  "out_syntax_unit" output  compiled_syntax  -           -     内部表現になった文法compiled_syntaxからそれに含まれる単位構文の情報を
+                                                               outputの書き込みのfile型ファイルに出力します。
+
+  "plisp_load"      env     plisp_tree       -           -     prologライクのリスト処理言語のパーズツリー plisp_tree を
+                                                               ランタイム環境 env にロードし、新しいランタイム環境 env を返します。
+                                                               または、prologプログラムの parse_tree をロードして
+                                                               ランタイム環境 env にロードし、新しいランタイム環境 env を返します。
+                                                               引数の env が null だったら env が新しく作られます。
+  "plisp_call"      env     function_name    arg_list    opt   ランタイム環境 env で、関数名 function_name の関数を、
+                                                               引数リスト arg_list で実行し、結果を返します。
+                                                               エラーが発生した場合、エラー情報を含む AlException が throw されます。
+  "set_var"         env     name             value       -     altair側からprologライクのリスト処理言語側にデータを渡すための関数です。
+                                                               plisp_call中で ifndef_def_var(name) されていなかったらして
+                                                               set_var(name, value) するのと同じです。
+  "get_var"         env     name             -           -     prologライクのリスト処理言語側からaltair側にデータを渡すための関数です。
+                                                               plisp_call中の get_var(name) するのと同じす。
+
+  "prolog_exec"     env     -                -           opt   prologプログラムを実行します。
+                                                               成功した場合は null が、失敗した場合は 1 が返ります。
+                                                               prologライクのリスト処理言語で定義して環境envにロードしてある関数が、
+                                                               prologプログラム中で使えます。
+  "clear_query"     env     -                -           -     ロードしたprologプログラムのうち、HeadとBodyからなるRuleはそのままにして
+                                                               GoalだけからなるQueryをランタイム環境 env から削除します。
+  "clear_pred"      env     -                -           -     ロードしたprologプログラムのうち、GoalだけからなるQueryはそのままにして
+                                                               HeadとBodyからなるRuleをランタイム環境 env から削除します。
+  "ls_pred"         env     -                -           -     ロードしたprologプログラムのうち、定義された述語の一覧を返します。
+
+  "plisp_max_call"  count   -                -           -     prologライクのリスト処理言語の関数コールの最大ネスト数を設定します。
+                                                               この値を超えると stack overflow の例外が発生します。デフォルトは、1024です。
+  "prolog_max_call" count   -                -           -     prologプログラムで述語を展開する最大ネスト数を設定します。
+                                                               この値を超えると stack overflow の例外が発生します。デフォルトは、1024です。
+
+</PRE>
+<A HREF ="symbol_manip.html">詳細</A><BR>
+
+<HR>
+<H3><A NAME="al_misc">any al_misc(string cmd, any arg1, any arg2);</A></H3>
+<PRE>
+  cmd              arg1       arg2     意味
+  "binary"           size     -        大きさがsizeのbinary(バイト配列)を作成し返します。
+  "binary_size"      binary   -        binary(バイト配列)の大きさを返します。
+  "extend_binary"    binary   size     binary(バイト配列)の大きさをsizeだけ増やします。
+  "binary_copy"      arg1     arg2     binary(バイト配列)にデータをコピーします。
+                                       arg1の形式は、(dst_binary, dst_index)、
+                                       arg2の形式は、(src_binary, src_index, src_size)または
+                                       src_stringです。
+  "binary_to_string" arg1     -        binary(バイト配列)を文字列に変換します。
+                                       arg1の形式は、(binary, index, size)です。
+  "binary_search_str" arg1    str      binary(バイト配列)から文字列strを検索します。
+                                       見つかった場合インデックスが
+                                       見つからなかった場合-1が返ります。
+                                       arg1の形式は、(binary, index)です。
+  "get_byte"         arg1     -        binary(バイト配列)から1バイト、整数として取りだします。
+                                       arg1の形式は、(binary, index)です。
+  "put_byte          arg1     integer  binary(バイト配列)に1バイト書きこみます。
+                                       arg1の形式は、(binary, index)です。
+
+  "integer_size"     integer  -        整数のバイト数を返します。
+
+  "gcd"              arg1     arg2     ２つの整数の最大公約数を返します。
+
+  "random"           -        -        乱数を生成して返します。
+                                       戻り値は0以上32767以下の範囲の整数です。
+
+  "sort"             arg1     arg2     ()-/-/=>()の形式の高さ１のツリーをソートしたものを返します。
+                                       arg1にはソート前の高さ１のツリーを入れます。
+                                       arg2は(level, reverse)を入れ、
+                                       levelが0ならばアークデストそのものの値をキーとして使用し、
+                                       levelがn(>0)ならばアークデストはリストでそのn番目の要素を
+                                       キーとします。reverseは0なら昇順、1なら降順になります。
+
+  "get_time"       -        -          万国標準時の1970年1月1日の00:00:00からの経過時間を
+                                       秒単位で表した数値を返します。
+  "get_localtime"  time     -          万国標準時の1970年1月1日の00:00:00からの経過時間を
+                                       (年、月、日、時間、分、秒)の形式のローカルタイムにしたもの返します。
+  "get_gmtime"     time     -          万国標準時の1970年1月1日の00:00:00からの経過時間を
+                                       (年、月、日、時間、分、秒)の形式のローカルタイムにしたもの返します。
+  "get_mktime"     datetime -          (年、月、日、時間、分、秒)の形式のローカルタイムを
+                                       万国標準時の1970年1月1日の00:00:00からの経過時間にして返します。
+
+  "format_time"    datetime format     (年、月、日、時間、分、秒)の形式のローカルタイムを
+                                       文字列formatでフォーマットした形式の文字列を返します。
+                                       formatの要素は以下です。
+                                             yyyy   4桁表示の年
+                                             yy     2桁表示の年
+                                             MM     2桁表示の月
+                                             dd     2桁表示の日
+                                             HH     2桁表示の時間
+                                             mm     2桁表示の分
+                                             ss     2桁表示の秒
+                                             '...'  single quoteで括られた文字列はそのまま表示
+                                             ''     single quoteで括られた中のsingle quote自身
+
+  "time_stamp"  -           -          altairが起動してからのミリ秒単位の経過時間を返します。
+
+  "para_lock"    arg1        -         Altairの並列処理機能を使う場合に処理が分割されては
+                                       困るところで使います。
+                                       arg1を非nullにしてこれを呼び出したところから
+                                       arg1をnullにしてこれを呼び出したところまで
+                                       他のAltairプロセスに権限を譲りません。
+
+  "from_clipboard" -          -        標準クリップボードから文字列を取得します。
+  "to_clipboard"   value      -        標準クリップボードに文字列を設定します。
+
+  "getpid"         -          -        プロセスIDを返します(Linux版のみ)。
+  "waitpid"        pid        -        プロセスIDがpidの子プロセスの終了を待ちます(Liunux版のみ)。
+
+  "get_env"        name       -        環境変数の値を取り出します。見つからないとnullが返ります。
+  "set_env"        name       value    環境変数の値をセットします。失敗するとnullが返ります。
+  "search_env"     file       name     環境変数で定義されたパスを使ってファイルを検索します。
+                                       見つからないとnullが返ります。
+
+  "get_cmd_line"   -          -        コマンド引数を取り出します(文字列)。
+  "exit"           code       -        codeをプロセス終了コードとしてAltairを終了します。
+
+  "sleep"          ms         -        ms(単位 ミリ秒)の間だけプロセスをスリープさせます。
+
+  "obj_to_addr"    object     -        Altairオブジェクトのアドレスをintegerで返します。
+  "addr_to_obj"    addr       -        integerのアドレスをAltairオブジェクトにします。
+
+  "output"         filename   -        アウトプットウィンドウ出力をファイルに出力するか指定します。
+                                       filenameが非nullならそのファイル名のファイルに出力を開始し、
+                                       filenameがnullならファイルへの出力を終了します。
+
+  "cell_heap",     number     -        altairが使用できるaltairの基本Cellの領域の大きさを設定・取得します。
+                                       最大メモリ容量 = max_number_of_block * block_size となっていて、
+                                       number に null を入れると以下のような文字列が返ります。
+                                       "max = 50000 (171.661 MB), current = 1 (0.003 MB)"
+                                       デフォルトでは max_number_of_block が 50000 になっていて、
+                                       基本Cellの領域を約172Mバイトまで使用することが出来ます。
+                                       current は 現在使用中の numer_of_block を表し、
+                                       1 ブロックでは、約3KBバイト 使用することを表します。
+                                       number に integer を入れると、max_number_of_block の値がその値に設定されます。
+                                       基本セルの領域を使い切ってしまった場合、FATAL の Exception が発生し、
+                                       プログラムの実行が中止されます。
+
+  "stack_trace"    frame      opt      AlExceptionのスタックトレースを出力します。
+                                       frameはAlExceptionのメンバー変数stack_frameを入れます。
+                                       optがnullのときはアウトプットウィンドウに、
+                                       fileのときはそこに出力します。
+
+  "error_source" (frame, pos) opt      AlExceptionがthrowされたソースの頭の数行を出力します。
+                                       frameはAlExceptionのメンバー変数stack_frameを
+                                       posはAlExceptionのメンバー変数のpos入れます。
+                                       optがnullのときはアウトプットウィンドウに、
+                                       fileのときはそこに出力します。
+
+  "platform"     -           -         プラットフォームを返します。
+                                       Windows版では文字列 "windows" が
+                                       Linux版では文字列 "linux" が返ります。
+
+  "version"      -           -         Altairのバージョンを返します。
+</PRE>
+
+<HR>
+<H3><A NAME="al_is_type">list al_is_type(any obj, string typeName);</A></H3>
+objが型typeNameの型かどうか調べます。<BR>
+その型の場合1が、その型でない場合はnullが返ります。<BR>
+
+<HR>
+<H3><A NAME="al_addr_eq">list al_addr_eq(any x, any y);</A></H3>
+ふたつのオブジェクトが内部的にまったく同一物であるかどうか調べます。<BR>
+同じ場合１が、同じでない場合nullが返ります。<BR>
+
+<HR>
+<H3><A NAME="al_get_id">integer al_get_id();</A></H3>
+システム(AP)でユニークなIDを得る関数です。<BR>
+
+<HR>
+<H3><A NAME="al_release_id">void al_release_id(integer id);</A></H3>
+不要になったシステム(AP)でユニークなIDをシステムに返します。<BR>
+
+<HR>
+<H3><A NAME="al_is_class">list al_is_class(any obj, list rtc);</A></H3>
+動的型判定を行うための関数です。<BR>
+objのクラスがAであるかどうかは以下のようにして調べられます。<BR>
+<PRE>
+    if (al_is_class(obj, runtime A)) {
+        // objのクラスがAの場合
+    } else {
+        // objのクラスがAでない場合
+    }
+</PRE>
+
+<HR>
+<H3><A NAME="al_is_derived">list al_is_derived(any obj, list rtc);</A></H3>
+動的型判定を行うための関数です。<BR>
+objがクラスAの派生クラスであるかどうかは以下のようにして調べられます。<BR>
+<PRE>
+    if (al_is_derived(obj, runtime A)) {
+        // objがAの派生クラスの場合
+    } else {
+        // objがAの派生クラスでない場合
+    }
+</PRE>
+
+<HR>
+<H3><A NAME="al_gp">any al_gp(string command, any arg1, any arg2, any arg3, any arg4);</A></H3>
+プログラム上でプログラムを作成して実行する関数群です。<BR>
+<PRE>
+    command           arg1          arg2    arg3     arg4
+    "runtime_class"   クラス名       -       -         -
+    "regist_class"    ベースクラス名 クラス名 -         -
+    "unregist_class"  クラス名       -       -         -
+    "regist_var"      クラス名       型名    変数名     -
+    "unregist_var"    クラス名       変数名   -         -
+    "add_to_arg_dcl"  arg_dcl        型名    変数名     -
+    "regist_sfunc"    クラス名       型名     関数名   arg_dcl
+    "unregist_sfunc"  クラス名       -        関数名   arg_dcl
+    "regist_vfunc"    クラス名       型名     関数名   arg_dcl
+    "unregist_vfunc"  クラス名       -        関数名   arg_dcl
+    "var_list"        クラス名       -        -        -
+    "sfunc_list"      クラス名       -        -        -
+    "vfunc_list"      クラス名       -        -        -
+    "type_to_name"    型             -        -        -
+    "class_name_of"   クラス         -        -        -
+    "pif_create"      クラス名       -        関数名   arg_dcl
+    "pif_destroy"     pif            -        -        -
+    "pif_clear"       pif            -        -        -
+    "pif_insert"      pif          挿入文字列  -       -
+    "pif_more"        pif            -        -        -
+    "pif_last"        pif            -        -        -
+    "pif_next"        pif            -        -        -
+    "pif_lno"         pif            -        -        -
+    "pif_string"      pif            -        -        -
+    "run"             クラス名        -       関数名   -
+    "unique_str"      文字列          -       -        -
+    "run2"            クラス名/(obj) (arg_dcl) 関数名  実引数リスト
+    "new"             クラス名        -       -        -
+    "vtbl"            -               -       -        -
+    "stack_frame"     -               -       -        -
+    "method_name"     -               -       -        -
+    "arg_dcl"         -               -       -        -
+    "arg_list"        -               -       -        -
+    "encode"          arg_dcl     arg_list    -        -
+    "decode"          arg_dcl         -       -        -
+</PRE>
+<A HREF ="pif.html">詳細</A><BR>
+
+<HR>
+<H3><A NAME="al_next_process">void al_next_process();</A></H3>
+並列処理用の関数です。この関数は現在のプロセスを中断して<BR>
+次のプロセスの実行に入るようにします。<BR>
+他のプロセスからの入力待ちの状態のときに用いられます。<BR>
+<BR>
+注意１： この関数は、イベントコールバック中からは使えません。<BR>
+イベントコールバック中から使いたいときは、para文でプロセスを生成し、<BR>
+そこで使ってください。<BR>
+<BR>
+注意２： この関数は、他のプロセスがないときCPUタイム100%使います。<BR>
+
+<HR>
+<H3><A NAME="al_exit_process">void al_exit_process();</A></H3>
+並列処理用の関数です。この関数を実行すると現在のプロセスが<BR>
+強制的に終了されます。<BR>
+
+<HR>
+<H3><A NAME="al_wait">list al_wait(list wait);</A></H3>
+waitがnullの場合、プロセスを待ち状態にさせ、al_notifyさせるためのオブジェクトを返します。<BR>
+waitがal_wait(null);で返ったオブジェクトの場合、<BR>
+al_nofityされるまで待ち状態になり、この間CPUタイムは使いません。<BR>
+
+<BR>
+注意： この関数は、イベントコールバック中からは使えません。<BR>
+イベントコールバック中から使いたいときは、para文でプロセスを生成し、<BR>
+そこで使ってください。<BR>
+
+<HR>
+<H3><A NAME="al_notify">void al_notify(list wait);</A></H3>
+al_waitで待ち状態になったプロセスを再開させます。<BR>
+<BR>
+引数のwaitには、al_wait(null);で返ったオブジェクトを渡します。<BR>
+これ以外のオブジェクトを渡してはいけません。<BR>
+
+<HR>
+<H3><A NAME="al_set_clipboard">void al_set_clipboard(any data);</A></H3>
+dataをクリップボードに納めます。<BR>
+
+<HR>
+<H3><A NAME="al_get_clipboard">any al_get_clipboard();</A></H3>
+クリップボードに収まっているデータを返します。<BR>
+
+<HR>
+<H3><A NAME="al_gc">list al_gc(cmd);</A></H3>
+<PRE>
+cmd            意味
+null           ガーベージコレクションを行い、以下のリストを返します。
+               (新規回収Cell数, 既存フリーCell数, 使用中Cell数)
+               参照カウント 0 のセルも回収します。
+
+gc_cyclic_only ガーベージコレクションを行い、以下のリストを返します。
+               (新規回収Cell数, 既存フリーCell数, 使用中Cell数)
+               参照カウント 0 のセルは回収しません。
+
+ref_count      ガーベージになったセルの参照カウントをチェックします。
+               下のリストを返します。
+               (参照カウント0のCell数, 参照カウント0未満のCell数、回収される総Cell数)
+
+               ※※※「参照カウント0のCell数」「参照カウント0未満のCell数」が
+                      0 にならない場合は Altair のBugです。
+
+cyclic         ガーベージになったCellが循環リストになっているかチェックします。
+               以下のリストを返します。
+               (循環リストになっていないCell数、循環リストCell数、回収される総Cell数)
+</PRE>
+
+<HR>
+<H3><A NAME="al_exec">list al_exec(string cmd, string dir, list show_wnd, list opt);</A></H3>
+cmdで指定されるEXEを指定される引数で起動します。<BR>
+EXEが起動できたら非null、起動に失敗したらnullが返ります。<BR>
+<BR>
+dirには起動時のディレクトリ名を入れます。<BR>
+<BR>
+show_wndが非nullのときはウィンドウを出します(Windows版)。<BR>
+<BR>
+optがnullのときは起動されたアプリケーションが終了するのを待ちません。<BR>
+Linux版ではこのときの戻り値はintegerの子プロセスのプロセスIdになります。<BR>
+
+optが1のときは起動されたアプリケーションが終了するのを待ちます。<BR>
+このときの戻り値はintegerのプロセス終了コードになります。<BR>
+<BR>
+optがfile型のpipeのときは、<BR>
+起動するEXEの標準入力/標準出力/標準エラー出力がpipeに接続されます。<BR>
+
+<HR>
+<H3><A NAME="al_library">list al_library(string cmd, string name);</A></H3>
+ライブラリの動的ロード/アンロードを行います。<BR>
+<PRE>
+   cmd          name         意味
+   "load"       ライブラリ名  ライブラリを動的ロード
+   "can_unload" クラス名      クラスがアンロード可能なら非nullが返る
+   "unload"     クラス名      クラスのアンロード
+</PRE>
+
+<HR>
+<H3><A NAME="al_wnd_message">any al_wnd_message(any w, string cmd, any arg1, any arg2);</A></H3>
+メッセージの登録、メッセージコールバックの設定、<BR>
+HWNDの取得、メッセージ通信のSendMessage/PostMessageとプロセス間共有メモリを使用します。<BR>
+<PRE>
+   w       cmd              arg1    arg2            意味
+   null    "register_msg"   文字列  -               システムでユニークなウィンドウメッセージを登録して返す
+   null    "unregister_msg" message -               ウィンドウメッセージの登録解除
+   null    "msg_callback"   message (root,obj,func) メッセージコールバック関数の設定
+   HWND    "send_msg"       message (wParam,lParam) メッセージをSendMessage
+                                                    Windows版は、異なるプロセス間で通信できるが、
+                                                    Linux版は、同一プロセス中のみ通信できる。
+                                                    Linux版は、HWNDにnullを入れる。
+                                                    (Windows/Linux非互換API)
+   HWND    "post_msg"       message (wParam,lParam) メッセージをPostMessage, 成功したらnullが返る
+                                                    Windows版は、異なるプロセス間で通信できるが、
+                                                    Linux版は、同一プロセス中のみ通信できる。
+                                                    Linux版は、HWNDにnullを入れる。
+                                                    (Windows/Linux非互換API)
+   null    "wParam"         -       -               メッセージコールバック中のWPARAM
+   null    "lParam"         -       -               メッセージコールバック中のLPARAM
+
+   null    "create_map"     opt      文字列         arg2を内容に持つ共有メモリオブジェクトを作成しIDを返す
+                                                    optには、Windows版は文字列の識別子を入れ、Linux版はnullを入れる。
+                                                    (Windows/Linux非互換API)
+   null    "get_map"        opt -                   共有メモリオブジェクトから文字列を取り出して返す
+                                                    optには、Windows版はcreate_mapの引数の文字列の識別子を入れ、
+                                                    Linux版はcreate_mapの返り値の整数を入れる。
+                                                    (Windows/Linux非互換API)
+   null    "close_map"      opt                     共有メモリオブジェクトの破壊
+                                                    create_mapの返り値の整数を入れる。
+
+   null    "do_events"      -       -               メッセージキューに溜まっているメッセージを処理
+
+   ---- 以下はWidndow版のみ
+
+   window  "size"           -       -               クライアントサイズのWM_SIZEをPostMessage
+                                                       (windowはMDIチャイルド/SDI/OCXのみ)
+   window  "hwnd"           -       -               ウィンドウハンドルの取得
+                                                    (wがnullならAltairメインウィンドウ)
+   null    "isHWND"         HWND    -               有効なウィンドウハンドルかチェック
+   null    "reply"          code    -               SendMessageに対するリプライ
+   HWND    "get_wnd_text"   -        -              ウィンドウテキスト、ウィンドウハンドルの一覧取得
+</PRE>
+
+<HR>
+<H3><A NAME="al_script">any al_script(string cmd, string script, list arg);</A></H3>
+文字列scriptで表現された関数のトランスレート/実行を行います。<BR>
+
+<PRE>
+  cmd        arg1    arg2   意味
+  "trans"    script  opt    文字列scriptを内部コードに変換しscriptに関連付けます。
+  "eval"     script  args   文字列scriptに関連付けられた内部コードを実行します。
+  "eval2"    script  args   文字列scriptに関連付けられた内部コードを名前付引数で実行します。
+</PRE>
+<A HREF ="script.html">詳細</A><BR>
+
+関数を動的にロードし実行したい場合がありますが、<BR>
+通常の関数はクラスのメンバーになっていなければなりません。<BR>
+これだと、関数をロードするたびにクラスに動的に変更を加えなければならず<BR>
+効率的ではありません。al_scriptはクラスに変更を加えることなしに<BR>
+動的に関数をロードし実行させるためのものです。<BR>
+
+<HR>
+<H3><A NAME="al_dll">any al_dll(string cmd, any arg1, any arg2, any arg3);</A></H3>
+ダイナミックリンクライブラリの関数のネイティブ呼び出しをする関数です。<BR>
+<PRE>
+  cmd              arg1        arg2      arg3   意味
+  "LoadLibrary"    dllName     -         -      DLLをダイナミックロードしそのhModuleを返す。
+                                                既にDLLがロードされている場合は参照カウンタに1を足す。
+                                                ロードに失敗するとnullが返る。
+  "FreeLibrary"    hModule     -         -      ダイナミックロードされているDLLをアンロードする。
+                                                参照カウンタから1を引き、参照カウンタが0になったときだけ
+                                                実際にアンロードされる。
+  "GetProcAddress" hModule     funcName  -      関数名から関数のエントリアドレスを返す。
+                                                関数アドレスの取得に失敗したらnullが返る。
+  "Call"           funcAddr    retType   ArgLs  関数呼び出し。戻り値、引数については下記参照。
+
+   戻り値の型の指定
+   retType   C/C++
+   "void"    void
+   "char"    char
+   "short"   short
+   "long"    long
+   "float"   float
+   "double"  double
+   "ptr"     char*等
+
+   引数リストArgLsの形式
+   ((arg-1-type, arg-1-value), (arg-2-type, arg-2-value), ...)
+
+   arg-n-type C/C++    種別        arg-n-value
+   "char"     char     in          integer
+   "short"    short    in          integer
+   "long"     long     in          integer
+   "float"    float    in          real
+   "double"   double   in          real
+   "ptr"      char*等  in          integer / string / binary / (binary, index)
+   "char*"    char*    inout/out   integer(副作用あり)
+   "short*"   short*   inout/out   integer(副作用あり)
+   "long*"    long*    inout/out   integer(副作用あり)
+   "float*"   float*   inout/out   real(副作用あり)
+   "double*"  double*  inout/out   real(副作用あり)
+   "ptr*"     char**等 inout/out   integer(副作用あり)
+</PRE>
+
+<HR>
+<H3><A NAME="al_ocx">any al_ocx(string command, any arg1, any arg2, any arg3);</A></H3>
+OCXを利用するための関数群です。<BR>
+<PRE>
+    command               arg1       arg2      arg3
+    "pre_create"          ProgID     visible   SubStgID
+    "progID"              ocx        -         -
+    "subStgID"            ocx        -         -
+    "create"              ocx        wnd       -
+    "is_created"          ocx        -         -
+    "place"               ocx        (l,t,r,b) -
+    "visible"             ocx        visible   -
+    "destroy"             ocx        -         -
+    "runtime_invisible"   ocx        -         -
+    "mode"                ocx        mode      -
+    "prop_editor"         ocx        -         -
+    "set_filename"        ocx        filename  -
+    "get_filename"        ocx        -         -
+    "save"                ocx        -         -
+    "load"                ocx        -         -
+    "object"              ocx        -         -
+    "Picture"             dir        name      -
+    "callback"            ocx        eventName (o, obj, func)
+    "wnd"                 ocx        -         -
+    "ocx_list"            -          -         -
+    "z_order"             ocx        to_top    -
+</PRE>
+<A HREF ="ocx.html">詳細</A><BR>
+
+<HR>
+<H3><A NAME="al_set_method">al_set_method(window w, string name, list obj, list func);</A></H3>
+OCX(ALCTRL.AlCtrlCtrl.1)を利用するための関数です。<BR>
+wは、OLEオートメーションメソッドGetWnd()で返った値です。<BR>
+nameには、メソッド名を入れます。<BR>
+OLEオートメーションメソッドInvoke(name, args);を実行すると、<BR>
+OCX側でobj.*func();が実行され結果が返ります。
+
+<HR>
+<H3><A NAME="al_arg">list al_arg(string name, any value, list args);</A></H3>
+OCX(ALCTRL.AlCtrlCtrl.1)を利用するための関数です。<BR>
+OLEオートメーションメソッドInvoke(name, args);の引数argsを作成します。<BR>
+nameには引き数名をvalueには値を入れます。<BR>
+argsの初期値にはnullを入れ、引数の個数が2個以上になる場合は、<BR>
+作りかけの引数リストをargsに入れ、戻り値が新しいargsになります。<BR>
+
+<HR>
+<H3><A NAME="al_fire_event">al_fire_event(window w, string name, list params);</A></H3>
+OCX(ALCTRL.AlCtrlCtrl.1)を利用するための関数です。<BR>
+この関数はOCX側で実行する関数です。<BR>
+この関数を実行するとOLEイベントEventFire(name, params)が発生します。<BR>
+
+<HR>
+<H3><A NAME="al_root_class">list al_root_class();</A></H3>
+クラスAlObjectを表わすランタイム構造体を返します。<BR>
+この関数は、runtime AlObjectと同じ値を返します。<BR>
+ソースコード中にruntime AlObjectのあるクラスはグラフ形式のライブラリにする<BR>
+ことはできませんが、この関数を用いるとグラフ形式のライブラリを作成することができます。<BR>
+
+<HR>
+<H3><A NAME="al_ole_misc">any al_ole_misc(string cmd, any arg1, any arg2);</A></H3>
+<PRE>
+  cmd             arg1       arg2       意味
+  "create_object" ProgID     -          ProgIDからOLEサーバーを起動し、
+                                        OLEオブジェクトを返します。
+  "get_object"    ファイル名 -          ファイル名からOLEサーバーを起動し、
+                                        OLEオブジェクトを返します。
+
+  "short"         value      byref      VT_I2のvariantを返します。
+  "long"          value      byref      VT_I4のvariantを返します。
+  "float"         value      byref      VT_R4のvariantを返します。
+  "double"        value      byref      VT_R8のvariantを返します。
+  "string"        value      byref      VT_BSTRのvariantを返します。
+  "boolean"       value      byref      VT_BOOLのvariantを返します。
+  "dispatch"      -          byref      VT_DISPATCHのvariantを返します。
+  "unknown"       -          byref      VT_UNKNOWNのvariantを返します。
+  "variant"       -          byref      VT_EMPTYのvariantを返します。
+  "convert"       value      -          variantをinteger,real,stringに変換します。
+
+  "api"          dispatch    -          OLEオブジェクトのAPIを取得します。
+                                        戻り値は以下の形式です。
+                                        ()-/"property"/->()-/property_name/=>(type)
+                                          -/"method"/->()-/method_name/=>(type)-/-/=>(type)
+                                          -/"event"/->()-/method_name/=>(-)-/-/=>(type)
+                                        typeは、"boolean","short","long","float","double",
+                                        "string","dispatch" 等です。
+</PRE>
+
+<HR>
+</BODY>
+</HTML>
+

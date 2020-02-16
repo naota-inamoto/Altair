@@ -1,0 +1,1923 @@
+
+/* ======================== main ======================== */
+var("depend", depend) == 1, var("model", model) == 1, depend_to_model(depend, model) .
+
+depend_to_model(depend, model) :- init(depend, model), class(depend, model), member(model), body(model) .
+
+/* ======================== root class and system function ======================== */
+init(depend, model) :-
+  pm_rep(depend, model)
+
+    before := {
+      invariant,
+      depend
+    }
+    after := {
+      model:("class_defs") -/(null, "AlObject")/-> alobj:("class_def"),
+                                  alobj -/"name"/-> ("AlObject"),
+                                  alobj -/"cls_vars"/-> ("cls_vars"),
+                                  alobj -/"obj_vars"/-> ("obj_vars"),
+                                  alobj -/"cls_funcs"/-> ("cls_funcs"),
+                                  alobj -/"obj_funcs"/-> ("obj_funcs"),
+                                  alobj -/"cls_f_types"/-> ("cls_f_types"),
+                                  alobj -/"obj_f_types"/-> ("obj_f_types"),
+
+      model                -/(null, "AlException")/-> alexcp:("class_def"),
+                                  alexcp -/"name"/-> ("AlException"),
+                                  alexcp -/"super"/-> alobj,
+                                  alexcp -/"cls_vars"/-> ("cls_vars"),
+                                  alexcp -/"obj_vars"/-> ovs:("obj_vars"),
+                                  alexcp -/"cls_funcs"/-> ("cls_funcs"),
+                                  alexcp -/"obj_funcs"/-> ("obj_funcs"),
+                                  alexcp -/"cls_f_types"/-> ("cls_f_types"),
+                                  alexcp -/"obj_f_types"/-> ("obj_f_types"),
+                                    ovs -/"msg"/-> ov1:("obj_var"),
+                                              ov1 -/"type"/-> ("string"),
+                                              ov1 -/"name"/-> ("msg"),
+                                    ovs -/"stack_frame"/-> ov2:("obj_var"),
+                                              ov2 -/"type"/-> ("list"),
+                                              ov2 -/"name"/-> ("stack_frame"),
+                                    ovs -/"pos"/-> ov3:("obj_var"),
+                                              ov3 -/"type"/-> ("integer"),
+                                              ov3 -/"name"/-> ("pos"),
+                                    ovs -/"exception"/-> ov4:("obj_var"),
+                                              ov4 -/"type"/-> alexcp,
+                                              ov4 -/"name"/-> ("exception"),
+
+      model -/"sys_funcs"/-> sysfuncs:("sys_funcs"),
+            sysfuncs -/("al_sqrt", 1)/-> ("sys_func"),
+            sysfuncs -/("al_sin", 1)/-> ("sys_func"),
+            sysfuncs -/("al_cos", 1)/-> ("sys_func"),
+            sysfuncs -/("al_tan", 1)/-> ("sys_func"),
+            sysfuncs -/("al_asin", 1)/-> ("sys_func"),
+            sysfuncs -/("al_acos", 1)/-> ("sys_func"),
+            sysfuncs -/("al_atan", 1)/-> ("sys_func"),
+            sysfuncs -/("al_exp", 1)/-> ("sys_func"),
+            sysfuncs -/("al_log", 1)/-> ("sys_func"),
+            sysfuncs -/("al_max", 2)/-> ("sys_func"),
+            sysfuncs -/("al_min", 2)/-> ("sys_func"),
+            sysfuncs -/("al_abs", 1)/-> ("sys_func"),
+            sysfuncs -/("al_math_misc", 3)/-> ("sys_func"),
+
+            sysfuncs -/("al_cons", 2)/-> ("sys_func"),
+            sysfuncs -/("al_append_list", 2)/-> ("sys_func"),
+            sysfuncs -/("al_list2", 2)/-> ("sys_func"),
+            sysfuncs -/("al_list3", 3)/-> ("sys_func"),
+            sysfuncs -/("al_list4", 4)/-> ("sys_func"),
+            sysfuncs -/("al_list5", 5)/-> ("sys_func"),
+            sysfuncs -/("al_list6", 6)/-> ("sys_func"),
+            sysfuncs -/("al_list7", 7)/-> ("sys_func"),
+            sysfuncs -/("al_list8", 8)/-> ("sys_func"),
+            sysfuncs -/("al_scan_list", 1)/-> ("sys_func"),
+            sysfuncs -/("al_print_list", 1)/-> ("sys_func"),
+            sysfuncs -/("al_list_elem", 3)/-> ("sys_func"),
+            sysfuncs -/("al_list_misc", 3)/-> ("sys_func"),
+
+            sysfuncs -/("al_create_array", 1)/-> ("sys_func"),
+            sysfuncs -/("al_array_length", 1)/-> ("sys_func"),
+
+            sysfuncs -/("al_dst_itr", 1)/-> ("sys_func"),
+            sysfuncs -/("al_src_itr", 1)/-> ("sys_func"),
+            sysfuncs -/("al_next", 1)/-> ("sys_func"),
+            sysfuncs -/("al_next_a", 2)/-> ("sys_func"),
+            sysfuncs -/("al_next_a2", 2)/-> ("sys_func"),
+            sysfuncs -/("al_prev", 1)/-> ("sys_func"),
+            sysfuncs -/("al_prev_a", 2)/-> ("sys_func"),
+            sysfuncs -/("al_prev_a2", 2)/-> ("sys_func"),
+            sysfuncs -/("al_component", 1)/-> ("sys_func"),
+            sysfuncs -/("al_insert", 3)/-> ("sys_func"),
+            sysfuncs -/("al_append", 3)/-> ("sys_func"),
+            sysfuncs -/("al_remove", 1)/-> ("sys_func"),
+            sysfuncs -/("al_arc_a", 1)/-> ("sys_func"),
+            sysfuncs -/("al_set_arc_a", 2)/-> ("sys_func"),
+            sysfuncs -/("al_count", 1)/-> ("sys_func"),
+            sysfuncs -/("al_count2", 2)/-> ("sys_func"),
+            sysfuncs -/("al_index_pos", 3)/-> ("sys_func"),
+            sysfuncs -/("al_search", 3)/-> ("sys_func"),
+            sysfuncs -/("al_create_arc", 3)/-> ("sys_func"),
+            sysfuncs -/("al_create_assoc_arc", 3)/-> ("sys_func"),
+            sysfuncs -/("al_create_orderd_arc", 4)/-> ("sys_func"),
+            sysfuncs -/("al_dst_node", 2)/-> ("sys_func"),
+            sysfuncs -/("al_dst_node_i", 2)/-> ("sys_func"),
+            sysfuncs -/("al_src_node", 2)/-> ("sys_func"),
+            sysfuncs -/("al_set_dst_node", 3)/-> ("sys_func"),
+            sysfuncs -/("al_next_dst_node", 3)/-> ("sys_func"),
+            sysfuncs -/("al_prev_dst_node", 3)/-> ("sys_func"),
+            sysfuncs -/("al_next_src_node", 3)/-> ("sys_func"),
+            sysfuncs -/("al_prev_src_node", 3)/-> ("sys_func"),
+            sysfuncs -/("al_insert_before", 4)/-> ("sys_func"),
+            sysfuncs -/("al_append_after", 4)/-> ("sys_func"),
+            sysfuncs -/("al_remove_from", 3)/-> ("sys_func"),
+            sysfuncs -/("al_copy", 1)/-> ("sys_func"),
+            sysfuncs -/("al_dst_itr2", 2)/-> ("sys_func"),
+            sysfuncs -/("al_arc_dst", 2)/-> ("sys_func"),
+            sysfuncs -/("al_src_itr2", 2)/-> ("sys_func"),
+            sysfuncs -/("al_arc_src", 2)/-> ("sys_func"),
+            sysfuncs -/("al_graph_misc", 3)/-> ("sys_func"),
+
+            sysfuncs -/("al_create_poly_poly", 0)/-> ("sys_func"),
+            sysfuncs -/("al_create_next_poly", 1)/-> ("sys_func"),
+            sysfuncs -/("al_add_point_to_poly", 3)/-> ("sys_func"),
+            sysfuncs -/("al_add_rect_to_poly", 5)/-> ("sys_func"),
+            sysfuncs -/("al_add_curve_to_poly", 7)/-> ("sys_func"),
+            sysfuncs -/("al_intersection", 2)/-> ("sys_func"),
+            sysfuncs -/("al_union", 2)/-> ("sys_func"),
+
+            sysfuncs -/("al_unit_tm", 0)/-> ("sys_func"),
+            sysfuncs -/("al_translate_tm", 2)/-> ("sys_func"),
+            sysfuncs -/("al_scale_tm", 2)/-> ("sys_func"),
+            sysfuncs -/("al_rotate_tm", 1)/-> ("sys_func"),
+            sysfuncs -/("al_transform_xy", 3)/-> ("sys_func"),
+            sysfuncs -/("al_inverse_xy", 3)/-> ("sys_func"),
+            sysfuncs -/("al_transform_poly", 2)/-> ("sys_func"),
+            sysfuncs -/("al_inverse_poly", 2)/-> ("sys_func"),
+            sysfuncs -/("al_transform_rect", 5)/-> ("sys_func"),
+
+            sysfuncs -/("al_print", 1)/-> ("sys_func"),
+            sysfuncs -/("al_ask", 2)/-> ("sys_func"),
+            sysfuncs -/("al_menu_select", 3)/-> ("sys_func"),
+            sysfuncs -/("al_get_read_filename", 2)/-> ("sys_func"),
+            sysfuncs -/("al_get_write_filename", 2)/-> ("sys_func"),
+            sysfuncs -/("al_get_color", 0)/-> ("sys_func"),
+            sysfuncs -/("al_get_font", 0)/-> ("sys_func"),
+            sysfuncs -/("al_message_text", 2)/-> ("sys_func"),
+            sysfuncs -/("al_input_by_cedit", 6)/-> ("sys_func"),
+            sysfuncs -/("al_create_window", 1)/-> ("sys_func"),
+            sysfuncs -/("al_user_edit", 4)/-> ("sys_func"),
+            sysfuncs -/("al_set_window_arg", 3)/-> ("sys_func"),
+            sysfuncs -/("al_set_draw_proc", 2)/-> ("sys_func"),
+            sysfuncs -/("al_set_event_proc", 2)/-> ("sys_func"),
+            sysfuncs -/("al_set_move_ctrl_proc", 2)/-> ("sys_func"),
+            sysfuncs -/("al_set_destroy_proc", 2)/-> ("sys_func"),
+            sysfuncs -/("al_set_activate_proc", 2)/-> ("sys_func"),
+            sysfuncs -/("al_set_text_ins_proc", 2)/-> ("sys_func"),
+            sysfuncs -/("al_set_title", 2)/-> ("sys_func"),
+            sysfuncs -/("al_get_title", 2)/-> ("sys_func"),
+            sysfuncs -/("al_set_menu", 2)/-> ("sys_func"),
+            sysfuncs -/("al_get_window_rect", 2)/-> ("sys_func"),
+            sysfuncs -/("al_set_window_rect", 5)/-> ("sys_func"),
+            sysfuncs -/("al_resize_window", 3)/-> ("sys_func"),
+            sysfuncs -/("al_move_window", 3)/-> ("sys_func"),
+            sysfuncs -/("al_show_widnow", 1)/-> ("sys_func"),
+            sysfuncs -/("al_hide_widnow", 1)/-> ("sys_func"),
+            sysfuncs -/("al_destroy_windnow", 1)/-> ("sys_func"),
+            sysfuncs -/("al_push_clipping", 2)/-> ("sys_func"),
+            sysfuncs -/("al_pop_clipping", 1)/-> ("sys_func"),
+            sysfuncs -/("al_clipping", 1)/-> ("sys_func"),
+            sysfuncs -/("al_is_clipped", 6)/-> ("sys_func"),
+            sysfuncs -/("al_push_bg_color", 2)/-> ("sys_func"),
+            sysfuncs -/("al_pop_bg_color", 1)/-> ("sys_func"),
+            sysfuncs -/("al_push_color_func", 2)/-> ("sys_func"),
+            sysfuncs -/("al_pop_color_func", 1)/-> ("sys_func"),
+            sysfuncs -/("al_get_sys_color", 1)/-> ("sys_func"),
+            sysfuncs -/("al_push_pen", 4)/-> ("sys_func"),
+            sysfuncs -/("al_pop_pen", 1)/-> ("sys_func"),
+            sysfuncs -/("al_push_brush", 4)/-> ("sys_func"),
+            sysfuncs -/("al_pop_brush", 1)/-> ("sys_func"),
+            sysfuncs -/("al_push_font", 5)/-> ("sys_func"),
+            sysfuncs -/("al_push_font_ex", 2)/-> ("sys_func"),
+            sysfuncs -/("al_pop_font", 1)/-> ("sys_func"),
+            sysfuncs -/("al_push_tm", 2)/-> ("sys_func"),
+            sysfuncs -/("al_pop_tm", 1)/-> ("sys_func"),
+            sysfuncs -/("al_window_tm", 1)/-> ("sys_func"),
+            sysfuncs -/("al_is_printing", 1)/-> ("sys_func"),
+            sysfuncs -/("al_start_quick_draw", 1)/-> ("sys_func"),
+            sysfuncs -/("al_end_quick_draw", 1)/-> ("sys_func"),
+            sysfuncs -/("al_point", 4)/-> ("sys_func"),
+            sysfuncs -/("al_line", 5)/-> ("sys_func"),
+            sysfuncs -/("al_rectangle", 5)/-> ("sys_func"),
+            sysfuncs -/("al_ellipse", 5)/-> ("sys_func"),
+            sysfuncs -/("al_polygon", 2)/-> ("sys_func"),
+            sysfuncs -/("al_text", 4)/-> ("sys_func"),
+            sysfuncs -/("al_text_width", 2)/-> ("sys_func"),
+            sysfuncs -/("al_text_from_to", 6)/-> ("sys_func"),
+            sysfuncs -/("al_text_width_from_to", 4)/-> ("sys_func"),
+            sysfuncs -/("al_m_text", 6)/-> ("sys_func"),
+            sysfuncs -/("al_pie", 9)/-> ("sys_func"),
+            sysfuncs -/("al_bitmap", 3)/-> ("sys_func"),
+            sysfuncs -/("al_imge", 6)/-> ("sys_func"),
+            sysfuncs -/("al_damage", 2)/-> ("sys_func"),
+            sysfuncs -/("al_damage_rect_poly", 1)/-> ("sys_func"),
+            sysfuncs -/("al_is_damaged", 6)/-> ("sys_func"),
+            sysfuncs -/("al_repair", 1)/-> ("sys_func"),
+            sysfuncs -/("al_redraw", 1)/-> ("sys_func"),
+            sysfuncs -/("al_local_loop", 1)/-> ("sys_func"),
+            sysfuncs -/("al_exit_loop", 1)/-> ("sys_func"),
+            sysfuncs -/("al_file_print", 2)/-> ("sys_func"),
+            sysfuncs -/("al_gui_misc", 3)/-> ("sys_func"),
+
+            sysfuncs -/("al_file_open", 2)/-> ("sys_func"),
+            sysfuncs -/("al_file_read", 2)/-> ("sys_func"),
+            sysfuncs -/("al_file_write", 3)/-> ("sys_func"),
+            sysfuncs -/("al_file_manip", 3)/-> ("sys_func"),
+            sysfuncs -/("al_file_match_str", 2)/-> ("sys_func"),
+
+            sysfuncs -/("al_strlen", 1)/-> ("sys_func"),
+            sysfuncs -/("al_get_char", 2)/-> ("sys_func"),
+            sysfuncs -/("al_set_char", 3)/-> ("sys_func"),
+            sysfuncs -/("al_substr", 3)/-> ("sys_func"),
+            sysfuncs -/("al_match_str", 3)/-> ("sys_func"),
+            sysfuncs -/("al_tail_str", 2)/-> ("sys_func"),
+            sysfuncs -/("al_insert_char", 3)/-> ("sys_func"),
+            sysfuncs -/("al_delete_char", 2)/-> ("sys_func"),
+            sysfuncs -/("al_search_str", 3)/-> ("sys_func"),
+            sysfuncs -/("al_replace_str", 4)/-> ("sys_func"),
+            sysfuncs -/("al_is_first_char", 1)/-> ("sys_func"),
+            sysfuncs -/("al_is_normal_char", 1)/-> ("sys_func"),
+            sysfuncs -/("al_str_misc", 3)/-> ("sys_func"),
+
+            sysfuncs -/("al_socket", 4)/-> ("sys_func"),
+            sysfuncs -/("al_crypt", 4)/-> ("sys_func"),
+            sysfuncs -/("al_sql", 5)/-> ("sys_func"),
+            sysfuncs -/("al_xml", 4)/-> ("sys_func"),
+            sysfuncs -/("al_prof", 3)/-> ("sys_func"),
+            sysfuncs -/("al_solid", 5)/-> ("sys_func"),
+            sysfuncs -/("al_jp_ana", 5)/-> ("sys_func"),
+            sysfuncs -/("al_symbol_manip", 5)/-> ("sys_func"),
+
+            sysfuncs -/("al_is_type", 2)/-> ("sys_func"),
+            sysfuncs -/("al_addr_eq", 2)/-> ("sys_func"),
+            sysfuncs -/("al_get_id", 0)/-> ("sys_func"),
+            sysfuncs -/("al_release_id", 1)/-> ("sys_func"),
+            sysfuncs -/("al_is_class", 2)/-> ("sys_func"),
+            sysfuncs -/("al_is_derived", 2)/-> ("sys_func"),
+            sysfuncs -/("al_next_process", 0)/-> ("sys_func"),
+            sysfuncs -/("al_exit_process", 0)/-> ("sys_func"),
+            sysfuncs -/("al_wait", 1)/-> ("sys_func"),
+            sysfuncs -/("al_notify", 1)/-> ("sys_func"),
+            sysfuncs -/("al_set_clipboard", 1)/-> ("sys_func"),
+            sysfuncs -/("al_get_clipboard", 0)/-> ("sys_func"),
+            sysfuncs -/("al_gc", 1)/-> ("sys_func"),
+            sysfuncs -/("al_exec", 4)/-> ("sys_func"),
+            sysfuncs -/("al_gp", 5)/-> ("sys_func"),
+            sysfuncs -/("al_library", 2)/-> ("sys_func"),
+            sysfuncs -/("al_wnd_message", 4)/-> ("sys_func"),
+            sysfuncs -/("al_script", 3)/-> ("sys_func"),
+            sysfuncs -/("al_misc", 3)/-> ("sys_func"),
+            sysfuncs -/("al_dll", 4)/-> ("sys_func"),
+
+            sysfuncs -/("al_ocx", 4)/-> ("sys_func"),
+            sysfuncs -/("al_set_method", 4)/-> ("sys_func"),
+            sysfuncs -/("al_arg", 3)/-> ("sys_func"),
+            sysfuncs -/("al_fire_event", 3)/-> ("sys_func"),
+            sysfuncs -/("al_root_class", 0)/-> ("sys_func"),
+            sysfuncs -/("al_ole_misc", 3)/-> ("sys_func")
+    }
+    common := {
+      where .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* ================================ class ================================ */
+class(depend, model) :- 
+  pm_rep(depend, model)
+
+    before := {
+      invariant,
+      depend:("program") -/"body"/-> scls:("classes"),
+      <<<1
+                    scls -/i/=> scl:("class_def"),
+                                scl -/"name"/-> (name),
+                                scl -/"sub_class"/->scls2:("classes")
+      >>>1
+    }
+    after := {
+      model:("class_defs")
+    }
+    common := {
+      where next_if_false(is_type(i, "integer") == null),
+            class2(scls2, dst_node(model, (null, name)), model) .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* -------------------------------- class2 -------------------------------- */
+class2(scls, super, model) :- 
+  pm_rep(scls, super, model)
+
+    before := {
+      invariant,
+      <<<1
+        scls:("classes") -/i/=> scl:("class_def") ,
+                                scl -/"name"/-> (name),
+                                scl -/"sub_class"/->scls2:("classes")
+      >>>1
+    }
+    after := {
+        model:("class_defs") -/(null, name)/-> dcl:("class_def"),
+                                  dcl -/"name"/-> (name),
+                                  dcl -/"super"/-> super,
+                                  dcl -/"cls_vars"/-> ("cls_vars"),
+                                  dcl -/"obj_vars"/-> ("obj_vars"),
+                                  dcl -/"cls_funcs"/-> ("cls_funcs"),
+                                  dcl -/"obj_funcs"/-> ("obj_funcs"),
+                                  dcl -/"cls_f_types"/-> ("cls_f_types"),
+                                  dcl -/"obj_f_types"/-> ("obj_f_types"),
+        ? scl -/ref:"$refer"/-> dcl
+    }
+    common := {
+      where next_if_false(is_type(i, "integer") == null) .
+            name == "AlObject", not_exist(ref) == null .
+            name == "AlException", not_exist(ref) == null .
+            name != "AlObject", name != "AlException", exist(ret) == null .
+    }
+    tail := {
+      where class2(scls2, dcl, model) .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* ================================ member ================================ */
+member(model) :- 
+  pm_rep(model)
+
+    before := {
+      invariant,
+      <<<1
+        model:("class_defs") -/(null, cname)/=> dcl:("class_def"),
+          dcl -/"cls_vars"/-> cvs:("cls_vars"),
+          dcl -/"obj_vars"/-> ovs:("obj_vars"),
+          dcl -/"cls_funcs"/-> cfs:("cls_funcs"),
+          dcl -/"obj_funcs"/-> ofs:("obj_funcs"),
+          dcl -/"cls_f_types"/-> cfts:("cls_f_types"),
+          dcl -/"obj_f_types"/-> ofts:("obj_f_types"),
+
+        ? [[[1
+            dcl <-/ref:"$refer"/- scl:("class_def"),
+              <<<2
+                scl -/i/=> mem:var_func,
+                           mem -/"static"/->static,
+                           mem -/"type"/->st,
+                           mem -/"name"/->(name),
+                           ? mem -/args:"arg_dcl"/->sad:("arg_dcl") ,
+                [%1
+                  %1 var_func == "var", static == "true". ,
+                  %2 var_func == "var", static == "false". ,
+                  %3 var_func == "func", static == "true". ,
+                  %4 var_func == "func", static == "false". ,
+                  %5 var_func == "func_type", static == "true". ,
+                  %6 var_func == "func_type", static == "false".
+                ]%1
+              >>>2
+        ]]]1
+      >>>1
+    }
+    after := {
+      <<<2
+        [%1
+          %1
+            cvs -/name/=> cv:("cls_var"),
+                          cv -/"type"/->dt,
+                          cv -/"name"/->(name) . ,
+          %2
+            ovs -/name/=> ov:("obj_var"),
+                          ov -/"type"/->dt,
+                          ov -/"name"/->(name) . ,
+          %3
+            cfs -/name/=> cf:("cls_func"),
+                          cf -/"type"/->dt,
+                          cf -/"name"/->(name),
+                          cf -/"arg_dcl"/->dad:("arg_dcl") . ,
+          %4
+            ofs -/name/=> of:("obj_func"),
+                          of -/"type"/->dt,
+                          of -/"name"/->(name),
+                          of -/"arg_dcl"/->dad:("arg_dcl") . ,
+          %5
+            cfts -/name/=> cft:("cls_f_type"),
+                           cft -/"type"/->dt,
+                           cft -/"name"/->(name),
+                           cft -/"arg_dcl"/->dad:("arg_dcl") . ,
+          %6
+            ofts -/name/=> oft:("obj_f_type"),
+                           oft -/"type"/->dt,
+                           oft -/"name"/->(name),
+                           oft -/"arg_dcl"/->dad:("arg_dcl") .
+        ]%1
+      >>>2
+    }
+    common := {
+      where next_if_false(if_exist(ref) == null, is_type(cname, "string") == null, is_type(i,"integer") == null),
+            if_exist(args) == null, type(model, st, dt), arg_dcl(model, sad, dad) .
+            next_if_false(if_exist(ref) == null, is_type(cname, "string") == null, is_type(i,"integer") == null),
+            if_not_exist(args) == null, type(model, st, dt) .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+   .
+
+/* ================================ body ================================ */
+body(model) :- body_cls_func(model),
+               body_obj_func(model) .
+
+/* ---------------- class function body ---------------- */
+body_cls_func(model) :- 
+  pm_rep(model)
+
+    before := {
+      invariant,
+      <<<1
+        model:("class_defs") -/(null, cname)/=> dcl:("class_def"),
+        dcl -/"cls_funcs"/-> cfs:("cls_funcs"),
+        <<<2
+        cfs -/name/=> cf:("cls_func"),
+                      cf -/"name"/->(name),
+                      cf -/"arg_dcl"/->dad:("arg_dcl"),
+
+        ? [[[1 dcl <-/ref:"$refer"/- scl:("class_def"),
+          <<<3
+            scl -/n/=> mem:("func"),
+                       mem -/"static"/->("true"),
+                       mem -/"name"/->(name),
+                       mem -/"body"/-> ss
+          >>>3
+        ]]]1
+        >>>2
+      >>>1
+    }
+    after := {
+       cf -/"body"/-> ds
+    }
+    common := {
+      where next_if_false(if_exist(ref) == null, is_type(cname, "string") == null, is_type(n,"integer") == null),
+            stat(model, dcl, cf, dad, null, null, null, ss, ds) .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+   .
+
+/* ---------------- object function body ---------------- */
+body_obj_func(model) :- 
+  pm_rep(model)
+
+    before := {
+      invariant,
+      <<<1
+      model:("class_defs") -/(null, cname)/=> dcl:("class_def"),
+      dcl -/"obj_funcs"/-> ofs:("obj_funcs"),
+        <<<2
+        ofs -/name/=> of:("obj_func"),
+                      of -/"name"/->(name),
+                      of -/"arg_dcl"/->dad:("arg_dcl"),
+
+        ? [[[1 dcl <-/ref:"$refer"/- scl:("class_def"),
+          <<<3
+             scl -/n/=> mem:("func"),
+                        mem -/"static"/->("false"),
+                        mem -/"name"/->(name),
+                        mem -/"body"/-> ss
+          >>>3
+        ]]]1
+        >>>2
+      >>>1
+    }
+    after := {
+      of -/"body"/-> ds
+    }
+    common := {
+      where next_if_false(if_exist(ref) == null, is_type(cname, "string") == null, is_type(n,"integer") == null),
+            stat(model, dcl, of, dad, null, null, null, ss, ds) .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+   .
+
+/* ================================ type ================================ */
+type(model, st, dt) :-
+  pm_rep(model, st, dt)
+
+    /* ---------------- class ---------------- */
+    before := {
+      invariant,
+      st:("ident") -/"name"/->(name),
+      model -/(null, name)/-> cls
+    }
+    after := {
+      dt:("class") -/"class"/-> cls
+    }
+    common := {
+      where is_type(name, "string") == null.
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- class function type ---------------- */
+    before := {
+      invariant,
+      st:("ident") -/"name"/-> (name),
+      <<<1
+        model:("class_defs") -/cid:(null, cname)/=> cl:("class_def"),
+              cl -/"cls_f_types"/-> cfts:("cls_f_types"),
+                                    cfts -/name/-> cft:("cls_f_type"),
+                                                   cft -/"name"/-> (name)
+      >>>1
+    }
+    after := {
+      dt:("cls_f_type") -/"name"/-> (name)
+    }
+    common := {
+      where break_if_fonud(cid) == null .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- object function type ---------------- */
+    before := {
+      invariant,
+      st:("ident") -/"name"/-> (name),
+      <<<1
+        model:("class_defs") -/cid:(null, cname)/=> cl:("class_def"),
+              cl -/"obj_f_types"/-> ofts:("obj_f_types"),
+                                    ofts -/name/-> oft:("obj_f_type"),
+                                                   oft -/"name"/-> (name)
+      >>>1
+    }
+    after := {
+      dt:("obj_f_type") -/"name"/-> (name)
+    }
+    common := {
+      where break_if_found(cid) == null.
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- system type ---------------- */
+    before := {
+      invariant,
+      st:(sts)
+    }
+    after := {
+      dt:(dts)
+    }
+    common := {
+      where sts == "integer", dts == "integer" .
+            sts == "real",    dts == "real" .
+            sts == "string",  dts == "string" .
+            sts == "list",    dts == "list" .
+            sts == "array",   dts == "array" .
+            sts == "file",    dts == "file" .
+            sts == "void",    dts == "void" .
+            sts == "matrix",  dts == "matrix" .
+            sts == "window",  dts == "window" .
+            sts == "variant", dts == "variant" .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* ================================ argument declaration ================================ */
+arg_dcl(model, sad, dad) :-
+  pm_rep(model, sad, dad)
+
+    before := {
+      invariant,
+      <<<1
+        sad:("arg_dcl") -/n/=> sa:("arg"),
+                               sa -/"type"/-> st,
+                               sa -/"name"/-> (name)
+      >>>1
+    }
+    after := {
+      <<<1
+        dad:("arg_dcl") -/m/=> da:("arg"),
+                               da -/"type"/-> dt,
+                               da -/"name"/-> (name)
+      >>>1
+    }
+    common := {
+      where next_if_false(is_type(n, "integer") == null),
+            sequence(m, 1, 1) == null, type(model, st, dt) .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* ================================ statement ================================ */
+stat(model, cls, func, at, ltt, in_loop, in_catch, s, d) :- 
+  pm_rep(model, cls, func, at, ltt, in_loop, in_catch, s, d)
+
+    /* ---------------- block ---------------- */
+    before := {
+      invariant,
+      <<<1
+        s:("block") -/n/=> ss
+      >>>1
+    }
+    after := {
+      <<<1
+        d:("block") -/m/=> ds,
+                           ds -/"loc"/-> lt:("locs")
+      >>>1
+    }
+    common := {
+      where next_if_false(is_type(n, "integer") == null), sequence(m, 1, 1) == null,
+            stat(model, cls, func, at, cons(lt, ltt), in_loop, in_catch, ss, ds) .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- local variable declaration ---------------- */
+    before := {
+      invariant,
+      s:("var_dcl") -/"type"/-> st,
+      <<<1
+        s           -/i/=> sl:("loc"),
+                           sl -/"name"/-> (name)
+      >>>1
+    }
+    after := {
+      ltt:(lt, ...),
+      <<<1
+        lt:("locs") -/name/=> dl:("loc"),
+                              dl -/"type"/-> dt,
+                              dl -/"name"/-> (name)
+      >>>1
+    }
+    common := {
+      where next_if_false(is_type(i, "integer") == null), type(model, st, dt) .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- if ---------------- */
+    before := {
+      invariant,
+      s:("if") -/"cond"/-> sc ,
+      s        -/"then"/-> st ,
+      s        -/"else"/-> se
+    }
+    after := {
+      d:("if") -/"cond"/-> dc ,
+      d        -/"then"/-> dt ,
+      d        -/"else"/-> de
+    }
+    common := {
+      where exp(model, cls, func, at, ltt, in_loop, in_catch, sc, dc, rt1),
+            stat(model, cls, func, at, ltt, in_loop, in_catch, st, dt),
+            stat(model, cls, func, at, ltt, in_loop, in_catch, se, de) .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- loop ---------------- */
+    before := {
+      invariant,
+      s:("loop") -/"stat"/-> ss
+    }
+    after := {
+      d:("loop") -/"stat"/-> ds
+    }
+    common := {
+      where stat(model, cls, func, at, ltt, 1, in_catch, ss, ds) .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- continue ---------------- */
+    before := {
+      invariant,
+      s:("continue")
+    }
+    after :=  {
+      d:("continue")
+    }
+    common := {
+      where in_loop != null .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- break ---------------- */
+    before := {
+      invariant,
+      s:("break")
+    }
+    after :=  {
+      d:("break")
+    }
+    common := {
+      where in_loop != null .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- return ---------------- */
+    before := {
+      invariant,
+      ? s:("return") -/sa:"exp"/-> sret ,
+      func -/"type"/-> rt
+    }
+    after :=  {
+      ? d:("return") -/da:"exp"/-> dret
+    }
+    common := {
+       where rt != ("void"), if_exist(sa) == null, exist(da) == null, exp(model, cls, func, at, ltt, in_loop, in_catch, sret, dret, rt1) .
+             rt == ("void"), if_not_exist(sa) == null, not_exist(da) == null .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- try catch ---------------- */
+    before := {
+      invariant,
+      s:("try") -/"stat"/-> ss,
+      s         -/"catch"/-> scs
+    }
+    after := {
+      d:("try") -/"stat"/-> ds,
+      d         -/"catch"/-> dcs
+    }
+    common := {
+      where stat(model, cls, func, at, ltt, in_loop, in_catch, ss,  ds ),
+            stat(model, cls, func, at, ltt, in_loop, 1,        scs, dcs) .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- throw ---------------- */
+    before := {
+      invariant,
+      s:("throw") -/"value"/-> se
+    }
+    after := {
+      d:("throw") -/"value"/-> de
+    }
+    common := {
+      where exp(model, cls, func, at, ltt, in_loop, in_catch, se, de, rt1) .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- expression ---------------- */
+    before := {
+      invariant,
+      s
+    }
+    after :=  {
+      d
+    }
+    common := {
+      where exp(model, cls, func, at, ltt, in_loop, in_catch, s, d, rt1) .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* ================================ expression ================================ */
+exp(model, cls, func, at, ltt, in_loop, in_catch, s, d, rt) :-
+  pm_rep(model, cls, func, at, ltt, in_loop, in_catch, s, d, rt)
+
+    /* ---------------- assign ---------------- */
+    before := {
+      invariant,
+      s:("assgin") -/"op"/-> ("=") ,
+      s            -/"lhs"/-> sl ,
+      s            -/"exp"/-> se
+    }
+    after := {
+      d:("assgin") -/"op"/-> ("=") ,
+      d            -/"lhs"/-> dl ,
+      d            -/"exp"/-> de ,
+      d            -/"ret_type"/-> rt
+    }
+    common := {
+      where exp(model, cls, func, at, ltt, in_loop, in_catch, sl, dl, rt1), lhs(dl),
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se, de, rt).
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- conditional ---------------- */
+    before := {
+      invariant,
+      s:("cond") -/"cond"/-> sc ,
+      s          -/"then"/-> st ,
+      s          -/"else"/-> se
+    }
+    after := {
+      d:("cond") -/"cond"/-> dc ,
+      d          -/"then"/-> st ,
+      d          -/"else"/-> de ,
+      d          -/"ret_type"/-> rt
+    }
+    common := {
+      where exp(model, cls, func, at, ltt, in_loop, in_catch, sc, dc, rt1),
+            exp(model, cls, func, at, ltt, in_loop, in_catch, st, dt, rt2),
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se, de, rt) .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- binary operation ---------------- */
+    before := {
+      invariant,
+      s:("binary") -/"op"/-> (sop) ,
+      s            -/"exp1"/-> se1 ,
+      s            -/"exp2"/-> se2
+    }
+    after := {
+      d:("binary") -/"op"/-> (dop) ,
+      d            -/"exp1"/-> de1 ,
+      d            -/"exp2"/-> de2 ,
+      d            -/"ret_type"/-> rt
+    }
+    common := {
+      where
+            sop == "||", dop == "||", 
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se1, de1, rt1),
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se2, de2, rt) .
+            sop == "&&", dop == "&&", 
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se1, de1, rt1),
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se2, de2, rt) .
+            sop == "==", dop == "==", 
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se1, de1, rt1),
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se2, de2, rt) .
+            sop == "!=", dop == "!=", 
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se1, de1, rt1),
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se2, de2, rt) .
+            sop == ">=", dop == ">=", 
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se1, de1, rt1),
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se2, de2, rt) .
+            sop == ">", dop == ">", 
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se1, de1, rt1),
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se2, de2, rt) .
+            sop == "<=", dop == "<=", 
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se1, de1, rt1),
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se2, de2, rt) .
+            sop == "<", dop == "<", 
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se1, de1, rt1),
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se2, de2, rt) .
+            sop == "+", dop == "+", 
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se1, de1, rt1),
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se2, de2, rt) .
+            sop == "-", dop == "-", 
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se1, de1, rt1),
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se2, de2, rt) .
+            sop == "*", dop == "*", 
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se1, de1, rt1),
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se2, de2, rt) .
+            sop == "/", dop == "/", 
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se1, de1, rt1),
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se2, de2, rt) .
+            sop == "%", dop == "%", 
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se1, de1, rt1),
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se2, de2, rt) .
+            sop == "|", dop == "|", 
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se1, de1, rt1),
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se2, de2, rt) .
+            sop == "^", dop == "^", 
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se1, de1, rt1),
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se2, de2, rt) .
+            sop == "&", dop == "&", 
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se1, de1, rt1),
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se2, de2, rt) .
+            sop == ">>", dop == ">>", 
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se1, de1, rt1),
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se2, de2, rt) .
+            sop == "<<", dop == "<<", 
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se1, de1, rt1),
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se2, de2, rt) .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- unary operation ---------------- */
+    before := {
+      invariant,
+      s:("unary") -/"op"/-> (sop) ,
+      s           -/"exp"/-> se
+    }
+    after := {
+      d:("unary") -/"op"/-> (dop) ,
+      d           -/"exp"/-> de ,
+      d           -/"ret_type"/-> rt
+    }
+    common := {
+      where
+            sop == "pre++", dop == "pre++",
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se, de, rt) .
+            sop == "pre--", dop == "pre--",
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se, de, rt) .
+            sop == "post++", dop == "post++",
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se, de, rt) .
+            sop == "post--", dop == "post--",
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se, de, rt) .
+            sop == "-", dop == "-",
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se, de, rt) .
+            sop == "~", dop == "~",
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se, de, rt) .
+            sop == "!", dop == "!",
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se, de, rt) .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- cast ---------------- */
+    before := {
+      invariant,
+      s:("cast") -/"type"/-> st ,
+      s          -/"exp"/->  se
+    }
+    after := {
+      d:("cast") -/"type"/-> dt ,
+      d          -/"exp"/->  de ,
+      d          -/"ret_type"/-> dt
+    }
+    common := {
+      where type(model, st, dt),
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se, de, rt) .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- primitive ---------------- */
+    before := {
+      invariant,
+      se
+    }
+    after :=  {
+      de
+    }
+    common := {
+      where prim(model, cls, func, at, ltt, in_loop, in_catch, se, de, rt) .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* ================================ primitive ================================ */
+prim(model, cls, func, at, ltt, in_loop, in_catch, se, de, rt) :-
+  pm_rep(cls, func, at, ltt, in_loop, in_catch, se, de, rt)
+
+    /* ---------------- variable ---------------- */
+    before := {
+      invariant,
+      se:("ident") -/"name"/-> (name)
+    }
+    after := {
+      de:(type) -/"name"/-> (name),
+      de        -/"ret_type"/-> rt
+    }
+    common := {
+      where is_local_variable  (ltt, name, de, rt), type == "loc" .
+            is_argument_variable(at, name, de, rt), type == "arg" .
+            is_class_variable (cls, name, e, rt), type == "cls_var" .
+            func == ("obj_func"), is_object_variable(cls, name, e, rt), type == "obj_var" .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- new ---------------- */
+    before := {
+      invariant,
+      se:("new") -/"name"/-> (name)
+    }
+    after := {
+      de:("new") -/"class"/-> cd,
+      de         -/"ret_type"/-> cd
+    }
+    common := {
+      where get_class_def(model, name, cd) .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- this ---------------- */
+    before := {
+      invariant,
+      se:("this")
+    }
+    after := {
+      de:("this"),
+      de -/"ret_type"/-> cls
+    }
+    common := {
+      where func == ("obj_func") .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- runtime ---------------- */
+    before := {
+      invariant,
+      se:("runtime") -/"class"/-> (name)
+    }
+    after := {
+      de:("runtime") -/"class"/-> cd,
+                  de -/"ret_type"/-> cd
+    }
+    common := {
+      where get_class_def(model, name, cd) .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- null ---------------- */
+    before := {
+      invariant,
+      se:("const_null")
+    }
+    after := {
+      de:("const_null"),
+      de -/"ret_type"/-> ("list")
+    }
+    common := {
+      where .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- contant ---------------- */
+    before := {
+      invariant,
+      se:("const") -/"type"/->  st,
+                se -/"value"/-> (sv)
+    }
+    after := {
+      de:("const") -/"type"/->  dt,
+                de -/"value"/-> (dv),
+                de -/"ret_type"/-> dt
+    }
+    common := {
+      where type(model, st, dt), dv == sv .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- class/obj/sys function ---------------- */
+    before := {
+      invariant,
+      sf:("func") -/"name"/-> (name) ,
+               sf -/"arg_ls"/-> s_a_ls
+    }
+    after := {
+      df:(type) -/"name"/-> (name) ,
+             df -/"arg_ls"/-> d_a_ls,
+             df -/"ret_type"/-> rt
+    }
+    common := {
+      where is_class_function(model, cls, func, at, ltt, in_loop, in_catch, name, s_a_ls, df, d_a_ls, rt),
+                type == "cls_func" .
+            func == ("obj_func"),
+            is_object_function(model, cls, func, at, ltt, in_loop, in_catch, name, s_a_ls, df, d_a_ls, rt),
+                type == "obj_func" ,
+            is_system_function(model, cls, func, at, ltt, in_loop, in_catch, name, s_a_ls, df, d_a_ls, rt),
+                type == "sys_func".
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- super function ---------------- */
+    before := {
+      invariant,
+      sf:("super_func") -/"class"/-> cls2:("class"),
+                                     cls2 -/"name"/-> (cname),
+                     sf -/"name"/-> (name),
+                     sf -/"arg_ls"/-> s_a_ls
+    }
+    after := {
+      df:(type) -/"class"/-> cd,
+             df -/"name"/-> (name),
+             df -/"arg_ls"/-> d_a_ls,
+             df -/"ret_type"/-> rt
+    }
+    common := {
+      where get_class(model, cname, cd),
+            is_super_class_function(model, cls, func, at, ltt, in_loop, in_catch,
+                    cd, name, s_a_ls, df, d_a_ls, rt),
+                type == "super_cls_func" .
+            get_class(model, cname, cd), func == ("obj_func"),
+            is_super_object_function(model, cls, func, at, ltt, in_loop, in_catch,
+                    cd, name, s_a_ls, df, d_a_ls, rt),
+                type == "super_obj_func" .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- static variable / funcion pointer ---------------- */
+    before := {
+      invariant,
+      se:("sv_fptr") -/"class"/-> cls:("class"),
+                                  cls -/"name"/-> (cname),
+                  se -/"name"/-> (name)
+    }
+    after := {
+      de:(type) ,
+           ? de:(type) -/r:"ret_type"/-> rt ,
+           ? de:(type) -/f:"ret_type"/-> func
+    }
+    common := {
+      where get_class(model, cname, cd),
+            is_class_variable(cd, name, de, rt),
+                type == "cls_var", exist(r) == null .
+            get_class(model, cname, cd),
+            get_class_function_pointer(cd, name, func), exist(f) == null,
+                type == "cls_f_ptr" .
+            get_class(model, cname, cd),
+            get_object_function_pointer(cd, name, func), exist(f) == null,
+                type == "obj_f_ptr" .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- class pointer function ---------------- */
+    before := {
+      invariant,
+      se:("ptr_func") -/"func_ptr"/-> s_f_ptr,
+                   se -/"arg_ls"/-> s_a_ls
+    }
+    after := {
+      de:("cls_ptr_func") -/"func_ptr"/-> d_f_ptr,
+                                          d_f_ptr -/"ret_type"/-> func:("cls_func"),
+                                                                  func -/"type"/-> rt,
+                                                                  func -/"arg_dcl"/-> ad:("arg_dcl"),
+                       de -/"arg_ls"/-> d_a_ls,
+                       de -/"ret_type"/-> rt
+    }
+    common := {
+      where exp(model, cls, func, at, ltt, in_loop, in_catch, s_f_ptr, d_f_ptr, rt2),
+            a_ls(model, cls, func, at, ltt, in_loop, in_catch, s_a_ls, d_a_ls, k),
+            match_arg_dcl_and_a_ls(ad, d_a_ls) .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- object pointer function ---------------- */
+    before := {
+      invariant,
+      se:("mem_ptr_f") -/"obj"/-> sobj ,
+                    se -/"func_ptr"/-> s_f_ptr ,
+                    se -/"arg_ls"/-> s_a_ls
+    }
+    after := {
+      de:("obj_ptr_func") -/"obj"/-> dobj ,
+                    de -/"func_ptr"/-> d_f_ptr ,
+                                       d_f_ptr -/"ret_type"/-> func:("obj_func"),
+                                                               func -/"type"/-> rt,
+                                                               func -/"arg_dcl"/-> ad:("arg_dcl"),
+                    de -/"arg_ls"/-> d_a_ls ,
+                    de -/"ret_type"/-> rt
+    }
+    common := {
+      where exp(model, cls, func, at, ltt, in_loop, in_catch, sobj, dobj, rt2),
+            exp(model, cls, func, at, ltt, in_loop, in_catch, s_f_ptr, d_f_ptr, rt3),
+            a_ls(model, cls, func, at, ltt, in_loop, in_catch, s_a_ls, d_a_ls, k),
+            match_arg_dcl_and_a_ls(ad, d_a_ls) .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- object variable ---------------- */
+    before := {
+      invariant,
+      se:("mem_var") -/"obj"/-> sobj ,
+                  se -/"name"/-> (name)
+    }
+    after := {
+      de:("obj_var") -/"obj"/-> dobj,
+                                dobj -/"ret_type"/-> rt1,
+                  de -/"name"/-> (name),
+                  de -/"ret_type"/-> rt
+    }
+    common := {
+      where exp(model, cls, func, at, ltt, in_loop, in_catch, sobj, dobj, rt1),
+            rt1 == ("class"), is_object_variable(rt1, name, de, rt) .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- object function ---------------- */
+    before := {
+      invariant,
+      sf:("mem_func") -/"obj"/-> sobj ,
+                   sf -/"name"/-> (name) ,
+                   sf -/"arg_ls"/-> s_a_ls
+    }
+    after := {
+      df:("obj_func") -/"obj"/-> dobj ,
+                   df -/"name"/-> (name) ,
+                   df -/"arg_ls"/-> d_a_ls ,
+                   df -/"ret_type"/-> rt
+    }
+    common := {
+      where exp(model, cls, func, at, ltt, in_loop, in_catch, sobj, dobj, cls2),
+            member_object_function(model, cls, func, at, ltt, in_loop, in_catch,
+                cls2, name, s_a_ls, df, d_a_ls, rt) .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- list head ---------------- */
+    before := {
+      invariant,
+      se:("head") -/"list"/-> sl
+    }
+    after := {
+      de:("head") -/"list"/-> dl,
+               de -/"ret_type"/-> ("list")
+    }
+    common := {
+      where exp(model, cls, func, at, ltt, in_loop, in_catch, sl, dl, rt1) .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- list tail ---------------- */
+    before := {
+      invariant,
+      se:("tail") -/"list"/-> sl
+    }
+    after := {
+      de:("tail") -/"list"/-> dl,
+               de -/"ret_type"/-> ("list")
+    }
+    common := {
+      where exp(model, cls, func, at, ltt, in_loop, in_catch, sl, dl, rt1) .
+    }
+    tail := {
+      where .
+    }
+
+    /* ---------------- array element ---------------- */
+    before := {
+      invariant,
+      se:("elem") -/"array"/-> sary ,
+               se -/"index"/-> sidx
+    }
+    after := {
+      de:("elem") -/"array"/-> dary ,
+               de -/"index"/-> didx ,
+               de -/"ret_type"/-> ("list")
+    }
+    common := {
+      where exp(model, cls, func, at, ltt, in_loop, in_catch, sary, dary, rt1) .
+            exp(model, cls, func, at, ltt, in_loop, in_catch, sidx, didx, rt2) .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* ================================ is local variable ? ================================ */
+is_local_variable(ltt, name, e, rt) :-
+  pm_rep(ltt, name, e, rt)
+
+    before := {
+      invariant,
+      ltt:(lt, ltt2),
+         ? [[[1
+           lt -/a:name/-> base:("loc"),
+                          base -/b:"type"/-> rt
+         ]]]1
+    }
+    after := {
+      base -/"$refer"/-> e
+    }
+    common := {
+      where if_exist(a) == null .
+            is_local_variable(ltt2, name, e, rt) .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* ================================ is argument variable ? ================================ */
+is_argument_variable(at, name, base, rt) :-
+  pm_rep(at, name, base, rt)
+
+    before := {
+      invariant,
+      <<<1
+        at -/m/=> base:("arg"),
+                  base -/"type"/-> rt,
+                  base -/"name"/-> (name)
+      >>>1
+    }
+    after := {
+      base -/"$refer"/-> e
+    }
+    common := {
+      where is_type(m, "integer") == null.
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* ================================ is class variable ? ================================ */
+is_class_variable(cls, name, e, rt) :-
+  pm_rep(cls, name, e, rt)
+
+    before := {
+      invariant,
+      cls:("class_def") -/"cls_vars"/-> cvs:("cls_vars"),
+                     ? [[[1
+                        cvs -/a:name/-> cv:("cls_var"),
+                                        cv -/"type"/-> rt
+                     ]]]1 ,
+      ? cls -/s:"super"/-> super
+    }
+    after := {
+      ? cv -/c:"$refer"/-> e
+    }
+    common := {
+      where  if_exist(a) == null, exist(c) == null .
+             if_exist(s) == null, is_class_variable(super, name, e, rt) .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* ================================ is object variable ? ================================ */
+is_object_variable(cls, name, e, rt) :-
+  pm_rep(cls, name, e, rt)
+
+    before := {
+      invariant,
+      cls:("class_def") -/"obj_vars"/-> ovs:("obj_vars"),
+                     ? [[[1
+                       ovs -/a:name/-> ov:("obj_var"),
+                                       ov -/"type"/-> rt
+                     ]]]1 ,
+      ? cls -/s:"super"/-> super
+    }
+    after := {
+      ? ov -/c:"$refer"/-> e
+    }
+    common := {
+      where  if_exist(a) == null, exist(c) == null .
+             if_exist(s) == null, is_class_variable(super, name, e, rt) .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* ================================ is class function ? ================================ */
+is_class_function(model, cls, func, at, ltt, in_loop, in_catch, name, s_a_ls, df, d_a_ls, rt) :-
+  pm_rep(model, cls, func, at, ltt, in_loop, in_catch, name, s_a_ls, df, d_a_ls, rt)
+
+    before := {
+      invariant,
+      ? cls -/s:"super"/-> super ,
+      cls:("class_def") -/"cls_funcs"/-> cfs:("cls_funcs"),
+        <<<1
+          cfs -/n:name/=> cf:("cls_func"),
+                          cf -/"type"/->rt,
+                          cf -/"name"/->(name),
+                          cf -/"arg_dcl"/->ad:("arg_dcl")
+        >>>1
+    }
+    after := {
+      cf -/"$refer"/-> df
+    }
+    common := {
+      where a_ls(model, cls, func, at, ltt, in_loop, in_catch, name, s_a_ls, d_a_ls, k),
+            match_arg_dcl_and_a_ls(ad, d_a_ls),
+            break_if_found(n) == null .
+            if_exist(s) == null, 
+            is_class_function(model, super, func, at, ltt, in_loop, in_catch, name, s_a_ls, df, d_a_ls, rt) .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* ================================ is object function ? ================================ */
+is_object_function(model, cls, func, at, ltt, in_loop, in_catch, name, s_a_ls, df, d_a_ls, rt) :-
+  pm_rep(model, cls, func, at, ltt, in_loop, in_catch, name, s_a_ls, df, d_a_ls, rt)
+
+    before := {
+      invariant,
+      cls:("class_def") -/"obj_funcs"/-> ofs:("obj_funcs"),
+      ? cls -/s:"super"/-> super ,
+        <<<1
+          ofs -/n:name/=> of:("obj_func"),
+                          of -/"type"/->rt,
+                          of -/"name"/->(name),
+                          of -/"arg_dcl"/->ad:("arg_dcl")
+        >>>1
+    }
+    after := {
+      of -/"$refer"/-> df
+    }
+    common := {
+      where a_ls(model, cls, func, at, ltt, in_loop, in_catch, name, s_a_ls, d_a_ls, k),
+            match_arg_dcl_and_a_ls(ad, d_a_ls),
+            break_if_found(n) == null .
+            if_exist(s) == null, 
+            is_object_function(model, super, func, at, ltt, in_loop, in_catch, name, s_a_ls, df, d_a_ls, rt) .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* ================================ is system function ? ================================ */
+is_system_function(model, cls, func, at, ltt, in_loop, in_catch, name, s_a_ls, df, d_a_ls, rt) :-
+  pm_rep(model, cls, func, at, ltt, in_loop, in_catch, name, s_a_ls, df, d_a_ls, rt)
+
+    before := {
+      invariant,
+      model -/"sys_funcs"/-> sysfuncs:("sys_funcs"),
+          sysfuncs -/(name, k)/-> sf:("sys_func")
+    }
+    after := {
+      sf -/"$refer"/-> df
+    }
+    common := {
+      where a_ls(model, cls, func, at, ltt, in_loop, in_catch, s_a_ls, d_a_ls, k),
+            get_class_def(model, "AlObject", rt) .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* ================================ is super class function ? ================================ */
+is_super_class_function(model, cls, func, at, ltt, in_loop, in_catch, cls2, name, s_a_ls, df, d_a_ls, rt) :-
+  pm_rep(model, cls, func, at, ltt, in_loop, in_catch, cls2, name, s_a_ls, df, d_a_ls, rt)
+
+    before := {
+      invariant,
+      cls2:("class_def") -/"cls_funcs"/-> cfs:("cls_funcs"),
+      ? cls2 -/s:"super"/-> super ,
+        <<<1
+          cfs -/n:name/=> cf:("cls_func"),
+                          cf -/"type"/->rt,
+                          cf -/"name"/->(name),
+                          cf -/"arg_dcl"/->ad:("arg_dcl")
+        >>>1
+    }
+    after := {
+      cf -/"$refer"/-> df
+    }
+    common := {
+      where a_ls(model, cls, func, at, ltt, in_loop, in_catch, name, s_a_ls, d_a_ls, k),
+            match_arg_dcl_and_a_ls(ad, d_a_ls),
+            break_if_found(n) == null .
+            if_exist(s) == null, 
+            is_super_class_function(model, cls, func, at, ltt, in_loop, in_catch, super, name, s_a_ls, df, d_a_ls, rt) .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* ================================ is super object function ? ================================ */
+is_super_object_function(model, cls, func, at, ltt, in_loop, in_catch, cls2, name, s_a_ls, df, d_a_ls, rt) :-
+  pm_rep(model, cls, func, at, ltt, in_loop, in_catch, cls2, name, s_a_ls, df, d_a_ls, rt)
+
+    before := {
+      invariant,
+      cls2:("class_def") -/"obj_funcs"/-> ofs:("obj_funcs"),
+      ? cls2 -/s:"super"/-> super ,
+        <<<1
+          ofs -/n:name/=> of:("obj_func"),
+                          of -/"type"/->rt,
+                          of -/"name"/->(name),
+                          of -/"arg_dcl"/->ad:("arg_dcl")
+        >>>1
+    }
+    after := {
+      of -/"$refer"/-> df
+    }
+    common := {
+      where is_derived(cls2, cls),
+            a_ls(model, cls, func, at, ltt, in_loop, in_catch, name, s_a_ls, d_a_ls, k),
+            match_arg_dcl_and_a_ls(ad, d_a_ls),
+            break_if_found(n) == null .
+            if_exist(s) == null, 
+            is_super_object_function(model, cls, func, at, ltt, in_loop, in_catch, super, name, s_a_ls, df, d_a_ls, rt) .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* ================================ is member object function ? ================================ */
+member_object_function(model, cls, func, at, ltt, in_loop, in_catch, cls2, name, s_a_ls, df, d_a_ls, rt) :-
+  pm_rep(model, cls, func, at, ltt, in_loop, in_catch, cls2, name, s_a_ls, df, d_a_ls, rt)
+
+    before := {
+      invariant,
+      cls2:("class_def") -/"obj_funcs"/-> ofs:("obj_funcs"),
+      ? cls2 -/s:"super"/-> super ,
+        <<<1
+          ofs -/n:name/=> of:("obj_func"),
+                          of -/"type"/->rt,
+                          of -/"name"/->(name),
+                          of -/"arg_dcl"/->ad:("arg_dcl")
+        >>>1
+    }
+    after := {
+      of -/"$refer"/-> df
+    }
+    common := {
+      where a_ls(model, cls, func, at, ltt, in_loop, in_catch, name, s_a_ls, d_a_ls, k),
+            match_arg_dcl_and_a_ls(ad, d_a_ls),
+            break_if_found(n) == null .
+            if_exist(s) == null, 
+            member_object_function(model, cls, func, at, ltt, in_loop, in_catch, super, name, s_a_ls, df, d_a_ls, rt) .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* ================================ get class definition ================================ */
+get_class_def(model, name, cd) :-
+  pm_rep(cls, name, cd)
+
+    before := {
+      invariant,
+      model:("class_defs") -/(null, name)/-> cd:("class_def")
+    }
+    after := {
+      cd
+    }
+    common := {
+      where .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* ================================ check base type ================================ */
+is_derived(cls2, cls1) :-
+  pm_rep(cls2, cls1)
+
+    before := {
+      invariant,
+      cls2:("class_def") -/"name"/-> (name1),
+                  ? cls2 -/s:"super"/-> super ,
+      cls1:("class_def") -/"name"/-> (name2)
+    }
+    after := {
+      cls2,
+      cls1
+    }
+    common := {
+      where name1 == name2 .
+            if_exist(s) == null, is_derived(super, cls1) .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+is_base_type(act_t, dcl_t) :-
+  pm_rep(act_t, dcl_t)
+
+    before := {
+      invariant,
+      act_t:("class") -/"class"/-> cls1,
+      dcl_t:("class") -/"class"/-> cls2
+    }
+    after := {
+      act_t,
+      dcl_t
+    }
+    common := {
+      where is_derived(cls1, cls2) .
+    }
+    tail := {
+      where .
+    }
+
+    before := {
+      invariant,
+      act_t:("cls_f_type") -/"name"/-> (name) ,
+      dcl_t:("cls_f_type") -/"name"/-> (name)
+    }
+    after := {
+      act_t,
+      dcl_t
+    }
+    common := {
+      where .
+    }
+    tail := {
+      where .
+    }
+
+    before := {
+      invariant,
+      act_t:("obj_f_type") -/"name"/-> (name) ,
+      dcl_t:("obj_f_type") -/"name"/-> (name)
+    }
+    after := {
+      act_t,
+      dcl_t
+    }
+    common := {
+      where .
+    }
+    tail := {
+      where .
+    }
+
+    before := {
+      invariant,
+      act_t:(at),
+      dcl_t:(dt)
+    }
+    after := {
+      act_t,
+      dcl_t
+    }
+    common := {
+      where at == ("integer"), dt == ("integer") .
+            at == ("real"),    dt == ("real") .
+            at == ("string"),  dt == ("string") .
+            at == ("list"),    dt == ("list") .
+            at == ("array"),   dt == ("array") .
+            at == ("file"),    dt == ("file") .
+            at == ("matrix"),  dt == ("matrix") .
+            at == ("window"),  dt == ("window") .
+            at == ("variant"), dt == ("variant") .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* ================================ check arg_dcl and arg_ls ================================ */
+match_arg_dcl_and_a_ls(ad, a_ls) :-
+   pm_rep(ad, a_ls)
+
+    before := {
+      invariant,
+      ad:("arg_dcl") -/n/=> arg:("arg"),
+                              arg -/"type"/-> dcl_t,
+      al:("arg_ls")  -/n/-> exp,
+                            exp -/"ret_type"/-> act_t
+    }
+    after := {
+      ad,
+      al
+    }
+    common := {
+      where is_type(n, "integer") == null,
+            is_base_type(act_t, dcl_t) ,
+            seqence(m, 1, 1) == null .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* ================================ arg_ls to arg_ls ================================ */
+a_ls(model, cls, func, at, ltt, in_loop, in_catch, s_a_ls, d_a_ls, k) :-
+   pm_rep(model, cls, func, at, ltt, in_loop, in_catch, s_a_ls, d_a_ls, k)
+
+    before := {
+      invariant,
+      <<<1
+        s_a_ls:("arg_ls") -/n/=> se
+      >>>1
+    }
+    after := {
+      <<<1
+        d_a_ls:("arg_ls") -/m/=> de
+      >>>1
+    }
+    common := {
+      where is_type(n, "integer") == null, seqence(m, 1, 1) == null,
+            exp(model, cls, func, at, ltt, in_loop, in_catch, se, de, rt) .
+            k == al_count(s_a_ls) .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* ============================ get class function pointer ============================ */
+get_class_function_pointer(cls, name, cf) :-
+   pm_rep(cls, name, cf)
+
+    before := {
+      invariant,
+      cls:("class_def") -/"cls_funcs"/-> cfs:("cls_funcs"),
+        <<<1
+          cfs -/n:name/=> cf:("cls_func")
+        >>>1
+    }
+    after := {
+      cls
+    }
+    common := {
+      where break_if_found(n) == null .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+
+/* ============================ get object function pointer ============================ */
+get_object_function_pointer(cls, name, of) :-
+   pm_rep(cls, name, of)
+
+    before := {
+      invariant,
+      cls:("class_def") -/"obj_funcs"/-> ofs:("obj_funcs"),
+        <<<1
+          ofs -/n:name/=> of:("obj_func")
+        >>>1
+    }
+    after := {
+      cls
+    }
+    common := {
+      where break_if_found(n) == null .
+    }
+    tail := {
+      where .
+    }
+
+    final := {
+      where .
+    }
+
+    .
+

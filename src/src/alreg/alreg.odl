@@ -1,0 +1,62 @@
+// AlReg.odl : ActiveX コントロール プロジェクトのタイプ ライブラリのソース
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(22E60104-0815-11D2-86B0-444553540000), version(1.0),
+  helpfile("AlReg.hlp"),
+  helpstring("AlReg ActiveX Control module"),
+  control ]
+library ALREGLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	[ uuid(22E60105-0815-11D2-86B0-444553540000),
+	  helpstring("Dispatch interface for AlReg Control"), hidden ]
+	dispinterface _DAlReg
+	{
+		properties:
+			//{{AFX_ODL_PROP(CAlRegCtrl)
+			//}}AFX_ODL_PROP
+
+		methods:
+			//{{AFX_ODL_METHOD(CAlRegCtrl)
+			[id(1)] short SetRegistryKey(BSTR hKey, BSTR subKey, BSTR accessMask);
+			[id(2)] short QueryInt(BSTR name);
+			[id(3)] short QueryString(BSTR name);
+			[id(4)] long GetIntValue();
+			[id(5)] BSTR GetStringValue();
+			[id(6)] short SetIntValue(BSTR name, long value);
+			[id(7)] short SetStringValue(BSTR name, BSTR value);
+			[id(8)] short DeleteKey(BSTR name);
+			[id(9)] short DeleteValue(BSTR name);
+			//}}AFX_ODL_METHOD
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	[ uuid(22E60106-0815-11D2-86B0-444553540000),
+	  helpstring("Event interface for AlReg Control") ]
+	dispinterface _DAlRegEvents
+	{
+		properties:
+			//  イベント インターフェイスにプロパティはありません
+
+		methods:
+			//{{AFX_ODL_EVENT(CAlRegCtrl)
+			//}}AFX_ODL_EVENT
+	};
+
+	[ uuid(22E60107-0815-11D2-86B0-444553540000),
+	  helpstring("AlReg Control"), control ]
+	coclass AlReg
+	{
+		[default] dispinterface _DAlReg;
+		[default, source] dispinterface _DAlRegEvents;
+	};
+
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};

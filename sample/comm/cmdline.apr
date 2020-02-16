@@ -1,0 +1,76 @@
+$END_LIB
+TEXT
+AlObject
+class TP
+end_class
+$END_CLASS
+TEXT
+AlObject
+class TP
+member
+public: static void test();
+member
+public: static void test2();
+member
+public: static void child();
+member
+public: static void exit();
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class TP
+member
+public: static void test();
+body
+{
+	var integer code;
+	var string cmd;
+	cmd = "altair -f cmdline.apr -c TP -m child Chiaki, I love you.";
+	code = al_exec(cmd, ".", 1, 1);
+	al_print("exit code = ");
+	al_print(code);
+	al_print("\n");
+}
+end_body
+member
+public: static void test2();
+body
+{
+	var variant o;
+	if (o = al_ole_misc("create_object", "Altair.Document", null)) {
+	} else {
+		al_print("Fail to execute Altair OLE Server.\n");
+		return;
+	}
+	if (o.Open(".", "cmdline.apr") != 0) {
+		al_print("Automation method 'Open' returns with an error.\n");
+		return;
+	} else {
+	}
+	if (o.Run("TP", "child", "Chiaki, I love you.", 0) != 0) {
+		al_print("Automation method 'Run' returns with an error.\n");
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: static void child();
+body
+{
+	var string args;
+	args = al_misc("get_cmd_line", null, null);
+	al_print(args);
+	al_print("\n");
+}
+end_body
+member
+public: static void exit();
+body
+{
+	al_misc("exit", 1999, null);
+}
+end_body
+end_class
+$END_BODY

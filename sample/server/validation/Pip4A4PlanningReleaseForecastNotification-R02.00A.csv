@@ -1,0 +1,944 @@
+dic-1,Blanket purchase order number,
+dic-1,Contract number,
+dic-1,Discrete purchase order number,
+dic-1,Planning number,
+dic-1,Project number,
+dic-1,Release number,
+dic-1,Scheduling agreement number,
+dic-1,Section number,
+end-dic-1,,
+dic,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/ForecastIdentifierReference/GlobalForecastReferenceTypeCode,dic-1
+dic,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/productForecastIdentifier/ForecastIdentifierReference/GlobalForecastReferenceTypeCode,dic-1
+dic,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/scheduleProductForecastIdentifier/ForecastIdentifierReference/GlobalForecastReferenceTypeCode,dic-1
+dic-2,Additional Parts Added,
+dic-2,Advertisement,
+dic-2,Discontinued Product,
+dic-2,Forward Buy,
+dic-2,Inventory Policy Change,
+dic-2,Location Closure,
+dic-2,Manufacturing Resource Planning,
+dic-2,New Location,
+dic-2,New Product,
+dic-2,Order Policy Change,
+dic-2,Price Change,
+dic-2,Product Changeover,
+dic-2,Promotion,
+dic-2,Quantity Change,
+dic-2,Related Product Shortage,
+dic-2,Schedule Change,
+end-dic-2,,
+dic,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/GlobalForecastEventCode,dic-2
+dic,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/GlobalForecastEventCode,dic-2
+dic-3,Distributed by,  The party who supplies products to retailers.
+dic-3,Founded by,"  The party who performs the act, process, or art of casting metals."
+dic-3,Logistics provided by,  The party who handles the details of an operation.
+dic-3,Manufactured by,"  The party who creates, processes or produces goods"
+dic-3,Planning by,"  The party who establishes goals, policies or procedures."
+dic-3,Primary contract with,  The primary party with whom a contract is formed.
+dic-3,Purchased by,  The party who is a purchaser of a product; including parties known as buying locations.
+dic-3,Secondary contract with,  The subsequent party(ies) with whom a contract is formed.
+dic-3,Ship to,  The partner and/or location to which the product must be delivered.
+dic-3,Sold to,  The party to whom a product has been sold.
+dic-3,Subcontracted by,  The party who is contracted to perform part or all of another party's contract.
+dic-3,Used by,  The party who is the end user of the product.
+dic-3,Warehoused by,  The party who stocks or stores products.
+end-dic-3,,
+dic,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ForecastPartner/GlobalPartnerReferenceTypeCode,dic-3
+dic-4,Broker,  Representative of a third party.
+dic-4,Carrier,  Product carrier for transporting goods in supply chain.
+dic-4,Contract Manufacturer,  The party responsible for the services rendered.
+dic-4,Customs Broker,  Product customs broker in supply chain.
+dic-4,Distribution Center,  Product distributor in supply chain.
+dic-4,Distributor,  Product distributor in supply chain.
+dic-4,End User,  Product end user in supply chain.
+dic-4,End User Government,  End user government.
+dic-4,Financier,  Financial service provider in supply chain
+dic-4,Freight Forwarder,  Product freight forwarder for transporting goods in supply chain.
+dic-4,Manufacturer,  Product manufacturer in supply chain.
+dic-4,Original Equipment Manufacturer,  Product manufacturer of original equipment in the supply chain.
+dic-4,Reseller,  The party who buys goods from a manufacturer and resells them to customers unchanged.
+dic-4,Retailer,  Product retailer in supply chain.
+dic-4,Shopper,  Product shopper in supply chain.
+dic-4,Warehouser,  Product warehouser in supply chain.
+end-dic-4,,
+dic,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ForecastPartner/PartnerDescription/GlobalPartnerClassificationCode,dic-4
+dic,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ForecastProductIdentification/PartnerProductIdentification/GlobalPartnerClassificationCode,dic-4
+dic,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/shipTo/PartnerDescription/GlobalPartnerClassificationCode,dic-4
+dic,/Pip4A4PlanningReleaseForecastNotification/fromRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-4
+dic,/Pip4A4PlanningReleaseForecastNotification/toRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-4
+dic-5,AD,  ANDORRA
+dic-5,AE,  UNITED ARAB EMIRATES
+dic-5,AF,  AFGHANISTAN
+dic-5,AG,  ANTIGUA AND BARBUDA
+dic-5,AI,  ANGUILLA
+dic-5,AL,  ALBANIA
+dic-5,AM,  ARMENIA
+dic-5,AN,  NETHERLANDS ANTILLES
+dic-5,AO,  ANGOLA
+dic-5,AQ,  ANTARCTICA
+dic-5,AR,  ARGENTINA
+dic-5,AS,  AMERICAN SAMOA
+dic-5,AT,  AUSTRIA
+dic-5,AU,  AUSTRALIA
+dic-5,AW,  ARUBA
+dic-5,AZ,  AZERBAIJAN
+dic-5,BA,  BOSNIA AND HERZEGOVINA
+dic-5,BB,  BARBADOS
+dic-5,BD,  BANGLADESH
+dic-5,BE,  BELGIUM
+dic-5,BF,  BURKINA FASO
+dic-5,BG,  BULGARIA
+dic-5,BH,  BAHRAIN
+dic-5,BI,  BURUNDI
+dic-5,BJ,  BENIN
+dic-5,BM,  BERMUDA
+dic-5,BN,  BRUNEI DARUSSALAM
+dic-5,BO,  BOLIVIA
+dic-5,BR,  BRAZIL
+dic-5,BS,  BAHAMAS
+dic-5,BT,  BHUTAN
+dic-5,BV,  BOUVET ISLAND
+dic-5,BW,  BOTSWANA
+dic-5,BY,  BELARUS
+dic-5,BZ,  BELIZE
+dic-5,CA,  CANADA
+dic-5,CC,  COCOS (KEELING) ISLANDS
+dic-5,CF,  CENTRAL AFRICAN REPUBLIC
+dic-5,CG,  CONGO
+dic-5,CH,  SWITZERLAND
+dic-5,CI,  CÔTE D'IVOIRE
+dic-5,CK,  COOK ISLANDS
+dic-5,CL,  CHILE
+dic-5,CM,  CAMEROON
+dic-5,CN,  CHINA
+dic-5,CO,  COLOMBIA
+dic-5,CR,  COSTA RICA
+dic-5,CU,  CUBA
+dic-5,CV,  CAPE VERDE
+dic-5,CX,  CHRISTMAS ISLAND
+dic-5,CY,  CYPRUS
+dic-5,CZ,  CZECH REPUBLIC
+dic-5,DE,  GERMANY
+dic-5,DJ,  DJIBOUTI
+dic-5,DK,  DENMARK
+dic-5,DM,  DOMINICA
+dic-5,DO,  DOMINICAN REPUBLIC
+dic-5,DZ,  ALGERIA
+dic-5,EC,  ECUADOR
+dic-5,EE,  ESTONIA
+dic-5,EG,  EGYPT
+dic-5,EH,  WESTERN SAHARA
+dic-5,ER,  ERITREA
+dic-5,ES,  SPAIN
+dic-5,ET,  ETHIOPIA
+dic-5,FI,  FINLAND
+dic-5,FJ,  FIJI
+dic-5,FK,  FALKLAND ISLANDS (MALVINAS)
+dic-5,FM,"  MICRONESIA, FEDERATED STATES"
+dic-5,FO,  FAROE ISLANDS
+dic-5,FR,  FRANCE
+dic-5,GA,  GABON
+dic-5,GB,  UNITED KINGDOM
+dic-5,GD,  GRENADA
+dic-5,GE,  GEORGIA
+dic-5,GF,  FRENCH GUIANA
+dic-5,GH,  GHANA
+dic-5,GI,  GIBRALTAR
+dic-5,GL,  GREENLAND
+dic-5,GM,  GAMBIA
+dic-5,GN,  GUINEA
+dic-5,GP,  GUADELOUPE
+dic-5,GQ,  EQUATORIAL GUINEA
+dic-5,GR,  GREECE
+dic-5,GS,  SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS
+dic-5,GT,  GUATEMALA
+dic-5,GU,  GUAM
+dic-5,GW,  GUINEA-BISSAU
+dic-5,GY,  GUYANA
+dic-5,HK,  HONG KONG
+dic-5,HM,  HEARD ISLAND AND MCDONALD ISLANDS
+dic-5,HN,  HONDURAS
+dic-5,HR,  CROATIA
+dic-5,HT,  HAITI
+dic-5,HU,  HUNGARY
+dic-5,ID,  INDONESIA
+dic-5,IE,  IRELAND
+dic-5,IL,  ISRAEL
+dic-5,IN,  INDIA
+dic-5,IO,  BRITISH INDIAN OCEAN TERRITORY
+dic-5,IQ,  IRAQ
+dic-5,IR,"  IRAN, ISLAMIC REPUBLIC OF"
+dic-5,IS,  ICELAND
+dic-5,IT,  ITALY
+dic-5,JM,  JAMAICA
+dic-5,JO,  JORDAN
+dic-5,JP,  JAPAN
+dic-5,KE,  KENYA
+dic-5,KG,  KYRGYSTAN
+dic-5,KH,  CAMBODIA
+dic-5,KI,  KIRIBATI
+dic-5,KM,  COMOROS
+dic-5,KN,  SAINT KITTS AND NEVIS
+dic-5,KP,"  KOREA, DEMOCRATIC PEOPLE'S REP. OF"
+dic-5,KR,"  KOREA, REPUBLIC OF"
+dic-5,KW,  KUWAIT
+dic-5,KY,  CAYMAN ISLANDS
+dic-5,KZ,  KAZAKSTAN
+dic-5,LA,  LAO PEOPLE'S DEMOCRATIC REPUBLIC
+dic-5,LB,  LEBANON
+dic-5,LC,  SAINT LUCIA
+dic-5,LI,  LIECHTENSTEIN
+dic-5,LK,  SRI LANKA
+dic-5,LR,  LIBERIA
+dic-5,LS,  LESOTHO
+dic-5,LT,  LITHUANIA
+dic-5,LU,  LUXEMBOURG
+dic-5,LV,  LATVIA
+dic-5,LY,  LIBYAN ARAB JAMAHIRIYA
+dic-5,MA,  MOROCCO
+dic-5,MC,  MONACO
+dic-5,MD,"  MOLDOVA, REPUBLIC OF"
+dic-5,MG,  MADAGASCAR
+dic-5,MH,  MARSHALL ISLANDS
+dic-5,MK,"  MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF"
+dic-5,ML,  MALI
+dic-5,MM,  MYANMAR
+dic-5,MN,  MONGOLIA
+dic-5,MO,  MACAU
+dic-5,MP,  NORTHERN MARIANA ISLANDS
+dic-5,MQ,  MARTINIQUE
+dic-5,MR,  MAURITANIA
+dic-5,MS,  MONTSERRAT
+dic-5,MT,  MALTA
+dic-5,MU,  MAURITIUS
+dic-5,MV,  MALDIVES
+dic-5,MW,  MALAWI
+dic-5,MX,  MEXICO
+dic-5,MY,  MALAYSIA
+dic-5,MZ,  MOZAMBIQUE
+dic-5,NA,  NAMIBIA
+dic-5,NC,  NEW CALEDONIA
+dic-5,NE,  NIGER
+dic-5,NF,  NORFOLK ISLAND
+dic-5,NG,  NIGERIA
+dic-5,NI,  NICARAGUA
+dic-5,NL,  NETHERLANDS
+dic-5,NO,  NORWAY
+dic-5,NP,  NEPAL
+dic-5,NR,  NAURU
+dic-5,NT,  NEUTRAL ZONE
+dic-5,NU,  NIUE
+dic-5,NZ,  NEW ZEALAND
+dic-5,OM,  OMAN
+dic-5,PA,  PANAMA
+dic-5,PE,  PERU
+dic-5,PF,  FRENCH POLYNESIA
+dic-5,PG,  PAPUA NEW GUINEA
+dic-5,PH,  PHILIPPINES
+dic-5,PK,  PAKISTAN
+dic-5,PL,  POLAND
+dic-5,PM,  SAINT PIERRE AND MIQUELON
+dic-5,PN,  PITCAIRN
+dic-5,PR,  PUERTO RICO
+dic-5,PT,  PORTUGAL
+dic-5,PW,  PALAU
+dic-5,PY,  PARAGUAY
+dic-5,QA,  QATAR
+dic-5,RE,  REUNION
+dic-5,RO,  ROMANIA
+dic-5,RU,  RUSSIAN FEDERATION
+dic-5,RW,  RWANDA
+dic-5,SA,  SAUDI ARABIA
+dic-5,SB,  SOLOMON ISLANDS
+dic-5,SC,  SEYCHELLES
+dic-5,SD,  SUDAN
+dic-5,SE,  SWEDEN
+dic-5,SG,  SINGAPORE
+dic-5,SH,  SAINT HELENA
+dic-5,SI,  SLOVENIA
+dic-5,SJ,  SVALBARD AND JAN MAYEN ISLANDS
+dic-5,SK,  SLOVAKIA
+dic-5,SL,  SIERRA LEONE
+dic-5,SM,  SAN MARINO
+dic-5,SN,  SENEGAL
+dic-5,SO,  SOMALIA
+dic-5,SR,  SURINAME
+dic-5,ST,  SAO TOME AND PRINCIPE
+dic-5,SV,  EL SALVADOR
+dic-5,SY,  SYRIAN ARAB REPUBLIC
+dic-5,SZ,  SWAZILAND
+dic-5,TC,  TURKS AND CAICOS ISLANDS
+dic-5,TD,  CHAD
+dic-5,TF,  FRENCH SOUTHERN TERRITORIES
+dic-5,TG,  TOGO
+dic-5,TH,  THAILAND
+dic-5,TJ,  TAJIKISTAN
+dic-5,TK,  TOKELAU
+dic-5,TM,  TURKMENISTAN
+dic-5,TN,  TUNISIA
+dic-5,TO,  TONGA
+dic-5,TP,  EAST TIMOR
+dic-5,TR,  TURKEY
+dic-5,TT,  TRINIDAD AND TOBAGO
+dic-5,TV,  TUVALU
+dic-5,TW,"  TAIWAN, PROVINCE OF CHINA"
+dic-5,TZ,"  TANZANIA, UNITED REPUBLIC OF"
+dic-5,UA,  UKRAINE
+dic-5,UG,  UGANDA
+dic-5,UM,  UNITED STATES MINOR OUTLYING ISLANDS
+dic-5,US,  UNITED STATES
+dic-5,UY,  URUGUAY
+dic-5,UZ,  UZBEKISTAN
+dic-5,VA,  HOLY SEE (VATICAN CITY STATE)
+dic-5,VC,  SAINT VINCENT AND THE GRENADINES
+dic-5,VE,  VENEZUELA
+dic-5,VG,  VIRGIN ISLANDS (BRITISH)
+dic-5,VI,  VIRGIN ISLANDS (U.S.)
+dic-5,VN,  VIET NAM
+dic-5,VU,  VANUATU
+dic-5,WF,  WALLIS AND FUTUNA ISLANDS
+dic-5,WS,  SAMOA
+dic-5,YE,  YEMEN
+dic-5,YT,  MAYOTTE
+dic-5,YU,  YUGOSLAVIA
+dic-5,ZA,  SOUTH AFRICA
+dic-5,ZM,  ZAMBIA
+dic-5,ZR,  ZAIRE
+dic-5,ZW,  ZIMBABWE
+end-dic-5,,
+dic,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ForecastPartner/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/shipTo/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip4A4PlanningReleaseForecastNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip4A4PlanningReleaseForecastNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-5
+dic-7,Consigned Inventory,  Quantity of non-billed units in stock.
+dic-7,Cumulative Quantity Consumed,  A number which continues to increase over a period of time representing product that has been used by the customer.  This number is part of a consignment process.
+dic-7,Cumulative Quantity Received,  A number which continues to increase over a period of time representing product that has been delivered and systematically received into an application system at the customer location.
+dic-7,In transit,  Product quantity which is en route from one location to another and has not been systematically received into an application system at the destination location.
+dic-7,Minimum Inventory Target,  The smallest quantity of desired stock as defined by the customer.  Also known as Safety Stock.
+dic-7,On-Hand Inventory,  Quantity physically in stock at the time of reporting (normally end of the day) after all in and out movements have been taken into account.  Also know as Finished Goods or Available Inventory.
+dic-7,Past Due Demand,  Demand against inventory that is not reflected in a schedule demand  because the schedule date is a date in the past.
+end-dic-7,,
+dic,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ForecastProductInventory/GlobalForecastInventoryTypeCode,dic-7
+dic-9,10 Kilogram Drum,
+dic-9,"10,000 Gallon Tankcar",
+dic-9,100 Board Feet,
+dic-9,100 Pound Drum,
+dic-9,100-Pack,
+dic-9,115 Kilogram Drum,
+dic-9,15 Kilogram Drum,
+dic-9,20 Foot Container,
+dic-9,"20,000 Gallon Tankcar",
+dic-9,20-Pack,
+dic-9,25 Kilogram Bulk Bag,
+dic-9,300 Kilogram Bulk Bag,
+dic-9,40 Foot Container,
+dic-9,50 Pound Bag,
+dic-9,500 Kilogram Bulk Bag,
+dic-9,55 Gallon Drum
+dic-9,Actual Pounds
+dic-9,Aluminum Pounds Only
+dic-9,Bag
+dic-9,Bale
+dic-9,Ball
+dic-9,Band
+dic-9,Bar
+dic-9,Barrel
+dic-9,"Barrel, Imperial"
+dic-9,Barrels Per Day
+dic-9,Barrels Per Minute
+dic-9,Base Box
+dic-9,Base Weight
+dic-9,Basket
+dic-9,Batch
+dic-9,Batt
+dic-9,Batting Pound
+dic-9,Beam
+dic-9,Belt
+dic-9,Billet
+dic-9,Bin
+dic-9,Block
+dic-9,Board
+dic-9,Board Feet
+dic-9,Bolt
+dic-9,Bottle
+dic-9,Box
+dic-9,British Thermal Unit (BTU)
+dic-9,British Thermal Units (BTUs) Per Cubic Foot
+dic-9,British Thermal Units (BTUs) Per Pound
+dic-9,Bucket
+dic-9,Bulk
+dic-9,Bulk Car Load
+dic-9,Bulk Pack
+dic-9,Bundle
+dic-9,Bunks
+dic-9,Bushel
+dic-9,"Bushel, Dry Imperial"
+dic-9,Calorie
+dic-9,Can
+dic-9,Car
+dic-9,Carat
+dic-9,Card
+dic-9,Carload
+dic-9,Carton
+dic-9,Cartridge
+dic-9,Case
+dic-9,Cask
+dic-9,Cassette
+dic-9,Catchweight
+dic-9,Cell
+dic-9,Centipoise (CPS)
+dic-9,Chains (Land Survey)
+dic-9,Chest
+dic-9,Coil
+dic-9,Coil Group
+dic-9,Composite Product Pounds (Total Weight)
+dic-9,Cone
+dic-9,Connector
+dic-9,Container
+dic-9,Cover
+dic-9,Crate
+dic-9,Cup
+dic-9,Cycles
+dic-9,Cylinder
+dic-9,Deal
+dic-9,Die
+dic-9,Disk (Disc)
+dic-9,Dispenser
+dic-9,Display
+dic-9,Dozen
+dic-9,Dram
+dic-9,Drum
+dic-9,Dry Pounds
+dic-9,Each
+dic-9,Fluid Ounce
+dic-9,Fluid Ounce (Imperial)
+dic-9,Fuel Usage (Gallons)
+dic-9,Gage Systems
+dic-9,Gallon
+dic-9,Gigajoules
+dic-9,Gill (Imperial)
+dic-9,Grain
+dic-9,Gram
+dic-9,Grams Per 100 Centimeters
+dic-9,Grams Per 100 Grams
+dic-9,Grams Per Cubic Centimeter
+dic-9,Grams Per Kilogram
+dic-9,Grams Per Liter
+dic-9,Grams Per Milliliter
+dic-9,Grams Per Square Centimeter
+dic-9,Grams Per Square Meter
+dic-9,Great Gross (Dozen Gross)
+dic-9,Gross
+dic-9,Gross Barrels
+dic-9,Gross Gallons
+dic-9,Gross Kilogram
+dic-9,Gross Ton
+dic-9,Gross Yard
+dic-9,Group
+dic-9,Half Gallon
+dic-9,Half Hour
+dic-9,Half Liter
+dic-9,Hank
+dic-9,Heat lots
+dic-9,Hours
+dic-9,Hundred Boxes
+dic-9,Hundred Count
+dic-9,Hundred Sheets
+dic-9,Hundredth of a Carat
+dic-9,Imperial Gallons
+dic-9,Jar
+dic-9,Joint
+dic-9,Lifts
+dic-9,Link
+dic-9,Liquid Pounds
+dic-9,Load
+dic-9,Lot
+dic-9,Lug
+dic-9,Mat
+dic-9,Megagram
+dic-9,Megagrams Per Hour
+dic-9,Micrograms Per Cubic Meter
+dic-9,Milligrams Per Cubic Meter
+dic-9,Milligrams Per Square Meter
+dic-9,Millimeter H20
+dic-9,Million BTU's
+dic-9,Multichip,  When 2 or more dies (chips) are merged into one package.
+dic-9,Net Barrels,
+dic-9,Net Gallons,
+dic-9,Net Imperial Gallons,
+dic-9,Net Liters,
+dic-9,Pack (PAK),
+dic-9,Package,
+dic-9,Packet,
+dic-9,Pad,
+dic-9,Pail,
+dic-9,Pallet (Lift),
+dic-9,Pallet/Unit Load,
+dic-9,Panel,
+dic-9,Pennyweight,
+dic-9,Percent,
+dic-9,Percent Per 1000 Hours,
+dic-9,Percent Weight
+dic-9,Piece
+dic-9,Pint U.S. Dry
+dic-9,Plate
+dic-9,Pound
+dic-9,Pounds Per 1000 Square Feet
+dic-9,Pounds Per Foot
+dic-9,Pounds Per Gallon
+dic-9,Pounds Per Piece of Product
+dic-9,Pounds Per Pound of Product
+dic-9,Pounds Per Thousand
+dic-9,Rack
+dic-9,Reel
+dic-9,Ring
+dic-9,Rod
+dic-9,Sack
+dic-9,Sheet
+dic-9,Sheet-Metric  measure
+dic-9,Shipment
+dic-9,Shot
+dic-9,Skein
+dic-9,Skid
+dic-9,Sleeve
+dic-9,Slip Sheet
+dic-9,Spool
+dic-9,Square
+dic-9,Statute Mile
+dic-9,Stick
+dic-9,Strip
+dic-9,Super Bulk Bag
+dic-9,Tablet
+dic-9,Tank
+dic-9,Tank Truck,
+dic-9,Torr,
+dic-9,Tote,
+dic-9,Track Foot,
+dic-9,Trailer,
+dic-9,Train,
+dic-9,Tray,
+dic-9,Truckload,
+dic-9,Tube,
+dic-9,Vial,
+dic-9,Wafer,
+dic-9,Wrap,
+end-dic-9,,
+dic,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/GlobalProductUnitOfMeasureCode,dic-9
+dic-11,1st week of the month,
+dic-11,2nd week of the month,
+dic-11,3rd week of the month,
+dic-11,4th week of the month,
+dic-11,5 day work week,  Monday through Friday
+dic-11,5th week of the month,
+dic-11,Calendar day,  Period given as a number of days including weekends and holidays.
+dic-11,Calendar week,  Period given as a number of 7day-weeks including holidays.
+dic-11,Day,
+dic-11,Four month period,  Period of four months
+dic-11,Friday,
+dic-11,Half month,
+dic-11,Half week,
+dic-11,Half year,
+dic-11,Hour,
+dic-11,Indefinite,  An indefinite period.
+dic-11,Minute,
+dic-11,Monday,
+dic-11,Monday through Friday,
+dic-11,Monday through Saturday,
+dic-11,Monday through Sunday,
+dic-11,Month,
+dic-11,Quarter,  Period of three months.
+dic-11,Saturday,
+dic-11,Sunday,
+dic-11,Ten days period,  Period of 10 days.
+dic-11,Thursday,
+dic-11,Tuesday,
+dic-11,Two month period,  Period of two months
+dic-11,Two week period,
+dic-11,Wednesday,
+dic-11,Week,
+dic-11,Work day,
+dic-11,Working days,  Days when the partner company normally works.
+dic-11,Year,
+end-dic-11,,
+dic,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/ForecastPeriod/GlobalIntervalCode,dic-11
+dic-12,Dock,  The event representing when the product should arrive on the recipient's dock.
+dic-12,Ship,  The event representing when the product is requested to ship.
+end-dic-12,,
+dic,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/ForecastPeriod/GlobalTransportEventCode,dic-12
+dic-16,Cumulative Gross Demand,  A number which continues to increase over a period of time representing product requirements that have had no deductions.
+dic-16,Discrete Gross Demand,  A noncumlative number representing product requirements that have had no deductions.
+dic-16,Discrete Net Demand,  A noncumlative number representing product requirements that have had deductions made from it.
+dic-16,Downside Demand,
+dic-16,Upside Demand,
+end-dic-16,,
+dic,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/GlobalForecastQuantityTypeCode,dic-16
+dic-17,ADP,  ANDORRA (multiple)
+dic-17,AED,  UNITED ARAB EMIRATES
+dic-17,AFA,  AFGHANISTAN
+dic-17,ALL,  ALBANIA
+dic-17,AMD,  ARMENIA
+dic-17,ANG,  NETHERLANDS ANTILLES
+dic-17,AON,  ANGOLA (multiple)
+dic-17,AOR,  ANGOLA (multiple)
+dic-17,ARS,  ARGENTINA
+dic-17,ATS,  AUSTRIA
+dic-17,AUD,  AUSTRALIA
+dic-17,AUD,  CHRISTMAS ISLAND
+dic-17,AUD,  COCOS (KEELING) ISLANDS
+dic-17,AUD,  KIRIBATI
+dic-17,AUD,  HEARD AND MCDONALD ISLANDS
+dic-17,AUD,  NAURU
+dic-17,AUD,  NORFOLK ISLAND
+dic-17,AUD,  TUVALU
+dic-17,AWG,  ARUBA
+dic-17,AZM,  AZERBAIJAN
+dic-17,BAM,  BOSNIA AND HERZEGOVINA
+dic-17,BBD,  BARBADOS
+dic-17,BDT,  BANGLADESH
+dic-17,BEF,  BELGIUM
+dic-17,BGL,  BULGARIA
+dic-17,BHD,  BAHRAIN
+dic-17,BIF,  BURUNDI
+dic-17,BMD,  BERMUDA
+dic-17,BND,  BRUNEI DARUSSALAM
+dic-17,BOB,  BOLIVIA (multiple)
+dic-17,BOV,  BOLIVIA (multiple)
+dic-17,BRL,  BRAZIL
+dic-17,BSD,  BAHAMAS
+dic-17,BTN,  BHUTAN (multiple)
+dic-17,BWP,  BOTSWANA
+dic-17,BYB,  BELARUS
+dic-17,BZD,  BELIZE
+dic-17,CAD,  CANADA
+dic-17,CHF,  LIECHTENSTEIN
+dic-17,CHF,  SWITZERLAND
+dic-17,CLP,  CHILE
+dic-17,CNY,  CHINA
+dic-17,COP,  COLOMBIA
+dic-17,CRC,  COSTA RICA
+dic-17,CUP,  CUBA
+dic-17,CVE,  CAPE VERDE
+dic-17,CYP,  CYPRUS
+dic-17,CZK,  CZECH REPUBLIC
+dic-17,DEM,  GERMANY
+dic-17,DJF,  DJIBOUTI
+dic-17,DKK,  DENMARK
+dic-17,DKK,  FAEROE ISLANDS
+dic-17,DKK,  GREENLAND
+dic-17,DOP,  DOMINICAN REPUBLIC
+dic-17,DZD,  ALGERIA
+dic-17,ECS,  ECUADOR
+dic-17,EEK,  ESTONIA
+dic-17,EGP,  EGYPT
+dic-17,ERN,  ERITREA
+dic-17,ESP,  ANDORRA (multiple)
+dic-17,ESP,  SPAIN
+dic-17,ETB,  ETHIOPIA
+dic-17,EUR,  EUROPEAN UNION
+dic-17,FIM,  FINLAND
+dic-17,FJD,  FIJI
+dic-17,FKP,  FALKLAND ISLANDS(MALVINAS)
+dic-17,FRF,  ANDORRA (multiple)
+dic-17,FRF,  MARTINIQUE
+dic-17,FRF,  FRANCE
+dic-17,FRF,  FRENCH GUIANA
+dic-17,FRF,  FRENCH SOUTHERN TERRITORIES
+dic-17,FRF,  GUADELOUPE
+dic-17,FRF,  MONACO
+dic-17,FRF,  REUNION
+dic-17,FRF,  SAINT PIERRE AND MIQUELON
+dic-17,GBP,  UNITED KINGDOM
+dic-17,GEL,  GEORGIA
+dic-17,GHC,  GHANA
+dic-17,GIP,  GIBRALTAR
+dic-17,GMD,  GAMBIA
+dic-17,GNF,  GUINEA
+dic-17,GRD,  GREECE
+dic-17,GTQ,  GUATEMALA
+dic-17,GWP,  GUINEA-BISSAU
+dic-17,GYD,  GUYANA
+dic-17,HKD,  HONG KONG
+dic-17,HNL,  HONDURAS
+dic-17,HRK,  CROATIA
+dic-17,HTG,  HAITI
+dic-17,HUF,  HUNGARY
+dic-17,IDR,  INDONESIA
+dic-17,IEP,  IRELAND
+dic-17,ILS,  ISRAEL
+dic-17,INR,  BHUTAN (multiple)
+dic-17,INR,  INDIA
+dic-17,IQD,  IRAQ
+dic-17,IRR,  IRAN (ISLAMIC REPUBLIC OF)
+dic-17,ISK,  ICELAND
+dic-17,ITL,  ITALY
+dic-17,ITL,  SAN MARINO
+dic-17,ITL,  VATICAN CITY STATE (HOLY SEE)
+dic-17,JMD,  JAMAICA
+dic-17,JOD,  JORDAN
+dic-17,JPY,  JAPAN
+dic-17,KES,  KENYA
+dic-17,KGS,  KYRGYZSTAN
+dic-17,KHR,  CAMBODIA
+dic-17,KMF,  COMOROS
+dic-17,KPW,"  KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF"
+dic-17,KRW,"  KOREA, REPUBLIC OF"
+dic-17,KWD,  KUWAIT
+dic-17,KYD,  CAYMAN ISLANDS
+dic-17,KZT,  KAZAKHSTAN
+dic-17,LAK,  LAO PEOPLE'S DEMOCRATIC REPUBLIC
+dic-17,LBP,  LEBANON
+dic-17,LKR,  SRI LANKA
+dic-17,LRD,  LIBERIA
+dic-17,LTL,  LITHUANIA
+dic-17,LUF,  LUXEMBOURG
+dic-17,LVL,  LATVIA
+dic-17,LYD,  LIBYAN ARAB JAMAHIRIYA
+dic-17,MAD,  MOROCCO
+dic-17,MAD,  WESTERN SAHARA
+dic-17,MDL,"  MOLDOVA, REPUBLIC OF"
+dic-17,MGF,  MADAGASCAR
+dic-17,MKD,"  MACEDONIA, THE FORMER  YUGOSLAV REPUBLIC OF"
+dic-17,MMK,  MYANMAR
+dic-17,MNT,  MONGOLIA
+dic-17,MOP,  MACAU
+dic-17,MRO,  MAURITANIA
+dic-17,MTL,  MALTA
+dic-17,MUR,  MAURITIUS
+dic-17,MVR,  MALDIVES
+dic-17,MWK,  MALAWI
+dic-17,MXN,  MEXICO
+dic-17,MYR,  MALAYSIA
+dic-17,MZM,  MOZAMBIQUE
+dic-17,NGN,  NIGERIA
+dic-17,NIO,  NICARAGUA
+dic-17,NLG,  NETHERLANDS
+dic-17,NOK,  BOUVET ISLAND
+dic-17,NOK,  NORWAY
+dic-17,NOK,  SVALBARD AND JAN MAYEN ISLANDS
+dic-17,NPR,  NEPAL
+dic-17,NZD,  COOK ISLANDS
+dic-17,NZD,  NEW ZEALAND
+dic-17,NZD,  NIUE
+dic-17,NZD,  PITCAIRN
+dic-17,NZD,  TOKELAU
+dic-17,OMR,  OMAN
+dic-17,PAB,  PANAMA
+dic-17,PEN,  PERU
+dic-17,PGK,  PAPUA NEW GUINEA
+dic-17,PHP,  PHILIPPINES
+dic-17,PKR,  PAKISTAN
+dic-17,PLN,  POLAND
+dic-17,PTE,  PORTUGAL
+dic-17,PYG,  PARAGUAY
+dic-17,QAR,  QATAR
+dic-17,ROL,  ROMANIA
+dic-17,RUR,  RUSSIAN FEDERATION
+dic-17,RWF,  RWANDA
+dic-17,SAR,  SAUDI ARABIA
+dic-17,SBD,  SOLOMON ISLANDS
+dic-17,SCR,  SEYCHELLES
+dic-17,SDD,  SUDAN
+dic-17,SEK,  SWEDEN
+dic-17,SGD,  SINGAPORE
+dic-17,SHP,  SAINT HELENA
+dic-17,SIT,  SLOVENIA
+dic-17,SKK,  SLOVAKIA
+dic-17,SLL,  SIERRA LEONE
+dic-17,SOS,  SOMALIA
+dic-17,SRG,  SURINAME
+dic-17,STD,  SAO TOME AND PRINCIPE
+dic-17,SVC,  EL SALVADOR
+dic-17,SYP,  SYRIAN ARAB REPUBLIC
+dic-17,SZL,  SWAZILAND
+dic-17,THB,  THAILAND
+dic-17,TJR,  TAJIKISTAN
+dic-17,TMM,  TURKMENISTAN
+dic-17,TND,  TUNISIA
+dic-17,TOP,  TONGA
+dic-17,TPE,  EAST TIMOR
+dic-17,TRL,  TURKEY
+dic-17,TTD,  TRINIDAD AND TOBAGO
+dic-17,TWD,"  TAIWAN, PROVINCE OF CHINA"
+dic-17,TZS,"  TANZANIA, UNITED REPUBLIC OF"
+dic-17,UAH,  UKRAINE
+dic-17,UGX,  UGANDA
+dic-17,USD,  AMERICAN SAMOA
+dic-17,USD,  BRITISH INDIAN OCEAN TERRITORY
+dic-17,USD,  MARSHALL ISLANDS
+dic-17,USD,  GUAM
+dic-17,USD,  MICRONESIA
+dic-17,USD,  NORTHERN MARIANA ISLANDS
+dic-17,USD,  PALAU
+dic-17,USD,  PUERTO RICO
+dic-17,USD,  TURKS AND CAICOS ISLANDS
+dic-17,USD,  UNITED STATES
+dic-17,USD,  UNITED STATES MINOR  OUTLYING ISLANDS
+dic-17,USD,  VIRGIN ISLANDS (BRITISH)
+dic-17,USD,  VIRGIN ISLANDS (U.S.)
+dic-17,UYU,  URUGUAY
+dic-17,UZS,  UZBEKISTAN
+dic-17,VEB,  VENEZUELA
+dic-17,VND,  VIETNAM
+dic-17,VUV,  VANUATU
+dic-17,WST,  SAMOA
+dic-17,XAF,  CAMEROON
+dic-17,XAF,  CENTRAL AFRICAN REP.
+dic-17,XAF,  CHAD
+dic-17,XAF,  CONGO
+dic-17,XAF,  EQUATORIAL GUINEA
+dic-17,XAF,  GABON
+dic-17,XCD,  ANGUILLA
+dic-17,XCD,  ANTIGUA AND BARBUDA
+dic-17,XCD,  DOMINICA
+dic-17,XCD,  GRENADA
+dic-17,XCD,  MONTSERRAT
+dic-17,XCD,  SAINT KITTS AND NEVIS
+dic-17,XCD,  SAINT LUCIA
+dic-17,XCD,  SAINT VINCENT AND THE GRENADINES
+dic-17,XDR,  INTERNATIONAL MONETARY FUND
+dic-17,XOF,  BENIN
+dic-17,XOF,  BURKINA FASO
+dic-17,XOF,  COTE D IVOIRE
+dic-17,XOF,  MALI
+dic-17,XOF,  NIGER
+dic-17,XOF,  SENEGAL
+dic-17,XOF,  TOGO
+dic-17,XPF,  NEW CALEDONIA
+dic-17,XPF,  WALLIS AND FUTUNA ISLANDS
+dic-17,XPR,  FRENCH POLYNESIA
+dic-17,YER,  YEMEN
+dic-17,YUM,  YUGOSLAVIA
+dic-17,ZAR,  LESOTHO
+dic-17,ZAR,  NAMIBIA
+dic-17,ZAR,  SOUTH AFRICA
+dic-17,ZMK,  ZAMBIA
+dic-17,ZRN,  ZAIRE
+dic-17,ZWD,  ZIMBABWE
+end-dic-17,,
+dic,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/unitPrice/FinancialAmount/GlobalCurrencyCode,dic-17
+dic-18,Forecast Owner,  The party that creates a sales or order forecast and is ultimately responsible for it.
+end-dic-18,,
+dic,/Pip4A4PlanningReleaseForecastNotification/fromRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-18
+dic,/Pip4A4PlanningReleaseForecastNotification/toRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-22
+dic-19,Electronic Components,  The electronic components supply chain.
+dic-19,Information Technology,  The information technology supply chain.
+dic-19,Semiconductor Manufacturing,  The semiconductor manufacturing supply chain.
+end-dic-19,,
+dic,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ForecastPartner/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-19
+dic,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/shipTo/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-19
+dic,/Pip4A4PlanningReleaseForecastNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-19
+dic,/Pip4A4PlanningReleaseForecastNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-19
+dic-21,Request,  The business document is a request for a business action to be performed by a partner.
+end-dic-21,,
+dic,/Pip4A4PlanningReleaseForecastNotification/GlobalDocumentFunctionCode,dic-21,,,
+dic-22,Forecast Recipient,  The party that receives a sales or order forecast.,,,
+end-dic-22,,,,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/forecastGenerationDateTime/DateTimeStamp,DateTime,13,20,9(8)X9(6)V9(3)X
+type,/Pip4A4PlanningReleaseForecastNotification/thisDocumentGenerationDateTime/DateTimeStamp,DateTime,13,20,9(8)X9(6)V9(3)X
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/ForecastIdentifierReference/GlobalForecastReferenceTypeCode,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/productForecastIdentifier/ForecastIdentifierReference/GlobalForecastReferenceTypeCode,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/scheduleProductForecastIdentifier/ForecastIdentifierReference/GlobalForecastReferenceTypeCode,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/ForecastIdentifierReference/LineNumber,String,1,6,X(6)
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/productForecastIdentifier/ForecastIdentifierReference/LineNumber,String,1,6,X(6)
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/scheduleProductForecastIdentifier/ForecastIdentifierReference/LineNumber,String,1,6,X(6)
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/ForecastIdentifierReference/ProprietaryReferenceIdentifier,String,1,255,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/productForecastIdentifier/ForecastIdentifierReference/ProprietaryReferenceIdentifier,String,1,255,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/scheduleProductForecastIdentifier/ForecastIdentifierReference/ProprietaryReferenceIdentifier,String,1,255,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/GlobalForecastEventCode,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/GlobalForecastEventCode,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/isFinalForecast/AffirmationIndicator,String,2,3,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ForecastPartner/GlobalPartnerReferenceTypeCode,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ForecastPartner/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/shipTo/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip4A4PlanningReleaseForecastNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip4A4PlanningReleaseForecastNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ForecastPartner/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ForecastPartner/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ForecastPartner/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ForecastPartner/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ForecastPartner/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ForecastPartner/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ForecastPartner/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ForecastProductIdentification/PartnerProductIdentification/revisionIdentifier/FreeFormText,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/shipTo/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/shipTo/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/shipTo/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/shipTo/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/shipTo/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/shipTo/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/shipTo/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip4A4PlanningReleaseForecastNotification/fromRole/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip4A4PlanningReleaseForecastNotification/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip4A4PlanningReleaseForecastNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip4A4PlanningReleaseForecastNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip4A4PlanningReleaseForecastNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip4A4PlanningReleaseForecastNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip4A4PlanningReleaseForecastNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip4A4PlanningReleaseForecastNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip4A4PlanningReleaseForecastNotification/toRole/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip4A4PlanningReleaseForecastNotification/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip4A4PlanningReleaseForecastNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip4A4PlanningReleaseForecastNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ForecastPartner/PartnerDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/shipTo/PartnerDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/fromRole/PartnerRoleDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/toRole/PartnerRoleDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ForecastPartner/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ForecastPartner/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/shipTo/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/shipTo/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4A4PlanningReleaseForecastNotification/fromRole/PartnerRoleDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4A4PlanningReleaseForecastNotification/fromRole/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4A4PlanningReleaseForecastNotification/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4A4PlanningReleaseForecastNotification/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4A4PlanningReleaseForecastNotification/toRole/PartnerRoleDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4A4PlanningReleaseForecastNotification/toRole/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4A4PlanningReleaseForecastNotification/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4A4PlanningReleaseForecastNotification/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ForecastPartner/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ForecastProductIdentification/PartnerProductIdentification/GlobalPartnerClassificationCode,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/shipTo/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/fromRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/toRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ForecastPartner/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/shipTo/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip4A4PlanningReleaseForecastNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip4A4PlanningReleaseForecastNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ForecastPartner/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/shipTo/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip4A4PlanningReleaseForecastNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip4A4PlanningReleaseForecastNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ForecastPartner/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/shipTo/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip4A4PlanningReleaseForecastNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip4A4PlanningReleaseForecastNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ForecastProductIdentification/GlobalProductIdentifier,String,14,14,9(14)
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ForecastProductIdentification/PartnerProductIdentification/ProprietaryProductIdentifier,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ForecastProductInventory/GlobalForecastInventoryTypeCode,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ForecastProductInventory/ProductQuantity,Real,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/ProductQuantity,Real,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/GlobalProductUnitOfMeasureCode,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/ForecastPeriod/DatePeriod/beginDate/DateStamp,Date,9,9,9(8)X
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/ForecastPeriod/DatePeriod/endDate/DateStamp,Date,9,9,9(8)X
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/TradeOffZone/DatePeriod/beginDate/DateStamp,Date,9,9,9(8)X
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/TradeOffZone/DatePeriod/endDate/DateStamp,Date,9,9,9(8)X
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/ForecastPeriod/GlobalIntervalCode,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/ForecastPeriod/GlobalTransportEventCode,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/GlobalForecastQuantityTypeCode,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/unitPrice/FinancialAmount/GlobalCurrencyCode,String,3,3,X(3)
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/unitPrice/FinancialAmount/MonetaryAmount,Real,1,19,9(13)V9(5)
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/RevisionNumber,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/fromRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/toRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ForecastPartner/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/CoreForecast/PartnerProductForecast/ProductForecast/ProductSchedule/ForecastProductSchedule/shipTo/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/GlobalDocumentFunctionCode,String,1,,
+type,/Pip4A4PlanningReleaseForecastNotification/thisDocumentIdentifier/ProprietaryDocumentIdentifier,String,1,,

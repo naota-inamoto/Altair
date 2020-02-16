@@ -1,0 +1,53 @@
+
+<!ELEMENT ProcessQueue (
+        Status, ProcessId, CurrActivityId,
+        ProcessDefName, CurrActivityName, CurrActivityKind,
+        ProcessActivities*, ProcessProperties*) >
+
+<!ELEMENT Status (#PCDATA)>
+
+<!ELEMENT ProcessId  (#PCDATA)>
+<!ATTLIST ProcessId  primary-key CDATA #IMPLIED>
+<!ELEMENT CurrActivityId (#PCDATA)>
+<!ATTLIST CurrActivityId  primary-key CDATA #IMPLIED>
+
+<!ELEMENT ProcessDefName (#PCDATA)>
+<!ELEMENT CurrActivityName   (#PCDATA)>
+<!ELEMENT CurrActivityKind   (#PCDATA)>
+
+<!-- Process Activities -->
+<!ELEMENT ProcessActivities (
+        Status, Count, ProcessDefName, ProcessId,
+        ActivityId, ActivityName, ActivityKind, PropertyValue,
+        NextActivityId, NextActivityName, NextActivityKind, NextPropertyName,
+        Time, ClassName, AndJoinCount)>
+
+<!ATTLIST ProcessId   ProcessId   CDATA #IMPLIED>
+
+<!ELEMENT Count (#PCDATA)>
+
+<!ELEMENT ActivityId   (#PCDATA)>
+<!ATTLIST ActivityId   primary-key CDATA #IMPLIED>
+<!ELEMENT ActivityName (#PCDATA)>
+<!ELEMENT ActivityKind (#PCDATA)>
+
+<!ELEMENT NextActivityId   (#PCDATA)>
+<!ELEMENT NextActivityName (#PCDATA)>
+<!ELEMENT NextActivityKind (#PCDATA)>
+
+<!ELEMENT PropertyValue (#PCDATA)>
+<!ATTLIST PropertyValue primary-key   CDATA #IMPLIED>
+<!ELEMENT NextPropertyName (#PCDATA)>
+
+<!ELEMENT Time (#PCDATA)>
+<!ELEMENT ClassName (#PCDATA)>
+<!ELEMENT AndJoinCount (#PCDATA)>
+
+<!-- Process Properties -->
+<!ELEMENT ProcessProperties (ProcessId, Name, Value)>
+
+<!ELEMENT Name  (#PCDATA)>
+<!ATTLIST Name  primary-key   CDATA #IMPLIED>
+
+<!ELEMENT Value  (#PCDATA)>
+

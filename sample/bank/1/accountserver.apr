@@ -1,0 +1,60 @@
+orb.alb
+account.alb
+accountskelton.alb
+$END_LIB
+TEXT
+AlObject
+class AccountServer
+end_class
+$END_CLASS
+TEXT
+AlObject
+class AccountServer
+member
+public: static void main();
+member
+public: static void exit();
+member
+public: static Account obj;
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class AccountServer
+member
+public: static void main();
+body
+{
+	var list err;
+	if (err = ORB::init("server")) {
+		al_print("Fail to initialize.\n");
+		return;
+	} else {
+	}
+	var AccountSkelton account;
+	obj = account = new AccountSkelton;
+	account.create();
+	if (err = ORB::bind(account, "Bank")) {
+		al_print("Fail to bind object.\n");
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: static void exit();
+body
+{
+	var list err;
+	if (err = ORB::bind((ORB_Object)null, "Bank")) {
+		al_print("Fail to unbind object.\n");
+		return;
+	} else {
+	}
+	al_misc("exit", 0, null);
+}
+end_body
+member
+public: static Account obj;
+end_class
+$END_BODY

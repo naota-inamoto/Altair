@@ -1,0 +1,50 @@
+$END_LIB
+TEXT
+AlObject
+class TP
+end_class
+$END_CLASS
+TEXT
+AlObject
+class TP
+member
+public: static void main();
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class TP
+member
+public: static void main();
+body
+{
+	var file f;
+	var list res, tree, res2;
+	f = al_file_open("xml-syntax.txt", "r");
+	res = al_symbol_manip("compile_syntax", f, null, null, null);
+	if (al_is_type(res, "string")) {
+		al_print(res + "\n");
+		return;
+	} else {
+	}
+	al_print("compile_syntax OK\n");
+	f = al_file_open("xml-input.txt", "r");
+	tree = al_symbol_manip("parse", f, res, "doc", null);
+	if (al_is_type(tree, "string")) {
+		al_print(tree + "\n");
+		return;
+	} else {
+	}
+	al_print("parse OK\n");
+	f = al_file_open("xml-output.txt", "w");
+	res2 = al_symbol_manip("generate", f, res, tree, 0);
+	if (al_is_type(res2, "string")) {
+		al_print(res2 + "\n");
+		return;
+	} else {
+	}
+	al_print("generate OK\n");
+}
+end_body
+end_class
+$END_BODY

@@ -1,0 +1,2708 @@
+$END_LIB
+TEXT
+AlObject
+class AltairServer
+class LogObj
+end_class
+class WebServer
+class HttpServerConnectionMgr
+end_class
+class HttpServerConnection
+end_class
+class HttpRequest
+end_class
+class HttpResponse
+end_class
+end_class
+class XmlUtility
+class XmlDataRetriver
+end_class
+end_class
+class FileUtility
+end_class
+class Context
+end_class
+end_class
+$END_CLASS
+TEXT
+AlObject
+class AltairServer
+member
+public: static void start();
+member
+public: static void shutdown();
+member
+public: static void restart();
+member
+public: static AltairServer appServer;
+member
+public: list startServer();
+member
+public: void shutdownServer();
+member
+public: list load_config();
+member
+public: list config;
+member
+public: list web_servers;
+member
+public: string pool_name;
+member
+public: void log(string filepath, string str);
+member
+public: void system_log(string level, string str);
+member
+public: string system_log_filepath;
+member
+public: string system_log_db;
+member
+public: LogObj logObj;
+member
+public: static integer getTime(string time);
+member
+public: void timeoutCheck();
+member
+public: integer timer_id;
+member
+public: integer gc_interval;
+member
+public: integer _gc_time;
+member
+public: void connection_debug();
+member
+public: list debug;
+member
+public: list debug2;
+member
+public: list debug3;
+member
+public: string debug_log_file;
+class LogObj
+member
+public: void init();
+member
+public: void finalize();
+member
+public: void log(string filepath, string str);
+member
+public: list log_files;
+member
+public: static integer max_size;
+end_class
+class WebServer
+member
+public: AltairServer ap_server;
+member
+public: string name;
+member
+public: integer port;
+member
+public: string documentRoot;
+member
+public: list content_types;
+member
+public: list servlet_list;
+member
+public: list upload_servlet_list;
+member
+public: list servlet_param_list;
+member
+public: list start();
+member
+public: void stop();
+member
+public: HttpServerConnectionMgr conn_mgr;
+member
+public: integer connectionTimeout;
+member
+public: string GetAbsPath(string path);
+member
+public: list sessions;
+member
+public: integer sessionTimeout;
+member
+public: integer maxMsgSize;
+member
+public: void access_log(string fromIP, string path, string code, string size);
+member
+public: string access_log_filepath;
+member
+public: string access_log_db;
+member
+public: void error_log(string str);
+member
+public: void timeoutCheck();
+member
+public: list ssl;
+member
+public: string ca_cert;
+member
+public: string cert;
+member
+public: string key;
+member
+public: integer clientAuth;
+member
+public: string dhparam;
+member
+public: string cipher;
+class HttpServerConnectionMgr
+member
+public: void create(WebServer server);
+member
+public: void close();
+member
+public: WebServer server;
+member
+public: list connections;
+member
+public: list start();
+member
+public: integer server_socket_id;
+member
+public: integer hwnd;
+member
+public: integer msg;
+member
+public: void accepted();
+end_class
+class HttpServerConnection
+member
+public: void create(WebServer server, integer socket_id);
+member
+public: void close();
+member
+public: WebServer server;
+member
+public: integer socket_id;
+member
+public: integer hwnd;
+member
+public: integer msg;
+member
+public: integer _time;
+member
+public: void startReceiveCommand();
+member
+public: void startReceiveHeaders();
+member
+public: void startReceiveBlockSize();
+member
+public: void startReceiveContents();
+member
+public: void startReceiveContents2();
+member
+public: void startReceiveCRLF();
+member
+public: void commandReceived();
+member
+public: void headersReceived();
+member
+public: void blockSizeReceived();
+member
+public: void contentsReceived();
+member
+public: void contentsReceived2();
+member
+public: void CRLFReceived();
+member
+public: list chunked;
+member
+public: integer buffer_size;
+member
+public: list buffer;
+member
+public: string command_line;
+member
+public: string command;
+member
+public: string http_ver;
+member
+public: integer content_block_size;
+member
+public: list bin_raw_http_header;
+member
+public: list headers;
+member
+public: integer content_length;
+member
+public: string refer;
+member
+public: list contents;
+member
+public: void process();
+member
+public: string order;
+member
+public: string path;
+member
+public: string path2;
+member
+public: list params;
+member
+public: list send(string str);
+member
+public: list send(list binary);
+member
+public: list send(list binary, integer index, integer size);
+member
+public: void sendCompleted();
+member
+public: string send_status;
+member
+public: file in;
+member
+public: integer total_read_bytes;
+member
+public: string fromIP;
+member
+public: list cert_info;
+member
+public: HttpRequest req;
+member
+public: HttpResponse res;
+member
+public: list binary;
+member
+public: string boundary;
+member
+public: string upload_filename;
+member
+public: file upload;
+end_class
+class HttpRequest
+member
+public: WebServer _server;
+member
+public: HttpResponse _response;
+member
+public: string _command;
+member
+public: string _path;
+member
+public: string _params;
+member
+public: list bin_raw_http_header;
+member
+public: list headers;
+member
+public: string fromIP;
+member
+public: list cert_info;
+member
+public: list input;
+member
+public: string input_file;
+member
+public: list getParameters();
+member
+public: string getParameter(string name);
+member
+public: list parameters;
+member
+public: list getCookies();
+member
+public: list cookies;
+member
+public: string getBasePath();
+member
+public: static list splitNameValue(string name_value);
+end_class
+class HttpResponse
+member
+public: void _create();
+member
+public: HttpRequest _request;
+member
+public: integer response_code;
+member
+public: list headers;
+member
+public: list output;
+member
+public: integer max_size;
+member
+public: integer content_length;
+member
+public: void out(string s);
+member
+public: void out(list binary);
+member
+public: void out(list binary, integer index, integer size);
+member
+public: void redirect(string url);
+member
+public: WebServer _server;
+member
+public: string http_ver;
+member
+public: string system_command;
+member
+public: string response_filepath;
+member
+public: string response_content_disposition;
+end_class
+end_class
+class XmlUtility
+member
+public: static void Initialize();
+member
+public: static list init;
+member
+public: static string ctrl_a;
+member
+public: static list parseXML(string xml, list debug);
+member
+public: static list parseXML(file in, list debug);
+member
+public: static list parseXML(string filename);
+member
+public: static string xslTransform(string xsl_filename, list xml);
+member
+public: static string getDocType(list parse_tree);
+member
+public: static string getDTDfile(list parse_tree);
+member
+public: static list loadXSL(string filename);
+member
+public: static string dtd_base;
+member
+public: static string xsl_base;
+member
+public: static string content_validation_base;
+member
+public: static list dtd_cache;
+member
+public: static list xsl_cache;
+member
+public: list isLike(string value);
+member
+public: list content_validate;
+member
+public: string validation_errors;
+member
+public: static list content_validation_report;
+class XmlDataRetriver
+member
+public: void create(list tree);
+member
+public: list tag_tree;
+member
+public: list body_tree;
+member
+public: list itr;
+member
+public: string tag;
+member
+public: XmlDataRetriver getItr(string xpath);
+member
+public: XmlDataRetriver getNext();
+member
+public: string getValue(string xpath);
+end_class
+end_class
+class FileUtility
+member
+public: static string tempFile();
+end_class
+class Context
+member
+public: static string genTimeStamp();
+member
+public: static string genTimeStamp(integer diff);
+member
+public: static integer msg_seq;
+end_class
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class AltairServer
+member
+public: static void start();
+body
+{
+	if (appServer) {
+		al_print("[Error] Server already started.\n");
+		return;
+	} else {
+	}
+	appServer = new AltairServer;
+	var string err;
+	if (err = appServer.startServer()) {
+		al_print("[Error] fail to start server.(" + err + ")\n");
+		appServer.shutdownServer();
+		appServer = null;
+	} else {
+	}
+}
+end_body
+member
+public: static void shutdown();
+body
+{
+	if (appServer == null) {
+		al_print("[Error] Server not started.\n");
+		return;
+	} else {
+	}
+	appServer.shutdownServer();
+	appServer = null;
+	al_gc(null);
+	al_gp("vtbl", null, null, null, null);
+}
+end_body
+member
+public: static void restart();
+body
+{
+	shutdown();
+	start();
+}
+end_body
+member
+public: static AltairServer appServer;
+member
+public: list startServer();
+body
+{
+	// debug = 1;
+	var string err;
+	var XmlDataRetriver root, itr, web_server_info, itr2, ssl_info, servlet_info;
+	var XmlDataRetriver proxy_server_info, itr3, servlet_param_info, client_info;
+	var XmlDataRetriver db_pool_info, pe_info, xml_info;
+	// ---- load configuration
+	if (err = load_config()) {
+		return err;
+	} else {
+	}
+	root = new XmlDataRetriver;
+	root.create(config);
+	// ---- initialize log file
+	logObj = new LogObj;
+	logObj.init();
+	var integer size;
+	size = (integer)root.getValue("AltairServer/MaxLogSize") * 1024;
+	if (al_is_type(size, "integer") == null || size < 1) {
+		size = 1000;
+	} else {
+	}
+	LogObj::max_size = size;
+	system_log_filepath = root.getValue("AltairServer/SystemLog");
+	system_log_db = (root.getValue("AltairServer/SystemLogDb") == "true");
+	// ---- GC
+	gc_interval = (integer)root.getValue("AltairServer/GcInterval");
+	_gc_time = 0;
+	// ---- initialize XmlUtility
+	XmlUtility::Initialize();
+	itr = root.getItr("AltairServer/XmlUtility");
+	loop {
+		if (xml_info = itr.getNext()) {
+		} else {
+			break;
+		}
+		XmlUtility::dtd_base = xml_info.getValue("DtdBase");
+		XmlUtility::xsl_base = xml_info.getValue("XslBase");
+		XmlUtility::content_validation_base = xml_info.getValue("ContentValidationBase");
+	}
+	// ---- start web servers
+	web_servers = al_cons(null, null);
+	itr = root.getItr("AltairServer/WebServer");
+	loop {
+		if (web_server_info = itr.getNext()) {
+		} else {
+			break;
+		}
+		var WebServer web_server;
+		web_server = new WebServer;
+		web_server.ap_server = this;
+		web_server.name = web_server_info.getValue("@name");
+		var string port;
+		port = web_server_info.getValue("Port");
+		port = al_ask("port number ? ", port);
+		if (port == "") {
+			return "port number not specified.";
+		} else {
+		}
+		web_server.port = (integer)port;
+		web_server.documentRoot = web_server_info.getValue("DocumentRoot");
+		web_server.access_log_filepath = web_server_info.getValue("AccessLog");
+		web_server.access_log_db = (web_server_info.getValue("AccessLogDb") == "true");
+		itr2 = web_server_info.getItr("SSL");
+		if (ssl_info = itr2.getNext()) {
+			web_server.ssl = 1;
+			web_server.ca_cert = ssl_info.getValue("caCert");
+			web_server.cert = ssl_info.getValue("serverCert");
+			web_server.key = ssl_info.getValue("serverKey");
+			web_server.clientAuth = (ssl_info.getValue("clientAuth") == "true" ? 1 : 0);
+			web_server.dhparam = ssl_info.getValue("dhParam");
+			web_server.cipher = ssl_info.getValue("cipher");
+		} else {
+		}
+		web_server.connectionTimeout = (integer)web_server_info.getValue("ConnectionTimeout");
+		web_server.sessionTimeout = (integer)web_server_info.getValue("SessionTimeout");
+		web_server.maxMsgSize = (integer)web_server_info.getValue("MaxMessageSize");
+		web_server.servlet_list = al_cons(null, null);
+		itr2 = web_server_info.getItr("Servlet");
+		web_server.servlet_param_list = al_cons(null, null);
+		loop {
+			if (servlet_info = itr2.getNext()) {
+			} else {
+				break;
+			}
+			var string path, class_name;
+			path = servlet_info.getValue("Path");
+			class_name = servlet_info.getValue("Class");
+			al_create_arc(web_server.servlet_list, class_name, path);
+			var list nvls;
+			al_create_arc(web_server.servlet_param_list, nvls = al_cons(null, null), class_name);
+			itr3 = servlet_info.getItr("Param");
+			loop {
+				if (servlet_param_info = itr3.getNext()) {
+				} else {
+					break;
+				}
+				var string name, value;
+				name = servlet_param_info.getValue("Name");
+				value = servlet_param_info.getValue("Value");
+				if (name && value) {
+					al_set_dst_node(nvls, name, value);
+				} else {
+				}
+			}
+		}
+		web_server.upload_servlet_list = al_cons(null, null);
+		itr2 = web_server_info.getItr("UploadServlet");
+		loop {
+			if (servlet_info = itr2.getNext()) {
+			} else {
+				break;
+			}
+			var string path, class_name;
+			path = servlet_info.getValue("Path");
+			class_name = servlet_info.getValue("Class");
+			al_create_arc(web_server.upload_servlet_list, class_name, path);
+		}
+		al_create_arc(web_servers, web_server, null);
+		if (err = web_server.start()) {
+			system_log("error", "Web Server Startup failed: " + err);
+			return err;
+		} else {
+		}
+		system_log("info", "WebServer started: port = " + (string)web_server.port + ", SSL = " + (string)(web_server.ssl ? "true" : "false"));
+	}
+	// ---- start timer
+	var list cb;
+	timer_id = al_get_id();
+	cb = al_list3(al_root_class(), this, AltairServer::timeoutCheck);
+	al_gui_misc("timer", al_list2(timer_id, 1000), cb);
+	// ---- write startup log
+	system_log("info", "<<<<<<<<< system startup completed.");
+	al_print("Help Server started.\n");
+	return null;
+}
+end_body
+member
+public: void shutdownServer();
+body
+{
+	system_log("info", ">>>>>>>>> shutdown system immediately.");
+	if (timer_id) {
+		al_gui_misc("timer", al_list2(timer_id, 1000), null);
+		al_release_id(timer_id);
+		timer_id = null;
+	} else {
+	}
+	var list itr;
+	var WebServer web_server;
+	itr = al_dst_itr(web_servers);
+	loop {
+		if (web_server = al_next(itr)) {
+		} else {
+			break;
+		}
+		web_server.stop();
+		web_server.ap_server = null;
+	}
+	web_servers = null;
+}
+end_body
+member
+public: list load_config();
+body
+{
+	var file f;
+	if (f = al_file_open("config.xml", "r")) {
+	} else {
+		return "config.xml nof found.";
+	}
+	var list tree_err;
+	tree_err = al_xml("parse", f, null, null);
+	if (tree_err.tail.head) {
+		return "fail to parse config.xml.";
+	} else {
+	}
+	config = tree_err.head;
+	return null;
+}
+end_body
+member
+public: list config;
+member
+public: list web_servers;
+member
+public: string pool_name;
+member
+public: void log(string filepath, string str);
+body
+{
+	if (logObj) {
+		logObj.log(filepath, str);
+	} else {
+	}
+}
+end_body
+member
+public: void system_log(string level, string str);
+body
+{
+	if (system_log_filepath) {
+		log(system_log_filepath, level + ": " + str);
+	} else {
+	}
+	if (system_log_db) {
+		// ignore
+	} else {
+	}
+}
+end_body
+member
+public: string system_log_filepath;
+member
+public: string system_log_db;
+member
+public: LogObj logObj;
+member
+public: static integer getTime(string time);
+body
+{
+	var integer val, ch;
+	val = (integer)time;
+	if (al_is_type(time, "string") && al_strlen(time) > 1) {
+		ch = al_get_char(time, al_strlen(time) - 1);
+	} else {
+	}
+	if (ch == 's' || ch == 'S') {
+		val = val;
+	} else {
+	}
+	if (ch == 'm' || ch == 'M') {
+		val = val * 60;
+	} else {
+	}
+	if (ch == 'h' || ch == 'H') {
+		val = val * 60 * 60;
+	} else {
+	}
+	if (ch == 'd' || ch == 'D') {
+		val = val * 24 * 60 * 60;
+	} else {
+	}
+	return val;
+}
+end_body
+member
+public: void timeoutCheck();
+body
+{
+	var list itr;
+	// ---- HttpServerConnection
+	var WebServer web_server;
+	itr = al_dst_itr(web_servers);
+	loop {
+		if (web_server = al_next(itr)) {
+		} else {
+			break;
+		}
+		web_server.timeoutCheck();
+	}
+	// ---- garbage collection
+	_gc_time = _gc_time + 1;
+	if (_gc_time >= gc_interval) {
+		var list ls;
+		var integer used, recycled, free;
+		ls = al_gc(null);
+		recycled = ls.head;
+		free = ls.tail.head;
+		used = ls.tail.tail.head;
+		system_log("info", "garbage collection: recycled = " + (string)recycled + ", used = " + (string)used + ", total = " + (string)(recycled + free + used));
+		_gc_time = 0;
+	} else {
+	}
+}
+end_body
+member
+public: integer timer_id;
+member
+public: integer gc_interval;
+member
+public: integer _gc_time;
+member
+public: void connection_debug();
+body
+{
+	// ---- dump connection create/close and send/receive
+	// debug = 1;
+	// ---- dump request/response header to proxy
+	// debug2 = 1;
+	// ---- dump send proxy message to server/browser
+	// debug3 = 1;
+	// ---- connection debug log filepath
+	// debug_log_file = "./debug.log";
+}
+end_body
+member
+public: list debug;
+member
+public: list debug2;
+member
+public: list debug3;
+member
+public: string debug_log_file;
+class LogObj
+member
+public: void init();
+body
+{
+	log_files = al_cons(null, null);
+}
+end_body
+member
+public: void finalize();
+body
+{
+	log_files = null;
+}
+end_body
+member
+public: void log(string filepath, string str);
+body
+{
+	if (filepath) {
+	} else {
+		return;
+	}
+	var file f;
+	if (f = al_dst_node(log_files, filepath)) {
+	} else {
+		if (f = al_file_open(filepath, "a")) {
+		} else {
+			al_print("can't create logfile: filepath = " + filepath + "\n");
+			al_print("message = \"" + str + "\"\n");
+			return;
+		}
+		al_create_arc(log_files, f, filepath);
+	}
+	var list date;
+	var list date_str;
+	date = al_file_manip("current_datetime", null, null);
+	date_str = al_misc("format_time", date, "yyyy'/'MM'/'dd' 'HH':'mm':'ss");
+	al_file_write(f, "string", date_str + " " + str + "\n");
+	al_file_manip("flush", f, null);
+	if (al_file_manip("get_size", filepath, null) > max_size) {
+		f = null;
+		al_set_dst_node(log_files, filepath, null);
+		var string filepath2;
+		filepath2 = filepath + "." + Context::genTimeStamp();
+		al_file_manip("rename", filepath, filepath2);
+	} else {
+	}
+}
+end_body
+member
+public: list log_files;
+member
+public: static integer max_size;
+end_class
+class WebServer
+member
+public: AltairServer ap_server;
+member
+public: string name;
+member
+public: integer port;
+member
+public: string documentRoot;
+member
+public: list content_types;
+member
+public: list servlet_list;
+member
+public: list upload_servlet_list;
+member
+public: list servlet_param_list;
+member
+public: list start();
+body
+{
+	content_types = al_cons(null, null);
+	al_create_arc(content_types, "text/html", ".html");
+	al_create_arc(content_types, "text/html", ".htm");
+	al_create_arc(content_types, "text/plain", ".txt");
+	al_create_arc(content_types, "image/jpeg", ".jpeg");
+	al_create_arc(content_types, "image/jpeg", ".jpg");
+	al_create_arc(content_types, "image/gif", ".gif");
+	al_create_arc(content_types, "application/zip", ".zip");
+	al_create_arc(content_types, "x-gzip", ".gz");
+	var string err;
+	conn_mgr = new HttpServerConnectionMgr;
+	conn_mgr.create(this);
+	if (err = conn_mgr.start()) {
+		return err;
+	} else {
+	}
+	al_print("Web Server started. port = " + (integer)port + "\n");
+}
+end_body
+member
+public: void stop();
+body
+{
+	if (conn_mgr) {
+		conn_mgr.close();
+		conn_mgr = null;
+	} else {
+	}
+	ap_server = null;
+}
+end_body
+member
+public: HttpServerConnectionMgr conn_mgr;
+member
+public: integer connectionTimeout;
+member
+public: string GetAbsPath(string path);
+body
+{
+	var integer idx;
+	idx = al_search_str(path, 0, "..");
+	if (idx >= 0) {
+		return null;
+	} else {
+	}
+	var string abs_path;
+	abs_path = documentRoot + path;
+	if (al_file_manip("does_exist", abs_path, null)) {
+		if (al_file_manip("is_dir", abs_path, null)) {
+			abs_path = abs_path + "/index.html";
+			if (al_file_manip("does_exist", abs_path, null)) {
+				return abs_path;
+			} else {
+			}
+		} else {
+			return abs_path;
+		}
+	} else {
+		return null;
+	}
+}
+end_body
+member
+public: list sessions;
+member
+public: integer sessionTimeout;
+member
+public: integer maxMsgSize;
+member
+public: void access_log(string fromIP, string path, string code, string size);
+body
+{
+	if (ap_server) {
+		if (access_log_filepath) {
+			var string s;
+			s = fromIP + " \"" + path + "\" " + code + " " + size;
+			ap_server.log(access_log_filepath, s);
+		} else {
+		}
+		if (al_search_str(path, 0, "cmd.exe") >= 0 || al_search_str(path, 0, "root.exe") >= 0 || al_search_str(path, 0, "default.ida") >= 0) {
+			// not write access log of IIS virus
+			// skip if path includes 'cmd.exe', 'root.exe' or 'default.ida'
+			return;
+		} else {
+		}
+		if (null && al_search_str(path, 0, "/admin/ebiz?") >= 0 && al_search_str(path, 0, "/admin/ebiz?action=Login") < 0) {
+			// not write access log of admin ui operation
+			// skip if URI includes '/admin/ebiz?' and is not '/admin/ebiz?action=Login'
+			return;
+		} else {
+		}
+		if (access_log_db) {
+			// ignore
+		} else {
+		}
+	} else {
+	}
+}
+end_body
+member
+public: string access_log_filepath;
+member
+public: string access_log_db;
+member
+public: void error_log(string str);
+body
+{
+	ap_server.system_log("error", "WebServer: " + str);
+}
+end_body
+member
+public: void timeoutCheck();
+body
+{
+	var list itr;
+	if (conn_mgr && conn_mgr.connections) {
+		var HttpServerConnection conn;
+		itr = al_dst_itr(conn_mgr.connections);
+		loop {
+			if (conn = al_next(itr)) {
+			} else {
+				break;
+			}
+			conn._time = conn._time + 1;
+			if (conn._time >= connectionTimeout) {
+				al_prev(itr);
+				conn.close();
+			} else {
+			}
+		}
+	} else {
+	}
+}
+end_body
+member
+public: list ssl;
+member
+public: string ca_cert;
+member
+public: string cert;
+member
+public: string key;
+member
+public: integer clientAuth;
+member
+public: string dhparam;
+member
+public: string cipher;
+class HttpServerConnectionMgr
+member
+public: void create(WebServer server);
+body
+{
+	debug = server.ap_server.debug;
+	this.server = server;
+	connections = al_cons(null, null);
+}
+end_body
+member
+public: void close();
+body
+{
+	if (server_socket_id) {
+		al_socket("close", server_socket_id, null, null);
+		server_socket_id = null;
+	} else {
+	}
+	if (hwnd && msg) {
+		al_wnd_message(null, "msg_callback", msg, null);
+		al_wnd_message(null, "unregister_msg", msg, null);
+		hwnd = msg = null;
+	} else {
+	}
+	var list itr;
+	var HttpServerConnection conn;
+	loop {
+		itr = al_dst_itr(connections);
+		if (conn = al_next(itr)) {
+		} else {
+			break;
+		}
+		conn.close();
+	}
+	server = null;
+}
+end_body
+member
+public: WebServer server;
+member
+public: list connections;
+member
+public: list start();
+body
+{
+	var string err;
+	if (server.ssl == null) {
+		if (server_socket_id = al_socket("socket", null, null, null)) {
+		} else {
+			return "fail to create server socket.";
+		}
+	} else {
+		var list files;
+		files = al_list5(server.cert, server.key, server.ca_cert, server.clientAuth, server.dhparam);
+		if (server_socket_id = al_socket("socket", "SSL", files, server.cipher)) {
+		} else {
+			return "fail to create SSL server socket.";
+		}
+	}
+	if (al_socket("bind", server_socket_id, al_list2(0, server.port), null)) {
+		err = (string)al_socket("get_last_error", server_socket_id, null, null);
+		err = "fail to bind socket with port = " + (string)server.port + ". (" + err + ")";
+		close();
+		return err;
+	} else {
+	}
+	if (al_socket("listen", server_socket_id, null, null)) {
+		err = (string)al_socket("get_last_error", server_socket_id, null, null);
+		close();
+		return "fail to listen socket. (" + err + ")";
+	} else {
+	}
+	var list cb;
+	hwnd = al_wnd_message(null, "hwnd", null, null);
+	msg = al_wnd_message(null, "register_msg", "ACCEPT" + (string)server_socket_id, null);
+	cb = al_list3(al_root_class(), this, HttpServerConnectionMgr::accepted);
+	al_wnd_message(null, "msg_callback", msg, cb);
+	if (al_socket("accept_que", server_socket_id, al_list2(hwnd, msg), null)) {
+		err = (string)al_socket("get_last_error", server_socket_id, null, null);
+		close();
+		return "fail to start accept_queue. (" + err + ")";
+	} else {
+	}
+	if (server.ap_server.debug) {
+		al_print("HttpServerConnection::start() completed.\n");
+	} else {
+	}
+	return null;
+}
+end_body
+member
+public: integer server_socket_id;
+member
+public: integer hwnd;
+member
+public: integer msg;
+member
+public: void accepted();
+body
+{
+	if (debug) {
+		al_print("### socket accepting started.\n");
+	} else {
+	}
+	var integer socket_id;
+	server_socket_id = al_wnd_message(null, "wParam", null, null);
+	if (socket_id = al_socket("get_socket", server_socket_id, null, null)) {
+	} else {
+		server.error_log("fail to get_socket: port = " + (string)server.port);
+		return;
+	}
+	if (socket_id < 0) {
+		server.error_log("fail to accept socket: port = " + (string)server.port);
+		return;
+	} else {
+	}
+	var HttpServerConnection conn;
+	conn = new HttpServerConnection;
+	conn.create(server, socket_id);
+	conn._time = 0;
+	var list ip_addr;
+	ip_addr = al_socket("getpeername", socket_id, null, null);
+	if (ip_addr) {
+		ip_addr = ip_addr.head;
+		conn.fromIP = al_socket("address_string", ip_addr, null, null);
+	} else {
+		conn.fromIP = "";
+	}
+	conn.cert_info = al_socket("cert_info", socket_id, null, null);
+	al_create_arc(connections, conn, socket_id);
+	if (debug) {
+		al_print("### socket accepting completed.\n");
+	} else {
+	}
+	conn.startReceiveCommand();
+}
+end_body
+end_class
+class HttpServerConnection
+member
+public: void create(WebServer server, integer socket_id);
+body
+{
+	debug = server.ap_server.debug;
+	connection_debug();
+	if (debug) {
+		if (debug_log_file && appServer) {
+			appServer.log(debug_log_file, "!!! HttpServerConnection::create: socket_id = " + (string)socket_id);
+		} else {
+			al_print("!!! HttpServerConnection::create: socket_id = " + (string)socket_id + "\n");
+		}
+	} else {
+	}
+	this.server = server;
+	this.socket_id = socket_id;
+	hwnd = al_wnd_message(null, "hwnd", null, null);
+	msg = al_wnd_message(null, "register_msg", "HttpSvrConn-" + (string)socket_id, null);
+	buffer_size = 4096;
+}
+end_body
+member
+public: void close();
+body
+{
+	if (debug) {
+		if (debug_log_file && appServer) {
+			appServer.log(debug_log_file, "!!! HttpServerConnection::close: socket_id = " + (string)socket_id);
+		} else {
+			al_print("!!! HttpServerConnection::close: socket_id = " + (string)socket_id + "\n");
+		}
+	} else {
+	}
+	if (hwnd && msg) {
+		al_wnd_message(null, "msg_callback", msg, null);
+		al_wnd_message(null, "unregister_msg", msg, null);
+		hwnd = msg = null;
+	} else {
+	}
+	var integer id;
+	id = socket_id;
+	if (socket_id) {
+		al_socket("close", socket_id, null, null);
+		socket_id = null;
+	} else {
+	}
+	var list connections;
+	if (connections = al_src_node(this, id)) {
+		al_set_dst_node(connections, id, null);
+	} else {
+	}
+	if (upload_filename) {
+		upload = null;
+		if (al_file_manip("does_exist", upload_filename, null)) {
+			al_file_manip("remove", upload_filename, null);
+		} else {
+		}
+	} else {
+	}
+}
+end_body
+member
+public: WebServer server;
+member
+public: integer socket_id;
+member
+public: integer hwnd;
+member
+public: integer msg;
+member
+public: integer _time;
+member
+public: void startReceiveCommand();
+body
+{
+	if (msg) {
+	} else {
+		return;
+	}
+	if (debug) {
+		if (debug_log_file && appServer) {
+			appServer.log(debug_log_file, "!!! HttpServerConnection::startReceiveCommand: socket_id = " + (string)socket_id);
+		} else {
+			al_print("!!! HttpServerConnection::startReceiveCommand: socket_id = " + (string)socket_id + "\n");
+		}
+	} else {
+	}
+	var list cb, buf, err;
+	cb = al_list3(al_root_class(), this, HttpServerConnection::commandReceived);
+	al_wnd_message(null, "msg_callback", msg, cb);
+	buffer = al_misc("binary", buffer_size, null);
+	buf = al_list3(buffer, 0, buffer_size);
+	if (al_socket("recv", socket_id, buf, al_list3(hwnd, msg, 1))) {
+		err = (string)al_socket("get_last_error", socket_id, null, null);
+		// *** server.error_log("recv error.(" + err + ")");
+		close();
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: void startReceiveHeaders();
+body
+{
+	if (debug) {
+		if (debug_log_file && appServer) {
+			appServer.log(debug_log_file, "!!! HttpServerConnection::startReceiveHeaders: socket_id = " + (string)socket_id);
+		} else {
+			al_print("!!! HttpServerConnection::startReceiveHeaders: socket_id = " + (string)socket_id + "\n");
+		}
+	} else {
+	}
+	var list cb, buf, err;
+	cb = al_list3(al_root_class(), this, HttpServerConnection::headersReceived);
+	al_wnd_message(null, "msg_callback", msg, cb);
+	buf = al_list3(buffer, 0, buffer_size);
+	if (al_socket("recv", socket_id, buf, al_list3(hwnd, msg, 2))) {
+		err = (string)al_socket("get_last_error", socket_id, null, null);
+		// *** server.error_log("recv error.(" + err + ")");
+		close();
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: void startReceiveBlockSize();
+body
+{
+	if (debug) {
+		if (debug_log_file && appServer) {
+			appServer.log(debug_log_file, "!!! HttpServerConnection::startReceiveBlockSize: socket_id = " + (string)socket_id);
+		} else {
+			al_print("!!! HttpServerConnection::startReceiveBlockSize: socket_id = " + (string)socket_id + "\n");
+		}
+	} else {
+	}
+	var list cb, buf, err;
+	cb = al_list3(al_root_class(), this, HttpServerConnection::blockSizeReceived);
+	al_wnd_message(null, "msg_callback", msg, cb);
+	buf = al_list3(buffer, 0, buffer_size);
+	if (al_socket("recv", socket_id, buf, al_list3(hwnd, msg, 1))) {
+		err = (string)al_socket("get_last_error", socket_id, null, null);
+		// *** server.error_log("recv error.(" + err + ")");
+		close();
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: void startReceiveContents();
+body
+{
+	if (debug) {
+		if (debug_log_file && appServer) {
+			appServer.log(debug_log_file, "!!! HttpServerConnection::startReceiveContents: socket_id = " + (string)socket_id);
+		} else {
+			al_print("!!! HttpServerConnection::startReceiveContents: socket_id = " + (string)socket_id + "\n");
+		}
+	} else {
+	}
+	var list cb, buf, err;
+	cb = al_list3(al_root_class(), this, HttpServerConnection::contentsReceived);
+	al_wnd_message(null, "msg_callback", msg, cb);
+	buf = al_list3(buffer, 0, buffer_size);
+	if (content_length) {
+		if (al_socket("recv", socket_id, buf, al_list4(hwnd, msg, 3, content_length))) {
+			err = (string)al_socket("get_last_error", socket_id, null, null);
+			// *** server.error_log("recv error.(" + err + ")");
+			return;
+		} else {
+		}
+	} else {
+		if (content_block_size) {
+			if (al_socket("recv", socket_id, buf, al_list4(hwnd, msg, 3, content_block_size))) {
+				err = (string)al_socket("get_last_error", socket_id, null, null);
+				// *** server.error_log("recv error.(" + err + ")");
+				return;
+			} else {
+			}
+		} else {
+			if (al_socket("recv", socket_id, buf, al_list2(hwnd, msg))) {
+				err = (string)al_socket("get_last_error", socket_id, null, null);
+				// *** server.error_log("recv error.(" + err + ")");
+				return;
+			} else {
+			}
+		}
+	}
+}
+end_body
+member
+public: void startReceiveContents2();
+body
+{
+	var list cb, buf, err;
+	cb = al_list3(al_root_class(), this, HttpServerConnection::contentsReceived2);
+	al_wnd_message(null, "msg_callback", msg, cb);
+	buf = al_list3(buffer, 0, buffer_size);
+	if (al_socket("recv", socket_id, buf, al_list2(hwnd, msg))) {
+		err = (string)al_socket("get_last_error", socket_id, null, null);
+		// *** server.error_log("recv error.(" + err + ")");
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: void startReceiveCRLF();
+body
+{
+	if (debug) {
+		if (debug_log_file && appServer) {
+			appServer.log(debug_log_file, "!!! HttpServerConnection::startReceiveCRLF: socket_id = " + (string)socket_id);
+		} else {
+			al_print("!!! HttpServerConnection::startReceiveCRLF: socket_id = " + (string)socket_id + "\n");
+		}
+	} else {
+	}
+	var list cb, buf, err;
+	cb = al_list3(al_root_class(), this, HttpServerConnection::CRLFReceived);
+	al_wnd_message(null, "msg_callback", msg, cb);
+	buf = al_list3(buffer, 0, buffer_size);
+	if (al_socket("recv", socket_id, buf, al_list3(hwnd, msg, 1))) {
+		err = (string)al_socket("get_last_error", socket_id, null, null);
+		// *** server.error_log("recv error.(" + err + ")");
+		close();
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: void commandReceived();
+body
+{
+	var list err;
+	var integer read_bytes;
+	read_bytes = al_wnd_message(null, "lParam", null, null);
+	if (debug) {
+		if (debug_log_file && appServer) {
+			appServer.log(debug_log_file, "!!! HttpServerConnection::commandReceived: socket_id = " + (string)socket_id + ", read_bytes = " + (string)read_bytes);
+		} else {
+			al_print("!!! HttpServerConnection::commandReceived: socket_id = " + (string)socket_id + ", read_bytes = " + (string)read_bytes + "\n");
+		}
+	} else {
+	}
+	if (read_bytes < 0) {
+		err = (string)al_socket("get_last_error", socket_id, null, null);
+		// *** server.error_log("recv error. (" + err + ")");
+		close();
+		return;
+	} else {
+	}
+	command_line = al_misc("binary_to_string", al_list3(buffer, 0, read_bytes - 1), null);
+	var string cmd;
+	in = al_file_open(command_line, "sr");
+	if (cmd = al_file_read(in, "string")) {
+	} else {
+		// *** server.error_log("request Method not found.");
+		close();
+		return;
+	}
+	cmd = al_str_misc("to_upper", cmd, null);
+	if (path = al_file_read(in, "string")) {
+	} else {
+		// *** server.error_log("request URI not found.");
+		close();
+		return;
+	}
+	path = al_str_misc("param_to_string", path, null);
+	if (http_ver = al_file_read(in, "string")) {
+	} else {
+		// *** server.error_log("HTTP version not found.");
+		close();
+		return;
+	}
+	command = cmd;
+	var integer idx;
+	idx = al_search_str(path, 0, "?");
+	if (idx > 0) {
+		params = al_substr(path, idx + 1, al_strlen(path));
+		path = al_substr(path, 0, idx);
+	} else {
+		params = "";
+	}
+	var integer len;
+	len = al_strlen(path);
+	if (al_get_char(path, len - 1) == '/') {
+		path = al_substr(path, 0, len - 1);
+	} else {
+	}
+	_time = 0;
+	startReceiveHeaders();
+}
+end_body
+member
+public: void headersReceived();
+body
+{
+	var string err;
+	var integer read_bytes;
+	read_bytes = al_wnd_message(null, "lParam", null, null);
+	if (debug) {
+		if (debug_log_file && appServer) {
+			appServer.log(debug_log_file, "!!! HttpServerConnection::headersReceived: socket_id = " + (string)socket_id + ", read_bytes = " + (string)read_bytes);
+		} else {
+			al_print("!!! HttpServerConnection::headersReceived: socket_id = " + (string)socket_id + ", read_bytes = " + (string)read_bytes + "\n");
+		}
+	} else {
+	}
+	if (read_bytes < 0) {
+		err = (string)al_socket("get_last_error", socket_id, null, null);
+		// *** server.error_log("recv error. (" + err + ")");
+		close();
+		return;
+	} else {
+	}
+	bin_raw_http_header = al_misc("binary", read_bytes, null);
+	al_misc("binary_copy", al_list2(bin_raw_http_header, 0), al_list3(buffer, 0, read_bytes));
+	if (debug3) {
+		if (debug_log_file && appServer) {
+			appServer.log(debug_log_file, "---- received Http Request Header\n" + (string)al_misc("binary_to_string", al_list3(buffer, 0, read_bytes), null));
+		} else {
+			al_print("---- received Http Request Header\n" + (string)al_misc("binary_to_string", al_list3(buffer, 0, read_bytes), null));
+		}
+	} else {
+	}
+	if (headers = al_crypt("mime_headers_read", al_list3(buffer, 0, read_bytes), null, null)) {
+	} else {
+		server.error_log("mime header parse error.");
+		close();
+		return;
+	}
+	headers = headers.head;
+	refer = al_dst_node_i(headers, "Referer");
+	if (content_length = al_dst_node_i(headers, "Content-Length")) {
+		content_length = (integer)content_length;
+		_time = 0;
+		var string content_type, content_type_i;
+		if (content_type = al_dst_node_i(headers, "Content-Type")) {
+			content_type_i = al_str_misc("to_lower", content_type, null);
+			if (content_type_i == "multipart/form-data") {
+				boundary = al_dst_node_i(content_type, "boundary");
+			} else {
+			}
+		} else {
+		}
+		if (boundary && al_dst_node(server.upload_servlet_list, path)) {
+			startReceiveContents2();
+		} else {
+			if (content_length > server.maxMsgSize * 1000) {
+				server.error_log("request message too large: Content-Length = " + (string)content_length + ", fromIP = " + (string)fromIP + ", Request = " + (string)command_line);
+				send_status = "413_request_entity_too_large";
+				if (err = send(http_ver + " 413\n")) {
+					// *** server.error_log(err);
+					close();
+					return;
+				} else {
+				}
+				return;
+			} else {
+			}
+			startReceiveContents();
+		}
+	} else {
+		if (command == "GET") {
+			_time = 0;
+			para this.process();
+		} else {
+			_time = 0;
+			var string encoding;
+			encoding = al_dst_node_i(headers, "Transfer-Encoding");
+			if (encoding && al_misc("strcmpi", encoding, "chunked") == 0) {
+				chunked = 1;
+				startReceiveBlockSize();
+			} else {
+				startReceiveContents();
+			}
+		}
+	}
+}
+end_body
+member
+public: void blockSizeReceived();
+body
+{
+	var list err;
+	var integer read_bytes;
+	read_bytes = al_wnd_message(null, "lParam", null, null);
+	if (debug) {
+		if (debug_log_file && appServer) {
+			appServer.log(debug_log_file, "!!! HttpServerConnection::blockSizeReceived: socket_id = " + (string)socket_id + ", read_bytes = " + (string)read_bytes);
+		} else {
+			al_print("!!! HttpServerConnection::blockSizeReceived: socket_id = " + (string)socket_id + ", read_bytes = " + (string)read_bytes + "\n");
+		}
+	} else {
+	}
+	if (read_bytes < 0) {
+		err = (string)al_socket("get_last_error", socket_id, null, null);
+		// *** server.error_log("recv error. (" + err + ")");
+		close();
+		return;
+	} else {
+	}
+	var string hex_str;
+	var file f;
+	var integer size;
+	hex_str = al_misc("binary_to_string", al_list3(buffer, 0, read_bytes), null);
+	f = al_file_open(hex_str, "sr");
+	content_block_size = al_file_read(f, "hex");
+	if (content_block_size > 0) {
+		if (contents) {
+			size = al_misc("binary_size", contents, null) + content_block_size;
+		} else {
+			size = content_block_size;
+		}
+		if (size > server.maxMsgSize * 1000) {
+			server.error_log("request message too large: size >= " + (string)size + ", fromIP = " + (string)fromIP + ", Request = " + (string)command_line);
+			send_status = "413_request_entity_too_large";
+			if (err = send(http_ver + " 413\n")) {
+				// *** server.error_log(err);
+				close();
+				return;
+			} else {
+			}
+			return;
+		} else {
+		}
+		_time = 0;
+		startReceiveContents();
+		return;
+	} else {
+		_time = 0;
+		para this.process();
+		return;
+	}
+}
+end_body
+member
+public: void contentsReceived();
+body
+{
+	var list err;
+	var integer read_bytes;
+	read_bytes = al_wnd_message(null, "lParam", null, null);
+	if (debug) {
+		if (debug_log_file && appServer) {
+			appServer.log(debug_log_file, "!!! HttpServerConnection::contentsReceived: socket_id = " + (string)socket_id + ", read_bytes = " + (string)read_bytes);
+		} else {
+			al_print("!!! HttpServerConnection::contentsReceived: socket_id = " + (string)socket_id + ", read_bytes = " + (string)read_bytes + "\n");
+		}
+	} else {
+	}
+	if (read_bytes < 0) {
+		if (content_length) {
+			err = (string)al_socket("get_last_error", socket_id, null, null);
+			// *** server.error_log("recv error. (" + err + ")");
+			close();
+			return;
+		} else {
+			close();
+			return;
+		}
+	} else {
+	}
+	if (content_length) {
+		contents = al_misc("binary", read_bytes, null);
+		al_misc("binary_copy", al_list2(contents, 0), al_list3(buffer, 0, read_bytes));
+		_time = 0;
+		para this.process();
+		return;
+	} else {
+	}
+	if (contents) {
+		var integer idx;
+		idx = al_misc("binary_size", contents, null);
+		al_misc("extend_binary", contents, read_bytes);
+		al_misc("binary_copy", al_list2(contents, idx), al_list3(buffer, 0, read_bytes));
+	} else {
+		contents = al_misc("binary", read_bytes, null);
+		al_misc("binary_copy", al_list2(contents, 0), al_list3(buffer, 0, read_bytes));
+	}
+	var integer size;
+	size = al_misc("binary_size", contents, null);
+	if (size > server.maxMsgSize * 1000) {
+		server.error_log("request message too large: size >= " + (string)size + ", fromIP = " + (string)fromIP + ", Request = " + (string)command_line);
+		send_status = "413_request_entity_too_large";
+		if (err = send(http_ver + " 413\n")) {
+			// *** server.error_log(err);
+			close();
+			return;
+		} else {
+		}
+		return;
+	} else {
+	}
+	_time = 0;
+	if (chunked) {
+		startReceiveCRLF();
+	} else {
+		startReceiveContents();
+	}
+}
+end_body
+member
+public: void contentsReceived2();
+body
+{
+	var list err;
+	var integer read_bytes;
+	read_bytes = al_wnd_message(null, "lParam", null, null);
+	if (debug) {
+		if (debug_log_file && appServer) {
+			appServer.log(debug_log_file, "!!! HttpServerConnection::contentsReceived2: socket_id = " + (string)socket_id + ", read_bytes = " + (string)read_bytes);
+		} else {
+			al_print("!!! HttpServerConnection::contentsReceived2: socket_id = " + (string)socket_id + ", read_bytes = " + (string)read_bytes + "\n");
+		}
+	} else {
+	}
+	if (read_bytes < 0) {
+		err = (string)al_socket("get_last_error", socket_id, null, null);
+		// *** server.error_log("recv error. (" + err + ")");
+		close();
+		return;
+	} else {
+	}
+	_time = 0;
+	var list block;
+	block = al_list3(buffer, 0, read_bytes);
+	if (upload == null) {
+		if (upload_filename = FileUtility::tempFile()) {
+		} else {
+			// *** server.error_log("can't get upload temp file name");
+			close();
+			return;
+		}
+		if (upload = al_file_open(upload_filename, "wb")) {
+		} else {
+			// *** server.error_log("can't open upload temp file");
+			close();
+			return;
+		}
+		if (al_file_write(upload, al_list3(bin_raw_http_header, 0, al_misc("binary_size", bin_raw_http_header, null)), null)) {
+			upload = null;
+			al_file_manip("remove", upload_filename, null);
+			// *** server.error_log("write error to upload temp file");
+			close();
+			return;
+		} else {
+		}
+		total_read_bytes = 0;
+	} else {
+	}
+	if (al_file_write(upload, block, null)) {
+		upload = null;
+		al_file_manip("remove", upload_filename, null);
+		// *** server.error_log("write error to upload temp file");
+		close();
+		return;
+	} else {
+	}
+	total_read_bytes = total_read_bytes + read_bytes;
+	if (total_read_bytes >= content_length) {
+		upload = null;
+		para this.process();
+	} else {
+		startReceiveContents2();
+	}
+}
+end_body
+member
+public: void CRLFReceived();
+body
+{
+	if (debug) {
+		if (debug_log_file && appServer) {
+			appServer.log(debug_log_file, "!!! HttpServerConnection::CRLFReceived: socket_id = " + (string)socket_id);
+		} else {
+			al_print("!!! HttpServerConnection::CRLFReceived: socket_id = " + (string)socket_id + "\n");
+		}
+	} else {
+	}
+	_time = 0;
+	startReceiveBlockSize();
+}
+end_body
+member
+public: list chunked;
+member
+public: integer buffer_size;
+member
+public: list buffer;
+member
+public: string command_line;
+member
+public: string command;
+member
+public: string http_ver;
+member
+public: integer content_block_size;
+member
+public: list bin_raw_http_header;
+member
+public: list headers;
+member
+public: integer content_length;
+member
+public: string refer;
+member
+public: list contents;
+member
+public: void process();
+body
+{
+	var string err;
+	var string abs_path;
+	var string content_disposition;
+	if ((abs_path || abs_path = server.GetAbsPath(path)) && in = al_file_open(abs_path, "rb")) {
+	} else {
+		server.access_log(fromIP, command_line, "404", "0");
+		send_status = "404_not_found";
+		if (err = send(http_ver + " 404\n")) {
+			// *** server.error_log(err);
+			close();
+			return;
+		} else {
+		}
+		return;
+	}
+	content_length = al_file_manip("get_size", abs_path, null);
+	headers = al_cons(null, null);
+	var string file_ext, content_type;
+	file_ext = al_str_misc("file_ext", abs_path, null);
+	if (content_type = al_dst_node(server.content_types, file_ext)) {
+	} else {
+		content_type = "text/plain";
+	}
+	al_set_dst_node(headers, "Content-Type", content_type);
+	al_set_dst_node(headers, "Content-Length", (string)content_length);
+	if (content_disposition) {
+		al_set_dst_node(headers, "Content-Disposition", content_disposition);
+	} else {
+	}
+	al_set_dst_node(headers, "Server", "AltairServer" + al_misc("version", null, null));
+	if (http_ver == "HTTP/1.1") {
+		al_set_dst_node(headers, "Connection", "Close");
+	} else {
+	}
+	buffer = al_crypt("mime_headers_write", headers, null, null);
+	server.access_log(fromIP, command_line, "200", (string)content_length);
+	send_status = "200_ok";
+	if (err = send(http_ver + " 200\n")) {
+		// *** server.error_log(err);
+		close();
+		return;
+	} else {
+	}
+	return;
+}
+end_body
+member
+public: string order;
+member
+public: string path;
+member
+public: string path2;
+member
+public: list params;
+member
+public: list send(string str);
+body
+{
+	var integer size;
+	var list binary;
+	size = al_strlen(str);
+	binary = al_misc("binary", size, null);
+	al_misc("binary_copy", al_list2(binary, 0), str);
+	return send(binary, 0, size);
+}
+end_body
+member
+public: list send(list binary);
+body
+{
+	var integer size;
+	size = al_misc("binary_size", binary, null);
+	return send(binary, 0, size);
+}
+end_body
+member
+public: list send(list binary, integer index, integer size);
+body
+{
+	if (debug) {
+		if (debug_log_file && appServer) {
+			appServer.log(debug_log_file, "!!! HttpServerConnection::send: socket_id = " + (string)socket_id + ", size = " + (string)size);
+		} else {
+			al_print("!!! HttpServerConnection::send: socket_id = " + (string)socket_id + ", size = " + (string)size + "\n");
+		}
+	} else {
+	}
+	if (msg) {
+		var list cb, block;
+		cb = al_list3(al_root_class(), this, HttpServerConnection::sendCompleted);
+		al_wnd_message(null, "msg_callback", msg, cb);
+		block = al_list3(binary, index, size);
+		if (al_socket("send", socket_id, block, al_list2(hwnd, msg))) {
+			return "send error. (" + (string)al_socket("get_last_error", socket_id, null, null) + ")";
+		} else {
+		}
+	} else {
+	}
+	return null;
+}
+end_body
+member
+public: void sendCompleted();
+body
+{
+	var string err;
+	var integer send_bytes;
+	send_bytes = al_wnd_message(null, "lParam", null, null);
+	if (debug) {
+		if (debug_log_file && appServer) {
+			appServer.log(debug_log_file, "!!! HttpServerConnection::sendCompleted: socket_id = " + (string)socket_id + ", send_bytes = " + (string)send_bytes);
+		} else {
+			al_print("!!! HttpServerConnection::sendCompleted: socket_id = " + (string)socket_id + ", send_bytes = " + (string)send_bytes + "\n");
+		}
+	} else {
+	}
+	if (send_bytes < 0) {
+		err = (string)al_socket("get_last_error", socket_id, null, null);
+		// *** server.error_log("send error. (" + err + ")");
+		close();
+		return;
+	} else {
+	}
+	if (send_status == "servlet_response_code") {
+		if (al_dst_node_i(res.headers, "Content-Type")) {
+		} else {
+			al_set_dst_node(res.headers, "Content-Type", "text/html");
+		}
+		al_set_dst_node(res.headers, "Content-Length", (string)res.content_length);
+		al_set_dst_node(res.headers, "Server", "AltairServer" + al_misc("version", null, null));
+		if (http_ver == "HTTP/1.1") {
+			al_set_dst_node(headers, "Connection", "Close");
+		} else {
+		}
+		var list buffer;
+		buffer = al_crypt("mime_headers_write", res.headers, null, null);
+		send_status = "servlet_response_headers";
+		if (err = send(buffer)) {
+			// *** server.error_log(err);
+			close();
+			return;
+		} else {
+		}
+		_time = 0;
+		return;
+	} else {
+	}
+	if (send_status == "servlet_response_headers") {
+		send_status = "servlet_response_contents";
+		if (err = send(res.output, 0, res.content_length)) {
+			// *** server.error_log(err);
+			close();
+			return;
+		} else {
+		}
+		_time = 0;
+		return;
+	} else {
+	}
+	if (send_status == "servlet_response_contents") {
+		close();
+		return;
+	} else {
+	}
+	if (send_status == "404_not_found") {
+		close();
+		return;
+	} else {
+	}
+	if (send_status == "413_request_entity_too_large") {
+		close();
+		return;
+	} else {
+	}
+	if (send_status == "200_ok") {
+		send_status = "headers";
+		if (err = send(buffer)) {
+			// *** server.error_log(err);
+			close();
+			return;
+		} else {
+		}
+		_time = 0;
+		return;
+	} else {
+	}
+	if (send_status == "headers") {
+		buffer = al_misc("binary", buffer_size, null);
+		var integer read_bytes;
+		var list block;
+		total_read_bytes = 0;
+		block = al_list3(buffer, 0, buffer_size);
+		if (read_bytes = al_file_read(in, block)) {
+			if (read_bytes < 0) {
+				// cannot read page
+				close();
+				return;
+			} else {
+			}
+		} else {
+			read_bytes = buffer_size;
+		}
+		send_status = "contents_block";
+		total_read_bytes = total_read_bytes + read_bytes;
+		if (err = send(buffer, 0, read_bytes)) {
+			// *** server.error_log(err);
+			close();
+			return;
+		} else {
+		}
+		_time = 0;
+		return;
+	} else {
+	}
+	if (send_status == "contents_block") {
+		if (total_read_bytes >= content_length) {
+			close();
+			return;
+		} else {
+		}
+		var integer read_bytes;
+		var list block;
+		block = al_list3(buffer, 0, buffer_size);
+		if (read_bytes = al_file_read(in, block)) {
+			if (read_bytes < 0) {
+				// cannot read page
+				close();
+				return;
+			} else {
+			}
+		} else {
+			read_bytes = buffer_size;
+		}
+		send_status = "contents_block";
+		total_read_bytes = total_read_bytes + read_bytes;
+		if (err = send(buffer, 0, read_bytes)) {
+			// *** server.error_log(err);
+			close();
+			return;
+		} else {
+		}
+		_time = 0;
+		return;
+	} else {
+	}
+	close();
+	return;
+}
+end_body
+member
+public: string send_status;
+member
+public: file in;
+member
+public: integer total_read_bytes;
+member
+public: string fromIP;
+member
+public: list cert_info;
+member
+public: HttpRequest req;
+member
+public: HttpResponse res;
+member
+public: list binary;
+member
+public: string boundary;
+member
+public: string upload_filename;
+member
+public: file upload;
+end_class
+class HttpRequest
+member
+public: WebServer _server;
+member
+public: HttpResponse _response;
+member
+public: string _command;
+member
+public: string _path;
+member
+public: string _params;
+member
+public: list bin_raw_http_header;
+member
+public: list headers;
+member
+public: string fromIP;
+member
+public: list cert_info;
+member
+public: list input;
+member
+public: string input_file;
+member
+public: list getParameters();
+body
+{
+	if (parameters) {
+		return parameters;
+	} else {
+	}
+	parameters = al_cons(null, null);
+	var list ls, itr, nv;
+	var string name_value, name, value;
+	ls = al_str_misc("split", _params, '&');
+	itr = al_dst_itr(ls);
+	loop {
+		if (name_value = al_next(itr)) {
+		} else {
+			break;
+		}
+		nv = splitNameValue(name_value);
+		name = al_str_misc("param_to_string", nv.head, null);
+		value = nv.tail.head;
+		al_create_arc(parameters, value, name);
+	}
+	if (_command == "POST") {
+		var string contentType;
+		var list mimeMultipart, mimeBody, itr, hdr, hdr_val;
+		var integer idx, size;
+		contentType = al_dst_node_i(headers, "Content-Type");
+		if (al_str_misc("strcmpi", contentType, "multipart/form-data") == 0) {
+			mimeMultipart = al_crypt("mime_multipart_read", input, headers, null);
+			itr = al_dst_itr(mimeMultipart);
+			loop {
+				if (mimeBody = al_next(itr)) {
+				} else {
+					break;
+				}
+				size = al_misc("binary_size", mimeBody, null);
+				hdr = al_crypt("mime_headers_read", mimeBody, null, null);
+				if (hdr) {
+					idx = hdr.tail.head;
+					hdr = hdr.head;
+					hdr_val = al_dst_node_i(hdr, "Content-Disposition");
+					if (hdr_val == "form-data") {
+						name = al_dst_node_i(hdr_val, "name");
+						value = al_misc("binary_to_string", al_list3(mimeBody, idx, size - idx), null);
+						al_create_arc(parameters, value, name);
+					} else {
+					}
+				} else {
+				}
+			}
+			return parameters;
+		} else {
+		}
+		var string params;
+		size = al_misc("binary_size", input, null);
+		params = al_misc("binary_to_string", al_list3(input, 0, size), null);
+		ls = al_str_misc("split", params, '&');
+		itr = al_dst_itr(ls);
+		loop {
+			if (name_value = al_next(itr)) {
+			} else {
+				break;
+			}
+			nv = splitNameValue(name_value);
+			name = al_str_misc("param_to_string", nv.head, null);
+			value = nv.tail.head;
+			value = al_str_misc("param_to_string", value, null);
+			al_create_arc(parameters, value, name);
+		}
+	} else {
+	}
+	return parameters;
+}
+end_body
+member
+public: string getParameter(string name);
+body
+{
+	parameters = getParameters();
+	return al_dst_node_i(parameters, name);
+}
+end_body
+member
+public: list parameters;
+member
+public: list getCookies();
+body
+{
+	if (cookies) {
+		return cookies;
+	} else {
+	}
+	cookies = al_cons(null, null);
+	var list itr, nv, itr2;
+	var string name_value, name, value;
+	itr = al_dst_itr(headers);
+	loop {
+		if (name_value = al_next(itr)) {
+		} else {
+			break;
+		}
+		if (al_str_misc("strcmpi", al_arc_a(itr), "Cookie") != 0) {
+			continue;
+		} else {
+		}
+		nv = splitNameValue(name_value);
+		name = nv.head;
+		value = nv.tail.head;
+		al_create_arc(cookies, value, name);
+		itr2 = al_dst_itr(name_value);
+		loop {
+			if (value = al_next(itr2)) {
+			} else {
+				break;
+			}
+			name = al_arc_a(itr2);
+			al_create_arc(cookies, value, name);
+		}
+	}
+	return cookies;
+}
+end_body
+member
+public: list cookies;
+member
+public: string getBasePath();
+body
+{
+	var string path;
+	var integer idx;
+	idx = al_strlen(_path) - 1;
+	loop {
+		if (idx < 0 || al_get_char(_path, idx) == '/') {
+			path = al_substr(_path, 0, idx + 1);
+			break;
+		} else {
+		}
+		idx = idx - 1;
+	}
+	return path;
+}
+end_body
+member
+public: static list splitNameValue(string name_value);
+body
+{
+	var string name, value;
+	var integer idx;
+	idx = al_search_str(name_value, 0, "=");
+	if (idx >= 0) {
+		name = al_substr(name_value, 0, idx);
+		value = al_substr(name_value, idx + 1, al_strlen(name_value));
+	} else {
+		name = name_value;
+		value = "";
+	}
+	return al_list2(name, value);
+}
+end_body
+end_class
+class HttpResponse
+member
+public: void _create();
+body
+{
+	response_code = 200;
+	headers = al_cons(null, null);
+	max_size = 4096;
+	output = al_misc("binary", max_size, null);
+	content_length = 0;
+}
+end_body
+member
+public: HttpRequest _request;
+member
+public: integer response_code;
+member
+public: list headers;
+member
+public: list output;
+member
+public: integer max_size;
+member
+public: integer content_length;
+member
+public: void out(string s);
+body
+{
+	var integer len;
+	len = al_strlen(s);
+	if (content_length + len > max_size) {
+		al_misc("extend_binary", output, len);
+		max_size = max_size + len;
+	} else {
+	}
+	al_misc("binary_copy", al_list2(output, content_length), s);
+	content_length = content_length + len;
+	if (content_length > _server.maxMsgSize * 1000) {
+		var AlException ex;
+		ex = new AlException;
+		ex.msg = "response message too large: size >= " + (string)content_length;
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: void out(list binary);
+body
+{
+	var integer size;
+	size = al_misc("binary_size", binary, null);
+	out(binary, 0, size);
+}
+end_body
+member
+public: void out(list binary, integer index, integer size);
+body
+{
+	if (content_length + size > max_size) {
+		al_misc("extend_binary", output, size);
+		max_size = max_size + size;
+	} else {
+	}
+	al_misc("binary_copy", al_list2(output, content_length), al_list3(binary, index, size));
+	content_length = content_length + size;
+	if (content_length > _server.maxMsgSize * 1000) {
+		var AlException ex;
+		ex = new AlException;
+		ex.msg = "response message too large: size >= " + (string)content_length;
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: void redirect(string url);
+body
+{
+	if (al_strlen(url) >= 4 && al_substr(url, 0, 4) == "http") {
+	} else {
+		var string host;
+		if (host = al_dst_node_i(_request.headers, "Host")) {
+		} else {
+			host = "localhost";
+		}
+		if (al_strlen(url) >= 1 && al_get_char(url, 0) == '/') {
+			if (_server.ssl == null) {
+				url = "http://" + host + url;
+			} else {
+				url = "https://" + host + url;
+			}
+		} else {
+			if (_server.ssl == null) {
+				url = "http://" + host + _request.getBasePath() + url;
+			} else {
+				url = "https://" + host + _request.getBasePath() + url;
+			}
+		}
+	}
+	// redirect
+	response_code = 302;
+	al_set_dst_node(headers, "Location", url);
+	if (http_ver == "HTTP/1.1") {
+		al_set_dst_node(headers, "Connection", "Close");
+	} else {
+	}
+	out("<HTML><HEAD><TITLE>Document moved</TITLE><HEAD><BODY>\n");
+	out("<H1>Document moved</H1>\n");
+	out("This document has moved <A HREF=\"");
+	out(url);
+	out("\">here</A>.<P>\n");
+	out("</BODY></HTML>\n");
+}
+end_body
+member
+public: WebServer _server;
+member
+public: string http_ver;
+member
+public: string system_command;
+member
+public: string response_filepath;
+member
+public: string response_content_disposition;
+end_class
+end_class
+class XmlUtility
+member
+public: static void Initialize();
+body
+{
+	if (init) {
+		return;
+	} else {
+	}
+	var list bin;
+	bin = al_misc("binary", 1, null);
+	al_misc("put_byte", al_list2(bin, 0), 0x0000000000000001);
+	ctrl_a = al_misc("binary_to_string", al_list3(bin, 0, 1), null);
+	dtd_base = ".";
+	content_validation_base = ".";
+	init = 1;
+}
+end_body
+member
+public: static list init;
+member
+public: static string ctrl_a;
+member
+public: static list parseXML(string xml, list debug);
+body
+{
+	var file in;
+	in = al_file_open(xml, "sr");
+	return parseXML(in, debug);
+}
+end_body
+member
+public: static list parseXML(file in, list debug);
+body
+{
+	var list tree_error, opt, err;
+	opt = (debug ? 1 : null);
+	tree_error = al_xml("parse", in, null, opt);
+	if (err = tree_error.tail.head) {
+		var AlException ex;
+		ex = new AlException;
+		ex.msg = "xml: parse error: " + (string)err;
+		throw ex;
+	} else {
+	}
+	return tree_error.head;
+}
+end_body
+member
+public: static list parseXML(string filename);
+body
+{
+	var file in;
+	if (in = al_file_open(filename, "r")) {
+	} else {
+		var AlException ex;
+		ex = new AlException;
+		ex.msg = "xml: can't open file '" + (string)filename + "'";
+		throw ex;
+	}
+	return parseXML(in, null);
+}
+end_body
+member
+public: static string xslTransform(string xsl_filename, list xml);
+body
+{
+	var list xsl, str, err;
+	var file f;
+	xsl = loadXSL(xsl_filename);
+	str = al_copy("");
+	f = al_file_open(str, "sw");
+	err = al_xml("xslt", xsl, xml, f);
+	if (err) {
+		var AlException ex;
+		ex = new AlException;
+		ex.msg = "xsl transform error: reason=" + al_str_misc("xml_encode", (string)err, 0x0000000000000001);
+		throw ex;
+	} else {
+	}
+	var integer idx;
+	idx = al_search_str(str, 0, "\n");
+	str = al_tail_str(str, idx + 1);
+	return str;
+}
+end_body
+member
+public: static string getDocType(list parse_tree);
+body
+{
+	var list tree_itr;
+	var string text, attr, str;
+	var file f;
+	tree_itr = al_dst_itr(parse_tree);
+	loop {
+		if (text = al_next(tree_itr)) {
+		} else {
+			return null;
+		}
+		attr = al_arc_a(tree_itr);
+		if (attr != "!comment") {
+			return null;
+		} else {
+		}
+		f = al_file_open(text, "sr");
+		if (al_file_match_str(f, "!DOCTYPE")) {
+		} else {
+			continue;
+		}
+		return al_file_read(f, "string");
+	}
+}
+end_body
+member
+public: static string getDTDfile(list parse_tree);
+body
+{
+	var list tree_itr;
+	var string text, attr, str;
+	var file f;
+	tree_itr = al_dst_itr(parse_tree);
+	loop {
+		if (text = al_next(tree_itr)) {
+		} else {
+			return null;
+		}
+		attr = al_arc_a(tree_itr);
+		if (attr != "!comment") {
+			return null;
+		} else {
+		}
+		f = al_file_open(text, "sr");
+		if (al_file_match_str(f, "!DOCTYPE")) {
+		} else {
+			continue;
+		}
+		loop {
+			if (str = al_file_read(f, "string")) {
+			} else {
+				return null;
+			}
+			if (str == "SYSTEM") {
+				return al_file_read(f, "quote_string");
+			} else {
+			}
+		}
+	}
+}
+end_body
+member
+public: static list loadXSL(string filename);
+body
+{
+	if (xsl_cache) {
+	} else {
+		xsl_cache = al_cons(null, null);
+	}
+	var list ret;
+	if (ret = al_dst_node(xsl_cache, filename)) {
+		return ret;
+	} else {
+	}
+	ret = parseXML(filename);
+	al_set_dst_node(xsl_cache, filename, ret);
+	return ret;
+}
+end_body
+member
+public: static string dtd_base;
+member
+public: static string xsl_base;
+member
+public: static string content_validation_base;
+member
+public: static list dtd_cache;
+member
+public: static list xsl_cache;
+member
+public: list isLike(string value);
+body
+{
+	var integer len, ch1, ch2;
+	len = al_strlen(value);
+	if (len > 2) {
+	} else {
+		return null;
+	}
+	ch1 = al_get_char(value, 0);
+	ch2 = al_get_char(value, len - 1);
+	if (ch1 == '%' && ch2 == '%') {
+		return al_substr(value, 1, len - 1);
+	} else {
+		return null;
+	}
+}
+end_body
+member
+public: list content_validate;
+member
+public: string validation_errors;
+member
+public: static list content_validation_report;
+class XmlDataRetriver
+member
+public: void create(list tree);
+body
+{
+	body_tree = tree;
+}
+end_body
+member
+public: list tag_tree;
+member
+public: list body_tree;
+member
+public: list itr;
+member
+public: string tag;
+member
+public: XmlDataRetriver getItr(string xpath);
+body
+{
+	var list body_tree2, tag_tree2, tags, itr2;
+	var string tag2;
+	tag_tree2 = tag_tree;
+	body_tree2 = body_tree;
+	tags = al_str_misc("split", xpath, '/');
+	itr2 = al_dst_itr(tags);
+	loop {
+		if (tag2 = al_next(itr2)) {
+		} else {
+			return null;
+		}
+		if (al_next(itr2)) {
+			al_prev(itr2);
+		} else {
+			break;
+		}
+		if (tag_tree2 = al_dst_node(body_tree2, tag2)) {
+		} else {
+			return null;
+		}
+		if (body_tree2 = al_dst_node(tag_tree2, "!body")) {
+		} else {
+			return null;
+		}
+	}
+	var XmlDataRetriver obj;
+	obj = new XmlDataRetriver;
+	obj.itr = al_dst_itr(body_tree2);
+	obj.tag = tag2;
+	return obj;
+}
+end_body
+member
+public: XmlDataRetriver getNext();
+body
+{
+	var list tag_tree2, body_tree2;
+	if (tag_tree2 = al_next_a(itr, tag)) {
+	} else {
+		return null;
+	}
+	if (body_tree2 = al_dst_node(tag_tree2, "!body")) {
+	} else {
+		return null;
+	}
+	var XmlDataRetriver obj;
+	obj = new XmlDataRetriver;
+	obj.tag_tree = tag_tree2;
+	obj.body_tree = body_tree2;
+	obj.itr = itr;
+	obj.tag = tag;
+	return obj;
+}
+end_body
+member
+public: string getValue(string xpath);
+body
+{
+	var list body_tree2, tag_tree2, tags, itr2, param;
+	var string tag2, text;
+	tag_tree2 = tag_tree;
+	body_tree2 = body_tree;
+	tags = al_str_misc("split", xpath, '/');
+	itr2 = al_dst_itr(tags);
+	loop {
+		if (tag2 = al_next(itr2)) {
+		} else {
+			return null;
+		}
+		if (al_next(itr2)) {
+			al_prev(itr2);
+		} else {
+			break;
+		}
+		if (tag_tree2 = al_dst_node(body_tree2, tag2)) {
+		} else {
+			return null;
+		}
+		if (body_tree2 = al_dst_node(tag_tree2, "!body")) {
+		} else {
+			return null;
+		}
+	}
+	if (al_strlen(tag2) > 0 && al_get_char(tag2, 0) == '@') {
+		tag2 = al_substr(tag2, 1, al_strlen(tag2));
+		if (param = al_dst_node(tag_tree2, tag2)) {
+			text = param.head;
+			return text == "" ? null : text;
+		} else {
+			return null;
+		}
+	} else {
+		if (tag_tree2 = al_dst_node(body_tree2, tag2)) {
+		} else {
+			return null;
+		}
+		if (body_tree2 = al_dst_node(tag_tree2, "!body")) {
+		} else {
+			return null;
+		}
+		text = al_dst_node(body_tree2, "!text");
+		return text == "" ? null : text;
+	}
+}
+end_body
+end_class
+end_class
+class FileUtility
+member
+public: static string tempFile();
+body
+{
+	var string platform, dir;
+	platform = al_misc("platform", null, null);
+	if (platform == "linux" || platform == "mac") {
+		dir = "/tmp";
+	} else {
+	}
+	if (platform == "windows") {
+		dir = al_misc("get_env", "TEMP", null);
+	} else {
+	}
+	return al_file_manip("tmp_file", dir, "al");
+}
+end_body
+end_class
+class Context
+member
+public: static string genTimeStamp();
+body
+{
+	return genTimeStamp(0);
+}
+end_body
+member
+public: static string genTimeStamp(integer diff);
+body
+{
+	var list time;
+	time = al_misc("get_time", null, null);
+	time = time + diff;
+	time = al_misc("get_localtime", time, null);
+	time = al_misc("format_time", time, "yyyyMMdd'-'HHmmss");
+	return time;
+}
+end_body
+member
+public: static integer msg_seq;
+end_class
+end_class
+$END_BODY

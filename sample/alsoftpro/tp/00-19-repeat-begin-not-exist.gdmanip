@@ -1,0 +1,58 @@
+
+g == cons(null, null), var("g1", g1) == 1, init(g, g1), copy(g1, g2), write(dump(g2, 1)) == 1 .
+
+init(g, g1) :- 
+ pm_rep(g, g1)
+
+  before := {
+    invariant,
+    g
+  }
+  after := {
+    g1:(null)-/1/->g11:("1"),
+                   g11-/11/->("11"),
+                   g11-/12/->("12"),
+                   g11-/13/->("13")
+  }
+  common := {
+   where .
+  }
+  tail := {
+   where .
+  }
+
+  final := {
+   where .
+  }
+
+  .
+
+copy(g1, g2) :- 
+ pm_rep(g1, g2)
+
+  before := {
+    invariant,
+    g1:(null)-/1/->g1i:(n1),
+                  ?1 <<<2
+                  g1i-/ref2:ij/=>(n2)
+                  >>>2
+  }
+  after := {
+    ?1 <<<2
+    g2:(null)-/ref3:ij/=>(n2)
+    >>>2
+  }
+  common := {
+   where if_exist(ref2) == null, exist(ref3) == null .
+         if_not_exist(ref2) == null, not_exist(ref3) == null .
+  }
+  tail := {
+   where .
+  }
+
+  final := {
+   where .
+  }
+
+  .
+

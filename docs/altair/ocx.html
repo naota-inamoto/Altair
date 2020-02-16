@@ -1,0 +1,199 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>OCX Interface</TITLE>
+</HEAD>
+
+<BODY>
+<H2>OCXインターフェース</H2>
+
+第0.43版 2016年10月23日<BR>
+第0.03版 1996年 5月 3日<BR>
+
+<BR>
+ここでは、おもにOCXの埋め込みに関するインターフェースの説明をします。<BR>
+OLEオートメーションにいては言語仕様の方を合わせてご参照ください。<BR>
+
+<UL>
+<LI><A HREF="#pre_create">pre_create</A>
+<LI><A HREF="#progID">progID</A>
+<LI><A HREF="#subStgID">subStgID</A>
+<LI><A HREF="#create">create</A>
+<LI><A HREF="#is_created">is_created</A>
+<LI><A HREF="#place">place</A>
+<LI><A HREF="#visible">visible</A>
+<LI><A HREF="#destroy">destroy</A>
+<LI><A HREF="#runtime_inbisible">runtime_inbislbie</A>
+<LI><A HREF="#mode">mode</A>
+<LI><A HREF="#prop_editor">prop_editor</A>
+<LI><A HREF="#set_filename">set_filename</A>
+<LI><A HREF="#get_filename">get_filename</A>
+<LI><A HREF="#save">save</A>
+<LI><A HREF="#load">load</A>
+<LI><A HREF="#object">object</A>
+<LI><A HREF="#Picutre">Picture</A>
+<LI><A HREF="#callback">callback</A>
+<LI><A HREF="#unset_callback">unset_callback</A>
+<LI><A HREF="#wnd">wnd</A>
+<LI><A HREF="#ocx_list">ocx_list</A>
+<LI><A HREF="#z_order">z_order</A>
+</UL>
+
+<HR>
+<H3><A NAME="pre_create">ocx al_ocx("pre_create", progID, visible, subStgID);</A></H3>
+OCXオブジェクトを作成しますが、この関数を実行した段階では<BR>
+OCXオブジェクトの実体はまだ作成されてはいません。<BR>
+引数:<BR>
+string progIDはOCXの識別子です。<BR>
+アニメーションボタンでは"AniBtn.AniPushButton"がこれに値します。<BR>
+list visibleは、作成されたOCXオブジェクトの可視性を指定します。<BR>
+string subStgIDは、OCXのプロパティをストーレジにセーブする際の<BR>
+サブストレージIDです。このサブストーレジIDはユニークでなければなりません。<BR>
+
+<HR>
+<H3><A NAME="progID">string al_ocx("progID", ocx, null, null);</A></H3>
+OCXオブジェクトの識別子を返します。<BR>
+
+<HR>
+<H3><A NAME="subStgID">string al_ocx("subStgID", ocx, null, null);</A></H3>
+OCXオブジェクトのサブストーレジIDを返します。<BR>
+
+<HR>
+<H3><A NAME="create">list al_ocx("create", ocx, wnd, null);</A></H3>
+この関数を実行した段階でOCXオブジェクトの実体がwindow型の引数wndで<BR>
+指定されるウィンドウの左上隅に小さな大きさで作成されます。<BR>
+戻り値:<BR>
+null 正常終了<BR>
+1    既にOCXの実体が作られている<BR>
+2    OCXの作成に失敗<BR>
+
+<HR>
+<H3><A NAME="is_created">list al_ocx("is_created", ocx, null, null);</A></H3>
+OCXオブジェクトの実体が作成されているかの問い合わせ関数です。<BR>
+OCXオブジェクトの実体がまだ作成されていない場合はnullを<BR>
+そうでない場合は非nullを返します。<BR>
+
+<HR>
+<H3><A NAME="place">list al_ocx("place", ocx, rect, null);</A></H3>
+OCXオブジェクトのジオメトリを指定します。<BR>
+OCXオブジェクトの実体が作成されていなければこの関数は無効です。<BR>
+引数のrectにはウィンドウの左上隅を原点として<BR>
+リストで(left, top, right, bottom)を指定します。<BR>
+戻り値:<BR>
+null 正常終了<BR>
+1    ジオメトリが不正<BR>
+2    OCXの実体が作成されていない<BR>
+
+<HR>
+<H3><A NAME="visible">void al_ocx("visible", ocx, flag, null);</A></H3>
+OCXオブジェクトの可視性を指定します。<BR>
+OCXオブジェクトの実体が作成されていなければこの関数は無効です。<BR>
+引数のflagには、可視にする場合は非nullを、非可視にする場合はnullを<BR>
+入れます。<BR>
+
+<HR>
+<H3><A NAME="destroy">void al_ocx("destroy", ocx, null, null);</A></H3>
+OCXオブジェクトの実体を破壊します。<BR>
+
+<HR>
+<H3><A NAME="runtime_inbisible">list al_ocx("runtime_inbislbie", ocx, null, null);</A></H3>
+OCXが、実行時に見えないOCXかの問い合わせ関数です。<BR>
+実行時に見えないOCXなら非nullが返ります。<BR>
+
+<HR>
+<H3><A NAME="mode">void al_ocx("mode", ocx, flag, null);</A></H3>
+flagにnullを指定した場合、OCXをウィンドウ上のマウス操作で移動/リサイズ<BR>
+できるモードにします。flagのデフォルト値は1です。<BR>
+
+<HR>
+<H3><A NAME="prop_editor">void al_ocx("prop_editor", ocx, null, null);</A></H3>
+OCXが持っているプロパティエディタを立ち上げます。<BR>
+
+<HR>
+<H3><A NAME="set_filename">void al_ocx("set_filename", ocx, filename, null);</A></H3>
+OCXのプロパティをセーブ/ロードするストーレジの名前を指定します。<BR>
+
+<HR>
+<H3><A NAME="get_filename">string al_ocx("get_filename", ocx, null, null);</A></H3>
+OCXのプロパティをセーブ/ロードするストーレジの名前を返します。<BR>
+指定されていなければnullが返ります。<BR>
+
+<HR>
+<H3><A NAME="save">list al_ocx("save", ocx, null, null);</A></H3>
+設定されているストーレジのsubStgIDで指定されるサブストーレジへ<BR>
+OCXのプロパティをセーブします。<BR>
+戻り値:<BR>
+null 正常終了<BR>
+1    OCXの実体が作成されていない<BR>
+2    サブストーレジのオープンに失敗<BR>
+3    IUnknwonの取得に失敗<BR>
+4    IPersistStorageの取得に失敗<BR>
+5    Saveに失敗<BR>
+6	 SaveCompletedに失敗<BR>
+10   ストーレジのオープンに失敗<BR>
+<BR>
+OCXオブジェクトをシリアライズでセーブすると(progID,	visible, subStgID)が<BR>
+セーブされるとともに、ストーレジが設定されている場合は、そのストーレジの<BR>
+stbStgIDで示されるサブストーレジにOCXのプロパティがセーブされます。<BR>
+
+<HR>
+<H3><A NAME="load">list al_ocx("load", ocx, null, null);</A></H3>
+設定されているストーレジのsubStgIDで指定されるサブストーレジから<BR>
+OCXのプロパティをロードします。<BR>
+戻り値:<BR>
+null 正常終了<BR>
+1    OCXの実体が作成されていない<BR>
+2    サブストーレジのオープンに失敗<BR>
+3    IUnknwonの取得に失敗<BR>
+4    IPersistStorageの取得に失敗<BR>
+5    Loadに失敗<BR>
+10   ストーレジのオープンに失敗<BR>
+<BR>
+OCXオブジェクトをシリアライズでロードすると、OCXオブジェクトは<BR>
+pre_createされた状態になります。<BR>
+
+<HR>
+<H3><A NAME="object">variant al_ocx("object", ocx, null, null);</A></H3>
+OLEオートメーションをするためのIDispatchを持つvariant型のオブジェクトを<BR>
+を生成して返します。<BR>
+OCXの実体が作成されていないとnullが返ります。<BR>
+
+<HR>
+<H3><A NAME="Picutre">variant al_ocx("Picture", dir, name, null);</A></H3>
+OLEオートメーションに用いるビットマップを作成します。<BR>
+引数string dirは画像ファイルのあるディレクトリを、nameには画像ファイルを<BR>
+指定します。<BR>
+
+<HR>
+<H3><A NAME="callback">al_ocx("callback", ocx, eventName, cb);</A></H3>
+OCXにコールバック関数を指定します。<BR>
+引数cbには(o, obj, func)の三つ組みを入れます。<BR>
+funcはobjのvirtual関数で、void func(any o, array arg);の形を<BR>
+している必要があります。funcの引数oには、三つ組みのoがそのまま渡されます。<BR>
+funcの引数argはイベントの引数で、第n引数はarg[n-1]で得ることができます。<BR>
+戻り値:<BR>
+null 正常終了<BR>
+1    コールバックの設定に失敗<BR>
+
+<HR>
+<H3><A NAME="unset_callback">al_ocx("unset_callback", ocx, null, null);</A></H3>
+OCXに設定されているコールバック関数を解除します。<BR>
+
+<HR>
+<H3><A NAME="wnd">window al_ocx("wnd", ocx, null, null);</A></H3>
+OCXオブジェクトを埋め込んだウィンドウを返します。<BR>
+OCXの実体が作られていなければnullが返ります。<BR>
+
+<HR>
+<H3><A NAME="ocx_list">al_ocx("ocx_list", null, null, null);</A></H3>
+レジストリを検索し、OCXのprogIDのリストを作成し、<BR>
+グラフ形式のリストで返します。<BR>
+
+<HR>
+<H3><A NAME="z_order">al_ocx("z_order", ocx, to_top, null);</A></H3>
+to_topがnullでないならOCXのウィンドウを一番手前に持ってきます。<BR>
+to_topがnullならOCXのウィンドウを一番奥に持っていきます。<BR>
+
+<HR>
+</BODY>
+</HTML>

@@ -1,0 +1,316 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Altair Programming Interface</TITLE>
+</HEAD>
+
+<BODY>
+<H2>プログラムインターフェース</H2>
+
+第0.43版 2016年10月23日<BR>
+第0.03版 1996年 5月 3日<BR>
+
+<BR>
+ここでは、プログラム中からプログラムを生成して実行させるインターフェースの<BR>
+説明をします。<BR>
+
+<UL>
+<LI><A HREF="#runtime_class">runtime_class</A>
+<LI><A HREF="#regist_class">regist_class</A>
+<LI><A HREF="#unregist_class">unregist_class</A>
+<LI><A HREF="#regist_var">regist_var</A>
+<LI><A HREF="#unregist_var">unregist_var</A>
+<LI><A HREF="#add_to_arg_dcl">add_to_arg_dcl</A>
+<LI><A HREF="#regist_sfunc">regist_sfunc</A>
+<LI><A HREF="#unregist_sfunc">unregist_sfunc</A>
+<LI><A HREF="#regist_vfunc">regist_vfunc</A>
+<LI><A HREF="#unregist_vfunc">unregist_vfunc</A>
+<LI><A HREF="#var_list">var_list</A>
+<LI><A HREF="#sfunc_list">sfunc_list</A>
+<LI><A HREF="#vfunc_list">vfunc_list</A>
+<LI><A HREF="#type_to_name">type_to_name</A>
+<LI><A HREF="#class_name_of">class_name_of</A>
+<LI><A HREF="#pif_create">pif_create</A>
+<LI><A HREF="#pif_destroy">pif_destroy</A>
+<LI><A HREF="#pif_clear">pif_clear</A>
+<LI><A HREF="#pif_insert">pif_insert</A>
+<LI><A HREF="#pif_more">pif_more</A>
+<LI><A HREF="#pif_last">pif_last</A>
+<LI><A HREF="#pif_next">pif_next</A>
+<LI><A HREF="#pif_lno">pif_lno</A>
+<LI><A HREF="#pif_string">pif_string</A>
+<LI><A HREF="#run">run</A>
+<LI><A HREF="#unique_str">unique_str</A>
+<LI><A HREF="#run2">run2</A>
+<LI><A HREF="#new">new</A>
+<LI><A HREF="#vtbl">vtbl</A>
+<LI><A HREF="#method_name">method_name</A>
+<LI><A HREF="#arg_dcl">arg_dcl</A>
+<LI><A HREF="#arg_list">arg_list</A>
+<LI><A HREF="#stack_frame">stack_frame</A>
+<LI><A HREF="#encode">encode</A>
+<LI><A HREF="#decode">decode</A>
+</UL>
+
+<HR>
+<H3><A NAME="runtime_class">al_gp("runtime_class", class_name, null, null, null);</A></H3>
+クラス名からクラスを表わす内部構造体を返します。<BR>
+見つからない場合はnullを返します。<BR>
+.headにクラス名が入っています。<BR>
+-/"$subclass"/->でサブクラスをたどることができます。<BR>
+al_gp("runtime_class", "A", null, nill, null)は runtime A と同じ意味です。<BR>
+
+<HR>
+<H3><A NAME="regist_class">al_gp("regist_class", base_class_name, class_name, null, null);</A></H3>
+base_class_nameをベースクラスとしてclass_nameのクラスを追加します。<BR>
+追加に成功するとnullが、それ以外は1が返ります。<BR>
+
+<HR>
+<H3><A NAME="unregist_class">al_gp("unregist_class", class_name, opt, null, null);</A></H3>
+class_nameのクラスを削除します。<BR>
+<PRE>
+戻り値（optがnullのとき）
+ null 削除に成功
+ 1    class_nameが文字列でない
+ 2    class_nameがクラスを表わしていない
+ 3    クラスが参照されている
+ 4    派生クラスを持っている
+ 5    ルートクラスである
+
+ optが非nullのときは「参照されている/派生クラスを持っている」にかかわらず、
+ クラスが強制的に削除されます。
+</PRE>
+
+<HR>
+<H3><A NAME="regist_var">al_gp("regist_var", class_name, type_name, var_name, null);</A></H3>
+クラスにメンバー変数を追加します。<BR>
+追加に成功するとnullが、それ以外は1が返ります。<BR>
+クラスに関数void public_var()がなければ追加し、その中に<BR>
+メンバー変数の参照を追加します。<BR>
+
+<HR>
+<H3><A NAME="unregist_var">al_gp("unregist_var", class_name, var_name, null, null);</A></H3>
+クラスからメンバー変数を削除します。<BR>
+削除に成功するとnullが、それ以外は1が返ります。<BR>
+
+<HR>
+<H3><A NAME="add_to_arg_dcl">al_gp("add_to_arg_dcl", arg_dcl, type_name, arg_name, null);</A></H3>
+関数引数のプロトタイプを作成します。<BR>
+関数func(integer i, string s)の場合なら以下のようにします。<BR>
+<PRE>
+    var list arg_dcl;
+    arg_dcl = al_gp("add_to_arg_dcl", null, "integer", "i", null);
+    arg_dcl = al_gp("add_to_arg_dcl", arg_dcl, "string", "s", null);
+</PRE>
+
+<HR>
+<H3><A NAME="regist_sfunc">al_gp("regist_sfunc", class_name, type_name, func_name, arg_dcl);</A></H3>
+クラスにstatic関数を追加します。<BR>
+追加に成功するとnullが、それ以外は1が返ります。<BR>
+クラスに関数void public_func()がなければ追加し、その中に<BR>
+static関数の参照を追加します。<BR>
+
+<HR>
+<H3><A NAME="unregist_sfunc">al_gp("unregist_sfunc", class_name, null, func_name, arg_dcl);</A></H3>
+クラスからstatic関数を削除します。<BR>
+<PRE>
+戻り値
+ null 削除に成功
+ 1    引数が文字列でない
+ 2    class_nameがクラスを表わしていない
+ 3    関数が見つからない
+ 4    関数が参照されている
+</PRE>
+
+<HR>
+<H3><A NAME="regist_vfunc">al_gp("regist_vfunc", class_name, type_name, func_name, arg_dcl);</A></H3>
+クラスにvirtual関数を追加します。<BR>
+追加に成功するとnullが、それ以外は1が返ります。<BR>
+クラスに関数void public_func()がなければ追加し、その中に<BR>
+virtual関数の参照を追加します。<BR>
+
+<HR>
+<H3><A NAME="unregist_vfunc">al_gp("unregist_vfunc", class_name, null, func_name, arg_dcl);</A></H3>
+クラスからvirtual関数を削除します。<BR>
+<PRE>
+戻り値
+ null 削除に成功
+ 1    引数が文字列でない
+ 2    class_nameがクラスを表わしていない
+ 3    関数が見つからない
+ 4    関数が参照されている
+</PRE>
+
+<HR>
+<H3><A NAME="var_list">al_gp("var_list", class_name, null, null, null);</A></H3>
+クラスのメンバー関数public_var()から参照されているメンバー変数名の<BR>
+コレクションを返します。<BR>
+戻り値は、()-/-/=>メンバー変数名-/-/->var_dcl<BR>
+var_dclはメンバー変数を表わす内部構造体。<BR>
+
+<HR>
+<H3><A NAME="sfunc_list">al_gp("sfunc_list", class_name, null, null, null);</A></H3>
+クラスのメンバー関数public_func()から参照されているstatic関数の<BR>
+プロトタイプのコレクションを返します。<BR>
+戻り値は、()-/-/=>関数のプロトタイプ-/-/->func_dcl<BR>
+func_dclはメンバー関数を表わす内部構造体。<BR>
+
+<HR>
+<H3><A NAME="vfunc_list">al_gp("vfunc_list", class_name, null, null, null);</A></H3>
+クラスのメンバー関数public_func()から参照されているvirtual関数の<BR>
+プロトタイプのコレクションを返します。<BR>
+戻り値は、()-/-/=>関数のプロトタイプ-/-/->func_dcl<BR>
+func_dclはメンバー関数を表わす内部構造体。<BR>
+
+<HR>
+<H3><A NAME="type_to_name">al_gp("type_to_name", type, null, null, null);</A></H3>
+型を表わす内部構造体を文字列に変換します。<BR>
+
+<HR>
+<H3><A NAME="class_name_of">al_gp("class_name_of", obj, null, null, null);</A></H3>
+オブジェクトからそのオブジェクトのクラス名を得ます<BR>
+
+<HR>
+<H3><A NAME="pif_create">al_gp("pif_create", class_name, null, func_name, arg_dcl);</A></H3>
+プログラム中でプログラムを行うためのオブジェクトを作成します。<BR>
+以後これをプログラミングイテレータと呼ぶことにします。<BR>
+単位はメンバー関数単位です。
+
+<HR>
+<H3><A NAME="pif_destroy">al_gp("pif_destroy", pif, null, null, null);</A></H3>
+プログラミングイテレータを破壊します。<BR>
+プログラミングイテレータが不要になった場合は必ずこれを行ってください。<BR>
+これを行わないとメモリリークします。<BR>
+
+<HR>
+<H3><A NAME="pif_clear">al_gp("pif_clear", pif, null, null, null);</A></H3>
+プログラミングイテレータが指している関数の中身を空にします。<BR>
+
+<HR>
+<H3><A NAME="pif_insert">al_gp("pif_insert", pif, str, null, null);</A></H3>
+プログラミングイテレータの現在さしている行に<BR>
+文字列strをプログラムのソースとして挿入します。<BR>
+挿入に成功するとnullが、それ以外は1が返ります。<BR>
+
+<HR>
+<H3><A NAME="pif_reset">al_gp("pif_reset", pif, lno, null, null);</A></H3>
+プログラミングイテレータとして使うときの関数です。<BR>
+イテレータの指す場所を行番号lnoで指定される場所に持っていきます。<BR>
+行番号は0から始まります。<BR>
+
+<HR>
+<H3><A NAME="pif_more">al_gp("pif_more", pif, null, null, null);</A></H3>
+プログラミングイテレータとして使うときの関数です。<BR>
+まだソースがある場合は１が、ない場合はnullが返ります。<BR>
+
+<HR>
+<H3><A NAME="pif_last">al_gp("pif_last", pif, null, null, null);</A></H3>
+プログラミングイテレータとして使うときの関数です。<BR>
+ソースの最後になったら非nullを返します。<BR>
+
+<HR>
+<H3><A NAME="pif_next">al_gp("pif_next", pif, null, null, null);</A></H3>
+プログラミングイテレータとして使うときの関数です。<BR>
+イテレータの指す場所を１行前へ進めます。<BR>
+
+<HR>
+<H3><A NAME="pif_lno">integer al_gp("pif_lno", pif, null, null, null);</A></H3>
+プログラミングイテレータとして使うときの関数です。<BR>
+現在のイテレータの指している場所の行番号を返します。<BR>
+行番号は0から始まります。<BR>
+lnoが負のときや最大行番号より大きい場合は<BR>
+この関数の実行後イテレータはプログラムの最後を指します。<BR>
+
+<HR>
+<H3><A NAME="pif_string">string al_gp("pif_string", pif, null, null, null);</A></H3>
+プログラミングイテレータとして使うときの関数です。<BR>
+イテレータの現在指している行のソーステキストを返します。<BR>
+
+<HR>
+<H3><A NAME="run">list al_gp("run", class_name, null, func_name, null);</A></H3>
+引数なしのstatic関数を実行します。この実行は並列処理されます。<BR>
+プロセスの生成に成功するとnullが返ります。<BR>
+
+<HR>
+<H3><A NAME="unique_str">string al_gp("unique_str", string_value, null, null, null);</A></H3>
+Altairでは、文字列の比較処理を高速化するため、内部で用いる文字列の値は<BR>
+クイックソートしてあって、文字列の比較はアドレスを比較すればよいという<BR>
+実装になっています。この関数は、文字列をクイックソートし、比較処理はアドレスを<BR>
+比較すればよい文字列に文字列を変換します。<BR>
+
+<HR>
+<H3><A NAME="run2">any al_gp("run2", target, opt, func_name, args);</A></H3>
+targetがクラスを表す文字列の場合、引数ありのstatic関数を実行します。<BR>
+optは無視されます。<BR>
+targetがAlObjectの派生クラスのオブジェクトの場合、targetを対象オブジェクトとして<BR>
+引数ありの仮想関数を実行します。<BR>
+実行に成功した場合は関数の戻り値が返ります。<BR>
+実行に失敗した場合は、0x80000000が返ります。<BR>
+optには仮引数宣言を入れます。<BR>
+この関数は実行が終了するまで制御を放しません。<BR>
+戻り値には関数の戻り値が返されます。<BR>
+argsには以下のような形式で引数を与えます。<BR>
+((arg_name, arg_value, null), ...)<BR>
+arg_nameはal_gp("unique_str", ...);でアドレスを比較すればよいだけの文字列に<BR>
+変換しておく必要があります。<BR>
+
+<HR>
+<H3><A NAME="new">any al_gp("new", class_name, null, null, null);</A></H3>
+クラスがclass_nameのオブジェクトを作成して返します。<BR>
+al_gp("new", "AAA", null, null, null); は、new AAA; と同じ意味です。<BR>
+
+<HR>
+<H3><A NAME="vtbl">al_gp("vtbl", null, null, null, null);</A></H3>
+バーチャル関数テーブルをアップデートします。<BR>
+<BR>
+注: regist_class,regist_vfuncをしてもバーチャル関数テーブルは<BR>
+アップデートされません。<BR>
+regist_class,regist_vfuncで関数を加えた場合、<BR>
+その関数を実行する前にこの関数を呼ぶ必要があります。<BR>
+
+<HR>
+<H3><A NAME="stack_frame">al_gp("stack_frame", null, null, null, null);</A></H3>
+現在実行中のスタックフレームを返します。スタックフレームの形式は<BR>
+((this_ptr, prog, arg_base, loc_base, ctrl_stack, func), chain)<BR>
+となっています。<BR>
+this_ptrは、virtual関数の対象オブジェクトです。static関数の場合はnullです。<BR>
+progは、現在実行中のプログラムカウンタです。<BR>
+arg_baseは、実引数リストのリンクトチェーンです。<BR>
+loc_baseは、ローカル変数リストのリンクトチェーンです。<BR>
+ctrl_stackは、現在実行中の関数の制御構造のリンクトチェーンです。<BR>
+funcは、現在実行中の関数の関数宣言(arg_dcl)です。<BR>
+chainは、ひとつ前のスタックフレームです。<BR>
+
+<HR>
+<H3><A NAME="method_name">al_gp("method_name", null, null, null, null);</A></H3>
+現在実行中の関数名を返します。<BR>
+
+<HR>
+<H3><A NAME="arg_dcl">al_gp("arg_dcl", null, null, null, null);</A></H3>
+現在実行中の関数の仮引数リストを返します。<BR>
+形式は、al_gp("run2", ...)にそのまま渡せる形式です。<BR>
+これで得られる値は、以下で得られるarg_dclと等価です。<BR>
+<PRE>
+    var list func_stack, func_dcl, arg_dcl;
+    func_stack = al_gp("stack_frame", null, null, null, null);
+    func_dcl = func_stack.head.tail.tail.tail.tail.tail.head;
+    arg_dcl = func_dcl.tail.tail.tail.head;
+</PRE>
+
+<HR>
+<H3><A NAME="arg_list">al_gp("arg_list", null, null, null, null);</A></H3>
+現在実行中の関数の実引数リストを返します。<BR>
+形式は、al_gp("run2", ...)にそのまま渡せる形式です。<BR>
+
+<HR>
+<H3><A NAME="encode">al_gp("encode", arg_dcl, arg_list, null, null);</A></H3>
+仮引数リスト、実引数リストをシリアライズ可能な形に変え、<BR>
+そのリストを返します。<BR>
+
+<HR>
+<H3><A NAME="decode">al_gp("decode", arg_dcl, null, null, null);</A></H3>
+シリアライズ可能な形から仮引数リストを復元しそれを返します。<BR>
+
+<HR>
+</BODY>
+</HTML>

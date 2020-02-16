@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE User SYSTEM "User.dtd">
+<User>
+    <Target>rosettaSampleSupplier</Target>
+    <Id>rosettaSampleSupplier:admin</Id>
+    <UserId>admin</UserId>
+    <Password>admin</Password>
+    <RoleName>admin</RoleName>
+</User>

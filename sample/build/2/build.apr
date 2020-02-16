@@ -1,0 +1,143 @@
+$END_LIB
+TEXT
+AlObject
+class BuildTP
+end_class
+$END_CLASS
+TEXT
+AlObject
+class BuildTP
+member
+public: static void makepch();
+member
+public: static void build();
+member
+public: static void exec();
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class BuildTP
+member
+public: static void makepch();
+body
+{
+	var string vc_home, incl_dir, lib_dir, path, cl_flags, src, obj, cmd;
+	vc_home = "c:/Program Files/Microsoft Visual Studio";
+	incl_dir = vc_home + "/VC98/include";
+	incl_dir = incl_dir + ";" + vc_home + "/VC98/MFC/include";
+	lib_dir = vc_home + "/VC98/lib";
+	lib_dir = lib_dir + ";" + vc_home + "/VC98/MFC/lib";
+	path = al_misc("get_env", "PATH", null);
+	path = path + ";" + vc_home + "/Common/MSDev98/bin";
+	path = path + ";" + vc_home + "/VC98/bin";
+	al_misc("set_env", "INCLUDE", incl_dir);
+	al_misc("set_env", "LIB", lib_dir);
+	al_misc("set_env", "PATH", path);
+	cl_flags = "/nologo /ML /W3 /GX /O2";
+	cl_flags = cl_flags + " /D \"WIN32\" /D \"NDEBUG\" /D \"_WINDOWS\"";
+	cl_flags = cl_flags + " /Fp\"Rel/afxwin.pch\" /Yc\"afxwin.h\"";
+	cl_flags = cl_flags + " /Fo\"Rel/\" /Fd\"Rel/\" /FD /c";
+	// mkdir Rel
+	al_file_manip("mk_dir", "Rel", null);
+	// make pch
+	var integer code;
+	cmd = "cl " + cl_flags + " afxwin.cpp";
+	al_print(cmd);
+	al_print("\n");
+	if (code = al_exec(cmd, ".", null, 1)) {
+		al_print("Exit Code: ");
+		al_print(code);
+		al_print(".\n");
+		if (code != 0) {
+			return;
+		} else {
+		}
+	} else {
+		al_print("Can't execute C/C++ compiler cl.exe.\n");
+		return;
+	}
+	al_print("Precomplied Header is created.\n");
+}
+end_body
+member
+public: static void build();
+body
+{
+	var string rc_flags, cl_flags, link_flags, rc, res, src, obj, cmd;
+	rc_flags = "/I 0x411 /d \"NDEBUG\"";
+	cl_flags = "/nologo /ML /W3 /GX /O2";
+	cl_flags = cl_flags + " /D \"WIN32\" /D \"NDEBUG\" /D \"_WINDOWS\"";
+	cl_flags = cl_flags + " /Fp\"Rel/afxwin.pch\" /Yu\"afxwin.h\"";
+	cl_flags = cl_flags + " /Fo\"Rel/\" /Fd\"Rel/\" /FD /c";
+	link_flags = "kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib";
+	link_flags = link_flags + " /nologo /subsystem:windows /incremental:no";
+	link_flags = link_flags + " /machine:I386 /out:\"Rel/app.exe\"";
+	rc = "app.rc";
+	src = "app.cpp";
+	res = "Rel/app.res";
+	obj = "Rel/app.obj";
+	var integer code;
+	// .rc -> .res
+	cmd = "rc -Fo ./Rel/app.res " + rc_flags + " app.rc";
+	al_print(cmd);
+	al_print("\n");
+	if (code = al_exec(cmd, ".", null, 1)) {
+		al_print("Exit Code: ");
+		al_print(code);
+		al_print(".\n");
+		if (code != 0) {
+			return;
+		} else {
+		}
+	} else {
+		al_print("Can't execute resource compiler rc.exe.\n");
+		return;
+	}
+	// .h, .cpp -> .obj
+	cmd = "cl " + cl_flags + " app.cpp";
+	al_print(cmd);
+	al_print("\n");
+	if (code = al_exec(cmd, ".", null, 1)) {
+		al_print("Exit Code: ");
+		al_print(code);
+		al_print(".\n");
+		if (code != 0) {
+			return;
+		} else {
+		}
+	} else {
+		al_print("Can't execute C/C++ compiler cl.exe.\n");
+		return;
+	}
+	// .obj, .res -> .exe
+	cmd = "link " + link_flags + " " + obj + " " + res;
+	al_print(cmd);
+	al_print("\n");
+	if (code = al_exec(cmd, ".", null, 1)) {
+		al_print("Exit Code: ");
+		al_print(code);
+		al_print(".\n");
+		if (code != 0) {
+			return;
+		} else {
+		}
+	} else {
+		al_print("Can't execute linker link.exe.\n");
+		return;
+	}
+	al_print("build finished.\n");
+}
+end_body
+member
+public: static void exec();
+body
+{
+	if (al_exec("Rel/app", ".", 1, null)) {
+	} else {
+		al_print("Can't execute application.\n");
+	}
+}
+end_body
+end_class
+$END_BODY

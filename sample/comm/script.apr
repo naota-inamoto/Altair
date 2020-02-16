@@ -1,0 +1,143 @@
+$END_LIB
+TEXT
+AlObject
+class TP
+end_class
+$END_CLASS
+TEXT
+AlObject
+class TP
+member
+public: static void test();
+member
+public: static void test2();
+member
+public: static void test3();
+member
+public: static integer f();
+member
+public: static void exception();
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class TP
+member
+public: static void test();
+body
+{
+	var string script;
+	script = "public: static integer test(integer a, integer b, integer c, integer d);\n";
+	script = script + "body\n";
+	script = script + "{\n";
+	script = script + "var integer r;\n";
+	script = script + "r = 0;\n";
+	script = script + "r = r + a * 1000;\n";
+	script = script + "r = r + b * 100;\n";
+	script = script + "r = r + c * 10;\n";
+	script = script + "r = r + d * 1;\n";
+	script = script + "return r;\n";
+	script = script + "}\n";
+	script = script + "end_body\n";
+	if (al_script("trans", script, 1)) {
+		al_print("An error exists in scripts.\n");
+	} else {
+	}
+	al_print("r = ");
+	al_print(al_script("eval", script, al_list4(1, 9, 9, 9)));
+	al_print("\n");
+}
+end_body
+member
+public: static void test2();
+body
+{
+	var string script;
+	script = "public: static integer test(integer a, integer b, integer c, integer d);\n";
+	script = script + "body\n";
+	script = script + "{\n";
+	script = script + "var integer r;\n";
+	script = script + "r = 0;\n";
+	script = script + "r = r + a * 1000;\n";
+	script = script + "r = r + b * 100;\n";
+	script = script + "r = r + c * 10;\n";
+	script = script + "r = r + d * 1;\n";
+	script = script + "return r;\n";
+	script = script + "}\n";
+	script = script + "end_body\n";
+	if (al_script("trans", script, 1)) {
+		al_print("An error exists in scripts.\n");
+	} else {
+	}
+	var list arg_ls;
+	arg_ls = al_cons(al_list3(al_gp("unique_str", "a", null, null, null), 1, null), arg_ls);
+	arg_ls = al_cons(al_list3(al_gp("unique_str", "b", null, null, null), 9, null), arg_ls);
+	arg_ls = al_cons(al_list3(al_gp("unique_str", "c", null, null, null), 9, null), arg_ls);
+	arg_ls = al_cons(al_list3(al_gp("unique_str", "d", null, null, null), 9, null), arg_ls);
+	al_print("r = ");
+	al_print(al_script("eval2", script, arg_ls));
+	al_print("\n");
+}
+end_body
+member
+public: static void test3();
+body
+{
+	var string script;
+	script = "public: static integer test();\n";
+	script = script + "body\n";
+	script = script + "{\n";
+	script = script + "return TP::f();\n";
+	script = script + "}\n";
+	script = script + "end_body\n";
+	if (al_script("trans", script, 1)) {
+		al_print("An error exists in scripts.\n");
+	} else {
+	}
+	al_print("r = ");
+	al_print(al_script("eval", script, null));
+	al_print("\n");
+}
+end_body
+member
+public: static integer f();
+body
+{
+	return 2037;
+}
+end_body
+member
+public: static void exception();
+body
+{
+	var string script;
+	script = "public: static integer test(integer a, integer b, integer c, integer d);\n";
+	script = script + "body\n";
+	script = script + "{\n";
+	script = script + "var AlException e;\n";
+	script = script + "e = new AlException;\n";
+	script = script + "var integer r;\n";
+	script = script + "r = a * 1000;\n";
+	script = script + "r = r + b * 100;\n";
+	script = script + "r = r + c * 10;\n";
+	script = script + "r = r + d * 1;\n";
+	script = script + "e.msg = (string)r;\n";
+	script = script + "throw e;\n";
+	script = script + "return r;\n";
+	script = script + "}\n";
+	script = script + "end_body\n";
+	if (al_script("trans", script, 1)) {
+		al_print("An error exists in scripts.\n");
+	} else {
+	}
+	try {
+		al_script("eval", script, al_list4(1, 9, 9, 9));
+	} catch (AlException e) {
+		al_print("e.msg = ");
+		al_print(e.msg);
+		al_print("\n");
+	}
+}
+end_body
+end_class
+$END_BODY

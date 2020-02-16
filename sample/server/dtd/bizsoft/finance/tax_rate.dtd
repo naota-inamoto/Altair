@@ -1,0 +1,10 @@
+
+<!ELEMENT 税金マスター (税金*)>
+
+<!ELEMENT 税金 (名称, 読み, 税率, 説明)>
+
+<!ELEMENT 名称 #PCDATA>
+<!ELEMENT 読み #PCDATA>
+<!ELEMENT 税率 #PCDATA>
+<!ELEMENT 説明 #PCDATA>
+

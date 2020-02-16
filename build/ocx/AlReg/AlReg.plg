@@ -1,0 +1,67 @@
+<html>
+<body>
+<pre>
+<h1>ﾋﾞﾙﾄﾞのﾛｸﾞ</h1>
+<h3>
+--------------------構成: AlReg - Win32 Release--------------------
+</h3>
+<h3>ｺﾏﾝﾄﾞ ﾗｲﾝ</h3>
+ｺﾏﾝﾄﾞ ﾗｲﾝ "midl.exe /nologo /D "NDEBUG" /tlb "Release/alreg.tlb" /mktyplib203 /o "NUL" /win32 "C:\altair\src\src\alreg\alreg.odl"" の作成中
+Creating command line "rc.exe /l 0x411 /fo"Release/AlReg.res" /i "\altair\src\src\alreg" /i "Release" /d "NDEBUG" /d "_AFXDLL" "C:\altair\src\src\alreg\AlReg.rc"" 
+一時ﾌｧｲﾙ "C:\DOCUME~1\inamoto\LOCALS~1\Temp\RSPBF.tmp" を作成し、次の内容を記録します
+[
+/nologo /MD /W4 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_USRDLL" /Fp"Release/AlReg.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\altair\src\src\alreg\alreg.cpp"
+"C:\altair\src\src\alreg\alregctl.cpp"
+"C:\altair\src\src\alreg\alregppg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\inamoto\LOCALS~1\Temp\RSPBF.tmp" 
+一時ﾌｧｲﾙ "C:\DOCUME~1\inamoto\LOCALS~1\Temp\RSPC0.tmp" を作成し、次の内容を記録します
+[
+/nologo /MD /W4 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_USRDLL" /Fp"Release/AlReg.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\altair\src\src\alreg\stdafx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\inamoto\LOCALS~1\Temp\RSPC0.tmp" 
+一時ﾌｧｲﾙ "C:\DOCUME~1\inamoto\LOCALS~1\Temp\RSPC1.tmp" を作成し、次の内容を記録します
+[
+/nologo /subsystem:windows /dll /incremental:no /pdb:"Release/AlReg.pdb" /machine:I386 /def:"..\..\..\src\src\alreg\alreg.def" /out:"Release/AlReg.ocx" /implib:"Release/AlReg.lib" 
+.\Release\alreg.obj
+.\Release\alregctl.obj
+.\Release\alregppg.obj
+.\Release\stdafx.obj
+.\Release\AlReg.res
+]
+ｺﾏﾝﾄﾞ ﾗｲﾝ "link.exe @C:\DOCUME~1\inamoto\LOCALS~1\Temp\RSPC1.tmp" の作成中
+一時ﾌｧｲﾙ "C:\DOCUME~1\inamoto\LOCALS~1\Temp\RSPC2.bat" を作成し、次の内容を記録します
+[
+@echo off
+regsvr32 /s /c ".\Release\AlReg.ocx"
+echo regsvr32 exec. time > ".\Release\regsvr32.trg"
+]
+ｺﾏﾝﾄﾞ ﾗｲﾝ "C:\DOCUME~1\inamoto\LOCALS~1\Temp\RSPC2.bat" の作成中
+ﾀｲﾌﾟ ﾗｲﾌﾞﾗﾘを作成中...
+alreg.odl
+oaidl.idl
+objidl.idl
+unknwn.idl
+wtypes.idl
+ﾘｿｰｽをｺﾝﾊﾟｲﾙ中...
+ｺﾝﾊﾟｲﾙ中...
+stdafx.cpp
+ｺﾝﾊﾟｲﾙ中...
+alreg.cpp
+alregctl.cpp
+alregppg.cpp
+ｺｰﾄﾞを生成中...
+ﾘﾝｸ中...
+   ﾗｲﾌﾞﾗﾘ Release/AlReg.lib とｵﾌﾞｼﾞｪｸﾄ Release/AlReg.exp を作成中
+<h3>ｱｳﾄﾌﾟｯﾄ ｳｨﾝﾄﾞｳ</h3>
+ActiveX ｺﾝﾄﾛｰﾙを登録しています...
+
+
+
+<h3>結果</h3>
+AlReg.ocx - ｴﾗｰ 0、警告 0
+</pre>
+</body>
+</html>

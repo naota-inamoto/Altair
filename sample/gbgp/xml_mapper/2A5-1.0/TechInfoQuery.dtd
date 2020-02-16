@@ -1,0 +1,182 @@
+<!ELEMENT TechInfoQuery (
+          CommonProps,
+          QueryConstraint?,
+          TechSpec ) >
+
+
+<!ELEMENT TechSpec (
+          Id?,
+          ( (TechSpecSubComponent*,
+          ProductId?,
+          PrimaryDesc?,
+          DetailDesc?,
+          SummaryDesc?,
+          ManufacturerNames,
+          ComponentName,
+          ( TechSpecQuantity | 
+          TechSpecQuality )* )|
+          Association)
+           ) >
+
+<!ELEMENT TechSpecSubComponent (
+          Relation,
+          TechSpec*,
+          ExtSpecURI?,
+          AtLeast,
+          AtMost ) >
+
+<!ELEMENT TechSpecQuantity (
+          Name,
+          MeasureUnit,
+          Magnitude ) >
+
+<!ELEMENT TechSpecQuality (
+          Name,
+          ValueCode?,
+          Value? ) >
+
+<!ELEMENT CommonProps (
+          MessageCode?,
+          FromBusinessId,
+          FromBusinessTaxId?,
+          FromBusinessName?,
+          FromPartnerRoleClass,
+          FromPartnerClass,
+          FromSupplyChain,
+          FromContactName?,
+          FromContactPhone?,
+          FromContactEmail?,
+          FromContactLocationId?,
+          FromContactCountry?,
+          FromContactRegion?,
+          FromContactCity?,
+          FromContactAddress1?,
+          FromContactAddress2?,
+          FromContactAddress3?,
+          FromContactZip?,
+          FromContactPOBox?,
+          FromLocationId?,
+          FromCountry?,
+          FromRegion?,
+          FromCity?,
+          FromAddress1?,
+          FromAddress2?,
+          FromAddress3?,
+          FromZip?,
+          FromPOBox?,
+          ToBusinessId,
+          ToBusinessTaxId?,
+          ToBusinessName?,
+          ToPartnerRoleClass,
+          ToPartnerClass,
+          ToSupplyChain,
+          ToContactName?,
+          ToContactPhone?,
+          ToContactEmail?,
+          ToContactLocationId?,
+          ToContactCountry?,
+          ToContactRegion?,
+          ToContactCity?,
+          ToContactAddress1?,
+          ToContactAddress2?,
+          ToContactAddress3?,
+          ToContactZip?,
+          ToContactPOBox?,
+          ToLocationId?,
+          ToCountry?,
+          ToRegion?,
+          ToCity?,
+          ToAddress1?,
+          ToAddress2?,
+          ToAddress3?,
+          ToZip?,
+          ToPOBox?,
+          DocGenDateTime,
+          DocId,
+          ReqDocId?,
+          ReqDocDateTime?,
+          DocFunction ) >
+
+<!ELEMENT QueryConstraint       ( #PCDATA ) >
+
+<!ELEMENT Id                    ( #PCDATA ) >
+<!ELEMENT ProductId             ( #PCDATA ) >
+<!ELEMENT PrimaryDesc           ( #PCDATA ) >
+<!ELEMENT DetailDesc            ( #PCDATA ) >
+<!ELEMENT SummaryDesc           ( #PCDATA ) >
+<!ELEMENT ManufacturerNames     ( #PCDATA ) >
+<!ELEMENT ComponentName         ( #PCDATA ) >
+<!ELEMENT Association           ( #PCDATA ) >
+
+<!ELEMENT Relation              ( #PCDATA ) >
+<!ELEMENT ExtSpecURI            ( #PCDATA ) >
+<!ELEMENT AtLeast               ( #PCDATA ) >
+<!ELEMENT AtMost                ( #PCDATA ) >
+
+<!ELEMENT Name                  ( #PCDATA ) >
+<!ELEMENT MeasureUnit           ( #PCDATA ) >
+<!ELEMENT Magnitude             ( #PCDATA ) >
+<!ELEMENT ValueCode             ( #PCDATA ) >
+<!ELEMENT Value                 ( #PCDATA ) >
+
+<!ELEMENT MessageCode           ( #PCDATA ) >
+<!ELEMENT FromBusinessId        ( #PCDATA ) >
+<!ELEMENT FromBusinessTaxId     ( #PCDATA ) >
+<!ELEMENT FromBusinessName      ( #PCDATA ) >
+<!ELEMENT FromPartnerRoleClass  ( #PCDATA ) >
+<!ELEMENT FromPartnerClass      ( #PCDATA ) >
+<!ELEMENT FromSupplyChain       ( #PCDATA ) >
+<!ELEMENT FromContactName       ( #PCDATA ) >
+<!ELEMENT FromContactPhone      ( #PCDATA ) >
+<!ELEMENT FromContactEmail      ( #PCDATA ) >
+<!ELEMENT FromContactLocationId ( #PCDATA ) >
+<!ELEMENT FromContactCountry    ( #PCDATA ) >
+<!ELEMENT FromContactRegion     ( #PCDATA ) >
+<!ELEMENT FromContactCity       ( #PCDATA ) >
+<!ELEMENT FromContactAddress1   ( #PCDATA ) >
+<!ELEMENT FromContactAddress2   ( #PCDATA ) >
+<!ELEMENT FromContactAddress3   ( #PCDATA ) >
+<!ELEMENT FromContactZip        ( #PCDATA ) >
+<!ELEMENT FromContactPOBox      ( #PCDATA ) >
+<!ELEMENT FromLocationId        ( #PCDATA ) >
+<!ELEMENT FromCountry           ( #PCDATA ) >
+<!ELEMENT FromRegion            ( #PCDATA ) >
+<!ELEMENT FromCity              ( #PCDATA ) >
+<!ELEMENT FromAddress1          ( #PCDATA ) >
+<!ELEMENT FromAddress2          ( #PCDATA ) >
+<!ELEMENT FromAddress3          ( #PCDATA ) >
+<!ELEMENT FromZip               ( #PCDATA ) >
+<!ELEMENT FromPOBox             ( #PCDATA ) >
+<!ELEMENT ToBusinessId          ( #PCDATA ) >
+<!ELEMENT ToBusinessTaxId       ( #PCDATA ) >
+<!ELEMENT ToBusinessName        ( #PCDATA ) >
+<!ELEMENT ToPartnerRoleClass    ( #PCDATA ) >
+<!ELEMENT ToPartnerClass        ( #PCDATA ) >
+<!ELEMENT ToSupplyChain         ( #PCDATA ) >
+<!ELEMENT ToContactName         ( #PCDATA ) >
+<!ELEMENT ToContactPhone        ( #PCDATA ) >
+<!ELEMENT ToContactEmail        ( #PCDATA ) >
+<!ELEMENT ToContactLocationId   ( #PCDATA ) >
+<!ELEMENT ToContactCountry      ( #PCDATA ) >
+<!ELEMENT ToContactRegion       ( #PCDATA ) >
+<!ELEMENT ToContactCity         ( #PCDATA ) >
+<!ELEMENT ToContactAddress1     ( #PCDATA ) >
+<!ELEMENT ToContactAddress2     ( #PCDATA ) >
+<!ELEMENT ToContactAddress3     ( #PCDATA ) >
+<!ELEMENT ToContactZip          ( #PCDATA ) >
+<!ELEMENT ToContactPOBox        ( #PCDATA ) >
+<!ELEMENT ToLocationId          ( #PCDATA ) >
+<!ELEMENT ToCountry             ( #PCDATA ) >
+<!ELEMENT ToRegion              ( #PCDATA ) >
+<!ELEMENT ToCity                ( #PCDATA ) >
+<!ELEMENT ToAddress1            ( #PCDATA ) >
+<!ELEMENT ToAddress2            ( #PCDATA ) >
+<!ELEMENT ToAddress3            ( #PCDATA ) >
+<!ELEMENT ToZip                 ( #PCDATA ) >
+<!ELEMENT ToPOBox               ( #PCDATA ) >
+<!ELEMENT DocGenDateTime        ( #PCDATA ) >
+<!ELEMENT DocId                 ( #PCDATA ) >
+<!ELEMENT ReqDocId              ( #PCDATA ) >
+<!ELEMENT ReqDocDateTime        ( #PCDATA ) >
+<!ELEMENT DocFunction           ( #PCDATA ) >
+

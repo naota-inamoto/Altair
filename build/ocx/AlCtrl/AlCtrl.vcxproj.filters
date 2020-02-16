@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{0a411d56-bf96-4658-b150-cc380c5f461d}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;hpj;bat;for;f90</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{d69c0156-08bb-4bd5-909a-b4194a1fead2}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;cnt;rtf;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{58152cb3-fb1c-40d1-9306-69f746b43b2c}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;fi;fd</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\src\alctrl\alctrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\src\alctrl\alctrlctl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\src\alctrl\alctrlppg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\src\alctrl\stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\src\src\alctrl\alctrl.def">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\..\Src\AlCtrl\AlCtrl.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\..\src\src\alctrl\alctrl.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="A:\Altair\Src\AlCtrl\AlCtrl.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Src\AlCtrl\AlCtrlCtl.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="..\..\..\src\src\alctrl\alctrl.odl">
+      <Filter>Source Files</Filter>
+    </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\..\src\src\alctrl\AlCtrl.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

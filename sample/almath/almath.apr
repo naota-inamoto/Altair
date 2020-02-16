@@ -1,0 +1,301 @@
+LogObj.alb
+FileUtility.alb
+ParGenConv.alb
+UserEdit.alb
+$END_LIB
+TEXT
+AlObject
+class AlMath
+end_class
+TEXT
+UserEdit
+class AlMathUserEdit
+end_class
+$END_CLASS
+TEXT
+AlObject
+class AlMath
+member
+public: static void main();
+member
+public: static UserEdit ed;
+end_class
+TEXT
+UserEdit
+class AlMathUserEdit
+member
+public: void Load();
+member
+public: void PostCreateWindow();
+member
+public: list IsInputEnd(string s);
+member
+public: void Process(string s);
+member
+public: ParGenConv pgc;
+member
+public: void InitScript();
+member
+public: static list Include(AlMathUserEdit ed, string filename);
+member
+public: static list Out(AlMathUserEdit ed, string msg);
+member
+public: static list OutExp(AlMathUserEdit ed, list exp);
+member
+public: static string include_script;
+member
+public: static string out_script;
+member
+public: static string out_exp_script;
+member
+public: static void Debug();
+member
+public: void check_mem(string msg);
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class AlMath
+member
+public: static void main();
+body
+{
+	ed = new AlMathUserEdit;
+	ed.Create("AlMath", null);
+}
+end_body
+member
+public: static UserEdit ed;
+end_class
+TEXT
+UserEdit
+class AlMathUserEdit
+member
+public: void Load();
+body
+{
+	var string sys_syn_fn, syn_fn, ag_fn, pl_fn;
+	sys_syn_fn = "syntax/system.syntax";
+	syn_fn = "syntax/almath.syntax";
+	ag_fn = "rule/almath.rule";
+	pl_fn = "rule/attr_grmr.rule";
+	pgc = new ParGenConv;
+	pgc.prepare(sys_syn_fn, syn_fn);
+	pgc.plisp_load(pl_fn);
+	pgc.load_attr_grmr(ag_fn);
+	pgc.plisp_load("math_rule/cmd_and_misc.rule");
+	pgc.plisp_load("math_rule/trans.rule");
+	pgc.plisp_load("math_rule/add_sub_mul_div.rule");
+	pgc.plisp_load("math_rule/common.rule");
+	pgc.plisp_load("math_rule/matrix.rule");
+	pgc.plisp_load("math_rule/logic.rule");
+	pgc.plisp_load("math_rule/diff.rule");
+	pgc.plisp_load("math_rule/set.rule");
+	pgc.plisp_load("math_rule/v1_gcd.rule");
+	pgc.plisp_load("math_rule/vn_gcd.rule");
+	pgc.plisp_load("math_rule/test.rule");
+	Debug();
+}
+end_body
+member
+public: void PostCreateWindow();
+body
+{
+	InitScript();
+	out("IN>\n");
+}
+end_body
+member
+public: list IsInputEnd(string s);
+body
+{
+	return al_search_str(s, 0, ";") >= 0;
+}
+end_body
+member
+public: void Process(string s);
+body
+{
+	var file f;
+	var list tree, exp, spacing;
+	f = al_file_open(s, "sr");
+	try {
+		pgc.parse(f, "cmd", 0, null);
+		tree = pgc.parse_tree;
+		exp = pgc.plisp_call("exec_cmd", (list)al_cons(tree, null));
+		// check_mem("-------- exec_cmd --------");
+		pgc.parse_tree = pgc.plisp_call("exp_to_tree", (list)al_cons(exp, null));
+		// check_mem("-------- exp_to_tree --------");
+		s = al_copy("");
+		f = al_file_open(s, "sw");
+		spacing = al_cons(null, null);
+		pgc.generate(f, spacing);
+	} catch (AlException e) {
+		s = al_copy("");
+		f = al_file_open(s, "sw");
+		al_file_write(f, "string", "[Exception]\n" + e.msg + "\n");
+		al_file_write(f, "string", "[StackTrace]\n");
+		al_misc("stack_trace", e.stack_frame, f);
+		al_file_write(f, "string", "[Source]\n");
+		al_misc("error_source", al_list2(e.stack_frame, e.pos), f);
+	}
+	out("OUT>\n");
+	out(s + "\n");
+	out("IN>\n");
+}
+end_body
+member
+public: ParGenConv pgc;
+member
+public: void InitScript();
+body
+{
+	pgc.plisp_set_var("almath_user_edit", (list)this);
+	{
+		var string s;
+		s = al_copy("");
+		al_append_str(s, "public: static list include_str(AlMathUserEdit ed, string filename);\n");
+		al_append_str(s, "body\n");
+		al_append_str(s, "{\n");
+		al_append_str(s, "    return AlMathUserEdit::Include(ed, filename);\n");
+		al_append_str(s, "}\n");
+		al_append_str(s, "end_body\n");
+		include_script = s;
+		var list res, opt;
+		// opt = 1;
+		res = al_script("trans", include_script, opt);
+		if (res) {
+			out("[Error] Script Init Failure: error_code = " + (string)res + "\n");
+			return;
+		} else {
+		}
+		pgc.plisp_set_var("include_script", (list)include_script);
+	}
+	{
+		var string s;
+		s = al_copy("");
+		al_append_str(s, "public: static list out_str(AlMathUserEdit ed, string filename);\n");
+		al_append_str(s, "body\n");
+		al_append_str(s, "{\n");
+		al_append_str(s, "    return AlMathUserEdit::Out(ed, filename);\n");
+		al_append_str(s, "}\n");
+		al_append_str(s, "end_body\n");
+		out_script = s;
+		var list res, opt;
+		// opt = 1;
+		res = al_script("trans", out_script, opt);
+		if (res) {
+			out("[Error] Script Init Failure: error_code = " + (string)res + "\n");
+			return;
+		} else {
+		}
+		pgc.plisp_set_var("out_script", (list)out_script);
+	}
+	{
+		var string s;
+		s = al_copy("");
+		al_append_str(s, "public: static list out_exp(AlMathUserEdit ed, list exp);\n");
+		al_append_str(s, "body\n");
+		al_append_str(s, "{\n");
+		al_append_str(s, "    return AlMathUserEdit::OutExp(ed, exp);\n");
+		al_append_str(s, "}\n");
+		al_append_str(s, "end_body\n");
+		out_exp_script = s;
+		var list res, opt;
+		// opt = 1;
+		res = al_script("trans", out_exp_script, opt);
+		if (res) {
+			out("[Error] Script Init Failure: error_code = " + (string)res + "\n");
+			return;
+		} else {
+		}
+		pgc.plisp_set_var("out_exp_script", (list)out_exp_script);
+	}
+}
+end_body
+member
+public: static list Include(AlMathUserEdit ed, string filename);
+body
+{
+	ed.out("include: filename = " + (string)filename + "\n");
+	var AlException ex;
+	ex = new AlException;
+	var file f;
+	var list tree, exp, spacing;
+	var string s;
+	if (f = al_file_open(filename, "r")) {
+	} else {
+		ex.msg = "can't find file: filename = " + (string)filename + "\n";
+		throw ex;
+	}
+	try {
+		ed.pgc.parse(f, "file", 0, null);
+		tree = ed.pgc.parse_tree;
+		exp = ed.pgc.plisp_call("exec_cmd", (list)al_cons(tree, null));
+		return al_list3("poly", null, null);
+	} catch (AlException e) {
+		throw e;
+	}
+}
+end_body
+member
+public: static list Out(AlMathUserEdit ed, string msg);
+body
+{
+	ed.out(msg);
+	return al_list3("poly", null, null);
+}
+end_body
+member
+public: static list OutExp(AlMathUserEdit ed, list exp);
+body
+{
+	var string s;
+	var file f;
+	var list spacing;
+	try {
+		ed.pgc.parse_tree = ed.pgc.plisp_call("exp_to_tree", (list)al_cons(exp, null));
+		s = al_copy("");
+		f = al_file_open(s, "sw");
+		spacing = al_cons(null, null);
+		ed.pgc.generate(f, spacing);
+	} catch (AlException e) {
+		s = al_copy("");
+		f = al_file_open(s, "sw");
+		al_file_write(f, "string", "[Exception]\n" + e.msg + "\n");
+		al_file_write(f, "string", "[StackTrace]\n");
+		al_misc("stack_trace", e.stack_frame, f);
+		al_file_write(f, "string", "[Source]\n");
+		al_misc("error_source", al_list2(e.stack_frame, e.pos), f);
+	}
+	ed.out(s);
+	return al_list3("poly", null, null);
+}
+end_body
+member
+public: static string include_script;
+member
+public: static string out_script;
+member
+public: static string out_exp_script;
+member
+public: static void Debug();
+body
+{
+	al_misc("dump_trace", 1, null);
+	al_misc("output", "debug.txt", "no_gui");
+	// al_misc("output", null, "no_gui");
+}
+end_body
+member
+public: void check_mem(string msg);
+body
+{
+	out(msg + "\n");
+	out("ref_count_check = " + (string)al_gc("ref_count") + "\n");
+	out("cyclic_check = " + (string)al_gc("cyclic") + "\n");
+	// out("gc = " + (string)al_gc(null) + "\n");
+}
+end_body
+end_class
+$END_BODY

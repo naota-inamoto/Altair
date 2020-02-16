@@ -1,0 +1,949 @@
+program:
+(
+ ("{}*", ("import", ("$value", ("newline")))),
+ ("newline"),
+ ("{}*", ("class", (("class_p")))),
+ ("newline"),
+ ("{}*", ("member", (("member_p")))),
+ ("newline"),
+ ("{}*", ("body", (("body_p")))),
+ ("newline")
+)
+attr_grmr {
+  loop1(imp, n) :- for($[1]) == 1   , ("import") == imp [ -/n/->$[1][1] ], ! loop1(imp, n + 1) .
+  loop1(imp, n) :- for($[1]) == null, ("import") == imp, must_be(dst_node(imp, n), null) == 1 .
+
+  loop2(cls, n) :- for($[3]) == 1   , ("classes") == cls [ -/n/->$[3][1] ], ! loop2(cls, n + 1) .
+  loop2(cls, n) :- for($[3]) == null, ("classes") == cls, must_be(dst_node(cls, n), null) == 1 .
+
+  loop3(mem, n) :- for($[5]) == 1   , ("classes") == mem [ -/n/->$[5][1] ], ! loop3(mem, n + 1) .
+  loop3(mem, n) :- for($[5]) == null, ("classes") == mem, must_be(dst_node(mem, n), null) == 1 .
+
+  loop4(bdy, n) :- for($[7]) == 1   , ("classes") == bdy [ -/n/->$[7][1] ], ! loop4(bdy, n + 1) .
+  loop4(bdy, n) :- for($[7]) == null, ("classes") == bdy, must_be(dst_node(bdy, n), null) == 1 .
+
+  if1(prog) :- ("program") == prog [ -/"import"/-> imp ]
+                                   [ -/"class"/->  cls ]
+                                   [ -/"member"/-> mem ]
+                                   [ -/"body"/->   bdy ],
+                      loop1(imp, 1), loop2(cls, 1), loop3(mem, 1), loop4(bdy, 1) .
+
+  if1($$) .
+}
+
+class_p:
+(("newline"), "$value", ("{}*", ("cls_sub", (("newline"), ("class_p2")))), ("newline"))
+attr_grmr {
+  loop1(cd, clss, n) :- for($[3]) == 1   , ("class_def") == cd [ -/"sub_class"/->clss ],
+                                             ("classes") == clss [ -/n/->$[3][2] ],
+                                             ! loop1(cd, clss, n + 1) .
+  loop1(cd, clss, n) :- for($[3]) == null, ("class_def") == cd [ -/"sub_class"/->clss ],
+                                             ("classes") == clss [ -/n/->null ] .
+
+  if1(cd) :- ("class_def") == cd [ -/"name"/->($[2]) ], loop1(cd, *, 1) .
+
+  if1($$) .
+}
+
+class_p2:
+("$value", ("{}*", ("cls_sub2", (("newline"), ("class_p2")))), ("newline"))
+attr_grmr {
+  loop1(cd, clss, n) :- for($[2]) == 1   , ("class_def") == cd [ -/"sub_class"/->clss ],
+                                             ("classes") == clss [ -/n/->$[2][2] ],
+                                             ! loop1(cd, clss, n + 1) .
+  loop1(cd, clss, n) :- for($[2]) == null, ("class_def") == cd [ -/"sub_class"/->clss ],
+                                             ("classes") == clss [ -/n/->null ] .
+
+  if1(cd) :- ("class_def") == cd [ -/"name"/->($[1]) ], loop1(cd, *, 1) .
+
+  if1($$) .
+}
+
+member_p:
+(("newline"), "$value", ("{}*", ("mem_sub", (("newline"), ("member_p2")))), ("newline"))
+attr_grmr {
+  loop1(cd, clss, n) :- for($[3]) == 1   , ("class_def") == cd [ -/"sub_class"/->clss ],
+                                             ("classes") == clss [ -/n/->$[3][2] ],
+                                             ! loop1(cd, clss, n + 1) .
+  loop1(cd, clss, n) :- for($[3]) == null, ("class_def") == cd [ -/"sub_class"/->clss ],
+                                             ("classes") == clss [ -/n/->null ] .
+
+  if1(cd) :- ("class_def") == cd [ -/"name"/->($[2]) ], loop1(cd, *, 1) .
+
+  if1($$) .
+}
+
+member_p2:
+("$value", ("{}*", ("mem_ls", (("newline"), ("mem")))), ("{}*", ("mem_sub2", (("newline"), ("member_p2")))), ("newline"))
+attr_grmr {
+  loop1(cd, n) :- for($[2]) == 1   , ("class_def") == cd [ -/n/->$[2][2] ], ! loop1(cd, n + 1) .
+  loop1(cd, n) :- for($[2]) == null, ("class_def") == cd, must_be(dst_node(cd, n), null) == 1 .
+
+  loop2(cd, clss, n) :- for($[3]) == 1   , ("class_def") == cd [ -/"sub_class"/->clss ],
+                                             ("classes") == clss [ -/n/->$[3][2] ],
+                                             ! loop2(cd, clss, n + 1) .
+  loop2(cd, clss, n) :- for($[3]) == null, ("class_def") == cd [ -/"sub_class"/->clss ],
+                                             ("classes") == clss [ -/n/->null ] .
+
+  if1(cd) :- ("class_def") == cd [ -/"name"/->($[1]) ], loop1(cd, 1), loop2(cd, *, 1) .
+
+  if1($$) .
+}
+
+body_p:
+(("newline"), "$value", ("{}*", ("body_sub", (("newline"), ("body_p2")))), ("newline"))
+attr_grmr {
+  loop1(cd, clss, n) :- for($[3]) == 1   , ("class_def") == cd [ -/"sub_class"/->clss ],
+                                             ("classes") == clss [ -/n/->$[3][2] ],
+                                             ! loop1(cd, clss, n + 1) .
+  loop1(cd, clss, n) :- for($[3]) == null, ("class_def") == cd [ -/"sub_class"/->clss ],
+                                             ("classes") == clss [ -/n/->null ] .
+
+  if1(cd) :- ("class_def") == cd [ -/"name"/->($[2]) ], loop1(cd, *, 1) .
+
+  if1($$) .
+}
+
+body_p2:
+(
+ "$value",
+ (
+  "{}*",
+  (
+   "body_def",
+   (
+    ("newline"),
+    ("mem"),
+    (
+     "{}?",
+     (
+      "body_def2",
+      (
+       ("newline"),
+       ("newline"),
+       (
+        "{}",
+        ("s_block"),
+        ("s_if"),
+        ("s_loop"),
+        ("s_break"),
+        ("s_continue"),
+        ("s_return_0"),
+        ("s_return_1"),
+        ("s_var"),
+        ("s_exp"),
+        ("s_try"),
+        ("s_throw"),
+        ("s_para"),
+        ("s_comment")
+       )
+      )
+     )
+    )
+   )
+  )
+ ),
+ ("{}*", ("body_sub2", (("newline"), ("body_p2")))),
+ ("newline")
+)
+attr_grmr {
+  loop1(cd, n) :- for($[2]) == 1   , ("class_def") == cd [ -/n/->mem ],
+                                           if1(cd, n, mem), $[2][2] == mem, ! loop1(cd, n + 1) .
+  loop1(cd, n) :- for($[2]) == null, ("class_def") == cd [ -/n/->null ].
+
+  if1(cd, n, mem) :- if($[2][3]) == 1   , ("class_def") == cd [ -/n/->mem ],
+                                             * == mem [ -/"body"/-> $[2][3][3] ] .
+  if1(cd, n, mem) :- if($[2][3]) == null, ("class_def") == cd [ -/n/->mem ] .
+
+  loop2(cd, clss, n) :- for($[3]) == 1   , ("class_def") == cd [ -/"sub_class"/->clss ],
+                                             ("classes") == clss [ -/n/->$[3][2] ],
+                                             ! loop2(cd, clss, n + 1) .
+  loop2(cd, clss, n) :- for($[3]) == null, ("class_def") == cd [ -/"sub_class"/->clss ],
+                                             ("classes") == clss [ -/n/->null ] .
+
+  if2(cd) :- ("class_def") == cd [ -/"name"/->($[1]) ], loop1(cd, 1), loop2(cd, *, 1) .
+
+  if2($$) .
+}
+
+type:
+("$value")
+attr_grmr {
+  ("ident") == $$ [ -/"name"/->($[1]) ] .
+}
+
+mem:
+(("newline"), ("{}", ("mem_v", (("mv_dcl"))), ("mem_f", (("mf_dcl"))), ("mem_fp", (("fp_dcl")))))
+attr_grmr {
+  if1(m) :- switch($[2]) == "mem_v",  m == $[2][1] .
+  if1(m) :- switch($[2]) == "mem_f",  m == $[2][1] .
+  if1(m) :- switch($[2]) == "mem_fp", m == $[2][1] .
+
+  if1($$) .
+}
+
+mv_dcl:
+(
+ ("{}", ("public"), ("protected"), ("private")),
+ ("{}?", ("mv_sd")),
+ ("{}", ("integer"), ("real"), ("list"), ("array"), ("string"), ("matrix"), ("file"), ("window"), ("void"), ("variant"), ("type")),
+ "$value"
+)
+attr_grmr {
+  if1(v) :- if($[2]) == 1   , ("var") == v [ -/"static"/->("true") ] .
+  if1(v) :- if($[2]) == null, ("var") == v [ -/"static"/->("false") ] .
+
+  if2(v) :- ("var") == v [ -/"protection"/->$[1] ]
+                         [ -/"type"/->$[3] ]
+                         [ -/"name"/->($[4]) ], if1(v) .
+
+  if2($$) .
+}
+
+mf_dcl:
+(
+ ("{}", ("public"), ("protected"), ("private")),
+ ("{}?", ("mf_sd")),
+ ("{}", ("integer"), ("real"), ("list"), ("array"), ("string"), ("matrix"), ("file"), ("window"), ("void"), ("variant"), ("type")),
+ "$value",
+ (
+  "{}?",
+  (
+   "mf_a_1",
+   (
+    ("{}", ("integer"), ("real"), ("list"), ("array"), ("string"), ("matrix"), ("file"), ("window"), ("void"), ("variant"), ("type")),
+    "$value",
+    (
+     "{}*",
+     (
+      "mf_a_n",
+      (
+       ("{}", ("integer"), ("real"), ("list"), ("array"), ("string"), ("matrix"), ("file"), ("window"), ("void"), ("variant"), ("type")),
+       "$value"
+      )
+     )
+    )
+   )
+  )
+ )
+)
+attr_grmr {
+  if1(f) :- if($[2]) == 1   , ("func") == f [ -/"static"/->("true") ] .
+  if1(f) :- if($[2]) == null, ("func") == f [ -/"static"/->("false") ] .
+
+  if2(ad) :- if($[5]) == 1   , ("arg_dcl") == ad [ -/1/->arg ],
+                                   ("arg") == arg [ -/"type"/->$[5][1] ]
+                                                  [ -/"name"/->($[5][2]) ],
+                                   loop1(ad, 2) .
+  if2(ad) :- if($[5]) == null, ("arg_dcl") == ad .
+
+  loop1(ad, n) :- for($[5][3]) == 1   , ("arg_dcl") == ad [ -/n/->arg ],
+                                            ("arg") == arg [ -/"type"/->$[5][3][1] ]
+                                                           [ -/"name"/->($[5][3][2]) ],
+                                            loop1(ad, n + 1) .
+  loop1(ad, n) :- for($[5][3]) == null, ("arg_dcl") == ad, must_be(dst_node(ad, n), null) == 1 .
+
+  if3(f) :- ("func") == f [ -/"protection"/->$[1] ]
+                          [ -/"type"/->$[3] ]
+                          [ -/"name"/->($[4]) ]
+                          [ -/"arg_dcl"/->ad ], if1(f), if2(ad) .
+
+  if3($$) .
+}
+
+fp_dcl:
+(
+ ("{}?", ("fp_sv")),
+ ("{}", ("integer"), ("real"), ("list"), ("array"), ("string"), ("matrix"), ("file"), ("window"), ("void"), ("variant"), ("type")),
+ "$value",
+ (
+  "{}?",
+  (
+   "pf_a_1",
+   (
+    ("{}", ("integer"), ("real"), ("list"), ("array"), ("string"), ("matrix"), ("file"), ("window"), ("void"), ("variant"), ("type")),
+    "$value",
+    (
+     "{}*",
+     (
+      "pf_a_n",
+      (
+       ("{}", ("integer"), ("real"), ("list"), ("array"), ("string"), ("matrix"), ("file"), ("window"), ("void"), ("variant"), ("type")),
+       "$value"
+      )
+     )
+    )
+   )
+  )
+ )
+)
+attr_grmr {
+  if1(f) :- if($[1]) == 1   , ("func_type") == f [ -/"static"/->("true") ] .
+  if1(f) :- if($[1]) == null, ("func_type") == f [ -/"static"/->("false") ] .
+
+  if2(ad) :- if($[4]) == 1   , ("arg_dcl") == ad [ -/1/->arg ],
+                                   ("arg") == arg [ -/"type"/->$[4][1] ]
+                                                  [ -/"name"/->($[4][2]) ],
+                                   loop1(ad, 2) .
+  if2(ad) :- if($[4]) == null, ("arg_dcl") == ad .
+
+  loop1(ad, n) :- for($[4][3]) == 1   , ("arg_dcl") == ad [ -/n/->arg ],
+                                            ("arg") == arg [ -/"type"/->$[4][3][1] ]
+                                                           [ -/"name"/->($[4][3][2]) ],
+                                            loop1(ad, n + 1) .
+  loop1(ad, n) :- for($[4][3]) == null, ("arg_dcl") == ad, must_be(dst_node(ad, n), null) == 1 .
+
+  if3(f) :- ("func_type") == f [ -/"type"/->$[2] ]
+                               [ -/"name"/->($[3]) ]
+                               [ -/"arg_dcl"/->ad ], if1(f), if2(ad) .
+
+  if3($$) .
+}
+
+s_block:
+(
+ ("newline"),
+ (
+  "{}*",
+  (
+   "s_blk_n",
+   (
+    (
+     "{}",
+     ("s_block"),
+     ("s_if"),
+     ("s_loop"),
+     ("s_break"),
+     ("s_continue"),
+     ("s_return_0"),
+     ("s_return_1"),
+     ("s_var"),
+     ("s_exp"),
+     ("s_try"),
+     ("s_throw"),
+     ("s_para"),
+     ("s_comment")
+    )
+   )
+  )
+ ),
+ ("newline")
+)
+attr_grmr {
+  loop1(stat, n) :- for($[2]) == 1   , ("block") == stat [ -/n/-> $[2][1] ], ! loop1(stat, n + 1) .
+  loop1(stat, n) :- for($[2]) == null, ("block") == stat, must_be(dst_node(stat, n), null) == 1 .
+
+  loop1($$, 1) .
+}
+
+s_if:
+(
+ ("exp"),
+ ("newline"),
+ (
+  "{}*",
+  (
+   "s_if_t",
+   (
+    (
+     "{}",
+     ("s_block"),
+     ("s_if"),
+     ("s_loop"),
+     ("s_break"),
+     ("s_continue"),
+     ("s_return_0"),
+     ("s_return_1"),
+     ("s_var"),
+     ("s_exp"),
+     ("s_try"),
+     ("s_throw"),
+     ("s_para"),
+     ("s_comment")
+    )
+   )
+  )
+ ),
+ ("newline"),
+ (
+  "{}*",
+  (
+   "s_if_f",
+   (
+    (
+     "{}",
+     ("s_block"),
+     ("s_if"),
+     ("s_loop"),
+     ("s_break"),
+     ("s_continue"),
+     ("s_return_0"),
+     ("s_return_1"),
+     ("s_var"),
+     ("s_exp"),
+     ("s_try"),
+     ("s_throw"),
+     ("s_para"),
+     ("s_comment")
+    )
+   )
+  )
+ ),
+ ("newline")
+)
+attr_grmr {
+  loop1(stat, n) :- for($[3]) == 1   , ("block") == stat [ -/n/-> $[3][1] ], ! loop1(stat, n + 1) .
+  loop1(stat, n) :- for($[3]) == null, ("block") == stat, must_be(dst_node(stat, n), null) == 1 .
+
+  loop2(stat, n) :- for($[5]) == 1   , ("block") == stat [ -/n/-> $[5][1] ], ! loop2(stat, n + 1) .
+  loop2(stat, n) :- for($[5]) == null, ("block") == stat, must_be(dst_node(stat, n), null) == 1 .
+
+  if1(exp) :- ("if") == exp [ -/"cond"/-> $[1] ]
+                            [ -/"then"/-> then ]
+                            [ -/"else"/-> else ], loop1(then, 1), loop2(else, 1) .
+
+  if1($$) .
+}
+
+s_loop:
+(
+ ("newline"),
+ (
+  "{}*",
+  (
+   "s_lp_n",
+   (
+    (
+     "{}",
+     ("s_block"),
+     ("s_if"),
+     ("s_loop"),
+     ("s_break"),
+     ("s_continue"),
+     ("s_return_0"),
+     ("s_return_1"),
+     ("s_var"),
+     ("s_exp"),
+     ("s_try"),
+     ("s_throw"),
+     ("s_para"),
+     ("s_comment")
+    )
+   )
+  )
+ ),
+ ("newline")
+)
+attr_grmr {
+  loop1(stat, n) :- for($[2]) == 1   , ("block") == stat [ -/n/-> $[2][1] ], ! loop1(stat, n + 1) .
+  loop1(stat, n) :- for($[2]) == null, ("block") == stat, must_be(dst_node(stat, n), null) == 1 .
+
+  ("loop") == $$ [ -/"stat"/-> stat ], loop1(stat , 1) .
+}
+
+s_break:
+(("newline"))
+attr_grmr {
+  ("break") == $$ .
+}
+
+s_continue:
+(("newline"))
+attr_grmr {
+  ("contine") == $$ .
+}
+
+s_return_0:
+(("newline"))
+attr_grmr {
+  ("return") == $$ [ -/"value"/-> (null) ] .
+}
+
+s_return_1:
+(("exp"), ("newline"))
+attr_grmr {
+  ("return") == $$ [ -/"value"/->($[1]) ] .
+}
+
+s_var:
+(
+ ("{}", ("integer"), ("real"), ("list"), ("array"), ("string"), ("matrix"), ("file"), ("window"), ("void"), ("variant"), ("type")),
+ "$value",
+ ("{}*", ("sv_n", ("$value"))),
+ ("newline")
+)
+attr_grmr {
+  loop1(vd, n) :- for($[3]) == 1   , ("var_dcl") == vd [ -/n/->id ],
+                                                    ("loc") == id [ -/"name"/->($[3][1]) ],
+                                                    loop1(vd, n + 1) .
+  loop1(vd, n) :- for($[3]) == null, ("var_dcl") == vd [ -/n/->null ] .
+
+  if1(vd) :- ("var_dcl") == vd [ -/"type"/->$[1] ]
+                               [ -/1/->id ],
+                            ("loc") == id [ -/"name"/->($[2]) ],
+                            loop1(vd, 2) .
+  if1($$) .
+}
+
+s_exp:
+(("exp"), ("newline"))
+attr_grmr {
+  $[1] == $$ .
+}
+
+s_try:
+(
+ ("newline"),
+ (
+  "{}*",
+  (
+   "try_s",
+   (
+    (
+     "{}",
+     ("s_block"),
+     ("s_if"),
+     ("s_loop"),
+     ("s_break"),
+     ("s_continue"),
+     ("s_return_0"),
+     ("s_return_1"),
+     ("s_var"),
+     ("s_exp"),
+     ("s_try"),
+     ("s_throw"),
+     ("s_para"),
+     ("s_comment")
+    )
+   )
+  )
+ ),
+ ("newline"),
+ (
+  "{}*",
+  (
+   "try_es",
+   (
+    (
+     "{}",
+     ("s_block"),
+     ("s_if"),
+     ("s_loop"),
+     ("s_break"),
+     ("s_continue"),
+     ("s_return_0"),
+     ("s_return_1"),
+     ("s_var"),
+     ("s_exp"),
+     ("s_try"),
+     ("s_throw"),
+     ("s_para"),
+     ("s_comment")
+    )
+   )
+  )
+ ),
+ ("newline")
+)
+attr_grmr {
+  loop1(stat, n) :- for($[2]) == 1   , ("block") == stat [ -/n/-> $[2][1] ], ! loop1(stat, n + 1) .
+  loop1(stat, n) :- for($[2]) == null, ("block") == stat, must_be(dst_node(stat, n), null) == 1 .
+
+  loop2(stat, n) :- for($[4]) == 1   , ("block") == stat [ -/n/-> $[4][1] ], ! loop2(stat, n + 1) .
+  loop2(stat, n) :- for($[4]) == null, ("block") == stat, must_be(dst_node(stat, n), null) == 1 .
+
+  if1(try) :- ("try") == try [ -/"try"/->tb ]
+                             [ -/"catch"/->cb ], loop1(tb, 1), loop2(cb, 1) .
+
+  if1($$) .
+}
+
+s_throw:
+(("exp"), ("newline"))
+attr_grmr {
+  ("throw") == $$ [ -/"value"/->($[1]) ] .
+}
+
+s_para:
+(("exp"), ("newline"))
+attr_grmr {
+  ("para") == $$ [ -/"stat"/->($[1]) ] .
+}
+
+s_comment:
+("$value", ("newline"))
+attr_grmr {
+  ("comment") == $$ [ -/"value"/->($[1]) ] .
+}
+
+exp:
+(("e_cond"))
+attr_grmr {
+  $[1] == $$ .
+}
+
+e_cond:
+(("e_oror"), ("{}?", ("e_cond_2", (("e_cond"), ("e_cond")))))
+attr_grmr {
+  if1(exp, exp1) :- if($[2]) == 1   , ("cond") == exp [ -/"cond"/-> exp1    ]
+                                                      [ -/"then"/-> $[2][1] ]
+                                                      [ -/"else"/-> $[2][2] ] .
+  if1(exp, exp ) :- if($[2]) == null .
+
+  if2(exp) :- $gen == 1, ("cond") != exp, if($[2]) == null, exp === $[1] .
+  if2(exp) :- if1(exp, $[1]) .
+
+  if2($$) .
+}
+
+e_oror:
+(("e_andand"), ("{}*", ("e_oror_n", (("e_oror")))))
+attr_grmr {
+  loop1(exp, exp1, tr) :- for($[2]) == 1   , ("binary") == tr [ -/"op"/-> ("||")  ]
+                                                              [ -/"exp1"/-> tr1 ],
+                                  ("binary") == exp2 [ -/"op"/-> ("||") ]
+                                                     [ -/"exp1"/-> exp1    ]
+                                                     [ -/"exp2"/-> $[2][1] ], loop1(exp, exp2, tr1) .
+  loop1(exp, exp, * ) :- $gen == null, for($[2]) == null .
+  loop1(exp, exp, tr) :- $gen == 1, for($[2]) == null, ("binary") != tr .
+  loop1(exp, exp, tr) :- $gen == 1, for($[2]) == null,
+             ("binary") == tr [ -/"op"/-> op ], op != ("||") .
+
+  loop1($$, $[1], $$) .
+}
+
+e_andand:
+(("e_comp"), ("{}*", ("e_andand_n", (("e_andand")))))
+attr_grmr {
+  loop1(exp, exp1, tr) :- for($[2]) == 1   , ("binary") == tr [ -/"op"/-> ("&&")  ]
+                                                              [ -/"exp1"/-> tr1 ],
+                                  ("binary") == exp2 [ -/"op"/-> ("&&") ]
+                                                     [ -/"exp1"/-> exp1    ]
+                                                     [ -/"exp2"/-> $[2][1] ], loop1(exp, exp2, tr1) .
+  loop1(exp, exp, * ) :- $gen == null, for($[2]) == null .
+  loop1(exp, exp, tr) :- $gen == 1, for($[2]) == null, ("binary") != tr .
+  loop1(exp, exp, tr) :- $gen == 1, for($[2]) == null,
+             ("binary") == tr [ -/"op"/-> op ], op != ("&&") .
+
+  loop1($$, $[1], $$) .
+}
+
+e_comp:
+(("e_asgn"), ("{}?", ("e_comp_2", (("{}", ("eq"), ("ne"), ("le"), ("lt"), ("ge"), ("gt")), ("e_asgn")))))
+attr_grmr {
+  op(("==")) :- switch($[2][1]) == "eq" .
+  op(("!=")) :- switch($[2][1]) == "ne" .
+  op((">="))  :- switch($[2][1]) == "ge" .
+  op((">" ))  :- switch($[2][1]) == "gt" .
+  op(("<="))  :- switch($[2][1]) == "le" .
+  op(("<" ))  :- switch($[2][1]) == "lt" .
+
+  if1(exp, exp1) :- if($[2]) == 1   , op(op), ("binary") == exp [ -/"op"/-> op ]
+                                                                [ -/"exp1"/-> exp1 ]
+                                                                [ -/"exp2"/-> $[2][2] ] .
+  if1(exp, exp ) :- if($[2]) == null .
+
+  if2(exp) :- $gen == 1, ("binary") == exp [ -/"op"/-> op ],
+      op != ("=="), op != ("!="),
+      op != (">="), op != (">"), op != ("<="), op != ("<"),
+      if($[2]) == null, exp === $[1] .
+  if2(exp) :- if1(exp, $[1]) .
+
+  if2($$) .
+}
+
+e_asgn:
+(("{}*", ("e_asgn_n", (("prim")))), ("e_add"))
+attr_grmr {
+  loop1(exp, exp1, tr) :- inv_for($[1]) == 1 , ("assign") == tr [ -/"op"/-> ("=")   ]
+                                                                [ -/"exp"/-> tr1 ],
+                                  ("assign") == exp2 [ -/"op"/-> ("=") ]
+                                                     [ -/"lhs"/-> $[1][1] ]
+                                                     [ -/"exp"/-> exp1    ], loop1(exp, exp2, tr1) .
+  loop1(exp, exp,  * ) :- $gen == null, inv_for($[1]) == null .
+  loop1(exp, exp,  tr) :- $gen == 1, inv_for($[1]) == null, ("assign") != tr.
+  loop1(exp, exp,  tr) :- $gen == 1, inv_for($[1]) == null,
+             ("assign") == tr [ -/"op"/-> op ], op != ("=") .
+
+  loop1($$, $[2], $$) .
+
+}
+
+e_add:
+(("e_mul"), ("{}*", ("e_add_n", (("{}", ("add"), ("sub")), ("e_mul")))))
+attr_grmr {
+  op(("+")) :- switch($[2][1]) == "add" .
+  op(("-")) :- switch($[2][1]) == "sub" .
+
+  top(("+")) :- .
+  top(("-")) :- .
+
+  loop1(exp, exp1, tr) :- for($[2]) == 1, op(op), top(top),
+                                       ("binary") == tr [ -/"op"/-> top   ]
+                                                        [ -/"exp1"/-> tr1 ],
+                                       ("binary") == exp2 [ -/"op"/-> op        ]
+                                                          [ -/"exp1"/-> exp1    ]
+                                                          [ -/"exp2"/-> $[2][2] ], loop1(exp, exp2, tr1) .
+
+  loop1(exp, exp,  * ) :- $gen == null, for($[2]) == null .
+  loop1(exp, exp,  tr) :- $gen == 1, for($[2]) == null, ("binary") != tr .
+  loop1(exp, exp,  tr) :- $gen == 1, for($[2]) == null,
+             ("binary") == tr [ -/"op"/->op ], op != ("+"), op != ("-") .
+
+  loop1($$, $[1], $$) .
+}
+
+e_mul:
+(("e_or"), ("{}*", ("e_mul_n", (("{}", ("mul"), ("div"), ("mod")), ("e_or")))))
+attr_grmr {
+  op(("*")) :- switch($[2][1]) == "mul" .
+  op(("/")) :- switch($[2][1]) == "div" .
+  op(("%")) :- switch($[2][1]) == "mod" .
+
+  top(("*")) :- .
+  top(("/")) :- .
+  top(("%")) :- .
+
+  loop1(exp, exp1, tr) :- for($[2]) == 1, op(op), top(top),
+                                       ("binary") == tr [ -/"op"/-> top   ]
+                                                        [ -/"exp1"/-> tr1 ],
+                                       ("binary") == exp2 [ -/"op"/-> op        ]
+                                                          [ -/"exp1"/-> exp1    ]
+                                                          [ -/"exp2"/-> $[2][2] ], loop1(exp, exp2, tr1) .
+  loop1(exp, exp,  * ) :- $gen == null, for($[2]) == null .
+  loop1(exp, exp,  tr) :- $gen == 1, for($[2]) == null, ("binary") != tr .
+  loop1(exp, exp,  tr) :- $gen == 1, for($[2]) == null,
+             ("binary") == tr [ -/"op"/-> op ], op != ("*"), op != ("/"), op != ("%") .
+
+  loop1($$, $[1], $$) .
+}
+
+e_or:
+(("e_xor"), ("{}*", ("e_or_n", (("e_xor")))))
+attr_grmr {
+  loop1(exp, exp1, tr) :- for($[2]) == 1   , ("binary") == tr [ -/"op"/-> ("|")   ]
+                                                              [ -/"exp1"/-> tr1 ],
+                                  ("binary") == exp2 [ -/"op"/-> ("|") ]
+                                                     [ -/"exp1"/-> exp1    ]
+                                                     [ -/"exp2"/-> $[2][1] ], loop1(exp, exp2, tr1) .
+  loop1(exp, exp,  * ) :- $gen == null, for($[2]) == null .
+  loop1(exp, exp,  tr) :- $gen == 1, for($[2]) == null, ("binary") != tr .
+  loop1(exp, exp,  tr) :- $gen == 1, for($[2]) == null,
+             ("binary") == tr [ -/"op"/-> op ], op != ("|") .
+
+  loop1($$, $[1], $$) .
+}
+
+e_xor:
+(("e_and"), ("{}*", ("e_xor_n", (("e_and")))))
+attr_grmr {
+  loop1(exp, exp1, tr) :- for($[2]) == 1   , ("binary") == tr [ -/"op"/-> ("^")  ]
+                                                              [ -/"exp1"/-> tr1 ],
+                                  ("binary") == exp2 [ -/"op"/-> ("^") ]
+                                                     [ -/"exp1"/-> exp1 ]
+                                                     [ -/"exp2"/-> $[2][1] ], loop1(exp, exp2, tr1) .
+  loop1(exp, exp,  * ) :- $gen == null, for($[2]) == null .
+  loop1(exp, exp,  tr) :- $gen == 1, for($[2]) == null, ("binary") != tr .
+  loop1(exp, exp,  tr) :- $gen == 1, for($[2]) == null,
+             ("binary") == tr [ -/"op"/-> op ], op != ("^") .
+
+  loop1($$, $[1], $$) .
+}
+
+e_and:
+(("e_shift"), ("{}*", ("e_and_n", (("e_shift")))))
+attr_grmr {
+  loop1(exp, exp1, tr) :- for($[2]) == 1   , ("binary") == tr [ -/"op"/-> ("&")  ]
+                                                              [ -/"exp1"/-> tr1 ],
+                                  ("binary") == exp2 [ -/"op"/-> ("&") ]
+                                                     [ -/"exp1"/-> exp1 ]
+                                                     [ -/"exp2"/-> $[2][1] ], loop1(exp, exp2, tr1) .
+  loop1(exp, exp,  * ) :- $gen == null, for($[2]) == null .
+  loop1(exp, exp,  tr) :- $gen == 1, for($[2]) == null, ("binary") != tr .
+  loop1(exp, exp,  tr) :- $gen == 1, for($[2]) == null,
+             ("binary") == tr [ -/"op"/-> op ], op != ("&") .
+
+  loop1($$, $[1], $$) .
+}
+
+e_shift:
+(("e_unry_op"), ("{}?", ("e_shift_2", (("{}", ("shift_l"), ("shift_r")), ("e_unry_op")))))
+attr_grmr {
+  op(("<<"))  :- switch($[2][1]) == "shift_l" .
+  op((">>"))  :- switch($[2][1]) == "shift_r" .
+
+  if1(exp, exp1) :- if($[2]) == 1   , op(op), ("binary") == exp [ -/"op"/-> op        ]
+                                                                [ -/"exp1"/-> exp1    ]
+                                                                [ -/"exp2"/-> $[2][2] ] .
+  if1(exp, exp ) :- if($[2]) == null . 
+
+  if2(exp) :- $gen == 1, ("unary") == exp [ -/"op"/-> op ],
+      op != (">>"), op != ("<<"), if($[2]) == null, exp === $[1] .
+  if2(exp) :- if1(exp, $[1]) .
+
+  if2($$) .
+}
+
+e_unry_op:
+(("{}", ("euop", (("{}?", ("neg"), ("not"), ("cast", ("$value")))))), ("prim"))
+attr_grmr {
+  op(("-")) :- switch($[1][1]) == "neg" .
+  op(("~")) :- switch($[1][1]) == "not" .
+
+  if1(exp, exp1) :- if($[1][1]) == 1, switch($[1][1]) == "cast",
+                                           ("cast") == exp [ -/"type"/-> $[1][1][1] ]
+                                                           [ -/"exp"/-> $[2] ] .
+  if1(exp, exp1) :- if($[1][1]) == 1, op(op), ("unary") == exp [ -/"op"/-> op ]
+                                                            [ -/"exp"/-> exp1 ] .
+  if1(exp, exp ) :- if($[1][1]) == null . 
+
+  if2(exp) :- $gen == 1, ("unary") == exp [ -/"op"/-> op ],
+      op != ("-"), op != ("!"), if($[1][1]) == null, exp === $[2] .
+  if2(exp) :- if1(exp, $[2]) .
+
+  if2($$) .
+}
+
+prim:
+(
+ (
+  "{}",
+  ("e_new", ("$value")),
+  ("e_this"),
+  ("e_runtime", ("$value")),
+  ("e_const", (("{}", ("const_null"), ("const_real"), ("const_hexa"), ("const_integer"), ("const_char"), ("const_string")))),
+  ("func", ("$value", ("{}?", ("f_arg_ls", (("arg_ls")))))),
+  ("super_f", ("$value", "$value", ("{}?", ("super_f_args", (("arg_ls")))))),
+  ("sv_fptr", ("$value", "$value")),
+  ("a_l_cv_ov", ("$value")),
+  ("p_ptr_f", ("$value", ("{}?", ("p_ptr_f_args", (("arg_ls")))))),
+  ("e_braket", (("exp")))
+ ),
+ (
+  "{}*",
+  ("e_head"),
+  ("e_tail"),
+  ("e_ary", (("exp"))),
+  ("e_ptr_f", (("prim"), ("{}?", ("e_ptr_f_args", (("arg_ls")))))),
+  ("e_mf", ("$value", ("{}?", ("e_mf_args", (("arg_ls")))))),
+  ("e_mv", ("$value"))
+ )
+)
+attr_grmr {
+  if1(exp) :- switch($[1]) == "e_new",  ("new")  == exp [ -/"name"/->($[1][1]) ] .
+  if1(exp) :- switch($[1]) == "e_this", ("this") == exp.
+  if1(exp) :- switch($[1]) == "e_runtime", ("runtime") == exp [ -/"class"/->$[1][1] ] .
+  if1(exp) :- switch($[1]) == "e_const", $[1][1] == exp .
+
+  if1(exp) :- switch($[1]) == "func", if($[1][2]) == 1   , ("func") == exp [ -/"name"/-> ($[1][1])   ]
+                                                                           [ -/"arg_ls"/->$[1][2][1] ] .
+  if1(exp) :- switch($[1]) == "func", if($[1][2]) == null, ("func") == exp [ -/"name"/-> ($[1][1])   ]
+                                                                           [ -/"arg_ls"/->("arg_ls") ] .
+
+  if1(exp) :- switch($[1]) == "super_f", if($[1][3]) == 1   , ("super_func") == exp [ -/"class"/-> ("class")
+                                                                                      [ -/"name"/-> ($[1][1]) ] ]
+                                                                                    [ -/"name"/-> ($[1][2])  ]
+                                                                                    [ -/"arg_ls"/->$[1][3][1]] .
+  if1(exp) :- switch($[1]) == "super_f", if($[1][3]) == null, ("super_func") == exp [ -/"class"/-> ("class")
+                                                                                      [ -/"name"/-> ($[1][1]) ] ]
+                                                                                    [ -/"name"/-> ($[1][2]) ]
+                                                                                    [ -/"arg_ls"/->("arg_ls") ] .
+
+  if1(exp) :- switch($[1]) == "sv_fptr", ("sv_fptr") == exp [ -/"class"/-> ("class") [ -/"name"/-> ($[1][1]) ] ]
+                                                            [ -/"name"/-> ($[1][2]) ] .
+  if1(exp) :- switch($[1]) == "a_l_cv_ov", ("ident") == exp [ -/"name"/->($[1][1]) ] .
+
+  if1(exp) :- switch($[1]) == "p_ptr_f", if($[1][2]) == 1   , ("ptr_func") == exp [ -/"func_ptr"/->$[1][1]    ]
+                                                                                  [ -/"arg_ls"/->  $[1][2][1] ] .
+  if1(exp) :- switch($[1]) == "p_ptr_f", if($[1][2]) == null, ("ptr_func") == exp [ -/"func_ptr"/->$[1][1]    ]
+                                                                                  [ -/"arg_ls"/->  ("arg_ls") ] .
+  if1(exp) :- switch($[1]) == "e_braket", $[1][1] == exp .
+
+  loop1(exp, exp1, tr) :- for($[2]) == 1, ("head")      == tr [ -/"list"/-> tr2 ], if2(exp2, exp1), loop1(exp, exp2, tr2) .
+  loop1(exp, exp1, tr) :- for($[2]) == 1, ("tail")      == tr [ -/"list"/-> tr2 ], if2(exp2, exp1), loop1(exp, exp2, tr2) .
+  loop1(exp, exp1, tr) :- for($[2]) == 1, ("elem")      == tr [ -/"array"/->tr2 ], if2(exp2, exp1), loop1(exp, exp2, tr2) .
+
+  loop1(exp, exp1, tr) :- for($[2]) == 1, ("mem_ptr_f") == tr [ -/"obj"/->  tr2 ], if2(exp2, exp1), loop1(exp, exp2, tr2) .
+
+  loop1(exp, exp1, tr) :- for($[2]) == 1, ("mem_func")  == tr [ -/"obj"/->  tr2 ], if2(exp2, exp1), loop1(exp, exp2, tr2) .
+  loop1(exp, exp1, tr) :- for($[2]) == 1, ("mem_var")   == tr [ -/"obj"/->  tr2 ], if2(exp2, exp1), loop1(exp, exp2, tr2) .
+
+  loop1(exp, exp,  * ) :- for($[2]) == null, $gen == null .
+
+  loop1(exp, exp,  tr) :- for($[2]) == null, $gen == 1,
+      ("head") != tr, ("tail") != tr,
+      ("elem") != tr, ("mem_ptr_f") != tr, ("mem_func") != tr, ("mem_var") != tr .
+
+  if2(exp, exp1) :- switch($[2]) == "e_head", ("head") == exp [ -/"list"/->exp1 ] .
+  if2(exp, exp1) :- switch($[2]) == "e_tail", ("tail") == exp [ -/"list"/->exp1 ] .
+  if2(exp, exp1) :- switch($[2]) == "e_ary",  ("elem") == exp [ -/"array"/->exp1    ]
+                                                              [ -/"index"/->$[2][1] ] .
+  if2(exp, exp1) :- switch($[2]) == "e_ptr_f", if($[2][2]) == 1   , ("mem_ptr_f") == exp [ -/"obj"/->exp1          ]
+                                                                                         [ -/"func_ptr"/->$[2][1]  ]
+                                                                                         [ -/"arg_ls"/->$[2][2][1] ] .
+  if2(exp, exp1) :- switch($[2]) == "e_ptr_f", if($[2][2]) == null, ("mem_ptr_f") == exp [ -/"obj"/->exp1          ]
+                                                                                         [ -/"func_ptr"/->$[2][1]  ]
+                                                                                         [ -/"arg_ls"/->("arg_ls") ] .
+  if2(exp, exp1) :- switch($[2]) == "e_mf", if($[2][2]) == 1   , ("mem_func") == exp [ -/"obj"/->exp1          ]
+                                                                                     [ -/"name"/->($[2][1])    ]
+                                                                                     [ -/"arg_ls"/->$[2][2][1] ] .
+  if2(exp, exp1) :- switch($[2]) == "e_mf", if($[2][2]) == null, ("mem_func") == exp [ -/"obj"/->exp1          ]
+                                                                                     [ -/"name"/->($[2][1])    ]
+                                                                                     [ -/"arg_ls"/->("arg_ls") ] .
+  if2(exp, exp1) :- switch($[2]) == "e_mv", ("mem_var") == exp [ -/"obj"/->exp1       ]
+                                                               [ -/"name"/->($[2][1]) ] .
+
+  loop1($$, exp, $$), if1(exp) .
+}
+
+arg_ls:
+(("exp"), ("{}*", ("arg_ls_n", (("exp")))))
+attr_grmr {
+  loop1(exp, n) :- for($[2]) == 1   , ("arg_ls") == exp [ -/n/->$[2][1] ], loop1(exp, n + 1) .
+  loop1(exp, n) :- for($[2]) == null, ("arg_ls") == exp, must_be(dst_node(exp, n), null) == 1 .
+
+  if1(exp) :- ("arg_ls") == exp [ -/1/-> $[1] ], loop1(exp, 2) .
+
+  if1($$) .
+}
+
+const_real:
+("$value")
+attr_grmr {
+  ("const") == $$ [ -/"type"/->("real") ]
+                  [ -/"value"/->($[1])  ] .
+}
+
+const_hexa:
+("$value")
+attr_grmr {
+  ("const") == $$ [ -/"type"/->("hexa") ]
+                  [ -/"value"/->($[1])  ] .
+}
+
+const_integer:
+("$value")
+attr_grmr {
+  ("const") == $$ [ -/"type"/->("integer") ]
+                  [ -/"value"/->($[1])     ] .
+}
+
+const_char:
+("$value")
+attr_grmr {
+  ("const") == $$ [ -/"type"/->("char") ]
+                  [ -/"value"/->($[1])  ] .
+}
+
+const_string:
+("$value")
+attr_grmr {
+  ("const") == $$ [ -/"type"/->("string") ]
+                  [ -/"value"/->($[1])    ] .
+}
+
+newline:
+("$value")
+attr_grmr {
+  null == null .
+}

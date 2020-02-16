@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>XML Utility</TITLE>
+</HEAD>
+
+<BODY>
+<H1>XMLユーティリティ</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.39版 2010年 9月23日<BR>
+
+<HR>
+● 主要クラス一覧
+<PRE>
+XmlUtility                     XMLユーティリティを統括するクラス
+    DtdLoader                  DTDローダー
+        ExtendedDtdLoader      拡張DTDローダー
+    DtdItr                     DTDの木構造の要素を順番に取り出すイテレータ
+        DtdHandler             DtdItrで開始タグ、終了タグの出現の通知を受ける
+            XmlComposerHandler
+    XmlItr                     XMLパースツリーからXML要素を順番に取り出すイテレータ
+    XmlValidator               XMLのDTDバリデーションを行うクラス
+        SimpleXml2Db           XMLメッセージをDBに格納するクラス
+    XmlComposer                XMLメッセージを組み立てる基底クラス
+        SimpleDb2Xml           DBからXMLメッセージを取り出すクラス
+    XmlDataRetriver            XMLパースツリーからランダムにXPathで要素の値を取り出すクラス
+    <A HREF="xml_util_acc.html">XmlDbAccessor</A>              DBに格納されたXMLの繰り返しタグ前の要素をランダムに読み書きするクラス
+        XmlDbTableAccessor     既存DBテーブルをXmlDbAccessorとして要素をランダムに読み出すクラス
+    <A HREF="xml_util_obj.html">XmlDbObject</A>                DBに格納されたXMLデータの繰り返しタグ後の要素をランダムに読み書きするクラス
+        XmlDbTableObject       既存DBテーブルをXmlDbObjectとして要素をランダムに読み出すクラス
+    Csv1Data                   XMLと相互に変換するためのCSV形式のデータを表すクラス
+        Csv1DataItr            Csv1Dataの要素を順番に取り出すイテレータ
+
+</PRE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,54 @@
+dic-1,Buyer, An employee or organization that buys products for a partner type in the supply chain.
+end-dic-1,,
+dic,/Pip3A9PurchaseOrderCancellationRequest/fromRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-1
+dic,/Pip3A9PurchaseOrderCancellationRequest/toRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-5
+dic-2,Electronic Components, The electronic components supply chain.
+dic-2,Information Technology, The information technology supply chain.
+end-dic-2,,
+dic,/Pip3A9PurchaseOrderCancellationRequest/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3A9PurchaseOrderCancellationRequest/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic-3,Broker, Representative of a third party.
+dic-3,Carrier, Product carrier for transporting goods in supply chain.
+dic-3,Contract Manufacturer, The party responsible for the services rendered.
+dic-3,Customs Broker, Product customs broker in supply chain.
+dic-3,Distribution Center, Product distributor in supply chain.
+dic-3,Distributor, Product distributor in supply chain.
+dic-3,End User, Product end user in supply chain.
+dic-3,End User Government, End user government.
+dic-3,Financier, Financial service provider in supply chain
+dic-3,Freight Forwarder, Product freight forwarder for transporting goods in supply chain.
+dic-3,Manufacturer, Product manufacturer in supply chain.
+dic-3,Original Equipment Manufacturer, Product manufacturer of original equipment in the supply chain.
+dic-3,Reseller, A party buys goods from a manufacturer and resells them to customers unchanged.
+dic-3,Retailer, Product retailer in supply chain.
+dic-3,Shopper, Product shopper in supply chain.
+dic-3,Warehouser, Product warehouser in supply chain.
+end-dic-3,,
+dic,/Pip3A9PurchaseOrderCancellationRequest/fromRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3A9PurchaseOrderCancellationRequest/toRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic-4,Request, The business document is a request for a business action to be performed by a partner.
+end-dic-4,,
+dic,/Pip3A9PurchaseOrderCancellationRequest/GlobalDocumentFunctionCode,dic-4
+dic-5,Seller, An organization that sells products to partners in the supply chain.
+end-dic-5,,,,,
+type,/Pip3A9PurchaseOrderCancellationRequest/fromRole/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1,,
+type,/Pip3A9PurchaseOrderCancellationRequest/toRole/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1,,
+type,/Pip3A9PurchaseOrderCancellationRequest/fromRole/PartnerRoleDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip3A9PurchaseOrderCancellationRequest/toRole/PartnerRoleDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip3A9PurchaseOrderCancellationRequest/fromRole/PartnerRoleDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A9PurchaseOrderCancellationRequest/fromRole/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A9PurchaseOrderCancellationRequest/toRole/PartnerRoleDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A9PurchaseOrderCancellationRequest/toRole/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A9PurchaseOrderCancellationRequest/fromRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1,,
+type,/Pip3A9PurchaseOrderCancellationRequest/toRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1,,
+type,/Pip3A9PurchaseOrderCancellationRequest/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3A9PurchaseOrderCancellationRequest/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3A9PurchaseOrderCancellationRequest/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3A9PurchaseOrderCancellationRequest/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3A9PurchaseOrderCancellationRequest/fromRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3A9PurchaseOrderCancellationRequest/toRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3A9PurchaseOrderCancellationRequest/GlobalDocumentFunctionCode,String,1,,
+type,/Pip3A9PurchaseOrderCancellationRequest/PurchaseOrderCancellation/purchaseOrderIdentifier/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip3A9PurchaseOrderCancellationRequest/thisDocumentIdentifier/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip3A9PurchaseOrderCancellationRequest/PurchaseOrderCancellation/RevisionNumber,String,1,,
+type,/Pip3A9PurchaseOrderCancellationRequest/thisDocumentGenerationDateTime/DateTimeStamp,DateTime,13,20,9(8)X9(6)V9(3)X

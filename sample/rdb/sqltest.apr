@@ -1,0 +1,1452 @@
+$END_LIB
+TEXT
+AlObject
+class SQLTestBase
+class SQLTest
+end_class
+class SQLTest2
+end_class
+class SQLTest3
+end_class
+end_class
+$END_CLASS
+TEXT
+AlObject
+class SQLTestBase
+member
+public: static void oracle_ODBC();
+member
+public: static void oracle_OCI();
+member
+public: static void postgresQL_ODBC();
+member
+public: static void postgresQL_libpq();
+member
+public: static void MySQL_ODBC();
+member
+public: static void MySQL_mysqlclient();
+member
+public: static string db_type;
+class SQLTest
+member
+public: static void test_create_table();
+member
+public: static void test_drop_table();
+member
+public: static void test_insert();
+member
+public: static void insert_1000();
+member
+public: static void test_null_insert();
+member
+public: static void test_ctrl_a_insert();
+member
+public: static void test_sjis_insert();
+member
+public: static void test_select();
+member
+public: static void test_select2();
+member
+public: static void test_update();
+member
+public: static void test_col_names();
+member
+public: static void test_leak();
+member
+public: void connect();
+member
+public: void create_table();
+member
+public: void drop_table();
+member
+public: void insert();
+member
+public: void null_insert();
+member
+public: void ctrl_a_insert();
+member
+public: void sjis_insert();
+member
+public: void select();
+member
+public: void _select();
+member
+public: void select2();
+member
+public: void update();
+member
+public: void col_names();
+member
+public: static SQLTest inst;
+member
+public: list connection;
+member
+public: string host;
+member
+public: string port;
+member
+public: string db_name;
+member
+public: string user;
+member
+public: string passwd;
+end_class
+class SQLTest2
+member
+public: static void test_create_table();
+member
+public: static void test_drop_table();
+member
+public: static void test_insert();
+member
+public: static void test_select();
+member
+public: void connect();
+member
+public: void create_table();
+member
+public: void drop_table();
+member
+public: void insert();
+member
+public: void select();
+member
+public: static SQLTest2 inst;
+member
+public: list connection;
+member
+public: string host;
+member
+public: string port;
+member
+public: string db_name;
+member
+public: string user;
+member
+public: string passwd;
+end_class
+class SQLTest3
+member
+public: static void test_ceate_table();
+member
+public: static void test_drop_table();
+member
+public: static void test_col_types();
+member
+public: void connect();
+member
+public: void create_table();
+member
+public: void drop_table();
+member
+public: void col_types();
+member
+public: static SQLTest3 inst;
+member
+public: list connection;
+member
+public: string host;
+member
+public: string port;
+member
+public: string db_name;
+member
+public: string user;
+member
+public: string passwd;
+end_class
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class SQLTestBase
+member
+public: static void oracle_ODBC();
+body
+{
+	db_type = "oracle_ODBC";
+}
+end_body
+member
+public: static void oracle_OCI();
+body
+{
+	db_type = "oracle_OCI";
+}
+end_body
+member
+public: static void postgresQL_ODBC();
+body
+{
+	db_type = "postgresQL_ODBC";
+}
+end_body
+member
+public: static void postgresQL_libpq();
+body
+{
+	db_type = "postgresQL_libpq";
+}
+end_body
+member
+public: static void MySQL_ODBC();
+body
+{
+	db_type = "MySQL_ODBC";
+}
+end_body
+member
+public: static void MySQL_mysqlclient();
+body
+{
+	db_type = "MySQL_mysqlclient";
+}
+end_body
+member
+public: static string db_type;
+class SQLTest
+member
+public: static void test_create_table();
+body
+{
+	inst = new SQLTest;
+	inst.connect();
+	if (inst.connection) {
+		inst.create_table();
+	} else {
+		al_print("please set database type by static method of SQLTestBase.\n");
+	}
+	inst = null;
+}
+end_body
+member
+public: static void test_drop_table();
+body
+{
+	inst = new SQLTest;
+	inst.connect();
+	if (inst.connection) {
+		inst.drop_table();
+	} else {
+		al_print("please set database type by static method of SQLTestBase.\n");
+	}
+	inst = null;
+}
+end_body
+member
+public: static void test_insert();
+body
+{
+	inst = new SQLTest;
+	inst.connect();
+	if (inst.connection) {
+		inst.insert();
+	} else {
+		al_print("please set database type by static method of SQLTestBase.\n");
+	}
+	inst = null;
+}
+end_body
+member
+public: static void insert_1000();
+body
+{
+	inst = new SQLTest;
+	inst.connect();
+	if (inst.connection) {
+		var integer i, s, e;
+		s = al_misc("time_stamp", null, null);
+		i = 0;
+		loop {
+			if (i < 1000) {
+			} else {
+				break;
+			}
+			inst.insert();
+			i = i + 1;
+		}
+		e = al_misc("time_stamp", null, null);
+		al_print("time = " + (string)(e - s) + " msec\n");
+	} else {
+		al_print("please set database type by static method of SQLTestBase.\n");
+	}
+	inst = null;
+}
+end_body
+member
+public: static void test_null_insert();
+body
+{
+	inst = new SQLTest;
+	inst.connect();
+	if (inst.connection) {
+		inst.null_insert();
+	} else {
+		al_print("please set database type by static method of SQLTestBase.\n");
+	}
+	inst = null;
+}
+end_body
+member
+public: static void test_ctrl_a_insert();
+body
+{
+	inst = new SQLTest;
+	inst.connect();
+	if (inst.connection) {
+		inst.ctrl_a_insert();
+	} else {
+		al_print("please set database type by static method of SQLTestBase.\n");
+	}
+	inst = null;
+}
+end_body
+member
+public: static void test_sjis_insert();
+body
+{
+	inst = new SQLTest;
+	inst.connect();
+	if (inst.connection) {
+		inst.sjis_insert();
+	} else {
+		al_print("please set database type by static method of SQLTestBase.\n");
+	}
+	inst = null;
+}
+end_body
+member
+public: static void test_select();
+body
+{
+	inst = new SQLTest;
+	inst.connect();
+	if (inst.connection) {
+		inst.select();
+	} else {
+		al_print("please set database type by static method of SQLTestBase.\n");
+	}
+	inst = null;
+}
+end_body
+member
+public: static void test_select2();
+body
+{
+	inst = new SQLTest;
+	inst.connect();
+	if (inst.connection) {
+		inst.select2();
+	} else {
+		al_print("please set database type by static method of SQLTestBase.\n");
+	}
+	inst = null;
+}
+end_body
+member
+public: static void test_update();
+body
+{
+	inst = new SQLTest;
+	inst.connect();
+	if (inst.connection) {
+		inst.update();
+	} else {
+		al_print("please set database type by static method of SQLTestBase.\n");
+	}
+	inst = null;
+}
+end_body
+member
+public: static void test_col_names();
+body
+{
+	inst = new SQLTest;
+	inst.connect();
+	if (inst.connection) {
+		inst.col_names();
+	} else {
+		al_print("please set database type by static method of SQLTestBase.\n");
+	}
+	inst = null;
+}
+end_body
+member
+public: static void test_leak();
+body
+{
+	inst = new SQLTest;
+	inst.connect();
+	if (inst.connection) {
+		var integer i, j;
+		i = 0;
+		loop {
+			if (i < 100) {
+			} else {
+				break;
+			}
+			j = 0;
+			loop {
+				if (j < 100) {
+				} else {
+					break;
+				}
+				inst._select();
+				j = j + 1;
+			}
+			al_misc("sleep", 1000, null);
+			i = i + 1;
+		}
+		al_print("END\n");
+	} else {
+		al_print("please set database type by static method of SQLTestBase.\n");
+	}
+	inst = null;
+}
+end_body
+member
+public: void connect();
+body
+{
+	if (db_type == "oracle_ODBC" || db_type == "oracle_OCI") {
+		host = "altair";
+		port = 1521;
+		db_name = "ORCL";
+		user = "scott";
+		passwd = "tiger";
+		var list conn_info;
+		conn_info = al_list5(host, port, db_name, user, passwd);
+		connection = al_sql("connect", conn_info, "oracle", null, null);
+	} else {
+	}
+	if (db_type == "postgresQL_ODBC" || db_type == "postgresQL_libpq") {
+		host = "localhost";
+		port = 5432;
+		db_name = "testdb";
+		user = "inamoto";
+		passwd = "naota";
+		var list conn_info;
+		conn_info = al_list5(host, port, db_name, user, passwd);
+		connection = al_sql("connect", conn_info, "postgresql", null, null);
+	} else {
+	}
+	if (db_type == "MySQL_ODBC" || db_type == "MySQL_mysqlclient") {
+		host = "localhost";
+		port = 3306;
+		db_name = "my_testdb";
+		user = "inamoto";
+		passwd = "naota";
+		var list conn_info;
+		conn_info = al_list5(host, port, db_name, user, passwd);
+		connection = al_sql("connect", conn_info, "mysql", null, null);
+	} else {
+	}
+	if (al_is_type(connection, "string")) {
+		al_print(connection + "\n");
+		connection = null;
+	} else {
+	}
+}
+end_body
+member
+public: void create_table();
+body
+{
+	var string sql;
+	if (db_type == "oracle_ODBC" || db_type == "oracle_OCI") {
+		sql = "create table test_table(id integer, name varchar2(32), balance real)";
+	} else {
+		sql = "create table test_table(id integer, name varchar(32), balance real)";
+	}
+	var list statement, result_set;
+	statement = al_sql("statement", connection, null, null, null);
+	if (al_is_type(statement, "string")) {
+		al_print(statement + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("execute", statement, sql, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("commit", connection, null, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: void drop_table();
+body
+{
+	var string sql;
+	sql = "drop table test_table";
+	var list statement, result_set;
+	statement = al_sql("statement", connection, null, null, null);
+	if (al_is_type(statement, "string")) {
+		al_print(statement + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("execute", statement, sql, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("commit", connection, null, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: void insert();
+body
+{
+	var string sql;
+	sql = "insert into test_table values(?, ?, ?)";
+	var list statement, values, result_set;
+	statement = al_sql("statement", connection, null, null, null);
+	if (al_is_type(statement, "string")) {
+		al_print(statement + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("prepare", statement, sql, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	values = al_cons(null, null);
+	al_create_arc(values, 0, null);
+	al_create_arc(values, "", null);
+	al_create_arc(values, 0., null);
+	result_set = al_sql("execute", statement, null, values, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	values = al_cons(null, null);
+	al_create_arc(values, 1111, null);
+	al_create_arc(values, "田中 千晶", null);
+	al_create_arc(values, 1000., null);
+	result_set = al_sql("execute", statement, null, values, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	values = al_cons(null, null);
+	al_create_arc(values, 2222, null);
+	al_create_arc(values, "稲本 直太", null);
+	al_create_arc(values, 500., null);
+	result_set = al_sql("execute", statement, null, values, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	values = al_cons(null, null);
+	al_create_arc(values, 1234, null);
+	al_create_arc(values, "篠置 昭男", null);
+	al_create_arc(values, 1234.5678, null);
+	result_set = al_sql("execute", statement, null, values, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	values = al_cons(null, null);
+	al_create_arc(values, 1938, null);
+	al_create_arc(values, "国井 利泰", null);
+	al_create_arc(values, 1938.11, null);
+	result_set = al_sql("execute", statement, null, values, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	values = al_cons(null, null);
+	al_create_arc(values, 1, null);
+	al_create_arc(values, "", null);
+	al_create_arc(values, 1., null);
+	result_set = al_sql("execute", statement, null, values, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("commit", connection, null, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: void null_insert();
+body
+{
+	var string sql;
+	sql = "insert into test_table values(null, null, null)";
+	var list statement, result_set;
+	statement = al_sql("statement", connection, null, null, null);
+	if (al_is_type(statement, "string")) {
+		al_print(statement + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("execute", statement, sql, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("commit", connection, null, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: void ctrl_a_insert();
+body
+{
+	var string sql, name;
+	var list bin;
+	bin = al_misc("binary", 3, null);
+	al_misc("put_byte", al_list2(bin, 0), 'A');
+	al_misc("put_byte", al_list2(bin, 1), 0x0000000000000001);
+	al_misc("put_byte", al_list2(bin, 2), 'X');
+	name = al_misc("binary_to_string", al_list3(bin, 0, 3), null);
+	sql = "insert into test_table values(?, ?, ?)";
+	var list statement, values, result_set;
+	statement = al_sql("statement", connection, null, null, null);
+	if (al_is_type(statement, "string")) {
+		al_print(statement + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("prepare", statement, sql, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	values = al_cons(null, null);
+	al_create_arc(values, "111111111", null);
+	al_create_arc(values, name, null);
+	al_create_arc(values, "999999999", null);
+	result_set = al_sql("execute", statement, null, values, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("commit", connection, null, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: void sjis_insert();
+body
+{
+	var string sql;
+	sql = "insert into test_table values(211, '稲本直太', 3.1415926535)";
+	var list statement, result_set;
+	statement = al_sql("statement", connection, null, null, null);
+	if (al_is_type(statement, "string")) {
+		al_print(statement + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("execute", statement, sql, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("commit", connection, null, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: void select();
+body
+{
+	var string sql;
+	sql = "select id, name, balance from test_table";
+	var list statement, types, result_set;
+	statement = al_sql("statement", connection, null, null, null);
+	if (al_is_type(statement, "string")) {
+		al_print(statement + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("execute", statement, sql, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	types = al_cons(null, null);
+	al_create_arc(types, "integer", null);
+	al_create_arc(types, "string", null);
+	al_create_arc(types, "real", null);
+	result_set = al_sql("result", statement, types, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	if (result_set) {
+		var list itr, result, itr2, val;
+		var integer count;
+		itr = al_dst_itr(result_set);
+		count = 1;
+		loop {
+			if (result = al_next(itr)) {
+			} else {
+				break;
+			}
+			al_print("count = " + (string)count + "\n");
+			itr2 = al_dst_itr(result);
+			loop {
+				if (val = al_next(itr2)) {
+				} else {
+					break;
+				}
+				var list bin;
+				bin = al_misc("binary", 1024, null);
+				al_misc("binary_copy", al_list3(bin, 0, al_strlen((string)val)), (string)val);
+				al_print((string)al_arc_a(itr2) + " = " + (string)val + ",  2nd char = " + (string)al_misc("get_byte", al_list2(bin, 1), null) + "\n");
+			}
+			count = count + 1;
+		}
+	} else {
+	}
+}
+end_body
+member
+public: void _select();
+body
+{
+	var string sql;
+	sql = "select id, name, balance from test_table";
+	var list statement, types, result_set;
+	statement = al_sql("statement", connection, null, null, null);
+	if (al_is_type(statement, "string")) {
+		al_print(statement + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("execute", statement, sql, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	types = al_cons(null, null);
+	al_create_arc(types, "integer", null);
+	al_create_arc(types, "string", null);
+	al_create_arc(types, "real", null);
+	result_set = al_sql("result", statement, types, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	if (result_set) {
+		var list itr, result, itr2, val;
+		var integer count;
+		itr = al_dst_itr(result_set);
+		count = 1;
+		loop {
+			if (result = al_next(itr)) {
+			} else {
+				break;
+			}
+			// al_print("count = " + (string)count + "\n");
+			itr2 = al_dst_itr(result);
+			loop {
+				if (val = al_next(itr2)) {
+				} else {
+					break;
+				}
+				var list bin;
+				bin = al_misc("binary", 1024, null);
+				al_misc("binary_copy", al_list3(bin, 0, al_strlen((string)val)), (string)val);
+				// al_print((string)al_arc_a(itr2) + " = " + (string)val + ",  2nd char = " + (string)al_misc("get_byte", al_list2(bin, 1), null) + "\n");
+			}
+			count = count + 1;
+		}
+	} else {
+	}
+}
+end_body
+member
+public: void select2();
+body
+{
+	var string sql;
+	sql = "select id, name, balance from test_table";
+	var list statement, types, result_set;
+	statement = al_sql("statement", connection, null, null, null);
+	if (al_is_type(statement, "string")) {
+		al_print(statement + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("execute", statement, sql, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	var integer count;
+	count = 2;
+	types = al_cons(null, null);
+	al_create_arc(types, "integer", null);
+	al_create_arc(types, "string", null);
+	al_create_arc(types, "real", null);
+	loop {
+		if (count < 2) {
+			break;
+		} else {
+		}
+		result_set = al_sql("result", statement, types, 2, null);
+		if (al_is_type(result_set, "string")) {
+			al_print(result_set + "\n");
+			return;
+		} else {
+		}
+		if (result_set) {
+			var list itr, result, itr2, val;
+			itr = al_dst_itr(result_set);
+			count = al_count(itr);
+			if (count == 0) {
+				break;
+			} else {
+				al_print((string)count + " records are fetched.\n");
+			}
+			loop {
+				if (result = al_next(itr)) {
+				} else {
+					break;
+				}
+				itr2 = al_dst_itr(result);
+				loop {
+					if (val = al_next(itr2)) {
+					} else {
+						break;
+					}
+					al_print((string)al_arc_a(itr2) + " = " + (string)val + "\n");
+				}
+			}
+		} else {
+		}
+	}
+}
+end_body
+member
+public: void update();
+body
+{
+	var string sql;
+	if (db_type == "oracle_ODBC" || db_type == "oracle_OCI") {
+		sql = "update test_table set balance=? where name=?";
+		// sql = "update test_table set balance=:3 where name=:2";
+		// sql = "update test_table set balance=:balance where name=:name";
+	} else {
+		sql = "update test_table set balance=? where name=?";
+	}
+	var list statement, values, result_set;
+	statement = al_sql("statement", connection, null, null, null);
+	if (al_is_type(statement, "string")) {
+		al_print(statement + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("prepare", statement, sql, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	values = al_cons(null, null);
+	al_create_arc(values, 10000., null);
+	al_create_arc(values, "Chiaki Tanaka", null);
+	result_set = al_sql("execute", statement, null, values, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("commit", connection, null, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: void col_names();
+body
+{
+	var string sql;
+	sql = "select * from test_table";
+	var list statement, result_set;
+	statement = al_sql("statement", connection, null, null, null);
+	if (al_is_type(statement, "string")) {
+		al_print(statement + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("execute", statement, sql, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("col_names", statement, null, null, null);
+	var list itr, name;
+	itr = al_dst_itr(result_set);
+	loop {
+		if (name = al_next(itr)) {
+		} else {
+			break;
+		}
+		al_print((string)al_arc_a(itr) + "  " + name + "\n");
+	}
+}
+end_body
+member
+public: static SQLTest inst;
+member
+public: list connection;
+member
+public: string host;
+member
+public: string port;
+member
+public: string db_name;
+member
+public: string user;
+member
+public: string passwd;
+end_class
+class SQLTest2
+member
+public: static void test_create_table();
+body
+{
+	inst = new SQLTest2;
+	inst.connect();
+	if (inst.connection) {
+		inst.create_table();
+	} else {
+		al_print("please set database type by static method of SQLTestBase.\n");
+	}
+	inst = null;
+}
+end_body
+member
+public: static void test_drop_table();
+body
+{
+	inst = new SQLTest2;
+	inst.connect();
+	if (inst.connection) {
+		inst.drop_table();
+	} else {
+		al_print("please set database type by static method of SQLTestBase.\n");
+	}
+	inst = null;
+}
+end_body
+member
+public: static void test_insert();
+body
+{
+	inst = new SQLTest2;
+	inst.connect();
+	if (inst.connection) {
+		inst.insert();
+	} else {
+		al_print("please set database type by static method of SQLTestBase.\n");
+	}
+	inst = null;
+}
+end_body
+member
+public: static void test_select();
+body
+{
+	inst = new SQLTest2;
+	inst.connect();
+	if (inst.connection) {
+		inst.select();
+	} else {
+		al_print("please set database type by static method of SQLTestBase.\n");
+	}
+	inst = null;
+}
+end_body
+member
+public: void connect();
+body
+{
+	if (db_type == "oracle_ODBC" || db_type == "oracle_OCI") {
+		host = "altair";
+		port = 1521;
+		db_name = "ORCL";
+		user = "scott";
+		passwd = "tiger";
+		var list conn_info;
+		conn_info = al_list5(host, port, db_name, user, passwd);
+		connection = al_sql("connect", conn_info, "oracle", null, null);
+	} else {
+	}
+	if (db_type == "postgresQL_ODBC" || db_type == "postgresQL_libpq") {
+		host = "localhost";
+		port = 5432;
+		db_name = "postgreSQL";
+		user = "inamoto";
+		passwd = "naota";
+		var list conn_info;
+		conn_info = al_list5(host, port, db_name, user, passwd);
+		connection = al_sql("connect", conn_info, "postgresql", null, null);
+	} else {
+	}
+	if (db_type == "MySQL_ODBC" || db_type == "MySQL_mysqlclient") {
+		host = "localhost";
+		port = 3306;
+		db_name = "MySQL";
+		user = "inamoto";
+		passwd = "naota";
+		var list conn_info;
+		conn_info = al_list5(host, port, db_name, user, passwd);
+		connection = al_sql("connect", conn_info, "mysql", null, null);
+	} else {
+	}
+	if (al_is_type(connection, "string")) {
+		al_print(connection + "\n");
+		connection = null;
+	} else {
+	}
+}
+end_body
+member
+public: void create_table();
+body
+{
+	var string sql;
+	if (db_type == "oracle_ODBC" || db_type == "oracle_OCI") {
+		sql = "create table test_table2(ddd date, iii blob)";
+	} else {
+	}
+	if (db_type == "postgresQL_ODBC" || db_type == "postgresQL_libpq") {
+		sql = "create table test_table2(ddd timestamp, iii bytea)";
+	} else {
+	}
+	if (db_type == "MySQL_ODBC" || db_type == "MySQL_mysqlclient") {
+		sql = "create table test_table2(ddd timestamp, iii blob)";
+	} else {
+	}
+	var list statement, result_set;
+	statement = al_sql("statement", connection, null, null, null);
+	if (al_is_type(statement, "string")) {
+		al_print(statement + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("execute", statement, sql, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("commit", connection, null, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: void drop_table();
+body
+{
+	var string sql;
+	sql = "drop table test_table2";
+	var list statement, result_set;
+	statement = al_sql("statement", connection, null, null, null);
+	if (al_is_type(statement, "string")) {
+		al_print(statement + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("execute", statement, sql, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("commit", connection, null, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: void insert();
+body
+{
+	var string sql;
+	sql = "insert into test_table2 values(?, ?)";
+	var list statement, values, result_set;
+	statement = al_sql("statement", connection, null, null, null);
+	if (al_is_type(statement, "string")) {
+		al_print(statement + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("prepare", statement, sql, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	var list date, binary;
+	var integer len;
+	var file f;
+	date = al_file_manip("current_datetime", null, null);
+	al_print("date = " + (string)date + "\n");
+	len = al_file_manip("get_size", "read.gif", null);
+	binary = al_misc("binary", len, null);
+	f = al_file_open("read.gif", "rb");
+	al_file_read(f, al_list3(binary, 0, len));
+	values = al_cons(null, null);
+	al_create_arc(values, date, null);
+	al_create_arc(values, binary, null);
+	result_set = al_sql("execute", statement, null, values, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("commit", connection, null, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: void select();
+body
+{
+	var string sql;
+	sql = "select ddd, iii from test_table2";
+	var list statement, types, result_set;
+	statement = al_sql("statement", connection, null, null, null);
+	if (al_is_type(statement, "string")) {
+		al_print(statement + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("execute", statement, sql, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	types = al_cons(null, null);
+	al_create_arc(types, "date", null);
+	al_create_arc(types, "binary", null);
+	result_set = al_sql("result", statement, types, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	if (result_set) {
+		var list itr, result, itr2, val;
+		itr = al_dst_itr(result_set);
+		loop {
+			if (result = al_next(itr)) {
+			} else {
+				break;
+			}
+			itr2 = al_dst_itr(result);
+			loop {
+				if (val = al_next(itr2)) {
+				} else {
+					break;
+				}
+				if (al_arc_a(itr2) == 1) {
+					al_print((string)al_arc_a(itr2) + " = " + (string)val + "\n");
+				} else {
+				}
+				if (al_arc_a(itr2) == 2) {
+					var integer len;
+					var file f;
+					len = al_misc("binary_size", val, null);
+					f = al_file_open("write.gif", "wb");
+					al_file_write(f, al_list3(val, 0, len), null);
+				} else {
+				}
+			}
+		}
+	} else {
+	}
+}
+end_body
+member
+public: static SQLTest2 inst;
+member
+public: list connection;
+member
+public: string host;
+member
+public: string port;
+member
+public: string db_name;
+member
+public: string user;
+member
+public: string passwd;
+end_class
+class SQLTest3
+member
+public: static void test_ceate_table();
+body
+{
+	inst = new SQLTest3;
+	inst.connect();
+	if (inst.connection) {
+		inst.create_table();
+	} else {
+		al_print("please set database type by static method of SQLTestBase.\n");
+	}
+	inst = null;
+}
+end_body
+member
+public: static void test_drop_table();
+body
+{
+	inst = new SQLTest3;
+	inst.connect();
+	if (inst.connection) {
+		inst.drop_table();
+	} else {
+		al_print("please set database type by static method of SQLTestBase.\n");
+	}
+	inst = null;
+}
+end_body
+member
+public: static void test_col_types();
+body
+{
+	inst = new SQLTest3;
+	inst.connect();
+	if (inst.connection) {
+		inst.col_types();
+	} else {
+		al_print("please set database type by static method of SQLTestBase.\n");
+	}
+	inst = null;
+}
+end_body
+member
+public: void connect();
+body
+{
+	if (db_type == "oracle_ODBC" || db_type == "oracle_OCI") {
+		host = "altair";
+		port = 1521;
+		db_name = "ORCL";
+		user = "scott";
+		passwd = "tiger";
+		var list conn_info;
+		conn_info = al_list5(host, port, db_name, user, passwd);
+		connection = al_sql("connect", conn_info, "oracle", null, null);
+	} else {
+	}
+	if (db_type == "postgresQL_ODBC" || db_type == "postgresQL_libpq") {
+		host = "localhost";
+		port = 5432;
+		db_name = "postgreSQL";
+		user = "inamoto";
+		passwd = "naota";
+		var list conn_info;
+		conn_info = al_list5(host, port, db_name, user, passwd);
+		connection = al_sql("connect", conn_info, "postgresql", null, null);
+	} else {
+	}
+	if (db_type == "MySQL_ODBC" || db_type == "MySQL_mysqlclient") {
+		host = "localhost";
+		port = 3306;
+		db_name = "MySQL";
+		user = "inamoto";
+		passwd = "naota";
+		var list conn_info;
+		conn_info = al_list5(host, port, db_name, user, passwd);
+		connection = al_sql("connect", conn_info, "mysql", null, null);
+	} else {
+	}
+	if (al_is_type(connection, "string")) {
+		al_print(connection + "\n");
+		connection = null;
+	} else {
+	}
+}
+end_body
+member
+public: void create_table();
+body
+{
+	var string sql;
+	if (db_type == "oracle_ODBC" || db_type == "oracle_OCI") {
+		sql = "create table test_table3(no integer, id number(7) not null, name varchar2(32), balance real, balance2 number(10,2), country char(3), img blob)";
+	} else {
+	}
+	if (db_type == "postgresQL_ODBC" || db_type == "postgresQL_libpq") {
+		sql = "create table test_table3(no integer, id numeric(7) not null, name varchar(32), balance real, balance2 numeric(10,2), country char(3), img bytea)";
+	} else {
+	}
+	if (db_type == "MySQL_ODBC" || db_type == "MySQL_mysqlclient") {
+		sql = "create table test_table3(no integer, id numeric(7) not null, name varchar(32), balance real, balance2 numeric(10,2), country char(3), img blob)";
+	} else {
+	}
+	var list statement, result_set;
+	statement = al_sql("statement", connection, null, null, null);
+	if (al_is_type(statement, "string")) {
+		al_print(statement + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("execute", statement, sql, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("commit", connection, null, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: void drop_table();
+body
+{
+	var string sql;
+	sql = "drop table test_table3";
+	var list statement, result_set;
+	statement = al_sql("statement", connection, null, null, null);
+	if (al_is_type(statement, "string")) {
+		al_print(statement + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("execute", statement, sql, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("commit", connection, null, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: void col_types();
+body
+{
+	var string sql;
+	sql = "select * from test_table3";
+	var list statement, result_set;
+	statement = al_sql("statement", connection, null, null, null);
+	if (al_is_type(statement, "string")) {
+		al_print(statement + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("execute", statement, sql, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("col_types", statement, null, null, null);
+	var list itr, ls, nullable;
+	var string type;
+	var integer count, size, decimal;
+	itr = al_dst_itr(result_set);
+	loop {
+		if (ls = al_next(itr)) {
+		} else {
+			break;
+		}
+		count = al_arc_a(itr);
+		type = al_dst_node(ls, "type");
+		size = al_dst_node(ls, "size");
+		decimal = al_dst_node(ls, "decimal");
+		nullable = al_dst_node(ls, "nullable");
+		al_print((string)count + ": type = " + (string)type + ", size = " + (string)size);
+		al_print(", decimal = " + (string)decimal + ", nullable = " + (string)nullable + "\n");
+	}
+}
+end_body
+member
+public: static SQLTest3 inst;
+member
+public: list connection;
+member
+public: string host;
+member
+public: string port;
+member
+public: string db_name;
+member
+public: string user;
+member
+public: string passwd;
+end_class
+end_class
+$END_BODY

@@ -1,0 +1,382 @@
+<!--
+
+   RosettaNet XML Message Guideline.
+   http://www.rosettanet.org
+   2 A1 Product Resource Update Version 1.0
+   
+   This DTD has been prepared by Edifecs Commerce. 
+   http://www.edifecs.com
+   http://www.commercedesk.com
+-->
+
+
+<!ENTITY % common-attributes "id  CDATA #IMPLIED" >
+ 
+<!ELEMENT Pip2A1ProductResourceUpdate ( 
+          fromRole ,
+          toRole ,
+          thisDocumentGenerationDateTime ,
+          thisDocumentIdentifier ,
+          GlobalDocumentFunctionCode,
+(           SalesCatalog |
+           ComponentTechnicalSpecification ) ) > 
+
+<!ELEMENT SalesCatalog ( 
+          ProductLineItem+ ,
+          catalogIdentifier ,
+          effectiveDate ,
+          GlobalActionCode ) > 
+
+<!ELEMENT ProductLineItem ( 
+          authorizationPrerequirements ,
+          minimumOrderQuantity ,
+          warrantyDescription ,
+          productUnit ,
+          replacementProductIdentifier? ,
+          MultipleQuantityPrice? ,
+          GlobalRegulationCode? ,
+          PalletDescription? ,
+          countryOfOrigin? ,
+          productAvailableInCountries+ ,
+          GlobalProductUnitOfMeasureCode ,
+          unitPrice ,
+          SpecialHandlingInstruction ) > 
+
+<!ELEMENT authorizationPrerequirements
+           ( FreeFormText ) > 
+
+<!ELEMENT FreeFormText
+           ( #PCDATA ) >
+<!ATTLIST FreeFormText
+           xml:lang CDATA #IMPLIED >
+
+<!ELEMENT minimumOrderQuantity
+           ( ProductQuantity ) > 
+
+<!ELEMENT ProductQuantity
+           ( #PCDATA ) >
+
+<!ELEMENT warrantyDescription
+            ( FreeFormText ) > 
+
+<!ELEMENT productUnit
+            ( ProductPackageDescription ) > 
+
+<!ELEMENT ProductPackageDescription ( 
+          ProductDescription? ,
+          unitPrice? ,
+          listPrice? ,
+          previousUnitPrice? ,
+          previousListPrice? ,
+          PhysicalDimension? ) > 
+
+<!ELEMENT ProductDescription ( 
+          TextualDescription? ,
+          productName? ,
+          GlobalProductIdentifier ,
+          ProprietaryProductIdentifier ,
+          GlobalSerialIdentifier ,
+          PhysicalDimension? ,
+          NationalHarmonizedTariffScheduleCode? ,
+          NationalExportControlClassificationCode? ,
+          NationalHazardousMaterialUnitedNationsClassificationCode? ,
+          NationalFederalCommunicationsCommissionLicenseNumberClassificationCode? ,
+          NationalFoodAndDrugAdministrationCertificationNumberClassificationCode? ,
+          ProprietaryProductClassificationCode? ,
+          GlobalProductClassificationCode ) > 
+
+<!ELEMENT TextualDescription ( 
+          primary ,
+          detail ,
+          summary ) > 
+
+<!ELEMENT primary
+            ( FreeFormText ) > 
+
+<!ELEMENT detail
+            ( FreeFormText ) > 
+
+<!ELEMENT summary
+            ( FreeFormText ) > 
+
+<!ELEMENT productName
+            ( FreeFormText ) > 
+
+<!ELEMENT GlobalProductIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT ProprietaryProductIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalSerialIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT PhysicalDimension ( 
+          LengthDimension* ,
+          WidthDimension* ,
+          HeightDimension* ,
+          WeightDimension* ) > 
+
+<!ELEMENT LengthDimension
+           ( #PCDATA ) >
+<!ATTLIST LengthDimension
+           unit-of-measure    CDATA #REQUIRED>
+
+<!ELEMENT WidthDimension
+           ( #PCDATA ) >
+<!ATTLIST WidthDimension
+           unit-of-measure    CDATA #REQUIRED>
+
+<!ELEMENT HeightDimension
+           ( #PCDATA ) >
+<!ATTLIST HeightDimension
+           unit-of-measure    CDATA #REQUIRED>
+
+<!ELEMENT WeightDimension
+           ( #PCDATA ) >
+<!ATTLIST WeightDimension
+           unit-of-measure    CDATA #REQUIRED>
+
+<!ELEMENT NationalHarmonizedTariffScheduleCode
+           ( #PCDATA ) >
+
+<!ELEMENT NationalExportControlClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT NationalHazardousMaterialUnitedNationsClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT NationalFederalCommunicationsCommissionLicenseNumberClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT NationalFoodAndDrugAdministrationCertificationNumberClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT ProprietaryProductClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalProductClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT unitPrice
+            ( FinancialAmount ) > 
+
+<!ELEMENT FinancialAmount ( 
+          GlobalCurrencyCode ,
+          MonetaryAmount ) > 
+
+<!ELEMENT GlobalCurrencyCode
+           ( #PCDATA ) >
+
+<!ELEMENT MonetaryAmount
+           ( #PCDATA ) >
+
+<!ELEMENT listPrice
+            ( FinancialAmount ) > 
+
+<!ELEMENT previousUnitPrice
+            ( FinancialAmount ) > 
+
+<!ELEMENT previousListPrice
+            ( FinancialAmount ) > 
+
+<!ELEMENT replacementProductIdentifier
+            ( GlobalProductIdentifier ) > 
+
+<!ELEMENT MultipleQuantityPrice ( 
+          FinancialAmount ,
+          numberOfUnits ) > 
+
+<!ELEMENT numberOfUnits
+           ( CountableAmount ) > 
+
+<!ELEMENT CountableAmount
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalRegulationCode
+           ( #PCDATA ) >
+
+<!ELEMENT PalletDescription ( 
+          PhysicalDimension ,
+          ShippingPackageDescription+ ,
+          numberOfShippingPackages ,
+          palletQuantity ) > 
+
+<!ELEMENT ShippingPackageDescription ( 
+          ProductPackageDescription+ ,
+          PhysicalDimension ) > 
+
+<!ELEMENT numberOfShippingPackages
+            ( CountableAmount ) > 
+
+<!ELEMENT palletQuantity
+            ( ProductQuantity ) > 
+
+<!ELEMENT countryOfOrigin
+           ( GlobalCountryCode ) > 
+
+<!ELEMENT GlobalCountryCode
+           ( #PCDATA ) >
+
+<!ELEMENT productAvailableInCountries
+            ( GlobalCountryCode ) > 
+
+<!ELEMENT GlobalProductUnitOfMeasureCode
+           ( #PCDATA ) >
+
+<!ELEMENT SpecialHandlingInstruction ( 
+          GlobalSpecialHandlingCode ) > 
+
+<!ELEMENT GlobalSpecialHandlingCode
+           ( #PCDATA ) >
+
+<!ELEMENT catalogIdentifier
+           ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT ProprietaryDocumentIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT effectiveDate
+           ( DateStamp ) > 
+
+<!ELEMENT DateStamp
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalActionCode
+           ( #PCDATA ) >
+
+<!ELEMENT ComponentTechnicalSpecification ( (
+          SubComponent* ,
+          GlobalProductIdentifier? ,
+          TextualDescription? ,
+          manufacturerName* ,
+          GlobalComponentNameCode? ,
+          GlobalActionCode?,
+(           Quantity |
+           Quality )* ) | Association ) > 
+<!ATTLIST ComponentTechnicalSpecification
+           %common-attributes; > 
+
+<!ELEMENT SubComponent ( 
+          GlobalSubComponentRelationshipCode ,
+          externalComponentSpecification? ,
+          subComponentSpecification* ,
+          atLeast ,
+          atMost ) > 
+
+<!ELEMENT GlobalSubComponentRelationshipCode
+           ( #PCDATA ) >
+
+<!ELEMENT externalComponentSpecification
+           ( UniversalResourceIdentifier ) > 
+
+<!ELEMENT UniversalResourceIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT subComponentSpecification
+            ( ComponentTechnicalSpecification ) > 
+
+<!ELEMENT atLeast
+           ( Cardinality ) > 
+
+<!ELEMENT Cardinality
+           ( #PCDATA ) >
+
+<!ELEMENT atMost
+            ( Cardinality ) > 
+
+<!ELEMENT Quantity ( 
+          GlobalPhysicalUnitOfMeasureCode? ,
+          Magnitude ,
+          GlobalSpecificationNameCode ) > 
+
+<!ELEMENT GlobalPhysicalUnitOfMeasureCode
+           ( #PCDATA ) >
+
+<!ELEMENT Magnitude
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalSpecificationNameCode
+           ( #PCDATA ) >
+
+<!ELEMENT Quality ( 
+          GlobalSpecificationNameCode,
+(           GlobalSpecificationValueCode |
+           Value ) ) > 
+
+<!ELEMENT GlobalSpecificationValueCode
+           ( #PCDATA ) >
+
+<!ELEMENT Value
+           ( #PCDATA ) >
+
+<!ELEMENT manufacturerName
+            ( FreeFormText ) > 
+
+<!ELEMENT GlobalComponentNameCode
+           ( #PCDATA ) >
+
+<!ELEMENT fromRole
+            ( PartnerRoleDescription ) > 
+
+<!ELEMENT PartnerRoleDescription ( 
+          GlobalPartnerRoleClassificationCode ,
+          PartnerDescription ,
+          ContactInformation? ) > 
+
+<!ELEMENT ContactInformation ( 
+          contactName ,
+          telephoneNumber ,
+          EmailAddress ) > 
+
+<!ELEMENT contactName
+            ( FreeFormText ) > 
+
+<!ELEMENT telephoneNumber
+           ( CommunicationsNumber ) > 
+
+<!ELEMENT CommunicationsNumber
+           ( #PCDATA ) >
+
+<!ELEMENT EmailAddress
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalPartnerRoleClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT PartnerDescription ( 
+          GlobalPartnerClassificationCode ,
+          BusinessDescription ) > 
+
+<!ELEMENT GlobalPartnerClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT BusinessDescription ( 
+          GlobalBusinessIdentifier ,
+          GlobalSupplyChainCode ) > 
+
+<!ELEMENT GlobalBusinessIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalSupplyChainCode
+           ( #PCDATA ) >
+
+<!ELEMENT toRole
+            ( PartnerRoleDescription ) > 
+
+<!ELEMENT thisDocumentGenerationDateTime
+           ( DateTimeStamp ) > 
+
+<!ELEMENT DateTimeStamp
+           ( #PCDATA ) >
+
+<!ELEMENT thisDocumentIdentifier
+            ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT GlobalDocumentFunctionCode
+           ( #PCDATA ) >
+
+<!ELEMENT Association 	EMPTY>
+<!ATTLIST Association
+          reference   ID  #REQUIRED>
+

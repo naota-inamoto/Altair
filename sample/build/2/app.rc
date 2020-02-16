@@ -1,0 +1,34 @@
+
+#include <afxres.h>
+#include "app.h"
+
+app_main ICON DISCARDABLE "app.ico"
+
+app_main MENU PRELOAD DISCARDABLE
+BEGIN
+    POPUP "File(&F)"
+    BEGIN
+        MENUITEM "Exit(&X)", ID_FILE_EXIT
+    END
+    POPUP "Edit(&E)"
+    BEGIN
+        MENUITEM "Picture(&P)", ID_EDIT_PICT
+        MENUITEM "Control(&C)", ID_EDIT_CTRL
+    END
+END
+
+modal_dialog DIALOG DISCARDABLE  0, 0, 200, 100
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Modal Dialog"
+FONT 9, "‚l‚r ‚oƒSƒVƒbƒN"
+BEGIN
+    PUSHBUTTON      "Close",ID_END_MODAL,100,20,50,20
+END
+
+modeless_dialog DIALOG DISCARDABLE  0, 0, 200, 100
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Modeless Dialog"
+FONT 9, "‚l‚r ‚oƒSƒVƒbƒN"
+BEGIN
+    PUSHBUTTON      "Close",ID_END_MODELESS,100,20,50,20
+END

@@ -1,0 +1,492 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Altair System Function(1)</TITLE>
+</HEAD>
+
+<BODY>
+<H1>システム関数(1/3)</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.00版 1996年 2月11日<BR>
+
+<HR>
+<H3><A NAME="al_sqrt">real al_sqrt(real x);</A></H3>
+xの平方根の値を返します。<BR>
+
+<HR>
+<H3><A NAME="al_sin">real al_sin(real x);</A></H3>
+xの正弦の値を返します。<BR>
+
+<HR>
+<H3><A NAME="al_cos">real al_cos(real x);</A></H3>
+xの余弦の値を返します。<BR>
+
+<HR>
+<H3><A NAME="al_tan">real al_tan(real x);</A></H3>
+xの正接の値を返します。<BR>
+
+<HR>
+<H3><A NAME="al_asin">real al_asin(real x);</A></H3>
+xの逆正弦の値を返します。<BR>
+
+<HR>
+<H3><A NAME="al_acos">real al_acos(real x);</A></H3>
+xの逆余弦の値を返します。<BR>
+
+<HR>
+<H3><A NAME="al_atan">real al_atan(real x);</A></H3>
+xの逆正接の値を返します。<BR>
+
+<HR>
+<H3><A NAME="al_exp">real al_exp(real x);</A></H3>
+xの指数の値を返します。<BR>
+
+<HR>
+<H3><A NAME="al_log">real al_log(real x);</A></H3>
+xの対数の値を返します。<BR>
+
+<HR>
+<H3><A NAME="al_max">real al_max(real x, real y);</A></H3>
+xとyの小さくない方を返します。<BR>
+
+<HR>
+<H3><A NAME="al_min">real al_min(real x, real y);</A></H3>
+xとyの大きくない方を返します。<BR>
+
+<HR>
+<H3><A NAME="al_abs">real al_abs(real x);</A></H3>
+xの絶対値を返します。<BR>
+
+<HR>
+<H3><A NAME="al_math_misc">any al_math_misc(string cmd, any arg1, any arg2);</A></H3>
+<PRE>
+  cmd             arg1     arg2     意味
+  "is_p_num"      整数     -       arg1の整数が素数なら 1 そうでないなら null を返します。
+  "get_p_num"     整数     -       arg1の整数より大きい素数を返します。
+
+  "gcd"           整数-1   整数-2   2つの整数の最大公約数を返します。
+  "lcm"           整数-1   整数-2   2つの整数の最小公倍数を返します。
+
+  "Zp"            整数 n   素数 p   整数 n を素数 p を法とする有限体の要素にします。
+
+  "format_num"    format" 数値     数値を、UNIXの printf の書式指定の仕方で指定した形式の文字列にして返します。
+                                   valueには integer か real を入れます。
+                                   formatの主な例を以下にあげます。
+
+                                      "%d" 32ビット符号付10進整数
+                                          "%4.d" → "  21"
+                                          "%.4d  → "0021"
+                                      "%u" 32ビット符号なし10進整数
+                                      "%x" 32ビット符号なし16進数
+                                      "%o" 32ビット符号なし8進数
+                                      "%f" 64ビット浮動小数点数 ] ( [-]dddd.dddd 形式 )
+                                            "%f" → "0.123456789"
+                                          "%.3f" → "0.123"
+                                      "%e" 64ビット浮動小数点数  ( [-]d.dddd e [sign]dd[d] 形式 )
+                                      "%g" 64ビット浮動小数点数  書式 "%f" または "%e"
+
+  "gcd_ex"        a       b       拡張ユークリッド互除法を行い a*x+b*y=gcdとなるx,y,gcdを
+                                  (gcd, x, y)の形式で返します。
+  "inv_mod_m"     a       m       mod m での a の逆数を返します。
+  "crt"           (a,m)   (b,n)   x = a (mod m), x = b (mod n) の解xを返します。
+  "factor"        a       -       整数aの因子のリストを返します。
+</PRE>
+
+
+<HR>
+<H3><A NAME="al_cons">list al_cons(any x, any y);</A></H3>
+y = (a1, a2, ...) のとき、(x, a1, a2, ...) を返します。<BR>
+<BR>
+以下のプログラムを実行させると<BR>
+<PRE>
+    var list a;
+    a = al_cons(10, al_cons(20, null));
+    al_print(a.head);
+    al_print("\n");
+    al_print("a.tail.head);
+    al_print("\n");
+    a.head = 100;
+    a.tail.head = 200;
+    al_print(a.head);
+    al_print("\n");
+    al_print("a.tail.head);
+    al_print("\n");
+</PRE>
+以下のように出力されます。<BR>
+<PRE>
+10
+20
+100
+200
+</PRE>
+
+<HR>
+<H3><A NAME="al_append_list">list al_append_list(list x, any y);</A></H3>
+xが(... , a1, a2) のとき、(... , a1, a2, y) を返します。<BR>
+xがnullのときは (y)を返します。<BR>
+<BR>
+注: この関数は第１引数の最後のリストのtailに値を代入するため、<BR>
+副作用があります。<BR>
+
+<HR>
+<H3><A NAME="al_list2">list al_list2(any a1, any a2);</A></H3>
+(a1, a2) を返します。<BR>
+
+<HR>
+<H3><A NAME="al_list3">list al_list3(any a1, any a2, any a3);</A></H3>
+(a1, a2, a3) を返します。<BR>
+
+<HR>
+<H3><A NAME="al_list4">list al_list4(any a1, any a2, any a3, any a4);</A></H3>
+(a1, a2, a3, a4) を返します。<BR>
+
+<HR>
+<H3><A NAME="al_list5">list al_list5(any a1, any a2, any a3, any a4, any a5);</A></H3>
+(a1, a2, a3, a4, a5) を返します。<BR>
+
+<HR>
+<H3><A NAME="al_list6">list al_list6(any a1, any a2, any a3, any a4, any a5, any a6);</A></H3>
+(a1, a2, a3, a4, a5, a6) を返します。<BR>
+
+<HR>
+<H3><A NAME="al_list7">list al_list7(any a1, any a2, any a3, any a4, any a5, any a6, any a7);</A></H3>
+(a1, a2, a3, a4, a5, a6, a7) を返します。<BR>
+
+<HR>
+<H3><A NAME="al_list8">list al_list8(any a1, any a2, any a3, any a4, any a5, any a6, any a7, any a8);</A></H3>
+(a1, a2, a3, a4, a5, a6, a7, a8) を返します。<BR>
+
+<HR>
+<H3><A NAME="al_scan_list">list al_scan_list(string a);</A></H3>
+文字列で表されたリストデータをリストデータに変換します。<BR>
+
+<HR>
+<H3><A NAME="al_print_list">string al_print_list(list a);</A></H3>
+リストデータを文字列で表されたリストデータに変換します。<BR>
+
+<HR>
+<H3><A NAME="al_list_elem">any al_list_elem(list a, integer i);</A></H3>
+リストaのi番目の要素を取り出します。<BR>
+aがリストでなかったりリストの長さが足らない場合はnullが返ります。<BR>
+
+<HR>
+<H3><A NAME="al_set_list_elem">void al_set_list_elem(list a, integer i, any b);</A></H3>
+引数bの値をリストaのi番目の要素にセットします。<BR>
+リストの長さが足らない場合リストの長さが拡張されます。<BR>
+
+<HR>
+<H3><A NAME="al_list_misc">any al_list_misc(string cmd, any arg1, any arg2);</A></H3>
+<PRE>
+  cmd            arg1       arg2     意味
+  "copy"         リスト     -        リストarg1をコピーします。
+                                     グラフデータの出力アークは無視されます。
+  "shallow_copy" リスト     -        リストarg1をシャローコピーします。
+                                     グラフデータの出力アークは無視されます。
+
+  "append"       リスト1    リスト2  ２つのリストを結合します。
+                                     引数が (1,2)と(3,4)なら、(1,2,3,4)を返します。
+  "reverse"      リスト     -        逆順のリストを返します。
+                                     引数が (1, 2, 3)なら、(3, 2, 1)を返します。
+                                     要素は共有されます。
+  "member"       リスト     要素     リスト中に要素が含まれていれば非nullが
+                                     含まれて居なければnullが返ります。
+  "length"       リスト     -        リストの長さを返します。
+                                     引数が (1, 2, 3)なら、3を返します。
+
+  "dump"         リスト     depth    リストを深さdepthまで アウトプットウィンドウにダンプします。
+
+  "dump"         リスト   (depth,f)  リストを深さdepthまで file f にダンプします。
+</PRE>
+
+<HR>
+<H3><A NAME="al_create_array">array al_create_array(integer size);</A></H3>
+サイズsizeの１次元配列を作成し返します。<BR>
+<BR>
+以下のようなコードを実行した場合
+<PRE>
+    var array a;
+    a = al_create_array(3);
+    a[0] = 12;
+    a[1] = "abc";
+    al_print(a[0]);
+    al_print("\n");
+    al_print(a[1]);
+    al_print("\n");
+    al_print(a[2]);
+    al_print("\n");
+</PRE>
+以下のような出力結果が得られます。
+<PRE>
+    12
+    abc
+    null
+</PRE>
+
+<HR>
+<H3><A NAME="al_dst_itr">list al_dst_itr(any n);</A></H3>
+ノードnの持つ出力アークについてのイテレータを作成し返します。<BR>
+ノードから出ている出力アークには順番がついています。<BR>
+
+<HR>
+<H3><A NAME="al_src_itr">list al_src_itr(any n);</A></H3>
+ノードnの持つ入力アークについてのイテレータを作成し返します。<BR>
+ノードに入ってくる入力アークには順番がついています。<BR>
+
+<HR>
+<H3><A NAME="al_next">any al_next(list itr);</A></H3>
+出力/入力アークのイテレータをひとつ進め、そのときのイテレータの<BR>
+指す値を返します。イテレータに残りがない場合はnullを返します。<BR>
+<BR>
+注: 引数には必ずal_dst_itr/al_src_itrで作成したイテレータを<BR>
+入れてください。<BR>
+
+<HR>
+<H3><A NAME="al_next_a">any al_next_a(list itr, list attr);</A></H3>
+出力/入力アークのイテレータをアークの属性値がattrであるものまで進め、<BR>
+そのときのイテレータの指す値を返します。<BR>
+イテレータに残りがない場合はnullを返します。<BR>
+<BR>
+注: 第１引数には必ずal_dst_itr/al_src_itrで作成したイテレータを<BR>
+入れてください。<BR>
+
+<HR>
+<H3><A NAME="al_next_a2">any al_next_a2(list itr, list attr);</A></H3>
+al_next_aの高速版です。<BR>
+サーチするとき、itrのnodeから出るarcの属性と属性attrのアドレス比較行います。<BR>
+
+<HR>
+<H3><A NAME="al_prev">list al_prev(list itr);</A></H3>
+出力/入力アークのイテレータをひとつ戻し、そのときのイテレータの<BR>
+指す値を返します。イテレータに残りがない場合はnullを返します。<BR>
+<BR>
+注: 引数には必ずal_dst_itr/al_src_itrで作成したイテレータを<BR>
+入れてください。<BR>
+
+<HR>
+<H3><A NAME="al_prev_a">list al_prev_a(list itr, list attr);</A></H3>
+出力/入力アークのイテレータをアークの属性値がattrであるものまで進め、<BR>
+そのときのイテレータの指す値を返します。<BR>
+イテレータにもう残りがない場合はnullを返します。<BR>
+<BR>
+注: 第１引数には必ずal_dst_itr/al_src_itrで作成したイテレータを<BR>
+入れてください。<BR>
+
+<HR>
+<H3><A NAME="al_prev_a2">any al_prev_a2(list itr, list attr);</A></H3>
+al_prev_aの高速版です。<BR>
+サーチするとき、itrのnodeから出るarcの属性と属性attrのアドレス比較行います。<BR>
+<BR>
+注: 第１引数には必ずal_dst_itr/al_src_itrで作成したイテレータを<BR>
+入れてください。<BR>
+
+<HR>
+<H3><A NAME="al_component">any al_component(list itr);</A></H3>
+イテレータが現在指している値を返します。<BR>
+<BR>
+注: 第１引数には必ずal_dst_itr/al_src_itrで作成したイテレータを<BR>
+入れてください。<BR>
+
+<HR>
+<H3><A NAME="al_insert">void al_insert(list itr, any obj, list attr);</A></H3>
+順序付きのコレクションに要素を追加します。<BR>
+イテレータが現在指しているオブジェクトへのアークの手前に、<BR>
+オブジェクトobjへの 属性値attrを持つアークを挿入します。<BR>
+<BR>
+注: 第１引数には必ずal_dst_itr/al_src_itrで作成したイテレータを<BR>
+入れてください。<BR>
+
+<HR>
+<H3><A NAME="al_append">void al_append(list itr, any obj, list attr);</A></H3>
+順序付きのコレクションに要素を追加します。<BR>
+イテレータが現在指しているオブジェクトへのアークの後に、<BR>
+オブジェクトobjへの 属性値attrを持つのアークを追加します。<BR>
+<BR>
+注: 第１引数には必ずal_dst_itr/al_src_itrで作成したイテレータを<BR>
+入れてください。<BR>
+
+<HR>
+<H3><A NAME="al_remove">void al_remove(list itr);</A></H3>
+順序付きのコレクションから要素を削除します。<BR>
+イテレータが現在指しているオブジェクトへのアークを削除し、<BR>
+イテレータの位置をひとつ前に動かします。<BR>
+<BR>
+注: 引数には必ずal_dst_itr/al_src_itrで作成したイテレータを<BR>
+入れてください。<BR>
+
+<HR>
+<H3><A NAME="al_arc_a">any al_arc_a(list itr);</A></H3>
+イテレータが現在指しているオブジェクトへのアークの属性値を返します。<BR>
+<BR>
+注: 引数には必ずal_dst_itr/al_src_itrで作成したイテレータを<BR>
+入れてください。<BR>
+
+<HR>
+<H3><A NAME="al_set_arc_a">void al_set_arc_a(list itr, list attr);</A></H3>
+イテレータが現在指しているオブジェクトへのアークの属性値をattrに<BR>
+変更します。<BR>
+<BR>
+注: 第１引数には必ずal_dst_itr/al_src_itrで作成したイテレータを<BR>
+入れてください。<BR>
+
+<HR>
+<H3><A NAME="al_count">integer al_count(list itr);</A></H3>
+イテレータ中の要素の個数を返します。<BR>
+<BR>
+注: 引数itrには必ずal_dst_itr/al_src_itrで作成したイテレータを<BR>
+入れてください。<BR>
+
+<HR>
+<H3><A NAME="al_count2">integer al_count2(list itr, list attr);</A></H3>
+イテレータ中のアーク属性がattrの要素の個数を返します。<BR>
+<BR>
+注: 引数itrには必ずal_dst_itr/al_src_itrで作成したイテレータを<BR>
+入れてください。<BR>
+
+<HR>
+<H3><A NAME="al_index_pos">void al_index_pos(list itr, integer index, list attr);</A></H3>
+アークの属性値がattrのものに着目して、イテレータの指す位置を最初から<BR>
+index番目にします。<BR>
+<BR>
+注: 第１引数には必ずal_dst_itr/al_src_itrで作成したイテレータを<BR>
+入れてください。<BR>
+
+<HR>
+<H3><A NAME="al_search">integer al_search(list itr, list obj, list attr);</A></H3>
+アークの属性値がattrのものに着目して、オブジェクトobjの要素をイテレータ中から<BR>
+検索します。見つかれば、何番目かのインデックスが返り、見つからなければ<BR>
+-1が返ります。<BR>
+<BR>
+注: 第１引数には必ずal_dst_itr/al_src_itrで作成したイテレータを<BR>
+入れてください。<BR>
+
+<HR>
+<H3><A NAME="al_create_arc">void al_create_arc(any src, any dst, list attr);</A></H3>
+オブジェクトsrc,dst間に属性値attrを持つアークを作成します。<BR>
+アークは、srcの出力アークの最後、dstの入力アークの最後に加えられます。<BR>
+
+<HR>
+<H3><A NAME="al_create_assoc_arc">void al_create_assoc_arc(any src, any dst, list attr);</A></H3>
+意味的には上のal_create_arcとほとんど同じです。違いは、<BR>
+通常srcがセーブ対象データになったら、dstもセーブ対象データになりますが、<BR>
+al_create_assoc_arcではこれをセーブ対象にすることがなくなります。<BR>
+
+<HR>
+<H3><A NAME="al_create_ordered_arc">void al_create_oredred_arc(any src, any dst, list attr, any parent);</A></H3>
+オブジェクトsrc,dst間に属性値attrを持つアークを作成します。<BR>
+srcはparentのデスティネーションでなければなりません。<BR>
+（parentからsrcへのアークがなければなりません。）<BR>
+作成されるsrcからdstへのアークは、dstでの入力アークの順番が、<BR>
+dstへのアークを持つparentのデスティネーションについて<BR>
+parentからの出力アークの順番と同じになるように作成されます。<BR>
+
+<HR>
+<H3><A NAME="al_dst_node">any al_dst_node(any n, list attr);</A></H3>
+ノードnから出る 属性値attrを持つ出力アークの最初のアークの先にある<BR>
+オブジェクトを返します。そのようなアークがない場合はnullを返します。<BR>
+
+<HR>
+<H3><A NAME="al_dst_node_i">any al_dst_node_i(any n, string attr);</A></H3>
+ノードnから出る 属性値が文字列attrと大文字小文字を区別しないときに同じ出力アークの<BR>
+最初のアークの先にあるオブジェクトを返します。そのようなアークがない場合はnullを返します。<BR>
+
+<HR>
+<H3><A NAME="al_src_node">any al_src_node(any, n, list attr);</A></H3>
+ノードnに入る 属性値attrを持つ入力アークの最初のアークの元にある<BR>
+オブジェクトを返します。そのようなアークがない場合はnullを返します。<BR>
+
+<HR>
+<H3><A NAME="al_set_dst_node">void al_set_dst_node(any, n, list attr, any obj);</A></H3>
+ノードnから出る 属性値attrを持つ出力アークがあればそのアークの先の<BR>
+ノードをobjに置き換えます。アークがなければノードnとノードobjの間に<BR>
+属性値attrを持つアークを張ります。<BR>
+objがnullの場合はアークがあればそのアークを削除します。<BR>
+
+<HR>
+<H3><A NAME="al_next_dst_node">any al_next_dst_node(any n, any obj, list attr);</A></H3>
+ノードnからノードobjへの出力アークがあってその出力アークから後へ<BR>
+属性値attrを持った出力アークを探しそのアークの先のノードを返します。<BR>
+アークが見つからなかった場合はnullを返します。<BR>
+
+<HR>
+<H3><A NAME="al_prev_dst_node">any al_prev_dst_node(any n, any obj, list attr);</A></H3>
+ノードnからノードobjへの出力アークがあってその出力アークから前へ<BR>
+属性値attrを持った出力アークを探しそのアークの先のノードを返します。<BR>
+アークが見つからなかった場合はnullを返します。<BR>
+
+<HR>
+<H3><A NAME="al_next_src_node">any al_next_src_node(any n, any obj, list attr);</A></H3>
+ノードnからノードobjへの入力アークがあってその入力アークから後へ<BR>
+属性値attrを持った入力アークを探しそのアークの先のノードを返します。<BR>
+アークが見つからなかった場合はnullを返します。<BR>
+
+<HR>
+<H3><A NAME="al_prev_src_node">any al_prev_src_node(any n any obj, list attr);</A></H3>
+ノードnからノードobjへの入力アークがあってその入力アークから前へ<BR>
+属性値attrを持った入力アークを探しそのアークの先のノードを返します。<BR>
+アークが見つからなかった場合はnullを返します。<BR>
+
+<HR>
+<H3><A NAME="al_insert_before">void al_insert_before(any n, any pos, any obj, list attr);</A></H3>
+ノードnからノードposへの出力アークがあって、そのアークのひとつ手前に<BR>
+ノードnからノードobjへの属性値attrをもつ出力アークを挿入します。<BR>
+
+<HR>
+<H3><A NAME="al_append_after">void al_append_after(any n, any pos, any obj, list attr);</A></H3>
+ノードnからノードposへの出力アークがあって、そのアークのひとつ後に<BR>
+ノードnからノードobjへの属性値attrをもつ出力アークを追加します。<BR>
+
+<HR>
+<H3><A NAME="al_remove_from">void al_remove_from(any n, any obj, list attr);</A></H3>
+属性値attrを持つ、ノードnからノードobjへの出力アークを削除します。<BR>
+
+<HR>
+<H3><A NAME="al_copy">any al_copy(any obj);</A></H3>
+オブジェクトobjのコピーを作成し返します。コピーにあたって<BR>
+アーク先のオブジェクトもコピー対象となります。アークによる<BR>
+参照が共有関係にあってもその共有関係は正しくコピーされます。<BR>
+
+<HR>
+<H3><A NAME="al_dst_itr2">list al_dst_itr2(any src, any dst);</A></H3>
+ノードsrcの持つ出力アークについてのイテレータで現在指しているノードがdstの<BR>
+イテレータを返します。dstがsrcの出力アーク先にない場合はnullを返します。<BR>
+
+<HR>
+<H3><A NAME="al_arc_dst">void al_arc_dst(list itr, any newDst);</A></H3>
+イテレータの現在指しているアークの出力先をnewDstに変更します。<BR>
+
+<HR>
+<H3><A NAME="al_src_itr2">list al_src_itr2(any src, any dst);</A></H3>
+ノードdstの持つ入力アークについてのイテレータで現在指しているノードがsrcの<BR>
+イテレータを返します。srcがdstの入力アーク先にない場合はnullを返します。<BR>
+
+<HR>
+<H3><A NAME="al_arc_src">void al_arc_src(list itr, any newSrc);</A></H3>
+イテレータの現在指しているアークの入力元をnewSrcに変更します。<BR>
+
+<HR>
+<H3><A NAME="al_graph_misc">any al_graph_misc(string cmd, any arg1, any arg2);</A></H3>
+<PRE>
+  cmd           arg1       arg2       意味
+  "mark"        node       -          nodeからだどれるすべてのノードに印を付けます。
+  "unmark"      node       -          "mark"でつけた印を消します。
+  "is_marked"   node       -          "mark"で印が付けられていたら1が、
+                                      そうでなければnullを返します。
+
+  "height"      node       attr       属性値がattrのグラフに関して、
+                                      nodeがループになっていなければ、
+                                      nodeの高さ＋１(DAGにしたときのパスの長さ＋１)を返し、
+                                      nodeがループになっている場合は －１ を返します。
+                                      DAGのパスが複数個ある場合、リターン値は大きい方を返します。
+
+  "dump"        node       depth      nodeから深さdepthまでnodeをルートとするグラフ構造データを
+                                      アウトプットウインドウにツリー構造としてダンプします。
+
+  "dump"        node     (depth,f)    nodeから深さdepthまでnodeをルートとするグラフ構造データを
+                                      file f にツリー構造としてダンプします。
+</PRE>
+
+<HR>
+</BODY>
+</HTML>
+

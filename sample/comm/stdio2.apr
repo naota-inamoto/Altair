@@ -1,0 +1,156 @@
+$END_LIB
+TEXT
+AlObject
+class TP
+end_class
+$END_CLASS
+TEXT
+AlObject
+class TP
+member
+public: static void naota();
+member
+public: static void send(file pipe, string msg);
+member
+public: static void recv(string reply);
+member
+public: static void chiaki();
+member
+public: static file pipe;
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class TP
+member
+public: static void naota();
+body
+{
+	var string cmd, reply;
+	pipe = al_file_open("", "pipe");
+	cmd = "altair -file stdio2.apr -class TP -method chiaki";
+	al_exec(cmd, ".", 1, pipe);
+	send(pipe, "Hello.\n");
+	loop {
+		if (reply = al_file_read(pipe, "line")) {
+			if (reply == 0x0000000080000000) {
+				al_next_process();
+				continue;
+			} else {
+			}
+		} else {
+		}
+		recv(reply);
+		break;
+	}
+	send(pipe, "I love you.\n");
+	loop {
+		if (reply = al_file_read(pipe, "line")) {
+			if (reply == 0x0000000080000000) {
+				al_next_process();
+				continue;
+			} else {
+			}
+		} else {
+		}
+		recv(reply);
+		break;
+	}
+	send(pipe, "Would you marry with me?\n");
+	loop {
+		if (reply = al_file_read(pipe, "line")) {
+			if (reply == 0x0000000080000000) {
+				al_next_process();
+				continue;
+			} else {
+			}
+		} else {
+		}
+		recv(reply);
+		break;
+	}
+	send(pipe, "See you later.\n");
+	loop {
+		if (reply = al_file_read(pipe, "line")) {
+			if (reply == 0x0000000080000000) {
+				al_next_process();
+				continue;
+			} else {
+			}
+		} else {
+		}
+		recv(reply);
+		break;
+	}
+	if (reply == "See you later.") {
+		al_print("Happy end.\n");
+	} else {
+		al_print("Wmm, ...\n");
+	}
+}
+end_body
+member
+public: static void send(file pipe, string msg);
+body
+{
+	al_print("Naota: ");
+	al_print(msg);
+	al_file_write(pipe, "string", msg);
+	al_file_manip("flush", pipe, null);
+}
+end_body
+member
+public: static void recv(string reply);
+body
+{
+	al_print("Chiaki: ");
+	al_print(reply);
+	al_print("\n");
+}
+end_body
+member
+public: static void chiaki();
+body
+{
+	pipe = al_file_open("", "stdin");
+	var file out;
+	out = al_file_open("", "stdout");
+	var string s;
+	loop {
+		if (s = al_file_read(pipe, "line")) {
+			if (s == 0x0000000080000000) {
+				continue;
+			} else {
+			}
+			al_print(s);
+			al_print("\n");
+			if (s == "Hello.") {
+				al_file_write(out, "string", "Hello.\n");
+				al_file_manip("flush", out, null);
+			} else {
+			}
+			if (s == "I love you.") {
+				al_file_write(out, "string", "Me too.\n");
+				al_file_manip("flush", out, null);
+			} else {
+			}
+			if (s == "Would you marry with me?") {
+				al_file_write(out, "string", "Yes.\n");
+				al_file_manip("flush", out, null);
+			} else {
+			}
+			if (s == "See you later.") {
+				al_file_write(out, "string", "See you later.\n");
+				al_file_manip("flush", out, null);
+				break;
+			} else {
+			}
+		} else {
+		}
+	}
+}
+end_body
+member
+public: static file pipe;
+end_class
+$END_BODY

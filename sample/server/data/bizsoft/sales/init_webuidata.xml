@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE WebUiData SYSTEM "WebUiData.dtd">
+<WebUiData>
+    <Target>bizsoftSales</Target>
+    <MenuItem>
+        <LineNumber>1000</LineNumber>
+        <Name>PurchaseOrder</Name>
+        <Kind>Title</Kind>
+        <Text>íçï∂</Text>
+    </MenuItem>
+    <MenuItem>
+        <LineNumber>1001</LineNumber>
+        <Name>PurchaseOrder</Name>
+        <Kind>View</Kind>
+        <Text>íçï∂èë</Text>
+        <View>
+            <RoleName>sales</RoleName>
+        </View>
+    </MenuItem>
+
+    <MenuItem>
+        <LineNumber>2000</LineNumber>
+        <Name>Inventory</Name>
+        <Kind>Title</Kind>
+        <Text>ç›å…</Text>
+    </MenuItem>
+    <MenuItem>
+        <LineNumber>2001</LineNumber>
+        <Name>Inventory</Name>
+        <Kind>View</Kind>
+        <Text>ç›å…</Text>
+        <View>
+            <RoleName>sales</RoleName>
+        </View>
+    </MenuItem>
+    <MenuItem>
+        <LineNumber>2002</LineNumber>
+        <Name>ProductArrival</Name>
+        <Kind>View</Kind>
+        <Text>ì¸â◊</Text>
+        <View>
+            <RoleName>sales</RoleName>
+        </View>
+    </MenuItem>
+    <MenuItem>
+        <LineNumber>2003</LineNumber>
+        <Name>Shipment</Name>
+        <Kind>View</Kind>
+        <Text>èoâ◊</Text>
+        <View>
+            <RoleName>sales</RoleName>
+        </View>
+    </MenuItem>
+</WebUiData>

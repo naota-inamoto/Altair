@@ -1,0 +1,115 @@
+<!--
+
+   RosettaNet XML Message Schema
+   3A9_MS_R01_00_PurchaseOrderCancellationConfirmation.dtd (16-Apr-2001 11:45)
+   This document has been prepared by Edifecs (http://www.edifecs.com/)
+   based On the Business Collaboration Framework from requirements
+   in conformance with the RosettaNet methodology.
+
+-->
+
+
+<!ENTITY % common-attributes "id  CDATA #IMPLIED" >
+ 
+<!ELEMENT Pip3A9PurchaseOrderCancellationConfirmation ( 
+          fromRole ,
+          GlobalDocumentFunctionCode ,
+          PurchaseOrderCancellation ,
+          requestingDocumentDateTime ,
+          requestingDocumentIdentifier ,
+          thisDocumentGenerationDateTime ,
+          thisDocumentIdentifier ,
+          toRole ) > 
+
+<!ELEMENT fromRole
+            ( PartnerRoleDescription ) > 
+
+<!ELEMENT PartnerRoleDescription ( 
+          ContactInformation? ,
+          GlobalPartnerRoleClassificationCode ,
+          PartnerDescription ) > 
+
+<!ELEMENT ContactInformation ( 
+          contactName ,
+          EmailAddress ,
+          facsimileNumber? ,
+          telephoneNumber ) > 
+
+<!ELEMENT contactName
+           ( FreeFormText ) > 
+
+<!ELEMENT FreeFormText
+           ( #PCDATA ) >
+<!ATTLIST FreeFormText
+           xml:lang CDATA #IMPLIED >
+
+<!ELEMENT EmailAddress
+           ( #PCDATA ) >
+
+<!ELEMENT facsimileNumber
+           ( CommunicationsNumber ) > 
+
+<!ELEMENT CommunicationsNumber
+           ( #PCDATA ) >
+
+<!ELEMENT telephoneNumber
+            ( CommunicationsNumber ) > 
+
+<!ELEMENT GlobalPartnerRoleClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT PartnerDescription ( 
+          BusinessDescription ,
+          GlobalPartnerClassificationCode ) > 
+
+<!ELEMENT BusinessDescription ( 
+          GlobalBusinessIdentifier ,
+          GlobalSupplyChainCode ) > 
+
+<!ELEMENT GlobalBusinessIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalSupplyChainCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalPartnerClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalDocumentFunctionCode
+           ( #PCDATA ) >
+
+<!ELEMENT PurchaseOrderCancellation ( 
+          GlobalPurchaseOrderCancellationResponseCode ,
+          purchaseOrderIdentifier ,
+          RevisionNumber? ) > 
+
+<!ELEMENT GlobalPurchaseOrderCancellationResponseCode
+           ( #PCDATA ) >
+
+<!ELEMENT purchaseOrderIdentifier
+           ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT ProprietaryDocumentIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT RevisionNumber
+           ( #PCDATA ) >
+
+<!ELEMENT requestingDocumentDateTime
+           ( DateTimeStamp ) > 
+
+<!ELEMENT DateTimeStamp
+           ( #PCDATA ) >
+
+<!ELEMENT requestingDocumentIdentifier
+            ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT thisDocumentGenerationDateTime
+            ( DateTimeStamp ) > 
+
+<!ELEMENT thisDocumentIdentifier
+            ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT toRole
+            ( PartnerRoleDescription ) > 
+

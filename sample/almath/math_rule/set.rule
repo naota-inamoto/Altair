@@ -1,0 +1,86 @@
+
+set_add_elem(set, elem) {
+  set == null -> (elem);
+  set == (elem2, set2...) -> {
+    elem == elem2 -> set;
+    elem >  elem2 -> (elem, set...);
+    elem <  elem2 -> (elem2, set_add_elem(set2, elem)...);
+  }
+}
+set_sub_elem(set, elem) {
+  set == null -> null;
+  set == (elem2, set2...) -> {
+    elem == elem2 -> set2;
+    elem >  elem2 -> set;
+    elem <  elem2 -> (elem2, set_sub_elem(set2, elem)...);
+  }
+}
+set_union(set1, set2) {
+  set1 == null -> set2;
+  set2 == null -> set1;
+  set1 == (elem1, set1t...),
+  set2 == (elem2, set2t...) -> {
+    elem1 == elem2 -> (elem1, set_union(set1t, set2t)...);
+    elem1 >  elem2 -> (elem1, set_union(set1t, set2)...);
+    elem1 <  elem2 -> (elem2, set_union(set1, set2t)...);
+  }
+}
+set_intersection(set1, set2) {
+  set1 == null -> null;
+  set2 == null -> null;
+  set1 == (elem1, set1t...),
+  set2 == (elem2, set2t...) -> {
+    elem1 == elem2 -> (elem1, set_intersection(set1t, set2t)...);
+    elem1 >  elem2 -> set_intersection(set1t, set2);
+    elem1 <  elem2 -> set_intersection(set1, set2t);
+  }
+}
+
+set2_add_elem(set, elem) {
+  set == null -> (elem);
+  set == (elem2, set2...) -> {
+    elem == elem2 -> set;
+    elem <  elem2 -> (elem, set...);
+    elem >  elem2 -> (elem2, set_add_elem(set2, elem)...);
+  }
+}
+set2_sub_elem(set, elem) {
+  set == null -> null;
+  set == (elem2, set2...) -> {
+    elem == elem2 -> set2;
+    elem <  elem2 -> set;
+    elem >  elem2 -> (elem2, set_sub_elem(set2, elem)...);
+  }
+}
+set2_union(set1, set2) {
+  set1 == null -> set2;
+  set2 == null -> set1;
+  set1 == (elem1, set1t...),
+  set2 == (elem2, set2t...) -> {
+    elem1 == elem2 -> (elem1, set_union(set1t, set2t)...);
+    elem1 <  elem2 -> (elem1, set_union(set1t, set2)...);
+    elem1 >  elem2 -> (elem2, set_union(set1, set2t)...);
+  }
+}
+set2_intersection(set1, set2) {
+  set1 == null -> null;
+  set2 == null -> null;
+  set1 == (elem1, set1t...),
+  set2 == (elem2, set2t...) -> {
+    elem1 == elem2 -> (elem1, set_intersection(set1t, set2t)...);
+    elem1 <  elem2 -> set_intersection(set1t, set2);
+    elem1 >  elem2 -> set_intersection(set1, set2t);
+  }
+}
+
+head_elem(set) {
+  set == null -> null;
+  set == (elem, t...) -> elem;
+}
+last_elem(set) {
+  set == null -> null;
+  set == (elem, t...) -> {
+    t == null -> elem;
+    true -> last_elem(t);
+  }
+}

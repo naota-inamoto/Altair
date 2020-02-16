@@ -1,0 +1,803 @@
+dic-1,Inventory Information Provider,
+end-dic-1,,
+dic,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-1
+dic,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-16
+dic-2,Electronic Components, The electronic components supply chain. 
+dic-2,Information Technology, The information technology supply chain.
+dic-2,Semiconductor Manufacturing, The semiconductor manufacturing supply chain.
+end-dic-2,,
+dic,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitFrom/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitTo/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryLocation/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryOwner/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic-3,Broker, Representative of a third party.
+dic-3,Carrier, Product carrier for transporting goods in supply chain.
+dic-3,Contract Manufacturer, The party responsible for the services rendered.
+dic-3,Customs Broker, Product customs broker in supply chain.
+dic-3,Distribution Center, Product distributor in supply chain.
+dic-3,Distributor, Product distributor in supply chain.
+dic-3,End User, Product end user in supply chain.
+dic-3,End User Government, End user government.
+dic-3,Financier, Financial service provider in supply chain
+dic-3,Freight Forwarder, Product freight forwarder for transporting goods in supply chain.
+dic-3,Manufacturer, Product manufacturer in supply chain.
+dic-3,Original Equipment Manufacturer, Product manufacturer of original equipment in the supply chain.
+dic-3,Reseller, A party buys goods from a manufacturer and resells them to customers unchanged.
+dic-3,Retailer, Product retailer in supply chain.
+dic-3,Shopper, Product shopper in supply chain.
+dic-3,Warehouser, Product warehouser in supply chain.
+end-dic-3,,
+dic,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitFrom/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitTo/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryLocation/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/ProductIdentification/PartnerProductIdentification/GlobalPartnerClassificationCode,dic-3
+dic,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic-4,Request, The business document is a request for a business action to be performed by a partner
+end-dic-4,,
+dic,/Pip4C1InventoryReportNotification/GlobalDocumentFunctionCode,dic-4
+dic-5,Contract,
+dic-5,Delivery Note,
+dic-5,Invoice,
+dic-5,Purchase Order,
+dic-5,Sales Order,
+dic-5,Waybill,
+dic-5,Work Order,
+end-dic-5,,
+dic,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/DocumentReference/GlobalDocumentReferenceTypeCode,dic-5
+dic-6,10 Kilogram Drum,
+dic-6,"10,000 Gallon Tankcar",
+dic-6,10-pack,
+dic-6,100 Board Feet,
+dic-6,100 Pound Drum,
+dic-6,100-Pack,
+dic-6,1000-pack,
+dic-6,115 Kilogram Drum,
+dic-6,15 Kilogram Drum,
+dic-6,20 Foot Container,
+dic-6,"20,000 Gallon Tankcar",
+dic-6,20-Pack,
+dic-6,25 Kilogram Bulk Bag,
+dic-6,300 Kilogram Bulk Bag,
+dic-6,40 Foot Container,
+dic-6,50 Pound Bag
+dic-6,50-pack
+dic-6,500 Kilogram Bulk Bag
+dic-6,55 Gallon Drum
+dic-6,Acre
+dic-6,Actual Pounds
+dic-6,Aluminum Pounds Only
+dic-6,Ampere
+dic-6,Bag
+dic-6,Bale
+dic-6,Ball
+dic-6,Band
+dic-6,Bar
+dic-6,Barrel
+dic-6,"Barrel, Imperial"
+dic-6,Barrels Per Day
+dic-6,Barrels Per Minute
+dic-6,Base Box
+dic-6,Base Weight
+dic-6,Basket
+dic-6,Batch
+dic-6,Batt
+dic-6,Batting Pound
+dic-6,Beam
+dic-6,Becquerel/kilogram
+dic-6,Belt
+dic-6,Billet
+dic-6,Bin
+dic-6,Block
+dic-6,Board
+dic-6,Board Feet
+dic-6,Bolt
+dic-6,Bottle
+dic-6,Box
+dic-6,British Thermal Unit (BTU)
+dic-6,British Thermal Units (BTUs) Per Cubic Foot
+dic-6,British Thermal Units (BTUs) Per Pound
+dic-6,Bucket
+dic-6,Bulk
+dic-6,Bulk Car Load
+dic-6,Bulk Pack
+dic-6,Bundle
+dic-6,Bunks
+dic-6,Bushel
+dic-6,"Bushel, Dry Imperial"
+dic-6,Calorie
+dic-6,Can
+dic-6,Candela
+dic-6,Canister
+dic-6,Car
+dic-6,Carat
+dic-6,Carboy
+dic-6,Card
+dic-6,Carload
+dic-6,Carton
+dic-6,Cartridge
+dic-6,Case
+dic-6,Cask
+dic-6,Cassette
+dic-6,Catchweight
+dic-6,Cell
+dic-6,Centiliter
+dic-6,Centimeter
+dic-6,Centipoise (CPS)
+dic-6,Chains (Land Survey)
+dic-6,Chest
+dic-6,Coil
+dic-6,Coil Group
+dic-6,Composite Product Pounds (Total Weight)
+dic-6,Cone
+dic-6,Connector
+dic-6,Container
+dic-6,Cover
+dic-6,Crate
+dic-6,Crate
+dic-6,Cubic Foot
+dic-6,Cubic centimeter
+dic-6,Cubic centimeter/second
+dic-6,Cubic inch
+dic-6,Cubic yard
+dic-6,Cubicmeter
+dic-6,Cup
+dic-6,Cycles
+dic-6,Cylinder
+dic-6,Day
+dic-6,Deal
+dic-6,Decimeter
+dic-6,Degree Celsius
+dic-6,Degree Fahrenheit
+dic-6,Dep. Factor
+dic-6,Die
+dic-6,Disk (Disc)
+dic-6,Dispenser
+dic-6,Display
+dic-6,Dozen
+dic-6,Dram
+dic-6,Drum
+dic-6,Dry Pounds
+dic-6,Each
+dic-6,Electrical Capacitance
+dic-6,Fluid Ounce
+dic-6,Fluid Ounce (Imperial)
+dic-6,Fluid Ounce US
+dic-6,Foot
+dic-6,Fuel Usage (Gallons)
+dic-6,Gage Systems
+dic-6,Gallon
+dic-6,Gigajoules
+dic-6,Gill (Imperial)
+dic-6,Grain
+dic-6,Gram
+dic-6,Gram/Cubic Centimeter
+dic-6,Gram/square meter
+dic-6,Grams Per 100 Centimeters
+dic-6,Grams Per 100 Grams
+dic-6,Grams Per Cubic Centimeter
+dic-6,Grams Per Kilogram
+dic-6,Grams Per Liter
+dic-6,Grams Per Milliliter
+dic-6,Grams Per Square Centimeter
+dic-6,Grams Per Square Meter
+dic-6,Great Gross (Dozen Gross)
+dic-6,Gross
+dic-6,Gross Barrels
+dic-6,Gross Gallons
+dic-6,Gross Kilogram
+dic-6,Gross Ton
+dic-6,Gross Yard
+dic-6,Group
+dic-6,Half Gallon
+dic-6,Half Hour
+dic-6,Half Liter
+dic-6,Hank
+dic-6,Heat lots
+dic-6,Hectare
+dic-6,Hectoliter
+dic-6,Hectopascal
+dic-6,Hertz
+dic-6,Hour
+dic-6,Hours
+dic-6,Hundred Boxes
+dic-6,Hundred Count
+dic-6,Hundred Sheets
+dic-6,Hundredth of a Carat
+dic-6,Imperial Gallons
+dic-6,Inch
+dic-6,Jar
+dic-6,Joint
+dic-6,Joule
+dic-6,Keg
+dic-6,Kelvin
+dic-6,Kiloampere
+dic-6,Kilobecquerel/Kilogram
+dic-6,Kilogram
+dic-6,Kilogram per cubic meter
+dic-6,Kilogram/Kilogram
+dic-6,Kilogram/square meter
+dic-6,Kilogramm pro Sekunde
+dic-6,Kilohertz
+dic-6,Kilojoule
+dic-6,Kilometer
+dic-6,Kilometer/hour
+dic-6,Kiloohm
+dic-6,Kilovolt
+dic-6,Kilowatt
+dic-6,Kilowatt-hour
+dic-6,Kit
+dic-6,Kubikdezimeter
+dic-6,Kubikmeter pro Sekunde
+dic-6,Lifts
+dic-6,Link
+dic-6,Liquid Pounds
+dic-6,Liter
+dic-6,Load
+dic-6,Lot
+dic-6,Lug
+dic-6,Mat
+dic-6,Megagram
+dic-6,Megagrams Per Hour
+dic-6,Megahertz
+dic-6,Megapascal
+dic-6,Megawatt
+dic-6,Meter
+dic-6,Meter pro Quadratsekunde
+dic-6,Meters per second
+dic-6,Micrograms Per Cubic Meter
+dic-6,Micrometer
+dic-6,Microsecond
+dic-6,Mikrogram/cubic meter
+dic-6,Mile
+dic-6,Milliampere
+dic-6,Millibar
+dic-6,Milligram/Liter
+dic-6,Milligram/cubic meter
+dic-6,Milligram/kilogram
+dic-6,Milligrams Per Cubic Meter
+dic-6,Milligrams Per Square Meter
+dic-6,Millijoule
+dic-6,Milliliter
+dic-6,Millimeter
+dic-6,Millimeter H20
+dic-6,Millimol
+dic-6,Millimol/kilogram
+dic-6,Million BTU's
+dic-6,Millipascal seconds
+dic-6,Millisecond
+dic-6,Millitesla
+dic-6,Millivolt
+dic-6,Milliwatt
+dic-6,Minute
+dic-6,Miter
+dic-6,Mol
+dic-6,Mol/kilogram
+dic-6,Month
+dic-6,Multichip
+dic-6,Nanometer
+dic-6,Nanosecond
+dic-6,Net Barrels
+dic-6,Net Gallons
+dic-6,Net Imperial Gallons
+dic-6,Net Liters
+dic-6,Newton
+dic-6,Ohm
+dic-6,One
+dic-6,One Thousand Pieces
+dic-6,Ounce
+dic-6,Ounce
+dic-6,Pack (PAK)
+dic-6,Package
+dic-6,Packet
+dic-6,Pad
+dic-6,Pail
+dic-6,Pair
+dic-6,Pallet
+dic-6,Pallet (Lift)
+dic-6,Pallet/Unit Load
+dic-6,Pallete
+dic-6,Panel
+dic-6,Parcel
+dic-6,Parts per billion (US)
+dic-6,Parts per million
+dic-6,Pascal
+dic-6,Pascal second
+dic-6,Pennyweight
+dic-6,Per Hundred Pieces
+dic-6,Percent
+dic-6,Percent Per 1000 Hours
+dic-6,Percent Weight
+dic-6,Percentage
+dic-6,Piece
+dic-6,Pint - US liquid
+dic-6,Pint U.S. Dry
+dic-6,Plate
+dic-6,Pound
+dic-6,Pounds Per 1000 Square Feet
+dic-6,Pounds Per Foot
+dic-6,Pounds Per Gallon
+dic-6,Pounds Per Piece of Product
+dic-6,Pounds Per Pound of Product
+dic-6,Pounds Per Thousand
+dic-6,Quart - US liquid
+dic-6,Rack
+dic-6,Ream of 500 Sheets
+dic-6,Reel
+dic-6,Ring
+dic-6,Rod
+dic-6,Roll
+dic-6,SET
+dic-6,Sack
+dic-6,Second
+dic-6,Set
+dic-6,Sheet
+dic-6,Sheet-Metric measure
+dic-6,Shipment
+dic-6,Shot
+dic-6,Skein
+dic-6,Skid
+dic-6,Sleeve
+dic-6,Slip Sheet
+dic-6,Spool
+dic-6,Square
+dic-6,Square Yard
+dic-6,Square foot
+dic-6,Square inch
+dic-6,Square kilometer
+dic-6,Square meter
+dic-6,Square meter/second
+dic-6,Square mile
+dic-6,Square millimeter
+dic-6,Statute Mile
+dic-6,Stick
+dic-6,Strip
+dic-6,Super Bulk Bag
+dic-6,Tablet
+dic-6,Tank
+dic-6,Tank Truck
+dic-6,Tesla
+dic-6,Thousand
+dic-6,Ton
+dic-6,Tonne
+dic-6,Torr
+dic-6,Tote
+dic-6,Track Foot
+dic-6,Trailer
+dic-6,Train
+dic-6,Tray
+dic-6,Troy
+dic-6,Troy OZ
+dic-6,Truckload
+dic-6,Tube
+dic-6,US gallon
+dic-6,US pound
+dic-6,US ton
+dic-6,Unitless Unit of Measure
+dic-6,Vial
+dic-6,Volt
+dic-6,WF
+dic-6,Wafer
+dic-6,Watt
+dic-6,Week
+dic-6,Wrap,
+dic-6,Yard,
+dic-6,Year,
+end-dic-6,,
+dic,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/GlobalProductUnitOfMeasureCode,dic-6
+dic-8,AD,  ANDORRA
+dic-8,AE,  UNITED ARAB EMIRATES
+dic-8,AF,  AFGHANISTAN
+dic-8,AG,  ANTIGUA AND BARBUDA
+dic-8,AI,  ANGUILLA
+dic-8,AL,  ALBANIA
+dic-8,AM,  ARMENIA
+dic-8,AN,  NETHERLANDS ANTILLES
+dic-8,AO,  ANGOLA
+dic-8,AQ,  ANTARCTICA
+dic-8,AR,  ARGENTINA
+dic-8,AS,  AMERICAN SAMOA
+dic-8,AT,  AUSTRIA
+dic-8,AU,  AUSTRALIA
+dic-8,AW,  ARUBA
+dic-8,AZ,  AZERBAIJAN
+dic-8,BA,  BOSNIA AND HERZEGOVINA
+dic-8,BB,  BARBADOS
+dic-8,BD,  BANGLADESH
+dic-8,BE,  BELGIUM
+dic-8,BF,  BURKINA FASO
+dic-8,BG,  BULGARIA
+dic-8,BH,  BAHRAIN
+dic-8,BI,  BURUNDI
+dic-8,BJ,  BENIN
+dic-8,BM,  BERMUDA
+dic-8,BN,  BRUNEI DARUSSALAM
+dic-8,BO,  BOLIVIA
+dic-8,BR,  BRAZIL
+dic-8,BS,  BAHAMAS
+dic-8,BT,  BHUTAN
+dic-8,BV,  BOUVET ISLAND
+dic-8,BW,  BOTSWANA
+dic-8,BY,  BELARUS
+dic-8,BZ,  BELIZE
+dic-8,CA,  CANADA
+dic-8,CC,  COCOS (KEELING) ISLANDS
+dic-8,CF,  CENTRAL AFRICAN REPUBLIC
+dic-8,CG,  CONGO
+dic-8,CH,  SWITZERLAND
+dic-8,CI,  CÔTE D'IVOIRE
+dic-8,CK,  COOK ISLANDS
+dic-8,CL,  CHILE
+dic-8,CM,  CAMEROON
+dic-8,CN,  CHINA
+dic-8,CO,  COLOMBIA
+dic-8,CR,  COSTA RICA
+dic-8,CU,  CUBA
+dic-8,CV,  CAPE VERDE
+dic-8,CX,  CHRISTMAS ISLAND
+dic-8,CY,  CYPRUS
+dic-8,CZ,  CZECH REPUBLIC
+dic-8,DE,  GERMANY
+dic-8,DJ,  DJIBOUTI
+dic-8,DK,  DENMARK
+dic-8,DM,  DOMINICA
+dic-8,DO,  DOMINICAN REPUBLIC
+dic-8,DZ,  ALGERIA
+dic-8,EC,  ECUADOR
+dic-8,EE,  ESTONIA
+dic-8,EG,  EGYPT
+dic-8,EH,  WESTERN SAHARA
+dic-8,ER,  ERITREA
+dic-8,ES,  SPAIN
+dic-8,ET,  ETHIOPIA
+dic-8,FI,  FINLAND
+dic-8,FJ,  FIJI
+dic-8,FK,  FALKLAND ISLANDS (MALVINAS)
+dic-8,FM,"  MICRONESIA, FEDERATED STATES"
+dic-8,FO,  FAROE ISLANDS
+dic-8,FR,  FRANCE
+dic-8,GA,  GABON
+dic-8,GB,  UNITED KINGDOM
+dic-8,GD,  GRENADA
+dic-8,GE,  GEORGIA
+dic-8,GF,  FRENCH GUIANA
+dic-8,GH,  GHANA
+dic-8,GI,  GIBRALTAR
+dic-8,GL,  GREENLAND
+dic-8,GM,  GAMBIA
+dic-8,GN,  GUINEA
+dic-8,GP,  GUADELOUPE
+dic-8,GQ,  EQUATORIAL GUINEA
+dic-8,GR,  GREECE
+dic-8,GS,  SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS
+dic-8,GT,  GUATEMALA
+dic-8,GU,  GUAM
+dic-8,GW,  GUINEA-BISSAU
+dic-8,GY,  GUYANA
+dic-8,HK,  HONG KONG
+dic-8,HM,  HEARD ISLAND AND MCDONALD ISLANDS
+dic-8,HN,  HONDURAS
+dic-8,HR,  CROATIA
+dic-8,HT,  HAITI
+dic-8,HU,  HUNGARY
+dic-8,ID,  INDONESIA
+dic-8,IE,  IRELAND
+dic-8,IL,  ISRAEL
+dic-8,IN,  INDIA
+dic-8,IO,  BRITISH INDIAN OCEAN TERRITORY
+dic-8,IQ,  IRAQ
+dic-8,IR,"  IRAN, ISLAMIC REPUBLIC OF"
+dic-8,IS,  ICELAND
+dic-8,IT,  ITALY
+dic-8,JM,  JAMAICA
+dic-8,JO,  JORDAN
+dic-8,JP,  JAPAN
+dic-8,KE,  KENYA
+dic-8,KG,  KYRGYSTAN
+dic-8,KH,  CAMBODIA
+dic-8,KI,  KIRIBATI
+dic-8,KM,  COMOROS
+dic-8,KN,  SAINT KITTS AND NEVIS
+dic-8,KP,"  KOREA, DEMOCRATIC PEOPLE'S REP. OF"
+dic-8,KR,"  KOREA, REPUBLIC OF"
+dic-8,KW,  KUWAIT
+dic-8,KY,  CAYMAN ISLANDS
+dic-8,KZ,  KAZAKSTAN
+dic-8,LA,  LAO PEOPLE'S DEMOCRATIC REPUBLIC
+dic-8,LB,  LEBANON
+dic-8,LC,  SAINT LUCIA
+dic-8,LI,  LIECHTENSTEIN
+dic-8,LK,  SRI LANKA
+dic-8,LR,  LIBERIA
+dic-8,LS,  LESOTHO
+dic-8,LT,  LITHUANIA
+dic-8,LU,  LUXEMBOURG
+dic-8,LV,  LATVIA
+dic-8,LY,  LIBYAN ARAB JAMAHIRIYA
+dic-8,MA,  MOROCCO
+dic-8,MC,  MONACO
+dic-8,MD,"  MOLDOVA, REPUBLIC OF"
+dic-8,MG,  MADAGASCAR
+dic-8,MH,  MARSHALL ISLANDS
+dic-8,MK,"  MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF"
+dic-8,ML,  MALI
+dic-8,MM,  MYANMAR
+dic-8,MN,  MONGOLIA
+dic-8,MO,  MACAU
+dic-8,MP,  NORTHERN MARIANA ISLANDS
+dic-8,MQ,  MARTINIQUE
+dic-8,MR,  MAURITANIA
+dic-8,MS,  MONTSERRAT
+dic-8,MT,  MALTA
+dic-8,MU,  MAURITIUS
+dic-8,MV,  MALDIVES
+dic-8,MW,  MALAWI
+dic-8,MX,  MEXICO
+dic-8,MY,  MALAYSIA
+dic-8,MZ,  MOZAMBIQUE
+dic-8,NA,  NAMIBIA
+dic-8,NC,  NEW CALEDONIA
+dic-8,NE,  NIGER
+dic-8,NF,  NORFOLK ISLAND
+dic-8,NG,  NIGERIA
+dic-8,NI,  NICARAGUA
+dic-8,NL,  NETHERLANDS
+dic-8,NO,  NORWAY
+dic-8,NP,  NEPAL
+dic-8,NR,  NAURU
+dic-8,NT,  NEUTRAL ZONE
+dic-8,NU,  NIUE
+dic-8,NZ,  NEW ZEALAND
+dic-8,OM,  OMAN
+dic-8,PA,  PANAMA
+dic-8,PE,  PERU
+dic-8,PF,  FRENCH POLYNESIA
+dic-8,PG,  PAPUA NEW GUINEA
+dic-8,PH,  PHILIPPINES
+dic-8,PK,  PAKISTAN
+dic-8,PL,  POLAND
+dic-8,PM,  SAINT PIERRE AND MIQUELON
+dic-8,PN,  PITCAIRN
+dic-8,PR,  PUERTO RICO
+dic-8,PT,  PORTUGAL
+dic-8,PW,  PALAU
+dic-8,PY,  PARAGUAY
+dic-8,QA,  QATAR
+dic-8,RE,  REUNION
+dic-8,RO,  ROMANIA
+dic-8,RU,  RUSSIAN FEDERATION
+dic-8,RW,  RWANDA
+dic-8,SA,  SAUDI ARABIA
+dic-8,SB,  SOLOMON ISLANDS
+dic-8,SC,  SEYCHELLES
+dic-8,SD,  SUDAN
+dic-8,SE,  SWEDEN
+dic-8,SG,  SINGAPORE
+dic-8,SH,  SAINT HELENA
+dic-8,SI,  SLOVENIA
+dic-8,SJ,  SVALBARD AND JAN MAYEN ISLANDS
+dic-8,SK,  SLOVAKIA
+dic-8,SL,  SIERRA LEONE
+dic-8,SM,  SAN MARINO
+dic-8,SN,  SENEGAL
+dic-8,SO,  SOMALIA
+dic-8,SR,  SURINAME
+dic-8,ST,  SAO TOME AND PRINCIPE
+dic-8,SV,  EL SALVADOR
+dic-8,SY,  SYRIAN ARAB REPUBLIC
+dic-8,SZ,  SWAZILAND
+dic-8,TC,  TURKS AND CAICOS ISLANDS
+dic-8,TD,  CHAD
+dic-8,TF,  FRENCH SOUTHERN TERRITORIES
+dic-8,TG,  TOGO
+dic-8,TH,  THAILAND
+dic-8,TJ,  TAJIKISTAN
+dic-8,TK,  TOKELAU
+dic-8,TM,  TURKMENISTAN
+dic-8,TN,  TUNISIA
+dic-8,TO,  TONGA
+dic-8,TP,  EAST TIMOR
+dic-8,TR,  TURKEY
+dic-8,TT,  TRINIDAD AND TOBAGO
+dic-8,TV,  TUVALU
+dic-8,TW,"  TAIWAN, PROVINCE OF CHINA"
+dic-8,TZ,"  TANZANIA, UNITED REPUBLIC OF"
+dic-8,UA,  UKRAINE
+dic-8,UG,  UGANDA
+dic-8,UM,  UNITED STATES MINOR OUTLYING ISLANDS
+dic-8,US,  UNITED STATES
+dic-8,UY,  URUGUAY
+dic-8,UZ,  UZBEKISTAN
+dic-8,VA,  HOLY SEE (VATICAN CITY STATE)
+dic-8,VC,  SAINT VINCENT AND THE GRENADINES
+dic-8,VE,  VENEZUELA
+dic-8,VG,  VIRGIN ISLANDS (BRITISH)
+dic-8,VI,  VIRGIN ISLANDS (U.S.)
+dic-8,VN,  VIET NAM
+dic-8,VU,  VANUATU
+dic-8,WF,  WALLIS AND FUTUNA ISLANDS
+dic-8,WS,  SAMOA
+dic-8,YE,  YEMEN
+dic-8,YT,  MAYOTTE
+dic-8,YU,  YUGOSLAVIA
+dic-8,ZA,  SOUTH AFRICA
+dic-8,ZM,  ZAMBIA
+dic-8,ZR,  ZAIRE
+dic-8,ZW,  ZIMBABWE
+end-dic-8,,
+dic,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalLocation/PhysicalAddress/GlobalCountryCode,dic-8
+dic,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitFrom/PartnerDescription/PhysicalLocation/PhysicalAddress/GlobalCountryCode,dic-8
+dic,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitTo/PartnerDescription/PhysicalLocation/PhysicalAddress/GlobalCountryCode,dic-8
+dic,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryLocation/PartnerDescription/PhysicalLocation/PhysicalAddress/GlobalCountryCode,dic-8
+dic,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/InventoryProductQuantity/InventoryItemIdentification/countryOfOrigin/GlobalCountryCode,dic-8
+dic,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalLocation/PhysicalAddress/GlobalCountryCode,dic-8
+dic-13,Available,
+dic-13,Committed,
+dic-13,Consigned,
+dic-13,Defective,
+dic-13,Finished Goods,
+dic-13,In Transit Between Partners,,
+dic-13,In Transit Within Partner,,
+dic-13,Non-saleable,,
+dic-13,On Hold,,
+dic-13,Open Box,,
+dic-13,Quality Assurance,,
+dic-13,Raw,,
+dic-13,Work In Process,,
+end-dic-13,,,
+dic,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/InventoryProductQuantity/GlobalInventoryCode,dic-13,
+dic-16,Inventory Information User,,
+end-dic-16,,,
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalLocation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalLocation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalLocation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalLocation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalLocation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalLocation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitFrom/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitFrom/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitFrom/PartnerDescription/PhysicalLocation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitFrom/PartnerDescription/PhysicalLocation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitFrom/PartnerDescription/PhysicalLocation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitFrom/PartnerDescription/PhysicalLocation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitFrom/PartnerDescription/PhysicalLocation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitFrom/PartnerDescription/PhysicalLocation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitTo/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitTo/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitTo/PartnerDescription/PhysicalLocation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitTo/PartnerDescription/PhysicalLocation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitTo/PartnerDescription/PhysicalLocation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitTo/PartnerDescription/PhysicalLocation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitTo/PartnerDescription/PhysicalLocation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitTo/PartnerDescription/PhysicalLocation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryLocation/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryLocation/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryLocation/PartnerDescription/PhysicalLocation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryLocation/PartnerDescription/PhysicalLocation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryLocation/PartnerDescription/PhysicalLocation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryLocation/PartnerDescription/PhysicalLocation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryLocation/PartnerDescription/PhysicalLocation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryLocation/PartnerDescription/PhysicalLocation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryOwner/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/ProductIdentification/PartnerProductIdentification/revisionIdentifier/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1,,
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1,,
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalLocation/PhysicalAddress/addressLine1/FreeFormText,String,1,,
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalLocation/PhysicalAddress/addressLine2/FreeFormText,String,1,,
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalLocation/PhysicalAddress/addressLine3/FreeFormText,String,1,,
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalLocation/PhysicalAddress/cityName/FreeFormText,String,1,,
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalLocation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1,,
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalLocation/PhysicalAddress/regionName/FreeFormText,String,1,,
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitFrom/PartnerDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitTo/PartnerDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryLocation/PartnerDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitFrom/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitFrom/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitTo/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitTo/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryLocation/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryLocation/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1,,
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1,,
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/BusinessIdentification/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitFrom/PartnerDescription/BusinessDescription/BusinessIdentification/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitTo/PartnerDescription/BusinessDescription/BusinessIdentification/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryLocation/PartnerDescription/BusinessDescription/BusinessIdentification/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryOwner/BusinessDescription/BusinessIdentification/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/BusinessIdentification/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/BusinessIdentification/PartnerBusinessIdentification/ProprietaryBusinessIdentifier,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitFrom/PartnerDescription/BusinessDescription/BusinessIdentification/PartnerBusinessIdentification/ProprietaryBusinessIdentifier,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitTo/PartnerDescription/BusinessDescription/BusinessIdentification/PartnerBusinessIdentification/ProprietaryBusinessIdentifier,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryLocation/PartnerDescription/BusinessDescription/BusinessIdentification/PartnerBusinessIdentification/ProprietaryBusinessIdentifier,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryOwner/BusinessDescription/BusinessIdentification/PartnerBusinessIdentification/ProprietaryBusinessIdentifier,String,1,,
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/BusinessIdentification/PartnerBusinessIdentification/ProprietaryBusinessIdentifier,String,1,,
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/BusinessIdentification/PartnerBusinessIdentification/ProprietaryDomainIdentifier,String,1,,
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalLocation/PartnerLocationIdentification/ProprietaryDomainIdentifier,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitFrom/PartnerDescription/BusinessDescription/BusinessIdentification/PartnerBusinessIdentification/ProprietaryDomainIdentifier,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitFrom/PartnerDescription/PhysicalLocation/PartnerLocationIdentification/ProprietaryDomainIdentifier,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitTo/PartnerDescription/BusinessDescription/BusinessIdentification/PartnerBusinessIdentification/ProprietaryDomainIdentifier,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitTo/PartnerDescription/PhysicalLocation/PartnerLocationIdentification/ProprietaryDomainIdentifier,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryLocation/PartnerDescription/BusinessDescription/BusinessIdentification/PartnerBusinessIdentification/ProprietaryDomainIdentifier,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryLocation/PartnerDescription/PhysicalLocation/PartnerLocationIdentification/ProprietaryDomainIdentifier,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryOwner/BusinessDescription/BusinessIdentification/PartnerBusinessIdentification/ProprietaryDomainIdentifier,String,1
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/BusinessIdentification/PartnerBusinessIdentification/ProprietaryDomainIdentifier,String,1
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalLocation/PartnerLocationIdentification/ProprietaryDomainIdentifier,String,1
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/BusinessIdentification/PartnerBusinessIdentification/ProprietaryIdentifierAuthority,String,1
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalLocation/PartnerLocationIdentification/ProprietaryIdentifierAuthority,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitFrom/PartnerDescription/BusinessDescription/BusinessIdentification/PartnerBusinessIdentification/ProprietaryIdentifierAuthority,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitFrom/PartnerDescription/PhysicalLocation/PartnerLocationIdentification/ProprietaryIdentifierAuthority,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitTo/PartnerDescription/BusinessDescription/BusinessIdentification/PartnerBusinessIdentification/ProprietaryIdentifierAuthority,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitTo/PartnerDescription/PhysicalLocation/PartnerLocationIdentification/ProprietaryIdentifierAuthority,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryLocation/PartnerDescription/BusinessDescription/BusinessIdentification/PartnerBusinessIdentification/ProprietaryIdentifierAuthority,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryLocation/PartnerDescription/PhysicalLocation/PartnerLocationIdentification/ProprietaryIdentifierAuthority,String,1
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryOwner/BusinessDescription/BusinessIdentification/PartnerBusinessIdentification/ProprietaryIdentifierAuthority,String,1
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/BusinessIdentification/PartnerBusinessIdentification/ProprietaryIdentifierAuthority,String,1
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalLocation/PartnerLocationIdentification/ProprietaryIdentifierAuthority,String,1,,
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitFrom/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitTo/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryLocation/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryOwner/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitFrom/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitTo/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryLocation/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/ProductIdentification/PartnerProductIdentification/GlobalPartnerClassificationCode,String,1,,
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip4C1InventoryReportNotification/GlobalDocumentFunctionCode,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/inventoryReportDateTime/DateTimeStamp,DateTime,13,20,9(8)X9(6)V9(3)X
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/DocumentReference/DateTimeStamp,DateTime,13,20,9(8)X9(6)V9(3)X
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/InventoryProductQuantity/InventoryItemIdentification/manufactureDate/DateTimeStamp,DateTime,13,20,9(8)X9(6)V9(3)X
+type,/Pip4C1InventoryReportNotification/thisDocumentGenerationDateTime/DateTimeStamp,DateTime,13,20,9(8)X9(6)V9(3)X
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/DocumentReference/GlobalDocumentReferenceTypeCode,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/DocumentReference/LineItemNumber,String,1,6,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/DocumentReference/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip4C1InventoryReportNotification/thisDocumentIdentifier/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/GlobalProductUnitOfMeasureCode,String,1,,
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalLocation/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitFrom/PartnerDescription/PhysicalLocation/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitTo/PartnerDescription/PhysicalLocation/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryLocation/PartnerDescription/PhysicalLocation/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalLocation/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalLocation/PartnerLocationIdentification/ProprietaryLocationIdentifier,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitFrom/PartnerDescription/PhysicalLocation/PartnerLocationIdentification/ProprietaryLocationIdentifier,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitTo/PartnerDescription/PhysicalLocation/PartnerLocationIdentification/ProprietaryLocationIdentifier,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryLocation/PartnerDescription/PhysicalLocation/PartnerLocationIdentification/ProprietaryLocationIdentifier,String,1,,
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalLocation/PartnerLocationIdentification/ProprietaryLocationIdentifier,String,1,,
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalLocation/PhysicalAddress/GlobalCountryCode,String,2,2,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitFrom/PartnerDescription/PhysicalLocation/PhysicalAddress/GlobalCountryCode,String,2,2,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitTo/PartnerDescription/PhysicalLocation/PhysicalAddress/GlobalCountryCode,String,2,2,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryLocation/PartnerDescription/PhysicalLocation/PhysicalAddress/GlobalCountryCode,String,2,2,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/InventoryProductQuantity/InventoryItemIdentification/countryOfOrigin/GlobalCountryCode,String,2,2,
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalLocation/PhysicalAddress/GlobalCountryCode,String,2,2,
+type,/Pip4C1InventoryReportNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalLocation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitFrom/PartnerDescription/PhysicalLocation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitTo/PartnerDescription/PhysicalLocation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/inventoryLocation/PartnerDescription/PhysicalLocation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip4C1InventoryReportNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalLocation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/IntraCompanyTransfer/inTransitQuantity/ProductQuantity,Real,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/InventoryProductQuantity/ProductQuantity,Real,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/InventoryProductQuantity/GlobalInventoryCode,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/InventoryProductQuantity/InventoryItemIdentification/ProprietaryLotIdentifier,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/InventoryProductQuantity/InventoryItemIdentification/SerialNumberIdentification/ProprietarySerialIdentifier,String,1,,
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/ProductIdentification/GlobalProductIdentifier,String,14,14,9(14)
+type,/Pip4C1InventoryReportNotification/InventoryReport/InventoryReportLineItem/ProductIdentification/PartnerProductIdentification/ProprietaryProductIdentifier,String,1,,

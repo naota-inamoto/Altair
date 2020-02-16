@@ -1,0 +1,21 @@
+
+<!ELEMENT ProcessLog (ProcessLogId,
+        Time, Action,
+        ProcessDefName, ActivityName, ActivityKind,
+        ProcessId, ActivityId, Message)>
+
+<!ELEMENT ProcessLogId (#PCDATA)>
+<!ATTLIST ProcessLogId primary-key CDATA #IMPLIED>
+
+<!ELEMENT Time (#PCDATA)>
+<!ELEMENT Action (#PCDATA)>
+
+<!ELEMENT ProcessDefName (#PCDATA)>
+<!ELEMENT ActivityName   (#PCDATA)>
+<!ELEMENT ActivityKind   (#PCDATA)>
+
+<!ELEMENT ProcessId  (#PCDATA)>
+<!ELEMENT ActivityId (#PCDATA)>
+
+<!ELEMENT Message (#PCDATA)>
+

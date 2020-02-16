@@ -1,0 +1,84 @@
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>XML Utility</TITLE>
+</HEAD>
+
+<BODY>
+<H1>クラス XmlDbObject</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.39版 2010年 9月23日<BR>
+
+<HR>
+● 主要メソッド一覧
+<UL>
+<LI><A HREF="#createChild">XmlDbObject createChild(string path);</A>
+<LI><A HREF="#putField">void putField(string path, string value);</A>
+<LI><A HREF="#getChildren_0">list getChildren(string path);</A>
+<LI><A HREF="#getChildren_1">list getChildren(string path, string path1, string value1);</A>
+<LI><A HREF="#getChildren_2">list getChildren(string path, string path1, string value1, string path2, string value2);</A>
+<LI><A HREF="#getChildren_x">list getChildren(string path, list cond);</A>
+<LI><A HREF="#getChildren_xxx">list getChildren(string path, list cond, string range_path, string range_type, string from, string to, string orderby_path, string orderby_type, list desc);</A>
+<LI><A HREF="#getField">string getField(string path);</A>
+<LI><A HREF="#removeField">void removeField(string path);</A>
+<LI><A HREF="#delete">void delete();</A>
+</UL>
+
+<HR>
+<H3><A NAME="createChild">XmlDbObject createChild(string path);</A></H3>
+相対XPathのpathで指定される繰返し項目のレコードを一つRDBに作成し、<BR>
+そのレコードに対応するXmlDbObjectを返します。<BR>
+
+<H3><A NAME="putField">void putField(string path, string value);</A></H3>
+XmlDbObjectに対応するレコードのXPathで指定されるカラムに値をRDBに格納します。<BR>
+
+<H3><A NAME="getChildren_0">list getChildren(string path);</A></H3>
+相対XPathのpathで指定された繰り返し項目に相当するレコードの<BR>
+XmlDbObjectのコレクションを返します。<BR>
+
+<H3><A NAME="getChildren_1">list getChildren(string path, string path1, string value1);</A></H3>
+相対XPathのpathで指定された繰り返し項目に相当するレコードで、<BR>
+相対XPathがpath1でそのXPathに入っているテキストがvalue1に等しい(likeを使用)レコードの<BR>
+XmlDbObjectのコレクションを返します。<BR>
+
+<H3><A NAME="getChildren_2">list getChildren(string path, string path1, string value1, string path2, string value2);</A></H3>
+相対XPathのpathで指定された繰り返し項目に相当するレコード群で、<BR>
+相対XPathがpath1でそのXPathに入っているテキストがvalue1に等しく(likeを使用)、<BR>
+相対XPathがpath2でそのXPathに入っているテキストがvalue2に等しい(likeを使用)レコードに相当する<BR>
+XmlDbObjectのコレクションを返します。<BR>
+
+<H3><A NAME="getChildren_x">list getChildren(string path, list cond);</A></H3>
+相対XPathのpathで指定された繰り返し項目に相当するレコードで、<BR>
+<PRE>
+condが(*, ...) -/path-1/-> value-1
+                  ...
+               -/path-n/-> value-n
+</PRE>
+で相対XPathがpath-iでそのXPathに入っているテキストがvalue-iに等しい(likeを使用)レコードに相当する<BR>
+XmlDbObjectのコレクションを返します。<BR>
+
+<H3><A NAME="getChildren_xxx">list getChildren(string path, list cond, string range_path, string range_type, string from, string to, string orderby_path, string orderby_type, list desc);</A></H3>
+相対XPathのpathで指定された繰り返し項目に相当するレコードで、<BR>
+<PRE>
+condが(*, ...) -/path-1/-> value-1
+                  ...
+               -/path-n/-> value-n
+</PRE>
+でXPathがpath-iでそのXPathに入っているテキストがvalue-iに等しい(likeを使用)レコードで、<BR>
+XPathがrange_path(型はintegerかstring)でその値がfromからtoまでのレコードを、<BR>
+XPathがorderby_path(型はintegerかstring)でその値(型はintegerかstring)でソートした、<BR>
+XmlDbObjectのコレクションを返します。<BR>
+
+<H3><A NAME="getField">string getField(string path);</A></H3>
+レコードに相当するXmlDbObjectから相対XPathで指定されるカラムに相当する値を取得します。<BR>
+
+<H3><A NAME="removeField">void removeField(string path);</A></H3>
+レコードに相当するXmlDbObjectから相対XPathで指定されるカラムをRDBから削除します。<BR>
+
+<H3><A NAME="delete">void delete();</A></H3>
+レコードに相当するXmlDbObjectをRDBから削除します。<BR>
+
+<HR>
+
+</BODY>
+</HTML>

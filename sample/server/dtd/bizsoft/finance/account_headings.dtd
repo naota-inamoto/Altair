@@ -1,0 +1,22 @@
+
+<!ELEMENT 勘定科目マスター (分類*)>
+<!ELEMENT 分類 (大分類, 中分類?, 小分類?, 勘定科目*)>
+
+<!ELEMENT 勘定科目 (名称, 読み, キャッシュ, 説明,
+                    貸借区分, 借方税区分, 貸方税区分, 補助科目*, 自動計算?)>
+
+<!ELEMENT 大分類 #PCDATA>
+<!ELEMENT 中分類 #PCDATA>
+<!ELEMENT 小分類 #PCDATA>
+<!ELEMENT 名称 #PCDATA>
+<!ELEMENT 読み #PCDATA>
+<!ELEMENT キャッシュ #PCDATA>
+<!ELEMENT 説明 #PCDATA>
+<!ELEMENT 貸借区分 #PCDATA>
+<!ELEMENT 借方税区分 #PCDATA>
+<!ELEMENT 貸方税区分 #PCDATA>
+<!ELEMENT 自動計算 #PCDATA>
+
+<!ELEMENT 補助科目 (名称, 読み, 将来取引?)>
+<!ELEMENT 将来取引 #PCDATA>
+

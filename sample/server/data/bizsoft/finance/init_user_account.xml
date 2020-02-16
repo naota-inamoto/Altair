@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE User SYSTEM "User.dtd">
+<User>
+    <Target>bizsoftAccount</Target>
+    <Id>bizsoftAccount:account</Id>
+    <UserId>account</UserId>
+    <Password>account</Password>
+    <RoleName>account</RoleName>
+</User>

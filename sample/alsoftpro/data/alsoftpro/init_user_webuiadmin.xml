@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE User SYSTEM "User.dtd">
+<User>
+    <Target>alsoftpro</Target>
+    <Id>alsoftpro:webuiadmin</Id>
+    <UserId>webuiadmin</UserId>
+    <Password>webuiadmin</Password>
+    <RoleName>webuiadmin</RoleName>
+</User>

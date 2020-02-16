@@ -1,0 +1,28 @@
+
+indent+ "    " <node_xml:4> ;
+-indent        <node_xml:6> ;
+post newline indent <node_xml:4> ;
+post newline indent <node_xml:8> ;
+post newline indent <str_xml:8> ;
+post newline indent <empty_1:7> ;
+post newline indent <empty_2:3> ;
+post newline indent <comm:3> ;
+pre space <attr:1> ;
+
+<doc> = doc <body> EOF ;
+
+<body> = body { c <comment> | xml <xml> }+ ;
+
+<comment> = comm { c1 "<?" | c2 "<!" } <string> ">" ;
+
+<xml> = node_xml           "<" <name> { a1 <attr> }* ">" <body>   "</" $1 ">" |
+        leaf_xml { str_xml "<" <name> { a2 <attr> }* ">" <string> "</" $1 ">" |
+                   empty_1 "<" <name> { a3 <attr> }* ">"          "</" $1 ">" |
+                   empty_2 "<" <name> { a4 <attr> }* "/>" } ;
+
+<attr> = attr <name> { val "=" <value> }? { name_n <name> { val_n "=" <value> }? }* ;
+
+<name>   = regex [^/>][^\ =>]* string ;
+<value>  = regex "([^"\\]|\\.)*" quote_string ;
+<string> = regex [^<>]+ string ;
+

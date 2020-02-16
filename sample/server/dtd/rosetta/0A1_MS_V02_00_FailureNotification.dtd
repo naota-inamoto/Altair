@@ -1,0 +1,138 @@
+<!--
+
+   RosettaNet XML Message Schema
+   0A1_MS_V02_00_FailureNotification.dtd (13-Jul-2001)
+
+-->
+
+
+<!ENTITY % common-attributes "id  CDATA #IMPLIED" >
+ 
+<!ELEMENT Pip0A1FailureNotification ( 
+          ActionControl ,
+	  failedInitiatingDocumentDateTime? ,
+	  failedInitiatingDocumentIdentifier? ,
+          fromRole ,
+          GlobalDocumentFunctionCode ,
+          ProcessIdentity ,
+          reason ,
+          thisDocumentGenerationDateTime ,
+          thisDocumentIdentifier ,
+          toRole ) > 
+
+<!ELEMENT ActionControl ( 
+          ActionIdentity ,
+          messageTrackingID ) > 
+
+<!ELEMENT ActionIdentity ( 
+          GlobalBusinessActionCode ,
+          messageStandard? ,
+          standardVersion? ) > 
+
+<!ELEMENT GlobalBusinessActionCode
+           ( #PCDATA ) >
+
+<!ELEMENT messageStandard
+           ( FreeFormText ) > 
+
+<!ELEMENT FreeFormText
+           ( #PCDATA ) >
+<!ATTLIST FreeFormText
+           xml:lang CDATA #IMPLIED >
+
+<!ELEMENT standardVersion
+           ( VersionIdentifier ) > 
+
+<!ELEMENT VersionIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT messageTrackingID
+           ( InstanceIdentifier ) > 
+
+<!ELEMENT InstanceIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT failedInitiatingDocumentDateTime
+           ( DateTimeStamp ) > 
+
+<!ELEMENT DateTimeStamp
+           ( #PCDATA ) >
+
+<!ELEMENT failedInitiatingDocumentIdentifier
+           ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT ProprietaryDocumentIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT fromRole
+            ( PartnerRoleDescription ) > 
+
+<!ELEMENT PartnerRoleDescription ( 
+          ContactInformation? ,
+          GlobalPartnerRoleClassificationCode ,
+          PartnerDescription ) > 
+
+<!ELEMENT ContactInformation ( 
+          contactName ,
+          EmailAddress ,
+          facsimileNumber? ,
+          telephoneNumber ) > 
+
+<!ELEMENT contactName
+            ( FreeFormText ) > 
+
+<!ELEMENT EmailAddress
+           ( #PCDATA ) >
+
+<!ELEMENT facsimileNumber
+           ( CommunicationsNumber ) > 
+
+<!ELEMENT CommunicationsNumber
+           ( #PCDATA ) >
+
+<!ELEMENT telephoneNumber
+            ( CommunicationsNumber ) > 
+
+<!ELEMENT GlobalPartnerRoleClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT PartnerDescription ( 
+          BusinessDescription ,
+          GlobalPartnerClassificationCode ) > 
+
+<!ELEMENT BusinessDescription ( 
+          GlobalBusinessIdentifier ,
+          GlobalSupplyChainCode ) > 
+
+<!ELEMENT GlobalBusinessIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalSupplyChainCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalPartnerClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalDocumentFunctionCode
+           ( #PCDATA ) >
+
+<!ELEMENT ProcessIdentity ( 
+          GlobalProcessIndicatorCode ,
+          InstanceIdentifier ,
+          VersionIdentifier ) > 
+
+<!ELEMENT GlobalProcessIndicatorCode
+           ( #PCDATA ) >
+
+<!ELEMENT reason
+            ( FreeFormText ) > 
+
+<!ELEMENT thisDocumentGenerationDateTime
+           ( DateTimeStamp ) > 
+
+<!ELEMENT thisDocumentIdentifier
+           ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT toRole
+            ( PartnerRoleDescription ) > 
+

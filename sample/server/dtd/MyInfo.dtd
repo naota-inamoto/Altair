@@ -1,0 +1,12 @@
+
+<!ELEMENT MyInfo (Target, Id, BusinessId, MyRole, Properties*)>
+
+<!ELEMENT Target (#PCDATA)>
+<!ELEMENT Id     (#PCDATA)>
+
+<!ELEMENT BusinessId (#PCDATA)>
+<!ELEMENT MyRole     (#PCDATA)>
+
+<!ELEMENT Properties (Name, Value)>
+<!ELEMENT Name  (#PCDATA)>
+<!ELEMENT Value (#PCDATA)>

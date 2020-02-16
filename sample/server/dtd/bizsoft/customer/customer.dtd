@@ -1,0 +1,35 @@
+
+<!ELEMENT ŒÚ‹q (“o˜^, –¼‘O, «•Ê, ¶”NŒŽ“ú, ZŠ, “d˜b”Ô†, Œg‘Ñ“d˜b, “dŽqƒ[ƒ‹, ‘—Mó‘Ô?,
+                E‹Æ, ‹Î–±æ, ‹»–¡*)>
+<!ELEMENT “o˜^ #PCDATA>
+
+<!ELEMENT –¼‘O (©, –¼, ©ƒtƒŠƒKƒi, –¼ƒtƒŠƒKƒi)>
+<!ELEMENT «•Ê #PCDATA>
+<!ELEMENT ¶”NŒŽ“ú (”N, ŒŽ, “ú)>
+<!ELEMENT ”N #PCDATA>
+<!ELEMENT ŒŽ #PCDATA>
+<!ELEMENT “ú #PCDATA>
+<!ELEMENT © #PCDATA>
+<!ELEMENT –¼ #PCDATA>
+<!ELEMENT ©ƒtƒŠƒKƒi #PCDATA>
+<!ELEMENT –¼ƒtƒŠƒKƒi #PCDATA>
+<!ELEMENT ZŠ (—X•Ö”Ô†, “s“¹•{Œ§, Žs’¬‘º”Ô’n‚P,Žs’¬‘º”Ô’n‚Q, Žs’¬‘º”Ô’n‚R)>
+<!ELEMENT —X•Ö”Ô† #PCDATA>
+<!ELEMENT “s“¹•{Œ§ #PCDATA>
+<!ELEMENT Žs’¬‘º”Ô’n‚P #PCDATA>
+<!ELEMENT Žs’¬‘º”Ô’n‚Q #PCDATA>
+<!ELEMENT Žs’¬‘º”Ô’n‚R #PCDATA>
+<!ELEMENT “d˜b”Ô† #PCDATA>
+<!ELEMENT Œg‘Ñ“d˜b #PCDATA>
+
+<!ELEMENT “dŽqƒ[ƒ‹ #PCDATA>
+<!ELEMENT ‘—Mó‘Ô #PCDATA>
+
+<!ELEMENT E‹Æ #PCDATA>
+<!ELEMENT ‹Î–±æ #PCDATA>
+
+<!ELEMENT ‹»–¡ (‹»–¡‚P, ‹»–¡‚Q, ‹»–¡‚R)>
+<!ELEMENT ‹»–¡‚P #PCDATA>
+<!ELEMENT ‹»–¡‚Q #PCDATA>
+<!ELEMENT ‹»–¡‚R #PCDATA>
+

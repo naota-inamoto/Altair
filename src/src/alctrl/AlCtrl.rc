@@ -1,0 +1,247 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 日本語 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#ifdef _WIN32
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+	"resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+	"#include ""afxres.h""\r\n"
+	"\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+	"1 TYPELIB ""AlCtrl.tlb""\r\n"
+	"\0"
+END
+
+#endif	  // APSTUDIO_INVOKED
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 0,0,44,0
+ PRODUCTVERSION 0,0,44,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+	BLOCK "StringFileInfo"
+	BEGIN
+		BLOCK "041104b0"
+		BEGIN
+			VALUE "Comments", "by Naota Inamoto\0"
+			VALUE "CompanyName", "\0"
+			VALUE "FileDescription", "AlCtrl OLE Control Module\0"
+			VALUE "FileVersion", "0, 0, 44, 0\0"
+			VALUE "InternalName", "ALCTRL\0"
+			VALUE "LegalCopyright", "Copyright (C) 1995-2020\0"
+			VALUE "LegalTrademarks", "\0"
+			VALUE "OriginalFilename", "ALCTRL.OCX\0"
+			VALUE "PrivateBuild", "\0"
+			VALUE "ProductName", "AlCtrl OLE Control Module\0"
+			VALUE "ProductVersion", "0, 0, 44, 0\0"
+			VALUE "SpecialBuild", "\0"
+		END
+	END
+	BLOCK "VarFileInfo"
+	BEGIN
+		VALUE "Translation", 0x411, 1200
+	END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ABOUTDLL			ICON	DISCARDABLE 	"AlCtrl.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_ALCTRL				BITMAP	DISCARDABLE 	"AlCtrlCtl.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PROPPAGE_ALCTRL DIALOG DISCARDABLE	0, 0, 250, 118
+STYLE WS_CHILD
+FONT 9, "System"
+BEGIN
+	CONTROL 		"TransParent",IDC_TRANSPARENT,"Button",BS_AUTOCHECKBOX |	
+					WS_TABSTOP,47,35,51,10
+	EDITTEXT		IDC_BORDERWIDTH,88,69,40,14
+	LTEXT			"BorderWidth",IDC_STATIC,47,72,36,8
+END
+
+IDD_ABOUTBOX_ALCTRL DIALOG DISCARDABLE	34, 22, 193, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About AlCtrl Control"
+FONT 9, "System"
+BEGIN
+	ICON			IDI_ABOUTDLL,IDC_STATIC,10,10,20,20
+	LTEXT			"AlCtrl Control, Version 0.44",IDC_STATIC,40,10,108,8
+	LTEXT			"Copyright (C) 1995-2020",IDC_STATIC,40,25,115,8
+	DEFPUSHBUTTON	"OK",IDOK,154,7,32,14,WS_GROUP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+	IDD_PROPPAGE_ALCTRL, DIALOG
+	BEGIN
+		LEFTMARGIN, 7
+		RIGHTMARGIN, 243
+		TOPMARGIN, 7
+		BOTTOMMARGIN, 111
+	END
+
+	IDD_ABOUTBOX_ALCTRL, DIALOG
+	BEGIN
+		LEFTMARGIN, 7
+		RIGHTMARGIN, 186
+		TOPMARGIN, 7
+		BOTTOMMARGIN, 48
+	END
+END
+#endif	  // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MDIFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+	POPUP "ﾌｧｲﾙ(\036F\037ﾌ)"
+	BEGIN
+		MENUITEM "プリンタの設定(\036R\037ﾌ)...", ID_FILE_PRINT_SETUP
+	END
+	POPUP "表示(\036V\037ﾋ)"
+	BEGIN
+		MENUITEM "ステータス バー(\036S\037ｽ)", ID_VIEW_STATUS_BAR
+	END
+END
+
+IDR_MDICHILD MENU PRELOAD DISCARDABLE 
+BEGIN
+	POPUP "ﾌｧｲﾙ(\036F\037ﾌ)"
+	BEGIN
+		MENUITEM "閉じる(\036C\037ﾄ)",			ID_FILE_CLOSE
+		MENUITEM SEPARATOR
+		MENUITEM "印刷(\036P\037ｲ)...\tCtrl+P", ID_FILE_PRINT
+		MENUITEM "印刷プレビュー(\036V\037ﾚ)",	ID_FILE_PRINT_PREVIEW
+		MENUITEM "プリンタの設定(\036R\037ﾌ)...", ID_FILE_PRINT_SETUP
+	END
+	POPUP "表示(\036V\037ﾋ)"
+	BEGIN
+		MENUITEM "ステータス バー(\036S\037ｽ)", ID_VIEW_STATUS_BAR
+	END
+	POPUP "ｳｨﾝﾄﾞｳ(\036W\037ｳ)"
+	BEGIN
+		MENUITEM "重ねて表示(\036C\037ｶ)",		ID_WINDOW_CASCADE
+		MENUITEM "並べて表示(\036T\037ﾅ)",		ID_WINDOW_TILE_HORZ
+		MENUITEM "アイコンの整列(\036A\037ｾ)",	ID_WINDOW_ARRANGE
+	END
+END
+
+IDR_SDIFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+	POPUP "ﾌｧｲﾙ(\036F\037ﾌ)"
+	BEGIN
+		MENUITEM "閉じる(\036C\037ﾄ)",			ID_FILE_CLOSE
+		MENUITEM SEPARATOR
+		MENUITEM "印刷(\036P\037ｲ)...\tCtrl+P", ID_FILE_PRINT
+		MENUITEM "印刷プレビュー(\036V\037ﾚ)",	ID_FILE_PRINT_PREVIEW
+		MENUITEM "プリンタの設定(\036R\037ﾌ)...", ID_FILE_PRINT_SETUP
+	END
+	POPUP "表示(\036V\037ﾋ)"
+	BEGIN
+		MENUITEM "ステータス バー(\036S\037ｽ)", ID_VIEW_STATUS_BAR
+	END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+	IDS_ALCTRL				"AlCtrl Control"
+	IDS_ALCTRL_PPG			"AlCtrl Property Page"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+	IDS_ALCTRL_PPG_CAPTION	"General"
+END
+
+#endif	  // 日本語 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+1 TYPELIB "AlCtrl.tlb"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif	  // not APSTUDIO_INVOKED
+

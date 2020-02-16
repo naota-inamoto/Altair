@@ -1,0 +1,54 @@
+
+g == cons(null, null), var("g1", g1) == 1, init(g, g1), select(g1, g2), write(dump(g2, 1)) == 1 .
+
+init(g, g1) :- 
+ pm_rep(g, g1)
+
+  before := {
+    invariant,
+    g
+  }
+  after := {
+    g1:(null)-/1/->("1"),
+    g1       -/"1"/->("1"),
+    g1       -/2/->("2"),
+    g1       -/"2"/->("2"),
+    g1       -/3/->("3"),
+    g1       -/"3"/->("3")
+  }
+  common := {
+   where .
+  }
+  tail := {
+   where .
+  }
+
+  final := {
+   where .
+  }
+
+  .
+
+select(g1, g2) :- 
+ pm_rep(g1, g2)
+
+  before := {
+    invariant,
+    g1:(null)-/i/=>(n1)
+  }
+  after := {
+    g2:(null)-/i/=>(n1)
+  }
+  common := {
+   where next_if_false(is_type(i, "integer") == null).
+  }
+  tail := {
+   where .
+  }
+
+  final := {
+   where .
+  }
+
+  .
+

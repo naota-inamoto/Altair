@@ -1,0 +1,301 @@
+
+/* -------- 共通因子の除去 -------- */
+common_num(tl) {
+  tl == null -> 1;
+  tl == (((c1, *), ...), tlt...),
+  r == common_num2(c1, tlt) -> {
+    r < 0 -> -r;
+    true -> r;
+  }
+}
+common_num2(c1, tl) {
+  tl == null -> {
+    c1 < 0 -> -c1;
+    true -> c1;
+  }
+  c1 == 1 -> c1;
+  tl == (((c2, *), ...), tlt...), c == gcd(c1, c2) -> common_num2(c, tlt);
+}
+
+common_var(tl) {
+  tl == null -> null;
+  tl == ((*, vl, *), tlt...) -> common_var2(vl, tlt);
+}
+common_var2(vl1, tl) {
+  tl == null -> vl1;
+  tl == ((*, vl2, *), tlt...), vl == common_var3(vl1, vl2) -> {
+    vl == null -> null;
+    true -> common_var2(vl, tlt);
+  }
+}
+common_var3(vl1, vl2) {
+  vl1 == null -> null;
+  vl2 == null -> null;
+  vl1 == (v1, vl1t...), v1 == (*, n1, il1, d1),
+  vl2 == (v2, vl2t...), v2 == (*, n2, il2, d2) -> {
+    n1 < n2 -> common_var3(vl1t, vl2);
+    n1 > n2 -> common_var3(vl1, vl2t);
+    il1 < il2 -> common_var3(vl1t, vl2);
+    il1 > il2 -> common_var3(vl1, vl2t);
+    d1 > d2 -> (v2, common_var3(vl1t, vl2t)...);
+    true -> (v1, common_var3(vl1t, vl2t)...);
+  }
+}
+
+common_func(tl) {
+  tl == null -> null;
+  tl == ((*, *, fl), tlt...) -> common_func2(fl, tlt);
+}
+common_func2(fl1, tl) {
+  tl == null -> fl1;
+  tl == ((*, *, fl2), tlt...), fl == common_func3(fl1, fl2) -> {
+    fl == null -> null;
+    true -> common_func2(fl, tlt);
+  }
+}
+common_func3(fl1, fl2) {
+  fl1 == null -> null;
+  fl2 == null -> null;
+  fl1 == (f1, fl1t...), f1 == (*, n1, al1, d1),
+  fl2 == (f2, fl2t...), f2 == (*, n2, al2, d2) -> {
+    n1 < n2 -> common_func3(fl1t, fl2);
+    n1 > n2 -> common_func3(fl1, fl2t);
+    al1 < al2 -> common_func3(fl1t, fl2);
+    al1 > al2 -> common_func3(fl1, fl2t);
+    d1 > d2 -> (f2, common_func3(fl1t, fl2t)...);
+    true -> (f1, common_func3(fl1t, fl2t)...);
+  }
+}
+
+normalize(tl) {
+  c == common_num(tl),
+  vl == common_var(tl),
+  fl == common_func(tl)
+    -> normalize3(tl, c, vl, fl);
+}
+
+normalize2(a1, a2) {
+  a1 == ("poly", tl1, opt1), a2 == ("poly", tl2, opt2) ->
+    (tl11, tl12) == poly_to_z(tl1, tl2),
+//    (tl21, tl22) == math("normalize2", tl11, tl12),
+    (tl21, tl22) == normalize2_tl(tl11, tl12),
+    (("poly", tl21, null), ("poly", tl22, null));
+}
+normalize2_tl(tl1, tl2) {
+  c2 == common_num(tl2),
+  vl2 == common_var(tl2),
+  fl2 == common_func(tl2),
+  c1 == common_num2(c2, tl1),
+  vl1 == common_var2(vl2, tl1),
+  fl1 == common_func2(fl2, tl1)
+      -> {
+    c2 < 0 -> (normalize3(tl1, -c1, vl1, fl1), normalize3(tl2, -c1, vl1, fl1));
+    true -> (normalize3(tl1, c1, vl1, fl1), normalize3(tl2, c1, vl1, fl1));
+  }
+}
+
+normalize3(tl, c2, vl2, fl2) {
+  tl == null -> null;
+  tl == (((c1, c), vl1, fl1), tlt...),
+  cc == c1 / c2,
+  vv == normalize3_var(vl1, vl2),
+  ff == normalize3_func(fl1, fl2),
+  tt == normalize3(tlt, c2, vl2, fl2)
+    -> sort_poly_insert(tt, ((cc, c), vv, ff));
+}
+normalize3_var(vl1, vl2) {
+  vl1 == null -> null;
+  vl2 == null -> vl1;
+  vl1 == (v1, vl1t...), v1 == (*, n1, il1, d1),
+  vl2 == (v2, vl2t...), v2 == (*, n2, il2, d2) -> {
+    n1 < n2 -> (v1, normalize3_var(vl1t, vl2)...);
+    n1 > n2 -> normalize3_var(vl1, vl2t);
+    il1 < il2 -> (v1, normalize3_var(vl1t, vl2)...);
+    il1 > il2 -> normalize3_var(vl1, vl2t);
+    d == d1 - d2 -> {
+      d == 0 -> normalize3_var(vl1t, vl2t);
+      true -> (("var", n1, il1, d), normalize3_var(vl1t, vl2t)...);
+    }
+  }
+}
+normalize3_func(fl1, fl2) {
+  fl1 == null -> null;
+  fl2 == null -> fl1;
+  fl1 == (f1, fl1t...), f1 == (*, n1, al1, d1),
+  fl2 == (f2, fl2t...), f2 == (*, n2, al2, d2) -> {
+    n1 < n2 -> (f1, normalize3_func(fl1t, fl2)...);
+    n1 > n2 -> normalize3_func(fl1, fl2t);
+    al1 < al2 -> (f1, normalize3_func(fl1t, fl2)...);
+    al1 > al2 -> normalize3_func(fl1, fl2t);
+    d == d1 - d2 -> {
+      d == 0 -> normalize3_func(fl1t, fl2t);
+      true -> (("func", n1, al1, d), normalize3_func(fl1t, fl2t)...);
+    }
+  }
+}
+
+sort_poly_insert(ls, e) {
+  ls == null -> (e);
+  ls == (h, t...), h == (*, vl1, fl1), e == (*, vl2, fl2),
+  r == sort_poly_comp(vl1, vl2, 0) -> {
+    r > 0 -> (h, sort_poly_insert(t, e)...);
+    r < 0 -> (e, ls...);
+    sort_poly_comp(fl1, fl2, 1) > 0 -> (h, sort_poly_insert(t, e)...);
+    true -> (e, ls...);
+  }
+}
+sort_poly_comp(e1, e2, func) {
+  e1 == null, e2 == null -> 0;
+  e2 == null -> 1;
+  e1 == null -> -1;
+  e1 == ((*, n1, l1, d1), l1t...),
+  e2 == ((*, n2, l2, d2), l2t...) -> {
+    n1 < n2 -> 1;
+    n1 > n2 -> -1;
+    l1 > l2 -> {
+       func == 0 -> 1;
+       true -> -1;
+    }
+    l1 < l2 -> {
+       func == 0 -> -1;
+       true -> 1;
+    }
+    d1 > d2 -> 1;
+    d1 < d2 -> -1;
+    true -> sort_poly_comp(l1t, l2t, func);
+  }
+}
+
+/* -------- 有理式の整係数化 -------- */
+poly_to_z(tl1, tl2) {
+  d1 == poly_to_z1(1, tl1),
+  d2 == poly_to_z1(1, tl2),
+  gcd == gcd(d1, d2),
+  d == d1 * d2 / gcd -> {
+    d == 1 -> (tl1, tl2);
+    true -> (mul_poly_tl(tl1, (((d, 1), null, null))),
+             mul_poly_tl(tl2, (((d, 1), null, null)))
+            );
+  }
+}
+poly_to_z1(d1, tl) {
+  tl == null -> d1;
+  tl == (((c2, d2), *, *), tlt...),
+  gcd == gcd(d1, d2),
+  d == d1 * d2 / gcd
+    -> poly_to_z1(d, tlt);
+}
+
+/* -------- 多項式中、変数および関数の最高次数の取得 -------- */
+degree_poly(tl, vf, n, l) {
+  vf == "var", ds == degrees_poly_var(tl, n, l) -> head_elem(ds);
+  vf == "func", ds == degrees_poly_func(tl, n, l) -> head_elem(ds);
+}
+
+/* -------- 多項式中、変数および関数の最低次数の取得 -------- */
+degree_poly2(tl, vf, n, l, d_max) {
+  vf == "var", ds == degrees_poly_var(tl, n, l) -> last_elem(ds);
+  vf == "func", ds == degrees_poly_func(tl, n, l) -> last_elem(ds);
+}
+
+/* -------- 多項式中、変数および関数の次数群の取得 -------- */
+degrees_poly(tl, vf, n, l) {
+//  true -> math("degrees_poly", tl, vf, n, l);
+  vf == "var" -> degrees_poly_var(tl, n, l);
+  vf == "func" -> degrees_poly_func(tl, n, l);
+}
+degrees_poly_var(tl, n, il) {
+  tl == null -> (0);
+  tl == ((*, vl, *), tlt...),
+  ds1 == degrees_poly_var2(vl, n, il),
+  ds2 == degrees_poly_var(tlt, n, il)
+    -> set_union(ds1, ds2);
+}
+degrees_poly_var2(vl, n1, il1) {
+  vl == null -> (0);
+  vl == (v, vlt...),
+  v == (*, n2, il2, d2) -> {
+    n1 == n2, il1 == il2 -> (d2);
+    true -> degrees_poly_var2(vlt, n1, il1);
+  }
+}
+degrees_poly_func(tl, n, al) {
+  tl == null -> (0);
+  tl == ((*, *, fl), tlt...),
+  ds1 == degrees_poly_func2(fl, n, al),
+  ds2 == degrees_poly_func(tlt, n, al)
+    -> set_union(ds1, ds2);
+}
+degrees_poly_func2(fl, n1, al1) {
+  fl == null -> (0);
+  fl == (f, flt...),
+  f == (*, n2, al2, d2) -> {
+    n1 == n2, al1 == al2 -> (d2);
+    true -> degrees_poly_func2(flt, n1, al1);
+  }
+}
+/* -------- 多項式中、指定された変数/関数と次数の項の係数の取得 -------- */
+coef_poly(tl, vf, n, l, d) {
+  vf == "var" -> coef_poly_var(tl, n, l, d);
+  vf == "func" -> coef_poly_func(tl, n, l, d);
+}
+coef_poly_var(tl, n, il, d) {
+  tl == null -> null;
+  tl == (t, tlt...), t == (c1, vl1, fl1) -> {
+    d == 0 -> {
+      (ok, vl2) == coef_poly_var2(vl1, 1, null, n, il, d) -> {
+        ok == 0 -> coef_poly_var(tlt, n, il, d);
+        true -> sort_poly_insert(
+          coef_poly_var(tlt, n, il, d),
+          (c1, vl2, fl1) );
+      }
+    }
+    (ok, vl2) == coef_poly_var2(vl1, 0, null, n, il, d) -> {
+      ok == 0 -> coef_poly_var(tlt, n, il, d);
+      true -> sort_poly_insert(
+        coef_poly_var(tlt, n, il, d),
+        (c1, vl2, fl1) );
+    }
+  }
+}
+coef_poly_var2(vl, ok, ls, n, il, d) {
+  vl == null -> (ok, ls);
+  vl == (v, vlt...), v == (*, n2, il2, d2) -> {
+    d == 0 -> {
+      n == n2, il == il2 -> coef_poly_var2(vlt, 0, ls, n, il, d);
+      true -> coef_poly_var2(vlt, ok, append(ls, (v)), n, il, d);
+    }
+    n == n2, il == il2, d == d2 -> coef_poly_var2(vlt, 1, ls, n, il, d);
+    true -> coef_poly_var2(vlt, ok, append(ls, (v)), n, il, d);
+  }
+}
+coef_poly_func(tl, n, al, d) {
+  tl == null -> null;
+  tl == (t, tlt...), t == (c1, vl1, fl1) -> {
+    d == 0 -> {
+      (ok, fl2) == coef_poly_func2(fl1, 1, null, n, al, d) -> {
+        ok == 0 -> coef_poly_func(tlt, n, al, d);
+        true -> sort_poly_insert(
+          coef_poly_func(tlt, n, al, d),
+          (c1, vl1, fl2) );
+      }
+    }
+    (ok, fl2) == coef_poly_func2(fl1, 0, null, n, al, d) -> {
+      ok == 0 -> coef_poly_func(tlt, n, al, d);
+      true -> sort_poly_insert(
+        coef_poly_func(tlt, n, al, d),
+        (c1, vl1, fl2) );
+    }
+  }
+}
+coef_poly_func2(fl, ok, ls, n, al, d) {
+  fl == null -> (ok, ls);
+  fl == (f, flt...), f == (*, n2, al2, d2) -> {
+    d == 0 -> {
+      n == n2, al == al2 -> coef_poly_func2(flt, 0, ls, n, al, d);
+      true -> coef_poly_func2(flt, ok, append(ls, (f)), n, al, d);
+    }
+    n == n2, al == al2, d == d2 -> coef_poly_func2(flt, 1, ls, n, al, d);
+    true -> coef_poly_func2(flt, ok, append(ls, (f)), n, al, d);
+  }
+}

@@ -1,0 +1,199 @@
+
+eval_diff(l) {
+  l == (f, l2...) -> eval_diff_n(f, l2);
+}
+eval_diff_n(f, l) {
+  l == null -> f;
+  l == (("poly", (((1, 1), (("var", v, il, d)), null)), opt), t...)
+    -> eval_diff_1(eval_diff_n(f, t), v, il, d);
+}
+eval_diff_1(f, v, il, d) {
+  d == 0 -> f;
+  d >  0 -> eval_diff_1(eval_diff_2(f, v, il), v, il, d-1);
+}
+eval_diff_2(f, v, il) {
+  f == ("poly", tl, opt) -> eval_diff_poly(tl, v, il);
+  f == ("rat", m, d)
+    -> sub(
+      div(eval_diff_2(m, v, il), d),
+      mul(m, div(div(eval_diff_2(d, v, il), d), d))
+    );
+}
+eval_diff_poly(tl, v, il) {
+  tl == null -> ("poly", null, null);
+  tl == (h, tlt...) -> add(eval_diff_poly_term(h, v, il), eval_diff_poly(tlt, v, il));
+}
+eval_diff_poly_term(term, v, il) {
+  term == (c, vl, fl) -> {
+    true -> mul(
+      ("poly", ((c, null, null)), null),
+      add(
+        mul(eval_diff_poly_var(vl, vl, v, il), ("poly", (((1, 1), null, fl)), null)),
+        mul(("poly", (((1, 1), vl, null)), null), eval_diff_poly_func(fl, fl, v, il))
+      )
+    );
+  }
+}
+eval_diff_poly_var(vl1, vl2, v, il) {
+  vl1 == null -> ("poly", null, null);
+  vl2 == null -> ("poly", (((1, 1), vl1, null)), null);
+  // vl2 == (var, t...), r == math("normalize3_var", vl1, (var))
+  vl2 == (var, t...), r == normalize3_var(vl1, (var))
+    -> add(
+      mul(
+        eval_diff_var(var, v, il),
+        ("poly", (((1, 1), r, null)), null)
+      ),
+      mul(
+        ("poly", (((1, 1), (var), null)), null),
+        eval_diff_poly_var(r, t, v, il)
+      )
+    );
+}
+eval_diff_poly_func(fl1, fl2, v, il) {
+  fl1 == null -> ("poly", null, null);
+  fl2 == null -> ("poly", (((1, 1), null, fl1)), null);
+  // fl2 == (func, t...), r == math("normalize3_func", fl1, (func))
+  fl2 == (func, t...), r == normalize3_func(fl1, (func))
+    -> add(
+      mul(
+        eval_diff_func(func, v, il),
+        ("poly", (((1, 1), null, r)), null)
+      ),
+      mul(
+        ("poly", (((1, 1), null, (func))), null),
+        eval_diff_poly_func(r, t, v, il)
+      )
+    );
+}
+eval_diff_var(var, v, il) {
+  var == ("var", v2, il2, d2) -> eval_diff_var2(v2, il2, d2, v, il);
+}
+eval_diff_func(func, v, il) {
+  func == ("func", v2, al2, d2) -> eval_diff_func2(v2, al2, d2, v, il);
+}
+
+eval_diff_var2(v2, il2, d2, v, il) {
+  d2 == 1 -> {
+    starts_with(v2, "%") -> ("poly", null, null);
+    v2 == v, il2 == il -> const(1);
+
+    il2 == null, il == null, ifdef_var("coords"), coords == get_var("coords"),
+    member(v2, coords), member(v, coords) -> ("poly", null, null);
+
+    true -> ("poly", (((1, 1), null,
+      ((
+        "func",
+        "diff",
+        (
+          var_to_poly(1, v2, il2, d2),
+          var_to_poly(1, v, il, 1)
+        ),
+        1
+      ))
+    )), null);
+  }
+  d2 >  0 ->
+    mul(
+      var_to_poly(d2, v2, il2, d2-1),
+      eval_diff_var2(v2, il2, 1, v, il)
+    );
+}
+eval_diff_func2(v2, al2, d2, v, il) {
+  d2 == 1 -> {
+    v2 == "exp", al2 == (a) -> 
+      mul(
+        func_to_poly(1, "exp", (a), 1),
+        eval_diff_2(a, v, il)
+      );
+    v2 == "sin", al2 == (a) -> 
+      mul(
+        func_to_poly(1, "cos", (a), 1),
+        eval_diff_2(a, v, il)
+      );
+    v2 == "cos", al2 == (a) -> 
+      mul(
+        func_to_poly(-1, "sin", (a), 1),
+        eval_diff_2(a, v, il)
+      );
+    v2 == "tan", al2 == (a) -> 
+      div(
+        eval_diff_2(a, v, il),
+        func_to_poly(1, "cos", (a), 2)
+      );
+    v2 == "log", al2 == (a) ->
+      mul(
+        inverse(a),
+        eval_diff_2(a, v, il)
+      );
+    v2 == "asin", al2 == (a) -> 
+      div(
+        eval_diff_2(a, v, il),
+        func_to_poly(1, "sqrt", (sub(const(1), mul(a, a))), 1)
+      );
+    v2 == "acos", al2 == (a) -> 
+      div(
+        neg(eval_diff_2(a, v, il)),
+        func_to_poly(1, "sqrt", (sub(const(1), mul(a, a))), 1)
+      );
+    v2 == "atan", al2 == (a) -> 
+      div(
+        eval_diff_2(a, v, il),
+        add(mul(a, a), const(1))
+      );
+    v2 == "sqrt", al2 == (a) -> 
+      div(
+        eval_diff_2(a, v, il),
+        mul(const(2), func_to_poly(1, "sqrt", (a), 1))
+      );
+    v2 == "diff" -> eval_diff_diff(al2, v, il);
+
+    true -> ("poly", (((1, 1), null,
+      ((
+        "func",
+        "diff",
+        (
+          func_to_poly(1, v2, al2, 1),
+          var_to_poly(1, v, il, 1)
+        ),
+        1
+      ))
+    )), null);
+  }
+  d2 >  0 ->
+    mul(
+      func_to_poly(d2, v2, al2, d2-1),
+      eval_diff_func2(v2, al2, 1, v, il)
+    );
+}
+eval_diff_diff(al2, v, il) {
+  al2 == (h, t...),
+  al == eval_diff_sort_insert(t, var_to_poly(1, v, il, 1))
+    -> func_to_poly(1, "diff", (h, al...), 1);
+}
+eval_diff_sort_insert(ls, e2) {
+  ls == null -> (e2);
+  ls == (e, t...),
+  e  == ("poly", (((1, 1), (("var", v,  il,  d )), null)), opt),
+  e2 == ("poly", (((1, 1), (("var", v2, il2, d2)), null)), opt) -> {
+    v2 == v, il2 == il -> eval_diff_sort_insert(t, var_to_poly(1, v, il, d+d2));
+    v2 <  v       -> (e2, eval_diff_sort_insert(t, e )...);
+    v2 >  v       -> (e,  eval_diff_sort_insert(t, e2)...);
+  }
+}
+
+eval_coords(x) {
+  x == ("mat", n, ary) -> eval_coords2(ary, n, null);
+}
+eval_coords2(ary, n, ls) prog {
+  ret = null;
+  for i in [0..n-1] {
+    elem = eval_coords_v(get_ary(ary, (i)));
+    ret = append(ret, (elem));
+  }
+  set_var("coords", ret);
+}
+eval_coords_v(p) {
+  p == ("poly", (((1, 1), (("var", v, null, 1)), null)), opt) -> v;
+}
+

@@ -1,0 +1,2899 @@
+guicore.alb
+parallel.alb
+$END_LIB
+TEXT
+AlObject
+class TP
+class Ctrl
+end_class
+class TxdCtrl
+end_class
+class PedCtrl
+end_class
+class GedCtrl
+end_class
+class TedCtrl
+end_class
+class WndMsgCtrl
+end_class
+class UnloadCtrl
+end_class
+class TimerCtrl
+end_class
+end_class
+TEXT
+AlException
+class MyException
+end_class
+$END_CLASS
+TEXT
+AlObject
+class TP
+member
+public: static void drag();
+member
+public: static void wm_size();
+member
+public: static void wm_size2();
+member
+public: static void control_test();
+member
+public: static void heavy();
+member
+public: static void label_test();
+member
+public: static void picture_test();
+member
+public: static void form_test();
+member
+public: static void pict_ed_test();
+member
+public: static void graph_ed_test();
+member
+public: static void table_ed_test();
+member
+public: static void hier_ed_test();
+member
+public: static void hier_ed_test2();
+member
+public: static void text_ed_test();
+member
+public: static void all();
+member
+public: static void editors();
+member
+public: static void dialog_test1();
+member
+public: static void dialog_test2();
+member
+public: static void dialog_test3();
+member
+public: static void bitmap_test();
+member
+public: static void save_bitmap();
+member
+public: static void button200();
+member
+public: static void find_file_test();
+member
+public: static void FactMain();
+member
+public: static void Factorial(Channel in, Channel out);
+member
+public: static void PNumMain();
+member
+public: static void Integers(Channel out);
+member
+public: static void ShiftAndFilter(Channel in);
+member
+public: static void mdi_test();
+member
+public: static void sdi_test();
+member
+public: static void sdi_menu();
+member
+public: static void mdi_sdi();
+member
+public: static void mdi5_sdi5();
+member
+public: static void wnd_msg_test();
+member
+public: static void excel_auto();
+member
+public: static void excel_auto_exit();
+member
+public: static variant sheet;
+member
+public: static variant app;
+member
+public: static void env();
+member
+public: static void get_window_text();
+member
+public: static void unload();
+member
+public: static void mdi_child_destroy();
+member
+public: static void sdi_destroy();
+member
+public: static void mdi_destroy();
+member
+public: static void timer();
+member
+public: static void big_integer();
+member
+public: static void big_integer1();
+member
+public: static void big_integer2();
+member
+public: static void big_integer_gcd();
+member
+public: static void try_catch();
+member
+public: static void try_catch_1();
+member
+public: static void return_in_catch_block();
+member
+public: static string return_in_catch_block_1();
+member
+public: static void error();
+member
+public: static void error2();
+member
+public: void error2_sub();
+member
+public: static void sjis_to_utf8();
+member
+public: static void utf8_to_sjis();
+member
+public: static void euc_to_utf8();
+member
+public: static void utf8_to_euc();
+member
+public: static void gui_perform_profile();
+member
+public: static void clear_profile_info();
+member
+public: static void set_profile_info();
+member
+public: static void start_profile();
+member
+public: static void stop_profile();
+member
+public: static void result_profile();
+member
+public: static void ok_dlg();
+member
+public: static void ok_cancel_dlg();
+member
+public: static void yes_no_dlg();
+member
+public: static void input_dlg();
+member
+public: static void combo_dlg();
+member
+public: static void find_file();
+member
+public: static void find_file2();
+member
+public: static void sjis_jis();
+member
+public: static void sjis_euc();
+member
+public: static void sjis_utf8();
+member
+public: static void hankakukana_dump();
+member
+public: static void reverse_list();
+member
+public: static void print_list();
+member
+public: static void save_tree();
+member
+public: static void load_tree();
+member
+public: static string temp_file();
+member
+public: static string temp_filename;
+member
+public: static void read_space();
+member
+public: static void is_ident();
+member
+public: static void file_dialog();
+member
+public: static void color_dialog();
+member
+public: static void font_dialog();
+member
+public: static void cell_heap();
+member
+public: static void cell_heap_overflow();
+member
+public: static void integer_size();
+member
+public: static void format_numeric();
+member
+public: static void get_character_code();
+member
+public: static void trim();
+member
+public: static void drag_and_drop();
+member
+public: static void EventProc(list event);
+member
+public: static void al_ask();
+class Ctrl
+member
+public: void clicked();
+end_class
+class TxdCtrl
+member
+public: TextEditor editor;
+member
+public: FrameScrollGlyph scroll;
+member
+public: AlVScrollBar vbar;
+member
+public: void Find();
+member
+public: void FindNext();
+member
+public: string find_str;
+end_class
+class PedCtrl
+member
+public: GlyphEditor editor;
+member
+public: void Save();
+member
+public: void Load();
+member
+public: void InsertRectangle();
+member
+public: void InsertEllipse();
+member
+public: void InsertLine();
+member
+public: void InsertArrowLine();
+member
+public: void InsertPath();
+member
+public: void InsertArrowPath();
+member
+public: void InsertLabel();
+member
+public: void InsertMLabel();
+member
+public: void Delete();
+end_class
+class GedCtrl
+member
+public: GraphEditor editor;
+member
+public: void Save();
+member
+public: void Load();
+member
+public: void InputRectangle();
+member
+public: void InputEllipse();
+member
+public: void InputArc();
+member
+public: void InputLabel();
+member
+public: void ReconnectArc();
+member
+public: void Copy();
+member
+public: void Paste();
+member
+public: void Delete();
+end_class
+class TedCtrl
+member
+public: TableEditor editor;
+member
+public: void ClearRecords();
+member
+public: void AddRecord();
+end_class
+class WndMsgCtrl
+member
+public: integer MsgCallback();
+end_class
+class UnloadCtrl
+member
+public: string text;
+member
+public: list Callback();
+member
+public: static list DestroyProc(UnloadCtrl unload);
+end_class
+class TimerCtrl
+member
+public: void Callback();
+member
+public: integer id;
+member
+public: integer count;
+end_class
+end_class
+TEXT
+AlException
+class MyException
+member
+public: integer error_code;
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class TP
+member
+public: static void drag();
+body
+{
+	GUI::Initialize();
+	var EllipseGlyph e;
+	var RectangleGlyph r1, r2;
+	var ArrowLine l;
+	var ArrowPath p;
+	e = new EllipseGlyph;
+	e.Create(0, 0, 100, 100);
+	r1 = new RectangleGlyph;
+	r1.Create(0, 0, 100, 100);
+	r2 = new RectangleGlyph;
+	r2.Create(0, 0, 100, 100);
+	l = new ArrowLine;
+	l.Create(0, 0, 100, 100);
+	p = new ArrowPath;
+	p.Create(0, 100, 100, 0);
+	var GlyphEditor ed, ed2;
+	ed = new GlyphEditor;
+	ed2 = new GlyphEditor;
+	ed.Create(0, 0, 1280, 800);
+	ed2.Create(0, 0, 1280, 800);
+	ed.child.Append(e, 50, 50);
+	ed.child.Append(r1, 200, 50);
+	ed.child.Append(r2, 50, 200);
+	ed.child.Append(l, 200, 200);
+	ed.child.Append(p, 340, 200);
+	ed.child.MakeSpaceIndex();
+	ed2.child = ed.child;
+	var TMGlyph scroll, scroll2;
+	scroll = new TMGlyph;
+	scroll2 = new TMGlyph;
+	scroll.tm = al_translate_tm(20, 0) * al_scale_tm(0.6, 0.6);
+	scroll2.tm = al_translate_tm(0, 20) * al_scale_tm(0.4, 0.4);
+	scroll.Body(ed);
+	scroll2.Body(ed2);
+	var Window wind, wind2;
+	wind = new Window;
+	wind2 = new Window;
+	wind.Create(scroll, null);
+	wind2.Create(scroll2, null);
+	wind.SetTitle("ドラッグ１");
+	wind2.SetTitle("ドラッグ２");
+	al_print("child_title_1 = " + al_get_title(wind.wnd) + "\n");
+	al_print("child_title_2 = " + al_get_title(wind2.wnd) + "\n");
+}
+end_body
+member
+public: static void wm_size();
+body
+{
+	GUI::Initialize();
+	var EllipseGlyph e;
+	e = new EllipseGlyph;
+	e.Create(100, 100, 200, 200);
+	var Window wind;
+	wind = new Window;
+	wind.Create(e, null);
+	wind.SetTitle("WM_SIZE");
+}
+end_body
+member
+public: static void wm_size2();
+body
+{
+	GUI::Initialize();
+	var PieGlyph e;
+	e = new PieGlyph;
+	e.Create(100, 100, 200, 200, -1000, 1000, 1000, 1000);
+	var Window wind;
+	wind = new Window;
+	wind.Create(e, null);
+	wind.SetTitle("WM_SIZE2");
+}
+end_body
+member
+public: static void control_test();
+body
+{
+	GUI::Initialize();
+	var PolyGlyph pg;
+	pg = new PolyGlyph;
+	pg.Resize(0, 0, 1500, 1500);
+	var AlButton button;
+	button = new AlButton;
+	button.Create(0, 0, 100, 30, "OK");
+	button.status = Status::Execute;
+	var Ctrl ctrl;
+	ctrl = new Ctrl;
+	button.SetCallback((GUI)ctrl, (GUIfunc)Ctrl::clicked);
+	pg.Append(button, 20, 20);
+	var AlVScrollBar vbar;
+	vbar = new AlVScrollBar;
+	vbar.Create(0, 0, 20, 150);
+	vbar.status = Status::Execute;
+	pg.Append(vbar, 150, 100);
+	var AlHScrollBar hbar;
+	hbar = new AlHScrollBar;
+	hbar.Create(0, 0, 150, 20);
+	hbar.status = Status::Execute;
+	pg.Append(hbar, 20, 60);
+	var AlListBox lb;
+	lb = new AlListBox;
+	lb.Create(0, 0, 100, 100);
+	lb.status = Status::Execute;
+	lb.AddItem(0, "zzz");
+	lb.AddItem(0, "yyy");
+	lb.AddItem(0, "xxx");
+	lb.AddItem(1, "Shoutoku Taishi");
+	lb.AddItem(1, "Suiko Tennou");
+	lb.AddItem(0, "aaaa");
+	lb.AddItem(0, "bbbb");
+	lb.AddItem(0, "cccc");
+	lb.AddItem(0, "dddd");
+	lb.AddItem(0, "AAA");
+	lb.AddItem(0, "BBB");
+	lb.AddItem(0, "CCC");
+	lb.AddItem(0, "DDD");
+	pg.Append(lb, 20, 100);
+	var AlComboBox cb;
+	cb = new AlComboBox;
+	cb.Create(0, 0, 100, 100);
+	cb.status = Status::Execute;
+	cb.child.AddItem(0, "iii");
+	cb.child.AddItem(1, "rrr");
+	cb.child.AddItem(2, "hhh");
+	cb.child.AddItem(3, "Suiko Tennou");
+	cb.child.AddItem(4, "Shoutoku Taishi");
+	cb.child.AddItem(5, "ZZ");
+	var TMGlyph info;
+	info = pg.Append(cb, 180, 20);
+	info.Resize(250, 150, 400, 250);
+	var Window w;
+	w = new Window;
+	w.Create(pg, null);
+	w.SetTitle("Control Test");
+}
+end_body
+member
+public: static void heavy();
+body
+{
+	GUI::Initialize();
+	var GlyphEditor ed;
+	ed = new GlyphEditor;
+	ed.Create(0, 0, 1000, 1000);
+	var integer i;
+	var RectangleGlyph g;
+	i = 50;
+	loop {
+		if (i > 300) {
+			break;
+		} else {
+		}
+		g = new RectangleGlyph;
+		g.Create(0, 0, 100, 100);
+		ed.child.Append(g, i, i);
+		g = new RectangleGlyph;
+		g.Create(0, 0, 100, 100);
+		ed.child.Append(g, i + 150, i);
+		g = new RectangleGlyph;
+		g.Create(0, 0, 100, 100);
+		ed.child.Append(g, i + 300, i);
+		g = new RectangleGlyph;
+		g.Create(0, 0, 100, 100);
+		ed.child.Append(g, i + 450, i);
+		i = i + 5;
+	}
+	ed.child.MakeSpaceIndex();
+	var Window w;
+	w = new Window;
+	w.Create(ed, null);
+	w.SetTitle("Heavy");
+}
+end_body
+member
+public: static void label_test();
+body
+{
+	GUI::Initialize();
+	var PolyGlyph pg;
+	pg = new PolyGlyph;
+	pg.Resize(0, 0, 1500, 1500);
+	var MLabel label;
+	label = new MLabel;
+	label.Create(0, 0, 100, 100, "稲本直太");
+	pg.Append(label, 20, 20);
+	label = new MLabel;
+	label.Create(0, 0, 100, 100, "福田知見");
+	pg.Append(label, 20, 130);
+	var Window w;
+	w = new Window;
+	w.Create(pg, null);
+	w.SetTitle("Label Test");
+}
+end_body
+member
+public: static void picture_test();
+body
+{
+	GUI::Initialize();
+	var GlyphEditor ed;
+	ed = new GlyphEditor;
+	ed.Create(0, 0, 1000, 1000);
+	var PictureGlyph pic;
+	pic = new PictureGlyph;
+	pic.Create();
+	var EllipseGlyph e1, e2;
+	e1 = new EllipseGlyph;
+	e2 = new EllipseGlyph;
+	e1.Create(0, 0, 100, 100);
+	e2.Create(0, 0, 100, 100);
+	pic.Append(e1, 50, 50);
+	pic.Append(e2, 200, 200);
+	ed.child.Append(pic, 10, 10);
+	ed.MakeSpaceIndex();
+	var Window w;
+	w = new Window;
+	w.Create(ed, null);
+	w.SetTitle("Picture Test");
+}
+end_body
+member
+public: static void form_test();
+body
+{
+	GUI::Initialize();
+	var FormGlyph form;
+	form = new FormGlyph;
+	form.Create();
+	form.Resize(0, 0, 1500, 1500);
+	form.status = Status::Execute;
+	var RectangleGlyph r;
+	r = new RectangleGlyph;
+	r.Create(0, 0, 100, 100);
+	var AlVScrollBar vbar;
+	vbar = new AlVScrollBar;
+	vbar.Create(0, 0, 20, 300);
+	vbar.status = Status::Execute;
+	var AlHScrollBar hbar;
+	hbar = new AlHScrollBar;
+	hbar.Create(0, 0, 300, 20);
+	hbar.status = Status::Execute;
+	var TMGlyph r_info, v_info, h_info;
+	r_info = form.Append(r, 0, 0);
+	v_info = form.Append(vbar, 0, 0);
+	h_info = form.Append(hbar, 0, 0);
+	form.Attach(r_info, FormGlyph::Left, 0, 0);
+	form.Attach(r_info, FormGlyph::Top, 0, 0);
+	form.Attach(r_info, FormGlyph::Right, 0, 20);
+	form.Attach(r_info, FormGlyph::Bottom, 0, 20);
+	form.Attach(v_info, FormGlyph::Left, 1, 20);
+	form.Attach(v_info, FormGlyph::Top, 0, 0);
+	form.Attach(v_info, FormGlyph::Right, 0, 0);
+	form.Attach(v_info, FormGlyph::Bottom, 0, 20);
+	form.Attach(h_info, FormGlyph::Left, 0, 0);
+	form.Attach(h_info, FormGlyph::Top, 1, 20);
+	form.Attach(h_info, FormGlyph::Right, 0, 20);
+	form.Attach(h_info, FormGlyph::Bottom, 0, 0);
+	var Window w;
+	w = new Window;
+	w.Create(form, null);
+	w.SetTitle("Form Test");
+}
+end_body
+member
+public: static void pict_ed_test();
+body
+{
+	GUI::Initialize();
+	var GlyphEditor ed;
+	ed = new GlyphEditor;
+	ed.Create(0, 0, 2000, 2000);
+	var AlMenu menu, file_menu, edit_menu;
+	file_menu = new AlMenu;
+	edit_menu = new AlMenu;
+	menu = new AlMenu;
+	var PedCtrl ctrl;
+	ctrl = new PedCtrl;
+	ctrl.editor = ed;
+	file_menu.Append("save", (AlMenu)null, (GUI)ctrl, (GUIfunc)PedCtrl::Save);
+	file_menu.Append("load", (AlMenu)null, (GUI)ctrl, (GUIfunc)PedCtrl::Load);
+	edit_menu.Append("rectangle", (AlMenu)null, (GUI)ctrl, (GUIfunc)PedCtrl::InsertRectangle);
+	edit_menu.Append("ellipse", (AlMenu)null, (GUI)ctrl, (GUIfunc)PedCtrl::InsertEllipse);
+	edit_menu.Append("line", (AlMenu)null, (GUI)ctrl, (GUIfunc)PedCtrl::InsertLine);
+	edit_menu.Append("line with arc", (AlMenu)null, (GUI)ctrl, (GUIfunc)PedCtrl::InsertArrowLine);
+	edit_menu.Append("path", (AlMenu)null, (GUI)ctrl, (GUIfunc)PedCtrl::InsertPath);
+	edit_menu.Append("path with arc", (AlMenu)null, (GUI)ctrl, (GUIfunc)PedCtrl::InsertArrowPath);
+	edit_menu.Append("label", (AlMenu)null, (GUI)ctrl, (GUIfunc)PedCtrl::InsertLabel);
+	edit_menu.Append("fold label", (AlMenu)null, (GUI)ctrl, (GUIfunc)PedCtrl::InsertMLabel);
+	edit_menu.Append("delete", (AlMenu)null, (GUI)ctrl, (GUIfunc)PedCtrl::Delete);
+	menu.Append("file", file_menu, (GUI)null, (GUIfunc)null);
+	menu.Append("edit", edit_menu, (GUI)null, (GUIfunc)null);
+	var FormGlyph form;
+	form = FormGlyph::FormWithScroll(menu, ed);
+	form.status = Status::Execute;
+	var Window w;
+	w = new Window;
+	w.Create(form, null);
+	w.SetTitle("Picture Editor");
+}
+end_body
+member
+public: static void graph_ed_test();
+body
+{
+	GUI::Initialize();
+	var GraphEditor ed;
+	ed = new GraphEditor;
+	ed.Create(0, 0, 2000, 2000);
+	var AlMenu menu, file_menu, edit_menu;
+	file_menu = new AlMenu;
+	edit_menu = new AlMenu;
+	menu = new AlMenu;
+	var GedCtrl ctrl;
+	ctrl = new GedCtrl;
+	ctrl.editor = ed;
+	file_menu.Append("save", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::Save);
+	file_menu.Append("load", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::Load);
+	edit_menu.Append("rectangle", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::InputRectangle);
+	edit_menu.Append("ellipse", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::InputEllipse);
+	edit_menu.Append("arc", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::InputArc);
+	edit_menu.Append("rabel", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::InputLabel);
+	edit_menu.Append("reconnect", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::ReconnectArc);
+	edit_menu.Append("copy", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::Copy);
+	edit_menu.Append("paste", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::Paste);
+	edit_menu.Append("delete", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::Delete);
+	menu.Append("file", file_menu, (GUI)null, (GUIfunc)null);
+	menu.Append("edit", edit_menu, (GUI)null, (GUIfunc)null);
+	var FormGlyph form;
+	form = FormGlyph::FormWithScroll(menu, ed);
+	form.status = Status::Execute;
+	var Window w;
+	w = new Window;
+	w.Create(form, null);
+	w.SetTitle("Graph Editor");
+}
+end_body
+member
+public: static void table_ed_test();
+body
+{
+	GUI::Initialize();
+	var TableEditor ed;
+	ed = new TableEditor;
+	ed.Create(10, 6, 80, 20, "Test");
+	ed.MakeSpaceIndex();
+	var LabelGlyph lab;
+	lab = ed.Cell(1, 1);
+	lab.text = "Name";
+	lab = ed.Cell(1, 2);
+	lab.text = "Zip Code";
+	lab = ed.Cell(1, 3);
+	lab.text = "Address";
+	lab = ed.Cell(1, 4);
+	lab.text = "TEL";
+	lab = ed.Cell(1, 5);
+	lab.text = "FAX";
+	lab = ed.Cell(1, 6);
+	lab.text = "E-mail";
+	var AlMenu menu, file_menu, edit_menu, record_menu;
+	file_menu = new AlMenu;
+	edit_menu = new AlMenu;
+	record_menu = new AlMenu;
+	menu = new AlMenu;
+	var TedCtrl ctrl;
+	ctrl = new TedCtrl;
+	ctrl.editor = ed;
+	file_menu.Append("save", (AlMenu)null, ed, Editor::Save);
+	file_menu.Append("load", (AlMenu)null, ed, Editor::Load);
+	edit_menu.Append("insert row", (AlMenu)null, ed, TableEditor::InsertRow);
+	edit_menu.Append("insert column", (AlMenu)null, ed, TableEditor::InsertColumn);
+	edit_menu.Append("append row", (AlMenu)null, ed, TableEditor::AppendRow);
+	edit_menu.Append("append column", (AlMenu)null, ed, TableEditor::AppendColumn);
+	edit_menu.Append("delete row", (AlMenu)null, ed, TableEditor::DeleteRow);
+	edit_menu.Append("delete column", (AlMenu)null, ed, TableEditor::DeleteColumn);
+	record_menu.Append("clear records", (AlMenu)null, (GUI)ctrl, (GUIfunc)TedCtrl::ClearRecords);
+	record_menu.Append("add record", (AlMenu)null, (GUI)ctrl, (GUIfunc)TedCtrl::AddRecord);
+	menu.Append("file", file_menu, (GUI)null, (GUIfunc)null);
+	menu.Append("edit", edit_menu, (GUI)null, (GUIfunc)null);
+	menu.Append("record", record_menu, (GUI)null, (GUIfunc)null);
+	var FormGlyph form;
+	form = FormGlyph::FormWithScroll(menu, ed);
+	form.status = Status::Execute;
+	var Window w;
+	w = new Window;
+	w.Create(form, null);
+	w.SetTitle("Table Editor");
+}
+end_body
+member
+public: static void hier_ed_test();
+body
+{
+	GUI::Initialize();
+	var HierEditor ed;
+	ed = new HierEditor;
+	ed.Create();
+	ed.MakeSpaceIndex();
+	var AlMenu menu, file_menu, edit_menu;
+	file_menu = new AlMenu;
+	edit_menu = new AlMenu;
+	menu = new AlMenu;
+	file_menu.Append("save", (AlMenu)null, ed, Editor::Save);
+	file_menu.Append("load", (AlMenu)null, ed, Editor::Load);
+	edit_menu.Append("child", (AlMenu)null, ed, HierEditor::CreateChild);
+	edit_menu.Append("brother", (AlMenu)null, ed, HierEditor::CreateBrother);
+	edit_menu.Append("elder brother", (AlMenu)null, ed, HierEditor::CreateElderBrother);
+	edit_menu.Append("up", (AlMenu)null, ed, HierEditor::Up);
+	edit_menu.Append("down", (AlMenu)null, ed, HierEditor::Down);
+	edit_menu.Append("left", (AlMenu)null, ed, HierEditor::Left);
+	edit_menu.Append("right", (AlMenu)null, ed, HierEditor::Right);
+	edit_menu.Append("delete", (AlMenu)null, ed, HierEditor::Delete);
+	menu.Append("file", file_menu, (GUI)null, (GUIfunc)null);
+	menu.Append("edit", edit_menu, (GUI)null, (GUIfunc)null);
+	var FormGlyph form;
+	form = FormGlyph::FormWithScroll(menu, ed);
+	form.status = Status::Execute;
+	var Window w;
+	w = new Window;
+	w.Create(form, null);
+	w.SetTitle("Hier Editor");
+}
+end_body
+member
+public: static void hier_ed_test2();
+body
+{
+	GUI::Initialize();
+	var HierEditor ed;
+	ed = new HierEditor;
+	ed.Create();
+	ed.MakeSpaceIndex();
+	var AlMenu menu, file_menu, edit_menu;
+	file_menu = new AlMenu;
+	edit_menu = new AlMenu;
+	menu = new AlMenu;
+	file_menu.Append("save", (AlMenu)null, ed, Editor::Save);
+	file_menu.Append("load", (AlMenu)null, ed, Editor::Load);
+	edit_menu.Append("child", (AlMenu)null, ed, HierEditor::CreateChild);
+	edit_menu.Append("brother", (AlMenu)null, ed, HierEditor::CreateBrother);
+	edit_menu.Append("elder brother", (AlMenu)null, ed, HierEditor::CreateElderBrother);
+	edit_menu.Append("up", (AlMenu)null, ed, HierEditor::Up);
+	edit_menu.Append("down", (AlMenu)null, ed, HierEditor::Down);
+	edit_menu.Append("left", (AlMenu)null, ed, HierEditor::Left);
+	edit_menu.Append("right", (AlMenu)null, ed, HierEditor::Right);
+	edit_menu.Append("delete", (AlMenu)null, ed, HierEditor::Delete);
+	menu.Append("file", file_menu, (GUI)null, (GUIfunc)null);
+	menu.Append("edit", edit_menu, (GUI)null, (GUIfunc)null);
+	var FormGlyph form;
+	form = FormGlyph::FormWithScroll(menu, ed);
+	form.status = Status::Execute;
+	var Window w;
+	w = new Window;
+	w.Create(form, null);
+	w.SetTitle("Hier Editor");
+	// {{{{{
+	var list p, n1, n2, n3, n;
+	p = ed.Root();
+	n1 = ed.CreateChild(p, "Chap1");
+	n2 = ed.CreateChild(p, "Chap2");
+	n = ed.CreateChild(n2, "Sec2.1");
+	n = ed.CreateChild(n2, "Sec2.2");
+	n = ed.CreateChild(n2, "Sec2.3");
+	n = ed.CreateChild(n2, "Sec2.4");
+	n = ed.CreateChild(n2, "Sec2.5");
+	ed.CreateChild(n, "Sec2.5.1");
+	ed.CreateChild(n, "Sec2.5.2");
+	ed.CreateChild(n, "Sec2.5.3");
+	ed.CreateChild(n, "Sec2.5.4");
+	ed.CreateChild(n, "Sec2.5.5");
+	ed.CreateChild(n, "Sec2.5.6");
+	ed.CreateChild(n, "Sec2.5.7");
+	ed.CreateChild(n, "Sec2.5.8");
+	n = ed.CreateChild(n2, "Sec2.6");
+	n = ed.CreateChild(n2, "Sec2.7");
+	n = ed.CreateChild(n2, "Sec2.8");
+	n3 = ed.CreateChild(p, "Chap3");
+	n = ed.CreateChild(n1, "Sec1.1");
+	n = ed.CreateBrother(n, "Sec1.3");
+	n = ed.CreateElderBrother(n, "Sec1.2");
+	n = ed.CreateChild(n, "Sec1.2.1");
+	ed.Adjust();
+	ed.Damage();
+	// }}}}}
+}
+end_body
+member
+public: static void text_ed_test();
+body
+{
+	GUI::Initialize();
+	var TextEditor ed;
+	ed = new TextEditor;
+	ed.Create();
+	var TxdCtrl ctrl;
+	ctrl = new TxdCtrl;
+	ctrl.editor = ed;
+	var AlMenu menu, file_menu, edit_menu, search_menu;
+	file_menu = new AlMenu;
+	edit_menu = new AlMenu;
+	search_menu = new AlMenu;
+	menu = new AlMenu;
+	file_menu.Append("save", (AlMenu)null, ed, Editor::Save);
+	file_menu.Append("load", (AlMenu)null, ed, Editor::Load);
+	edit_menu.Append("cut", (AlMenu)null, ed, TextEditor::Cut);
+	edit_menu.Append("copy", (AlMenu)null, ed, TextEditor::Copy);
+	edit_menu.Append("paste", (AlMenu)null, ed, TextEditor::Paste);
+	edit_menu.Append("clear", (AlMenu)null, ed, TextEditor::Clear);
+	edit_menu.Append("clear all", (AlMenu)null, ed, TextEditor::ClearAll);
+	search_menu.Append("find", (AlMenu)null, (GUI)ctrl, (GUIfunc)TxdCtrl::Find);
+	search_menu.Append("find next", (AlMenu)null, (GUI)ctrl, (GUIfunc)TxdCtrl::FindNext);
+	menu.Append("file", file_menu, (GUI)null, (GUIfunc)null);
+	menu.Append("edit", edit_menu, (GUI)null, (GUIfunc)null);
+	menu.Append("search", search_menu, (GUI)null, (GUIfunc)null);
+	var FormGlyph form;
+	form = FormGlyph::FormWithScroll(menu, ed);
+	form.status = Status::Execute;
+	ctrl.scroll = form.scroll;
+	ctrl.vbar = form.vbar;
+	var Window w;
+	w = new Window;
+	w.Create(form, null);
+	w.SetTitle("Text Editor");
+}
+end_body
+member
+public: static void all();
+body
+{
+	drag();
+	wm_size();
+	wm_size2();
+	control_test();
+	heavy();
+	label_test();
+	picture_test();
+	form_test();
+	table_ed_test();
+	hier_ed_test();
+	pict_ed_test();
+	graph_ed_test();
+}
+end_body
+member
+public: static void editors();
+body
+{
+	pict_ed_test();
+	table_ed_test();
+	graph_ed_test();
+	hier_ed_test();
+	text_ed_test();
+}
+end_body
+member
+public: static void dialog_test1();
+body
+{
+	GUI::Initialize();
+	var AlDialog dialog;
+	dialog = new AlDialog;
+	if (dialog.ShowInput("InputName", "???")) {
+		al_print("Ok\n");
+	} else {
+		al_print("Cancel\n");
+		return;
+	}
+	al_print("text = ");
+	al_print(dialog.text);
+	al_print("\n");
+}
+end_body
+member
+public: static void dialog_test2();
+body
+{
+	GUI::Initialize();
+	var AlDialog dialog;
+	dialog = new AlDialog;
+	var list l;
+	l = al_cons(null, null);
+	al_create_arc(l, "AAA", null);
+	al_create_arc(l, "BBB", null);
+	al_create_arc(l, "CCC", null);
+	al_create_arc(l, "DDD", null);
+	al_create_arc(l, "EEE", null);
+	if (dialog.ShowSelect("SelectName", l)) {
+		al_print("Ok\n");
+	} else {
+		al_print("Cancel\n");
+		return;
+	}
+	al_print("text = ");
+	al_print(dialog.text);
+	al_print("\n");
+}
+end_body
+member
+public: static void dialog_test3();
+body
+{
+	GUI::Initialize();
+	var AlDialog dialog;
+	dialog = new AlDialog;
+	dialog.ShowChoose("Caption", "ChooseName", "Yes", "No", "", "Cancel");
+	al_print("text = ");
+	al_print(dialog.text);
+	al_print("\n");
+}
+end_body
+member
+public: static void bitmap_test();
+body
+{
+	GUI::Initialize();
+	var PolyGlyph pg;
+	pg = new PolyGlyph;
+	pg.Resize(0, 0, 1500, 1500);
+	var ImageGlyph image;
+	image = new ImageGlyph;
+	image.Create();
+	pg.Append(image, 50, 50);
+	if (al_misc("platform", null, null) == "windows") {
+		if (image.Load("C:/altair/sample/rdb", "read.gif")) {
+			al_print("fail to load bitmap.\n");
+			return;
+		} else {
+		}
+	} else {
+	}
+	if (al_misc("platform", null, null) == "linux") {
+		if (image.Load("/home/inamoto/altair/sample/rdb", "read.gif")) {
+			al_print("fail to load bitmap.\n");
+			return;
+		} else {
+		}
+	} else {
+	}
+	if (al_misc("platform", null, null) == "mac") {
+		if (image.Load("/Users/inamoto/altair/sample/rdb", "read.gif")) {
+			al_print("fail to load bitmap.\n");
+			return;
+		} else {
+		}
+	} else {
+	}
+	var Window wnd;
+	wnd = new Window;
+	wnd.Create(pg, null);
+}
+end_body
+member
+public: static void save_bitmap();
+body
+{
+	var list dir_name;
+	var string dir, name;
+	var list bitmap;
+	if (dir_name = al_get_read_filename("|AllFiles(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	bitmap = al_bitmap("create", null, null);
+	al_bitmap("set_file", bitmap, name);
+	al_bitmap("load", bitmap, dir);
+	var string err;
+	err = al_bitmap("save_bmp", bitmap, "tmp.bmp");
+	if (err) {
+		al_print((string)err + "\n");
+	} else {
+	}
+	err = al_bitmap("save_png", bitmap, "tmp.png");
+	if (err) {
+		al_print((string)err + "\n");
+	} else {
+	}
+	err = al_bitmap("save_gif", bitmap, "tmp.gif");
+	if (err) {
+		al_print((string)err + "\n");
+	} else {
+	}
+	err = al_bitmap("save_jpeg", bitmap, "tmp.jpeg");
+	if (err) {
+		al_print((string)err + "\n");
+	} else {
+	}
+}
+end_body
+member
+public: static void button200();
+body
+{
+	GUI::Initialize();
+	var GlyphEditor ed;
+	ed = new GlyphEditor;
+	ed.Create(0, 0, 1000, 1000);
+	var integer i, j;
+	var AlButton g;
+	i = 0;
+	loop {
+		if (i < 10) {
+		} else {
+			break;
+		}
+		j = 0;
+		loop {
+			if (j < 20) {
+			} else {
+				break;
+			}
+			g = new AlButton;
+			g.Create(i * 60, j * 20, i * 60 + 59, j * 20 + 19, "Button");
+			g.status = Status::Execute;
+			ed.child.Append(g, 0, 0);
+			j = j + 1;
+		}
+		i = i + 1;
+	}
+	ed.child.MakeSpaceIndex();
+	var Window w;
+	w = new Window;
+	w.Create(ed, null);
+	w.SetTitle("button 200");
+}
+end_body
+member
+public: static void find_file_test();
+body
+{
+	var list r, itr, elem;
+	r = al_file_manip("find_file", ".", null);
+	itr = al_dst_itr(r);
+	loop {
+		elem = al_next(itr);
+		if (elem) {
+		} else {
+			break;
+		}
+		al_print(elem);
+		al_print(": ");
+		if (al_file_manip("is_dir", elem, null)) {
+			al_print("Directory");
+		} else {
+			al_print("File");
+		}
+		al_print("\n");
+	}
+}
+end_body
+member
+public: static void FactMain();
+body
+{
+	var Channel in, out;
+	in = new Channel;
+	out = new Channel;
+	para Factorial(in, out);
+	in.SendMessage((list)5);
+	al_print(out.GetMessage());
+	al_print("\n");
+}
+end_body
+member
+public: static void Factorial(Channel in, Channel out);
+body
+{
+	var integer n;
+	n = in.GetMessage();
+	if (n == 0) {
+		out.SendMessage((list)1);
+		return;
+	} else {
+	}
+	var Channel in1, out1;
+	in1 = new Channel;
+	out1 = new Channel;
+	para Factorial(in1, out1);
+	in1.SendMessage((list)(n - 1));
+	out.SendMessage((list)(n * out1.GetMessage()));
+}
+end_body
+member
+public: static void PNumMain();
+body
+{
+	var Channel out;
+	out = new Channel;
+	para Integers(out);
+	para ShiftAndFilter(out);
+}
+end_body
+member
+public: static void Integers(Channel out);
+body
+{
+	al_print("2\n");
+	var integer n;
+	n = 3;
+	loop {
+		if (n < 100) {
+		} else {
+			break;
+		}
+		out.SendMessage((list)n);
+		n = n + 2;
+	}
+	out.SendMessage((list)-1);
+}
+end_body
+member
+public: static void ShiftAndFilter(Channel in);
+body
+{
+	var integer p;
+	p = in.GetMessage();
+	if (p == -1) {
+		return;
+	} else {
+	}
+	al_print(p);
+	al_print("\n");
+	var Channel out;
+	out = new Channel;
+	para ShiftAndFilter(out);
+	var integer n;
+	loop {
+		n = in.GetMessage();
+		if (n == -1) {
+			out.SendMessage((list)-1);
+			break;
+		} else {
+			if (n % p != 0) {
+				out.SendMessage((list)n);
+			} else {
+			}
+		}
+	}
+}
+end_body
+member
+public: static void mdi_test();
+body
+{
+	GUI::Initialize();
+	var EllipseGlyph e;
+	var RectangleGlyph r1, r2;
+	var ArrowLine l;
+	var ArrowPath p;
+	e = new EllipseGlyph;
+	e.Create(0, 0, 100, 100);
+	r1 = new RectangleGlyph;
+	r1.Create(0, 0, 100, 100);
+	r2 = new RectangleGlyph;
+	r2.Create(0, 0, 100, 100);
+	l = new ArrowLine;
+	l.Create(0, 0, 100, 100);
+	p = new ArrowPath;
+	p.Create(0, 100, 100, 0);
+	var GlyphEditor ed, ed2;
+	ed = new GlyphEditor;
+	ed2 = new GlyphEditor;
+	ed.Create(0, 0, 1280, 800);
+	ed2.Create(0, 0, 1280, 800);
+	ed.child.Append(e, 50, 50);
+	ed.child.Append(r1, 200, 50);
+	ed.child.Append(r2, 50, 200);
+	ed.child.Append(l, 200, 200);
+	ed.child.Append(p, 340, 200);
+	ed.child.MakeSpaceIndex();
+	ed2.child = ed.child;
+	var TMGlyph scroll, scroll2;
+	scroll = new TMGlyph;
+	scroll2 = new TMGlyph;
+	scroll.tm = al_translate_tm(20, 0) * al_scale_tm(0.6000000000000006, 0.6000000000000006);
+	scroll2.tm = al_translate_tm(0, 20) * al_scale_tm(0.4, 0.4);
+	scroll.Body(ed);
+	scroll2.Body(ed2);
+	var Window wind, wind2;
+	wind = new Window;
+	wind2 = new Window;
+	var window parent;
+	parent = al_create_window(al_list3(0x8000, null, null));
+	wind.Create(scroll, (list)al_list3(0x4000, parent, null));
+	wind2.Create(scroll2, (list)al_list3(0x4000, parent, null));
+	wind.SetTitle("ドラッグ１");
+	wind2.SetTitle("ドラッグ２");
+	al_set_title(parent, "ＭＤＩフレームのタイトル");
+	al_print("mdi_frame_title = " + al_get_title(parent) + "\n");
+	al_print("mdi_child_title_1 = " + al_get_title(wind.wnd) + "\n");
+	al_print("mdi_child_title_1 = " + al_get_title(wind2.wnd) + "\n");
+}
+end_body
+member
+public: static void sdi_test();
+body
+{
+	GUI::Initialize();
+	var GraphEditor ed;
+	ed = new GraphEditor;
+	ed.Create(0, 0, 2000, 2000);
+	var AlMenu menu, file_menu, edit_menu;
+	file_menu = new AlMenu;
+	edit_menu = new AlMenu;
+	menu = new AlMenu;
+	var GedCtrl ctrl;
+	ctrl = new GedCtrl;
+	ctrl.editor = ed;
+	file_menu.Append("save", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::Save);
+	file_menu.Append("load", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::Load);
+	edit_menu.Append("rectangle", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::InputRectangle);
+	edit_menu.Append("ellipse", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::InputEllipse);
+	edit_menu.Append("arc", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::InputArc);
+	edit_menu.Append("label", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::InputLabel);
+	edit_menu.Append("reconnect", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::ReconnectArc);
+	edit_menu.Append("copy", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::Copy);
+	edit_menu.Append("paste", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::Paste);
+	edit_menu.Append("delete", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::Delete);
+	menu.Append("file", file_menu, (GUI)null, (GUIfunc)null);
+	menu.Append("edit", edit_menu, (GUI)null, (GUIfunc)null);
+	var FormGlyph form;
+	form = FormGlyph::FormWithScroll(menu, ed);
+	form.status = Status::Execute;
+	var Window w;
+	w = new Window;
+	w.Create(form, (list)al_list3(0x2000, null, null));
+	w.SetTitle("グラフエディタ");
+	al_print("sdi_frame_title = " + al_get_title(w.wnd) + "\n");
+}
+end_body
+member
+public: static void sdi_menu();
+body
+{
+	GUI::Initialize();
+	var GraphEditor ed;
+	ed = new GraphEditor;
+	ed.Create(0, 0, 2000, 2000);
+	var AlMenu menu, file_menu, edit_menu;
+	file_menu = new AlMenu;
+	edit_menu = new AlMenu;
+	menu = new AlMenu;
+	var GedCtrl ctrl;
+	ctrl = new GedCtrl;
+	ctrl.editor = ed;
+	file_menu.Append("save", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::Save);
+	file_menu.Append("load", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::Load);
+	edit_menu.Append("rectangle", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::InputRectangle);
+	edit_menu.Append("ellipse", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::InputEllipse);
+	edit_menu.Append("arc", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::InputArc);
+	edit_menu.Append("label", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::InputLabel);
+	edit_menu.Append("reconnect", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::ReconnectArc);
+	edit_menu.Append("copy", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::Copy);
+	edit_menu.Append("paste", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::Paste);
+	edit_menu.Append("delete", (AlMenu)null, (GUI)ctrl, (GUIfunc)GedCtrl::Delete);
+	menu.Append("file", file_menu, (GUI)null, (GUIfunc)null);
+	menu.Append("edit", edit_menu, (GUI)null, (GUIfunc)null);
+	var FormGlyph form;
+	form = FormGlyph::FormWithScroll((AlMenu)null, ed);
+	form.status = Status::Execute;
+	var Window w;
+	w = new Window;
+	w.Create(form, (list)al_list3(0x2000, null, null));
+	w.SetTitle("Graph Editor");
+	al_set_menu(w.wnd, menu);
+}
+end_body
+member
+public: static void mdi_sdi();
+body
+{
+	mdi_test();
+	sdi_test();
+}
+end_body
+member
+public: static void mdi5_sdi5();
+body
+{
+	mdi_test();
+	mdi_test();
+	mdi_test();
+	mdi_test();
+	mdi_test();
+	sdi_test();
+	sdi_test();
+	sdi_test();
+	sdi_test();
+	sdi_test();
+}
+end_body
+member
+public: static void wnd_msg_test();
+body
+{
+	var integer window_handle, window_message;
+	window_handle = al_wnd_message(null, "hwnd", null, null);
+	al_print("Window Handle = ");
+	al_print(window_handle);
+	al_print("\n");
+	window_message = al_wnd_message(null, "register_msg", "AL_TEST_MSG", null);
+	al_print("Window Message = ");
+	al_print(window_message);
+	al_print("\n");
+	var WndMsgCtrl ctrl;
+	ctrl = new WndMsgCtrl;
+	al_wnd_message(null, "msg_callback", window_message, al_list3(al_root_class(), ctrl, WndMsgCtrl::MsgCallback));
+	// PostMessage Test
+	var integer hmap;
+	hmap = al_wnd_message(null, "create_map", "map_1984", "PostMessage");
+	al_print("before post_msg\n");
+	al_wnd_message(window_handle, "post_msg", window_message, al_list2(1984, hmap));
+	al_print("after post_msg\n");
+	// SendMessage Test
+	hmap = al_wnd_message(null, "create_map", "map_2001", "SendMessage");
+	var integer result;
+	al_print("before send_msg\n");
+	result = al_wnd_message(window_handle, "send_msg", window_message, al_list2(2001, hmap));
+	al_print("after send_msg\n");
+	al_print("result of SendMessage = ");
+	al_print(result);
+	al_print("\n");
+}
+end_body
+member
+public: static void excel_auto();
+body
+{
+	sheet = al_ole_misc("create_object", "Excel.Sheet", null);
+	if (sheet == null) {
+		al_print("fail to execute EXCEL OLE Server.\n");
+		return;
+	} else {
+	}
+	app = sheet.Application();
+	app.Visible() = al_ole_misc("boolean", 1, null);
+	app.Cells(1, 1).Value() = "Name";
+	app.Cells(1, 2).Value() = "YY.MM";
+	app.Cells(2, 1).Value() = "Chiaki Tanaka";
+	app.Cells(2, 2).Value() = "S39.5";
+	app.Cells(3, 1).Value() = "Naota Inamoto";
+	app.Cells(3, 2).Value() = "S36.1";
+	// app.ActiveWorkBook().SaveCopyAs("c:/Windows/Temp/happy.xls");
+	var integer i, j;
+	i = 1;
+	loop {
+		if (i > 3) {
+			break;
+		} else {
+		}
+		j = 1;
+		loop {
+			if (j > 2) {
+				break;
+			} else {
+			}
+			al_print("  ");
+			al_print(app.Cells(i, j).Value());
+			j = j + 1;
+		}
+		al_print("\n");
+		i = i + 1;
+	}
+}
+end_body
+member
+public: static void excel_auto_exit();
+body
+{
+	sheet = null;
+	app = null;
+}
+end_body
+member
+public: static variant sheet;
+member
+public: static variant app;
+member
+public: static void env();
+body
+{
+	// PATH
+	var string path;
+	al_print("PATH = ");
+	al_print(path = al_misc("get_env", "PATH", null));
+	al_print("\n");
+	path = path + ";C:/Program Files/Microsoft Visual Studio/VC98/bin";
+	al_misc("set_env", "PATH", path);
+	al_print("PATH = ");
+	al_print(al_misc("get_env", "PATH", null));
+	al_print("\n");
+	// INCLUDE
+	al_print("INCLUDE = ");
+	al_print(al_misc("get_env", "INCLUDE", null));
+	al_print("\n");
+	al_misc("set_env", "INCLUDE", "C:/Program Files/Microsoft Visual Studio/VC98/include");
+	al_print("INCLUDE = ");
+	al_print(al_misc("get_env", "INCLUDE", null));
+	al_print("\n");
+	// LIB
+	al_print("LIB = ");
+	al_print(al_misc("get_env", "LIB", null));
+	al_print("\n");
+	al_misc("set_env", "LIB", "C:/Program Files/Microsoft Visual Studio/VC98/lib");
+	al_print("LIB = ");
+	al_print(al_misc("get_env", "LIB", null));
+	al_print("\n");
+	// Search Command Path
+	al_print(al_misc("search_env", "CL.EXE", "PATH"));
+	al_print("\n");
+	// Temp Directory
+	var string temp_dir, tmp_dir;
+	al_print("TEMP = ");
+	al_print(temp_dir = al_misc("get_env", "TEMP", null));
+	al_print("\n");
+	al_print("TMP = ");
+	al_print(tmp_dir = al_misc("get_env", "TMP", null));
+	al_print("\n");
+	// Temp File Name
+	al_print(al_file_manip("tmp_file", temp_dir, "al"));
+}
+end_body
+member
+public: static void get_window_text();
+body
+{
+	var list wnd_text_and_handle;
+	wnd_text_and_handle = al_wnd_message(0, "get_wnd_text", null, null);
+	var list itr;
+	var integer hwnd;
+	itr = al_dst_itr(wnd_text_and_handle);
+	loop {
+		if (hwnd = al_next(itr)) {
+		} else {
+			break;
+		}
+		al_print("window handle = " + (string)hwnd + "\t");
+		al_print("window text = \"" + al_arc_a(itr) + "\"\n");
+	}
+}
+end_body
+member
+public: static void unload();
+body
+{
+	var window w;
+	var UnloadCtrl unload;
+	unload = new UnloadCtrl;
+	unload.text = "unload";
+	al_gui_misc("unload", null, al_list3(al_root_class(), unload, UnloadCtrl::Callback));
+	w = al_create_window(null);
+	unload = new UnloadCtrl;
+	unload.text = "destroy1";
+	al_set_window_arg(w, "unload", unload);
+	al_set_destroy_proc(w, UnloadCtrl::DestroyProc);
+	w = al_create_window(null);
+	unload = new UnloadCtrl;
+	unload.text = "destroy2";
+	al_set_window_arg(w, "unload", unload);
+	al_set_destroy_proc(w, UnloadCtrl::DestroyProc);
+}
+end_body
+member
+public: static void mdi_child_destroy();
+body
+{
+	var window parent, w;
+	var UnloadCtrl unload;
+	parent = al_create_window(al_list3(0x8000, null, null));
+	w = al_create_window(al_list3(0x4000, parent, null));
+	unload = new UnloadCtrl;
+	unload.text = "destroy1";
+	al_set_window_arg(w, "unload", unload);
+	al_set_destroy_proc(w, UnloadCtrl::DestroyProc);
+	w = al_create_window(al_list3(0x4000, parent, null));
+	unload = new UnloadCtrl;
+	unload.text = "destroy2";
+	al_set_window_arg(w, "unload", unload);
+	al_set_destroy_proc(w, UnloadCtrl::DestroyProc);
+}
+end_body
+member
+public: static void sdi_destroy();
+body
+{
+	var window w;
+	var UnloadCtrl unload;
+	w = al_create_window(al_list3(0x2000, null, null));
+	unload = new UnloadCtrl;
+	unload.text = "destroy";
+	al_set_window_arg(w, "unload", unload);
+	al_set_destroy_proc(w, UnloadCtrl::DestroyProc);
+}
+end_body
+member
+public: static void mdi_destroy();
+body
+{
+	var window w;
+	var UnloadCtrl unload;
+	w = al_create_window(al_list3(0x8000, null, null));
+	unload = new UnloadCtrl;
+	unload.text = "destroy";
+	al_set_window_arg(w, "unload", unload);
+	al_set_destroy_proc(w, UnloadCtrl::DestroyProc);
+}
+end_body
+member
+public: static void timer();
+body
+{
+	var TimerCtrl timer;
+	var list cb;
+	timer = new TimerCtrl;
+	timer.id = al_get_id();
+	timer.count = 0;
+	cb = al_list3(al_root_class(), timer, TimerCtrl::Callback);
+	al_gui_misc("timer", al_list2(timer.id, 2000), cb);
+}
+end_body
+member
+public: static void big_integer();
+body
+{
+	var integer a, b, c, d;
+	a = 123456789123456789123456789;
+	b = 987654321987654321987654321;
+	c = 113;
+	al_print("a = " + a + "\n");
+	al_print("b = " + b + "\n");
+	al_print("c = " + c + "\n");
+	d = a * b;
+	d = d + c;
+	b = d / a;
+	c = d % a;
+	al_print("a = " + a + "\n");
+	al_print("b = " + b + "\n");
+	al_print("c = " + c + "\n");
+	al_print("(a < b) = " + (string)(a < b) + "\n");
+	al_print("(a < c) = " + (string)(a < c) + "\n");
+}
+end_body
+member
+public: static void big_integer1();
+body
+{
+	var integer a, b, c;
+	a = 123456789123456789123456789;
+	b = 987654321987654321987654321;
+	c = 113;
+	al_print("a = " + a + "\n");
+	al_print("b = " + b + "\n");
+	al_print("c = " + c + "\n");
+	al_print("(a < b) = " + (string)(a < b) + "\n");
+	al_print("(a < c) = " + (string)(a < c) + "\n");
+}
+end_body
+member
+public: static void big_integer2();
+body
+{
+	var string a_str;
+	var file f;
+	var integer a;
+	a_str = "123456789123456789123456789";
+	al_print("a_str = " + a_str + "\n");
+	f = al_file_open(a_str, "sr");
+	a = al_file_read(f, "integer");
+	a_str = al_copy("");
+	f = al_file_open(a_str, "sw");
+	al_file_write(f, "integer", a);
+	al_print("a_str = " + a_str + "\n");
+}
+end_body
+member
+public: static void big_integer_gcd();
+body
+{
+	var integer a, b, c;
+	a = 123456789123456789123456789;
+	b = 987654321987654321987654321;
+	c = al_misc("gcd", b, a);
+	al_print("a = " + a + "\n");
+	al_print("b = " + b + "\n");
+	al_print("gcd(a,b) = " + c + "\n");
+}
+end_body
+member
+public: static void try_catch();
+body
+{
+	loop {
+		if (1) {
+			try {
+				break;
+			} catch (AlException e) {
+			}
+		} else {
+		}
+	}
+	al_print("break ok\n");
+	try {
+		if (1) {
+			loop {
+				var MyException ex;
+				ex = new MyException;
+				ex.error_code = 404;
+				throw ex;
+			}
+		} else {
+		}
+	} catch (AlException e) {
+		if (al_is_derived(e, runtime MyException)) {
+			var MyException ee;
+			ee = e;
+			al_print("error_code = " + (string)ee.error_code + "\n");
+		} else {
+		}
+	}
+	try {
+		try_catch_1();
+	} catch (AlException e) {
+		if (al_is_derived(e, runtime MyException)) {
+			var MyException ee;
+			ee = e;
+			al_print("error_code = " + (string)ee.error_code + "\n");
+		} else {
+		}
+	}
+	try {
+		try_catch_1();
+	} catch (AlException e) {
+		if (al_is_derived(e, runtime MyException)) {
+			var MyException ee;
+			ee = e;
+			al_print("error_code = " + (string)ee.error_code + "\n");
+		} else {
+		}
+	}
+	al_print("test ok\n");
+}
+end_body
+member
+public: static void try_catch_1();
+body
+{
+	var MyException ex;
+	ex = new MyException;
+	ex.error_code = 403;
+	throw ex;
+}
+end_body
+member
+public: static void return_in_catch_block();
+body
+{
+	return_in_catch_block_1();
+}
+end_body
+member
+public: static string return_in_catch_block_1();
+body
+{
+	try {
+		var AlException ex;
+		ex = new AlException;
+		ex.msg = "error";
+		throw ex;
+	} catch (AlException e) {
+		return "value";
+	}
+}
+end_body
+member
+public: static void error();
+body
+{
+	var list l, h, t;
+	h = l.head;
+	t = l.tail;
+}
+end_body
+member
+public: static void error2();
+body
+{
+	var TP tp;
+	tp = new TP;
+	para tp.error2_sub();
+}
+end_body
+member
+public: void error2_sub();
+body
+{
+	try {
+		var AlException ex;
+		ex = new AlException;
+		ex.msg = "test";
+		throw ex;
+	} catch (AlException e) {
+		// var list l, h, t;
+		// h = l.head;
+		// t = l.tail;
+		var string line;
+		var string s;
+		var file f;
+		s = "\n\n\n";
+		f = al_file_open(s, "sr");
+		line = al_file_read(f, line);
+	}
+}
+end_body
+member
+public: static void sjis_to_utf8();
+body
+{
+	var list dir_name, dir_name2;
+	var string dir, name, dir2, name2;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	if (dir_name2 = al_get_write_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir2 = dir_name2.head;
+	name2 = dir_name2.tail.head;
+	var file in, out;
+	var string line, str;
+	if (in = al_file_open(dir + "/" + name, "r")) {
+	} else {
+		return;
+	}
+	if (out = al_file_open(dir2 + "/" + name2, "w")) {
+	} else {
+		return;
+	}
+	loop {
+		if (line = al_file_read(in, "line")) {
+		} else {
+			break;
+		}
+		al_print("before: " + line + " \n");
+		if (str = al_str_misc("sjis_to_utf8", line, null)) {
+			line = str;
+		} else {
+		}
+		al_print("after: " + line + " \n");
+		al_file_write(out, "string", line);
+		al_file_write(out, "string", "\n");
+	}
+}
+end_body
+member
+public: static void utf8_to_sjis();
+body
+{
+	var list dir_name, dir_name2;
+	var string dir, name, dir2, name2;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	if (dir_name2 = al_get_write_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir2 = dir_name2.head;
+	name2 = dir_name2.tail.head;
+	var file in, out;
+	var string line, str;
+	if (in = al_file_open(dir + "/" + name, "rb")) {
+	} else {
+		return;
+	}
+	if (out = al_file_open(dir2 + "/" + name2, "w")) {
+	} else {
+		return;
+	}
+	loop {
+		if (line = al_file_read(in, "line")) {
+		} else {
+			break;
+		}
+		al_print("before: " + line + " \n");
+		if (str = al_str_misc("utf8_to_sjis", line, null)) {
+			line = str;
+		} else {
+		}
+		al_print("after: " + line + " \n");
+		al_file_write(out, "string", line);
+		al_file_write(out, "string", "\n");
+	}
+}
+end_body
+member
+public: static void euc_to_utf8();
+body
+{
+	var list dir_name, dir_name2;
+	var string dir, name, dir2, name2;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	if (dir_name2 = al_get_write_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir2 = dir_name2.head;
+	name2 = dir_name2.tail.head;
+	var file in, out;
+	var string line, str;
+	if (in = al_file_open(dir + "/" + name, "r")) {
+	} else {
+		return;
+	}
+	if (out = al_file_open(dir2 + "/" + name2, "w")) {
+	} else {
+		return;
+	}
+	loop {
+		if (line = al_file_read(in, "line")) {
+		} else {
+			break;
+		}
+		al_print("before: " + line + " \n");
+		if (str = al_str_misc("euc_to_utf8", line, null)) {
+			line = str;
+		} else {
+		}
+		al_print("after: " + line + " \n");
+		al_file_write(out, "string", line);
+		al_file_write(out, "string", "\n");
+	}
+}
+end_body
+member
+public: static void utf8_to_euc();
+body
+{
+	var list dir_name, dir_name2;
+	var string dir, name, dir2, name2;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	if (dir_name2 = al_get_write_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir2 = dir_name2.head;
+	name2 = dir_name2.tail.head;
+	var file in, out;
+	var string line, str;
+	if (in = al_file_open(dir + "/" + name, "rb")) {
+	} else {
+		return;
+	}
+	if (out = al_file_open(dir2 + "/" + name2, "w")) {
+	} else {
+		return;
+	}
+	loop {
+		if (line = al_file_read(in, "line")) {
+		} else {
+			break;
+		}
+		al_print("before: " + line + " \n");
+		if (str = al_str_misc("utf8_to_euc", line, null)) {
+			line = str;
+		} else {
+		}
+		al_print("after: " + line + " \n");
+		al_file_write(out, "string", line);
+		al_file_write(out, "string", "\n");
+	}
+}
+end_body
+member
+public: static void gui_perform_profile();
+body
+{
+	set_profile_info();
+	start_profile();
+	all();
+	stop_profile();
+	result_profile();
+	clear_profile_info();
+}
+end_body
+member
+public: static void clear_profile_info();
+body
+{
+	al_prof("clear", "test_prof", null);
+}
+end_body
+member
+public: static void set_profile_info();
+body
+{
+	al_prof("set", "test_prof", null);
+}
+end_body
+member
+public: static void start_profile();
+body
+{
+	var integer opt;
+	var string filename;
+	var list opt_file;
+	opt = 1;
+	// opt = 2;
+	// opt = 3;
+	// fiename = "log.txt"
+	opt_file = al_list2(opt, filename);
+	al_prof("start", "test_prof", opt_file);
+}
+end_body
+member
+public: static void stop_profile();
+body
+{
+	al_prof("stop", "test_prof", null);
+}
+end_body
+member
+public: static void result_profile();
+body
+{
+	var file out;
+	out = al_file_open("gui_prof.txt", "w");
+	var list result, itr, rec;
+	// result = al_prof("result", "test_prof", null);
+	// result = al_prof("result", "test_prof", 3);
+	// result = al_prof("result", "test_prof", 4);
+	result = al_prof("result", "test_prof", 5);
+	al_file_write(out, "string", "count\ttotal\taverage\tclass\tfunc\n");
+	al_file_write(out, "string", "\t(msec)\t(msec)\t\t\n");
+	itr = al_dst_itr(result);
+	loop {
+		if (rec = al_next(itr)) {
+		} else {
+			break;
+		}
+		if (rec.tail.tail.tail.head == 0) {
+			// supress item whose total_time is 0.
+			continue;
+		} else {
+		}
+		al_file_write(out, "string", (string)rec.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.tail.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.head + "\n");
+	}
+}
+end_body
+member
+public: static void ok_dlg();
+body
+{
+	al_gui_misc("ok_dlg", "OKダイアログテスト", "キャプション");
+}
+end_body
+member
+public: static void ok_cancel_dlg();
+body
+{
+	var list r;
+	r = al_gui_misc("ok_cancel_dlg", "OKですか？キャンセルですか？", "買いますか？安いですよ。");
+	al_print("return = " + (string)r + "\n");
+}
+end_body
+member
+public: static void yes_no_dlg();
+body
+{
+	var list r;
+	r = al_gui_misc("yes_no_dlg", "イエスですか？ノーですか？", "買いますか？安いですよ。");
+	al_print("return = " + (string)r + "\n");
+}
+end_body
+member
+public: static void input_dlg();
+body
+{
+	var string s;
+	s = al_gui_misc("input_dlg", "何ですか？", "初期テキスト");
+	al_print("return = " + (string)s + "\n");
+}
+end_body
+member
+public: static void combo_dlg();
+body
+{
+	var list ls;
+	ls = al_cons(null, null);
+	al_create_arc(ls, "AAA", null);
+	al_create_arc(ls, "BBB", null);
+	al_create_arc(ls, "CCC", null);
+	al_create_arc(ls, "DDD", null);
+	al_create_arc(ls, "EEE", null);
+	var string s;
+	s = al_gui_misc("combo_dlg", "どれにしますか？", ls);
+	al_print("return = " + (string)s + "\n");
+}
+end_body
+member
+public: static void find_file();
+body
+{
+	var list dir_name, ls, itr;
+	var string dir, path;
+	if (dir_name = al_get_read_filename("All Files (*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	ls = al_file_manip("find_file", dir, null);
+	itr = al_dst_itr(ls);
+	loop {
+		if (path = al_next(itr)) {
+		} else {
+			break;
+		}
+		al_print("path = " + path + "\n");
+	}
+}
+end_body
+member
+public: static void find_file2();
+body
+{
+	var list dir_name, ls, itr;
+	var string dir, path;
+	if (dir_name = al_get_read_filename("All Files (*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	path = dir_name.tail.head;
+	ls = al_file_manip("find_file", dir, path);
+	itr = al_dst_itr(ls);
+	loop {
+		if (path = al_next(itr)) {
+		} else {
+			break;
+		}
+		al_print("path = " + path + "\n");
+	}
+}
+end_body
+member
+public: static void sjis_jis();
+body
+{
+	var string s;
+	s = "①②∀∃∈∋⊆⊇⊂⊃∪∩⇒⇔∧∨∞→↑↓←∑Ππz@ああaaｱｱAAａａアアＡＡ";
+	al_print("before = " + (string)s + "\n");
+	s = al_str_misc("sjis_to_jis", s, null);
+	// al_print("jis = " + (string)s + "\n");
+	s = al_str_misc("jis_to_sjis", s, null);
+	al_print("after = " + (string)s + "\n");
+}
+end_body
+member
+public: static void sjis_euc();
+body
+{
+	var string s;
+	s = "①②∀∃∈∋⊆⊇⊂⊃∪∩⇒⇔∧∨∞→↑↓←∑Ππz@ああaaｱｱAAａａアアＡＡ";
+	al_print("before = " + (string)s + "\n");
+	s = al_str_misc("sjis_to_euc", s, null);
+	// al_print("euc = " + (string)s + "\n");
+	s = al_str_misc("euc_to_sjis", s, null);
+	al_print("after = " + (string)s + "\n");
+}
+end_body
+member
+public: static void sjis_utf8();
+body
+{
+	var string s;
+	s = "①②∀∃∈∋⊆⊇⊂⊃∪∩⇒⇔∧∨∞→↑↓←∑Ππz@ああaaｱｱAAａａアアＡＡ";
+	al_print("before = " + (string)s + "\n");
+	if (al_misc("platform", null, null) == "linux" || al_misc("platform", null, null) == "mac") {
+		s = al_str_misc("euc_to_sjis", s, null);
+	} else {
+	}
+	s = al_str_misc("sjis_to_utf8", s, null);
+	// al_print("utf8 = " + (string)s + "\n");
+	s = al_str_misc("utf8_to_sjis", s, null);
+	if (al_misc("platform", null, null) == "linux" || al_misc("platform", null, null) == "mac") {
+		s = al_str_misc("sjis_to_euc", s, null);
+	} else {
+	}
+	al_print("after = " + (string)s + "\n");
+}
+end_body
+member
+public: static void hankakukana_dump();
+body
+{
+	var string s;
+	s = "ｱｱｱｱアアア";
+	var integer len, i, ch;
+	len = al_strlen(s);
+	i = 0;
+	loop {
+		if (i >= len) {
+			break;
+		} else {
+		}
+		ch = al_get_char(s, i);
+		al_print("s[" + (string)i + "] = " + (string)ch + "\n");
+		i = i + 1;
+	}
+}
+end_body
+member
+public: static void reverse_list();
+body
+{
+	var list l;
+	l = al_list6(1, 2, 3, 4, 5, 6);
+	al_print((string)l + "\n");
+	l = al_list_misc("reverse", l, null);
+	al_print((string)l + "\n");
+}
+end_body
+member
+public: static void print_list();
+body
+{
+	var list l;
+	var string s;
+	// ----
+	l = null;
+	s = al_print_list(l);
+	al_print(s + "\n");
+	// ----
+	l = al_scan_list(s);
+	s = al_print_list(l);
+	al_print(s + "\n");
+	// ----
+	l = al_cons(null, null);
+	s = al_print_list(l);
+	al_print(s + "\n");
+	// ----
+	l = al_scan_list(s);
+	s = al_print_list(l);
+	al_print(s + "\n");
+}
+end_body
+member
+public: static void save_tree();
+body
+{
+	var list n1, n2;
+	n1 = al_copy("Layout");
+	al_create_arc(n1, n2 = al_copy("Window1"), "name");
+	al_create_arc(n2, al_copy("sample.MainWindow"), "class");
+	al_create_arc(n2, al_copy("Hello!!"), "title");
+	al_create_arc(n2, al_list2(600, 400), "size");
+	al_create_arc(n1, n2 = al_copy("Button1"), "name");
+	al_create_arc(n2, al_copy("sample.Button"), "class");
+	al_create_arc(n2, al_copy("Push Me"), "title");
+	al_create_arc(n2, al_list2(100, 20), "size");
+	temp_filename = temp_file();
+	al_print("temp_filename = " + (string)temp_filename + "\n");
+	var file f;
+	f = al_file_open(temp_filename, "w");
+	al_file_write(f, "tree", n1);
+	f = null;
+}
+end_body
+member
+public: static void load_tree();
+body
+{
+	var list n;
+	var file f;
+	f = al_file_open(temp_filename, "r");
+	n = al_file_read(f, "tree");
+	f = null;
+	al_file_manip("remove", temp_filename, null);
+	var string s;
+	s = al_copy("");
+	f = al_file_open(s, "sw");
+	al_file_write(f, "tree", n);
+	f = null;
+	al_print(s);
+}
+end_body
+member
+public: static string temp_file();
+body
+{
+	var string platform, dir;
+	platform = al_misc("platform", null, null);
+	if (platform == "linux" || platform == "mac") {
+		dir = "/tmp";
+	} else {
+	}
+	if (platform == "windows") {
+		dir = al_misc("get_env", "TEMP", null);
+	} else {
+	}
+	return al_file_manip("tmp_file", dir, "al");
+}
+end_body
+member
+public: static string temp_filename;
+member
+public: static void read_space();
+body
+{
+	var string s, s2;
+	var file f;
+	s = "aa    bbb   dd   xx  yy     zzz";
+	al_print("str = '" + s + "'\n");
+	f = al_file_open(s, "sr");
+	var integer n;
+	loop {
+		if (n = al_file_read(f, "space")) {
+			al_print((string)n + " spaces\n");
+		} else {
+		}
+		if (n = al_file_read(f, "space")) {
+			al_print("Error(read_space return not null two times): " + (string)n + " spaces\n");
+		} else {
+		}
+		if (s2 = al_file_read(f, "string")) {
+			al_print("str: " + s2 + "\n");
+		} else {
+			break;
+		}
+	}
+}
+end_body
+member
+public: static void is_ident();
+body
+{
+	var string s;
+	s = "abc";
+	if (al_str_misc("is_ident", s, null)) {
+		al_print(s + " is ident.\n");
+	} else {
+		al_print(s + " is not ident.\n");
+	}
+	s = ".";
+	if (al_str_misc("is_ident", s, null)) {
+		al_print(s + " is ident.\n");
+	} else {
+		al_print(s + " is not ident.\n");
+	}
+}
+end_body
+member
+public: static void file_dialog();
+body
+{
+	var list dir_name;
+	var string dir, name;
+	if (dir_name = al_get_read_filename("All Files (*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	al_print("directory = " + dir + "\n");
+	al_print("filename = " + name + "\n");
+}
+end_body
+member
+public: static void color_dialog();
+body
+{
+	var integer color, R, G, B;
+	if (color = al_get_color()) {
+	} else {
+		return;
+	}
+	al_print("red = " + (string)(color & 0xff) + "\n");
+	al_print("green = " + (string)(color >> 8 & 0xff) + "\n");
+	al_print("blue = " + (string)(color >> 16 & 0xff) + "\n");
+}
+end_body
+member
+public: static void font_dialog();
+body
+{
+	var list font;
+	var string name;
+	var integer height, color, bold, italic, underline;
+	if (font = al_get_font()) {
+	} else {
+		return;
+	}
+	name = font.head;
+	height = font.tail.head;
+	color = font.tail.tail.tail.head;
+	bold = font.tail.tail.tail.tail.head;
+	italic = font.tail.tail.tail.tail.tail.head;
+	underline = font.tail.tail.tail.tail.tail.tail.head;
+	al_print("name = " + name + "\n");
+	al_print("height = " + (string)height + "\n");
+	al_print("color red = " + (string)(color & 0xff) + "\n");
+	al_print("color green = " + (string)(color >> 8 & 0xff) + "\n");
+	al_print("color blue = " + (string)(color >> 16 & 0xff) + "\n");
+	al_print("bold = " + (string)bold + "\n");
+	al_print("italic = " + (string)italic + "\n");
+	al_print("underline = " + (string)underline + "\n");
+}
+end_body
+member
+public: static void cell_heap();
+body
+{
+	al_print(al_misc("cell_heap", null, null) + "\n");
+}
+end_body
+member
+public: static void cell_heap_overflow();
+body
+{
+	al_misc("cell_heap", 100, null);
+	al_misc("output", "log.txt", null);
+	var list l1, l2, l3, l4;
+	l1 = al_list8(1, 2, 3, 4, 5, 6, 7, 8);
+	l2 = al_list8(1, 2, 3, 4, 5, 6, 7, 8);
+	loop {
+		l3 = al_copy(al_list2(l1, l2));
+		l4 = al_copy(al_list2(l1, l2));
+		l1 = l3;
+		l2 = l4;
+		cell_heap();
+	}
+}
+end_body
+member
+public: static void integer_size();
+body
+{
+	var integer i0, i1, i2, i3, i4, i5;
+	i0 = 0;
+	i1 = 255;
+	i2 = 65535;
+	i3 = 16777215;
+	i4 = 4294967295;
+	i5 = 1099511627775;
+	al_print("length of " + (string)i0 + " = " + al_misc("integer_size", i0, null) + "\n");
+	al_print("length of " + (string)i1 + " = " + al_misc("integer_size", i1, null) + "\n");
+	al_print("length of " + (string)i2 + " = " + al_misc("integer_size", i2, null) + "\n");
+	al_print("length of " + (string)i3 + " = " + al_misc("integer_size", i3, null) + "\n");
+	al_print("length of " + (string)i4 + " = " + al_misc("integer_size", i4, null) + "\n");
+	al_print("length of " + (string)i5 + " = " + al_misc("integer_size", i5, null) + "\n");
+}
+end_body
+member
+public: static void format_numeric();
+body
+{
+	var integer i;
+	var real r;
+	var string s;
+	var string format;
+	i = (integer)al_ask("integer", "1234");
+	al_print(i);
+	al_print("\n");
+	r = (real)al_ask("real", "1234");
+	al_print(r);
+	al_print("\n");
+	format = al_ask("1234", "%d");
+	al_print("i = " + (string)al_math_misc("format_num", format, i) + "\n");
+	al_print("r = " + (string)al_math_misc("format_num", format, r) + "\n");
+}
+end_body
+member
+public: static void get_character_code();
+body
+{
+	var list dir_name;
+	var string filename, code;
+	loop {
+		if (dir_name = al_get_read_filename(null, null)) {
+		} else {
+			return;
+		}
+		filename = dir_name.head + "/" + dir_name.tail.head;
+		code = al_file_manip("get_code_type", filename, 0);
+		if (code == "NONE") {
+			al_print(filename + ": NONE\n");
+		} else {
+		}
+		if (code == "JIS") {
+			al_print(filename + ": JIS\n");
+		} else {
+		}
+		if (code == "SJIS") {
+			al_print(filename + ": SJIS\n");
+		} else {
+		}
+		if (code == "EUC") {
+			al_print(filename + ": EUC\n");
+		} else {
+		}
+		if (code == "EUC_THAN_SJIS") {
+			al_print(filename + ": EUC (EUC_THAN_SJIS)\n");
+		} else {
+		}
+		if (code == "EUC_OR_SJIS") {
+			al_print(filename + ": EUC (EUC_OR_SJIS)\n");
+		} else {
+		}
+		if (code == "UTF8_OR_SJIS") {
+			al_print(filename + ": UTF8 (UTF8_OR_SJIS)\n");
+		} else {
+		}
+	}
+}
+end_body
+member
+public: static void trim();
+body
+{
+	var string s, s2;
+	s = "abc 　　　　  ";
+	s2 = al_str_misc("trim", s, null);
+	al_print("s = '" + s + "'\n");
+	al_print("s2 = '" + s2 + "'\n");
+	s = "abc 　　　　xyz  abc 　　　";
+	s2 = al_str_misc("trim", s, null);
+	al_print("s = '" + s + "'\n");
+	al_print("s2 = '" + s2 + "'\n");
+}
+end_body
+member
+public: static void drag_and_drop();
+body
+{
+	var window w;
+	w = al_create_window(null);
+	al_set_event_proc(w, TP::EventProc);
+}
+end_body
+member
+public: static void EventProc(list event);
+body
+{
+	var integer type, x, y;
+	var list files, itr;
+	var string filename;
+	type = event.head;
+	x = event.tail.head;
+	y = event.tail.tail.head;
+	files = event.tail.tail.tail.head;
+	if (type == 11) {
+	} else {
+		return;
+	}
+	al_print("x = " + (string)x + "\n");
+	al_print("y = " + (string)y + "\n");
+	itr = al_dst_itr(files);
+	loop {
+		if (filename = al_next(itr)) {
+		} else {
+			break;
+		}
+		al_print("filename = " + filename + "\n");
+	}
+}
+end_body
+member
+public: static void al_ask();
+body
+{
+	var string str;
+	str = al_ask("input string?", "defaut");
+	al_print("str = " + (string)str + "\n");
+}
+end_body
+class Ctrl
+member
+public: void clicked();
+body
+{
+	al_print("clicked !!\n");
+}
+end_body
+end_class
+class TxdCtrl
+member
+public: TextEditor editor;
+member
+public: FrameScrollGlyph scroll;
+member
+public: AlVScrollBar vbar;
+member
+public: void Find();
+body
+{
+	var list l;
+	var Window w;
+	var LabelGlyph lab;
+	l = AlDialog::InputName(100, 100, "find string", "");
+	w = l.head;
+	w.Destroy();
+	if (l.tail.head) {
+	} else {
+		return;
+	}
+	lab = l.tail.tail.head;
+	find_str = lab.text;
+	editor.Find(find_str);
+	if (editor.search_pos >= 0) {
+	} else {
+		l = AlDialog::ChooseName(100, 100, "", "Not Found", "", "", "OK", "");
+		w = l.head;
+		w.Destroy();
+		return;
+	}
+	var integer pos;
+	pos = editor.GetCursorYPos();
+	pos = al_max(pos - 100, 0);
+	scroll.SetVScrollBarPos(vbar,  - pos);
+	vbar.Scroll();
+	scroll.Damage();
+}
+end_body
+member
+public: void FindNext();
+body
+{
+	var list l;
+	var Window w;
+	if (find_str && editor.search_pos >= 0) {
+	} else {
+		return;
+	}
+	editor.FindNext(find_str);
+	if (editor.search_pos >= 0) {
+	} else {
+		l = AlDialog::ChooseName(100, 100, "", "Not Found", "", "", "OK", "");
+		w = l.head;
+		w.Destroy();
+		return;
+	}
+	var integer pos;
+	pos = editor.GetCursorYPos();
+	pos = al_max(pos - 100, 0);
+	scroll.SetVScrollBarPos(vbar,  - pos);
+	vbar.Scroll();
+	scroll.Damage();
+}
+end_body
+member
+public: string find_str;
+end_class
+class PedCtrl
+member
+public: GlyphEditor editor;
+member
+public: void Save();
+body
+{
+	editor.Save();
+}
+end_body
+member
+public: void Load();
+body
+{
+	editor.Load();
+}
+end_body
+member
+public: void InsertRectangle();
+body
+{
+	var RectangleGlyph g;
+	g = new RectangleGlyph;
+	g.Create(0, 0, 100, 100);
+	editor.insert_object = g;
+	editor.status = Status::InsertObject;
+}
+end_body
+member
+public: void InsertEllipse();
+body
+{
+	var EllipseGlyph g;
+	g = new EllipseGlyph;
+	g.Create(0, 0, 100, 100);
+	editor.insert_object = g;
+	editor.status = Status::InsertObject;
+}
+end_body
+member
+public: void InsertLine();
+body
+{
+	var LineGlyph g;
+	g = new LineGlyph;
+	g.Create(0, 0, 100, 100);
+	editor.insert_object = g;
+	editor.status = Status::InsertObject;
+}
+end_body
+member
+public: void InsertArrowLine();
+body
+{
+	var ArrowLine g;
+	g = new ArrowLine;
+	g.Create(0, 0, 100, 100);
+	editor.insert_object = g;
+	editor.status = Status::InsertObject;
+}
+end_body
+member
+public: void InsertPath();
+body
+{
+	var PathGlyph g;
+	g = new PathGlyph;
+	g.Create(0, 0, 100, 100);
+	editor.insert_object = g;
+	editor.status = Status::InsertObject;
+}
+end_body
+member
+public: void InsertArrowPath();
+body
+{
+	var ArrowPath g;
+	g = new ArrowPath;
+	g.Create(0, 0, 100, 100);
+	editor.insert_object = g;
+	editor.status = Status::InsertObject;
+}
+end_body
+member
+public: void InsertLabel();
+body
+{
+	var LabelGlyph g;
+	g = new LabelGlyph;
+	g.Create(0, 0, 100, 20, "Label");
+	editor.insert_object = g;
+	editor.status = Status::InsertObject;
+}
+end_body
+member
+public: void InsertMLabel();
+body
+{
+	var MLabel g;
+	g = new MLabel;
+	g.Create(0, 0, 100, 40, "Fold Label");
+	editor.insert_object = g;
+	editor.status = Status::InsertObject;
+}
+end_body
+member
+public: void Delete();
+body
+{
+	editor.Delete();
+}
+end_body
+end_class
+class GedCtrl
+member
+public: GraphEditor editor;
+member
+public: void Save();
+body
+{
+	editor.Save();
+}
+end_body
+member
+public: void Load();
+body
+{
+	editor.Load();
+}
+end_body
+member
+public: void InputRectangle();
+body
+{
+	var RectangleGlyph pict;
+	pict = new RectangleGlyph;
+	pict.Create(0, 0, 30, 30);
+	editor.insert_object = pict;
+	editor.status = Status::InputNode;
+}
+end_body
+member
+public: void InputEllipse();
+body
+{
+	var EllipseGlyph pict;
+	pict = new EllipseGlyph;
+	pict.Create(0, 0, 30, 30);
+	editor.insert_object = pict;
+	editor.status = Status::InputNode;
+}
+end_body
+member
+public: void InputArc();
+body
+{
+	editor.status = Status::InputArc;
+}
+end_body
+member
+public: void InputLabel();
+body
+{
+	editor.status = Status::InputLabel;
+}
+end_body
+member
+public: void ReconnectArc();
+body
+{
+	editor.status = Status::SelectArc;
+}
+end_body
+member
+public: void Copy();
+body
+{
+	editor.Copy();
+}
+end_body
+member
+public: void Paste();
+body
+{
+	editor.Paste();
+}
+end_body
+member
+public: void Delete();
+body
+{
+	editor.Delete();
+}
+end_body
+end_class
+class TedCtrl
+member
+public: TableEditor editor;
+member
+public: void ClearRecords();
+body
+{
+	editor.ClearRecords();
+}
+end_body
+member
+public: void AddRecord();
+body
+{
+	var list rec;
+	rec = al_cons(null, null);
+	al_create_arc(rec, "Naota Inamoto", "Name");
+	al_create_arc(rec, "inamoto@kt.rim.or.jp", "E-mail");
+	al_create_arc(rec, "3420-6622", "TEL");
+	editor.AddRecord(rec);
+}
+end_body
+end_class
+class WndMsgCtrl
+member
+public: integer MsgCallback();
+body
+{
+	var integer id;
+	al_print("WndMsgCtrl::MsgCallback is called.\n");
+	al_print("wParam = ");
+	al_print(id = al_wnd_message(null, "wParam", null, null));
+	al_print("\n");
+	var string s;
+	var integer hmap;
+	hmap = al_wnd_message(null, "lParam", null, null);
+	if (id == 1984) {
+		s = al_wnd_message(null, "get_map", "map_1984", null);
+	} else {
+	}
+	if (id == 2001) {
+		s = al_wnd_message(null, "get_map", "map_2001", null);
+	} else {
+	}
+	al_wnd_message(null, "close_map", hmap, null);
+	al_print("lParam (Passed String) = ");
+	al_print(s);
+	al_print("\n");
+	return 2001;
+}
+end_body
+end_class
+class UnloadCtrl
+member
+public: string text;
+member
+public: list Callback();
+body
+{
+	return al_gui_misc("ok_cancel_dlg", "Are you sure? Destroy Window ?", "");
+}
+end_body
+member
+public: static list DestroyProc(UnloadCtrl unload);
+body
+{
+	return unload.Callback();
+}
+end_body
+end_class
+class TimerCtrl
+member
+public: void Callback();
+body
+{
+	al_print((string)al_file_manip("current_datetime", null, null) + "\n");
+	count = count + 1;
+	if (count >= 10) {
+		al_gui_misc("timer", al_list2(id, 1), null);
+	} else {
+	}
+}
+end_body
+member
+public: integer id;
+member
+public: integer count;
+end_class
+end_class
+TEXT
+AlException
+class MyException
+member
+public: integer error_code;
+end_class
+$END_BODY

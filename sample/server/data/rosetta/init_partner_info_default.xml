@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PartnerInfo SYSTEM "PartnerInfo.dtd">
+<PartnerInfo>
+    <Target>rosetta</Target>
+    <Id>rosetta:-- default setting --</Id>
+    <BusinessId></BusinessId>
+    <MsgType></MsgType>
+    <MyRole></MyRole>
+    <PartnerRole>-- default setting --</PartnerRole>
+
+    <Properties>
+        <Name>retry.max</Name>
+        <Value>4</Value>
+    </Properties>
+    <Properties>
+        <Name>error.retry.max</Name>
+        <Value>4</Value>
+    </Properties>
+    <Properties>
+        <Name>error.retry.time</Name>
+        <Value>5m</Value>
+    </Properties>
+    <Properties>
+        <Name>receipt.wait.time</Name>
+        <Value>2h</Value>
+    </Properties>
+    <Properties>
+        <Name>reply.wait.time</Name>
+        <Value>22h</Value>
+    </Properties>
+
+
+    <Properties>
+        <Name>usage.code</Name>
+        <Value>Product</Value>
+    </Properties>
+    <Properties>
+        <Name>encoding</Name>
+        <Value>binary</Value>
+    </Properties>
+
+    <!-- encryption -->
+    <Properties>
+        <Name>encryption.part</Name>
+        <Value></Value>
+    </Properties>
+    <Properties>
+        <Name>encryption.algorithm</Name>
+        <Value>rc2-128</Value>
+    </Properties>
+
+    <!-- signature verify -->
+    <Properties>
+        <Name>ca.cert</Name>
+        <Value>./keystore/ca/cert.pem</Value>
+    </Properties>
+    <Properties>
+        <Name>receive.signature</Name>
+        <Value>false</Value>
+    </Properties>
+
+    <!-- validation mode -->
+    <Properties>
+        <Name>validation.mode</Name>
+        <Value>error</Value>
+    </Properties>
+
+    <!-- SSL -->
+    <Properties>
+        <Name>send.client.auth</Name>
+        <Value>false</Value>
+    </Properties>
+</PartnerInfo>

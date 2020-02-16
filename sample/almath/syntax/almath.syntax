@@ -1,0 +1,47 @@
+
+indent+ "  " "{" ;
+-indent      "}" ;
+post newline indent "{" ;
+pre  newline indent "}" ;
+post newline indent ";" ;
+post space <mat_n:1> ;
+
+<comment_1> = comment_begin_end "/*" "*/" ;
+<comment_2> = comment_until_newline "//" ;
+
+<cmd>  = cmd  <stat> ";" ;
+<file> = file { f_s_n <stat> }+ EOF ;
+
+<stat> = include "include" <string> |
+         block "{" { block_n <stat> }* "}" |
+         for "for" <ident> "in" <add_exp> ".." <add_exp> <stat> |
+         if  "if" "(" <or_exp> ")" <stat> { else "else" <stat> }? |
+         vardcl_1 "var" <vardcl> { vardcl_n "," <vardcl> }* |
+         assign <var> ":=" <add_exp> |
+         print "print" { p_s <string> | p_e <add_exp> }+ ";" |
+         test  "test" |
+         exp <add_exp> ;
+
+<vardcl> = vardcl <ident> { dim "[" <add_exp> "]" }* ;
+
+<or_exp>  = or_1  <and_exp> { or_2    "or"   <and_exp> }* ; 
+<and_exp> = and_1 <not_exp> { and_2   "and"  <not_exp> }* ; 
+<not_exp> = not_1           { not_2 "not" }? <cmp_exp>    ; 
+<cmp_exp> = cmp <add_exp> { cmp_2 <cmp_op> <add_exp> }? ;
+<cmp_op>  = cmp_op { eq "==" | ne "!=" | ge ">=" | gt ">" | le "<=" | lt "<" } ;
+
+<add_exp>   = add_1   <mul_exp>   { add_n { add "+" | sub "-" } <mul_exp>   }* ;
+<mul_exp>   = mul_1   <power_exp> { mul_n { mul "*" | div "/" } <power_exp> }* ;
+<power_exp> = power_1 <prim_exp>  { power_n               "^"   <prim_exp>  }? |
+              power_2 <mat_exp>   { power_n2              "^"   <prim_exp>  }? ;
+<mat_exp>   = mat_1   "{" { e_m_1 <mat_exp> | e_a_1 <add_exp> }
+              { mat_n "," { e_m_n <mat_exp> | e_a_n <add_exp> } }*   "}" ; 
+<prim_exp>  = const <const> { d "/" <const> }? | neg "-" <mul_exp> |
+              func <func> | var <var> | mat <mat_exp> | braket "(" <add_exp> ")" ;
+<func> = func_exp <ident> "(" { a_1 <add_exp> { a_n "," <add_exp> }* }? ")" ;
+<var>  = var_exp  <ident> { index "[" <add_exp> "]" }* ;
+
+<const>  = regex \-?[0-9]+     integer ;
+<string> = regex "([^"]|\\.)*" quote_string ;
+<ident>  = regex [A-Za-z_\M\%][A-Za-z0-9_\M]* string ;
+

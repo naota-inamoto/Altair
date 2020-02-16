@@ -1,0 +1,120 @@
+$END_LIB
+TEXT
+AlObject
+class TP
+end_class
+$END_CLASS
+TEXT
+AlObject
+class TP
+member
+public: static void win_beep();
+member
+public: static void win_get_win_dir();
+member
+public: static void win_msg_box();
+member
+public: static void linux_get_current_dir();
+member
+public: static void linux_atan_1_X_4();
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class TP
+member
+public: static void win_beep();
+body
+{
+	var integer hinst;
+	var integer Beep;
+	var integer freq, duration;
+	var list arg_ls;
+	freq = 10000;
+	duration = 1000;
+	hinst = al_dll("LoadLibrary", "kernel32.dll", null, null);
+	Beep = al_dll("GetProcAddress", hinst, "Beep", null);
+	arg_ls = al_list2(al_list2("long", freq), al_list2("long", duration));
+	al_dll("Call", Beep, "long", arg_ls);
+	al_dll("FreeLibrary", hinst, null, null);
+}
+end_body
+member
+public: static void win_get_win_dir();
+body
+{
+	var integer hinst;
+	var integer GetWindowsDirectory;
+	var list buff;
+	var integer size, len;
+	var list arg_ls;
+	var string dir;
+	size = 256;
+	buff = al_misc("binary", size, null);
+	hinst = al_dll("LoadLibrary", "kernel32.dll", null, null);
+	GetWindowsDirectory = al_dll("GetProcAddress", hinst, "GetWindowsDirectoryA", null);
+	arg_ls = al_list2(al_list2("ptr", buff), al_list2("long", size));
+	len = al_dll("Call", GetWindowsDirectory, "long", arg_ls);
+	al_dll("FreeLibrary", hinst, null, null);
+	dir = al_misc("binary_to_string", al_list3(buff, 0, len), null);
+	al_print("win_dir = " + dir + "\n");
+}
+end_body
+member
+public: static void win_msg_box();
+body
+{
+	var integer hinst;
+	var integer MessageBox;
+	var string text, caption;
+	var list arg_ls;
+	text = "text";
+	caption = "caption";
+	hinst = al_dll("LoadLibrary", "user32.dll", null, null);
+	MessageBox = al_dll("GetProcAddress", hinst, "MessageBoxA", null);
+	arg_ls = al_list4(al_list2("long", 0), al_list2("ptr", text), al_list2("ptr", caption), al_list2("long", 0));
+	al_dll("Call", MessageBox, "long", arg_ls);
+	al_dll("FreeLibrary", hinst, null, null);
+}
+end_body
+member
+public: static void linux_get_current_dir();
+body
+{
+	var integer handle;
+	var integer g_get_current_dir, g_print, g_free;
+	var list arg_ls;
+	var integer ptr;
+	handle = al_dll("LoadLibrary", "libglib.so", null, null);
+	g_get_current_dir = al_dll("GetProcAddress", handle, "g_get_current_dir", null);
+	g_print = al_dll("GetProcAddress", handle, "g_print", null);
+	g_free = al_dll("GetProcAddress", handle, "g_free", null);
+	arg_ls = null;
+	ptr = al_dll("Call", g_get_current_dir, "ptr", arg_ls);
+	arg_ls = al_list2(al_list2("ptr", "current directory = %s\n"), al_list2("ptr", ptr));
+	al_dll("Call", g_print, "void", arg_ls);
+	arg_ls = al_cons(al_list2("ptr", ptr), null);
+	al_dll("Call", g_free, "void", arg_ls);
+	al_dll("FreeLibrary", handle, null, null);
+	al_print("please show console where altair is executed.\n");
+}
+end_body
+member
+public: static void linux_atan_1_X_4();
+body
+{
+	var integer handle;
+	var integer atan;
+	var list arg_ls;
+	var real res;
+	handle = al_dll("LoadLibrary", "libm.so", null, null);
+	atan = al_dll("GetProcAddress", handle, "atan", null);
+	arg_ls = al_cons(al_list2("double", 1.), null);
+	res = al_dll("Call", atan, "double", arg_ls);
+	res = res * 4;
+	al_dll("FreeLibrary", handle, null, null);
+	al_print("atan(1)*4 = " + (string)res + "\n");
+}
+end_body
+end_class
+$END_BODY

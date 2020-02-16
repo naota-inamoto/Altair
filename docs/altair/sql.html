@@ -1,0 +1,145 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Altair SQL Interface</TITLE>
+</HEAD>
+
+<BODY>
+<H2>SQLインターフェース</H2>
+
+第0.43版 2016年10月23日<BR>
+第0.19版 2000年12月17日<BR>
+
+<BR>
+リレーショナルDBにアクセスするためのSQLインタフェース ADBC<BR>
+(Altair DataBase Connection)の説明をします。<BR>
+Windows版では、ODBCを使用しています。<BR>
+Linux版はPostgresQLはlibpqを使用し、MySQLはmysqlclientを使用しています。<BR>
+
+<UL>
+<LI><A HREF="#connect">connect</A>
+<LI><A HREF="#statement">statement</A>
+<LI><A HREF="#prepare">prepare</A>
+<LI><A HREF="#execute">execute</A>
+<LI><A HREF="#result">result</A>
+<LI><A HREF="#commit">commit</A>
+<LI><A HREF="#rollback">rollback</A>
+<LI><A HREF="#finalize">finalize</A>
+<LI>
+<LI><A HREF="#col_names">col_names</A>
+<LI><A HREF="#col_types">col_types</A>
+</UL>
+
+<HR>
+<H3><A NAME="connect">list al_sql("connect", connectInfo, dbType, null, null);</A></H3>
+データベース接続を行いそのコネクションを返します。<BR>
+<BR>
+返却値がどこからも参照されなくなると接続は自動的にクローズされます。<BR>
+エラーが発生した場合は、文字列を返します。<BR>
+<DL>
+<DT><H4>PostgreSQL/MySQLの場合</H4><DD>
+connectInfoの形式は、(host, port, db_name, user, password)です。<BR>
+Windows版のODBCでは、データソース名db_name、ユーザ名user、パスワードpasswdで接続します。<BR>
+Linux版のPostgresQL/MySQLでは、ホスト名host、ポート番号port、データベース名db_name、<BR>
+ユーザ名user、パスワードpasswdで接続します。port番号がnullだとデフォルトのポート番号が使われます。<BR>
+Windows版ではdbTypeは無視されます。<BR>
+Linux版では、dbTypeは、PostgreSQLを使うときには "postgresql"、MySQLを使うときは"mysql" です。<BR>
+
+</DL>
+
+<HR>
+<H3><A NAME="statement">list al_sql("statement", conn, null, null, null);</A></H3>
+ステートメントを作成しそれを返します。<BR>
+<BR>
+返却値がどこからも参照されなくなるとステートメントは自動的にクローズされます。<BR>
+エラーが発生した場合は、文字列を返します。<BR>
+
+<HR>
+<H3><A NAME="prepare">list al_sql("prepare", stat, sql, null, null);</A></H3>
+SQL文を準備をします。<BR>
+<BR>
+変数statはステートメントでなければなりません。<BR>
+変数sqlが準備されるSQL文になります。<BR>
+成功するとnullが、失敗すると文字列が返ります。<BR>
+
+<HR>
+<H3><A NAME="execute">list al_sql("execute", stat, sql, values, null);</A></H3>
+ステートメントstatで SQL文を実行します。<BR>
+sqlが非nullの場合は、SQL文sqlを直接実行します。<BR>
+sqlが非nullの場合は、valuesは無視されます。<BR>
+sqlがnullの場合は、prepareで準備したSQL文を実行します。<BR>
+sqlがnullでvaluesが非nullの場合は、<BR>
+SQL文中の文字"?"の部分をvaluesに含まれる値で置き換えます。<BR>
+valuesの形式は以下です。<BR>
+<PRE>
+   values = ()-/-/=>value
+   value = &lt;integer&gt; | &lt;real&gt; | &lt;string&gt; | &lt;date&gt; | &lt;binary&gt;
+   date = (year, month, day, hour, minute, second)
+</PRE>
+
+<HR>
+<H3><A NAME="result">list al_sql("result", stat, types, count, null);</A></H3>
+"execute"で実行したSQL文の実行結果を取り出します。<BR>
+<BR>
+結果をフェッチし、結果をtypesに従って返します。<BR>
+countが非負整数以外のときは結果の全件を返します。<BR>
+countが非負整数のときは結果をcount件単位で返し、繰り返し実行すれば残りが検索されます。<BR>
+typesの形式および戻り値の形式は以下です。<BR>
+<PRE>
+   types = ()-/-/=>type
+   type = "integer" | "real" | "string" | "date" | "binary"
+   ret_val = ()-/-/=>()-/n/=>val  (n = 1, 2, ...)
+</PRE>
+
+<HR>
+<H3><A NAME="commit">list al_sql("commit", conn, null, null, null);</A></H3>
+コミットを行います。<BR>
+<BR>
+変数connはデータベースコネクションでなければなりません。<BR>
+成功するとnullが、失敗すると文字列が返ります。<BR>
+
+<HR>
+<H3><A NAME="rollback">list al_sql("rollback", conn, null, null, null);</A></H3>
+ロールバックを行います。<BR>
+<BR>
+変数connはデータベースコネクションでなければなりません。<BR>
+成功するとnullが、失敗すると文字列が返ります。<BR>
+
+<HR>
+<H3><A NAME="finalize">void al_sql("finalize", conn, null, null, null);</A></H3>
+DBのクライアント環境の最終処理を行います。<BR>
+
+<HR>
+<H3><A NAME="col_names">list al_sql("col_names", stat, null, null, null);</A></H3>
+DBテーブルのカラム名を取得します。<BR>
+executeでSELECT文を実行した後そのSELECT文で選択されているカラム名が<BR>
+以下の形式で返ります。<BR>
+<PRE>
+   ()-/n/=>column_name  (n = 1, 2, ...)
+</PRE>
+通常 "SELECT * FROM ..."のSQL文を発行した後でテーブルの全カラム名を取得するのに使います。<BR>
+失敗すると文字列が返ります。<BR>
+
+<HR>
+<H3><A NAME="col_types">list al_sql("col_types", stat, null, null, null);</A></H3>
+DBテーブルのカラムの型/桁数/NOT-NULLを取得します。<BR>
+executeでSELECT文を実行した後そのSELECT文で選択されているカラムの型/桁数/NOT-NULLが<BR>
+以下の形式で返ります。<BR>
+<PRE>
+   ()-/n/=>()-/"type"/->type
+             -/"size"/->size
+             -/"decimal"/->decimal
+             (-/"nullable"/->1)
+   type = "integer" | "decimal" | "real" | "varchar" | "char" | "date" | "binary"
+   size:    typeが "integer"の時は桁数
+            typeが "decimal"の時は整数部分の桁数
+            typeが "varchar"の時は最大文字数
+            typeが "char"の時は文字数
+   decimal: typeが "decimal"の時は少数部分の桁数
+   nullable: NULL値を許すなら1、許さないならnull
+</PRE>
+失敗すると文字列が返ります。<BR>
+
+<HR>
+</BODY>
+</HTML>

@@ -1,0 +1,314 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Altair Cryptography</TITLE>
+</HEAD>
+
+<BODY>
+<H2>Altair Cryptography</H2>
+
+第0.43版 2016年10月23日<BR>
+第0.17版 2000年 4月 2日<BR>
+
+<UL>
+<LI>Altair独自の暗号関連機能
+<UL>
+<LI>鍵ペア生成
+<UL>
+<LI><A HREF="#generate_keypair">generate_keypair</A>
+</UL>
+
+<LI>暗号化関連機能
+<UL>
+<LI><A HREF="#encrypt_init">encrypt_init</A>
+<LI><A HREF="#encrypt">encrypt</A>
+<LI><A HREF="#encrypt_final">encrypt_final</A>
+<LI>
+<LI><A HREF="#simple_encrypt">simple_encrypt</A>
+</UL>
+
+<LI>復号化
+<UL>
+<LI><A HREF="#decrypt_init">decrypt_init</A>
+<LI><A HREF="#decrypt">decrypt</A>
+<LI><A HREF="#decrypt_final">decrypt_final</A>
+<LI>
+<LI><A HREF="#simple_decrypt">simple_decrypt</A>
+</UL>
+
+<LI>メッセージダイジェスト計算
+<UL>
+<LI><A HREF="#digest_init">digest_init</A>
+<LI><A HREF="#digest_update">digest_update</A>
+<LI><A HREF="#digest_final">digest_final</A>
+</UL>
+
+</UL>
+
+<BR>
+<LI>OpenSSLの暗号関連機能
+<UL>
+
+<LI> SMIME
+<UL>
+<LI><A HREF="#smime_encrypt">smime_encrypt</A>
+<LI><A HREF="#smime_decyrypt">smime_decyrypt</A>
+<LI><A HREF="#smime_sign">smime_sign</A>
+<LI><A HREF="#smime_verify">smime_verify</A>
+</UL>
+
+<LI> Internet Header
+<UL>
+<LI><A HREF="#mime_headers_read">mime_headers_read</A>
+<LI><A HREF="#mime_headers_write">mime_headers_write</A>
+<LI><A HREF="#remove_header">remove_header</A>
+<LI><A HREF="#add_header">add_header</A>
+<LI><A HREF="#get_header">get_header</A>
+</UL>
+
+<LI> MimeMultipart
+<UL>
+<LI><A HREF="#mime_multipart_read">mime_multipart_read</A>
+<LI><A HREF="#mime_multipart_write">mime_multipart_write</A>
+</UL>
+
+<LI> base64
+<UL>
+<LI><A HREF="#base64_encode">base64_encode</A>
+<LI><A HREF="#base64_decode">base64_decode</A>
+</UL>
+
+<LI> random
+<UL>
+<LI><A HREF="#random">random</A>
+</UL>
+
+</UL>
+</UL>
+
+<HR>
+<H3><A NAME="generate_keypair">list al_crypt("generate_keypair", algorithm, key_spec, null);</A></H3>
+公開鍵暗号の鍵ペアを生成して返します。<BR>
+返却値の形式は、(public_key、secret_key)です。<BR>
+生成に失敗するとnullが返ります。<BR>
+
+サポートしているアルゴリズムは以下です。<BR>
+<PRE>
+    "N-RSA" RSAベースの公開鍵暗号です。
+            鍵のbit数に制限はありません。
+            public_keyの形式は(e, m)、e,m はintegerです。
+            secret_keyの形式は(d, m)、d,m はintegerです。
+            key_specの形式は(p-hint, q-hint, e-hint)で、
+            2個の素数はp-hint近辺とq-hint近辺のものが選ばれます。
+            eは、e-hint近辺のものが選ばれます。
+            p-hint, q-hint, e-hint はintegerです。
+</PRE>
+
+<HR>
+<H3><A NAME="encrypt_init">list al_crypt("encrypt_init", algorithm, key, block);</A></H3>
+暗号化を行うためのコンテキストを初期化して返します。<BR>
+初期化に失敗するとnullが返ります。<BR>
+blockは、平文をこの大きさのブロックに分割して暗号化するブロックサイズを指定するintegerです。<BR>
+
+サポートしているアルゴリズムは以下です。<BR>
+<PRE>
+    "N-RSA"    RSAベースの公開鍵暗号です。
+               keyの形式は(k, m)、k,mの形式はintegerです。
+               blockはmの大きさ以下でなければなりません。
+
+    "N-DES"    独自の共通鍵暗号です。
+               鍵のbit数に制限はありません。
+               keyの形式はbinaryです。
+               keyのサイズは２のｎ乗でなければなりません。
+               またblockはkeyサイズ以下の２のｎ乗でなければなりません。
+</PRE>
+
+<H3><A NAME="encrypt">void al_crypt("encrypt", context, src, dst);</A></H3>
+平文を暗号化します。<BR>
+srcの形式は(binary, index, size)です。<BR>
+<BR>
+RSAベースの公開鍵暗号の場合：<BR>
+sizeはencrypt_initのblockで割りきれなければなりません。<BR>
+dstの形式は(binary, index)で、(size / block * mの大きさ) の余裕がなければなりません。<BR>
+<BR>
+独自共通鍵暗号の場合：<BR>
+sizeはblockと同じにします。<BR>
+
+<H3><A NAME="encrypt_final">void al_crypt("encrypt_final", context, null, null);</A></H3>
+コンテキストを開放し、暗号化を終了します。<BR>
+
+<H3><A NAME="simple_encrypt">void al_crypt("simple_encrypt", key, infile, outfile);</A></H3>
+独自共通鍵暗号で暗号化したファイルを作成します。<BR>
+keyはbinaryまたはstringの共通鍵、infile, outfile はstring型のファイル名です。<BR>
+
+<HR>
+<H3><A NAME="decrypt_init">list al_crypt("decrypt_init", algorithm, key, block);</A></H3>
+復号化を行うためのコンテキストを初期化して返します。<BR>
+初期化に失敗するとnullが返ります。<BR>
+blockは、復号化するデータのブロックの単位を指定します。<BR>
+
+サポートしているアルゴリズムは以下です。<BR>
+<PRE>
+    "N-RSA"    RSAベースの公開鍵暗号です。
+               keyの形式は(k, m)、k,mの形式はintegerです。
+
+    "N-DES"    独自の共通鍵暗号です。
+               keyはdecrypt_initの場合と同じです。
+</PRE>
+
+<H3><A NAME="decrypt">binary al_crypt("decrypt", context, src, dst);</A></H3>
+暗号文を復号化した平文を返します。<BR>
+srcの形式は(binary, index, size)です。<BR>
+<BR>
+RSAベースの公開鍵暗号の場合：<BR>
+sizeはpublic_key (pk,m), secret_key (sk,m)のmの大きさで割りきれなければなりません。<BR>
+dstの形式は(binary, index)で、(size / mの大きさ * decrypt_initのblock) の余裕が<BR>
+なければなりません。<BR>
+<BR>
+独自共通鍵暗号の場合：<BR>
+sizeはblockと同じにします。<BR>
+
+<H3><A NAME="decrypt_final">void al_crypt("decrypt_final", context, null, null);</A></H3>
+コンテキストを開放し、復号化を終了します。<BR>
+
+<H3><A NAME="simple_decrypt">void al_crypt("simple_decrypt", key, infile, outfile);</A></H3>
+独自共通鍵暗号で暗号化されたファイルの複合化ファイルを作成します。
+keyはbinaryまたはstringの共通鍵、infile, outfile はstring型のファイル名です。<BR>
+
+<HR>
+<H3><A NAME="digest_init">list al_crypt("digest_init", algorithm, null, null);</A></H3>
+メッセージダイジェストを計算するコンテキストを初期化して返します。<BR>
+サポートしているアルゴリズムは、"MD5"、"SHA-1"です。<BR>
+
+<H3><A NAME="digest_update">void al_crypt("digest_update", context, data, null);</A></H3>
+メッセージを分割した各ブロックdataについて<BR>
+メッセージダイジェストコンテキストを更新します。<BR>
+dataの形式は(binary, index, size)です。
+
+<H3><A NAME="digest_final">binary al_crypt("digest_final", context, null, null);</A></H3>
+メッセージダイジェストコンテキストを開放するとともに、<BR>
+計算されたメッセージダイジェストをメッセージダイジェストコンテキストから<BR>
+取りだして返します。<BR>
+"MD5"のダイジェストの長さは16バイト、<BR>
+"SHA-1"のダイジェストの長さは20バイトです。<BR>
+
+<HR>
+<H3><A NAME="smime_encrypt">any al_crypt("smime_encrypt", in , out, files);</A></H3>
+SMIMEの暗号化を行います。<BR>
+成功すると非nullが返ります。<BR>
+filesの形式は、(cipher, cert, null, null) です。<BR>
+cipherで有効なものは以下です。<BR>
+<PRE>
+   "des3"
+   "des"
+   "rc2-40" 
+   "rc2-64"
+   "rc2-128"
+</PRE>
+変数inの形式は、ファイル名またはbinaryまたは(binary, index, size)です。<BR>
+変数outの形式は、ファイル名またはnullです。nullの場合はbinaryが返ります。<BR>
+
+<H3><A NAME="smime_decyrypt">any al_crypt("smime_decyrypt", in , out, files);</A></H3>
+SMIMEの暗号の復号化を行います。<BR>
+成功すると非nullが返ります。<BR>
+filesの形式は、(null, cert, key, null) です。<BR>
+<BR>
+変数inの形式は、ファイル名またはbinaryまたは(binary, index, size)です。<BR>
+変数outの形式は、ファイル名またはnullです。nullの場合はbinaryが返ります。<BR>
+
+<H3><A NAME="smime_sign">any al_crypt("smime_sign", in , out, files);</A></H3>
+SMIMEの署名を行います。<BR>
+成功すると非nullが返ります。<BR>
+filesの形式は、(null, cert, key, null) です。<BR>
+<BR>
+変数inの形式は、ファイル名またはbinaryまたは(binary, index, size)です。<BR>
+変数outの形式は、ファイル名またはnullです。nullの場合はbinaryが返ります。<BR>
+
+<H3><A NAME="smime_verify">any al_crypt("smime_verify", in , null, files);</A></H3>
+SMIMEの署名検証を行います。<BR>
+成功すると非nullが返ります。<BR>
+filesの形式は、(null, cert, null, caCert) です。<BR>
+<BR>
+変数inの形式は、ファイル名またはbinaryまたは(binary, index, size)です。<BR>
+
+<HR>
+<H3><A NAME="mime_headers_read">list al_crypt("mime_headers_read", in, null, null);</A></H3>
+Mimeヘッダーを読み込み内部データを作成して返します。<BR>
+成功すると非nullが返ります。<BR>
+戻り値の形式は、(headers, size)です。<BR>
+headersの形式は、()-/header_name/=>header_value-/param_name/=>param_value で<BR>
+sizeは "\r\n\r\n"までの文字数になります。<BR>
+<BR>
+変数inの形式は、ファイル名またはbinaryまたは(binary, index, size)です。<BR>
+
+<H3><A NAME="mime_headers_write">list al_crypt("mime_headers_write", headers, out, null);</A></H3>
+内部データdataからMimeヘッダーのテキストを作成します。<BR>
+成功すると非nullが返ります。<BR>
+headersの形式は、()-/header_name/=>header_value-/param_name/=>param_value です。<BR>
+<BR>
+変数outの形式は、ファイル名またはnullです。nullの場合はbinaryが返ります。<BR>
+
+<H3><A NAME="remove_header">list al_crypt("remove_header", headers, type, null);</A></H3>
+binary型のインターネットヘッダーからタイプが文字列typeのラインをすべて除いた<BR>
+binary型のインターネットヘッダーを返します。
+<PRE>
+例：
+    headers = al_crypt("remove_header", headers, "Proxy-Connection", null);
+</PRE>
+
+<H3><A NAME="add_header">list al_crypt("add_header", headers, line, null);</A></H3>
+binary型のインターネットヘッダーに文字列lineのラインの行を追加した<BR>
+binary型のインターネットヘッダーを返します。
+<PRE>
+例：
+    headers = al_crypt("remove_header", headers, "Connection: Close\r\n", null);
+</PRE>
+
+<H3><A NAME="get_header">list al_crypt("get_header", headers, type, null);</A></H3>
+binary型のインターネットヘッダーから最初に見つかったタイプが文字列typeの値を文字列で返します。<BR>
+タイプが文字列typeのラインが見つからなければnullが返ります。
+<PRE>
+例：
+    length = al_crypt("remove_header", headers, "Content-Length", null);
+</PRE>
+
+<HR>
+<H3><A NAME="mime_multipart_read">list al_crypt("mime_multipart_read", in, headers, null);</A></H3>
+MimeMultipartを読み込み内部データを作成します。<BR>
+成功すると非nullが返ります。<BR>
+headersは、 *-/"Content-Type"/->*-/"boundary"/->bounary値 を含んでいなければなりません。<BR>
+戻り値の形式は、(headers)-/-/=>binary です。<BR>
+<BR>
+変数inの形式は、ファイル名またはbinaryまたは(binary, index, size)です。<BR>
+
+<H3><A NAME="mime_multipart_write">list al_crypt("mime_multipart_write", data, out, null);</A></H3>
+Multipartの内部データを書き出します。<BR>
+成功すると非nullが返ります。<BR>
+dataは、 (headers)-/-/=>binary|string で、<BR>
+headersは、*-/"Content-Type"/->*-/"boundary"/->bounary値 を含んでいなければなりません。<BR>
+境界の値はをheadersのContent-Typeのboudaryの値になります。<BR>
+<BR>
+変数outの形式は、ファイル名またはnullです。nullの場合はbinaryが返ります。<BR>
+
+<HR>
+<H3><A NAME="base64_encode">list al_crypt("base64_encode", in, out, null);</A></H3>
+base64のエンコードを行います。<BR>
+成功すると非nullが返ります。<BR>
+<BR>
+変数inの形式は、ファイル名またはbinaryまたは(binary, index, size)です。<BR>
+変数outの形式は、ファイル名またはnullです。nullの場合はbinaryが返ります。<BR>
+
+<H3><A NAME="base64_decode">list al_crypt("base64_decode", in, out, null);</A></H3>
+base64のデコードを行います。<BR>
+成功すると非nullが返ります。<BR>
+<BR>
+変数inの形式は、ファイル名またはbinaryまたは(binary, index, size)です。<BR>
+変数outの形式は、ファイル名またはnullです。nullの場合はbinaryが返ります。<BR>
+
+<H3><A NAME="random">string al_crypt("random", n, null, null);</A></H3>
+0-9とA-Zの文字列だけで構成されたn桁のランダムな文字列を返します。<BR>
+nはintegerです。<BR>
+
+<HR>
+</BODY>
+</HTML>

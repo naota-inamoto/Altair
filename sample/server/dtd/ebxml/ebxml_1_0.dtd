@@ -1,0 +1,172 @@
+
+<!-- ================ SOAP Envelop ================ -->
+<!ELEMENT Envelope (Header?, Body)>
+    <!-- namespace -->
+    <!ATTLIST Envelope xmlns:SOAP-ENV CDATA #FIXED "http://schemas.xmlsoap.org/soap/envelope/">
+
+<!ELEMENT Header (MessageHeader, TraceHeaderList)>
+    <!-- ANY* -->
+<!ELEMENT Body (Fault | Manifest | DeliveryReceipt | Acknowledgment | ErrorList |
+                StatusResponse | StatusRequest | Via)>
+    <!-- ANY* -->
+
+<!--
+<!ATTLIST * mustUnderstand (0|1) #IMPLIED>
+<!ATTLIST * actor CDATA #IMPLIED>
+-->
+
+<!ELEMENT Fault (faultcode, faultstring, faultactor?, detail?)>
+
+<!ELEMENT faultcode #PCDATA>
+<!ELEMENT faultstring #PCDATA>
+<!ELEMENT faultactor #PCDATA>
+
+<!ELEMENT detail #PCDATA>
+    <!-- ANY* -->
+
+<!-- ================ ebxml ================ -->
+<!ATTLIST Body xmlns:xlink CDATA #FIXED "http://www.w3.org/1999/xlink" METAINFO "scope" "global">
+
+<!-- ======== SOAP HEADER ======== -->
+<!-- MessageHeader -->
+<!ELEMENT MessageHeader (From, To, CPAId, ConversationId, Service, Action, MessageData,
+                         QualityOfServiceInfo?, Description*, SequenceNumber?)>
+    <!-- namespace -->
+    <!ATTLIST MessageHeader xmlns:eb CDATA #FIXED "http://www.ebxml.org/namespaces/messageHeader">
+<!ATTLIST MessageHeader id      CDATA #IMPLIED>
+<!ATTLIST MessageHeader version CDATA #IMPLIED>
+<!ATTLIST MessageHeader mustUnderstand (0|1) #IMPLIED METAINFO "namespace" "http://schemas.xmlsoap.org/soap/envelope/">
+
+<!ELEMENT From (PartyId+)>
+<!ELEMENT To (PartyId+)>
+
+<!ELEMENT CPAId #PCDATA>
+<!ELEMENT ConversationId #PCDATA>
+<!ELEMENT Service #PCDATA>
+<!ATTLIST Service type CDATA #IMPLIED>
+<!ELEMENT Action #PCDATA>
+
+<!ELEMENT MessageData (MessageId, Timestamp, RefToMessageId?, TimeToLive?)>
+<!ELEMENT MessageId #PCDATA>
+
+<!ELEMENT QualityOfServiceInfo EMPTY>
+<!ATTLIST QualityOfServiceInfo deliverySemantics        CDATA #IMPLIED>
+    <!-- deliverySemantics.type, enum { OnceAndOnlyOnce, BestEffort }, default is "BestEffort" -->
+<!ATTLIST QualityOfServiceInfo messageOrderSemantics    CDATA #IMPLIED>
+    <!-- messageOrderSemantics.type, enum { Guaranteed, NotGuaranteed }, default is "NotGuaranteed" -->
+<!ATTLIST QualityOfServiceInfo deliveryReceiptRequested CDATA #IMPLIED>
+    <!-- signedUnsigned.type, enum { Signed, Unsigned, None }, default is "None" -->
+
+<!ELEMENT SequenceNumber #PCDATA> <!-- positiveInteger -->
+
+<!-- TraceHeaderList -->
+<!ELEMENT TraceHeaderList (TraceHeader+)>
+    <!-- namespace -->
+    <!ATTLIST TraceHeaderList xmlns:eb CDATA #FIXED "http://www.ebxml.org/namespaces/messageHeader">
+<!ATTLIST TraceHeaderList id      CDATA #IMPLIED>
+<!ATTLIST TraceHeaderList version CDATA #FIXED "1.0">
+<!ATTLIST TraceHeaderList mustUnderstand (0|1) #REQUIRED METAINFO "namespace" "http://schemas.xmlsoap.org/soap/envelope/">
+<!ATTLIST TraceHeaderList actor          CDATA #REQUIRED METAINFO "namespace" "http://schemas.xmlsoap.org/soap/envelope/">
+
+<!ENTITY % senderReceiver.type "(PartyId+, Location)">
+
+<!ELEMENT TraceHeader (Sender, Receiver, Timestamp)>
+    <!-- ANY* -->
+<!ELEMENT Sender   %senderReceiver.type;>
+<!ELEMENT Receiver %senderReceiver.type;>
+
+<!ELEMENT PartyId  #PCDATA>
+<!ATTLIST PartyId type CDATA #IMPLIED>
+
+<!ELEMENT Location #PCDATA>
+
+<!-- ======== SOAP BODY ======== -->
+<!ELEMENT Manifest (Reference+)>
+    <!-- ANY* -->
+    <!-- namespace -->
+    <!ATTLIST Manifest xmlns:eb CDATA #FIXED "http://www.ebxml.org/namespaces/messageHeader">
+<!ATTLIST Manifest id      CDATA #IMPLIED>
+<!ATTLIST Manifest version CDATA #FIXED "1.0">
+
+<!ELEMENT Reference (Schema?, Description?)>
+    <!-- ANY* -->
+<!ATTLIST Reference id         CDATA #IMPLIED>
+<!ATTLIST Reference type CDATA #FIXED "simple" METAINFO "namespace" "http://www.w3.org/1999/xlink">
+<!ATTLIST Reference href CDATA #REQUIRED       METAINFO "namespace" "http://www.w3.org/1999/xlink">
+<!ATTLIST Reference role CDATA #IMPLIED        METAINFO "namespace" "http://www.w3.org/1999/xlink">
+
+<!ELEMENT Schema EMPTY>
+<!ATTLIST Schema id      CDATA #REQUIRED>
+<!ATTLIST Schema version CDATA #FIXED "1.0">
+
+<!ELEMENT DeliveryReceipt (Timestamp, Reference*)>
+    <!-- namespace -->
+    <!ATTLIST DeliveryReceipt xmlns:eb CDATA #FIXED "http://www.ebxml.org/namespaces/messageHeader">
+<!ATTLIST DeliveryReceipt id      CDATA #IMPLIED>
+<!ATTLIST DeliveryReceipt version CDATA #FIXED "1.0">
+
+<!ELEMENT Acknowledgment (Timestamp, From?, Reference*)>
+    <!-- namespace -->
+    <!ATTLIST Acknowledgment xmlns:eb CDATA #FIXED "http://www.ebxml.org/namespaces/messageHeader">
+<!ATTLIST Acknowledgment id      CDATA #IMPLIED>
+<!ATTLIST Acknowledgment version CDATA #FIXED "1.0">
+<!ATTLIST Acknowledgment mustUnderstand (0|1) #REQUIRED METAINFO "namespace" "http://schemas.xmlsoap.org/soap/envelope/">
+<!ATTLIST Acknowledgment actor          CDATA #REQUIRED METAINFO "namespace" "http://schemas.xmlsoap.org/soap/envelope/">
+
+<!ELEMENT ErrorList (Error+)>
+    <!-- namespace -->
+    <!ATTLIST ErrorList xmlns:eb CDATA #FIXED "http://www.ebxml.org/namespaces/messageHeader">
+<!ATTLIST ErrorList id      CDATA #IMPLIED>
+<!ATTLIST ErrorList version CDATA #FIXED "1.0">
+<!ATTLIST ErrorList mustUnderstand (0|1) #REQUIRED METAINFO "namespace" "http://schemas.xmlsoap.org/soap/envelope/">
+<!ATTLIST ErrorList highestSeverity          CDATA #REQUIRED>
+    <!-- severity.type, default is "Warning" -->
+
+<!ELEMENT Error EMPTY>
+<!ATTLIST Error id      CDATA #IMPLIED>
+<!ATTLIST Error codeContext CDATA #REQUIRED>
+<!ATTLIST Error errorCode CDATA #REQUIRED>
+<!ATTLIST Error severity CDATA #IMPLIED>
+    <!-- severity.type, default is "Warning" -->
+<!ATTLIST Error location CDATA #IMPLIED>
+
+<!ELEMENT StatusResponse (RefToMessageId, Timestamp?)>
+    <!-- namespace -->
+    <!ATTLIST StatusResponse xmlns:eb CDATA #FIXED "http://www.ebxml.org/namespaces/messageHeader">
+<!ATTLIST StatusResponse id      CDATA #IMPLIED>
+<!ATTLIST StatusResponse version CDATA #FIXED "1.0">
+<!ATTLIST StatusResponse messageStatus CDATA #REQUIRED>
+    <!-- messageStatus.type, enum { UnAuthorized, NotRecognized, Received, Processed, Forwarded } -->
+
+<!ELEMENT StatusRequest (RefToMessageId)>
+    <!-- namespace -->
+    <!ATTLIST StatusRequest xmlns:eb CDATA #FIXED "http://www.ebxml.org/namespaces/messageHeader">
+<!ATTLIST StatusRequest id      CDATA #IMPLIED>
+<!ATTLIST StatusRequest version CDATA #FIXED "1.0">
+
+<!ELEMENT Via (CPAId, Service, Action)>
+    <!-- namespace -->
+    <!ATTLIST Via xmlns:eb CDATA #FIXED "http://www.ebxml.org/namespaces/messageHeader">
+<!ATTLIST Via id      CDATA #IMPLIED>
+<!ATTLIST Via version CDATA #FIXED "1.0">
+<!ATTLIST Via mustUnderstand (0|1) #REQUIRED METAINFO "namespace" "http://schemas.xmlsoap.org/soap/envelope/">
+<!ATTLIST Via actor          CDATA #REQUIRED METAINFO "namespace" "http://schemas.xmlsoap.org/soap/envelope/">
+<!ATTLIST Via syncReply CDATA #IMPLIED>
+    <!-- boolean -->
+<!ATTLIST Via deliveryReceiptRequested CDATA #IMPLIED>
+    <!-- signedUnsigned.type, enum { Signed, Unsigned, None } -->
+<!ATTLIST Via reliableMessagingMethod CDATA #IMPLIED>
+    <!-- rmm.type, enum { ebXML, Transport } -->
+<!ATTLIST Via ackRequested CDATA #IMPLIED>
+    <!-- boolean -->
+
+<!-- ======== Common ======== -->
+<!ELEMENT Timestamp  #PCDATA> <!-- timeInstant -->
+<!ELEMENT TimeToLive #PCDATA> <!-- timeInstant -->
+
+<!ELEMENT Description #PCDATA>
+<!ATTLIST Description xml:lang CDATA #IMPLIED>
+
+<!ELEMENT RefToMessageId #PCDATA>
+
+

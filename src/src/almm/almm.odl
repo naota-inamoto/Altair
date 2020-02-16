@@ -1,0 +1,80 @@
+// AlMm.odl : OLE コントロール プロジェクトのタイプ ライブラリのソース
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(07755881-7C16-11D0-845C-444553540000), version(1.0),
+  helpstring("AlMm OLE Control module"), control ]
+library ALMMLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	[ uuid(07755882-7C16-11D0-845C-444553540000),
+	  helpstring("Dispatch interface for AlMm Control"), hidden ]
+	dispinterface _DAlMm
+	{
+		properties:
+			//{{AFX_ODL_PROP(CAlMmCtrl)
+			//}}AFX_ODL_PROP
+
+		methods:
+			//{{AFX_ODL_METHOD(CAlMmCtrl)
+			[id(1)] short Open(BSTR fileName, BSTR aliasName);
+			[id(2)] short Select(BSTR aliasName);
+			[id(3)] BSTR GetAliasName();
+			[id(4)] short Close();
+			[id(5)] long Length();
+			[id(6)] long StartPosition();
+			[id(7)] long Position();
+			[id(8)] short SeekTo(long position);
+			[id(9)] short SeekToStart();
+			[id(10)] short SeekToEnd();
+			[id(11)] short Wait(short flag);
+			[id(12)] short SetDuration(long duration);
+			[id(13)] short Play();
+			[id(14)] short Stop();
+			[id(15)] short Pause();
+			[id(16)] short Resume();
+			[id(17)] BSTR Mode();
+			[id(18)] short Cue();
+			[id(19)] short Record();
+			[id(20)] short RecordOver();
+			[id(21)] short Erase();
+			[id(22)] short Save(BSTR fileName);
+			[id(23)] short Eject();
+			[id(24)] short TrackIndex();
+			[id(25)] short TrackNum();
+			[id(26)] short SetTrackIndex(short index);
+			//}}AFX_ODL_METHOD
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	[ uuid(07755883-7C16-11D0-845C-444553540000),
+	  helpstring("Event interface for AlMm Control") ]
+	dispinterface _DAlMmEvents
+	{
+		properties:
+			//  イベント インターフェイスにプロパティはありません
+
+		methods:
+			//{{AFX_ODL_EVENT(CAlMmCtrl)
+			[id(1)] void NotifySuccessful();
+			[id(2)] void NotifySuperseded();
+			[id(3)] void NotifyAborted();
+			[id(4)] void NotifyFailure();
+			//}}AFX_ODL_EVENT
+	};
+
+	[ uuid(07755884-7C16-11D0-845C-444553540000),
+	  helpstring("AlMm Control"), control ]
+	coclass AlMm
+	{
+		[default] dispinterface _DAlMm;
+		[default, source] dispinterface _DAlMmEvents;
+	};
+
+
+	//{{AFX_APPEND_ODL}}
+};

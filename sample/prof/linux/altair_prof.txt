@@ -1,0 +1,7 @@
+count	total	average	class	func
+	(msec)	(msec)		
+1	7093	7093	Test	test_loop
+1	9835	9835	Test	test_int_add
+1	337044	337044	Test	test_string_add
+1	8385	8385	Test	test_new
+1	362357	362357	Test	test_all

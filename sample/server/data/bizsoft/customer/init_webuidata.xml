@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE WebUiData SYSTEM "WebUiData.dtd">
+<WebUiData>
+    <Target>bizsoftCustomer</Target>
+    <MenuItem>
+        <LineNumber>1000</LineNumber>
+        <Name>MyAccount</Name>
+        <Kind>Title</Kind>
+        <Text>マイアカウント</Text>
+    </MenuItem>
+    <MenuItem>
+        <LineNumber>1001</LineNumber>
+        <Name>MyAccount</Name>
+        <Kind>View</Kind>
+        <Text>登録情報</Text>
+        <View>
+            <RoleName>customer</RoleName>
+        </View>
+    </MenuItem>
+
+    <MenuItem>
+        <LineNumber>2000</LineNumber>
+        <Name>PurchaseOrder</Name>
+        <Kind>Title</Kind>
+        <Text>注文</Text>
+    </MenuItem>
+    <MenuItem>
+        <LineNumber>2001</LineNumber>
+        <Name>Cart</Name>
+        <Kind>View</Kind>
+        <Text>カート</Text>
+        <View>
+            <RoleName>customer</RoleName>
+        </View>
+    </MenuItem>
+    <MenuItem>
+        <LineNumber>2002</LineNumber>
+        <Name>ProductList</Name>
+        <Kind>View</Kind>
+        <Text>製品一覧</Text>
+        <View>
+            <RoleName>customer</RoleName>
+        </View>
+    </MenuItem>
+</WebUiData>

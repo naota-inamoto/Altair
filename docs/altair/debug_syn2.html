@@ -1,0 +1,87 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Debug Info | debug_syn2</TITLE>
+</HEAD>
+
+<BODY>
+<PRE>
+AAA apply (for): this = 00000000043af350, addr = 000000000283b8b8, call_count = 2
+AAA for idxs = (1)
+AAA (for-begin): index = 0, this = 00000000043af350, addr = 000000000283b8b8, call_count = 2
+AAA (for idxs) = (1)
+AAA ls = (null, null, (1, null), 0, (0, null, null))
+### ======== syntax_id = program, variable = $[1], call_count = 2
+Enter gen_GetFirst
+Leave gen_GetFirst
+AAA ## (for-begin) this = 00000000043af350, addr = 000000000283b8b8, call_count = 2
+AAA ## (for idxs) = (1)
+AAA ## ls = (null, null, (1, null), 0, (0, (("import", ("$value", ("newline")))), null))
+AAA apply (for) [Success]: this = 00000000043af350, addr = 000000000283b8b8, call_count = 2
+AAA back gen_status: this = 00000000043af350, addr = 000000000283b8b8, call_count = 2
+AAA ls = (null, null, (1, null), 0, (0, (("import", ("$value", ("newline")))), null))
+AAA apply (for): this = 00000000043af350, addr = 0000000002831638, call_count = 2
+AAA for idxs = (1)
+### ======== syntax_id = program, variable = $[1], call_count = 2
+Enter gen_GetFirst
+Leave gen_GetFirst
+AAA ## (for-empty) this = 00000000043af350, addr = 0000000002831638, call_count = 2
+AAA ## (for idxs) = (1)
+AAA ## ls = (null, null, (1, -1), 0, null)
+AAA (for-empty): this = 00000000043af350, addr = 0000000002831638, call_count = 2
+AAA (for idxs) = (1)
+AAA ls = (null, null, (1, -1), 0, null)
+AAA apply (for) [Success]: this = 00000000043af350, addr = 0000000002831638, call_count = 2
+AAA apply (for): this = 00000000043af350, addr = 000000000282f090, call_count = 3
+AAA for idxs = (3)
+AAA (for-begin): index = 0, this = 00000000043af350, addr = 000000000282f090, call_count = 3
+AAA (for idxs) = (3)
+AAA ls = (null, null, (1, null), 0, (0, null, null))
+### ======== syntax_id = program, variable = $[3], call_count = 3
+Enter gen_GetFirst
+Leave gen_GetFirst
+AAA ## (for-begin) this = 00000000043af350, addr = 000000000282f090, call_count = 3
+AAA ## (for idxs) = (3)
+AAA ## ls = (null, null, (1, null), 0, (0, (("class", (("class_p")))), null))
+AAA apply (for) [Success]: this = 00000000043af350, addr = 000000000282f090, call_count = 3
+### ======== syntax_id = program, variable = $[3][1], call_count = 3
+Enter gen_GetFirst
+Leave gen_GetFirst
+Enter gen_GetNext
+Enter gen_GetSwitch
+Leave gen_GetSwitch: id = class
+Leave gen_GetNext
+### ======== syntax_id = class_p, variable = $[2], call_count = 4
+Enter gen_GetFirst
+Leave gen_GetFirst
+AAA apply (for): this = 00000000043af410, addr = 0000000002826120, call_count = 5
+AAA for idxs = (3)
+AAA (for-begin): index = 0, this = 00000000043af410, addr = 0000000002826120, call_count = 5
+AAA (for idxs) = (3)
+AAA ls = (null, null, (1, null), 0, (0, null, null))
+### ======== syntax_id = class_p, variable = $[3], call_count = 5
+Enter gen_GetFirst
+Leave gen_GetFirst
+AAA ## (for-begin) this = 00000000043af410, addr = 0000000002826120, call_count = 5
+AAA ## (for idxs) = (3)
+AAA ## ls = (null, null, (1, null), 0, (0, (("cls_sub", (("newline"), ("class_p2")))), null))
+AAA apply (for) [Success]: this = 00000000043af410, addr = 0000000002826120, call_count = 5
+### ======== syntax_id = class_p, variable = $[3][2], call_count = 5
+Enter gen_GetFirst
+Leave gen_GetFirst
+Enter gen_GetNext
+Enter gen_GetSwitch
+Leave gen_GetSwitch: id = cls_sub
+Leave gen_GetNext
+### ======== syntax_id = class_p2, variable = $[1], call_count = 6
+Enter gen_GetFirst
+Leave gen_GetFirst
+AAA apply (for): this = 00000000043af4d0, addr = 0000000002817f20, call_count = 7
+AAA for idxs = (2)
+AAA (for-begin): index = 0, this = 00000000043af4d0, addr = 0000000002817f20, call_count = 7
+AAA (for idxs) = (2)
+AAA ls = (null, null, (1, null), 0, (0, null, null))
+</PRE>
+
+</BODY>
+</HTML>

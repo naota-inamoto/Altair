@@ -1,0 +1,67 @@
+
+g == cons(null, null), var("g1", g1) == 1, init(g, g1), copy(g1, g2), write(dump(g2, 1)) == 1 .
+
+init(g, g1) :- 
+ pm_rep(g, g1)
+
+  before := {
+    invariant,
+    g
+  }
+  after := {
+    g1:(null)-/1/->g11:("1"),
+                   g11-/11/->("11"),
+                   g11-/12/->("12"),
+                   g11-/13/->("13"),
+    g1       -/2/->("2"),
+    g1       -/3/->g13:("3"),
+                   g13-/31/->("31"),
+                   g13-/32/->("32"),
+                   g13-/33/->("33")
+  }
+  common := {
+   where .
+  }
+  tail := {
+   where .
+  }
+
+  final := {
+   where .
+  }
+
+  .
+
+copy(g1, g2) :- 
+ pm_rep(g1, g2)
+
+  before := {
+    invariant,
+    <<<1
+    g1:(null)-/i/=>g1i:(n1),
+       <<<2
+                   g1i-/ij/=>(n2)
+       >>>2
+    >>>1
+  }
+  after := {
+    <<<1
+    g2:(null)-/i/=>g2i:(n1),
+        <<<2
+                   g2i-/ij/=>(n2)
+        >>>2
+    >>>1
+  }
+  common := {
+   where .
+  }
+  tail := {
+   where .
+  }
+
+  final := {
+   where .
+  }
+
+  .
+

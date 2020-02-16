@@ -1,0 +1,688 @@
+$END_LIB
+TEXT
+AlObject
+class TP
+end_class
+$END_CLASS
+TEXT
+AlObject
+class TP
+member
+public: static void parse_and_generate_xml();
+member
+public: static void parse_and_generate_xml_all();
+member
+public: static void parse_with_debug_outout();
+member
+public: static void parse_without_parse_tree_generation();
+member
+public: static void parse_without_parse_tree_generation2();
+member
+public: list start_element(string tag_name, list attrs);
+member
+public: list start_element2(string tag_name, list attrs);
+member
+public: list end_element(string tag_name);
+member
+public: list characters(string text);
+member
+public: static void xslt_transform_1();
+member
+public: static void xslt_transform_2();
+member
+public: static void xslt_transform_3();
+member
+public: static void xslt_transform_4();
+member
+public: static void xslt_transform_5();
+member
+public: static void xslt_transform_6();
+member
+public: static void xslt_transform_7();
+member
+public: static void xslt_transform_8();
+member
+public: static void xslt_transform_9();
+member
+public: static void xslt_transform_date();
+member
+public: static void xslt_transform_check();
+member
+public: static void xslt_transform_check_input_1();
+member
+public: static void xslt_transform_product_list();
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class TP
+member
+public: static void parse_and_generate_xml();
+body
+{
+	var list dir_name, dir_name2;
+	var string dir, name, dir2, name2, out_file;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	if (dir_name2 = al_get_write_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir2 = dir_name2.head;
+	name2 = dir_name2.tail.head;
+	out_file = dir2 + "/" + name2;
+	// create parse-tree from well-defined XML file
+	var list tree_err, tree, err;
+	var file f;
+	f = al_file_open(dir + "/" + name, "r");
+	tree_err = al_xml("parse", f, null, null);
+	tree = tree_err.head;
+	err = tree_err.tail.head;
+	if (err) {
+		al_print("fail to parse well-defined XML file. (" + (string)err + ")\n");
+		return;
+	} else {
+	}
+	// create well-defined XML file from parse-tree
+	f = al_file_open(out_file, "w");
+	err = al_xml("generate", f, tree, null);
+	// err = al_xml("generate", f, tree, al_cons(2, null));
+	f = null;
+	if (err) {
+		al_print("fail to create well-defined XML file. (" + (string)err + "\n");
+		return;
+	} else {
+	}
+	if (al_misc("platform", null, null) == "windows") {
+		var list itr;
+		var string name;
+		itr = al_dst_itr(al_str_misc("split", out_file, '/'));
+		out_file = null;
+		loop {
+			if (name = al_next(itr)) {
+			} else {
+				break;
+			}
+			if (out_file == null) {
+				out_file = name;
+			} else {
+				out_file = out_file + "\\" + name;
+			}
+		}
+		al_exec("notepad " + out_file, ".", 1, null);
+	} else {
+	}
+}
+end_body
+member
+public: static void parse_and_generate_xml_all();
+body
+{
+	var list dir_name, dir_name2;
+	var string dir, name, dir2, name2, out_file;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	if (dir_name2 = al_get_write_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir2 = dir_name2.head;
+	var list ls, itr;
+	var string ext;
+	ls = al_file_manip("find_file", dir, null);
+	itr = al_dst_itr(ls);
+	loop {
+		if (name = al_next(itr)) {
+		} else {
+			break;
+		}
+		if (name == ".." || name == ".") {
+			continue;
+		} else {
+		}
+		ext = al_str_misc("file_ext", name, null);
+		if (ext != ".xml") {
+			continue;
+		} else {
+		}
+		al_print("filename = " + name + "\n");
+		out_file = dir2 + "/" + name;
+		// create parse-tree from well-defined XML file
+		var list tree_err, tree, err;
+		var file f;
+		f = al_file_open(dir + "/" + name, "r");
+		tree_err = al_xml("parse", f, null, null);
+		tree = tree_err.head;
+		err = tree_err.tail.head;
+		if (err) {
+			al_print("fail to parse well-defined XML file. (" + (string)err + ")\n");
+			continue;
+		} else {
+		}
+		// create well-defined XML file from parse-tree
+		f = al_file_open(out_file, "w");
+		err = al_xml("generate", f, tree, null);
+		// err = al_xml("generate", f, tree, al_cons(2, null));
+		f = null;
+		if (err) {
+			al_print("fail to create well-defined XML file. (" + (string)err + "\n");
+		} else {
+		}
+	}
+	al_print("end\n");
+}
+end_body
+member
+public: static void parse_with_debug_outout();
+body
+{
+	var list dir_name;
+	var string dir, name;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	// create parse-tree from well-defined XML file
+	var list tree_err, tree, err;
+	var file f;
+	f = al_file_open(dir + "/" + name, "r");
+	tree_err = al_xml("parse", f, null, 1);
+	tree = tree_err.head;
+	err = tree_err.tail.head;
+	if (err) {
+		al_print("fail to parse well-defined XML file. (" + (string)err + ")\n");
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: static void parse_without_parse_tree_generation();
+body
+{
+	var list dir_name;
+	var string dir, name;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	var list tree_err, tree, err;
+	var file f;
+	f = al_file_open(dir + "/" + name, "r");
+	var TP tp;
+	var list listener;
+	tp = new TP;
+	listener = al_list4(tp, TP::start_element, TP::end_element, TP::characters);
+	tree_err = al_xml("parse", f, listener, null);
+	tree = tree_err.head;
+	err = tree_err.tail.head;
+	if (err) {
+		al_print("fail to parse well-defined XML file. (" + (string)err + ")\n");
+		return;
+	} else {
+		al_print("parse OK.\n");
+	}
+}
+end_body
+member
+public: static void parse_without_parse_tree_generation2();
+body
+{
+	var list dir_name;
+	var string dir, name;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	var list tree_err, tree, err;
+	var file f;
+	f = al_file_open(dir + "/" + name, "r");
+	var TP tp;
+	var list listener;
+	tp = new TP;
+	listener = al_list4(tp, TP::start_element2, TP::end_element, TP::characters);
+	tree_err = al_xml("parse", f, listener, null);
+	tree = tree_err.head;
+	err = tree_err.tail.head;
+	if (err) {
+		al_print("fail to parse well-defined XML file. (" + (string)err + ")\n");
+		return;
+	} else {
+		al_print("parse OK.\n");
+	}
+}
+end_body
+member
+public: list start_element(string tag_name, list attrs);
+body
+{
+	al_print("startElement: tag = " + (string)tag_name + " attrs:");
+	var list itr;
+	var list value;
+	itr = al_dst_itr(attrs);
+	loop {
+		if (value = al_next(itr)) {
+		} else {
+			break;
+		}
+		al_print(" " + (string)al_arc_a(itr) + " = \"" + (string)value.head + "\"");
+	}
+	al_print("\n");
+	return null;
+}
+end_body
+member
+public: list start_element2(string tag_name, list attrs);
+body
+{
+	return -1;
+}
+end_body
+member
+public: list end_element(string tag_name);
+body
+{
+	al_print("endElement: tag = " + (string)tag_name + "\n");
+	return null;
+}
+end_body
+member
+public: list characters(string text);
+body
+{
+	al_print("characters: text = " + (string)text + "\n");
+	return null;
+}
+end_body
+member
+public: static void xslt_transform_1();
+body
+{
+	var list xsl, xml, tree_err, err;
+	var file f;
+	var string out;
+	f = al_file_open("test1.xsl", "r");
+	tree_err = al_xml("parse", f, null, null);
+	xsl = tree_err.head;
+	f = al_file_open("test.xml", "r");
+	tree_err = al_xml("parse", f, null, null);
+	xml = tree_err.head;
+	out = al_copy("");
+	f = al_file_open(out, "sw");
+	// --------
+	// al_graph_misc("dump", 10, xsl);
+	// return;
+	// --------
+	err = al_xml("xslt", xsl, xml, f);
+	if (err) {
+		al_print(err + "\n");
+		return;
+	} else {
+	}
+	al_print(out);
+	al_print("\n");
+}
+end_body
+member
+public: static void xslt_transform_2();
+body
+{
+	var list xsl, xml, tree_err, err;
+	var file f;
+	var string out;
+	f = al_file_open("test2.xsl", "r");
+	tree_err = al_xml("parse", f, null, null);
+	xsl = tree_err.head;
+	f = al_file_open("test.xml", "r");
+	tree_err = al_xml("parse", f, null, null);
+	xml = tree_err.head;
+	out = al_copy("");
+	f = al_file_open(out, "sw");
+	// --------
+	// al_graph_misc("dump", 10, xsl);
+	// return;
+	// --------
+	err = al_xml("xslt", xsl, xml, f);
+	if (err) {
+		al_print(err + "\n");
+		return;
+	} else {
+	}
+	al_print(out);
+	al_print("\n");
+}
+end_body
+member
+public: static void xslt_transform_3();
+body
+{
+	var list xsl, xml, tree_err, err;
+	var file f;
+	var string out;
+	f = al_file_open("test3.xsl", "r");
+	tree_err = al_xml("parse", f, null, null);
+	xsl = tree_err.head;
+	f = al_file_open("test.xml", "r");
+	tree_err = al_xml("parse", f, null, null);
+	xml = tree_err.head;
+	out = al_copy("");
+	f = al_file_open(out, "sw");
+	// --------
+	// al_graph_misc("dump", 10, xsl);
+	// return;
+	// --------
+	err = al_xml("xslt", xsl, xml, f);
+	if (err) {
+		al_print(err + "\n");
+		return;
+	} else {
+	}
+	al_print(out);
+	al_print("\n");
+}
+end_body
+member
+public: static void xslt_transform_4();
+body
+{
+	var list xsl, xml, tree_err, err;
+	var file f;
+	var string out;
+	f = al_file_open("test4.xsl", "r");
+	tree_err = al_xml("parse", f, null, null);
+	xsl = tree_err.head;
+	f = al_file_open("test.xml", "r");
+	tree_err = al_xml("parse", f, null, null);
+	xml = tree_err.head;
+	out = al_copy("");
+	f = al_file_open(out, "sw");
+	// --------
+	// al_graph_misc("dump", 10, xsl);
+	// return;
+	// --------
+	err = al_xml("xslt", xsl, xml, f);
+	if (err) {
+		al_print(err + "\n");
+		return;
+	} else {
+	}
+	al_print(out);
+	al_print("\n");
+}
+end_body
+member
+public: static void xslt_transform_5();
+body
+{
+	var list xsl, xml, tree_err, err;
+	var file f;
+	var string out;
+	f = al_file_open("test5.xsl", "r");
+	tree_err = al_xml("parse", f, null, null);
+	xsl = tree_err.head;
+	f = al_file_open("test.xml", "r");
+	tree_err = al_xml("parse", f, null, null);
+	xml = tree_err.head;
+	out = al_copy("");
+	f = al_file_open(out, "sw");
+	// --------
+	// al_graph_misc("dump", 10, xsl);
+	// return;
+	// --------
+	err = al_xml("xslt", xsl, xml, f);
+	if (err) {
+		al_print(err + "\n");
+		return;
+	} else {
+	}
+	al_print(out);
+	al_print("\n");
+}
+end_body
+member
+public: static void xslt_transform_6();
+body
+{
+	var list xsl, xml, tree_err, err;
+	var file f;
+	var string out;
+	f = al_file_open("test6.xsl", "r");
+	tree_err = al_xml("parse", f, null, null);
+	xsl = tree_err.head;
+	f = al_file_open("test.xml", "r");
+	tree_err = al_xml("parse", f, null, null);
+	xml = tree_err.head;
+	out = al_copy("");
+	f = al_file_open(out, "sw");
+	// --------
+	// al_graph_misc("dump", 10, xsl);
+	// return;
+	// --------
+	err = al_xml("xslt", xsl, xml, f);
+	if (err) {
+		al_print(err + "\n");
+		return;
+	} else {
+	}
+	al_print(out);
+	al_print("\n");
+}
+end_body
+member
+public: static void xslt_transform_7();
+body
+{
+	var list xsl, xml, tree_err, err;
+	var file f;
+	var string out;
+	f = al_file_open("test7.xsl", "r");
+	tree_err = al_xml("parse", f, null, null);
+	xsl = tree_err.head;
+	f = al_file_open("test.xml", "r");
+	tree_err = al_xml("parse", f, null, null);
+	xml = tree_err.head;
+	out = al_copy("");
+	f = al_file_open(out, "sw");
+	// --------
+	// al_graph_misc("dump", 10, xsl);
+	// return;
+	// --------
+	err = al_xml("xslt", xsl, xml, f);
+	if (err) {
+		al_print(err + "\n");
+		return;
+	} else {
+	}
+	al_print(out);
+	al_print("\n");
+}
+end_body
+member
+public: static void xslt_transform_8();
+body
+{
+	var list xsl, xml, tree_err, err;
+	var file f;
+	var string out;
+	f = al_file_open("test8.xsl", "r");
+	tree_err = al_xml("parse", f, null, null);
+	xsl = tree_err.head;
+	f = al_file_open("test.xml", "r");
+	tree_err = al_xml("parse", f, null, null);
+	xml = tree_err.head;
+	out = al_copy("");
+	f = al_file_open(out, "sw");
+	// --------
+	// al_graph_misc("dump", 10, xsl);
+	// return;
+	// --------
+	err = al_xml("xslt", xsl, xml, f);
+	if (err) {
+		al_print(err + "\n");
+		return;
+	} else {
+	}
+	al_print(out);
+	al_print("\n");
+}
+end_body
+member
+public: static void xslt_transform_9();
+body
+{
+	var list xsl, xml, tree_err, err;
+	var file f;
+	var string out;
+	f = al_file_open("test9.xsl", "r");
+	tree_err = al_xml("parse", f, null, null);
+	xsl = tree_err.head;
+	f = al_file_open("test.xml", "r");
+	tree_err = al_xml("parse", f, null, null);
+	xml = tree_err.head;
+	out = al_copy("");
+	f = al_file_open(out, "sw");
+	// --------
+	// al_graph_misc("dump", 10, xsl);
+	// return;
+	// --------
+	err = al_xml("xslt", xsl, xml, f);
+	if (err) {
+		al_print(err + "\n");
+		return;
+	} else {
+	}
+	al_print(out);
+	al_print("\n");
+}
+end_body
+member
+public: static void xslt_transform_date();
+body
+{
+	var list xsl, xml, tree_err, err;
+	var file f;
+	var string out;
+	f = al_file_open("from_date.xsl", "r");
+	tree_err = al_xml("parse", f, null, null);
+	xsl = tree_err.head;
+	f = al_file_open("from_date.xml", "r");
+	tree_err = al_xml("parse", f, null, null);
+	xml = tree_err.head;
+	out = al_copy("");
+	f = al_file_open(out, "sw");
+	// --------
+	// al_graph_misc("dump", 10, xsl);
+	// return;
+	// --------
+	err = al_xml("xslt", xsl, xml, f);
+	if (err) {
+		al_print(err + "\n");
+		return;
+	} else {
+	}
+	al_print(out);
+	al_print("\n");
+}
+end_body
+member
+public: static void xslt_transform_check();
+body
+{
+	var list xsl, xml, tree_err, err;
+	var file f;
+	var string out;
+	f = al_file_open("check_show.xsl", "r");
+	tree_err = al_xml("parse", f, null, null);
+	xsl = tree_err.head;
+	f = al_file_open("check.xml", "r");
+	tree_err = al_xml("parse", f, null, null);
+	xml = tree_err.head;
+	out = al_copy("");
+	f = al_file_open(out, "sw");
+	// --------
+	// al_graph_misc("dump", 10, xsl);
+	// return;
+	// --------
+	err = al_xml("xslt", xsl, xml, f);
+	if (err) {
+		al_print(err + "\n");
+		return;
+	} else {
+	}
+	al_print(out);
+	al_print("\n");
+}
+end_body
+member
+public: static void xslt_transform_check_input_1();
+body
+{
+	var list xsl, xml, tree_err, err;
+	var file f;
+	var string out;
+	f = al_file_open("check_input_1.xsl", "r");
+	tree_err = al_xml("parse", f, null, null);
+	xsl = tree_err.head;
+	f = al_file_open("debtor_0.xml", "r");
+	tree_err = al_xml("parse", f, null, null);
+	xml = tree_err.head;
+	out = al_copy("");
+	f = al_file_open(out, "sw");
+	// --------
+	// al_graph_misc("dump", 10, xsl);
+	// return;
+	// --------
+	err = al_xml("xslt", xsl, xml, f);
+	if (err) {
+		al_print(err + "\n");
+		return;
+	} else {
+	}
+	al_print(out);
+	al_print("\n");
+}
+end_body
+member
+public: static void xslt_transform_product_list();
+body
+{
+	var list xsl, xml, tree_err, err;
+	var file f;
+	var string out;
+	f = al_file_open("product_list.xsl", "r");
+	tree_err = al_xml("parse", f, null, null);
+	xsl = tree_err.head;
+	f = al_file_open("sample_stock.xml", "r");
+	tree_err = al_xml("parse", f, null, null);
+	xml = tree_err.head;
+	out = al_copy("");
+	f = al_file_open(out, "sw");
+	// --------
+	// al_graph_misc("dump", 10, xsl);
+	// return;
+	// --------
+	err = al_xml("xslt", xsl, xml, f);
+	if (err) {
+		al_print(err + "\n");
+		return;
+	} else {
+	}
+	al_print(out);
+	al_print("\n");
+}
+end_body
+end_class
+$END_BODY

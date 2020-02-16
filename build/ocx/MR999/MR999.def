@@ -1,0 +1,9 @@
+; MR999.def : モジュール パラメータの宣言
+
+LIBRARY      "MR999.OCX"
+
+EXPORTS
+	DllCanUnloadNow     PRIVATE
+	DllGetClassObject   PRIVATE
+	DllRegisterServer   PRIVATE
+	DllUnregisterServer PRIVATE

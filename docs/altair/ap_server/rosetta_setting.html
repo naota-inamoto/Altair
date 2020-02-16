@@ -1,0 +1,205 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>RosettaNet Server Setting</TITLE>
+</HEAD>
+
+<BODY>
+<H1>RosettaNet Server Setting</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.27版 2002年 6月19日<BR>
+
+<HR>
+<H3><A NAME="config_xml">config.xml</A></H3>
+
+<TABLE BORDER="1">
+<TR><TD>項目</TD><TD>意味</TD><TD>デフォルト</TD></TR>
+
+<TR><TD>MaxLogSize</TD><TD>最大ログサイズ。(単位 KByte)<BR>ログファイルのサイズがこのサイズを超えるとファイルを「.番号」を付けたファイル名にリネームし、新しいログファイルを作成します。</TD><TD>1000</TD></TR>
+<TR><TD>SystemLog</TD><TD>システムログのファイルパス。<BR>省略した場合はシステムログのファイルは作成しない。</TD><TD>./log/system.log</TD></TR>
+<TR><TD>SystemLogDb</TD><TD>システムログをDBに保存するか。<BR>値をtrueにするとDBに保存する。</TD><TD>true</TD></TR>
+<TR><TD>GcInterval</TD><TD>ガーベージコレクションの時間間隔。(単位 秒)<BR>recycledが0でないシステムログが出力されたら発生してはいけないメモリリークでないかどうかチェックする必要があります。totalが単調に増えつづける場合もメモリリークが発生していないかチェックする必要があります。</TD><TD>3600</TD></TR>
+
+<TR><TD>WebServer*</TD><TD>Webサーバのインスタンス。<BR>ポート番号の異なるWebサーバのインスタンスを複数個作成することができます。</TD><TD></TD></TR>
+<TR><TD>WebServer/Port</TD><TD>Webサーバのポート番号</TD><TD>8080, 8443</TD></TR>
+<TR><TD>WebServer/DocumentRoot</TD><TD>Webサーバのドキュメントルート</TD><TD>./html</TD></TR>
+<TR><TD>WebServer/AccessLog</TD><TD>アクセスログのファイルパス。<BR>省略した場合はアクセスログのファイルは作成しない。</TD><TD>./log/access.log</TD></TR>
+<TR><TD>WebServer/AccessLogDb</TD><TD>アクセスログをDBに保存するか。<BR>値をtrueにするとDBに保存する。</TD><TD>true</TD></TR>
+<TR><TD>WebServer/MaxMessageSize</TD><TD>扱えるリクエストメッセージ、およびレスポンスメッセージの最大サイズ。(単位 KByte)</TD><TD>2000</TD></TR>
+<TR><TD>WebServer/ConnectionTimeout</TD><TD>HTTPコネクションのタイムアウト。(単位 秒)</TD><TD>300</TD></TR>
+<TR><TD>WebServer/SessionTimeout</TD><TD>セッションのタイムアウト。(単位 秒)</TD><TD>600</TD></TR>
+<TR><TD>WebServer/SSL?</TD><TD>SSLを使用するか指定。<BR>このタグがあればSSLを使用。</TD><TD></TD></TR>
+<TR><TD>WebServer/SSL/caCert</TD><TD>SSLのCAの証明書のファイルパス。(形式 PEM)</TD><TD>./keystore/ca/cert.pem</TD></TR>
+<TR><TD>WebServer/SSL/serverCert</TD><TD>SSLのサーバ証明書。(形式 PEM)</TD><TD>./keystore/server/cert.pem</TD></TR>
+<TR><TD>WebServer/SSL/serverKey</TD><TD>SSLのサーバの秘密鍵。(形式 PEM)</TD><TD>./keystore/server/private/key.pem</TD></TR>
+<TR><TD>WebServer/SSL/clientAuth</TD><TD>クライアント認証するか。<BR>tureならクライアント証明書を要求。</TD><TD>false</TD></TR>
+<TR><TD>WebServer/SSL/dhParam</TD><TD>DHパラメータファイル。(形式 PEM)</TD><TD>./keystore/dh/param.pem</TD></TR>
+<TR><TD>WebServer/SSL/cipher</TD><TD>SSLの暗号指定。<BR>MEDIUMなら128bit以上の暗号を要求。</TD><TD>MEDIUM</TD></TR>
+<TR><TD>WebServer/Servlet*</TD><TD>サーブレッドの設定。<BR>複数のサーブレッドが設定できます。</TD><TD></TD></TR>
+<TR><TD>WebServer/Servlet/Path</TD><TD>URLパターン</TD><TD>/admin/ebiz, /rosetta, etc</TD></TR>
+<TR><TD>WebServer/Servlet/Class</TD><TD>サーブレッドのクラス名</TD><TD>WebUIServlet, RNIF20Servlet, etc</TD></TR>
+<TR><TD>WebServer/Servlet/Param*</TD><TD>サーブレッドに渡す初期化パラメータ。<BR>static HttpServlet::servlet_paramsに()-/name/=>valueの形で渡ります。複数個の名前/値の組を渡すことができます。</TD><TD></TD></TR>
+<TR><TD>WebServer/Servlet/Param/Name</TD><TD>初期化パラメータの名前。</TD><TD></TD></TR>
+<TR><TD>WebServer/Servlet/Param/Value</TD><TD>初期化パラメータの値。</TD><TD></TD></TR>
+<TR><TD>WebServer/UploadServlet*</TD><TD>巨大なサイズのファイルをアップロードするサーブレッドの設定。<BR>複数のサーブレッドが設定できます。</TD><TD></TD></TR>
+<TR><TD>WebServer/UploadServlet/Path</TD><TD>URLパターン</TD><TD>/admin/upload</TD></TR>
+<TR><TD>WebServer/UploadServlet/Class</TD><TD>サーブレッドのクラス名</TD><TD>WebUIServlet</TD></TR>
+
+<TR><TD>HttpClient/ConnectTimeout</TD><TD>HttpClientのTCP接続(connect)のタイムアウト。(単位 ミリ秒)</TD><TD>60000</TD></TR>
+
+<TR><TD>ProxyServer*</TD><TD>Proxyサーバのインスタンス。<BR>ポート番号の異なるProxyサーバのインスタンスを複数個作成することができます。</TD><TD></TD></TR>
+<TR><TD>ProxyServer/Port</TD><TD>Proxyサーバのポート番号</TD><TD>8086</TD></TR>
+<TR><TD>ProxyServer/ProxyLog</TD><TD>プロキシログのファイルパス。<BR>省略した場合はプロキシログのファイルは作成しない。</TD><TD>./log/proxy.log</TD></TR>
+<TR><TD>ProxyServer/ProxyLogDb</TD><TD>プロキシログをDBに保存するか。<BR>値をtrueにするとDBに保存する。</TD><TD>true</TD></TR>
+<TR><TD>ProxyServer/ConnectionTimeout</TD><TD>アイドルコネクションのタイムアウト。(単位 秒)</TD><TD>300</TD></TR>
+<TR><TD>ProxyServer/ConnectTimeout</TD><TD>TCP接続(connect)のタイムアウト。(単位 ミリ秒)</TD><TD>30000</TD></TR>
+
+<TR><TD>XmlUtility/DtdBase</TD><TD>DTDを置くディレクトリ。</TD><TD>./dtd</TD></TR>
+<TR><TD>XmlUtility/XslBase</TD><TD>XSLを置くディレクトリ。</TD><TD>./xsl</TD></TR>
+<TR><TD>XmlUtility/DbObjectMaxValueLength</TD><TD>扱えるXMLデータのタグの値の最大長。</TD><TD>3000</TD></TR>
+<TR><TD>XmlUtility/ContentValidationBase</TD><TD>RosettaNetのコンテントバリデーションデータを置くディレクトリ。</TD><TD>./validation</TD></TR>
+
+<TR><TD>ProcessEngine/ProcessLog</TD><TD>プロセスログのファイルパス。<BR>省略した場合はプロセスログのファイルは作成しない。</TD><TD>./log/pe_audit.log</TD></TR>
+<TR><TD>ProcessEngine/ProcessLogDb</TD><TD>プロセスログをDBに保存するか。<BR>値をtrueにするとDBに保存する。</TD><TD>true</TD></TR>
+<TR><TD>ProcessEngine/MaxPropertyCache</TD><TD>プロパティをキャッシュするプロセスの最大数。</TD><TD>100</TD></TR>
+<TR><TD>ProcessEngine/TickerInterval</TD><TD>プロセスのキューをチェックする時間間隔。(単位 ミリ秒)</TD><TD>2000</TD></TR>
+<TR><TD>ProcessEngine/CleanupTime</TD><TD>実行が終了したプロセスを完全に消去するまでの時間。</TD><TD>24h</TD></TR>
+<TR><TD>ProcessEngine/DebugMode</TD><TD>プロセスエンジンをデバッグモードで実行するか。<BR>trueにするとプロセスの実行状況をアウトプットウィンドウに出力。</TD><TD>false</TD></TR>
+<TR><TD>ProcessEngine/ExceptionDetail</TD><TD>各種ログにExceptionの詳細を出力するか。<BR>trueなら出力する。</TD><TD>true</TD></TR>
+
+<TR><TD>DbConnectionPool*</TD><TD>DBコネクションプールの設定。<BR>複数のコネクションプールが設定できます。System,Servlet,Transport,ProcessEngineで使うコネクションプールは共通で最初に宣言されるプールになります。</TD><TD></TD></TR>
+<TR><TD>DbConnectionPool/@name</TD><TD>DBコネクションプールの名前。</TD><TD>ebizPool</TD></TR>
+<TR><TD>DbConnectionPool/DbType</TD><TD>DBタイプ。<BR>postgresqlまたはmysql</TD><TD>postgresql</TD></TR>
+<TR><TD>DbConnectionPool/Host</TD><TD>DBサーバのホスト名。Windows版では省略。</TD><TD>localhost</TD></TR>
+<TR><TD>DbConnectionPool/Port</TD><TD>DBサーバの接続ポート番号。Windows版では省略。</TD><TD>5432</TD></TR>
+<TR><TD>DbConnectionPool/DbName</TD><TD>DB名。Windows版ではODBCのデータソース名。</TD><TD>testdb</TD></TR><TR><TD>DbConnectionPool/DbUser</TD><TD>DB接続ユーザ。</TD><TD>inamoto</TD></TR>
+<TR><TD>DbConnectionPool/DbPassword</TD><TD>DB接続パスワード。</TD><TD>naota</TD></TR>
+<TR><TD>DbConnectionPool/InitialCapacity</TD><TD>コネクションプールの初期コネクションの数。</TD><TD>1</TD></TR>
+<TR><TD>DbConnectionPool/MaxCapacity</TD><TD>確立するコネクションの最大数。</TD><TD>15</TD></TR>
+
+</TABLE>
+
+<HR>
+<H3><A NAME="my_info">自社サーバーの設定</A></H3>
+自社サーバの情報は、/MyInfo/MyRoleで一意に識別します。<BR>
+これによって自社サーバに複数の役割を持たせることができます。<BR>
+/MyInfo/Idは、内部管理のための識別子です。<BR>
+設定項目のデフォルトは、"-- default setting--"で設定され、<BR>
+自社サーバの設定によってオーバーライドされますが、<BR>
+"-- default setting--"の設定が優先されるものもあります。<BR>
+<BR>
+
+<TABLE BORDER="1">
+<TR><TD>項目</TD><TD>意味</TD><TD>デフォルト</TD></TR>
+
+<TR><TD>domain</TD><TD>自社のドメイン名。</TD><TD>foo.jp</TD></TR>
+<TR><TD>msg.send.dir</TD><TD>送信した生のメッセージを保管するディレクトリ。</TD><TD>./log/send</TD></TR>
+<TR><TD>msg.recv.dir</TD><TD>受信した生のメッセージを保管するディレクトリ。</TD><TD>./log/recv</TD></TR>
+<TR><TD>msg.attach.dir</TD><TD>送受信したメッセージの添付ファイルデータを保管するディレクトリ。</TD><TD>./log/attach</TD></TR>
+<TR><TD>msg.tmp.dir</TD><TD>サーバの作業用ディレクトリ。</TD><TD>./tmp</TD></TR>
+<TR><TD>backup.span</TD><TD>バックアップと削除を行うデフォルトの時間間隔。</TD><TD>14d</TD></TR>
+<TR><TD>cert</TD><TD>SMIMEの暗号復号化/署名のための自社の証明書。(形式 PEM)</TD><TD>./keystore/server/cert.pem</TD></TR>
+<TR><TD>key</TD><TD>SMIMEの暗号復号化/署名のための自社の秘密鍵。(形式 PEM)</TD><TD>./keystore/server/private/key.pem</TD></TR>
+<TR><TD>ca.cert</TD><TD>SMIMEの署名検証のためのCAの証明書。(形式 PEM)</TD><TD>./keystore/ca/cert.pem</TD></TR>
+<TR><TD>receive.client.auth</TD><TD>SSLでクライアント証明書を要求するか。<BR>クライアント証明書を要求する場合はtrueにします。クライアント認証する場合は、config.xmlでWebServer/SSL/clientAuthがtrueになっていることが必要です。</TD><TD>false</TD></TR>
+
+<TR><TD>Class</TD><TD>通常、サービスコンテントのfromRoleのGlobalPartnerClassificationCodeに入る値。<BR>注意：でたらめな値を入れるとサービスコンテントのコンテントバリデーションでエラーになります。</TD><TD>End User</TD></TR>
+<TR><TD>Supply Chain</TD><TD>通常、NOF(0A1FailureNotify)を送るときにNOFのサービスコンテントに入れるのに使います。<BR>注意：でたらめな値を入れるとNOFのコンテントバリデーションでエラーになる可能性があります。</TD><TD>Information Technology</TD></TR>
+
+<TR><TD>proxy.server</TD><TD>Proxy経由の送信の場合のProxyサーバ名。</TD><TD></TD></TR>
+<TR><TD>proxy.port</TD><TD>Proxy経由の送信の場合のProxyサーバのポート番号。</TD><TD></TD></TR>
+
+<TR><TD>proxy.poll.url</TD><TD>Proxy経由の受信の場合のProxyのWebサーバのURL。</TD><TD></TD></TR>
+<TR><TD>proxy.poll.interval</TD><TD>Proxy経由の受信の場合のProxyのWebサーバをポーリングする時間間隔。(単位 秒)</TD><TD></TD></TR>
+<TR><TD>proxy.poll.password</TD><TD>Proxy経由の受信の場合のProxyのWebサーバをポーリングするときのパスワード。</TD><TD>proxy_pass</TD></TR>
+
+<TR><TD>smpt.server</TD><TD>SMTPの送信の場合のSMTPサーバ名。</TD><TD></TD></TR>
+<TR><TD>from.mail.address</TD><TD>SMTPの送信の場合の自社のメールアドレス。</TD><TD></TD></TR>
+<TR><TD>pop.server</TD><TD>SMTPの受信の場合のPOPサーバ名。</TD><TD></TD></TR>
+<TR><TD>pop.poll.interval</TD><TD>SMTPの受信の場合のPOPサーバをポーリングする時間間隔。(単位 秒)</TD><TD></TD></TR>
+<TR><TD>pop.userid</TD><TD>SMTPの受信の場合のPOPのユーザID。</TD><TD></TD></TR>
+<TR><TD>pop.password</TD><TD>SMTPの受信の場合のPOPのパスワード。</TD><TD></TD></TR>
+</TABLE>
+
+<HR>
+<H3><A NAME="partner_info">パートナー毎の設定</A></H3>
+パートナーの情報は、/PartnerInfo/BusinessIdと/PartnerInfo/MsgTypeまたは<BR>
+/PartnerInfo/BusinessIdと/PartnerInfo/PartnerRoleで一意に識別します。<BR>
+これによって同じBusinessIdのパートナーで異なる設定をすることができます。<BR>
+/PartnerInfo/Idは、内部管理のための識別子です。<BR>
+設定項目のデフォルトは、"-- default setting--"で設定され、<BR>
+パートナー情報の設定によってオーバーライドされます。<BR>
+<BR>
+パートナーとの間でやり取りするメッセージの種類によって、<BR>
+自社サーバの役割を変えることができます。<BR>
+自社サーバの役割は、特定したパートナーの情報の /PartnerInfo/MyRoleで特定します。<BR>
+<BR>
+
+<TABLE BORDER="1">
+<TR><TD>項目</TD><TD>意味</TD><TD>デフォルト</TD></TR>
+
+<TR><TD>retry.max</TD><TD>最大送信回数。</TD><TD>4</TD></TR>
+<TR><TD>error.retry.max</TD><TD>送信エラーの場合の最大送信回数。</TD><TD>4</TD></TR>
+<TR><TD>error.retry.time</TD><TD>送信エラーの場合の次回の送信までの時間間隔。</TD><TD>5m</TD></TR>
+<TR><TD>receipt.wait.time</TD><TD>ReceiptAckの到着ををチェックするまでの時間間隔。</TD><TD>2h</TD></TR>
+<TR><TD>reply.wait.time</TD><TD>返信Actionの到着をチェックするまでの時間間隔。</TD><TD>22h</TD></TR>
+<TR><TD>usage.code</TD><TD>運用コード。<BR>ProductまたはTest。</TD><TD>Product</TD></TR>
+<TR><TD>encoding</TD><TD>Mime/MultipartのBodyのエンコード。<BR>サポートしているのはbase64とエンコードなしのみ。</TD><TD>binary</TD></TR>
+<TR><TD>encryption.part</TD><TD>暗号化する場合の暗号化部分。<BR>header-body ... サービスヘッダ以降を暗号化、body ... サービスコンテント以降を暗号化。</TD><TD></TD></TR>
+<TR><TD>encryption.algorithm</TD><TD>暗号アルゴリズム。</TD><TD>rc2-128</TD></TR>
+<TR><TD>cert</TD><TD>SMIMEの署名検証時に使用するCAの証明書。</TD><TD>./keystore/buyer/cert.pem</TD></TR>
+<TR><TD>ca.cert</TD><TD>SMIMEの暗号化/署名検証時に使用するパートナーの証明書。</TD><TD>./keystore/ca/cert.pem</TD></TR>
+<TR><TD>send.signature</TD><TD>送信時にSMIMEの署名を付けるか。<BR>trueなら付ける。</TD><TD>false</TD></TR>
+<TR><TD>receive.signature</TD><TD>署名を要求するか。<BR>trueなら証明を要求。</TD><TD>false</TD></TR>
+<TR><TD>validation.mode</TD><TD>送受信時にサービスコンテントのバリデーションを有効にするか。<BR>errorならコンテントバリデーションのエラーをエラーとして扱う。warnならコンテントバリデーションのエラーを警告として扱う。これら以外はコンテントバリデーションを無効にする。</TD><TD>error</TD></TR>
+<TR><TD>send.client.auth</TD><TD>SSLを使った送信時にクライアント証明書を送るか。<BR>送る証明書はcert,ca.certで指定される証明書です。</TD><TD>false</TD></TR>
+<TR><TD>receive.auth.host</TD><TD>SSLのクライアント証明書のCommonName。<BR>SSLでクライアント認証する場合に、クライアント証明書のCommonNameがこれと一致するかチェックします。</TD><TD></TD></TR>
+<TR><TD>receive.server.auth</TD><TD>SSLでサーバ認証するか。<BR>サーバ認証する場合はtrueにします。これをtrueにした場合、ca.certのCAの証明書が設定されていることが必要です。</TD><TD>false</TD></TR>
+<TR><TD>server.auth.host</TD><TD>SSLのサーバ証明書のCommonName。<BR>SSLでサーバ認証する場合に、サーバ証明書のCommonNameがこれと一致するかチェックします。</TD><TD></TD></TR>
+
+<TR><TD>URL</TD><TD>パートナーへの送信先URL</TD><TD>http://localhost/rosetta</TD></TR>
+<TR><TD>Class</TD><TD>通常、サービスコンテントのtoRoleのGlobalPartnerClassificationCodeに入る値。<BR>注意：でたらめな値を入れるとサービスコンテントのコンテントバリデーションでエラーになります。</TD><TD>End User</TD></TR>
+<TR><TD>Supply Chain</TD><TD>通常、NOF(0A1FailureNotify)を送るときにNOFのサービスコンテントに入れるのに使います。<BR>注意：でたらめな値を入れるとNOFのコンテントバリデーションでエラーになる可能性があります。</TD><TD>Information Technology</TD></TR>
+<TR><TD>&lt;MsgType&gt;.process</TD><TD>メッセージを受信したときに起動するビジネスプロセス名。</TD><TD>例: PoReceiveProcess</TD></TR>
+<TR><TD>&lt;MsgType&gt;.sync</TD><TD>メッセージを送信するときに同期通信にする場合、trueにします。</TD><TD></TD></TR>
+<TR><TD>&lt;MsgType&gt;.reply</TD><TD>同期通信で２アクションPIPの１メッセージ目を受信したときに呼び出すResponseメッセージを作成するクラス名。<BR>メソッド list invoke(list props); が呼び出され、ActionメッセージのIDは al_dst_node(props, "msgId"); で取得でき、作成したResponseメッセージのIDは、返却値をretとするとき al_dst_node(ret, "rMsgId"); で取得できるようにする。</TD><TD></TD></TR>
+
+</TABLE>
+
+<HR>
+<H3><A NAME="pip_info">PIPの設定</A></H3>
+扱うPIPの情報の設定をします。<BR>
+メッセージタイプとメッセージバージョンで一意に識別します。<BR>
+<BR>
+コンテントバリデーションをやらないなら、この設定を行い、<BR>
+DTDファイルを所定の場所に置くだけでメッセージの受信ができます。<BR>
+メッセージの作成は別途プログラムから行う必要がありますが、<BR>
+この簡易RosettaNetサーバで使っているCSV形式ファイルからなら簡単にメッセージが作成できます。<BR>
+<BR>
+コンテントバリデーションは、&lt;メッセージタイプ&gt;-&lt;メッセージバージョン&gt;.csv<BR>
+という名前のファイルをこの簡易RosettaNetサーバのやり方で作成し、所定の場所に置くだけです。<BR>
+<BR>
+
+<TABLE BORDER="1">
+<TR><TD>項目</TD><TD>意味</TD></TR>
+
+<TR><TD>MsgType</TD><TD>メッセージタイプ。<BR>通常はXMLメッセージのルートタグ名。</TD></TR>
+<TR><TD>MessageVersion</TD><TD>PIPメッセージバージョン。<BR>注意：規定された値を入れないとエラーになる可能性があります。</TD></TR>
+<TR><TD>DTDfilename</TD><TD>DTDファイル名。<BR>注意：規定されたファイル名を入れないとエラーになる可能性があります。</TD></TR>
+<TR><TD>MessageCode</TD><TD>メッセージのアクションコード。<BR>注意：PIPで規定された値を入れないとヘッダのバリデーションでエラーになる可能性があります。</TD></TR>
+<TR><TD>FromRoleClass</TD><TD>サービスヘッダに入れる値。<BR>fromRoleのGlobalPartnerRoleClassificationCodeの値。注意：PIPで規定された値を入れないとヘッダのバリデーションでエラーになる可能性があります。</TD></TR>
+<TR><TD>FromService</TD><TD>サービスヘッダに入れる値。<BR>fromRoleのGlobalBusinessServiceCodeの値。注意：PIPで規定された値を入れないとヘッダのバリデーションでエラーになる可能性があります。</TD></TR>
+<TR><TD>ToRoleClass</TD><TD>サービスヘッダに入れる値。<BR>toRoleのGlobalPartnerRoleClassificationCodeの値。注意：PIPで規定された値を入れないとヘッダのバリデーションでエラーになる可能性があります。</TD></TR>
+<TR><TD>ToService</TD><TD>サービスヘッダに入れる値。<BR>toRoleのGlobalBusinessServiceCodeの値。注意：PIPで規定された値を入れないとヘッダのバリデーションでエラーになる可能性があります。</TD></TR>
+<TR><TD>TransactionCode</TD><TD>トランザクションコード。<BR>注意：PIPで規定された値を入れないとヘッダのバリデーションでエラーになる可能性があります。</TD></TR>
+<TR><TD>NextAction</TD><TD>次のActionのメッセージタイプ。<BR>このメッセージに対する返信Actionメッセージが規定されている場合はそのメッセージタイプを入れます。</TD></TR>
+<TR><TD>Indicator</TD><TD>PIPインジケータ。<BR>注意：規定された値を入れないとエラーになる可能性があります。</TD></TR>
+<TR><TD>ProcessCode</TD><TD>PIPプロセスコード。<BR>注意：PIPで規定された値を入れないとヘッダのバリデーションでエラーになる可能性があります。</TD></TR>
+<TR><TD>ProcessVersion</TD><TD>PIPプロセスバージョン。<BR>注意：規定された値を入れないとエラーになる可能性があります。</TD></TR>
+
+</TABLE>
+
+<HR>
+</BODY>
+</HTML>

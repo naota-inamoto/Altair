@@ -1,0 +1,1 @@
+parse * 100 times: 23043msec

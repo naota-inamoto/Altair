@@ -1,0 +1,29 @@
+,,,Pip2A1ProductResourceUpdate/fromRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,,Catalog Distributor
+,,,Pip2A1ProductResourceUpdate/fromRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,,default
+,,,Pip2A1ProductResourceUpdate/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,,0 
+,,,Pip2A1ProductResourceUpdate/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,,Information Technology
+,,,Pip2A1ProductResourceUpdate/fromRole/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,,Mr. xxx
+,,,Pip2A1ProductResourceUpdate/fromRole/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,,03-3333-4444
+,,,Pip2A1ProductResourceUpdate/fromRole/PartnerRoleDescription/ContactInformation/EmailAddress,,xxx@nec.co.jp
+,,,Pip2A1ProductResourceUpdate/toRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,,Catalog Producer
+,,,Pip2A1ProductResourceUpdate/toRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,,default
+,,,Pip2A1ProductResourceUpdate/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,,999999999 
+,,,Pip2A1ProductResourceUpdate/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,,Information Technology
+,,,Pip2A1ProductResourceUpdate/SalesCatalog/catalogIdentifier/ProprietaryDocumentIdentifier,,PC00-09-001
+,,,Pip2A1ProductResourceUpdate/SalesCatalog/effectiveDate/DateStamp,,20060211Z
+,,,Pip2A1ProductResourceUpdate/SalesCatalog/GlobalActionCode,,Add
+ProductLineItem,ProductLineItem1,,Pip2A1ProductResourceUpdate/SalesCatalog/ProductLineItem,,
+,,ProductLineItem1,authorizationPrerequirements/FreeFormText,,N/A
+,,ProductLineItem1,minimumOrderQuantity/ProductQuantity,,1
+,,ProductLineItem1,warrantyDescription/FreeFormText,,N/A
+,,ProductLineItem1,productUnit/ProductPackageDescription/ProductDescription/productName/FreeFormText,,PC9821RA
+,,ProductLineItem1,productUnit/ProductPackageDescription/ProductDescription/GlobalProductIdentifier,,12345678901234
+,,ProductLineItem1,productUnit/ProductPackageDescription/ProductDescription/ProprietaryProductIdentifier,,PC9821RA40Y60CZ
+,,ProductLineItem1,productUnit/ProductPackageDescription/ProductDescription/GlobalSerialIdentifier,,12345678901234
+,,ProductLineItem1,productUnit/ProductPackageDescription/ProductDescription/GlobalProductClassificationCode,,141115
+,,ProductLineItem1,GlobalProductUnitOfMeasureCode,,Each
+,,ProductLineItem1,unitPrice/FinancialAmount/GlobalCurrencyCode,,JPY
+,,ProductLineItem1,unitPrice/FinancialAmount/MonetaryAmount,,191800
+,,ProductLineItem1,SpecialHandlingInstruction/GlobalSpecialHandlingCode,,Domestic
+Country,Country1,ProductLineItem1,productAvailableInCountries,,
+,,Country1,GlobalCountryCode,,JP

@@ -1,0 +1,79 @@
+
+g == cons(null, null), var("g1", g1) == 1, init(g, g1), exp(g1, g2), write(dump(g2, 1)) == 1 .
+
+init(g, g1) :- 
+ pm_rep(g, g1)
+
+  before := {
+    invariant,
+    g
+  }
+  after := {
+    g1:("binary")-/"op"/->("-="),
+    g1-/"exp1"/-> e1: ("ident"),
+                  e1-/"value"/->("x"),
+    g1-/"exp2"/-> e2: ("binary"),
+                  e2-/"op"/->("+="),
+                  e2-/"exp1"/->e3:("ident"),
+                               e3-/"value"/->("y"),
+                  e2-/"exp2"/->e4:("ident"),
+                               e4-/"value"/->("z")
+  }
+  common := {
+   where .
+  }
+  tail := {
+   where .
+  }
+
+  final := {
+   where .
+  }
+
+  .
+
+exp(g1, g2) :- 
+ pm_rep(g1, g2)
+
+  before := {
+    invariant,
+    g1:("binary")-/"op"/->(op_and_assign),
+     g1-/"exp1"/-> exp1,
+     g1-/"exp2"/-> exp2
+  }
+  after := {
+    g2:("binary")-/"op"/->("="),
+     g2-/"lhs"/-> exp1,
+     g2-/"exp"/-> e: ("binary"),
+                        e -/"op"/->(op),
+                        e -/"exp1"/-> exp1,
+                        e -/"exp2"/-> exp22
+  }
+  common := {
+   where op_and_assign == "+=", op == "+", exp(exp2, exp22) .
+         op_and_assign == "-=", op == "-", exp(exp2, exp22) .
+  }
+  tail := {
+   where .
+  }
+
+  before := {
+    invariant,
+    g1
+  }
+  after := {
+    g2
+  }
+  common := {
+    where g2 == g1 .
+  }
+  tail := {
+    where .
+  }
+
+  final := {
+   where .
+  }
+
+  .
+

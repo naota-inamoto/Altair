@@ -1,0 +1,2126 @@
+<!-- Formal Public Identifier:
+"-//Si2/RosettaNet//DTD PIP2A9 1.0 20000920//EN"
+-->
+
+<!-- ==========================================================
+                        Copyright Notice                       
+     ==========================================================
+
+     Copyright (c) 1999, 2000 by Silicon Integration
+     Initiative, Inc. (Si2) (DUNS No. 62-191-1718), and 
+     RosettaNet.
+
+     All Rights Reserved Worldwide.
+     Permission to use, copy, and distribute this DTD for any
+     purpose subject to the following restrictions:
+
+     Permission is granted for verbatim copy and distribution
+     only, of this material, in any medium, provided that you
+     publish on each copy this copyright notice and disclaimer
+     of warranty.
+
+     Si2/RosettaNet makes no representation about the suitability of the
+     DTD for any purpose nor regarding any claims made by
+     products which use it.  It is provided "as is" without
+     expressed or implied warranty.
+
+     This DTD may be revised from time to time without notice.
+
+     ==========================================================
+
+     NAME:        PIP2A9 DTD
+     
+     PART OF:     Cluster 2: Product Information
+                  Segment A: Preparation for Distribution
+                  PIP2A: 9Query Electronic Component Technical Information
+     
+     CONSTRAINTS: Additional constraints and other semantics for use
+                  of this DTD are defined in the RosettaNet documents:
+        2A9ECTIMessageGuideline.htm
+                    "PIP2A9: Query Electronic Component
+                        Technical Information"
+                    "Electronic Component Technical Information
+                        Exchange Protocol Specification"
+
+     CREDITS:     Derived from the ECIX QuickData DTD developed by Si2.
+
+
+     ========================================================== -->
+
+
+
+<!-- ================  Both QUERY and RESPONSE  ================ -->
+
+<!ELEMENT Pip2A9ECTechnicalInformationResponse (
+  dict.identifier,
+  response,
+  %MessageMetadata;,
+  requestingDocumentIdentifier?,
+  requestingDocumentDateTime?
+  ) >
+<!ATTLIST Pip2A9ECTechnicalInformationResponse
+  qd.key  CDATA  #IMPLIED
+  >
+<!METAINFO Pip2A9ECTechnicalInformationResponse "data.duplicate" "false">
+
+<!ELEMENT dict.identifier  (#PCDATA) >
+<!ATTLIST dict.identifier  %xmlAtts; >
+
+<!ELEMENT element  (
+  name,
+  value*
+  ) >
+<!ATTLIST element
+  id  ID  #IMPLIED
+  %dictionaryReference;
+  >
+
+<!ELEMENT name  (#PCDATA)  >
+<!ATTLIST name  %xmlAtts; >
+
+<!ELEMENT value  (#PCDATA)  >
+<!ATTLIST value
+  %xmlAtts;
+  type           CDATA            #IMPLIED
+  ntol.abs       %toleranceAbs;   #IMPLIED
+  ntol.per       %tolerancePer;   #IMPLIED
+  ptol.abs       %toleranceAbs;   #IMPLIED
+  ptol.per       %tolerancePer;   #IMPLIED
+  NoValueReason  CDATA            #IMPLIED
+  >
+
+<!ELEMENT CharacteristicSet  ( name ) >
+<!ATTLIST CharacteristicSet
+  id       ID      #IMPLIED
+  %dictionaryReference;
+  members  IDREFS  #IMPLIED
+  >
+
+<!-- ==================  RESPONSE  =================== -->
+
+<!ELEMENT response  (
+  status,
+  part.info*,
+  ec.dictionary.add?
+  ) >
+<!ATTLIST response
+  starting.at  NMTOKEN  #IMPLIED
+  returned     NMTOKEN  #IMPLIED
+  matched      NMTOKEN  #IMPLIED
+  >
+
+<!ELEMENT status  (
+    s.success
+  | s.fail
+  | s.badquery
+  | s.nomatch
+  | s.not.available
+  | s.reschedule.query
+  ) >
+
+<!ELEMENT s.success        (#PCDATA)  >
+<!ATTLIST s.success        %xmlAtts; >
+                
+<!ELEMENT s.fail           (#PCDATA)  >
+<!ATTLIST s.fail           %xmlAtts; >
+                
+<!ELEMENT s.badquery       (#PCDATA)  >
+<!ATTLIST s.badquery       %xmlAtts; >
+                
+<!ELEMENT s.nomatch        (#PCDATA)  >
+<!ATTLIST s.nomatch        %xmlAtts; >
+                
+<!ELEMENT s.not.available  (#PCDATA)  >
+<!ATTLIST s.not.available  %xmlAtts; >
+
+<!ELEMENT s.reschedule.query  (#PCDATA) >
+
+<!ELEMENT part.info  (
+  element*,
+  CharacteristicSet*,
+  PIO*
+  ) >
+<!ATTLIST part.info
+  id  CDATA  #IMPLIED
+  >
+
+<!ELEMENT ec.dictionary.add  (
+  class*,
+  CharacteristicDefinition*,
+  ConditionDefinition*,
+  PropertyDefinitionSet*,
+  TermDefinition*,
+  ContentType*,
+  FileFormat*,
+  value.codes*
+  ) >
+
+<!ELEMENT value.codes  ( dic.value+ ) >
+<!ATTLIST value.codes  %dictionaryReference; >
+
+<!-- ==================  PIO  =================== -->
+
+<!ELEMENT PIO (
+  Version?,
+  EffectiveDate?,
+  Location*,
+  Reference*,
+  ObjectName,
+  Legal*,
+  ObjectId,
+  Supplier?,
+  Description?,
+  FileSize?,
+  ModificationDate?,
+  ContentTypeRef?,
+  FileFormatRef?,
+  TargetSoftware*
+  ) >
+<!ATTLIST PIO
+  NoValueReason  CDATA  #IMPLIED
+  href           CDATA  #REQUIRED
+  >
+
+<!ELEMENT Version (#PCDATA) >
+<!ATTLIST Version  %xmlAtts; >
+         
+<!ELEMENT EffectiveDate     (#PCDATA) >
+             
+<!ELEMENT Location          (#PCDATA) >
+
+<!ELEMENT Reference         (#PCDATA) >
+
+<!ELEMENT ObjectName        (#PCDATA) >
+<!ATTLIST ObjectName        %xmlAtts; >
+
+<!ELEMENT Legal             (#PCDATA) >
+<!ATTLIST Legal             %xmlAtts; >
+
+<!ELEMENT ObjectId          (#PCDATA) >
+<!ATTLIST ObjectId          %xmlAtts; >
+
+<!ELEMENT Supplier          (#PCDATA) >
+
+<!ELEMENT Description       (#PCDATA) >
+<!ATTLIST Description       %xmlAtts; >
+
+<!ELEMENT FileSize          (#PCDATA) >
+
+<!ELEMENT ModificationDate  (#PCDATA) >
+
+<!ELEMENT ContentTypeRef    (#PCDATA) >
+
+<!ELEMENT FileFormatRef     (#PCDATA) >
+
+<!ELEMENT TargetSoftware    (#PCDATA) >
+<!ATTLIST TargetSoftware    %xmlAtts; >
+
+<!-- ==============  EXTERNAL PARAMETER ENTITIES  ============= -->
+
+<!--
+<!ENTITY % ECdictionary PUBLIC
+  "-//Si2//DTD ECTD 1.1 20000820//EN"
+  "../ECTD/ec.dtd"
+  >
+%ECdictionary;
+
+<!ENTITY % BusinessCommon PUBLIC
+  "-//RosettaNet//DTD Common Business Elements 1.0 20000820//EN"
+  "BusinessCommon.mod"
+  >
+%BusinessCommon;
+-->
+
+<!-- =================  INTERNAL PARAMETER ENTITIES  ========== -->
+
+<!ENTITY % dictionaryReference  "
+  dicRef  NMTOKEN  #IMPLIED
+  " >
+
+<!ENTITY % toleranceAbs "
+  CDATA
+  ">
+<!ENTITY % tolerancePer  "
+  CDATA
+  ">
+
+<!ENTITY % MessageMetadata "
+  fromRole,
+  toRole,
+  thisDocumentGenerationDateTime,
+  thisDocumentIdentifier,
+  GlobalDocumentFunctionCode
+  ">
+
+<!ENTITY % xmlAtts "
+  xml:space    (default|preserve)  'preserve'
+  xml:lang     NMTOKEN              #IMPLIED
+  " >
+
+<!ELEMENT FreeFormText ( #PCDATA ) >
+<!ATTLIST FreeFormText
+  xml:lang  CDATA  #IMPLIED
+  >
+
+<!ELEMENT fromRole ( PartnerRoleDescription ) >
+
+<!ELEMENT PartnerRoleDescription ( 
+  GlobalPartnerRoleClassificationCode,
+  PartnerDescription,
+  ContactInformation?
+  ) >
+
+<!ELEMENT ContactInformation ( 
+  contactName,
+  telephoneNumber,
+  EmailAddress
+  ) >
+
+<!ELEMENT contactName ( FreeFormText ) >
+
+<!ELEMENT telephoneNumber ( CommunicationsNumber ) >
+
+<!ELEMENT CommunicationsNumber ( #PCDATA ) >
+
+<!ELEMENT EmailAddress ( #PCDATA ) >
+<!ATTLIST EmailAddress
+  xml:lang  CDATA  #IMPLIED
+  >
+
+<!ELEMENT GlobalPartnerRoleClassificationCode ( #PCDATA ) >
+
+<!ELEMENT PartnerDescription ( 
+  GlobalPartnerClassificationCode,
+  BusinessDescription
+  ) >
+
+<!ELEMENT GlobalPartnerClassificationCode ( #PCDATA ) >
+
+<!ELEMENT BusinessDescription ( 
+  GlobalBusinessIdentifier,
+  GlobalSupplyChainCode
+  ) >
+
+<!ELEMENT GlobalBusinessIdentifier ( #PCDATA ) >
+
+<!ELEMENT GlobalSupplyChainCode ( #PCDATA ) >
+
+<!ELEMENT toRole ( PartnerRoleDescription ) > 
+
+<!ELEMENT thisDocumentGenerationDateTime ( DateTimeStamp ) > 
+
+<!ELEMENT DateTimeStamp ( #PCDATA ) >
+
+<!ELEMENT thisDocumentIdentifier ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT ProprietaryDocumentIdentifier ( #PCDATA ) >
+
+<!ELEMENT GlobalDocumentFunctionCode ( #PCDATA ) >
+
+<!ELEMENT requestingDocumentIdentifier ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT requestingDocumentDateTime ( DateTimeStamp ) > 
+
+<!-- ===================  End of QD.DTD  ====================== -->
+
+<!-- Formal Public Identifier:
+  "-//Si2//DTD ECTD 1.1 20000820//EN"
+  -->
+
+<!--
+       Copyright (c) 1999 by Silicon Integration Initiative, Inc.
+       (Si2) and RosettaNet.   All Rights Reserved Worldwide.
+       Permission to use, copy, and distribute this DTD for any
+       purpose subject to the following restrictions:
+
+       Permission is granted for verbatim copy and distribution
+       only, of this material, in any medium, provided that you
+       publish on each copy this copyright notice and disclaimer
+       of warranty.
+
+       Si2 and RosettaNet make no representation about the
+       suitability of the DTD for any purpose nor regarding any
+       claims made by products which use it.  It is provided
+       "as is" without expressed or implied warranty.
+
+       This DTD may be revised from time to time without notice.
+  -->
+
+<!-- ======================================================================
+
+                  CHANGE HISTORY
+
+   Version        Date      Time   Author  Company
+   =============  ========  =====  ======  =======
+   Initial Draft  19991008  14:00  Mallis  Si2
+   0.1            19991015  14:00  Mallis  Si2
+   0.2            19991102  08:00  Mallis  Si2
+   0.3            19991109  17:00  Mallis  Si2
+   0.4            19991212  20:00  Mallis  Si2
+   0.5            20000306  15:00  Mallis  Si2
+   1.0            20000502  16:00  Mallis  Si2
+   1.1            20000820  17:00  Mallis  Si2
+
+     1. Deleted keywords and related objects.
+     2. Moved to MathML from ISO 12083.
+        Changed ec.dtd conflicting element names:
+          list, min, max, condition.
+     3. Simplified all <source.doc.of.*> to the same <ref.source> tag.
+     4. Simplified <dic.value>, pushing all the goo into the term ref.
+     5. Converted <definition> and <note> into explicitly normative
+        <definition.short> and <definition.ext>.
+
+   0.4            19991212  20:00  Mallis  Si2
+
+     6. Added <identifiers> to the <ec.dictionary> top level.
+     7. Made <code> mandatory in <identifiers>
+     8. Made name of <dic.value> attribute "ref.to.term" for consistency.
+
+   0.5            20000306  15:00  Mallis  Si2
+
+     9. Replaced all property.set.list with property.set.
+    10. Allow either property or property.set IDREFs in property.set.
+    11. Replace simple PCDATA content model of property.set with
+          %common.elements; to support naming, versioning, definition.
+    12. Clarify comments that are actually normantive constraints.
+    13. Add IDREFs constraints for depends.on, props.
+    14. Make alphanumeric.symbol optional (many devices will not have this).
+        Instead add a constraint: only required if there's a symbol.
+    15. Update comment examples for property.set use based on 10, 11.
+    16. Align with ECIX II model terminology.  Change:
+        a.  property       to  CharacteristicDefinition
+        b.  dep.condition  to  ConditionDefinition
+        c.  property.set   to  PropertyDefinitionSet
+        d.  levels         to  ValueTypes
+    17. Convert <depends.on> container to a dependsOn attribute of its parent, 
+        deleting the <depends.on> "conditions" attribute and one layer
+        of tagging. (Affects both CharacteristicDefinition and
+        ConditionDefinition.)
+    17. Delete <levels> from content models for <*.measure.type>s.
+    18. Delete l.* level types.  These are replaced by ValueType definitions
+        in the dictionary instance.
+    19. Add ValueType entry.
+    20. Add NoValueReason entry.
+    21. Made cardinality of dic.value * to allow for entries that need to
+        be defined, but need yet to evolve values over use experience.
+    22. Change name of list element to "List" to prevent namespace collision
+        with MathML and to make more mnemonic.
+    23. Added xml:lang and xml:space attributes on text elements.
+
+   1.0            20000502  16:00  Mallis  Si2
+
+    24. Clarified use of MathML 1.01 (Work needed to integrate MathML 2.0)
+
+   1.1            20000820  17:00  Mallis  Si2
+
+    25. Deleted TargetSoftware from the model, as per decision of EC
+        modeling team 6/19/00.
+
+======================================================================== -->
+
+
+        <!-- ================================================
+
+        Any comments identified as CONSTRAINTS are normative.
+
+        Additional normative constraints and semantics are
+        defined in the "Electronic Components Technical
+        Dictionary (ECTD) Specification".
+
+        Additional constraints and semantics may be defined
+        in external specfications that are specific to
+        particular domains of use.
+
+        ================================================= -->
+
+
+  <!-- ==========================================================
+                     MODULARIZATION ENTITIES
+  =========================================================== -->
+
+  <!-- ==============================================
+                       TABLE MODEL
+  An XML version of the OASIS Exchange Table Model, which is a subset
+  of the CALS Table Model (MIL-M-28001B), was provided courtesy of
+  Norman Walsh (http://www.nwalsh.com/docbook/xml/3.1.5/soextblx.dtd).
+  A semantic description for the Exchange Table Model is available
+  from: http://www.oasis-open.org/html/a503.htm
+  Before including the table model, override:
+    - content models for: entry and titles
+    - attribute definitions for key elements
+  ================================================ -->
+<!--
+<!ENTITY % paracon "#PCDATA|para" >
+<!ENTITY % bodyatt "" >
+<!ENTITY % TableModel
+  PUBLIC "-//SGML Open//DTD Exchange Table Model 19960430//EN"
+  "soextblx.ent"
+  >
+%TableModel;
+-->
+
+  <!-- ==============================================
+                    MATHEMATICS MODEL
+  MathML 1.01 documentation and support:
+           Home Page:  http://www.w3.org/Math/
+      On-line Manual:  http://www.w3.org/TR/REC-MathML/
+  Tool support: http://www.webeq.com/webeq/mathml/resources.html
+  ================================================ -->
+<!--
+<!ENTITY % MathModel
+  PUBLIC
+  "-//W3C//DTD MathML W3C Recommendation 7 April 1998//EN"
+  "mmlents/mathml.dtd"
+  >
+%MathModel;
+-->
+
+  <!-- ==========================================================
+                       NOTATION DECLARATIONS
+  =========================================================== -->
+ 
+  <!-- ==============================================
+  EPS  Encapsulated PostScript
+  TEX  Don Knuth's TeX
+  TIFF Microsoft Tagged Interchange File Format (uncompressed)
+  GIF  CompuServe Graphic Interchange Format
+  ================================================ -->
+<!NOTATION EPS          PUBLIC
+  "+//ISBN 0-201-18127-4::Adobe//NOTATION
+    PostScript Language Ref. Manual//EN"
+  "http://www.server.com/somedir/EPSEditor.exe"
+  >
+<!NOTATION TeX          PUBLIC
+  "+//ISBN 0-201-13448-9::Knuth//NOTATION The TeXbook//EN"
+  "http://www.server.com/somedir/TeXEditor.exe"
+  >
+<!NOTATION TIFF         PUBLIC
+  "-//ISBN 0-7923-9432-1::Graphic Notation//NOTATION
+    Aldus/Microsoft Tagged Interchange File Format//EN"
+  "http://www.server.com/somedir/TIFFEditor.exe"
+  >
+<!NOTATION GIF          PUBLIC
+  "-//ISBN 0-7923-9432-1::Graphic Notation//NOTATION
+    CompuServe Graphic Interchange Format//EN"
+  "http://www.server.com/somedir/GIFEditor.exe"
+  >
+
+
+  <!-- ==========================================================
+                         PARAMETER ENTITIES
+  =========================================================== -->
+
+  <!-- ================= DATA TYPES =================== -->
+
+<!ENTITY % type.symbol  "( #PCDATA | math )*" >
+<!ENTITY % type.date    "#PCDATA" >
+<!ENTITY % type.String  "#PCDATA" >
+
+<!ENTITY % type.depends  "
+  dependsOn  IDREFS  #IMPLIED
+  " >
+
+<!ENTITY % type.LimitedNarrative  "
+  ( #PCDATA
+  | graphic
+  | table
+  | math
+  | Term
+  | ecList
+  | para
+  )*
+  " >
+
+  <!-- =============== CONTENT MODELS ================= -->
+
+<!ENTITY % common.elements  "
+  identifiers,
+  names,
+  definition.short,
+  definition.ext?,
+  ref.source?,
+  remark?,
+  graphic*,
+  formula*,
+  app.specific*
+  " >
+
+  <!-- ================= ATTRIBUTES =================== -->
+
+<!ENTITY % ref.TermDef  "ref.TermDef  IDREF" >
+
+  <!-- ==========================================================
+                              DOCTYPE
+  =========================================================== -->
+
+<!ELEMENT ec.dictionary (
+  identifiers,
+  class*,
+  CharacteristicDefinition*,
+  ConditionDefinition*,
+  PropertyDefinitionSet*,
+  TermDefinition*,
+  ValueType*,
+  NoValueReason*,
+  ContentType*,
+  FileFormat*
+  ) >
+
+  <!-- ==========================================================
+                               class
+  A category that describes one or more components.
+  =========================================================== -->
+
+<!ELEMENT class ( %common.elements; ) >
+<!ATTLIST class
+  id         ID      #REQUIRED
+  propDefs   IDREFS  #IMPLIED
+  semantics  IDREFS  #IMPLIED
+  >
+
+<!ELEMENT PropertyDefinitionSet  ( %common.elements; ) > 
+<!ATTLIST PropertyDefinitionSet
+  id         ID      #IMPLIED
+  propDefs   IDREFS  #IMPLIED
+  semantics  IDREFS  #IMPLIED
+  >
+
+
+  <!-- ==========================================================
+                            CharacteristicDefinition
+  Attribute, Characteristic, or parametric information about a 
+  component that has some type of value.
+  =========================================================== -->
+
+<!ELEMENT CharacteristicDefinition (
+  %common.elements;,
+  domain
+  )? >
+<!ATTLIST CharacteristicDefinition
+  id  ID  #IMPLIED
+  %type.depends;
+  >
+
+
+  <!-- ==========================================================
+                           ConditionDefinition
+  Environmental or state-related factor that affect the measurement
+  or interpretation of the value of a CharacteristicDefinition.
+  =========================================================== -->
+
+<!ELEMENT ConditionDefinition (
+  %common.elements;,
+  domain
+  )? >
+<!ATTLIST ConditionDefinition
+  id  ID  #IMPLIED
+  %type.depends;
+  >
+
+  <!-- ==========================================================
+                             identifiers
+  Hooks for revision control and unique identification of entries.
+  =========================================================== -->
+
+<!ELEMENT identifiers  (
+  code,
+  majRev,
+  minRev?,
+  date.def,
+  date.maj?,
+  date.min?
+  ) >
+
+<!ELEMENT code     ( #PCDATA ) >
+<!ELEMENT majRev   ( #PCDATA ) >
+<!ELEMENT minRev   ( #PCDATA ) >
+
+<!ELEMENT date.def  ( %type.date; ) >
+<!ELEMENT date.maj  ( %type.date; ) >
+<!ELEMENT date.min  ( %type.date; ) >
+
+
+  <!-- ==========================================================
+                               names
+  The various alternatives for representing an entry:
+    plain text, symbolic (mathematical) notation, graphic images. 
+  =========================================================== -->
+
+<!ELEMENT names  (
+  preferred.name,
+  alphanumeric.symbol?,
+  synonymous.name*,
+  preferred.symbol?,
+  synonymous.symbol*,
+  icon?
+  ) >
+
+<!ELEMENT preferred.name      ( #PCDATA ) >
+<!ELEMENT alphanumeric.symbol ( #PCDATA ) >
+<!ELEMENT synonymous.name     ( #PCDATA ) >
+<!ELEMENT preferred.symbol    %type.symbol; >
+<!ELEMENT synonymous.symbol   %type.symbol; >
+<!ELEMENT icon                ( graphic ) >
+
+
+  <!-- ==========================================================
+                          para ELEMENTS
+  =========================================================== -->
+
+<!ELEMENT para  %type.LimitedNarrative; >
+
+<!-- TABLE  defined in %tableModel; -->
+<!-- MATH   defined in %mathModel;  -->
+
+<!ELEMENT title    %type.LimitedNarrative; >
+<!ELEMENT caption  %type.LimitedNarrative; >
+<!ELEMENT formula  ( math ) >
+
+<!ELEMENT ecList  (
+  title?,
+  li+
+  ) >
+<!ATTLIST ecList
+  list.type  ( ordered
+             | unordered )  "unordered"
+  >
+<!ELEMENT li  %type.LimitedNarrative; >
+
+<!ELEMENT graphic  (
+  title?,
+  caption?
+  ) >
+<!ATTLIST graphic
+  notation      ( EPS
+                | GIF
+                | TeX
+                | TIFF
+                )            #REQUIRED
+  display.type  ( inline
+                | display )  "display"        
+  ent           ENTITY       #REQUIRED
+  >
+
+<!ENTITY graphic.logo SYSTEM "d:/BizEngine/install/db.gif" NDATA GIF>
+
+  <!-- ==========================================================
+                      OTHER common.elements
+  =========================================================== -->
+
+<!ELEMENT definition.short ( %type.String; ) >
+<!ELEMENT definition.ext   %type.LimitedNarrative; >
+<!ELEMENT ref.source       ( %type.String; ) >
+<!ELEMENT remark           %type.LimitedNarrative; >
+
+
+  <!-- ==========================================================
+                             domain
+  =========================================================== -->
+
+<!ELEMENT domain (
+    boolean.type
+  | int.measure.type
+  | real.measure.type
+  | string.type
+  | value.code.type
+  ) >
+
+<!ELEMENT boolean.type       ( value.format ) >
+<!ELEMENT string.type        ( value.format ) >
+<!ELEMENT int.measure.type   ( value.format, unit ) >
+<!ELEMENT real.measure.type  ( value.format, unit ) >
+<!ELEMENT value.code.type    ( value.format, value.domain ) >
+
+<!ELEMENT value.format  ( #PCDATA ) >
+
+<!ELEMENT unit  %type.symbol; >
+
+<!ELEMENT value.domain  (
+  ref.source?,
+  dic.value*
+  ) >
+
+<!ELEMENT dic.value  ( #PCDATA ) >
+<!ATTLIST dic.value  %ref.TermDef;  #IMPLIED >
+
+
+  <!-- ==========================================================
+                                app.specific
+  Application-specific extensions that don't affect entry schema.
+  =========================================================== -->
+
+<!ELEMENT app.specific ( #PCDATA ) >
+<!ATTLIST app.specific
+  name  CDATA    #IMPLIED
+  %ref.TermDef;  #IMPLIED 
+  >
+
+
+  <!-- ==========================================================
+                       non structured elements
+  Dictionary entries with semantic importance, but without the
+  value and domain related information content of properties.
+  =========================================================== -->
+
+<!ELEMENT TermDefinition  (
+  %common.elements;,
+  related.term*
+  ) >
+<!ATTLIST TermDefinition
+  id  ID  #IMPLIED
+  >
+
+<!ELEMENT related.term  ( %type.String; ) >
+<!ATTLIST related.term  %ref.TermDef;  #REQUIRED >
+
+<!ELEMENT Term  %type.LimitedNarrative; >
+<!ATTLIST Term  %ref.TermDef;  #REQUIRED >
+
+<!ELEMENT ValueType       ( %common.elements; ) >
+<!ELEMENT NoValueReason   ( %common.elements; ) >
+<!ELEMENT FileFormat      ( %common.elements; ) >
+<!ELEMENT ContentType     ( %common.elements; ) >
+
+  <!-- ================ END OF EC DTD   ================ -->
+
+<!-- ====================================================================== -->
+<!-- XML Exchange Table Model V3.1.3
+     Part of the DocBk XML V3.1.3 DTD
+     http://nwalsh.com/docbook/xml/
+ 
+     See COPYRIGHT for more information
+
+     Please direct all questions and comments about this DTD to
+     Norman Walsh, <ndw@nwalsh.com>.
+
+     This DTD is an UNOFFICIAL conversion of the exchange table
+     model to XML. It is based on the OASIS Exchange Table Model:
+     PUBLIC "-//SGML Open//DTD Exchange Table Model 19960430//EN"
+                                                                            -->
+<!-- ====================================================================== -->
+
+<!-- XML EXCHANGE TABLE MODEL DECLARATION MODULE -->
+
+<!-- This set of declarations defines the XML version of the Exchange
+     Table Model as of the date shown in the Formal Public Identifier
+     (FPI) for this entity.
+
+     This set of declarations may be referred to using a public external
+     entity declaration and reference as shown in the following three
+     lines:
+
+     <!ENTITY % calstblx 
+       PUBLIC "-//OASIS//DTD XML Exchange Table Model 19990310//EN">
+       %calstblx;
+
+     If various parameter entities used within this set of declarations
+     are to be given non-default values, the appropriate declarations
+     should be given before calling in this package (i.e., before the
+     "%calstbls;" reference).
+-->
+
+<!-- The motivation for this XML version of the Exchange Table Model
+     is simply to create an XML version of the SGML Exchange Table
+     Model. By design, no effort has been made to "improve" the model.
+
+     This XML version incorporates the logical bare minimum changes
+     necessary to make the Exchange Table Model a valid XML DTD.
+-->
+
+<!-- The XML version of the Exchange Table Model differs from
+     the SGML version in the following ways:
+
+     The following parameter entities have been removed:
+
+       - tbl.table.excep, tbl.hdft.excep, tbl.row.excep, tbl.entry.excep
+         There are no exceptions in XML. The following normative statement
+         is made in lieu of exceptions: the exchange table model explicitly
+         forbids a table from occuring within another table. If the 
+         content model of an entry includes a table element, then this
+         cannot be enforced by the DTD, but it is a deviation from the
+         exchange table model to include a table within a table.
+                  
+       - tbl.hdft.name, tbl.hdft.mdl, tbl.hdft.excep, tbl.hdft.att
+         The motivation for these elements was to change the table
+         header/footer elements. Since XML does not allow element declarations
+         to contain name groups, and the exchange table model does not
+         allow a table to contain footers, the continued presence of these
+         attributes seems unnecessary.
+
+     The following parameter entity has been added:
+
+       - tbl.thead.att
+         This entity parameterizes the attributes on thead. It replaces
+         the tbl.hdft.att parameter entity.
+
+     Other miscellaneous changes:
+
+       - Comments have been removed from declarations
+       - NUMBER attributes have been changed to NMTOKEN
+       - NUTOKEN attributes have been to changed to NMTOKEN
+       - Removed the grouping characters around the content model
+         parameter entry for the 'entry' element. This is necessary
+         so that an entry can contain #PCDATA and be defined as an
+         optional, repeatable OR group beginning with #PCDATA.
+-->
+
+<!-- This entity includes a set of element and attribute declarations
+     that partially defines the Exchange table model.  However, the model
+     is not well-defined without the accompanying natural language
+     description of the semantics (meanings) of these various elements,
+     attributes, and attribute values.  The semantic writeup, also available
+     from SGML Open, should be used in conjunction with this entity.
+-->
+
+<!-- In order to use the Exchange table model, various parameter entity
+     declarations are required.  A brief description is as follows:
+
+     ENTITY NAME      WHERE USED              WHAT IT IS
+
+     %yesorno         In ATTLIST of:          An attribute declared value
+                      almost all elements     for a "boolean" attribute
+
+     %paracon         In content model of:    The "text" (logical content)
+                      <entry>                 of the model group for <entry>
+
+     %titles          In content model of:    The "title" part of the model
+                      table element(s)        group for the table element(s)
+
+     %tbl.table.name  In declaration of:      The name(s) of the "table"
+                      table element(s)        element(s)
+
+     %tbl.table-titles.mdl In content model of: The model group for the title
+                      table elements(s)       part of the content model for 
+                                              table element(s)
+
+     %tbl.table.mdl   In content model of:    The model group for the content
+                      table elements(s)       model for table element(s),
+                                              often (and by default) defined
+                                              in terms of %tbl.table-titles.mdl
+                                              and %tbl.table-main.mdl
+
+     %tbl.table.att   In ATTLIST of:          Additional attributes on the
+                      table element(s)        table element(s)
+
+     %tbl.tgroup.mdl  In content model of:    The model group for the content
+                      <tgroup>                model for <tgroup>
+
+     %tbl.tgroup.att  In ATTLIST of:          Additional attributes on the
+                      <tgroup>                <tgroup> element
+
+     %tbl.thead.att   In ATTLIST of:          Additional attributes on the
+                      <thead>                 <thead> element
+
+     %tbl.tbody.att   In ATTLIST of:          Additional attributes on the
+                      <tbody>                 <tbody> element
+
+     %tbl.colspec.att In ATTLIST of:          Additional attributes on the
+                      <colspec>               <colspec> element
+
+     %tbl.row.mdl     In content model of:    The model group for the content
+                      <row>                   model for <row>
+
+     %tbl.row.att     In ATTLIST of:          Additional attributes on the
+                      <row>                   <row> element
+
+     %tbl.entry.mdl   In content model of:    The model group for the content
+                      <entry>                 model for <entry>
+
+     %tbl.entry.att   In ATTLIST of:          Additional attributes on the
+                      <entry>                 <entry> element
+
+     This set of declarations will use the default definitions shown below
+     for any of these parameter entities that are not declared before this 
+     set of declarations is referenced.
+-->
+
+<!-- These definitions are not directly related to the table model, but are 
+     used in the default CALS table model and may be defined elsewhere (and 
+     prior to the inclusion of this table module) in the referencing DTD. -->
+
+<!ENTITY % yesorno 'NMTOKEN'> <!-- no if zero(s), yes if any other value -->
+<!ENTITY % titles  'title?'>
+<!ENTITY % paracon '#PCDATA'> <!-- default for use in entry content -->
+
+<!--
+The parameter entities as defined below change and simplify the CALS table 
+model as published (as part of the Example DTD) in MIL-HDBK-28001.  The
+resulting simplified DTD has support from the SGML Open vendors and is
+therefore more interoperable among different systems.
+
+These following declarations provide the Exchange default definitions
+for these entities.  However, these entities can be redefined (by giving 
+the appropriate parameter entity declaration(s) prior to the reference 
+to this Table Model declaration set entity) to fit the needs of the 
+current application.
+
+Note, however, that changes may have significant effect on the ability to
+interchange table information.  These changes may manifest themselves
+in useability, presentation, and possible structure information degradation.
+-->
+
+<!ENTITY % tbl.table.name       "table">
+<!ENTITY % tbl.table-titles.mdl "%titles;,">
+<!ENTITY % tbl.table.mdl        "%tbl.table-titles.mdl; tgroup+">
+<!ENTITY % tbl.table.att        "
+    pgwide      %yesorno;       #IMPLIED ">
+<!ENTITY % tbl.tgroup.mdl       "colspec*,thead?,tbody">
+<!ENTITY % tbl.tgroup.att       "">
+<!ENTITY % tbl.thead.att        "">
+<!ENTITY % tbl.tbody.att        "">
+<!ENTITY % tbl.colspec.att      "">
+<!ENTITY % tbl.row.mdl          "entry+">
+<!ENTITY % tbl.row.att          "">
+<!ENTITY % tbl.entry.mdl        "(%paracon;)*">
+<!ENTITY % tbl.entry.att        "">
+
+<!-- =====  Element and attribute declarations follow. =====  -->
+
+<!--
+     Default declarations previously defined in this entity and
+     referenced below include:
+     ENTITY % tbl.table.name       "table"
+     ENTITY % tbl.table-titles.mdl "%titles;,"
+     ENTITY % tbl.table.mdl        "%tbl.table-titles; tgroup+"
+     ENTITY % tbl.table.att        "
+                        pgwide          %yesorno;       #IMPLIED "
+-->
+
+<!ELEMENT %tbl.table.name; (%tbl.table.mdl;)>
+
+<!ATTLIST %tbl.table.name;
+        frame           (top|bottom|topbot|all|sides|none)      #IMPLIED
+        colsep          %yesorno;                               #IMPLIED
+        rowsep          %yesorno;                               #IMPLIED
+        %tbl.table.att;
+>
+<!--
+<!ATTLIST %tbl.table.name;
+        frame           (top|bottom|topbot|all|sides|none)      #IMPLIED
+        colsep          %yesorno;                               #IMPLIED
+        rowsep          %yesorno;                               #IMPLIED
+        %tbl.table.att;
+        %bodyatt;
+>
+-->
+
+<!--
+     Default declarations previously defined in this entity and
+     referenced below include:
+     ENTITY % tbl.tgroup.mdl    "colspec*,thead?,tbody"
+     ENTITY % tbl.tgroup.att    ""
+-->
+
+<!ELEMENT tgroup (%tbl.tgroup.mdl;) >
+
+<!ATTLIST tgroup
+        cols            NMTOKEN                                 #REQUIRED
+        colsep          %yesorno;                               #IMPLIED
+        rowsep          %yesorno;                               #IMPLIED
+        align           (left|right|center|justify|char)        #IMPLIED
+        %tbl.tgroup.att;
+>
+
+<!--
+     Default declarations previously defined in this entity and
+     referenced below include:
+     ENTITY % tbl.colspec.att   ""
+-->
+
+<!ELEMENT colspec EMPTY >
+
+<!ATTLIST colspec
+        colnum          NMTOKEN                                 #IMPLIED
+        colname         NMTOKEN                                 #IMPLIED
+        colwidth        CDATA                                   #IMPLIED
+        colsep          %yesorno;                               #IMPLIED
+        rowsep          %yesorno;                               #IMPLIED
+        align           (left|right|center|justify|char)        #IMPLIED
+        char            CDATA                                   #IMPLIED
+        charoff         NMTOKEN                                 #IMPLIED
+        %tbl.colspec.att;
+>
+
+<!--
+     Default declarations previously defined in this entity and
+     referenced below include:
+     ENTITY % tbl.thead.att      ""
+-->
+
+<!ELEMENT thead (row+)>
+
+<!ATTLIST thead
+        valign          (top|middle|bottom)                     #IMPLIED
+        %tbl.thead.att;
+>
+
+<!--
+     Default declarations previously defined in this entity and
+     referenced below include:
+     ENTITY % tbl.tbody.att     ""
+-->
+
+<!ELEMENT tbody (row+)>
+
+<!ATTLIST tbody
+        valign          (top|middle|bottom)                     #IMPLIED
+        %tbl.tbody.att;
+>
+
+<!--
+     Default declarations previously defined in this entity and
+     referenced below include:
+     ENTITY % tbl.row.mdl       "entry+"
+     ENTITY % tbl.row.att       ""
+-->
+
+<!ELEMENT row (%tbl.row.mdl;)>
+
+<!ATTLIST row
+        rowsep          %yesorno;                               #IMPLIED
+        valign          (top|middle|bottom)                     #IMPLIED
+        %tbl.row.att;
+>
+
+
+<!--
+     Default declarations previously defined in this entity and
+     referenced below include:
+     ENTITY % paracon           "#PCDATA"
+     ENTITY % tbl.entry.mdl     "(%paracon;)*"
+     ENTITY % tbl.entry.att     ""
+-->
+
+<!ELEMENT entry %tbl.entry.mdl;>
+
+<!ATTLIST entry
+        colname         NMTOKEN                                 #IMPLIED
+        namest          NMTOKEN                                 #IMPLIED
+        nameend         NMTOKEN                                 #IMPLIED
+        morerows        NMTOKEN                                 #IMPLIED
+        colsep          %yesorno;                               #IMPLIED
+        rowsep          %yesorno;                               #IMPLIED
+        align           (left|right|center|justify|char)        #IMPLIED
+        char            CDATA                                   #IMPLIED
+        charoff         NMTOKEN                                 #IMPLIED
+        valign          (top|middle|bottom)                     #IMPLIED
+        %tbl.entry.att;
+>
+
+<!-- Content model for content and presentation        -->
+<!--  and browser interface tags in MathML              -->
+<!-- initial draft 9.May.1997          syntax = XML     -->
+<!-- author = s.buswell sb@stilo.demon.co.uk            -->
+<!--                                                    -->
+<!-- revised 14.May.1997 by Robert Miner                -->
+<!-- revised 29.June.1997 and 2.July.1997 by s.buswell  -->
+<!--                                                    -->
+<!-- revised 15.December.1997  by s.buswell             -->
+<!-- revised 8.February.1998   by s.buswell             -->
+<!-- revised 4.april.1998      by s.buswell             -->
+<!-- 21.February.1999 entities and small revisions by d.carlisle    -->
+<!--                                                    -->
+<!-- W3C Recommendation      7 April 1998                               -->
+<!-- *************************************************  -->
+
+<!-- general attribute definitions for class & style & id & other -->
+<!-- : attributes shared by all mathml elements        -->
+
+<!ENTITY % att-globalatts      'class CDATA #IMPLIED
+                                 style CDATA #IMPLIED
+                                 id    ID    #IMPLIED
+                                 other CDATA #IMPLIED'  >
+
+<!-- *************************************************  -->
+<!-- Presentation element set                           -->
+
+<!-- presentation attribute definitions -->
+
+<!ENTITY % att-fontsize        'fontsize CDATA #IMPLIED'             >
+<!ENTITY % att-fontweight      'fontweight (normal | bold) #IMPLIED'  >
+<!ENTITY % att-fontstyle       'fontstyle (normal | italic) #IMPLIED' >
+<!ENTITY % att-fontfamily      'fontfamily CDATA   #IMPLIED'         >
+<!ENTITY % att-color           'color CDATA   #IMPLIED'              >
+
+<!ENTITY % att-fontinfo      '%att-fontsize;
+                             %att-fontweight;
+                             %att-fontstyle;
+                             %att-fontfamily;
+                             %att-color;'  >
+
+<!ENTITY % att-form        'form (prefix | infix | postfix) #IMPLIED' >
+<!ENTITY % att-fence       'fence (true | false ) #IMPLIED'    >
+<!ENTITY % att-separator   'separator (true | false ) #IMPLIED'    >
+<!ENTITY % att-lspace      'lspace CDATA  #IMPLIED'       >
+<!ENTITY % att-rspace      'rspace CDATA  #IMPLIED'       >
+<!ENTITY % att-stretchy    'stretchy (true | false ) #IMPLIED'     >
+<!ENTITY % att-symmetric   'symmetric (true | false ) #IMPLIED'    >
+<!ENTITY % att-maxsize     'maxsize CDATA #IMPLIED'       >
+<!ENTITY % att-minsize     'minsize CDATA #IMPLIED'       >
+<!ENTITY % att-largeop           'largeop (true | false ) #IMPLIED' >
+<!ENTITY % att-movablelimits     'movablelimits (true | false )
+#IMPLIED' >
+<!ENTITY % att-accent               'accent (true | false)  #IMPLIED'>
+
+<!ENTITY % att-opinfo '%att-form;
+                        %att-fence;
+                        %att-separator;
+                        %att-lspace;
+                        %att-rspace;
+                        %att-stretchy;
+                        %att-symmetric;
+                        %att-maxsize;
+                        %att-minsize;
+                        %att-largeop;
+                        %att-movablelimits;
+                        %att-accent;'         >
+
+<!ENTITY % att-width             'width CDATA #IMPLIED'   >
+<!ENTITY % att-height            'height CDATA #IMPLIED' >
+<!ENTITY % att-depth             'depth CDATA #IMPLIED'   >
+
+<!ENTITY % att-sizeinfo          '%att-width;
+                                  %att-height;
+                                  %att-depth;'          >
+
+<!ENTITY % att-lquote              'lquote CDATA #IMPLIED'   >
+<!ENTITY % att-rquote              'rquote CDATA #IMPLIED'   >
+
+<!ENTITY % att-linethickness        'linethickness CDATA #IMPLIED' >
+
+<!ENTITY % att-scriptlevel          'scriptlevel CDATA #IMPLIED'>
+<!ENTITY % att-displaystyle         'displaystyle (true | false)
+#IMPLIED'>
+<!ENTITY % att-scriptsizemultiplier 'scriptsizemultiplier CDATA
+#IMPLIED'  >
+<!ENTITY % att-scriptminsize        'scriptminsize CDATA #IMPLIED'>
+<!ENTITY % att-background           'background CDATA #IMPLIED' >
+
+<!ENTITY % att-open                 'open CDATA #IMPLIED' >
+<!ENTITY % att-close                'close CDATA #IMPLIED' >
+<!ENTITY % att-separators           'separators CDATA #IMPLIED' >
+
+<!ENTITY % att-subscriptshift       'subscriptshift CDATA #IMPLIED'>
+<!ENTITY % att-superscriptshift     'superscriptshift CDATA #IMPLIED'    >
+
+<!ENTITY % att-accentunder          'accentunder (true | false)
+#IMPLIED'>
+
+<!ENTITY % att-align                'align CDATA #IMPLIED'           >
+<!ENTITY % att-rowalign             'rowalign CDATA #IMPLIED'    >
+<!ENTITY % att-columnalign          'columnalign CDATA #IMPLIED'   >
+<!ENTITY % att-groupalign           'groupalign CDATA #IMPLIED'    >
+<!ENTITY % att-alignmentscope       'alignmentscope CDATA #IMPLIED'  >
+
+<!ENTITY % att-rowspacing           'rowspacing CDATA #IMPLIED'      >
+<!ENTITY % att-columnspacing        'columnspacing CDATA #IMPLIED'   >
+<!ENTITY % att-rowlines             'rowlines CDATA #IMPLIED'           >
+<!ENTITY % att-columnlines          'columnlines CDATA #IMPLIED'         >
+<!ENTITY % att-frame                'frame (none | solid | dashed)
+#IMPLIED'  >
+<!ENTITY % att-framespacing         'framespacing CDATA #IMPLIED'       >
+<!ENTITY % att-equalrows            'equalrows CDATA #IMPLIED'         >
+<!ENTITY % att-equalcolumns         'equalcolumns CDATA #IMPLIED'     >
+
+<!ENTITY % att-tableinfo           '%att-align;
+                                   %att-rowalign;
+                                   %att-columnalign;
+                                   %att-groupalign;
+                                   %att-alignmentscope;
+                                   %att-rowspacing;
+                                   %att-columnspacing;
+                                   %att-rowlines;
+                                   %att-columnlines;
+                                   %att-frame;
+                                   %att-framespacing;
+                                   %att-equalrows;
+                                   %att-equalcolumns;
+                                   %att-displaystyle;'        >
+
+<!ENTITY % att-rowspan              'rowspan CDATA #IMPLIED'         >
+<!ENTITY % att-columnspan           'columnspan CDATA #IMPLIED'      >
+
+<!ENTITY % att-edge                  'edge (left | right)  #IMPLIED ' >
+
+<!ENTITY % att-actiontype            'actiontype CDATA #IMPLIED' >
+<!ENTITY % att-selection             'selection CDATA #IMPLIED ' >
+
+<!-- presentation token schemata with content-->
+
+<!ENTITY % ptoken "mi | mn | mo | mtext | ms" >
+
+<!ATTLIST mi        %att-fontinfo;
+                    %att-globalatts;    >
+
+<!ATTLIST mn        %att-fontinfo;
+                    %att-globalatts;    >
+
+<!ATTLIST mo        %att-fontinfo;
+                    %att-opinfo;
+                    %att-globalatts;     >
+
+<!ATTLIST mtext     %att-fontinfo;
+                    %att-globalatts;     >
+
+<!ATTLIST ms        %att-fontinfo;
+                    %att-lquote;
+                    %att-rquote;
+                    %att-globalatts;          >
+
+<!-- empty presentation token schemata -->
+
+<!ENTITY % petoken  "mspace" >
+<!ELEMENT mspace     EMPTY  >
+
+<!ATTLIST mspace    %att-sizeinfo;
+                    %att-globalatts;       >
+
+<!-- presentation general layout schemata -->
+
+<!ENTITY % pgenschema "mrow|mfrac|msqrt|mroot|
+                    mstyle|merror|mpadded| mphantom|mfenced" >
+
+<!ATTLIST mrow      %att-globalatts;   >
+
+<!ATTLIST mfrac     %att-linethickness;
+                    %att-globalatts; >
+
+<!ATTLIST msqrt     %att-globalatts;   >
+
+<!ATTLIST mroot     %att-globalatts;   >
+
+<!ATTLIST mstyle    %att-fontinfo;
+                    %att-opinfo;
+                    %att-lquote;
+                    %att-rquote;
+                    %att-linethickness;
+                    %att-scriptlevel;
+                    %att-scriptsizemultiplier;
+                    %att-scriptminsize;
+                                        %att-background;
+                                        %att-open;
+                                        %att-close;
+                                        %att-separators;
+                    %att-subscriptshift;
+                    %att-superscriptshift;
+                    %att-accentunder;
+                    %att-tableinfo;
+                    %att-rowspan;
+                    %att-columnspan;
+                                        %att-edge;
+                                        %att-actiontype;
+                                        %att-selection;
+                    %att-globalatts;          >
+
+<!ATTLIST merror    %att-globalatts;   >
+
+<!ATTLIST mpadded   %att-sizeinfo;
+                    %att-lspace;
+                    %att-globalatts;     >
+
+<!ATTLIST mphantom  %att-globalatts;     >
+
+<!ATTLIST mfenced   %att-open;
+                    %att-close;
+                    %att-separators;
+                    %att-globalatts;     >
+
+<!-- presentation  layout schemata : scripts and limits -->
+
+<!ENTITY % pscrschema  "msub|msup|msubsup|
+                    munder|mover|munderover|mmultiscripts" >
+
+<!ATTLIST msub      %att-subscriptshift;
+                    %att-globalatts;     >
+
+<!ATTLIST msup      %att-superscriptshift;
+                    %att-globalatts;          >
+
+<!ATTLIST msubsup   %att-subscriptshift;
+                    %att-superscriptshift;
+                    %att-globalatts;          >
+
+<!ATTLIST munder    %att-accentunder;
+                    %att-globalatts;          >
+
+<!ATTLIST mover     %att-accent;
+                    %att-globalatts;           >
+
+<!ATTLIST munderover %att-accent;
+                     %att-accentunder;
+                     %att-globalatts;      >
+
+<!ATTLIST mmultiscripts
+                    %att-subscriptshift;
+                    %att-superscriptshift;
+                    %att-globalatts;          >
+
+<!-- presentation layout schemata: script empty elements -->
+
+<!ENTITY % pscreschema "mprescripts|none" >
+
+<!ELEMENT mprescripts    EMPTY          >
+<!ATTLIST mprescripts   %att-globalatts;      >
+
+<!ELEMENT none          EMPTY          >
+<!ATTLIST none          %att-globalatts;      >
+
+<!-- presentation layout schemata: tables -->
+
+<!ENTITY % ptabschema "mtable|mtr|mtd" >
+
+<!ATTLIST mtable    %att-tableinfo;
+                    %att-globalatts;      >
+
+<!ATTLIST mtr       %att-rowalign;
+                    %att-columnalign;
+                    %att-groupalign;
+                    %att-globalatts; >
+
+<!ATTLIST mtd       %att-rowalign;
+                    %att-columnalign;
+                    %att-groupalign;
+                    %att-rowspan;
+                    %att-columnspan;
+                    %att-globalatts;   >
+
+<!ENTITY % plschema  "%pgenschema;|%pscrschema;|%ptabschema;" >
+
+<!-- empty presentation layout schemata -->
+
+<!ENTITY % peschema "maligngroup | malignmark" >
+
+<!ELEMENT  malignmark  EMPTY          >
+
+<!ATTLIST malignmark    %att-edge;
+                        %att-globalatts;      >
+
+<!ELEMENT maligngroup    EMPTY          >
+<!ATTLIST maligngroup   %att-groupalign;
+                        %att-globalatts;      >
+
+<!-- presentation action schemata -->
+
+<!ENTITY % pactions "maction" >
+<!ATTLIST maction   %att-actiontype;
+                    %att-selection;
+                    %att-globalatts;     >
+
+<!-- Presentation entity for substitution into content tag constructs -->
+<!-- excludes elements which are not valid as expressions             -->
+
+<!ENTITY % PresInCont    "%ptoken; | %petoken; |
+                          %plschema; | %peschema; | %pactions;">
+
+<!-- Presentation entity - all presentation constructs -->
+
+<!ENTITY % Presentation  "%ptoken; | %petoken; | %pscreschema; |
+                          %plschema; | %peschema; | %pactions;">
+
+<!-- *************************************************  -->
+<!-- Content element set                                -->
+<!-- attribute definitions                              -->
+
+<!ENTITY % att-base              'base CDATA "10"'           >
+<!ENTITY % att-closure           'closure CDATA "closed"'    >
+<!ENTITY % att-definition        'definitionURL CDATA ""'    >
+<!ENTITY % att-encoding          'encoding CDATA ""'         >
+<!ENTITY % att-nargs             'nargs CDATA "1"'           >
+<!ENTITY % att-occurence         'occurence CDATA "function-model"'  >
+<!ENTITY % att-order             'order CDATA "numeric"'         >
+<!ENTITY % att-scope             'scope CDATA "local"'         >
+<!ENTITY % att-type              'type CDATA #IMPLIED'         >
+
+<!-- content leaf token elements -->
+
+<!ENTITY % ctoken "ci | cn" >
+
+<!ATTLIST ci   %att-type;
+               %att-globalatts;     >
+
+<!ATTLIST cn   %att-type;
+               %att-base;
+               %att-globalatts;     >
+
+<!-- content elements - specials -->
+
+<!ENTITY % cspecial "apply | reln | lambda" >
+
+<!ATTLIST apply   %att-globalatts;     >
+
+<!ATTLIST reln    %att-globalatts;     >
+
+<!ATTLIST lambda  %att-globalatts;     >
+
+<!-- content elements - others -->
+
+<!ENTITY % cother "condition | declare | sep" >
+
+<!ATTLIST condition       %att-globalatts;     >
+
+<!ATTLIST declare         %att-type;
+                          %att-scope;
+                          %att-nargs;
+                          %att-occurence;
+                          %att-definition;
+                          %att-globalatts;     >
+
+<!ELEMENT sep       EMPTY >
+<!ATTLIST sep       %att-globalatts;     >
+
+<!-- content elements - semantic mapping -->
+
+<!ENTITY % csemantics "semantics | annotation | annotation-xml" >
+
+<!ATTLIST semantics         %att-definition;
+                            %att-globalatts;     >
+
+<!ATTLIST annotation        %att-encoding;
+                            %att-globalatts;     >
+
+<!ATTLIST annotation-xml    %att-encoding;
+                            %att-globalatts;     >
+
+<!-- content elements - constructors -->
+
+<!ENTITY % cconstructor "interval | list | matrix | matrixrow | set |
+vector" >
+
+<!ATTLIST interval     %att-closure;
+                       %att-globalatts;     >
+
+<!ATTLIST set          %att-globalatts;     >
+
+<!ATTLIST list         %att-order;
+                       %att-globalatts;     >
+
+<!ATTLIST vector       %att-globalatts;     >
+
+<!ATTLIST matrix       %att-globalatts;     >
+
+<!ATTLIST matrixrow    %att-globalatts;     >
+
+<!-- content elements - operators -->
+
+<!ENTITY % cfuncop1ary "inverse | ident " >
+
+<!ELEMENT inverse          EMPTY       >
+<!ATTLIST inverse     %att-definition;
+                      %att-globalatts;     >
+
+<!ENTITY % cfuncopnary "fn |  compose" >
+
+<!ATTLIST fn     %att-definition;
+                 %att-globalatts;     >
+
+<!ELEMENT ident       EMPTY       >
+<!ATTLIST ident       %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT compose     EMPTY       >
+<!ATTLIST compose     %att-definition;
+                      %att-globalatts;     >
+
+<!ENTITY % carithop1ary "abs | conjugate | exp | factorial" >
+
+<!ELEMENT exp         EMPTY       >
+<!ATTLIST exp         %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT abs         EMPTY       >
+<!ATTLIST abs         %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT conjugate   EMPTY       >
+<!ATTLIST conjugate   %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT factorial   EMPTY       >
+<!ATTLIST factorial   %att-definition;
+                      %att-globalatts;     >
+
+<!ENTITY % carithop1or2ary "minus" >
+
+<!ELEMENT minus       EMPTY       >
+<!ATTLIST minus       %att-definition;
+                      %att-globalatts;     >
+
+<!ENTITY % carithop2ary "quotient | divide | power | rem" >
+
+<!ELEMENT quotient       EMPTY       >
+<!ATTLIST quotient       %att-definition;
+                         %att-globalatts;     >
+
+<!ELEMENT divide       EMPTY       >
+<!ATTLIST divide       %att-definition;
+                       %att-globalatts;     >
+
+<!ELEMENT power          EMPTY       >
+<!ATTLIST power       %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT rem          EMPTY       >
+<!ATTLIST rem        %att-definition;
+                     %att-globalatts;     >
+
+<!ENTITY % carithopnary "plus | times | max | min | gcd" >
+
+<!ELEMENT plus          EMPTY       >
+<!ATTLIST plus        %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT max          EMPTY       >
+<!ATTLIST max         %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT min          EMPTY       >
+<!ATTLIST min         %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT times          EMPTY       >
+<!ATTLIST times     %att-definition;
+                    %att-globalatts;     >
+
+<!ELEMENT gcd          EMPTY       >
+<!ATTLIST gcd     %att-definition;
+                  %att-globalatts;     >
+
+<!ENTITY % carithoproot "root" >
+
+<!ELEMENT root          EMPTY       >
+<!ATTLIST root     %att-definition;
+                   %att-globalatts;     >
+
+<!ENTITY % clogicopquant "exists | forall" >
+
+<!ELEMENT exists          EMPTY       >
+<!ATTLIST exists     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT forall          EMPTY       >
+<!ATTLIST forall     %att-definition;
+                      %att-globalatts;     >
+
+<!ENTITY % clogicopnary "and | or | xor" >
+
+<!ELEMENT and          EMPTY       >
+<!ATTLIST and     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT or          EMPTY       >
+<!ATTLIST or     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT xor          EMPTY       >
+<!ATTLIST xor     %att-definition;
+                      %att-globalatts;     >
+
+<!ENTITY % clogicop1ary "not" >
+
+<!ELEMENT not          EMPTY       >
+<!ATTLIST not     %att-definition;
+                      %att-globalatts;     >
+
+<!ENTITY % clogicop2ary "implies" >
+
+<!ELEMENT implies          EMPTY       >
+<!ATTLIST implies     %att-definition;
+                      %att-globalatts;     >
+
+<!ENTITY % ccalcop "log | int | diff | partialdiff" >
+
+<!ELEMENT log          EMPTY       >
+<!ATTLIST log     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT int          EMPTY       >
+<!ATTLIST int     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT diff          EMPTY       >
+<!ATTLIST diff     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT partialdiff          EMPTY       >
+<!ATTLIST partialdiff     %att-definition;
+                      %att-globalatts;     >
+
+<!ENTITY % ccalcop1ary "ln" >
+
+<!ELEMENT ln          EMPTY       >
+<!ATTLIST ln     %att-definition;
+                      %att-globalatts;     >
+
+<!ENTITY % csetop2ary "setdiff" >
+
+<!ELEMENT setdiff          EMPTY       >
+<!ATTLIST setdiff     %att-definition;
+                      %att-globalatts;     >
+
+<!ENTITY % csetopnary "union | intersect" >
+
+<!ELEMENT union          EMPTY       >
+<!ATTLIST union     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT intersect          EMPTY       >
+<!ATTLIST intersect     %att-definition;
+                      %att-globalatts;     >
+
+<!ENTITY % cseqop "sum | product | limit" >
+
+<!ELEMENT sum          EMPTY       >
+<!ATTLIST sum     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT product          EMPTY       >
+<!ATTLIST product     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT limit          EMPTY       >
+<!ATTLIST limit     %att-definition;
+                      %att-globalatts;     >
+
+<!ENTITY % ctrigop "sin | cos | tan | sec | csc | cot | sinh
+                | cosh | tanh | sech | csch | coth
+                | arcsin | arccos | arctan" >
+
+<!ELEMENT sin          EMPTY       >
+<!ATTLIST sin     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT cos          EMPTY       >
+<!ATTLIST cos     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT tan          EMPTY       >
+<!ATTLIST tan     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT sec          EMPTY       >
+<!ATTLIST sec     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT csc          EMPTY       >
+<!ATTLIST csc     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT cot          EMPTY       >
+<!ATTLIST cot     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT sinh          EMPTY       >
+<!ATTLIST sinh     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT cosh          EMPTY       >
+<!ATTLIST cosh     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT tanh          EMPTY       >
+<!ATTLIST tanh     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT sech          EMPTY       >
+<!ATTLIST sech     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT csch          EMPTY       >
+<!ATTLIST csch     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT coth          EMPTY       >
+<!ATTLIST coth     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT arcsin          EMPTY       >
+<!ATTLIST arcsin     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT arccos          EMPTY       >
+<!ATTLIST arccos     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT arctan          EMPTY       >
+<!ATTLIST arctan     %att-definition;
+                      %att-globalatts;     >
+
+<!ENTITY % cstatopnary "mean | sdev | variance | median | mode" >
+
+<!ELEMENT mean          EMPTY       >
+<!ATTLIST mean     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT sdev          EMPTY       >
+<!ATTLIST sdev     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT variance          EMPTY       >
+<!ATTLIST variance     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT median          EMPTY       >
+<!ATTLIST median     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT mode          EMPTY       >
+<!ATTLIST mode     %att-definition;
+                      %att-globalatts;     >
+
+<!ENTITY % cstatopmoment "moment" >
+
+<!ELEMENT moment          EMPTY       >
+<!ATTLIST moment     %att-definition;
+                      %att-globalatts;     >
+
+<!ENTITY % clalgop1ary "determinant | transpose" >
+
+<!ELEMENT determinant          EMPTY       >
+<!ATTLIST determinant     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT transpose          EMPTY       >
+<!ATTLIST transpose     %att-definition;
+                      %att-globalatts;     >
+
+<!ENTITY % clalgopnary "selector" >
+
+<!ELEMENT selector          EMPTY       >
+<!ATTLIST selector     %att-definition;
+                      %att-globalatts;     >
+
+<!-- content elements -  relations  -->
+
+<!ENTITY % cgenrel2ary "neq" >
+
+<!ELEMENT neq          EMPTY       >
+<!ATTLIST neq     %att-definition;
+                      %att-globalatts;     >
+
+<!ENTITY % cgenrelnary "eq | leq | lt | geq | gt" >
+
+<!ELEMENT eq          EMPTY       >
+<!ATTLIST eq     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT gt          EMPTY       >
+<!ATTLIST gt     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT lt          EMPTY       >
+<!ATTLIST lt     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT geq          EMPTY       >
+<!ATTLIST geq     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT leq          EMPTY       >
+<!ATTLIST leq     %att-definition;
+                      %att-globalatts;     >
+
+<!ENTITY % csetrel2ary "in | notin | notsubset | notprsubset" >
+
+<!ELEMENT in          EMPTY       >
+<!ATTLIST in     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT notin          EMPTY       >
+<!ATTLIST notin     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT notsubset          EMPTY       >
+<!ATTLIST notsubset     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT notprsubset          EMPTY       >
+<!ATTLIST notprsubset     %att-definition;
+                      %att-globalatts;     >
+
+<!ENTITY % csetrelnary "subset | prsubset" >
+
+<!ELEMENT subset          EMPTY       >
+<!ATTLIST subset     %att-definition;
+                      %att-globalatts;     >
+
+<!ELEMENT prsubset          EMPTY       >
+<!ATTLIST prsubset     %att-definition;
+                      %att-globalatts;     >
+
+<!ENTITY % cseqrel2ary "tendsto" >
+
+<!ELEMENT tendsto          EMPTY       >
+<!ATTLIST tendsto     %att-definition;
+                      %att-type;
+                      %att-globalatts;     >
+
+<!-- content elements -  quantifiers  -->
+
+<!ENTITY % cquantifier "lowlimit | uplimit | bvar | degree | logbase" >
+
+<!ATTLIST lowlimit  %att-globalatts;     >
+
+<!ATTLIST uplimit  %att-globalatts;     >
+
+<!ATTLIST bvar     %att-globalatts;     >
+
+<!ATTLIST degree   %att-globalatts;     >
+
+<!ATTLIST logbase  %att-globalatts;     >
+
+<!-- operator groups -->
+
+<!ENTITY % cop1ary "%cfuncop1ary; | %carithop1ary; | %clogicop1ary;
+                    | %ccalcop1ary; | %ctrigop; | %clalgop1ary; " >
+
+<!ENTITY % cop2ary "%carithop2ary; | %clogicop2ary;| %csetop2ary; " >
+
+<!ENTITY % copnary "%cfuncopnary; | %carithopnary; | %clogicopnary;
+                    | %csetopnary; | %cstatopnary;  | %clalgopnary; " >
+
+<!ENTITY % copmisc "%carithoproot; | %carithop1or2ary; | %ccalcop;
+                    | %cseqop; | %cstatopmoment; | %clogicopquant;" >
+
+<!-- relation groups -->
+
+<!ENTITY % crel2ary "%cgenrel2ary;  | %csetrel2ary; | %cseqrel2ary;   " >
+
+<!ENTITY % crelnary "%cgenrelnary; | %csetrelnary;" >
+
+<!-- content constructs - all -->
+
+<!ENTITY % Content "%ctoken; | %cspecial;  | %cother;  | %csemantics;
+                    |%cconstructor; | %cquantifier;
+                    |%cop1ary; |%cop2ary; |%copnary; |%copmisc;
+                    |%crel2ary; |%crelnary;" >
+
+<!-- content constructs for substitution in presentation structures -->
+
+<!ENTITY % ContInPres "ci | cn  | apply  | fn | lambda | reln
+                    | interval | list | matrix |matrixrow
+                    | set | vector | semantics" > <!--dpc-->
+
+<!-- *************************************************  -->
+
+<!-- recursive definition for content of expressions             -->
+<!-- include presentation tag constructs at lowest level         -->
+<!-- so presentation layout schemata hold presentation or Content -->
+<!-- include Content tag constructs at lowest level              -->
+<!-- so Content tokens hold PCDATA or Presentation at leaf level -->
+<!-- (for permitted substitutable elements in context)           -->
+
+<!ENTITY % ContentExpression   "(%Content; | %PresInCont;)* "     >
+<!ENTITY % PresExpression      "(%Presentation; | %ContInPres;)* "     >
+<!ENTITY % MathExpression      "(%PresInCont; | %ContInPres;)* "     >
+
+<!--  content token elements (may hold embedded presentation constructs)
+-->
+
+<!ELEMENT ci       (#PCDATA | %PresInCont;)*   >
+<!ELEMENT cn       (#PCDATA | sep | %PresInCont;)*   >
+
+<!--  content special elements    -->
+
+<!ELEMENT apply      (%ContentExpression;)   >
+<!ELEMENT reln       (%ContentExpression;)   >
+<!ELEMENT lambda     (%ContentExpression;)   >
+
+<!--  content other elements    -->
+
+<!ELEMENT condition      (%ContentExpression;)   >
+<!ELEMENT declare        (%ContentExpression;)   >
+
+<!--  content semantics elements    -->
+
+<!ELEMENT semantics              (%ContentExpression;)   >
+<!ELEMENT annotation             (#PCDATA)                >
+<!ELEMENT annotation-xml         (%ContentExpression;)   >
+
+<!--  content constructor elements    -->
+
+<!ELEMENT interval       (%ContentExpression;)   >
+<!ELEMENT set            (%ContentExpression;)   >
+<!ELEMENT list           (%ContentExpression;)   >
+<!ELEMENT vector         (%ContentExpression;)   >
+<!ELEMENT matrix         (%ContentExpression;)   >
+<!ELEMENT matrixrow      (%ContentExpression;)   >
+
+<!--  content operator element (user-defined)    -->
+
+<!ELEMENT fn       (%ContentExpression;)   >
+
+<!--  content quantifier elements    -->
+
+<!ELEMENT lowlimit       (%ContentExpression;)   >
+<!ELEMENT uplimit        (%ContentExpression;)   >
+<!ELEMENT bvar           (%ContentExpression;)   >
+<!ELEMENT degree         (%ContentExpression;)   >
+<!ELEMENT logbase        (%ContentExpression;)   >
+
+<!-- *************************************************  -->
+<!-- presentation layout schema contain tokens, layout and content
+schema  -->
+
+<!ELEMENT mstyle          (%PresExpression;)                      >
+<!ELEMENT merror          (%PresExpression;)                      >
+<!ELEMENT mphantom        (%PresExpression;)                      >
+<!ELEMENT mrow            (%PresExpression;)                      >
+<!ELEMENT mfrac           (%PresExpression;)                      >
+<!ELEMENT msqrt           (%PresExpression;)                      >
+<!ELEMENT mroot           (%PresExpression;)                      >
+<!ELEMENT msub            (%PresExpression;)                      >
+<!ELEMENT msup            (%PresExpression;)                      >
+<!ELEMENT msubsup         (%PresExpression;)                      >
+<!ELEMENT mmultiscripts   (%PresExpression;)                      >
+<!ELEMENT munder          (%PresExpression;)                      >
+<!ELEMENT mover           (%PresExpression;)                      >
+<!ELEMENT munderover      (%PresExpression;)                      >
+<!ELEMENT mtable          (%PresExpression;)                      >
+<!ELEMENT mtr             (%PresExpression;)                      >
+<!ELEMENT mtd             (%PresExpression;)                      >
+<!ELEMENT maction         (%PresExpression;)                      >
+<!ELEMENT mfenced         (%PresExpression;)                      >
+<!ELEMENT mpadded         (%PresExpression;)                      >
+
+<!-- presentation tokens contain PCDATA or malignmark constructs -->
+
+<!ELEMENT mi     (#PCDATA | malignmark )*        >
+<!ELEMENT mn     (#PCDATA | malignmark )*        >
+<!ELEMENT mo     (#PCDATA | malignmark )*        >
+<!ELEMENT mtext  (#PCDATA | malignmark )*        >
+<!ELEMENT ms     (#PCDATA | malignmark )*        >
+
+<!-- *************************************************  -->
+<!-- browser interface definition -->
+
+<!-- attributes for top level math element -->
+
+<!ENTITY  %     att-macros      'macros CDATA #IMPLIED' >
+<!ENTITY  %     att-mode        'mode   CDATA #IMPLIED' >
+
+<!ENTITY  %     att-topinfo    '%att-globalatts;
+                                %att-macros;
+                                %att-mode;'     >
+
+<!-- attributes for browser interface element element -->
+
+<!ENTITY  %     att-name        'name CDATA #IMPLIED' >
+<!ENTITY  %     att-baseline    'baseline CDATA #IMPLIED' >
+<!ENTITY  %     att-overflow    'overflow
+(scroll|elide|truncate|scale) "scroll"' >
+<!ENTITY  %     att-altimg      'altimg CDATA #IMPLIED' >
+<!ENTITY  %     att-alttext     'alttext CDATA #IMPLIED' >
+
+<!ENTITY  %     att-browif      '%att-type;
+                                %att-name;
+                                %att-height;
+                                %att-width;
+                                %att-baseline;
+                                %att-overflow;
+                                %att-altimg;
+                                %att-alttext; '     >
+
+<!-- the top level math  element      -->
+<!-- math  contains MathML encoded mathematics -->
+<!-- math has the browser info attributes iff it is the
+    browser interface element also -->
+
+<!ELEMENT math       (%MathExpression;)    >
+
+<!ATTLIST  math         %att-topinfo;
+                        %att-browif;   >
+
+<!METAINFO math  "treat.below.as.text" "true">
+
+
+<!-- ENTITY sets -->
+
+<!-- ISO 9573-13 -->
+<!--
+<!ENTITY % ent-isoamsa SYSTEM "isoamsa.ent" >
+%ent-isoamsa;
+
+<!ENTITY % ent-isoamsb SYSTEM "isoamsb.ent" >
+%ent-isoamsb;
+
+<!ENTITY % ent-isoamsc SYSTEM "isoamsc.ent" >
+%ent-isoamsc;
+
+<!ENTITY % ent-isoamsn SYSTEM "isoamsn.ent" >
+%ent-isoamsn;
+
+<!ENTITY % ent-isoamso SYSTEM "isoamso.ent" >
+%ent-isoamso;
+
+<!ENTITY % ent-isoamsr SYSTEM "isoamsr.ent" >
+%ent-isoamsr;
+
+<!ENTITY % ent-isogrk3 SYSTEM "isogrk3.ent" >
+%ent-isogrk3;
+
+<!ENTITY % ent-isogrk4 SYSTEM "isogrk4.ent" >
+%ent-isogrk4;
+
+<!ENTITY % ent-isomfrk SYSTEM "isomfrk.ent" >
+%ent-isomfrk;
+
+<!ENTITY % ent-isomopf SYSTEM "isomopf.ent" >
+%ent-isomopf;
+
+<!ENTITY % ent-isomscr SYSTEM "isomscr.ent" >
+%ent-isomscr;
+
+<!ENTITY % ent-isotech SYSTEM "isotech.ent" >
+%ent-isotech;
+-->
+
+
+<!-- ISO 8879 -->
+<!--
+<!ENTITY % ent-isobox SYSTEM "isobox.ent" >
+%ent-isobox;
+
+<!ENTITY % ent-isocyr1 SYSTEM "isocyr1.ent" >
+%ent-isocyr1;
+
+<!ENTITY % ent-isocyr2 SYSTEM "isocyr2.ent" >
+%ent-isocyr2;
+
+<!ENTITY % ent-isodia SYSTEM "isodia.ent" >
+%ent-isodia;
+
+<!ENTITY % ent-isogrk1 SYSTEM "isogrk1.ent" >
+%ent-isogrk1;
+
+<!ENTITY % ent-isogrk2 SYSTEM "isogrk2.ent" >
+%ent-isogrk2;
+
+<!ENTITY % ent-isolat1 SYSTEM "isolat1.ent" >
+%ent-isolat1;
+
+<!ENTITY % ent-isolat2 SYSTEM "isolat2.ent" >
+%ent-isolat2;
+
+<!ENTITY % ent-isonum SYSTEM "isonum.ent" >
+%ent-isonum;
+
+<!ENTITY % ent-isopub SYSTEM "isopub.ent" >
+%ent-isopub;
+-->
+
+<!-- MathML aliases for characters defined above -->
+<!--
+<!ENTITY % ent-mmlalias SYSTEM "mmlalias.ent" >
+%ent-mmlalias;
+-->
+
+<!-- MathML new characters -->
+<!--
+<!ENTITY % ent-mmlextra SYSTEM "mmlextra.ent" >
+%ent-mmlextra;
+-->
+
+<!-- end of ENTITY sets -->
+<!-- end of DTD fragment -->
+<!-- *************************************************  -->
+

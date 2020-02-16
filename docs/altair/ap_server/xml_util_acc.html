@@ -1,0 +1,98 @@
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>XML Utility</TITLE>
+</HEAD>
+
+<BODY>
+<H1>クラス XmlDbAccessor</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.39版 2010年 9月23日<BR>
+
+<HR>
+● 主要メソッド一覧
+<UL>
+<LI><A HREF="#create">void create(string msgType, string msgVersion, DbConnection conn);</A>
+<LI><A HREF="#setDTDfilename">void setDTDfilename(string dtd_filename);</A>
+<LI><A HREF="#putXML">string putXML(string xml);</A>
+<LI><A HREF="#getXML">string getXML(string msgId);</A>
+<LI><A HREF="#create_0">XmlDbObject create();</A>
+<LI><A HREF="#create_1">XmlDbObject create(string msgId);</A>
+<LI><A HREF="#get_1">XmlDbObject get(string msgId);</A>
+<LI><A HREF="#getAll">list getAll();</A>
+<LI><A HREF="#get_n_1">list get(string path, string value);</A>
+<LI><A HREF="#get_n_2">list get(string path1, string value1, string path2, string value2);</A>
+<LI><A HREF="#get_n_3">list get(string path1, string value1, string path2, string value2, string path3, string value3);</A>
+<LI><A HREF="#get_n_x">list get(list cond);</A>
+<LI><A HREF="#get_n_xxx">list get(list cond, string range_path, string range_type, string from, string to, string orderby_path, string orderby_type, list desc);</A>
+</UL>
+<HR>
+<H3><A NAME="create">void create(string msgType, string msgVersion, DbConnection conn);</A></H3>
+メッセージタイプmsgType、メッセージバージョンmsgVersion、DBコネクションconnをセットしてXmlDbAccessorを作成します。
+
+<H3><A NAME="setDTDfilename">void setDTDfilename(string dtd_filename);</A></H3>
+XmlDbAccessorにDTDのファイルを設定します。このDTDはDBスキーマに相当するものです。<BR>
+
+<H3><A NAME="putXML">string putXML(string xml);</A></H3>
+繰返し項目のあるレコード群を一括してXML形式でDBテーブル群に挿入します。<BR>
+格納したXMLデータにはユニークなIDが振られ、そのIDが返ります。<BR>
+
+<H3><A NAME="getXML">string getXML(string msgId);</A></H3>
+繰返し項目のあるレコード群を一括してDBテーブル群からXML形式で取出します。<BR>
+引数のmsgIdは、取得するXMLデータに振られているユニークなIDです。<BR>
+
+<H3><A NAME="create_0">XmlDbObject create();</A></H3>
+ベースとなるレコードを作成します。<BR>
+レコードを表すXmlDbObjectにはユニークなIDが振られます。<BR>
+
+<H3><A NAME="create_1">XmlDbObject create(string msgId);</A></H3>
+ベースとなるレコードを作成します。<BR>
+レコードを表すXmlDbObjectには引数で与えたIDが振られます。<BR>
+
+<H3><A NAME="get_1">XmlDbObject get(string msgId);</A></H3>
+引数で与えたIDが振られているレコードに相当するXmlDbObjectが返ります。<BR>
+
+<H3><A NAME="getAll">list getAll();</A></H3>
+与えられているメッセージタイプとメッセージバージョンのXML形式がDTDファイルで与えられるレコードを<BR>
+XmlDbObjectのコレクションの形式ですべて返します。<BR>
+
+<H3><A NAME="get_n_1">list get(string path, string value);</A></H3>
+XPathがpathでそのXPathに入っているテキストがvalueに等しい(likeを使用)レコードに相当する<BR>
+XmlDbObjectのコレクションを取出します。<BR>
+
+<H3><A NAME="get_n_2">list get(string path1, string value1, string path2, string value2);</A></H3>
+XPathがpath1でそのXPathに入っているテキストがvalue1に等しく(likeを使用)、<BR>
+XPathがpath2でそのXPathに入っているテキストがvalue2に等しい(likeを使用)レコードに相当する<BR>
+XmlDbObjectのコレクションを取出します。<BR>
+
+<H3><A NAME="get_n_3">list get(string path1, string value1, string path2, string value2, string path3, string value3);</A></H3>
+XPathがpath1でそのXPathに入っているテキストがvalue1に等しく(likeを使用)、<BR>
+XPathがpath2でそのXPathに入っているテキストがvalue2に等しく(likeを使用)、<BR>
+XPathがpath3でそのXPathに入っているテキストがvalue3に等しい(likeを使用)レコードに相当する<BR>
+XmlDbObjectのコレクションを取出します。<BR>
+
+<H3><A NAME="get_n_x">list get(list cond);</A></H3>
+<PRE>
+condが(*, ...) -/path-1/-> value-1
+                  ...
+               -/path-n/-> value-n
+</PRE>
+で、
+XPathがpath-iでそのXPathに入っているテキストがvalue-iに等しい(likeを使用)レコードに相当する<BR>
+XmlDbObjectのコレクションを取出します。<BR>
+
+<H3><A NAME="get_n_xxx">list get(list cond, string range_path, string range_type, string from, string to, string orderby_path, string orderby_type, list desc);</A></H3>
+<PRE>
+condが(*, ...) -/path-1/-> value-1
+                  ...
+               -/path-n/-> value-n
+</PRE>
+でXPathがpath-iでそのXPathに入っているテキストがvalue-iに等しい(likeを使用)レコードで、<BR>
+XPathがrange_path(型はintegerかstring)でその値がfromからtoまでのレコードを、<BR>
+XPathがorderby_path(型はintegerかstring)でその値(型はintegerかstring)でソートした、<BR>
+レコード群に相当するXmlDbObjectのコレクションを取出します。<BR>
+descがnullの時は昇順、非nullの場合は降順でソートされます。<BR>
+<HR>
+
+</BODY>
+</HTML>

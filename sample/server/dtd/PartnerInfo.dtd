@@ -1,0 +1,14 @@
+
+<!ELEMENT PartnerInfo (Target, Id, BusinessId, MsgType, MyRole, PartnerRole, Properties*)>
+
+<!ELEMENT Target (#PCDATA)>
+<!ELEMENT Id     (#PCDATA)>
+
+<!ELEMENT BusinessId  (#PCDATA)>
+<!ELEMENT MsgType     (#PCDATA)>
+<!ELEMENT MyRole      (#PCDATA)>
+<!ELEMENT PartnerRole (#PCDATA)>
+
+<!ELEMENT Properties (Name, Value)>
+<!ELEMENT Name  (#PCDATA)>
+<!ELEMENT Value (#PCDATA)>

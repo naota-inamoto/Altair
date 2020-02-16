@@ -1,0 +1,39 @@
+<html>
+<body>
+<pre>
+<h1>ﾋﾞﾙﾄﾞのﾛｸﾞ</h1>
+<h3>
+--------------------構成: RobotVision - Win32 Release--------------------
+</h3>
+<h3>ｺﾏﾝﾄﾞ ﾗｲﾝ</h3>
+Creating command line "rc.exe /l 0x411 /fo"Release/RobotVision.res" /i "Release" /d "NDEBUG" /d "_AFXDLL" "C:\ALTAIR\BUILD\OCX\RobotVision\RobotVision.rc"" 
+一時ﾌｧｲﾙ "C:\DOCUME~1\inamoto\LOCALS~1\Temp\RSPE6.tmp" を作成し、次の内容を記録します
+[
+vfw32.lib /nologo /subsystem:windows /dll /incremental:no /pdb:"Release/RobotVision.pdb" /machine:I386 /def:".\RobotVision.def" /out:"Release/RobotVision.ocx" /implib:"Release/RobotVision.lib" 
+.\Release\RobotVision.obj
+.\Release\RobotVisionCtl.obj
+.\Release\RobotVisionPpg.obj
+.\Release\StdAfx.obj
+.\Release\RobotVision.res
+]
+ｺﾏﾝﾄﾞ ﾗｲﾝ "link.exe @C:\DOCUME~1\inamoto\LOCALS~1\Temp\RSPE6.tmp" の作成中
+一時ﾌｧｲﾙ "C:\DOCUME~1\inamoto\LOCALS~1\Temp\RSPE7.bat" を作成し、次の内容を記録します
+[
+@echo off
+regsvr32 /s /c ".\Release\RobotVision.ocx"
+echo regsvr32 exec. time > ".\Release\regsvr32.trg"
+]
+ｺﾏﾝﾄﾞ ﾗｲﾝ "C:\DOCUME~1\inamoto\LOCALS~1\Temp\RSPE7.bat" の作成中
+ﾘｿｰｽをｺﾝﾊﾟｲﾙ中...
+ﾘﾝｸ中...
+   ﾗｲﾌﾞﾗﾘ Release/RobotVision.lib とｵﾌﾞｼﾞｪｸﾄ Release/RobotVision.exp を作成中
+<h3>ｱｳﾄﾌﾟｯﾄ ｳｨﾝﾄﾞｳ</h3>
+ActiveX ｺﾝﾄﾛｰﾙを登録しています...
+
+
+
+<h3>結果</h3>
+RobotVision.ocx - ｴﾗｰ 0、警告 0
+</pre>
+</body>
+</html>

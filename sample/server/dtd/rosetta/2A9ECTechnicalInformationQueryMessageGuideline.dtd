@@ -1,0 +1,220 @@
+<!-- Formal Public Identifier:
+"-//Si2/RosettaNet//DTD PIP2A9 1.0 20000920//EN"
+-->
+
+<!-- ==========================================================
+                        Copyright Notice                       
+     ==========================================================
+
+     Copyright (c) 1999, 2000 by Silicon Integration
+     Initiative, Inc. (Si2) (DUNS No. 62-191-1718), and 
+     RosettaNet.
+
+     All Rights Reserved Worldwide.
+     Permission to use, copy, and distribute this DTD for any
+     purpose subject to the following restrictions:
+
+     Permission is granted for verbatim copy and distribution
+     only, of this material, in any medium, provided that you
+     publish on each copy this copyright notice and disclaimer
+     of warranty.
+
+     Si2/RosettaNet makes no representation about the suitability of the
+     DTD for any purpose nor regarding any claims made by
+     products which use it.  It is provided "as is" without
+     expressed or implied warranty.
+
+     This DTD may be revised from time to time without notice.
+
+     ==========================================================
+
+     NAME:        PIP2A9 DTD
+     
+     PART OF:     Cluster 2: Product Information
+                  Segment A: Preparation for Distribution
+                  PIP2A: 9Query Electronic Component Technical Information
+     
+     CONSTRAINTS: Additional constraints and other semantics for use
+                  of this DTD are defined in the RosettaNet documents:
+        2A9ECTIMessageGuideline.htm
+                    "PIP2A9: Query Electronic Component
+                        Technical Information"
+                    "Electronic Component Technical Information
+                        Exchange Protocol Specification"
+
+     CREDITS:     Derived from the ECIX QuickData DTD developed by Si2.
+
+
+     ========================================================== -->
+
+
+<!-- ================  Both QUERY and RESPONSE  ================ -->
+
+<!ELEMENT Pip2A9ECTechnicalInformationQuery (
+  dict.identifier,
+  query,
+  %MessageMetadata;,
+  requestingDocumentIdentifier?,
+  requestingDocumentDateTime?
+  ) >
+<!ATTLIST Pip2A9ECTechnicalInformationQuery
+  qd.key  CDATA  #IMPLIED
+  >
+
+<!ELEMENT dict.identifier  (#PCDATA) >
+<!ATTLIST dict.identifier  %xmlAtts; >
+
+<!ELEMENT element  (
+  name,
+  value*
+  ) >
+<!ATTLIST element
+  id  ID  #IMPLIED
+  %dictionaryReference;
+  >
+
+<!ELEMENT name  (#PCDATA)  >
+<!ATTLIST name  %xmlAtts; >
+
+<!ELEMENT value  (#PCDATA)  >
+<!ATTLIST value
+  %xmlAtts;
+  type           CDATA            #IMPLIED
+  ntol.abs       %toleranceAbs;   #IMPLIED
+  ntol.per       %tolerancePer;   #IMPLIED
+  ptol.abs       %toleranceAbs;   #IMPLIED
+  ptol.per       %tolerancePer;   #IMPLIED
+  NoValueReason  CDATA            #IMPLIED
+  >
+
+<!ELEMENT CharacteristicSet  ( name ) >
+<!ATTLIST CharacteristicSet
+  id       ID      #IMPLIED
+  %dictionaryReference;
+  members  IDREFS  #IMPLIED
+  >
+
+<!-- =================  QUERY  ======================= -->
+
+<!ELEMENT query (
+  element*,
+  CharacteristicSet*,
+  send.addl.info?
+  ) >
+<!ATTLIST query 
+  starting.at   NMTOKEN  #IMPLIED
+  max.records   NMTOKEN  #IMPLIED
+  >
+
+<!ELEMENT send.addl.info  (data.object+) >
+
+<!ELEMENT data.object  (#PCDATA) >
+
+<!ELEMENT FreeFormText ( #PCDATA ) >
+<!ATTLIST FreeFormText
+  xml:lang  CDATA  #IMPLIED
+  >
+
+<!ELEMENT fromRole ( PartnerRoleDescription ) >
+
+<!ELEMENT PartnerRoleDescription ( 
+  GlobalPartnerRoleClassificationCode,
+  PartnerDescription,
+  ContactInformation?
+  ) >
+
+<!ELEMENT ContactInformation ( 
+  contactName,
+  telephoneNumber,
+  EmailAddress
+  ) >
+
+<!ELEMENT contactName ( FreeFormText ) >
+
+<!ELEMENT telephoneNumber ( CommunicationsNumber ) >
+
+<!ELEMENT CommunicationsNumber ( #PCDATA ) >
+
+<!ELEMENT EmailAddress ( #PCDATA ) >
+<!ATTLIST EmailAddress
+  xml:lang  CDATA  #IMPLIED
+  >
+
+<!ELEMENT GlobalPartnerRoleClassificationCode ( #PCDATA ) >
+
+<!ELEMENT PartnerDescription ( 
+  GlobalPartnerClassificationCode,
+  BusinessDescription
+  ) >
+
+<!ELEMENT GlobalPartnerClassificationCode ( #PCDATA ) >
+
+<!ELEMENT BusinessDescription ( 
+  GlobalBusinessIdentifier,
+  GlobalSupplyChainCode
+  ) >
+
+<!ELEMENT GlobalBusinessIdentifier ( #PCDATA ) >
+
+<!ELEMENT GlobalSupplyChainCode ( #PCDATA ) >
+
+<!ELEMENT toRole ( PartnerRoleDescription ) > 
+
+<!ELEMENT thisDocumentGenerationDateTime ( DateTimeStamp ) > 
+
+<!ELEMENT DateTimeStamp ( #PCDATA ) >
+
+<!ELEMENT thisDocumentIdentifier ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT ProprietaryDocumentIdentifier ( #PCDATA ) >
+
+<!ELEMENT GlobalDocumentFunctionCode ( #PCDATA ) >
+
+<!ELEMENT requestingDocumentIdentifier ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT requestingDocumentDateTime ( DateTimeStamp ) > 
+
+<!-- ==============  EXTERNAL PARAMETER ENTITIES  ============= -->
+
+<!--
+<!ENTITY % ECdictionary PUBLIC
+  "-//Si2//DTD ECTD 1.1 20000820//EN"
+  "../ECTD/ec.dtd"
+  >
+%ECdictionary;
+
+<!ENTITY % BusinessCommon PUBLIC
+  "-//RosettaNet//DTD Common Business Elements 1.0 20000820//EN"
+  "BusinessCommon.mod"
+  >
+%BusinessCommon;
+-->
+
+<!-- =================  INTERNAL PARAMETER ENTITIES  ========== -->
+
+<!ENTITY % dictionaryReference  "
+  dicRef  NMTOKEN  #IMPLIED
+  " >
+
+<!ENTITY % toleranceAbs "
+  CDATA
+  ">
+<!ENTITY % tolerancePer  "
+  CDATA
+  ">
+
+<!ENTITY % MessageMetadata "
+  fromRole,
+  toRole,
+  thisDocumentGenerationDateTime,
+  thisDocumentIdentifier,
+  GlobalDocumentFunctionCode
+  ">
+
+<!ENTITY % xmlAtts "
+  xml:space    (default|preserve)  'preserve'
+  xml:lang     NMTOKEN              #IMPLIED
+  " >
+
+<!-- ===================  End of QD.DTD  ====================== -->
+

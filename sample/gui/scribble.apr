@@ -1,0 +1,183 @@
+$END_LIB
+TEXT
+AlObject
+class Scribble
+end_class
+$END_CLASS
+TEXT
+AlObject
+class Scribble
+member
+public: static void main();
+member
+public: static void DrawProc(Scribble scribble, window wnd);
+member
+public: static void EventProc(Scribble scribble, window wnd, list event);
+member
+public: void Init();
+member
+public: integer LeftButtonDown;
+member
+public: integer LeftButtonUp;
+member
+public: integer MouseMove;
+member
+public: void Draw(window wnd);
+member
+public: void Event(window wnd, list event);
+member
+public: void Damage(window wnd);
+member
+public: integer bg_color;
+member
+public: integer fg_color;
+member
+public: list points;
+member
+public: integer curr_x;
+member
+public: integer curr_y;
+member
+public: list clear_area_button_down;
+member
+public: list draw_area_button_down;
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class Scribble
+member
+public: static void main();
+body
+{
+	var window wnd;
+	wnd = al_create_window(null);
+	var Scribble scribble;
+	scribble = new Scribble;
+	scribble.Init();
+	al_set_window_arg(wnd, "scribble", scribble);
+	al_set_window_arg(wnd, "wnd", wnd);
+	al_set_draw_proc(wnd, Scribble::DrawProc);
+	al_set_event_proc(wnd, Scribble::EventProc);
+}
+end_body
+member
+public: static void DrawProc(Scribble scribble, window wnd);
+body
+{
+	scribble.Draw(wnd);
+}
+end_body
+member
+public: static void EventProc(Scribble scribble, window wnd, list event);
+body
+{
+	scribble.Event(wnd, event);
+}
+end_body
+member
+public: void Init();
+body
+{
+	LeftButtonDown = 0;
+	LeftButtonUp = 1;
+	MouseMove = 6;
+	bg_color = al_get_sys_color(0);
+	fg_color = al_get_sys_color(1);
+	points = al_create_poly_poly();
+}
+end_body
+member
+public: integer LeftButtonDown;
+member
+public: integer LeftButtonUp;
+member
+public: integer MouseMove;
+member
+public: void Draw(window wnd);
+body
+{
+	al_push_pen(wnd, "Solid", 1, fg_color);
+	al_push_brush(wnd, "Solid", bg_color, null);
+	al_rectangle(wnd, 10, 10, 70, 30);
+	al_text(wnd, 12, 12, "Clear");
+	al_rectangle(wnd, 10, 40, 360, 320);
+	al_polyline(wnd, points);
+	al_pop_brush(wnd);
+	al_pop_pen(wnd);
+}
+end_body
+member
+public: void Event(window wnd, list event);
+body
+{
+	var integer msg, x, y;
+	msg = event.head;
+	x = event.tail.head;
+	y = event.tail.tail.head;
+	if (msg == LeftButtonDown) {
+		curr_x = x;
+		curr_y = y;
+		if (10 <= x && x <= 70 && 10 <= y && y <= 30) {
+			clear_area_button_down = 1;
+		} else {
+		}
+		if (10 <= x && x <= 360 && 40 <= y && y <= 320) {
+			al_create_next_poly(points);
+			al_add_point_to_poly(points, x, y);
+			draw_area_button_down = 1;
+		} else {
+		}
+	} else {
+	}
+	if (msg == LeftButtonUp) {
+		if (clear_area_button_down && 10 <= x && x <= 70 && 10 <= y && y <= 30) {
+			points = al_create_poly_poly();
+			Damage(wnd);
+		} else {
+		}
+		clear_area_button_down = null;
+		draw_area_button_down = null;
+	} else {
+	}
+	if (msg == MouseMove) {
+		if (draw_area_button_down && 10 <= x && x <= 360 && 40 <= y && y <= 320) {
+			if (x != curr_x || y != curr_y) {
+				al_add_point_to_poly(points, x, y);
+				curr_x = x;
+				curr_y = y;
+				Damage(wnd);
+			} else {
+			}
+		} else {
+		}
+	} else {
+	}
+}
+end_body
+member
+public: void Damage(window wnd);
+body
+{
+	var list poly;
+	poly = al_create_poly_poly();
+	al_add_rect_to_poly(poly, 10, 40, 360, 320);
+	al_damage(wnd, poly);
+}
+end_body
+member
+public: integer bg_color;
+member
+public: integer fg_color;
+member
+public: list points;
+member
+public: integer curr_x;
+member
+public: integer curr_y;
+member
+public: list clear_area_button_down;
+member
+public: list draw_area_button_down;
+end_class
+$END_BODY

@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PipInfo SYSTEM "PipInfo.dtd">
+<PipInfo>
+    <Target>rosetta</Target>
+    <Id>message type</Id>
+
+    <!-- RNIF 2.0 -->
+    <Message>
+        <MsgType>Preamble</MsgType>
+        <MessageVersion>V02.00</MessageVersion>
+        <DTDfilename>rosetta/Preamble_MS_V02_00.dtd</DTDfilename>
+        <MessageCode>Preamble</MessageCode>
+        <FromRoleClass></FromRoleClass>
+        <FromService></FromService>
+        <ToRoleClass></ToRoleClass>
+        <ToService></ToService>
+        <TransactionCode></TransactionCode>
+        <NextAction></NextAction>
+        <Indicator></Indicator>
+        <ProcessCode></ProcessCode>
+        <ProcessVersion></ProcessVersion>
+    </Message>
+    <Message>
+        <MsgType>DeliveryHeader</MsgType>
+        <MessageVersion>V02.00</MessageVersion>
+        <DTDfilename>rosetta/DeliveryHeader_MS_V02_00.dtd</DTDfilename>
+        <MessageCode>DeliveryHeader</MessageCode>
+        <FromRoleClass></FromRoleClass>
+        <FromService></FromService>
+        <ToRoleClass></ToRoleClass>
+        <ToService></ToService>
+        <TransactionCode></TransactionCode>
+        <NextAction></NextAction>
+        <Indicator></Indicator>
+        <ProcessCode></ProcessCode>
+        <ProcessVersion></ProcessVersion>
+    </Message>
+    <Message>
+        <MsgType>ServiceHeader</MsgType>
+        <MessageVersion>V02.00</MessageVersion>
+        <DTDfilename>rosetta/ServiceHeader_MS_V02_00.dtd</DTDfilename>
+        <MessageCode>ServiceHeader</MessageCode>
+        <FromRoleClass></FromRoleClass>
+        <FromService></FromService>
+        <ToRoleClass></ToRoleClass>
+        <ToService></ToService>
+        <TransactionCode></TransactionCode>
+        <NextAction></NextAction>
+        <Indicator></Indicator>
+        <ProcessCode></ProcessCode>
+        <ProcessVersion></ProcessVersion>
+    </Message>
+    <Message>
+        <MsgType>ReceiptAcknowledgment</MsgType>
+        <MessageVersion>V02.00</MessageVersion>
+        <DTDfilename>rosetta/AcknowledgmentOfReceipt_MS_V02_00.dtd</DTDfilename>
+        <MessageCode>Receipt Acknowledgment</MessageCode>
+        <FromRoleClass></FromRoleClass>
+        <FromService></FromService>
+        <ToRoleClass></ToRoleClass>
+        <ToService></ToService>
+        <TransactionCode></TransactionCode>
+        <NextAction></NextAction>
+        <Indicator></Indicator>
+        <ProcessCode></ProcessCode>
+        <ProcessVersion></ProcessVersion>
+    </Message>
+    <Message>
+        <MsgType>Exception</MsgType>
+        <MessageVersion>V02.00</MessageVersion>
+        <DTDfilename>rosetta/Exception_MS_V02_00.dtd</DTDfilename>
+        <MessageCode>Exception</MessageCode>
+        <FromRoleClass></FromRoleClass>
+        <FromService></FromService>
+        <ToRoleClass></ToRoleClass>
+        <ToService></ToService>
+        <TransactionCode></TransactionCode>
+        <NextAction></NextAction>
+        <Indicator></Indicator>
+        <ProcessCode></ProcessCode>
+        <ProcessVersion></ProcessVersion>
+    </Message>
+
+    <!-- 0A1 Failure Notification 1.0 -->
+    <Message>
+        <MsgType>Pip0A1FailureNotification</MsgType>
+        <MessageVersion>1.0</MessageVersion>
+        <DTDfilename>rosetta/0A1FailureNotificationMessageGuideline.dtd</DTDfilename>
+        <MessageCode>Failure Notification Action</MessageCode>
+        <FromRoleClass>PIP Failure Notifier</FromRoleClass>
+        <FromService>Failure Notifier Service</FromService>
+        <ToRoleClass>Failure Report Administrator</ToRoleClass>
+        <ToService>Failure Report Administrator Service</ToService>
+        <TransactionCode></TransactionCode>
+        <NextAction></NextAction>
+        <Indicator>0A1</Indicator>
+        <ProcessCode>Notification of Failure</ProcessCode>
+        <ProcessVersion>1.0</ProcessVersion>
+    </Message>
+    <!-- 0A1 Failure Notification V02.00 -->
+    <Message>
+        <MsgType>Pip0A1FailureNotification</MsgType>
+        <MessageVersion>V02.00</MessageVersion>
+        <DTDfilename>rosetta/0A1_MS_V02_00_FailureNotification.dtd</DTDfilename>
+        <MessageCode>Failure Notification Action</MessageCode>
+        <FromRoleClass>PIP Failure Notifier</FromRoleClass>
+        <FromService>Failure Notifier Service</FromService>
+        <ToRoleClass>Failure Report Administrator</ToRoleClass>
+        <ToService>Failure Report Administrator Service</ToService>
+        <TransactionCode></TransactionCode>
+        <NextAction></NextAction>
+        <Indicator>0A1</Indicator>
+        <ProcessCode>Notification of Failure</ProcessCode>
+        <ProcessVersion>V02.00</ProcessVersion>
+    </Message>
+
+    <!-- 2A1 Product Resource Update 1.0 -->
+    <Message>
+        <MsgType>Pip2A1ProductResourceUpdate</MsgType>
+        <MessageVersion>1.0</MessageVersion>
+        <DTDfilename>rosetta/Pip2A1ProductResourceUpdateGuideline.dtd</DTDfilename>
+        <MessageCode>Product Resource Update Action</MessageCode>
+        <FromRoleClass>Product Information Distributor</FromRoleClass>
+        <FromService>Product Information Distributor Service</FromService>
+        <ToRoleClass>Product Information User</ToRoleClass>
+        <ToService>Product Information User Service</ToService>
+        <TransactionCode>Distribute New Product Information</TransactionCode>
+        <NextAction></NextAction>
+        <Indicator>2A1</Indicator>
+        <ProcessCode>Distribute New Product Information</ProcessCode>
+        <ProcessVersion>1.0</ProcessVersion>
+    </Message>
+
+    <!-- 2A1 Product Information Notification 1.0 -->
+    <Message>
+        <MsgType>Pip2A1ProductInformationNotification</MsgType>
+        <MessageVersion>1.0</MessageVersion>
+        <DTDfilename>rosetta/Pip2A1ProductInformationNotificationGuideline.dtd</DTDfilename>
+        <MessageCode>Product Information Notification Action</MessageCode>
+        <FromRoleClass>Product Information Distributor</FromRoleClass>
+        <FromService>Product Information Distributor Service</FromService>
+        <ToRoleClass>Buyer</ToRoleClass>
+        <ToService>Buyer Service</ToService>
+        <TransactionCode>Distribute New Product Information</TransactionCode>
+        <NextAction></NextAction>
+        <Indicator>2A1</Indicator>
+        <ProcessCode>Distribute New Product Information</ProcessCode>
+        <ProcessVersion>1.0</ProcessVersion>
+    </Message>
+
+    <!-- 2A2 Product Information Query 1.0 -->
+    <Message>
+        <MsgType>Pip2A2ProductInformationQuery</MsgType>
+        <MessageVersion>1.0</MessageVersion>
+        <DTDfilename>rosetta/2A2ProductInformationQueryMessageGuideline.dtd</DTDfilename>
+        <MessageCode>Product Information Query Action</MessageCode>
+        <FromRoleClass>Product Information User</FromRoleClass>
+        <FromService>Product Information User Service</FromService>
+        <ToRoleClass>Product Information Distributor</ToRoleClass>
+        <ToService>Product Information Distributor Service</ToService>
+        <TransactionCode>Query Product Information</TransactionCode>
+        <NextAction>Product Information Response Action</NextAction>
+        <Indicator>2A2</Indicator>
+        <ProcessCode>Query Product Information</ProcessCode>
+        <ProcessVersion>1.0</ProcessVersion>
+    </Message>
+
+    <!-- 2A2 Product Information Response 1.0 -->
+    <Message>
+        <MsgType>Pip2A2ProductInformationResponse</MsgType>
+        <MessageVersion>1.0</MessageVersion>
+        <DTDfilename>rosetta/2A2ProductInformationResponseMessageGuideline.dtd</DTDfilename>
+        <MessageCode>Product Information Response Action</MessageCode>
+        <FromRoleClass>Product Information Distributor</FromRoleClass>
+        <FromService>Product Information Distributor Service</FromService>
+        <ToRoleClass>Product Information User</ToRoleClass>
+        <ToService>Product Information User Service</ToService>
+        <TransactionCode>Query Product Information</TransactionCode>
+        <NextAction></NextAction>
+        <Indicator>2A2</Indicator>
+        <ProcessCode>Query Product Information</ProcessCode>
+        <ProcessVersion>1.0</ProcessVersion>
+    </Message>
+
+    <!-- 2A5 Technical Information Query 1.0 -->
+    <Message>
+        <MsgType>Pip2A5TechnicalInformationQuery</MsgType>
+        <MessageVersion>1.0</MessageVersion>
+        <DTDfilename>rosetta/2A5TechnicalInformationQueryMessageGuideline.dtd</DTDfilename>
+        <MessageCode>Technical Information Query Action</MessageCode>
+        <FromRoleClass>Product Information User</FromRoleClass>
+        <FromService>Product Information User Service</FromService>
+        <ToRoleClass>Product Information Distributor</ToRoleClass>
+        <ToService>Product Information Distributor Service</ToService>
+        <TransactionCode>Query Technical Information</TransactionCode>
+        <NextAction>Technical Information Response Action</NextAction>
+        <Indicator>2A5</Indicator>
+        <ProcessCode>Query Technical Information</ProcessCode>
+        <ProcessVersion>1.0</ProcessVersion>
+    </Message>
+
+    <!-- 2A5 Technical Information Response 1.0 -->
+    <Message>
+        <MsgType>Pip2A5TechnicalInformationResponse</MsgType>
+        <MessageVersion>1.0</MessageVersion>
+        <DTDfilename>rosetta/2A5TechnicalInformationResponseMessageGuideline.dtd</DTDfilename>
+        <MessageCode>Technical Information Response Action</MessageCode>
+        <FromRoleClass>Product Information Distributor</FromRoleClass>
+        <FromService>Product Information Distributor Service</FromService>
+        <ToRoleClass>Product Information User</ToRoleClass>
+        <ToService>Product Information User Service</ToService>
+        <TransactionCode>Query Technical Information</TransactionCode>
+        <NextAction></NextAction>
+        <Indicator>2A5</Indicator>
+        <ProcessCode>Query Technical Information</ProcessCode>
+        <ProcessVersion>1.0</ProcessVersion>
+    </Message>
+
+    <!-- 2A9 EC Technical Information Query V01.00 -->
+    <Message>
+        <MsgType>Pip2A9ECTechnicalInformationQuery</MsgType>
+        <MessageVersion>V01.00</MessageVersion>
+        <DTDfilename>rosetta/2A9ECTechnicalInformationQueryMessageGuideline.dtd</DTDfilename>
+        <MessageCode>EC Technical Information Query Action</MessageCode>
+        <FromRoleClass>Product Information User</FromRoleClass>
+        <FromService>Product Information User Service</FromService>
+        <ToRoleClass>Product Information Distributor</ToRoleClass>
+        <ToService>Product Information Distributor Service</ToService>
+        <TransactionCode>Query EC Technical Information</TransactionCode>
+        <NextAction>EC Technical Information Response Action</NextAction>
+        <Indicator>2A9</Indicator>
+        <ProcessCode>Query Electronic Component Technical Information</ProcessCode>
+        <ProcessVersion>V01.00</ProcessVersion>
+    </Message>
+
+    <!-- 2A9 EC Tecnical Information Response V01.00 -->
+    <Message>
+        <MsgType>Pip2A9ECTechnicalInformationResponse</MsgType>
+        <MessageVersion>V01.00</MessageVersion>
+        <DTDfilename>rosetta/2A9ECTechnicalInformationResponseMessageGuideline.dtd</DTDfilename>
+        <MessageCode>EC Technical Information Response Action</MessageCode>
+        <FromRoleClass>Product Information Distributor</FromRoleClass>
+        <FromService>Product Information Distributor Service</FromService>
+        <ToRoleClass>Product Information User</ToRoleClass>
+        <ToService>Product Information User Service</ToService>
+        <TransactionCode>Query EC Technical Information</TransactionCode>
+        <NextAction></NextAction>
+        <Indicator>2A9</Indicator>
+        <ProcessCode>Query Electronic Component Technical Information</ProcessCode>
+        <ProcessVersion>V01.00</ProcessVersion>
+    </Message>
+
+    <!-- 3A4 Purchase Order Request 1.1 -->
+    <Message>
+        <MsgType>Pip3A4PurchaseOrderRequest</MsgType>
+        <MessageVersion>1.1</MessageVersion>
+        <DTDfilename>rosetta/3A4PurchaseOrderRequestMessageGuideline_v1_1.dtd</DTDfilename>
+        <MessageCode>Purchase Order Request Action</MessageCode>
+        <FromRoleClass>Buyer</FromRoleClass>
+        <FromService>Buyer Service</FromService>
+        <ToRoleClass>Seller</ToRoleClass>
+        <ToService>Seller Service</ToService>
+        <TransactionCode>Create Purchase Order</TransactionCode>
+        <NextAction>Purchase Order Acceptance Action</NextAction>
+        <Indicator>3A4</Indicator>
+        <ProcessCode>Manage Purchase Order</ProcessCode>
+        <ProcessVersion>1.1</ProcessVersion>
+    </Message>
+    <!-- 3A4 Purchase Order Acceptance 1.1 -->
+    <Message>
+        <MsgType>Pip3A4PurchaseOrderAcceptance</MsgType>
+        <MessageVersion>1.1</MessageVersion>
+        <DTDfilename>rosetta/3A4PurchaseOrderAcceptanceMessageGuideline_v1_1.dtd</DTDfilename>
+        <MessageCode>Purchase Order Acceptance Action</MessageCode>
+        <FromRoleClass>Seller</FromRoleClass>
+        <FromService>Seller Service</FromService>
+        <ToRoleClass>Buyer</ToRoleClass>
+        <ToService>Buyer Service</ToService>
+        <TransactionCode>Notify of Purchase Order Acceptance</TransactionCode>
+        <NextAction></NextAction>
+        <Indicator>3A4</Indicator>
+        <ProcessCode>Notify of Purchase Order Acceptance</ProcessCode>
+        <ProcessVersion>1.1</ProcessVersion>
+    </Message>
+    <!-- 3A4 Purchase Order Change 1.1 -->
+    <Message>
+        <MsgType>Pip3A4PurchaseOrderChange</MsgType>
+        <MessageVersion>1.1</MessageVersion>
+        <DTDfilename>rosetta/3A4PurchaseOrderChangeMessageGuideline_v1_1.dtd</DTDfilename>
+        <MessageCode>Purchase Order Change Action</MessageCode>
+        <FromRoleClass>Buyer</FromRoleClass>
+        <FromService>Buyer Service</FromService>
+        <ToRoleClass>Seller</ToRoleClass>
+        <ToService>Seller Service</ToService>
+        <TransactionCode>Change Purchase Order</TransactionCode>
+        <NextAction>Purchase Order Acceptance Action</NextAction>
+        <Indicator>3A4</Indicator>
+        <ProcessCode>Manage Purchase Order</ProcessCode>
+        <ProcessVersion>1.1</ProcessVersion>
+    </Message>
+    <!-- 3A4 Purchase Order Cancellation 1.0 -->
+    <Message>
+        <MsgType>Pip3A4PurchaseOrderCancellation</MsgType>
+        <MessageVersion>1.0</MessageVersion>
+        <DTDfilename>rosetta/Pip3A4PurchaseOrderCancellationGuideline_v1_0.dtd</DTDfilename>
+        <MessageCode>Purchase Order Cancellation Action</MessageCode>
+        <FromRoleClass>Buyer</FromRoleClass>
+        <FromService>Buyer Service</FromService>
+        <ToRoleClass>Seller</ToRoleClass>
+        <ToService>Seller Service</ToService>
+        <TransactionCode>Cancel Purchase Order</TransactionCode>
+        <NextAction>Purchase Order Acceptance Action</NextAction>
+        <Indicator>3A4</Indicator>
+        <ProcessCode>Manage Purchase Order</ProcessCode>
+        <ProcessVersion>1.1</ProcessVersion>
+    </Message>
+
+    <!-- 3A4 Purchase Order Request R02.00 -->
+    <Message>
+        <MsgType>Pip3A4PurchaseOrderRequest</MsgType>
+        <MessageVersion>R02.00</MessageVersion>
+        <DTDfilename>rosetta/3A4_MS_R02_00_PurchaseOrderRequest.dtd</DTDfilename>
+        <MessageCode>Purchase Order Request Action</MessageCode>
+        <FromRoleClass>Buyer</FromRoleClass>
+        <FromService>Buyer Service</FromService>
+        <ToRoleClass>Seller</ToRoleClass>
+        <ToService>Seller Service</ToService>
+        <TransactionCode>Request Purchase Order</TransactionCode>
+        <NextAction>Purchase Order Confirmation Action</NextAction>
+        <Indicator>3A4</Indicator>
+        <ProcessCode>Request Purchase Order</ProcessCode>
+        <ProcessVersion>R02.00</ProcessVersion>
+    </Message>
+    <!-- 3A4 Purchase Order Request Confirmation R02.00 -->
+    <Message>
+        <MsgType>Pip3A4PurchaseOrderConfirmation</MsgType>
+        <MessageVersion>R02.00</MessageVersion>
+        <DTDfilename>rosetta/3A4_MS_R02_00_PurchaseOrderConfirmation.dtd</DTDfilename>
+        <MessageCode>Purchase Order Confirmation Action</MessageCode>
+        <FromRoleClass>Seller</FromRoleClass>
+        <FromService>Seller Service</FromService>
+        <ToRoleClass>Buyer</ToRoleClass>
+        <ToService>Buyer Service</ToService>
+        <TransactionCode>Request Purchase Order</TransactionCode>
+        <NextAction></NextAction>
+        <Indicator>3A4</Indicator>
+        <ProcessCode>Request Purchase Order</ProcessCode>
+        <ProcessVersion>R02.00</ProcessVersion>
+    </Message>
+
+    <!-- 3A6 Purchase Order Status Notification R02.00 -->
+    <Message>
+        <MsgType>Pip3A6PurchaseOrderStatusNotification</MsgType>
+        <MessageVersion>R02.00</MessageVersion>
+        <DTDfilename>rosetta/3A6_MS_R02_00_PurchaseOrderStatusNotification.dtd</DTDfilename>
+        <MessageCode>Purchase Order Status Notification Action</MessageCode>
+        <FromRoleClass>Seller</FromRoleClass>
+        <FromService>Seller Service</FromService>
+        <ToRoleClass>Buyer</ToRoleClass>
+        <ToService>Buyer Service</ToService>
+        <TransactionCode>Distribute Order Status</TransactionCode>
+        <NextAction></NextAction>
+        <Indicator>3A6</Indicator>
+        <ProcessCode>Distribute Order Status</ProcessCode>
+        <ProcessVersion>R02.00</ProcessVersion>
+    </Message>
+
+    <!-- 3A7  Purchase Order Acceptance Notification 1.1 -->
+    <Message>
+        <MsgType>Pip3A7PurchaseOrderAcceptanceNotification</MsgType>
+        <MessageVersion>1.1</MessageVersion>
+        <DTDfilename>rosetta/3A7PurchaseOrderAcceptanceNotificationMessageGuideline_v1_1.dtd</DTDfilename>
+        <MessageCode>Purchase Order Acceptance Notification Action</MessageCode>
+        <FromRoleClass>Seller</FromRoleClass>
+        <FromService>Seller Service</FromService>
+        <ToRoleClass>Buyer</ToRoleClass>
+        <ToService>Buyer Service</ToService>
+        <TransactionCode>Notify of Purchase Order Acceptance</TransactionCode>
+        <NextAction></NextAction>
+        <Indicator>3A7</Indicator>
+        <ProcessCode>Notify of Purchase Order Acceptance</ProcessCode>
+        <ProcessVersion>1.1</ProcessVersion>
+    </Message>
+    <!-- 3A7 Purchase Order Acknowledgment Notification R02.00 -->
+    <Message>
+        <MsgType>Pip3A7PurchaseOrderAcknowledgmentNotification</MsgType>
+        <MessageVersion>R02.00</MessageVersion>
+        <DTDfilename>rosetta/3A7_MS_R02_00_PurchaseOrderAcknowledgmentNotification.dtd</DTDfilename>
+        <MessageCode>Purchase Order Acknowledgment Notification Action</MessageCode>
+        <FromRoleClass>Seller</FromRoleClass>
+        <FromService>Seller Service</FromService>
+        <ToRoleClass>Buyer</ToRoleClass>
+        <ToService>Buyer Service</ToService>
+        <TransactionCode>Notify of Purchase Order Acknowledgment</TransactionCode>
+        <NextAction></NextAction>
+        <Indicator>3A7</Indicator>
+        <ProcessCode>Notify of Purchase Order Acknowledgment</ProcessCode>
+        <ProcessVersion>R02.00</ProcessVersion>
+    </Message>
+
+    <!-- 3A8 Purchase Order Change Request R01.00 -->
+    <Message>
+        <MsgType>Pip3A8PurchaseOrderChangeRequest</MsgType>
+        <MessageVersion>R01.00</MessageVersion>
+        <DTDfilename>rosetta/3A8_MS_R01_00_PurchaseOrderChangeRequest.dtd</DTDfilename>
+        <MessageCode>Purchase Order Change Request Action</MessageCode>
+        <FromRoleClass>Buyer</FromRoleClass>
+        <FromService>Buyer Service</FromService>
+        <ToRoleClass>Seller</ToRoleClass>
+        <ToService>Seller Service</ToService>
+        <TransactionCode>Change Purchase Order</TransactionCode>
+        <NextAction>Purchase Order Change Confirmation Action</NextAction>
+        <Indicator>3A8</Indicator>
+        <ProcessCode>Request Purchase Order Change</ProcessCode>
+        <ProcessVersion>R01.00</ProcessVersion>
+    </Message>
+    <!-- 3A8 Purchase Order Change Confirmation R01.00 -->
+    <Message>
+        <MsgType>Pip3A8PurchaseOrderChangeConfirmation</MsgType>
+        <MessageVersion>R01.00</MessageVersion>
+        <DTDfilename>rosetta/3A8_MS_R01_00_PurchaseOrderChangeConfirmation.dtd</DTDfilename>
+        <MessageCode>Purchase Order Change Confirmation Action</MessageCode>
+        <FromRoleClass>Seller</FromRoleClass>
+        <FromService>Seller Service</FromService>
+        <ToRoleClass>Buyer</ToRoleClass>
+        <ToService>Buyer Service</ToService>
+        <TransactionCode>Request Purchase Order Change</TransactionCode>
+        <NextAction></NextAction>
+        <Indicator>3A8</Indicator>
+        <ProcessCode>Request Purchase Order Change</ProcessCode>
+        <ProcessVersion>R01.00</ProcessVersion>
+    </Message>
+
+    <!-- 3A9 Purchase Order Cancellation Request R01.00 -->
+    <Message>
+        <MsgType>Pip3A9PurchaseOrderCancellationRequest</MsgType>
+        <MessageVersion>R01.00</MessageVersion>
+        <DTDfilename>rosetta/3A9_MS_R01_00_PurchaseOrderCancellationRequest.dtd</DTDfilename>
+        <MessageCode>Purchase Order Cancellation Request Action</MessageCode>
+        <FromRoleClass>Buyer</FromRoleClass>
+        <FromService>Buyer Service</FromService>
+        <ToRoleClass>Seller</ToRoleClass>
+        <ToService>Seller Service</ToService>
+        <TransactionCode>Request Purchase Order Cancellation</TransactionCode>
+        <NextAction>Purchase Order Cancellation Confirmation Action</NextAction>
+        <Indicator>3A9</Indicator>
+        <ProcessCode>Request Purchase Order Cancellation</ProcessCode>
+        <ProcessVersion>R01.00</ProcessVersion>
+    </Message>
+
+    <!-- 3A9 Purchase Order Cancellation Confirmation R01.00 -->
+    <Message>
+        <MsgType>Pip3A9PurchaseOrderCancellationConfirmation</MsgType>
+        <MessageVersion>R01.00</MessageVersion>
+        <DTDfilename>rosetta/3A9_MS_R01_00_PurchaseOrderCancellationConfirmation.dtd</DTDfilename>
+        <MessageCode>Purchase Order Cancellation Confirmation Action</MessageCode>
+        <FromRoleClass>Seller</FromRoleClass>
+        <FromService>Seller Service</FromService>
+        <ToRoleClass>Buyer</ToRoleClass>
+        <ToService>Buyer Service</ToService>
+        <TransactionCode>Request Purchase Order Cancellation</TransactionCode>
+        <NextAction></NextAction>
+        <Indicator>3A9</Indicator>
+        <ProcessCode>Request Purchase Order Cancellation</ProcessCode>
+        <ProcessVersion>R01.00</ProcessVersion>
+    </Message>
+
+    <!-- 3B2 Acvanced Shipment Notification -->
+    <Message>
+        <MsgType>Pip3B2AdvanceShipmentNotification</MsgType>
+        <MessageVersion>R01.00</MessageVersion>
+        <DTDfilename>rosetta/3B2_MS_R01_00_AdvanceShipmentNotification.dtd</DTDfilename>
+        <MessageCode>Advance Shipment Notification Action</MessageCode>
+        <FromRoleClass>Shipper</FromRoleClass>
+        <FromService>Shipper Service</FromService>
+        <ToRoleClass>Receiver</ToRoleClass>
+        <ToService>Receiver Service</ToService>
+        <TransactionCode>Notify of Advance Shipment</TransactionCode>
+        <NextAction></NextAction>
+        <Indicator>3B2</Indicator>
+        <ProcessCode>Notify of Advance Shipment</ProcessCode>
+        <ProcessVersion>R01.00</ProcessVersion>
+    </Message>
+    <Message>
+        <MsgType>Pip3B2AdvanceShipmentNotification</MsgType>
+        <MessageVersion>V01.00</MessageVersion>
+        <DTDfilename>rosetta/3B2_MS_V01_00_AdvanceShipmentNotification.dtd</DTDfilename>
+        <MessageCode>Advance Shipment Notification Action</MessageCode>
+        <FromRoleClass>Shipper</FromRoleClass>
+        <FromService>Shipper Service</FromService>
+        <ToRoleClass>Receiver</ToRoleClass>
+        <ToService>Receiver Service</ToService>
+        <TransactionCode>Notify of Advance Shipment</TransactionCode>
+        <NextAction></NextAction>
+        <Indicator>3B2</Indicator>
+        <ProcessCode>Notify of Advance Shipment</ProcessCode>
+        <ProcessVersion>V01.00</ProcessVersion>
+    </Message>
+
+    <!-- 3C3 Invoice Notification -->
+    <Message>
+        <MsgType>Pip3C3InvoiceNotification</MsgType>
+        <MessageVersion>R01.00</MessageVersion>
+        <DTDfilename>rosetta/3C3_MS_R01_00_InvoiceNotification.dtd</DTDfilename>
+        <MessageCode>Invoice Notification Action</MessageCode>
+        <FromRoleClass>Provider</FromRoleClass>
+        <FromService>Invoice Provider Service</FromService>
+        <ToRoleClass>Invoice Receiver</ToRoleClass>
+        <ToService>Invoice Receiver Service</ToService>
+        <TransactionCode>Notify of Invoice</TransactionCode>
+        <NextAction></NextAction>
+        <Indicator>3C3</Indicator>
+        <ProcessCode>Notify of Invoice</ProcessCode>
+        <ProcessVersion>R01.00</ProcessVersion>
+    </Message>
+
+    <!-- 4A1 Strategic Forecast Notification R01.00A -->
+    <Message>
+        <MsgType>Pip4A1StrategicForecastNotification</MsgType>
+        <MessageVersion>R01.00A</MessageVersion>
+        <DTDfilename>rosetta/4A1_MS_R01_00A_StrategicForecastNotification.dtd</DTDfilename>
+        <MessageCode>Strategic Forecast Notification Action</MessageCode>
+        <FromRoleClass>Forecast Owner</FromRoleClass>
+        <FromService>Forecast Owner Service</FromService>
+        <ToRoleClass>Forecast Recipient</ToRoleClass>
+        <ToService>Forecast Recipient Service</ToService>
+        <TransactionCode>Notify of Strategic Forecast</TransactionCode>
+        <NextAction></NextAction>
+        <Indicator>4A1</Indicator>
+        <ProcessCode>Notify of Strategic Forecast</ProcessCode>
+        <ProcessVersion>R01.00A</ProcessVersion>
+    </Message>
+
+    <!-- 4A2 Embedded Release Forecast Notification R01.00A -->
+    <Message>
+        <MsgType>Pip4A2EmbeddedReleaseForecastNotification</MsgType>
+        <MessageVersion>R01.00A</MessageVersion>
+        <DTDfilename>rosetta/4A2_MS_R01_00A_EmbeddedReleaseForecastNotification.dtd</DTDfilename>
+        <MessageCode>Embedded Release Forecast Notification Action</MessageCode>
+        <FromRoleClass>Forecast Owner</FromRoleClass>
+        <FromService>Forecast Owner Service</FromService>
+        <ToRoleClass>Forecast Recipient</ToRoleClass>
+        <ToService>Forecast Recipient Service</ToService>
+        <TransactionCode>Notify of Embedded Release Forecast</TransactionCode>
+        <NextAction></NextAction>
+        <Indicator>4A2</Indicator>
+        <ProcessCode>Notify of Embedded Release Forecast</ProcessCode>
+        <ProcessVersion>R01.00A</ProcessVersion>
+    </Message>
+
+    <!-- 4A3 Threshold Release Forecast Notification R01.00A -->
+    <Message>
+        <MsgType>Pip4A3ThresholdReleaseForecastNotification</MsgType>
+        <MessageVersion>R01.00A</MessageVersion>
+        <DTDfilename>rosetta/4A3_MS_R01_00A_ThresholdReleaseForecastNotification.dtd</DTDfilename>
+        <MessageCode>Threshold Release Forecast Notification Action</MessageCode>
+        <FromRoleClass>Forecast Owner</FromRoleClass>
+        <FromService>Forecast Owner Service</FromService>
+        <ToRoleClass>Forecast Recipient</ToRoleClass>
+        <ToService>Forecast Recipient Service</ToService>
+        <TransactionCode>Notify of Threshold Release Forecast</TransactionCode>
+        <NextAction></NextAction>
+        <Indicator>4A3</Indicator>
+        <ProcessCode>Notify of Threshold Release Forecast</ProcessCode>
+        <ProcessVersion>R01.00A</ProcessVersion>
+    </Message>
+
+    <!-- 4A4 Planning Release Forecast Notification R02.00A -->
+    <Message>
+        <MsgType>Pip4A4PlanningReleaseForecastNotification</MsgType>
+        <MessageVersion>R02.00A</MessageVersion>
+        <DTDfilename>rosetta/4A4_MS_R02_00A_PlanningReleaseForecastNotification.dtd</DTDfilename>
+        <MessageCode>Planning Release Forecast Notification Action</MessageCode>
+        <FromRoleClass>Forecast Owner</FromRoleClass>
+        <FromService>Forecast Owner Service</FromService>
+        <ToRoleClass>Forecast Recipient</ToRoleClass>
+        <ToService>Forecast Recipient Service</ToService>
+        <TransactionCode>Notify of Planning Release Forecast</TransactionCode>
+        <NextAction></NextAction>
+        <Indicator>4A4</Indicator>
+        <ProcessCode>Notify of Planning Release Forecast</ProcessCode>
+        <ProcessVersion>R02.00A</ProcessVersion>
+    </Message>
+
+    <!-- 4A5 Notify of Forecast Reply -->
+    <Message>
+        <MsgType>Pip4A5NotifyofForecastReply</MsgType>
+        <MessageVersion>R01.00A</MessageVersion>
+        <DTDfilename>rosetta/4A5_MS_R01_00A_NotifyofForecastReply.dtd</DTDfilename>
+        <MessageCode>Forecast Reply Notification Action</MessageCode>
+        <FromRoleClass>Forecast Recipient</FromRoleClass>
+        <FromService>Forecast Recipient Service</FromService>
+        <ToRoleClass>Forecast Reply Recipient</ToRoleClass>
+        <ToService>Forecast Reply Recipient Service</ToService>
+        <TransactionCode>Notify of Forecast Reply</TransactionCode>
+        <NextAction></NextAction>
+        <Indicator>4A5</Indicator>
+        <ProcessCode>Notify of Forecast Reply</ProcessCode>
+        <ProcessVersion>R01.00A</ProcessVersion>
+    </Message>
+
+    <!-- 4B2 Shipment Receipt Notification 1.0 -->
+    <Message>
+        <MsgType>Pip4B2ShipmentReceiptNotification</MsgType>
+        <MessageVersion>1.0</MessageVersion>
+        <DTDfilename>rosetta/4B2_MS_1_0_ShipmentReceiptNotification.dtd</DTDfilename>
+        <MessageCode>Shipment Receipt Notification Action</MessageCode>
+        <FromRoleClass>Consignee</FromRoleClass>
+        <FromService>Consignee Service</FromService>
+        <ToRoleClass>Shipment Information User</ToRoleClass>
+        <ToService>Shipment Information User Service</ToService>
+        <TransactionCode>Notify of Shipment Receipt</TransactionCode>
+        <NextAction></NextAction>
+        <Indicator>4B2</Indicator>
+        <ProcessCode>Notify of Shipment Receipt</ProcessCode>
+        <ProcessVersion>1.0</ProcessVersion>
+    </Message>
+
+    <!-- 4C1 Inventory Report Notification V02.00 -->
+    <Message>
+        <MsgType>Pip4C1InventoryReportNotification</MsgType>
+        <MessageVersion>V02.00</MessageVersion>
+        <DTDfilename>rosetta/4C1_MS_V02_00_InventoryReportNotification.dtd</DTDfilename>
+        <MessageCode>Inventory Report Notification Action</MessageCode>
+        <FromRoleClass>Inventory Information Provider</FromRoleClass>
+        <FromService>Inventory Information Provider Service</FromService>
+        <ToRoleClass>Inventory Information User</ToRoleClass>
+        <ToService>Inventory Information User Service</ToService>
+        <TransactionCode>Distribute Inventory Report</TransactionCode>
+        <NextAction></NextAction>
+        <Indicator>4C1</Indicator>
+        <ProcessCode>Distribute Inventory Report</ProcessCode>
+        <ProcessVersion>V02.00</ProcessVersion>
+    </Message>
+
+    <!-- 4C1 Inventory Report Notification V02.01 -->
+    <Message>
+        <MsgType>Pip4C1InventoryReportNotification</MsgType>
+        <MessageVersion>V02.01</MessageVersion>
+        <DTDfilename>rosetta/4C1_MS_V02_01_InventoryReportNotification.dtd</DTDfilename>
+        <MessageCode>Inventory Report Notification Action</MessageCode>
+        <FromRoleClass>Inventory Information Provider</FromRoleClass>
+        <FromService>Inventory Information Provider Service</FromService>
+        <ToRoleClass>Inventory Information User</ToRoleClass>
+        <ToService>Inventory Information User Service</ToService>
+        <TransactionCode>Distribute Inventory Report</TransactionCode>
+        <NextAction></NextAction>
+        <Indicator>4C1</Indicator>
+        <ProcessCode>Distribute Inventory Report</ProcessCode>
+        <ProcessVersion>V02.01</ProcessVersion>
+    </Message>
+
+</PipInfo>

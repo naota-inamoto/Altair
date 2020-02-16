@@ -1,0 +1,167 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Altair Release</TITLE>
+</HEAD>
+
+<BODY>
+<H1>Altairのリリース/サポートについて</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.00版 1996年 2月11日<BR>
+
+<HR>
+<H3><A NAME="license">ライセンス</A></H3>
+Altairは、GPL（Generic Public License）に従う<BR>
+OSS(オープン ソースコード ソフトウェア)です。<BR>
+<BR>
+
+<HR>
+<H3><A NAME="download">ダウンロード</A></H3>
+
+GitHub の以下の URL よりダウンロードを行って下さい。<BR>
+
+URL: https://github.com/naota-inamoto/Altair<BR>
+
+<H3><A NAME="files">主な配布ファイル一覧</A></H3>
+<PRE>
+bin/         Windows版バイナリ(Windows8.1,Windows10)
+   altair.exe      Altair本体（日本語版）
+   altaire.exe     Altair本体（英語版）
+   alcore1.dll     AltairコアDLL（日本語版）
+   alcore1e.dll    AltairコアDLL（英語版）
+   altair.ini      環境設定ファイル（なくてもいい）
+   alctrl.ocx      Altair OLEコントロール（まともに動かない）
+   jumanknp1.dll   JUMAN/KNPの日本語自然言語処理DLL
+   ssleay32.dll    OpenSSLのSSL用DLL
+   libeay32.dll    OpenSSLのCrypt用DLL
+   openssl.exe     OpenSSLのコマンドラインツール
+   juman/dic/*  形態素解析の辞書
+   knp/dic/*
+      /rule/*   構文解析のルール
+
+msrt64v140/*  VC++の64bit版ランタイム再配布DLL
+
+bin-linux/   Linux版バイナリ(Red Hat Enterprise Linux 7.2)
+   altair                   Altair本体
+   alcore1.so               Altairコアシェアドライブラリ
+   altair.ini               環境設定ファイル(なくてもいい)
+   jumanknp1.so             JUMAN/KNPの日本語自然言語処理シェアドライブラリ
+   libpq.so.5.7             PostgreSQLクライアントシェアドライブラリ
+   libmysqlclient.so.18.1.0 MySQLクライアントシェアドライブラリ
+   libssl.so.1.0.0          OpenSSLのSSL用シェアドライブラリ
+   libcrypto.so.1.0.0       OpenSSLのCrypt用シェアドライブラリ
+   openssl                  OpenSSLのコマンドラインツール
+   mksymlink                シェアドライブラリのシンボリックリンク作成用スクリプト
+   jumanrc      (パス書き換え要)
+   juman/dic/*  形態素解析の辞書
+   knprc        (パス書き換え要)
+   knp/dict/*
+      /rule/*   構文解析のルール
+
+license/*  ライセンスファイル
+
+sample/
+   gui/scribble.apr  GUI基本サンプル
+   gui/guicore.apr   サンプルGUIクラスライブラリ
+   gui/guitest.apr   GUIクラスライブラリのサンプルプロジェクト
+      gui/parallel.alb  並列処理用ライブラリ
+      gui/ed_data/*     サンプルGUIエディタのサンプルセーブデータ
+   gui/gbgpt.apr   GUIビルダーと結線プログラミング環境プロジェクト(ソース版)
+   gui/gbgp.apr    GUIビルダーと結線プログラミング環境プロジェクト(ライブラリロード版)
+      gui/syslib.alb   簡易関数を集めたライブラリ
+   gui/gui_sample_setup.apr サンプルで使用するライブラリguicore.alb,gbgp.albのセットアップ用サンプル
+   gui/gui_sample_setup.bat サンプルで使用するライブラリguicore.alb,gbgp.albのセットアップ用バッチファイル  
+   gbgp/color1/*     GUIビルダーと結線プログラミングの簡単なサンプル    
+   gbgp/color2/*     color1を簡単にしたサンプル
+   gbgp/nestgui/*    GUI画面をネストさせたサンプル
+   gbgp/print/*      印刷テスト用サンプル
+   gbgp/othello/othello.gpr    オセロゲームサンプル(GbGpプロジェクトファイル)
+   gbgp/othello2/othello.gpr   改良版オセロゲームサンプル(GbGpプロジェクトファイル)
+                /othello.dll   windows版ダイナミックライブラリ(nativeライブラリ)
+                /othello.so    linux版シェアドライブラリ(nativeライブラリ)
+                /othello1.cpp  nativeライブラリのソース
+   gbgp/treeview/*   OCX（TreeView Control）を使ったのサンプル
+   gbgp/htmlview/*   OCX (IEのHTMLビューアControl)のサンプル
+   gbgp/javaide/*    簡易JavaIDE
+   gbgp/xml_mapper/* XMLデータマッパー
+   alctrl/alctrl.apr  Altair OLEコントロールの簡単なサンプル
+      alctrl/algraph.dat   グラフエディタの Altair OLEコントロールのデータファイル
+      alctrl/albutton.dat  プッシュボタンの Altair OLEコントロールのデータファイル
+      alctrl/page1.htm Altair OLEコントロールをWebページで使用するサンプル
+   comm/cmdline.apr   コマンドライン引数を使ったサンプル
+   comm/stdio.apr     パイプを使ったサンプル
+   comm/stdio2.apr    パイプを使ったサンプル２
+   comm/mapfile.apr   メモリマップトファイル(共有メモリ)を使用したサンプル
+   comm/script.apr    Altairスクリプトのサンプル
+   comm/socket.apr    ソケットを使った最も簡単なサンプル
+   comm/socket2.apr   socket.aprで待ち合わせをスレッド化したサンプル
+   comm/ping.apr      Pingを行うサンプル
+   comm/simple_tf.apr TCP/IPでファイル転送を行うサンプル
+   comm/dllcall.apr   DLLのネイティブ関数コールを行うサンプル
+   build/*       ビルドサンプル
+   bank/*        オブジェクトリクエストブローカのサンプル
+   net/smtp/*    簡易SMTPクライアント
+   net/crypt/*   暗号化/認証の基本機能のテストプログラム
+   net/http/httpd.apr     簡易HTTPサーバ
+   net/http/httpclnt.apr  簡単なHTTPの応答時間を計るクライアント
+   net/https/httpd.apr    簡易HTTPSサーバ
+   net/https/httpclnt.apr 簡単なHTTPSの応答時間を計るクライアント
+   net/https/httpd_serverAuth.apr    サーバ認証する場合の簡易HTTPSサーバ
+   net/https/httpclnt_serverAuth.apr サーバ認証する簡単なHTTPSの応答時間を計るクライアント
+   net/https/httpd_clientAuth.apr    クライアント認証する場合の簡易HTTPSサーバ
+   net/https/httpclnt_clientAuth.apr クライアント認証する簡単なHTTPSの応答時間を計るクライアント
+   net/https/httpd_bothAuth.apr      サーバ認証とクライアント認証する場合の簡易HTTPSサーバ
+   net/https/httpclnt_bothAuth.apr   サーバ認証とクライアント認証する簡単なHTTPSの応答時間を計るクライアント
+   net/https/cert.bat      SampleCA、サーバの証明書を作成するOpenSSLを使ったバッチファイル
+   net/https/ca.conf       SampleCAをOpenSSLで作成するための設定ファイル
+   net/https/server.conf   サーバ証明書をOpenSSLで作成するための設定ファイル
+   net/https/client.conf   クライアント証明書をOpenSSLで作成するための設定ファイル
+   net/servlet/servlet.apr 簡易サーブレットエンジンとその簡易HTTPサーバ
+   net/servlet/config.xml  簡易サーブレットエンジンとその簡易HTTPサーバの設定ファイル
+   net/servlet/html/*.html サーブレットサンプルが使用するHTMLファイル
+   xml/*         XMLのサンプル
+   rdb/*         SQLでRDBアクセスする機能のテストプログラム
+   prof/prof.apr  プロファイルを取る性能測定サンプル
+   prof/*.java    比較に使ったJavaプログラム
+   prof/windows/* Windows版での測定結果
+   prof/linux/*   Linux版での測定結果
+   solid/*        ソリッドモデリングサンプル
+   nl/*                    日本語自然言語処理（形態素解析/構文解析）サンプル（JUMAN/KNP）
+   parser_and_generator/*  汎用パーサー＆汎用ジェネレーターサンプル
+   prolog/*                Prologのプログラムサンプル
+   almath/*                数式処理システム
+
+sample/
+   server/server.apr   簡易APサーバ(簡易RosettaNetサーバ)プログラム
+   server/watcher.apr  簡易APサーバのポートに接続できるが1分毎にチェックし、
+                       接続できなかったらAPサーバを再起動するプログラム
+                       これを動かしておくとAPサーバが落ちた場合は
+                       1分程度のダウンで業務が再開可能
+   server/config.xml   簡易APサーバの設定ファイル
+   server/data/*       初期設定用データファイル、サンプルで使用するデータファイル
+   server/dtd/*        各種DTDファイル
+   server/html/*       簡易APサーバのWebコンテンツのデフォルトDocumentRoot
+   server/keystore/*   SSL、SMIMEで使う証明書、秘密鍵を置くデフォルトディレクトリ
+   server/log/*        送受信した生のメッセージを置くデフォルトディレクトリ
+   server/tmp          作業用ディレクトリ
+   server/validation/* RosettaNetのPIPメッセージのコンテントバリデーション用データ
+   server/xsl/*        各種XSLファイル
+
+docs/
+   altair/*  Altairドキュメント
+
+src/
+   include/* ヘッダーファイル(.h)
+   src/*     ソースコードファイル(.cpp)
+</PRE>
+
+<HR>
+<H3><A NAME="support">サポート</A></H3>
+電子メールでの対応を行っております。<BR>
+<IMG SRC="image/mail.gif">にメールください。<BR>
+時間の許す限り、対応いたします。<BR>
+
+<HR>
+</BODY>
+</HTML>

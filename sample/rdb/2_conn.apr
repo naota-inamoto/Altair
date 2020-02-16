@@ -1,0 +1,128 @@
+$END_LIB
+TEXT
+AlObject
+class Conn2
+end_class
+$END_CLASS
+TEXT
+AlObject
+class Conn2
+member
+public: static void main();
+member
+public: void connect1();
+member
+public: void connect2();
+member
+public: void insert1();
+member
+public: void insert2();
+member
+public: void commit1();
+member
+public: void commit2();
+member
+public: void close1();
+member
+public: void close2();
+member
+public: list conn1;
+member
+public: list conn2;
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class Conn2
+member
+public: static void main();
+body
+{
+	var Conn2 test;
+	test = new Conn2;
+	test.connect1();
+	test.insert1();
+	test.connect2();
+	test.insert2();
+	test.insert1();
+	test.commit2();
+	test.close2();
+	test.insert1();
+	test.commit1();
+	test.close1();
+}
+end_body
+member
+public: void connect1();
+body
+{
+	var list conn_info;
+	conn_info = al_list5(null, null, "ORCL", "scott", "tiger");
+	conn1 = al_sql("connect", conn_info, "oracle", null, null);
+}
+end_body
+member
+public: void connect2();
+body
+{
+	var list conn_info;
+	conn_info = al_list5(null, null, "ORCL", "scott", "tiger");
+	conn2 = al_sql("connect", conn_info, "oracle", null, null);
+}
+end_body
+member
+public: void insert1();
+body
+{
+	var string sql;
+	sql = "insert into test_table values('1', '1', '1')";
+	var list stat;
+	stat = al_sql("statement", conn1, null, null, null);
+	al_sql("execute", stat, sql, null, null);
+}
+end_body
+member
+public: void insert2();
+body
+{
+	var string sql;
+	sql = "insert into test_table values('2', '2', '2')";
+	var list stat;
+	stat = al_sql("statement", conn2, null, null, null);
+	al_sql("execute", stat, sql, null, null);
+}
+end_body
+member
+public: void commit1();
+body
+{
+	al_sql("commit", conn1, null, null, null);
+}
+end_body
+member
+public: void commit2();
+body
+{
+	al_sql("commit", conn2, null, null, null);
+}
+end_body
+member
+public: void close1();
+body
+{
+	conn1 = null;
+}
+end_body
+member
+public: void close2();
+body
+{
+	conn2 = null;
+}
+end_body
+member
+public: list conn1;
+member
+public: list conn2;
+end_class
+$END_BODY

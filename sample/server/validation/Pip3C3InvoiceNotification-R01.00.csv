@@ -1,0 +1,1272 @@
+dic-1,Invoice Provider,  The organization that generates the invoice.
+end-dic-1,,
+dic,/Pip3C3InvoiceNotification/fromRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-1
+dic,/Pip3C3InvoiceNotification/Invoice/billTo/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-1
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/shipTo/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-1
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/transportedBy/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-1
+dic,/Pip3C3InvoiceNotification/Invoice/remitTo/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-1
+dic,/Pip3C3InvoiceNotification/Invoice/soldTo/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-1
+dic,/Pip3C3InvoiceNotification/Invoice/transferTo/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-1
+dic,/Pip3C3InvoiceNotification/toRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-43
+dic-2,Electronic Components,  The electronic components supply chain.
+dic-2,Information Technology,  The information technology supply chain.
+end-dic-2,,
+dic,/Pip3C3InvoiceNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3C3InvoiceNotification/Invoice/billTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/shipFrom/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/shipTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/transportedBy/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3C3InvoiceNotification/Invoice/remitTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3C3InvoiceNotification/Invoice/soldTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3C3InvoiceNotification/Invoice/transferTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3C3InvoiceNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic-3,Broker,  Representative of a third party.
+dic-3,Carrier,  Product carrier for transporting goods in supply chain.
+dic-3,Contract Manufacturer,  The party responsible for the services rendered.
+dic-3,Customs Broker,  Product customs broker in supply chain.
+dic-3,Distribution Center,  Product distributor in supply chain.
+dic-3,Distributor,  Product distributor in supply chain.
+dic-3,End User,  Product end user in supply chain.
+dic-3,End User Government,  End user government.
+dic-3,Financier,  Financial service provider in supply chain
+dic-3,Freight Forwarder,  Product freight forwarder for transporting goods in supply chain.
+dic-3,Manufacturer,  Product manufacturer in supply chain.
+dic-3,Original Equipment Manufacturer,  Product manufacturer of original equipment in the supply chain.
+dic-3,Reseller,  A party buys goods from a manufacturer and resells them to customers unchanged.
+dic-3,Retailer,  Product retailer in supply chain.
+dic-3,Shopper,  Product shopper in supply chain.
+dic-3,Warehouser,  Product warehouser in supply chain.
+end-dic-3,,
+dic,/Pip3C3InvoiceNotification/fromRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3C3InvoiceNotification/Invoice/billTo/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/ProductDescription/PartnerProductIdentification/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/shipFrom/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/shipTo/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/transportedBy/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3C3InvoiceNotification/Invoice/remitTo/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3C3InvoiceNotification/Invoice/soldTo/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3C3InvoiceNotification/Invoice/transferTo/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3C3InvoiceNotification/toRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic-4,Request,  The business document is a request for a business action to be performed by a partner.
+end-dic-4,,
+dic,/Pip3C3InvoiceNotification/GlobalDocumentFunctionCode,dic-4
+dic-5,ADP,  ANDORRA (multiple)
+dic-5,AED,  UNITED ARAB EMIRATES
+dic-5,AFA,  AFGHANISTAN
+dic-5,ALL,  ALBANIA
+dic-5,AMD,  ARMENIA
+dic-5,ANG,  NETHERLANDS ANTILLES
+dic-5,AON,  ANGOLA (multiple)
+dic-5,AOR,  ANGOLA (multiple)
+dic-5,ARS,  ARGENTINA
+dic-5,ATS,  AUSTRIA
+dic-5,AUD,  AUSTRALIA
+dic-5,AUD,  CHRISTMAS ISLAND
+dic-5,AUD,  COCOS (KEELING) ISLANDS
+dic-5,AUD,  KIRIBATI
+dic-5,AUD,  HEARD AND MCDONALD ISLANDS
+dic-5,AUD,  NAURU
+dic-5,AUD,  NORFOLK ISLAND
+dic-5,AUD,  TUVALU
+dic-5,AWG,  ARUBA
+dic-5,AZM,  AZERBAIJAN
+dic-5,BAM,  BOSNIA AND HERZEGOVINA
+dic-5,BBD,  BARBADOS
+dic-5,BDT,  BANGLADESH
+dic-5,BEF,  BELGIUM
+dic-5,BGL,  BULGARIA
+dic-5,BHD,  BAHRAIN
+dic-5,BIF,  BURUNDI
+dic-5,BMD,  BERMUDA
+dic-5,BND,  BRUNEI DARUSSALAM
+dic-5,BOB,  BOLIVIA (multiple)
+dic-5,BOV,  BOLIVIA (multiple)
+dic-5,BRL,  BRAZIL
+dic-5,BSD,  BAHAMAS
+dic-5,BTN,  BHUTAN (multiple)
+dic-5,BWP,  BOTSWANA
+dic-5,BYB,  BELARUS
+dic-5,BZD,  BELIZE
+dic-5,CAD,  CANADA
+dic-5,CHF,  LIECHTENSTEIN
+dic-5,CHF,  SWITZERLAND
+dic-5,CLP,  CHILE
+dic-5,CNY,  CHINA
+dic-5,COP,  COLOMBIA
+dic-5,CRC,  COSTA RICA
+dic-5,CUP,  CUBA
+dic-5,CVE,  CAPE VERDE
+dic-5,CYP,  CYPRUS
+dic-5,CZK,  CZECH REPUBLIC
+dic-5,DEM,  GERMANY
+dic-5,DJF,  DJIBOUTI
+dic-5,DKK,  DENMARK
+dic-5,DKK,  FAEROE ISLANDS
+dic-5,DKK,  GREENLAND
+dic-5,DOP,  DOMINICAN REPUBLIC
+dic-5,DZD,  ALGERIA
+dic-5,ECS,  ECUADOR
+dic-5,EEK,  ESTONIA
+dic-5,EGP,  EGYPT
+dic-5,ERN,  ERITREA
+dic-5,ESP,  ANDORRA (multiple)
+dic-5,ESP,  SPAIN
+dic-5,ETB,  ETHIOPIA
+dic-5,EUR,  EUROPEAN UNION
+dic-5,FIM,  FINLAND
+dic-5,FJD,  FIJI
+dic-5,FKP,  FALKLAND ISLANDS(MALVINAS)
+dic-5,FRF,  ANDORRA (multiple)
+dic-5,FRF,  MARTINIQUE
+dic-5,FRF,  FRANCE
+dic-5,FRF,  FRENCH GUIANA
+dic-5,FRF,  FRENCH SOUTHERN TERRITORIES
+dic-5,FRF,  GUADELOUPE
+dic-5,FRF,  MONACO
+dic-5,FRF,  REUNION
+dic-5,FRF,  SAINT PIERRE AND MIQUELON
+dic-5,GBP,  UNITED KINGDOM
+dic-5,GEL,  GEORGIA
+dic-5,GHC,  GHANA
+dic-5,GIP,  GIBRALTAR
+dic-5,GMD,  GAMBIA
+dic-5,GNF,  GUINEA
+dic-5,GRD,  GREECE
+dic-5,GTQ,  GUATEMALA
+dic-5,GWP,  GUINEA-BISSAU
+dic-5,GYD,  GUYANA
+dic-5,HKD,  HONG KONG
+dic-5,HNL,  HONDURAS
+dic-5,HRK,  CROATIA
+dic-5,HTG,  HAITI
+dic-5,HUF,  HUNGARY
+dic-5,IDR,  INDONESIA
+dic-5,IEP,  IRELAND
+dic-5,ILS,  ISRAEL
+dic-5,INR,  BHUTAN (multiple)
+dic-5,INR,  INDIA
+dic-5,IQD,  IRAQ
+dic-5,IRR,  IRAN (ISLAMIC REPUBLIC OF)
+dic-5,ISK,  ICELAND
+dic-5,ITL,  ITALY
+dic-5,ITL,  SAN MARINO
+dic-5,ITL,  VATICAN CITY STATE (HOLY SEE)
+dic-5,JMD,  JAMAICA
+dic-5,JOD,  JORDAN
+dic-5,JPY,  JAPAN
+dic-5,KES,  KENYA
+dic-5,KGS,  KYRGYZSTAN
+dic-5,KHR,  CAMBODIA
+dic-5,KMF,  COMOROS
+dic-5,KPW,"  KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF"
+dic-5,KRW,"  KOREA, REPUBLIC OF"
+dic-5,KWD,  KUWAIT
+dic-5,KYD,  CAYMAN ISLANDS
+dic-5,KZT,  KAZAKHSTAN
+dic-5,LAK,  LAO PEOPLE'S DEMOCRATIC REPUBLIC
+dic-5,LBP,  LEBANON
+dic-5,LKR,  SRI LANKA
+dic-5,LRD,  LIBERIA
+dic-5,LTL,  LITHUANIA
+dic-5,LUF,  LUXEMBOURG
+dic-5,LVL,  LATVIA
+dic-5,LYD,  LIBYAN ARAB JAMAHIRIYA
+dic-5,MAD,  MOROCCO
+dic-5,MAD,  WESTERN SAHARA
+dic-5,MDL,"  MOLDOVA, REPUBLIC OF"
+dic-5,MGF,  MADAGASCAR
+dic-5,MKD,"  MACEDONIA, THE FORMER  YUGOSLAV REPUBLIC OF"
+dic-5,MMK,  MYANMAR
+dic-5,MNT,  MONGOLIA
+dic-5,MOP,  MACAU
+dic-5,MRO,  MAURITANIA
+dic-5,MTL,  MALTA
+dic-5,MUR,  MAURITIUS
+dic-5,MVR,  MALDIVES
+dic-5,MWK,  MALAWI
+dic-5,MXN,  MEXICO
+dic-5,MYR,  MALAYSIA
+dic-5,MZM,  MOZAMBIQUE
+dic-5,NGN,  NIGERIA
+dic-5,NIO,  NICARAGUA
+dic-5,NLG,  NETHERLANDS
+dic-5,NOK,  BOUVET ISLAND
+dic-5,NOK,  NORWAY
+dic-5,NOK,  SVALBARD AND JAN MAYEN ISLANDS
+dic-5,NPR,  NEPAL
+dic-5,NZD,  COOK ISLANDS
+dic-5,NZD,  NEW ZEALAND
+dic-5,NZD,  NIUE
+dic-5,NZD,  PITCAIRN
+dic-5,NZD,  TOKELAU
+dic-5,OMR,  OMAN
+dic-5,PAB,  PANAMA
+dic-5,PEN,  PERU
+dic-5,PGK,  PAPUA NEW GUINEA
+dic-5,PHP,  PHILIPPINES
+dic-5,PKR,  PAKISTAN
+dic-5,PLN,  POLAND
+dic-5,PTE,  PORTUGAL
+dic-5,PYG,  PARAGUAY
+dic-5,QAR,  QATAR
+dic-5,ROL,  ROMANIA
+dic-5,RUR,  RUSSIAN FEDERATION
+dic-5,RWF,  RWANDA
+dic-5,SAR,  SAUDI ARABIA
+dic-5,SBD,  SOLOMON ISLANDS
+dic-5,SCR,  SEYCHELLES
+dic-5,SDD,  SUDAN
+dic-5,SEK,  SWEDEN
+dic-5,SGD,  SINGAPORE
+dic-5,SHP,  SAINT HELENA
+dic-5,SIT,  SLOVENIA
+dic-5,SKK,  SLOVAKIA
+dic-5,SLL,  SIERRA LEONE
+dic-5,SOS,  SOMALIA
+dic-5,SRG,  SURINAME
+dic-5,STD,  SAO TOME AND PRINCIPE
+dic-5,SVC,  EL SALVADOR
+dic-5,SYP,  SYRIAN ARAB REPUBLIC
+dic-5,SZL,  SWAZILAND
+dic-5,THB,  THAILAND
+dic-5,TJR,  TAJIKISTAN
+dic-5,TMM,  TURKMENISTAN
+dic-5,TND,  TUNISIA
+dic-5,TOP,  TONGA
+dic-5,TPE,  EAST TIMOR
+dic-5,TRL,  TURKEY
+dic-5,TTD,  TRINIDAD AND TOBAGO
+dic-5,TWD,"  TAIWAN, PROVINCE OF CHINA"
+dic-5,TZS,"  TANZANIA, UNITED REPUBLIC OF"
+dic-5,UAH,  UKRAINE
+dic-5,UGX,  UGANDA
+dic-5,USD,  AMERICAN SAMOA
+dic-5,USD,  BRITISH INDIAN OCEAN TERRITORY
+dic-5,USD,  MARSHALL ISLANDS
+dic-5,USD,  GUAM
+dic-5,USD,  MICRONESIA
+dic-5,USD,  NORTHERN MARIANA ISLANDS
+dic-5,USD,  PALAU
+dic-5,USD,  PUERTO RICO
+dic-5,USD,  TURKS AND CAICOS ISLANDS
+dic-5,USD,  UNITED STATES
+dic-5,USD,  UNITED STATES MINOR  OUTLYING ISLANDS
+dic-5,USD,  VIRGIN ISLANDS (BRITISH)
+dic-5,USD,  VIRGIN ISLANDS (U.S.)
+dic-5,UYU,  URUGUAY
+dic-5,UZS,  UZBEKISTAN
+dic-5,VEB,  VENEZUELA
+dic-5,VND,  VIETNAM
+dic-5,VUV,  VANUATU
+dic-5,WST,  SAMOA
+dic-5,XAF,  CAMEROON
+dic-5,XAF,  CENTRAL AFRICAN REP.
+dic-5,XAF,  CHAD
+dic-5,XAF,  CONGO
+dic-5,XAF,  EQUATORIAL GUINEA
+dic-5,XAF,  GABON
+dic-5,XCD,  ANGUILLA
+dic-5,XCD,  ANTIGUA AND BARBUDA
+dic-5,XCD,  DOMINICA
+dic-5,XCD,  GRENADA
+dic-5,XCD,  MONTSERRAT
+dic-5,XCD,  SAINT KITTS AND NEVIS
+dic-5,XCD,  SAINT LUCIA
+dic-5,XCD,  SAINT VINCENT AND THE GRENADINES
+dic-5,XDR,  INTERNATIONAL MONETARY FUND
+dic-5,XOF,  BENIN
+dic-5,XOF,  BURKINA FASO
+dic-5,XOF,  COTE D IVOIRE
+dic-5,XOF,  MALI
+dic-5,XOF,  NIGER
+dic-5,XOF,  SENEGAL
+dic-5,XOF,  TOGO
+dic-5,XPF,  NEW CALEDONIA
+dic-5,XPF,  WALLIS AND FUTUNA ISLANDS
+dic-5,XPR,  FRENCH POLYNESIA
+dic-5,YER,  YEMEN
+dic-5,YUM,  YUGOSLAVIA
+dic-5,ZAR,  LESOTHO
+dic-5,ZAR,  NAMIBIA
+dic-5,ZAR,  SOUTH AFRICA
+dic-5,ZMK,  ZAMBIA
+dic-5,ZRN,  ZAIRE
+dic-5,ZWD,  ZIMBABWE
+end-dic-5,,
+dic,/Pip3C3InvoiceNotification/Invoice/FinancialAmount/GlobalCurrencyCode,dic-5
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/allowancesAndCharges/FinancialAmount/GlobalCurrencyCode,dic-5
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/depositAmount/FinancialAmount/GlobalCurrencyCode,dic-5
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/handlingCharges/FinancialAmount/GlobalCurrencyCode,dic-5
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/CityTax/FinancialAmount/GlobalCurrencyCode,dic-5
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/NationalTax/FinancialAmount/GlobalCurrencyCode,dic-5
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/RegionalTax/FinancialAmount/GlobalCurrencyCode,dic-5
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/totalAmount/FinancialAmount/GlobalCurrencyCode,dic-5
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/unitPrice/FinancialAmount/GlobalCurrencyCode,dic-5
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/prepaymentAmount/FinancialAmount/GlobalCurrencyCode,dic-5
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/totalLineItemAmount/FinancialAmount/GlobalCurrencyCode,dic-5
+dic,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/CityTax/FinancialAmount/GlobalCurrencyCode,dic-5
+dic,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/NationalTax/FinancialAmount/GlobalCurrencyCode,dic-5
+dic,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/RegionalTax/FinancialAmount/GlobalCurrencyCode,dic-5
+dic,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/totalAmount/FinancialAmount/GlobalCurrencyCode,dic-5
+dic,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/CityTax/FinancialAmount/GlobalCurrencyCode,dic-5
+dic,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/NationalTax/FinancialAmount/GlobalCurrencyCode,dic-5
+dic,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/RegionalTax/FinancialAmount/GlobalCurrencyCode,dic-5
+dic,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/totalAmount/FinancialAmount/GlobalCurrencyCode,dic-5
+dic-6,Credit,
+dic-6,Debit,
+end-dic-6,,
+dic,/Pip3C3InvoiceNotification/Invoice/FinancialAmount/GlobalMonetaryAmountTypeCode,dic-6
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/allowancesAndCharges/FinancialAmount/GlobalMonetaryAmountTypeCode,dic-10
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/depositAmount/FinancialAmount/GlobalMonetaryAmountTypeCode,dic-12
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/handlingCharges/FinancialAmount/GlobalMonetaryAmountTypeCode,dic-6
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/CityTax/FinancialAmount/GlobalMonetaryAmountTypeCode,dic-22
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/NationalTax/FinancialAmount/GlobalMonetaryAmountTypeCode,dic-24
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/RegionalTax/FinancialAmount/GlobalMonetaryAmountTypeCode,dic-27
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/totalAmount/FinancialAmount/GlobalMonetaryAmountTypeCode,dic-29
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/unitPrice/FinancialAmount/GlobalMonetaryAmountTypeCode,dic-6
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/prepaymentAmount/FinancialAmount/GlobalMonetaryAmountTypeCode,dic-32
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/totalLineItemAmount/FinancialAmount/GlobalMonetaryAmountTypeCode,dic-35
+dic,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/CityTax/FinancialAmount/GlobalMonetaryAmountTypeCode,dic-6
+dic,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/NationalTax/FinancialAmount/GlobalMonetaryAmountTypeCode,dic-38
+dic,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/RegionalTax/FinancialAmount/GlobalMonetaryAmountTypeCode,dic-6
+dic,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/totalAmount/FinancialAmount/GlobalMonetaryAmountTypeCode,dic-6
+dic,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/CityTax/FinancialAmount/GlobalMonetaryAmountTypeCode,dic-6
+dic,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/NationalTax/FinancialAmount/GlobalMonetaryAmountTypeCode,dic-41
+dic,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/RegionalTax/FinancialAmount/GlobalMonetaryAmountTypeCode,dic-6
+dic,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/totalAmount/FinancialAmount/GlobalMonetaryAmountTypeCode,dic-6
+dic-7,Credit Memo,
+dic-7,Debit Memo,
+dic-7,Invoice,
+end-dic-7,,
+dic,/Pip3C3InvoiceNotification/Invoice/GlobalDocumentTypeCode,dic-7
+dic-8,.4% Net 10,
+dic-8,1% 10 Days Net 10,
+dic-8,1% 10 Days Net 45,
+dic-8,1% 10th/25th Net 30,
+dic-8,1% 15 Days Net 30,
+dic-8,1% 30 Days Net 30,
+dic-8,1% Net 45,
+dic-8,1% Wire Transfer Prepay,
+dic-8,2% 10 Days Net 30,
+dic-8,2% 15 Days Net 30,
+dic-8,Available Credit Applied,
+dic-8,Bad Debt
+dic-8,COD Cash
+dic-8,COD Cashier's Check
+dic-8,COD Cashier's Check Deduction
+dic-8,COD Company Check
+dic-8,COD Company Check Deduction
+dic-8,Discover Card
+dic-8,EFT
+dic-8,Int'l. Master Card
+dic-8,Int'l. Visa
+dic-8,Master Card
+dic-8,Net 1 Day
+dic-8,Net 10 Days
+dic-8,Net 180 Days
+dic-8,Net 197 Days
+dic-8,Net 20 10
+dic-8,Net 20 15
+dic-8,Net 20 Days
+dic-8,Net 30 10
+dic-8,Net 30 15
+dic-8,Net 30 Days
+dic-8,Net 30 Plus
+dic-8,Net 35 Days
+dic-8,Net 45 10
+dic-8,Net 45 15
+dic-8,Net 45 Days
+dic-8,Net 5 Days
+dic-8,Net 562 Days
+dic-8,Net 60 Days
+dic-8,Net 60 Spare Parts
+dic-8,Net 90 Days
+dic-8,No Terms
+dic-8,Prepaid,
+dic-8,Prepay check,
+dic-8,Prepay credit card,
+dic-8,Prepay wire,
+dic-8,Vendor Terms,
+dic-8,Visa,
+dic-8,Wire Transfer,
+end-dic-8,,
+dic,/Pip3C3InvoiceNotification/Invoice/GlobalPaymentTermsCode,dic-8
+dic-10,Credit,
+dic-10,Debit,
+dic-10,Zero Remit,
+end-dic-10,,
+dic-12,Credit,
+dic-12,Debit,
+dic-12,Zero Remit,
+end-dic-12,
+dic-15,Advance collect
+dic-15,Advance prepaid
+dic-15,COD
+dic-15,Collect
+dic-15,"Collect, freight credited to payment customer"
+dic-15,Credit card
+dic-15,Customer pick-up/backhaul
+dic-15,FOB
+dic-15,Not specified
+dic-15,Payable elsewhere
+dic-15,Pickup
+dic-15,Prepaid (by seller)
+dic-15,Prepaid but charged to customer
+dic-15,Prepaid only
+dic-15,Return container freight free
+dic-15,Return container freight paid by customer,
+dic-15,Return container freight paid by supplier,
+dic-15,Third party pay,
+end-dic-15,,
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/GlobalShipmentTermsCode,dic-15
+dic-16,AD,  ANDORRA
+dic-16,AE,  UNITED ARAB EMIRATES
+dic-16,AF,  AFGHANISTAN
+dic-16,AG,  ANTIGUA AND BARBUDA
+dic-16,AI,  ANGUILLA
+dic-16,AL,  ALBANIA
+dic-16,AM,  ARMENIA
+dic-16,AN,  NETHERLANDS ANTILLES
+dic-16,AO,  ANGOLA
+dic-16,AQ,  ANTARCTICA
+dic-16,AR,  ARGENTINA
+dic-16,AS,  AMERICAN SAMOA
+dic-16,AT,  AUSTRIA
+dic-16,AU,  AUSTRALIA
+dic-16,AW,  ARUBA
+dic-16,AZ,  AZERBAIJAN
+dic-16,BA,  BOSNIA AND HERZEGOVINA
+dic-16,BB,  BARBADOS
+dic-16,BD,  BANGLADESH
+dic-16,BE,  BELGIUM
+dic-16,BF,  BURKINA FASO
+dic-16,BG,  BULGARIA
+dic-16,BH,  BAHRAIN
+dic-16,BI,  BURUNDI
+dic-16,BJ,  BENIN
+dic-16,BM,  BERMUDA
+dic-16,BN,  BRUNEI DARUSSALAM
+dic-16,BO,  BOLIVIA
+dic-16,BR,  BRAZIL
+dic-16,BS,  BAHAMAS
+dic-16,BT,  BHUTAN
+dic-16,BV,  BOUVET ISLAND
+dic-16,BW,  BOTSWANA
+dic-16,BY,  BELARUS
+dic-16,BZ,  BELIZE
+dic-16,CA,  CANADA
+dic-16,CC,  COCOS (KEELING) ISLANDS
+dic-16,CF,  CENTRAL AFRICAN REPUBLIC
+dic-16,CG,  CONGO
+dic-16,CH,  SWITZERLAND
+dic-16,CI,  CÔTE D'IVOIRE
+dic-16,CK,  COOK ISLANDS
+dic-16,CL,  CHILE
+dic-16,CM,  CAMEROON
+dic-16,CN,  CHINA
+dic-16,CO,  COLOMBIA
+dic-16,CR,  COSTA RICA
+dic-16,CU,  CUBA
+dic-16,CV,  CAPE VERDE
+dic-16,CX,  CHRISTMAS ISLAND
+dic-16,CY,  CYPRUS
+dic-16,CZ,  CZECH REPUBLIC
+dic-16,DE,  GERMANY
+dic-16,DJ,  DJIBOUTI
+dic-16,DK,  DENMARK
+dic-16,DM,  DOMINICA
+dic-16,DO,  DOMINICAN REPUBLIC
+dic-16,DZ,  ALGERIA
+dic-16,EC,  ECUADOR
+dic-16,EE,  ESTONIA
+dic-16,EG,  EGYPT
+dic-16,EH,  WESTERN SAHARA
+dic-16,ER,  ERITREA
+dic-16,ES,  SPAIN
+dic-16,ET,  ETHIOPIA
+dic-16,FI,  FINLAND
+dic-16,FJ,  FIJI
+dic-16,FK,  FALKLAND ISLANDS (MALVINAS)
+dic-16,FM,"  MICRONESIA, FEDERATED STATES"
+dic-16,FO,  FAROE ISLANDS
+dic-16,FR,  FRANCE
+dic-16,GA,  GABON
+dic-16,GB,  UNITED KINGDOM
+dic-16,GD,  GRENADA
+dic-16,GE,  GEORGIA
+dic-16,GF,  FRENCH GUIANA
+dic-16,GH,  GHANA
+dic-16,GI,  GIBRALTAR
+dic-16,GL,  GREENLAND
+dic-16,GM,  GAMBIA
+dic-16,GN,  GUINEA
+dic-16,GP,  GUADELOUPE
+dic-16,GQ,  EQUATORIAL GUINEA
+dic-16,GR,  GREECE
+dic-16,GS,  SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS
+dic-16,GT,  GUATEMALA
+dic-16,GU,  GUAM
+dic-16,GW,  GUINEA-BISSAU
+dic-16,GY,  GUYANA
+dic-16,HK,  HONG KONG
+dic-16,HM,  HEARD ISLAND AND MCDONALD ISLANDS
+dic-16,HN,  HONDURAS
+dic-16,HR,  CROATIA
+dic-16,HT,  HAITI
+dic-16,HU,  HUNGARY
+dic-16,ID,  INDONESIA
+dic-16,IE,  IRELAND
+dic-16,IL,  ISRAEL
+dic-16,IN,  INDIA
+dic-16,IO,  BRITISH INDIAN OCEAN TERRITORY
+dic-16,IQ,  IRAQ
+dic-16,IR,"  IRAN, ISLAMIC REPUBLIC OF"
+dic-16,IS,  ICELAND
+dic-16,IT,  ITALY
+dic-16,JM,  JAMAICA
+dic-16,JO,  JORDAN
+dic-16,JP,  JAPAN
+dic-16,KE,  KENYA
+dic-16,KG,  KYRGYSTAN
+dic-16,KH,  CAMBODIA
+dic-16,KI,  KIRIBATI
+dic-16,KM,  COMOROS
+dic-16,KN,  SAINT KITTS AND NEVIS
+dic-16,KP,"  KOREA, DEMOCRATIC PEOPLE'S REP. OF"
+dic-16,KR,"  KOREA, REPUBLIC OF"
+dic-16,KW,  KUWAIT
+dic-16,KY,  CAYMAN ISLANDS
+dic-16,KZ,  KAZAKSTAN
+dic-16,LA,  LAO PEOPLE'S DEMOCRATIC REPUBLIC
+dic-16,LB,  LEBANON
+dic-16,LC,  SAINT LUCIA
+dic-16,LI,  LIECHTENSTEIN
+dic-16,LK,  SRI LANKA
+dic-16,LR,  LIBERIA
+dic-16,LS,  LESOTHO
+dic-16,LT,  LITHUANIA
+dic-16,LU,  LUXEMBOURG
+dic-16,LV,  LATVIA
+dic-16,LY,  LIBYAN ARAB JAMAHIRIYA
+dic-16,MA,  MOROCCO
+dic-16,MC,  MONACO
+dic-16,MD,"  MOLDOVA, REPUBLIC OF"
+dic-16,MG,  MADAGASCAR
+dic-16,MH,  MARSHALL ISLANDS
+dic-16,MK,"  MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF"
+dic-16,ML,  MALI
+dic-16,MM,  MYANMAR
+dic-16,MN,  MONGOLIA
+dic-16,MO,  MACAU
+dic-16,MP,  NORTHERN MARIANA ISLANDS
+dic-16,MQ,  MARTINIQUE
+dic-16,MR,  MAURITANIA
+dic-16,MS,  MONTSERRAT
+dic-16,MT,  MALTA
+dic-16,MU,  MAURITIUS
+dic-16,MV,  MALDIVES
+dic-16,MW,  MALAWI
+dic-16,MX,  MEXICO
+dic-16,MY,  MALAYSIA
+dic-16,MZ,  MOZAMBIQUE
+dic-16,NA,  NAMIBIA
+dic-16,NC,  NEW CALEDONIA
+dic-16,NE,  NIGER
+dic-16,NF,  NORFOLK ISLAND
+dic-16,NG,  NIGERIA
+dic-16,NI,  NICARAGUA
+dic-16,NL,  NETHERLANDS
+dic-16,NO,  NORWAY
+dic-16,NP,  NEPAL
+dic-16,NR,  NAURU
+dic-16,NT,  NEUTRAL ZONE
+dic-16,NU,  NIUE
+dic-16,NZ,  NEW ZEALAND
+dic-16,OM,  OMAN
+dic-16,PA,  PANAMA
+dic-16,PE,  PERU
+dic-16,PF,  FRENCH POLYNESIA
+dic-16,PG,  PAPUA NEW GUINEA
+dic-16,PH,  PHILIPPINES
+dic-16,PK,  PAKISTAN
+dic-16,PL,  POLAND
+dic-16,PM,  SAINT PIERRE AND MIQUELON
+dic-16,PN,  PITCAIRN
+dic-16,PR,  PUERTO RICO
+dic-16,PT,  PORTUGAL
+dic-16,PW,  PALAU
+dic-16,PY,  PARAGUAY
+dic-16,QA,  QATAR
+dic-16,RE,  REUNION
+dic-16,RO,  ROMANIA
+dic-16,RU,  RUSSIAN FEDERATION
+dic-16,RW,  RWANDA
+dic-16,SA,  SAUDI ARABIA
+dic-16,SB,  SOLOMON ISLANDS
+dic-16,SC,  SEYCHELLES
+dic-16,SD,  SUDAN
+dic-16,SE,  SWEDEN
+dic-16,SG,  SINGAPORE
+dic-16,SH,  SAINT HELENA
+dic-16,SI,  SLOVENIA
+dic-16,SJ,  SVALBARD AND JAN MAYEN ISLANDS
+dic-16,SK,  SLOVAKIA
+dic-16,SL,  SIERRA LEONE
+dic-16,SM,  SAN MARINO
+dic-16,SN,  SENEGAL
+dic-16,SO,  SOMALIA
+dic-16,SR,  SURINAME
+dic-16,ST,  SAO TOME AND PRINCIPE
+dic-16,SV,  EL SALVADOR
+dic-16,SY,  SYRIAN ARAB REPUBLIC
+dic-16,SZ,  SWAZILAND
+dic-16,TC,  TURKS AND CAICOS ISLANDS
+dic-16,TD,  CHAD
+dic-16,TF,  FRENCH SOUTHERN TERRITORIES
+dic-16,TG,  TOGO
+dic-16,TH,  THAILAND
+dic-16,TJ,  TAJIKISTAN
+dic-16,TK,  TOKELAU
+dic-16,TM,  TURKMENISTAN
+dic-16,TN,  TUNISIA
+dic-16,TO,  TONGA
+dic-16,TP,  EAST TIMOR
+dic-16,TR,  TURKEY
+dic-16,TT,  TRINIDAD AND TOBAGO
+dic-16,TV,  TUVALU
+dic-16,TW,"  TAIWAN, PROVINCE OF CHINA"
+dic-16,TZ,"  TANZANIA, UNITED REPUBLIC OF"
+dic-16,UA,  UKRAINE
+dic-16,UG,  UGANDA
+dic-16,UM,  UNITED STATES MINOR OUTLYING ISLANDS
+dic-16,US,  UNITED STATES
+dic-16,UY,  URUGUAY
+dic-16,UZ,  UZBEKISTAN
+dic-16,VA,  HOLY SEE (VATICAN CITY STATE)
+dic-16,VC,  SAINT VINCENT AND THE GRENADINES
+dic-16,VE,  VENEZUELA
+dic-16,VG,  VIRGIN ISLANDS (BRITISH)
+dic-16,VI,  VIRGIN ISLANDS (U.S.)
+dic-16,VN,  VIET NAM
+dic-16,VU,  VANUATU
+dic-16,WF,  WALLIS AND FUTUNA ISLANDS
+dic-16,WS,  SAMOA
+dic-16,YE,  YEMEN
+dic-16,YT,  MAYOTTE
+dic-16,YU,  YUGOSLAVIA
+dic-16,ZA,  SOUTH AFRICA
+dic-16,ZM,  ZAMBIA
+dic-16,ZR,  ZAIRE
+dic-16,ZW,  ZIMBABWE
+end-dic-16,,
+dic,/Pip3C3InvoiceNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-16
+dic,/Pip3C3InvoiceNotification/Invoice/billTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-16
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/countryOfOrigin/GlobalCountryCode,dic-16
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/shipFrom/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-16
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/NationalTax/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-16
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/shipTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-16
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/transportedBy/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-16
+dic,/Pip3C3InvoiceNotification/Invoice/remitTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-16
+dic,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/NationalTax/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-16
+dic,/Pip3C3InvoiceNotification/Invoice/soldTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-16
+dic,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/NationalTax/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-16
+dic,/Pip3C3InvoiceNotification/Invoice/transferTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-16
+dic,/Pip3C3InvoiceNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-16
+dic-17,10 Kilogram Drum,
+dic-17,"10,000 Gallon Tankcar",
+dic-17,100 Board Feet,
+dic-17,100 Pound Drum,
+dic-17,100-Pack,
+dic-17,115 Kilogram Drum,
+dic-17,15 Kilogram Drum,
+dic-17,20 Foot Container,
+dic-17,"20,000 Gallon Tankcar",
+dic-17,20-Pack,
+dic-17,25 Kilogram Bulk Bag,
+dic-17,300 Kilogram Bulk Bag,
+dic-17,40 Foot Container,
+dic-17,50 Pound Bag,
+dic-17,500 Kilogram Bulk Bag
+dic-17,55 Gallon Drum
+dic-17,Actual Pounds
+dic-17,Aluminum Pounds Only
+dic-17,Bag
+dic-17,Bale
+dic-17,Ball
+dic-17,Band
+dic-17,Bar
+dic-17,Barrel
+dic-17,"Barrel, Imperial"
+dic-17,Barrels Per Day
+dic-17,Barrels Per Minute
+dic-17,Base Box
+dic-17,Base Weight
+dic-17,Basket
+dic-17,Batch
+dic-17,Batt
+dic-17,Batting Pound
+dic-17,Beam
+dic-17,Belt
+dic-17,Billet
+dic-17,Bin
+dic-17,Block
+dic-17,Board
+dic-17,Board Feet
+dic-17,Bolt
+dic-17,Bottle
+dic-17,Box
+dic-17,British Thermal Unit (BTU)
+dic-17,British Thermal Units (BTUs) Per Cubic Foot
+dic-17,British Thermal Units (BTUs) Per Pound
+dic-17,Bucket
+dic-17,Bulk
+dic-17,Bulk Car Load
+dic-17,Bulk Pack
+dic-17,Bundle
+dic-17,Bunks
+dic-17,Bushel
+dic-17,"Bushel, Dry Imperial"
+dic-17,Calorie
+dic-17,Can
+dic-17,Car
+dic-17,Carat
+dic-17,Card
+dic-17,Carload
+dic-17,Carton
+dic-17,Cartridge
+dic-17,Case
+dic-17,Cask
+dic-17,Cassette
+dic-17,Catchweight
+dic-17,Cell
+dic-17,Centipoise (CPS)
+dic-17,Chains (Land Survey)
+dic-17,Chest
+dic-17,Coil
+dic-17,Coil Group
+dic-17,Composite Product Pounds (Total Weight)
+dic-17,Cone
+dic-17,Connector
+dic-17,Container
+dic-17,Cover
+dic-17,Crate
+dic-17,Cup
+dic-17,Cycles
+dic-17,Cylinder
+dic-17,Deal
+dic-17,Disk (Disc)
+dic-17,Dispenser
+dic-17,Display
+dic-17,Dozen
+dic-17,Dram
+dic-17,Drum
+dic-17,Dry Pounds
+dic-17,Each
+dic-17,Fluid Ounce
+dic-17,Fluid Ounce (Imperial)
+dic-17,Fuel Usage (Gallons)
+dic-17,Gage Systems
+dic-17,Gallon
+dic-17,Gigajoules
+dic-17,Gill (Imperial)
+dic-17,Grain
+dic-17,Gram
+dic-17,Grams Per 100 Centimeters
+dic-17,Grams Per 100 Grams
+dic-17,Grams Per Cubic Centimeter
+dic-17,Grams Per Kilogram
+dic-17,Grams Per Liter
+dic-17,Grams Per Milliliter
+dic-17,Grams Per Square Centimeter
+dic-17,Grams Per Square Meter
+dic-17,Great Gross (Dozen Gross)
+dic-17,Gross
+dic-17,Gross Barrels
+dic-17,Gross Gallons
+dic-17,Gross Kilogram
+dic-17,Gross Ton
+dic-17,Gross Yard
+dic-17,Group
+dic-17,Half Gallon
+dic-17,Half Hour
+dic-17,Half Liter
+dic-17,Hank
+dic-17,Heat lots
+dic-17,Hours
+dic-17,Hundred Boxes
+dic-17,Hundred Count
+dic-17,Hundred Sheets
+dic-17,Hundredth of a Carat
+dic-17,Imperial Gallons
+dic-17,Jar
+dic-17,Joint
+dic-17,Lifts
+dic-17,Link
+dic-17,Liquid Pounds
+dic-17,Load
+dic-17,Lot
+dic-17,Lug
+dic-17,Mat
+dic-17,Megagram
+dic-17,Megagrams Per Hour
+dic-17,Micrograms Per Cubic Meter
+dic-17,Milligrams Per Cubic Meter
+dic-17,Milligrams Per Square Meter
+dic-17,Millimeter H20
+dic-17,Million BTU's
+dic-17,Net Barrels
+dic-17,Net Gallons
+dic-17,Net Imperial Gallons
+dic-17,Net Liters
+dic-17,Pack (PAK)
+dic-17,Package
+dic-17,Packet
+dic-17,Pad
+dic-17,Pail
+dic-17,Pallet (Lift)
+dic-17,Pallet/Unit Load
+dic-17,Panel
+dic-17,Pennyweight
+dic-17,Percent
+dic-17,Percent Per 1000 Hours
+dic-17,Percent Weight
+dic-17,Piece
+dic-17,Pint U.S. Dry
+dic-17,Plate
+dic-17,Pound
+dic-17,Pounds Per 1000 Square Feet
+dic-17,Pounds Per Foot
+dic-17,Pounds Per Gallon
+dic-17,Pounds Per Piece of Product
+dic-17,Pounds Per Pound of Product
+dic-17,Pounds Per Thousand
+dic-17,Rack
+dic-17,Reel
+dic-17,Ring
+dic-17,Rod
+dic-17,Sack
+dic-17,Sheet
+dic-17,Sheet-Metric  measure
+dic-17,Shipment
+dic-17,Shot
+dic-17,Skein
+dic-17,Skid
+dic-17,Sleeve
+dic-17,Slip Sheet
+dic-17,Spool
+dic-17,Square
+dic-17,Statute Mile
+dic-17,Stick
+dic-17,Strip
+dic-17,Super Bulk Bag
+dic-17,Tablet
+dic-17,Tank
+dic-17,Tank Truck
+dic-17,Torr,
+dic-17,Tote,
+dic-17,Track Foot,
+dic-17,Trailer,
+dic-17,Train,
+dic-17,Tray,
+dic-17,Truckload,
+dic-17,Tube,
+dic-17,Vial,
+dic-17,Wrap,
+end-dic-17,,
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/GlobalProductUnitOfMeasureCode,dic-17
+dic-18,9 A.M.,
+dic-18,A.M.,
+dic-18,Air Cargo,
+dic-18,Air Charter,
+dic-18,Air Economy
+dic-18,Authorized Return Service
+dic-18,Bulk Commodity Train
+dic-18,Business Class
+dic-18,Consignee Billing Service
+dic-18,Courier Express
+dic-18,Deferred Service
+dic-18,Delivery Confirmation
+dic-18,Delivery Confirmation Return
+dic-18,Delivery Notification Only
+dic-18,Delivery Scheduled Next Day by Cartage Agent
+dic-18,Delivery scheduled second day by cartage agent
+dic-18,Delivery scheduled third day by cartage agent
+dic-18,Door Service
+dic-18,Expedited Service
+dic-18,Expedited Service - Worldwide
+dic-18,Express Service
+dic-18,Express Service - Worldwide
+dic-18,Express Service Plus
+dic-18,First Class
+dic-18,Ground
+dic-18,Manifest Freight
+dic-18,Metro
+dic-18,Multiweight
+dic-18,Next Day Air
+dic-18,Next Day Hundred Weight
+dic-18,Next Flight Out
+dic-18,Next Morning
+dic-18,Not Served
+dic-18,Other Intermodal and Stack Service
+dic-18,Overnight
+dic-18,P.O. Box/Zip Code
+dic-18,PM,
+dic-18,Passenger Service,
+dic-18,Pickup,
+dic-18,Premium Surface,
+dic-18,Primary Service Area - Next Day By 9,30 AM
+dic-18,Primary Service Area - Next Day by 10,30 A.M.
+dic-18,Primary Service Area - Next Day by 5,00 P.M.
+dic-18,Primary Service Area - Next Day by Noon,
+dic-18,Primary Service Area - Second Day by Noon,
+dic-18,Priority Mail,
+dic-18,Priority Mail Insured,
+dic-18,Proof of Delivery (POD) with Signature,
+dic-18,Regular,
+dic-18,Same Day,
+dic-18,Saturday,
+dic-18,Saturday Pickup,
+dic-18,Scheduled,
+dic-18,Second Day,
+dic-18,Second Day Air,
+dic-18,Second Day Hundred Weight,
+dic-18,Second Morning,
+dic-18,Standard Class,
+dic-18,Standard Ground,
+dic-18,Standard Ground Hundred Weight,
+dic-18,Standard Service,
+dic-18,Sunday and Holidays,
+dic-18,Three Day Service,
+dic-18,Time Critical,
+dic-18,Tracking - Ground,
+end-dic-18,,
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/GlobalShippingServiceLevelCode,dic-18
+dic-19,Already customs cleared in the importing country,Arrangements for inspection are not necessary because they were cleared before.
+dic-19,Clearance,The cargo will be or has been cleared.
+dic-19,Detention,The cargo has been or will be detained.
+dic-19,Documents required,Pertinent documents are required.
+dic-19,Documents requirements completed,All requirements for documents have been completed.
+dic-19,Fumigation,The cargo has been or will be fumigated.
+dic-19,Inspection,The cargo has been or will be inspected.
+dic-19,Inspection arrangements completed,Arrangements for inspection of the cargo have been completed.
+dic-19,Inspection arrangements required,Arrangements for inspection of the cargo are required.
+dic-19,No customs procedure,Customs clearance not required.
+dic-19,Safety arrangements completed,Arrangements for safeguarding the cargo have been completed.
+dic-19,Safety arrangements required,Arrangements for safeguarding the cargo are required.
+dic-19,Security,The cargo has been or will be secured.
+dic-19,Security arrangements required,Arrangements for the security of the cargo are required.
+dic-19,Storage arrangements completed,Arrangements for storing the cargo have been completed.
+dic-19,Storage arrangements required,Arrangements for storing the cargo are required.
+dic-19,Transport arrangements completed,All arrangements for transport have been completed.
+dic-19,Transport arrangements required,Transport has to be arranged.
+end-dic-19,,
+dic,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/ProductDescription/NationalExportControlClassificationCode,dic-19
+dic-22,Credit,
+dic-22,Debit,
+dic-22,Zero Remit,
+end-dic-22,,
+dic-24,Credit,
+dic-24,Debit,
+dic-24,Zero Remit,
+end-dic-24,,
+dic-27,Credit,
+dic-27,Debit,
+dic-27,Zero Remit,
+end-dic-27,,
+dic-29,Credit,
+dic-29,Debit
+dic-29,Zero Remit
+end-dic-29,
+dic-32,Credit
+dic-32,Debit
+dic-32,Zero Remit
+end-dic-32,
+dic-35,Credit
+dic-35,Debit
+dic-35,Zero Remit
+end-dic-35,
+dic-38,Credit
+dic-38,Debit
+dic-38,Zero Remit
+end-dic-38,
+dic-41,Credit
+dic-41,Debit,,
+dic-41,Zero Remit,,
+end-dic-41,,,
+dic-43,Invoice Receiver,  The organization being invoiced.,
+end-dic-43,,,
+type,/Pip3C3InvoiceNotification/fromRole/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/billTo/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/billTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/billTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/billTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/billTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/billTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/billTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/billTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/shipFrom/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/shipFrom/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/shipFrom/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/shipFrom/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/shipFrom/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/shipFrom/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/shipFrom/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/CityTax/cityName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/RegionalTax/RegionalBusinessTaxIdentifier/regionName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/shipTo/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/shipTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/shipTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/shipTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/shipTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/shipTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/shipTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/shipTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/transportedBy/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/transportedBy/PartnerRoleDescription/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/transportedBy/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/transportedBy/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/transportedBy/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/transportedBy/PartnerRoleDescription/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/transportedBy/PartnerRoleDescription/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/transportedBy/PartnerRoleDescription/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/remitTo/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/remitTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/remitTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/remitTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/remitTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/remitTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/remitTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/remitTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/CityTax/cityName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/RegionalTax/RegionalBusinessTaxIdentifier/regionName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/soldTo/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/soldTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/soldTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/soldTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/soldTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/soldTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/soldTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/soldTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/CityTax/cityName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/RegionalTax/RegionalBusinessTaxIdentifier/regionName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/transferTo/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/transferTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/transferTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/transferTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/transferTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/transferTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/transferTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/Invoice/transferTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/toRole/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3C3InvoiceNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1,,
+type,/Pip3C3InvoiceNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1,,
+type,/Pip3C3InvoiceNotification/fromRole/PartnerRoleDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/billTo/PartnerRoleDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/shipTo/PartnerRoleDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/transportedBy/PartnerRoleDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/remitTo/PartnerRoleDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/soldTo/PartnerRoleDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/transferTo/PartnerRoleDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip3C3InvoiceNotification/toRole/PartnerRoleDescription/ContactInformation/EmailAddress,String,1,,
+type,/Pip3C3InvoiceNotification/fromRole/PartnerRoleDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3C3InvoiceNotification/fromRole/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3C3InvoiceNotification/Invoice/billTo/PartnerRoleDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3C3InvoiceNotification/Invoice/billTo/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/shipTo/PartnerRoleDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/shipTo/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/transportedBy/PartnerRoleDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/transportedBy/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3C3InvoiceNotification/Invoice/remitTo/PartnerRoleDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3C3InvoiceNotification/Invoice/remitTo/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3C3InvoiceNotification/Invoice/soldTo/PartnerRoleDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3C3InvoiceNotification/Invoice/soldTo/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3C3InvoiceNotification/Invoice/transferTo/PartnerRoleDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3C3InvoiceNotification/Invoice/transferTo/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3C3InvoiceNotification/toRole/PartnerRoleDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3C3InvoiceNotification/toRole/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3C3InvoiceNotification/fromRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/billTo/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/shipTo/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/transportedBy/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/remitTo/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/soldTo/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/transferTo/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1,,
+type,/Pip3C3InvoiceNotification/toRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1,,
+type,/Pip3C3InvoiceNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3C3InvoiceNotification/Invoice/billTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/shipFrom/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/shipTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/transportedBy/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3C3InvoiceNotification/Invoice/remitTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3C3InvoiceNotification/Invoice/soldTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3C3InvoiceNotification/Invoice/transferTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3C3InvoiceNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3C3InvoiceNotification/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/billTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/shipFrom/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/shipTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/transportedBy/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/remitTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/soldTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/transferTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3C3InvoiceNotification/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3C3InvoiceNotification/fromRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/billTo/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/ProductDescription/PartnerProductIdentification/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/shipFrom/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/shipTo/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/transportedBy/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/remitTo/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/soldTo/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/transferTo/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3C3InvoiceNotification/toRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3C3InvoiceNotification/GlobalDocumentFunctionCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/billToAccount/AccountNumber,String,1,35,X(35)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/shipToAccount/AccountNumber,String,1,35,X(35)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/transportedByAccount/AccountNumber,String,1,35,X(35)
+type,/Pip3C3InvoiceNotification/Invoice/remitToAccount/AccountNumber,String,1,35,X(35)
+type,/Pip3C3InvoiceNotification/Invoice/soldToAccount/AccountNumber,String,1,35,X(35)
+type,/Pip3C3InvoiceNotification/Invoice/transferToAccount/AccountNumber,String,1,35,X(35)
+type,/Pip3C3InvoiceNotification/Invoice/FinancialAmount/GlobalCurrencyCode,String,3,3,X(3)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/allowancesAndCharges/FinancialAmount/GlobalCurrencyCode,String,3,3,X(3)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/depositAmount/FinancialAmount/GlobalCurrencyCode,String,3,3,X(3)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/handlingCharges/FinancialAmount/GlobalCurrencyCode,String,3,3,X(3)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/CityTax/FinancialAmount/GlobalCurrencyCode,String,3,3,X(3)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/NationalTax/FinancialAmount/GlobalCurrencyCode,String,3,3,X(3)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/RegionalTax/FinancialAmount/GlobalCurrencyCode,String,3,3,X(3)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/totalAmount/FinancialAmount/GlobalCurrencyCode,String,3,3,X(3)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/unitPrice/FinancialAmount/GlobalCurrencyCode,String,3,3,X(3)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/prepaymentAmount/FinancialAmount/GlobalCurrencyCode,String,3,3,X(3)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/totalLineItemAmount/FinancialAmount/GlobalCurrencyCode,String,3,3,X(3)
+type,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/CityTax/FinancialAmount/GlobalCurrencyCode,String,3,3,X(3)
+type,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/NationalTax/FinancialAmount/GlobalCurrencyCode,String,3,3,X(3)
+type,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/RegionalTax/FinancialAmount/GlobalCurrencyCode,String,3,3,X(3)
+type,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/totalAmount/FinancialAmount/GlobalCurrencyCode,String,3,3,X(3)
+type,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/CityTax/FinancialAmount/GlobalCurrencyCode,String,3,3,X(3)
+type,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/NationalTax/FinancialAmount/GlobalCurrencyCode,String,3,3,X(3)
+type,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/RegionalTax/FinancialAmount/GlobalCurrencyCode,String,3,3,X(3)
+type,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/totalAmount/FinancialAmount/GlobalCurrencyCode,String,3,3,X(3)
+type,/Pip3C3InvoiceNotification/Invoice/FinancialAmount/GlobalMonetaryAmountTypeCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/allowancesAndCharges/FinancialAmount/GlobalMonetaryAmountTypeCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/depositAmount/FinancialAmount/GlobalMonetaryAmountTypeCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/handlingCharges/FinancialAmount/GlobalMonetaryAmountTypeCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/CityTax/FinancialAmount/GlobalMonetaryAmountTypeCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/NationalTax/FinancialAmount/GlobalMonetaryAmountTypeCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/RegionalTax/FinancialAmount/GlobalMonetaryAmountTypeCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/totalAmount/FinancialAmount/GlobalMonetaryAmountTypeCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/unitPrice/FinancialAmount/GlobalMonetaryAmountTypeCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/prepaymentAmount/FinancialAmount/GlobalMonetaryAmountTypeCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/totalLineItemAmount/FinancialAmount/GlobalMonetaryAmountTypeCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/CityTax/FinancialAmount/GlobalMonetaryAmountTypeCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/NationalTax/FinancialAmount/GlobalMonetaryAmountTypeCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/RegionalTax/FinancialAmount/GlobalMonetaryAmountTypeCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/totalAmount/FinancialAmount/GlobalMonetaryAmountTypeCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/CityTax/FinancialAmount/GlobalMonetaryAmountTypeCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/NationalTax/FinancialAmount/GlobalMonetaryAmountTypeCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/RegionalTax/FinancialAmount/GlobalMonetaryAmountTypeCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/totalAmount/FinancialAmount/GlobalMonetaryAmountTypeCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/FinancialAmount/MonetaryAmount,Real,1,19,9(13)V9(5)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/allowancesAndCharges/FinancialAmount/MonetaryAmount,Real,1,19,9(13)V9(5)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/depositAmount/FinancialAmount/MonetaryAmount,Real,1,19,9(13)V9(5)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/handlingCharges/FinancialAmount/MonetaryAmount,Real,1,19,9(13)V9(5)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/CityTax/FinancialAmount/MonetaryAmount,Real,1,19,9(13)V9(5)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/NationalTax/FinancialAmount/MonetaryAmount,Real,1,19,9(13)V9(5)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/RegionalTax/FinancialAmount/MonetaryAmount,Real,1,19,9(13)V9(5)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/totalAmount/FinancialAmount/MonetaryAmount,Real,1,19,9(13)V9(5)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/unitPrice/FinancialAmount/MonetaryAmount,Real,1,19,9(13)V9(5)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/prepaymentAmount/FinancialAmount/MonetaryAmount,Real,1,19,9(13)V9(5)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/totalLineItemAmount/FinancialAmount/MonetaryAmount,Real,1,19,9(13)V9(5)
+type,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/CityTax/FinancialAmount/MonetaryAmount,Real,1,19,9(13)V9(5)
+type,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/NationalTax/FinancialAmount/MonetaryAmount,Real,1,19,9(13)V9(5)
+type,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/RegionalTax/FinancialAmount/MonetaryAmount,Real,1,19,9(13)V9(5)
+type,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/totalAmount/FinancialAmount/MonetaryAmount,Real,1,19,9(13)V9(5)
+type,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/CityTax/FinancialAmount/MonetaryAmount,Real,1,19,9(13)V9(5)
+type,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/NationalTax/FinancialAmount/MonetaryAmount,Real,1,19,9(13)V9(5)
+type,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/RegionalTax/FinancialAmount/MonetaryAmount,Real,1,19,9(13)V9(5)
+type,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/totalAmount/FinancialAmount/MonetaryAmount,Real,1,19,9(13)V9(5)
+type,/Pip3C3InvoiceNotification/Invoice/Financing/approvalIdentifier/ProprietaryReferenceIdentifier,String,1,255,
+type,/Pip3C3InvoiceNotification/Invoice/Financing/financingPlanIdentifier/ProprietaryReferenceIdentifier,String,1,255,
+type,/Pip3C3InvoiceNotification/Invoice/GlobalDocumentTypeCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/GlobalPaymentTermsCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/LineNumber,String,1,6,X(6)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/LineNumber,String,1,6,X(6)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/primaryIdentifier/ProprietaryShipmentTrackingIdentifier,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/secondaryIdentifier/ProprietaryShipmentTrackingIdentifier,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/GlobalShipmentTermsCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/governmentContractIdentifier/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/purchaseOrderNumber/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/packingSlipIdentifier/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/originalInvoiceNumber/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/purchaseOrderNumber/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/salesOrderIdentifier/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip3C3InvoiceNotification/thisDocumentIdentifier/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip3C3InvoiceNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3C3InvoiceNotification/Invoice/billTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/countryOfOrigin/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/shipFrom/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/NationalTax/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/shipTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/transportedBy/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3C3InvoiceNotification/Invoice/remitTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/NationalTax/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3C3InvoiceNotification/Invoice/soldTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/NationalTax/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3C3InvoiceNotification/Invoice/transferTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3C3InvoiceNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/GlobalProductUnitOfMeasureCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/GlobalShippingServiceLevelCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/ProductDescription/GlobalProductIdentifier,String,14,14,9(14)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/ProductDescription/NationalExportControlClassificationCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/ProductDescription/NationalHarmonizedTariffScheduleCode,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/ProductDescription/PartnerProductIdentification/ProprietaryProductIdentifier,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/ProductDescription/ProprietarySerialIdentifier,String,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/ProductQuantity,Real,1,,
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/shipDate/DateStamp,Date,9,9,9(8)X
+type,/Pip3C3InvoiceNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3C3InvoiceNotification/Invoice/billTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/shipFrom/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/shipTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/transportedBy/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3C3InvoiceNotification/Invoice/remitTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3C3InvoiceNotification/Invoice/soldTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3C3InvoiceNotification/Invoice/transferTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3C3InvoiceNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/CityTax/taxRate/PercentAmount,NaturalNumber,1,3,9(3)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/NationalTax/taxRate/PercentAmount,NaturalNumber,1,3,9(3)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/RegionalTax/taxRate/PercentAmount,NaturalNumber,1,3,9(3)
+type,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/CityTax/taxRate/PercentAmount,NaturalNumber,1,3,9(3)
+type,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/NationalTax/taxRate/PercentAmount,NaturalNumber,1,3,9(3)
+type,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/RegionalTax/taxRate/PercentAmount,NaturalNumber,1,3,9(3)
+type,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/CityTax/taxRate/PercentAmount,NaturalNumber,1,3,9(3)
+type,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/NationalTax/taxRate/PercentAmount,NaturalNumber,1,3,9(3)
+type,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/RegionalTax/taxRate/PercentAmount,NaturalNumber,1,3,9(3)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/NationalTax/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/TaxSummary/RegionalTax/RegionalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/NationalTax/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3C3InvoiceNotification/Invoice/remitToTax/TaxSummary/RegionalTax/RegionalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/NationalTax/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3C3InvoiceNotification/Invoice/soldToTax/TaxSummary/RegionalTax/RegionalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3C3InvoiceNotification/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3C3InvoiceNotification/Invoice/billTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/OrderStatus/PurchaseOrder/ProductLineItem/shipFrom/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/shipTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3C3InvoiceNotification/Invoice/InvoiceLineItem/transportedBy/PartnerRoleDescription/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3C3InvoiceNotification/Invoice/remitTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3C3InvoiceNotification/Invoice/soldTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3C3InvoiceNotification/Invoice/transferTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3C3InvoiceNotification/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3C3InvoiceNotification/Invoice/isLockBoxUsed/AffirmationIndicator,String,2,3,
+type,/Pip3C3InvoiceNotification/Invoice/isRebill/AffirmationIndicator,String,2,3,
+type,/Pip3C3InvoiceNotification/thisDocumentGenerationDateTime/DateTimeStamp,DateTime,13,20,9(8)X9(6)V9(3)X

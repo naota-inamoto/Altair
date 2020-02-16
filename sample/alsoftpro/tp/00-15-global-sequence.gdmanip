@@ -1,0 +1,105 @@
+
+main(g1, g2) .
+var("g2", g2) == 1, write(dump(g2, 1)) == 1 .
+
+main(g1, g2) :- g == cons(null, null), var("g1", g1) == 1, init(g, g1), seq1(g1, g2), seq2(g1, g2), var("g2", g2) == 1 .
+
+init(g, g1) :- 
+ pm_rep(g, g1)
+
+  before := {
+    invariant,
+    g
+  }
+  after := {
+    g1:(null)-/10/-> g11:(null),
+                     g11 -/"name"/-> ("x"),
+                     g11 -/"value"/-> (10),
+    g1       -/"A"/->g12:(null),
+                     g12 -/"name"/-> ("A"),
+                     g12 -/"value"/-> ("A"),
+    g1       -/20/-> g13:(null),
+                     g13 -/"name"/-> ("y"),
+                     g13 -/"value"/-> (20),
+    g1       -/"B"/->g14:(null),
+                     g14 -/"name"/-> ("B"),
+                     g14 -/"value"/-> ("B"),
+    g1       -/30/-> g15:(null),
+                     g15 -/"name"/-> ("z"),
+                     g15 -/"value"/-> (30)
+  }
+  common := {
+   where .
+  }
+  tail := {
+   where .
+  }
+
+  final := {
+   where .
+  }
+
+  .
+
+seq1(g1, g2) :- 
+ pm_rep(g1, g2)
+
+  before := {
+    invariant,
+    <<<1
+      g1:(null) -/n/=> g11:(null),
+                     g11 -/"name"/-> (name),
+                     g11 -/"value"/-> (value)
+    >>>1
+  }
+  after := {
+    <<<1
+      g2:(null) -/m/=> g21:(null),
+                     g21 -/"name"/-> (name),
+                     g21 -/"value"/-> (value)
+    >>>1
+  }
+  common := {
+   where next_if_false(is_type(n, "integer") == null), global_sequence("g_seq", m, n, 1, 1) == null.
+  }
+  tail := {
+   where .
+  }
+
+  final := {
+   where .
+  }
+
+  .
+
+seq2(g1, g2) :- 
+ pm_rep(g1, g2)
+
+  before := {
+    invariant,
+    <<<1
+      g1:(null) -/n/=> g11:(null),
+                     g11 -/"name"/-> (name),
+                     g11 -/"value"/-> (value)
+    >>>1
+  }
+  after := {
+    <<<1
+      g2:(null) -/m/=> g21:(null),
+                     g21 -/"name"/-> (name),
+                     g21 -/"value"/-> (value)
+    >>>1
+  }
+  common := {
+   where next_if_false(is_type(n, "string") == null), global_sequence("g_seq", m, n, 1, 1) == null.
+  }
+  tail := {
+   where .
+  }
+
+  final := {
+   where .
+  }
+
+  .
+

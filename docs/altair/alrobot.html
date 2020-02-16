@@ -1,0 +1,167 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>MR-999/IF-99 OLE Control</TITLE>
+</HEAD>
+
+<BODY>
+<H1>MR-999/IF-99 OLE Control</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.32版 2003年 8月15日<BR>
+
+<HR>
+<H3>概要</H3>
+
+MR999.ocxは、<A HREF="http://www.elekit.co.jp/material/japanese_product_html/MR-999.php?page=1&ssi=">ロボットアーム MR-999</A> を <A HREF="http://www.elekit.co.jp/material/japanese_product_html/IF-99.php?page=1&ssi=">インターフェースボード IF-99</A> で<BR>
+PCから制御するためのOCX（OLEコントロール）です。<BR>
+Microsft Visual BasicなどのOCXコンテナになっている開発ツールを使うと、<BR>
+その開発ツールの開発言語で、ロボットアームの制御プログラムが書けます。<BR>
+
+<HR>
+<H3>PCとMR-999/IF-99との間のインターフェース</H3>
+
+PCとMR-999/IF-99との間のインターフェースはRS232Cです。<BR>
+<BR>
+・8bitのバイトデータを、約200ミリ秒単位にPCからIF-99に送信。<BR>
+・8bitのバイトデータの意味は以下。<BR>
+<BR>
+● ff<BR>
+停止<BR>
+1111 1111<BR>
+<BR>
+● df<BR>
+デリミッター<BR>
+1101 1111<BR>
+<BR>
+● 80-9f<BR>
+デリミッターの次（モーターの回転方向の指示）<BR>
+100x xxxx<BR>
+&nbsp;&nbsp;&nbsp;B SEWG<BR>
+ビットが0か1かで回転方向を決める<BR>
+（１バイトで、全関節の回転方向を決める）<BR>
+<BR>
+● e0-ff<BR>
+デリミッターの次の次以降、デリミッターが来るまで （回転させるかの指示）<BR>
+111x xxxx<BR>
+&nbsp;&nbsp;&nbsp;B SEWG<BR>
+0なら回転させる、1なら回転させない<BR>
+（５つの関節を同時に動かすことができる）<BR>
+
+<HR>
+<H3><A NAME="name_prog_id">名前とProgID</A></H3>
+
+名前は、「MR999 Control」で、ProgIDは、「MR999.MR999Ctrl.1」です。<BR>
+
+<HR>
+<H1>メソッド</H1>
+
+<H3><A NAME="Start">BOOL Start()</A></H3>
+
+8bitのコマンドデータ列の送信を始めます。<BR>
+失敗すると0、成功すると1が返ります。<BR>
+
+<H3><A NAME="Stop">void Stop()</A></H3>
+
+8bitのコマンドデータ列の送信を終了します。<BR>
+
+<H3><A NAME="GrpClose">void GrpClose()</A></H3>
+
+指を閉じることを始めます。<BR>
+
+<H3><A NAME="GrpOpen">void GrpOpen()</A></H3>
+
+指を開くことを始めます。<BR>
+
+<H3><A NAME="GrpStop">void GrpStop()</A></H3>
+
+指を動かすことを止めます。<BR>
+
+<H3><A NAME="WstLeft">void WstLeft()</A></H3>
+
+手首を左に回すことを始めます。<BR>
+
+<H3><A NAME="WstRight">void WstRight()</A></H3>
+
+手首を右に回すことを始めます。<BR>
+
+<H3><A NAME="WstStop">void WstStop()</A></H3>
+
+手首を動かすことを止めます。<BR>
+
+<H3><A NAME="ElbDown">void ElbDown()</A></H3>
+
+肘を曲げることを始めます。<BR>
+
+<H3><A NAME="ElbUp">void ElbUp()</A></H3>
+
+肘を伸ばすことを始めます。<BR>
+
+<H3><A NAME="ElbStop">void ElbStop()</A></H3>
+
+肘を動かすことを止めます。<BR>
+
+<H3><A NAME="SldDown">void SldDown()</A></H3>
+
+肩を曲げることを始めます。<BR>
+
+<H3><A NAME="SldUp">void SldUp()</A></H3>
+
+肩を伸ばすことを始めます。<BR>
+
+<H3><A NAME="SldStop">void SldStop()</A></H3>
+
+肩を動かすことを止めます。<BR>
+
+<H3><A NAME="BaseCcw">void BaseCcw()</A></H3>
+
+ベースを反時計回りに動かすことを始めます。<BR>
+
+<H3><A NAME="BaseCw">void BaseCw()</A></H3>
+
+ベースを時計回りに動かすことを始めます。<BR>
+
+<H3><A NAME="BaseStop">void BaseStop()</A></H3>
+
+ベースを動かすことを止めます。<BR>
+
+<HR>
+<H1>プロパティ</H1>
+
+<H3><A NAME="PortName">CString PortName</A></H3>
+
+使用するシリアルポートの名前です。<BR>
+デフォルトは、COM1 です。<BR>
+
+<H3><A NAME="TimerPeriod">short TimerPeriod</A></H3>
+
+8bitのコマンドデータを送る時間間隔です。
+デフォルトは、200（ミリ秒）です。
+
+<HR>
+<H1>サンプル</H1>
+
+<H3>前準備</H3>
+<A HREF="sample.html#prepare">Altairのサンプルの前準備</A>で、
+ライブラリgbgp.albが作成されていることを確認してください。<BR>
+
+<H3><A NAME="ContorlPanel">ロボットアームコントロールパネル</A></H3>
+
+プロジェクトgbgp.aprを開いてください。<BR>
+クラスGbGpをダブルクリックしてください。<BR>
+関数Runのところにキャレットをおいて<BR>
+メニューの「インタプリタ - 実行」を行ってください。<BR>
+これでGbGpサンプルが立ち上がります。<BR>
+<BR>
+「開く」ボタンでrobot_arm/robot_arm.gprを開いてください。<BR>
+ここで画面のの「Start」ボタンを押してください。<BR>
+コマンドの送信が始まります。<BR>
+<BR>
+メソッドの名前と同じボタンがあるので、それを押せば、<BR>
+その通りにMR-999ロボットアームが動きます。<BR>
+<BR>
+<IMG SRC="image/robot_control.jpg"><BR>
+
+<HR>
+</BODY>
+</HTML>

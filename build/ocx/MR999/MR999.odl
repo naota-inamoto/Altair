@@ -1,0 +1,72 @@
+// MR999.odl : ActiveX コントロール プロジェクトのタイプ ライブラリのソース
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(C8785F8D-8BD1-4DFC-8FA2-B40699D7B1C7), version(1.0),
+  helpfile("MR999.hlp"),
+  helpstring("MR999 ActiveX ｺﾝﾄﾛｰﾙ ﾓｼﾞｭｰﾙ"),
+  control ]
+library MR999Lib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	[ uuid(BB88F641-8986-4AA6-ABD4-A7851AF79779),
+	  helpstring("MR999 Control 用ﾃﾞｨｽﾊﾟｯﾁ ｲﾝﾀｰﾌｪｲｽ"), hidden ]
+	dispinterface _DMR999
+	{
+		properties:
+			//{{AFX_ODL_PROP(CMR999Ctrl)
+			[id(1)] BSTR PortName;
+			[id(2)] short TimerPeriod;
+			//}}AFX_ODL_PROP
+
+		methods:
+			//{{AFX_ODL_METHOD(CMR999Ctrl)
+			[id(3)] boolean Start();
+			[id(4)] void Stop();
+			[id(5)] void GrpClose();
+			[id(6)] void GrpOpen();
+			[id(7)] void GrpStop();
+			[id(8)] void WstLeft();
+			[id(9)] void WstRight();
+			[id(10)] void WstStop();
+			[id(11)] void ElbDown();
+			[id(12)] void ElbUp();
+			[id(13)] void ElbStop();
+			[id(14)] void SldDown();
+			[id(15)] void SldUp();
+			[id(16)] void SldStop();
+			[id(17)] void BaseCw();
+			[id(18)] void BaseCcw();
+			[id(19)] void BaseStop();
+			//}}AFX_ODL_METHOD
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	[ uuid(CD38E4E0-8722-4FB9-9596-B54D32C256A5),
+	  helpstring("Event interface for MR999 Control") ]
+	dispinterface _DMR999Events
+	{
+		properties:
+			//  イベント インターフェイスにプロパティはありません
+
+		methods:
+			//{{AFX_ODL_EVENT(CMR999Ctrl)
+			//}}AFX_ODL_EVENT
+	};
+
+	[ uuid(2EB3EA21-1198-47DC-88BD-1E3BF532F9C2),
+	  helpstring("MR999 Control"), control ]
+	coclass MR999
+	{
+		[default] dispinterface _DMR999;
+		[default, source] dispinterface _DMR999Events;
+	};
+
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};

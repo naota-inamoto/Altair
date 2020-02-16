@@ -1,0 +1,8 @@
+<PROJ>
+  <APPLICATION>HClassView</APPLICATION>
+  <JAVA>HTreeView.java</JAVA>
+  <JAVA>HClassView.java</JAVA>
+  <JAVA>HApiSearcher.java</JAVA>
+  <JAVA>AskDialog.java</JAVA>
+  <JAVA>MessageDialog.java</JAVA>
+</PROJ>

@@ -1,0 +1,28 @@
+
+g == cons(null, null), var("g1", g1) == 1, init(g, g1), write(dump(g1, 1)) == 1 .
+
+init(g, g1) :- 
+ pm_rep(g, g1)
+
+  before := {
+    invariant,
+    g
+  }
+  after := {
+    g1:(null)-/1/->("1"),
+    g1       -/2/->("2"),
+    g1       -/3/->("3")
+  }
+  common := {
+   where .
+  }
+  tail := {
+   where .
+  }
+
+  final := {
+   where .
+  }
+
+  .
+

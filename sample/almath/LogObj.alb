@@ -1,0 +1,85 @@
+TEXT
+AlObject
+class LogObj
+end_class
+class LogObj
+member
+public: void init();
+member
+public: void finalize();
+member
+public: void log(string filepath, string str);
+member
+public: string genTimestamp();
+member
+public: list log_files;
+member
+public: static integer max_size;
+end_class
+class LogObj
+member
+public: void init();
+body
+{
+	log_files = al_cons(null, null);
+	max_size = 1024 * 1024 * 10;
+}
+end_body
+member
+public: void finalize();
+body
+{
+	log_files = null;
+}
+end_body
+member
+public: void log(string filepath, string str);
+body
+{
+	if (filepath) {
+	} else {
+		return;
+	}
+	var file f;
+	if (f = al_dst_node(log_files, filepath)) {
+	} else {
+		if (f = al_file_open(filepath, "a")) {
+		} else {
+			al_print("can't create logfile: filepath = " + filepath + "\n");
+			al_print("message = \"" + str + "\"\n");
+			return;
+		}
+		al_create_arc(log_files, f, filepath);
+	}
+	var list date;
+	var list date_str;
+	date = al_file_manip("current_datetime", null, null);
+	date_str = al_misc("format_time", date, "yyyy'/'MM'/'dd' 'HH':'mm':'ss");
+	al_file_write(f, "string", date_str + " " + str + "\n");
+	al_file_manip("flush", f, null);
+	if (al_file_manip("get_size", filepath, null) > max_size) {
+		f = null;
+		al_set_dst_node(log_files, filepath, null);
+		var string filepath2;
+		filepath2 = filepath + "." + genTimestamp();
+		al_file_manip("rename", filepath, filepath2);
+	} else {
+	}
+}
+end_body
+member
+public: string genTimestamp();
+body
+{
+	var list time;
+	time = al_misc("get_time", null, null);
+	time = al_misc("get_localtime", time, null);
+	time = al_misc("format_time", time, "yyyyMMdd'-'HHmmss");
+	return time;
+}
+end_body
+member
+public: list log_files;
+member
+public: static integer max_size;
+end_class

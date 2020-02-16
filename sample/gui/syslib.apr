@@ -1,0 +1,1324 @@
+$END_LIB
+TEXT
+AlObject
+class GUI
+class ParaPro
+class Channel
+end_class
+class Timer
+end_class
+end_class
+end_class
+TEXT
+AlObject
+class SysLib
+class Integer
+end_class
+class Real
+end_class
+class String
+end_class
+class List
+end_class
+class Graph
+end_class
+class File
+end_class
+end_class
+$END_CLASS
+TEXT
+AlObject
+class GUI
+member
+funcType: void GUIfunc();
+class ParaPro
+class Channel
+member
+public: void SendMessage(list msg);
+member
+public: list GetMessage();
+member
+public: list GetMessageNoWait();
+member
+public: list msg_queue;
+member
+public: void public_func();
+end_class
+class Timer
+member
+public: void Create(integer millisecond, GUI obj, GUIfunc func);
+member
+public: void Start();
+member
+public: void Stop();
+member
+public: void Close();
+member
+public: integer millisecond;
+member
+public: GUI obj;
+member
+public: GUIfunc func;
+member
+public: integer timer_id;
+member
+public: void Callback();
+end_class
+end_class
+end_class
+TEXT
+AlObject
+class SysLib
+class Integer
+member
+public: static integer Set(integer a);
+member
+public: static integer Plus(integer a, integer b);
+member
+public: static integer Minus(integer a, integer b);
+member
+public: static integer Mul(integer a, integer b);
+member
+public: static integer Div(integer a, integer b);
+member
+public: static integer Mod(integer a, integer b);
+member
+public: static integer And(integer a, integer b);
+member
+public: static integer Or(integer a, integer b);
+member
+public: static integer Xor(integer a, integer b);
+member
+public: static integer ShiftL(integer a, integer b);
+member
+public: static integer ShiftR(integer a, integer b);
+member
+public: static list IsEQ(integer a, integer b);
+member
+public: static list IsNE(integer a, integer b);
+member
+public: static list IsLT(integer a, integer b);
+member
+public: static list IsLE(integer a, integer b);
+member
+public: static list IsGE(integer a, integer b);
+member
+public: static list IsGT(integer a, integer b);
+member
+public: static integer FromReal(real r);
+member
+public: static integer FromString(string s);
+member
+public: void public_func();
+end_class
+class Real
+member
+public: static real Set(real a);
+member
+public: static real Plus(real a, real b);
+member
+public: static real Minus(real a, real b);
+member
+public: static real Mul(real a, real b);
+member
+public: static real Div(real a, real b);
+member
+public: static list IsEQ(real a, real b);
+member
+public: static list IsNE(real a, real b);
+member
+public: static list IsLT(real a, real b);
+member
+public: static list IsLE(real a, real b);
+member
+public: static list IsGE(real a, real b);
+member
+public: static list IsGT(real a, real b);
+member
+public: static real FromInteger(integer i);
+member
+public: static real FromString(string s);
+member
+public: void public_func();
+end_class
+class String
+member
+public: static string Set(string a);
+member
+public: static string Plus(string a, string b);
+member
+public: static list IsEQ(string a, string b);
+member
+public: static list IsNE(string a, string b);
+member
+public: static list IsLT(string a, string b);
+member
+public: static list IsLE(string a, string b);
+member
+public: static list IsGE(string a, string b);
+member
+public: static list IsGT(string a, string b);
+member
+public: static string FromInteger(integer i);
+member
+public: static string FromReal(real r);
+member
+public: void public_func();
+end_class
+class List
+member
+public: static void Nop();
+member
+public: static list Set(list a);
+member
+public: static list Set(AlObject a);
+member
+public: static list Head(list a);
+member
+public: static list Tail(list a);
+member
+public: static list Cons(list a, list b);
+member
+public: static list IsEQ(list a, list b);
+member
+public: static list IsNE(list a, list b);
+member
+public: static list IsNull(list a);
+member
+public: static list IsNotNull(list a);
+member
+public: static list FromInteger(integer i);
+member
+public: static list FromReal(real r);
+member
+public: static list FromString(string s);
+member
+public: static list FromObject(AlObject obj);
+member
+public: static list List2(list a1, list a2);
+member
+public: static list List3(list a1, list a2, list a3);
+member
+public: static list List4(list a1, list a2, list a3, list a4);
+member
+public: static list List5(list a1, list a2, list a3, list a4, list a5);
+member
+public: static list List6(list a1, list a2, list a3, list a4, list a5, list a6);
+member
+public: void public_func();
+end_class
+class Graph
+member
+public: static void CreateArc(list src, list dst, string attr);
+member
+public: static void CreateArc(list src, AlObject dst, string attr);
+member
+public: static void CreateArc(AlObject src, list dst, string attr);
+member
+public: static void CreateArc(AlObject src, AlObject dst, string attr);
+member
+public: static list DstNode(list node, string attr);
+member
+public: static list DstNode(AlObject node, string attr);
+member
+public: static list SrcNode(list node, string attr);
+member
+public: static list SrcNode(AlObject node, string attr);
+member
+public: void public_func();
+end_class
+class File
+member
+public: static list MkDirs(string dir, list dirs);
+member
+public: static string DirsToPath(list dirs);
+member
+public: static string DirsToPath(list dirs, string delm);
+member
+public: static list Copy(string path1, string path2);
+member
+public: static string ChangeFileExt(string path, string ext);
+member
+public: static list IsNewer(string path1, string path2);
+member
+public: static list IsNewer(list dt1, list dt2);
+member
+public: static list Delete(string path);
+member
+public: static void Grep(file out, string dir, string str, list file_exts);
+member
+public: static list Copy(string path, string dir, list datetime, file f);
+end_class
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class GUI
+member
+funcType: void GUIfunc();
+class ParaPro
+class Channel
+member
+public: void SendMessage(list msg);
+body
+{
+    if (msg_queue) {
+    } else {
+        msg_queue = al_cons(null, null);
+    }
+    al_create_arc(msg_queue, msg, null);
+}
+end_body
+member
+public: list GetMessage();
+body
+{
+    var list msg;
+    loop {
+        if (msg_queue) {
+            break;
+        } else {
+        }
+        al_next_process();
+    }
+    loop {
+        msg = al_dst_node(msg_queue, null);
+        if (msg) {
+            break;
+        } else {
+        }
+        al_next_process();
+    }
+    al_remove_from(msg_queue, msg, null);
+    return msg;
+}
+end_body
+member
+public: list GetMessageNoWait();
+body
+{
+    var list msg;
+    if (msg_queue) {
+    } else {
+        return null;
+    }
+    msg = al_dst_node(msg_queue, null);
+    if (msg) {
+    } else {
+        return null;
+    }
+    return msg;
+}
+end_body
+member
+public: list msg_queue;
+member
+public: void public_func();
+body
+{
+    SendMessage((list)null);
+    GetMessage();
+    GetMessageNoWait();
+}
+end_body
+end_class
+class Timer
+member
+public: void Create(integer millisecond, GUI obj, GUIfunc func);
+body
+{
+    this.millisecond = millisecond;
+    this.obj = obj;
+    this.func = func;
+}
+end_body
+member
+public: void Start();
+body
+{
+    if (timer_id) {
+        return;
+    } else {
+    }
+    timer_id = al_get_id();
+    al_gui_misc("timer", al_list2(timer_id, millisecond), al_list3(al_root_class(), this, Timer::Callback));
+}
+end_body
+member
+public: void Stop();
+body
+{
+    if (timer_id) {
+    } else {
+        return;
+    }
+    al_gui_misc("timer", al_list2(timer_id, millisecond), null);
+    al_release_id(timer_id);
+    timer_id = null;
+}
+end_body
+member
+public: void Close();
+body
+{
+    Stop();
+    obj = func = null;
+}
+end_body
+member
+public: integer millisecond;
+member
+public: GUI obj;
+member
+public: GUIfunc func;
+member
+public: integer timer_id;
+member
+public: void Callback();
+body
+{
+    if (obj && func) {
+        obj.*func();
+    } else {
+    }
+}
+end_body
+end_class
+end_class
+end_class
+TEXT
+AlObject
+class SysLib
+class Integer
+member
+public: static integer Set(integer a);
+body
+{
+    return a;
+}
+end_body
+member
+public: static integer Plus(integer a, integer b);
+body
+{
+    return a + b;
+}
+end_body
+member
+public: static integer Minus(integer a, integer b);
+body
+{
+    return a - b;
+}
+end_body
+member
+public: static integer Mul(integer a, integer b);
+body
+{
+    return a * b;
+}
+end_body
+member
+public: static integer Div(integer a, integer b);
+body
+{
+    return a / b;
+}
+end_body
+member
+public: static integer Mod(integer a, integer b);
+body
+{
+    return a % b;
+}
+end_body
+member
+public: static integer And(integer a, integer b);
+body
+{
+    return a & b;
+}
+end_body
+member
+public: static integer Or(integer a, integer b);
+body
+{
+    return a | b;
+}
+end_body
+member
+public: static integer Xor(integer a, integer b);
+body
+{
+    return a ^ b;
+}
+end_body
+member
+public: static integer ShiftL(integer a, integer b);
+body
+{
+    return a << b;
+}
+end_body
+member
+public: static integer ShiftR(integer a, integer b);
+body
+{
+    return a >> b;
+}
+end_body
+member
+public: static list IsEQ(integer a, integer b);
+body
+{
+    return a == b;
+}
+end_body
+member
+public: static list IsNE(integer a, integer b);
+body
+{
+    return a != b;
+}
+end_body
+member
+public: static list IsLT(integer a, integer b);
+body
+{
+    return a < b;
+}
+end_body
+member
+public: static list IsLE(integer a, integer b);
+body
+{
+    return a <= b;
+}
+end_body
+member
+public: static list IsGE(integer a, integer b);
+body
+{
+    return a >= b;
+}
+end_body
+member
+public: static list IsGT(integer a, integer b);
+body
+{
+    return a > b;
+}
+end_body
+member
+public: static integer FromReal(real r);
+body
+{
+    return (integer)r;
+}
+end_body
+member
+public: static integer FromString(string s);
+body
+{
+    return (integer)s;
+}
+end_body
+member
+public: void public_func();
+body
+{
+    Set((integer)null);
+    Plus((integer)null, (integer)null);
+    Minus((integer)null, (integer)null);
+    Mul((integer)null, (integer)null);
+    Div((integer)null, (integer)null);
+    Mod((integer)null, (integer)null);
+    And((integer)null, (integer)null);
+    Or((integer)null, (integer)null);
+    Xor((integer)null, (integer)null);
+    ShiftL((integer)null, (integer)null);
+    ShiftR((integer)null, (integer)null);
+    IsEQ((integer)null, (integer)null);
+    IsNE((integer)null, (integer)null);
+    IsLT((integer)null, (integer)null);
+    IsLE((integer)null, (integer)null);
+    IsGE((integer)null, (integer)null);
+    IsGT((integer)null, (integer)null);
+    FromReal((real)null);
+    FromString((string)null);
+}
+end_body
+end_class
+class Real
+member
+public: static real Set(real a);
+body
+{
+    return a;
+}
+end_body
+member
+public: static real Plus(real a, real b);
+body
+{
+    return a + b;
+}
+end_body
+member
+public: static real Minus(real a, real b);
+body
+{
+    return a - b;
+}
+end_body
+member
+public: static real Mul(real a, real b);
+body
+{
+    return a * b;
+}
+end_body
+member
+public: static real Div(real a, real b);
+body
+{
+    return a / b;
+}
+end_body
+member
+public: static list IsEQ(real a, real b);
+body
+{
+    return a == b;
+}
+end_body
+member
+public: static list IsNE(real a, real b);
+body
+{
+    return a != b;
+}
+end_body
+member
+public: static list IsLT(real a, real b);
+body
+{
+    return a < b;
+}
+end_body
+member
+public: static list IsLE(real a, real b);
+body
+{
+    return a <= b;
+}
+end_body
+member
+public: static list IsGE(real a, real b);
+body
+{
+    return a >= b;
+}
+end_body
+member
+public: static list IsGT(real a, real b);
+body
+{
+    return a > b;
+}
+end_body
+member
+public: static real FromInteger(integer i);
+body
+{
+    return (real)i;
+}
+end_body
+member
+public: static real FromString(string s);
+body
+{
+    return (real)s;
+}
+end_body
+member
+public: void public_func();
+body
+{
+    Set((real)null);
+    Plus((real)null, (real)null);
+    Minus((real)null, (real)null);
+    Mul((real)null, (real)null);
+    Div((real)null, (real)null);
+    IsEQ((real)null, (real)null);
+    IsNE((real)null, (real)null);
+    IsLT((real)null, (real)null);
+    IsLE((real)null, (real)null);
+    IsGE((real)null, (real)null);
+    IsGT((real)null, (real)null);
+    FromInteger((integer)null);
+    FromString((string)null);
+}
+end_body
+end_class
+class String
+member
+public: static string Set(string a);
+body
+{
+    return a;
+}
+end_body
+member
+public: static string Plus(string a, string b);
+body
+{
+    return a + b;
+}
+end_body
+member
+public: static list IsEQ(string a, string b);
+body
+{
+    return a == b;
+}
+end_body
+member
+public: static list IsNE(string a, string b);
+body
+{
+    return a != b;
+}
+end_body
+member
+public: static list IsLT(string a, string b);
+body
+{
+    return a < b;
+}
+end_body
+member
+public: static list IsLE(string a, string b);
+body
+{
+    return a <= b;
+}
+end_body
+member
+public: static list IsGE(string a, string b);
+body
+{
+    return a >= b;
+}
+end_body
+member
+public: static list IsGT(string a, string b);
+body
+{
+    return a > b;
+}
+end_body
+member
+public: static string FromInteger(integer i);
+body
+{
+    return (string)i;
+}
+end_body
+member
+public: static string FromReal(real r);
+body
+{
+    return (string)r;
+}
+end_body
+member
+public: void public_func();
+body
+{
+    Set((string)null);
+    Plus((string)null, (string)null);
+    IsEQ((string)null, (string)null);
+    IsNE((string)null, (string)null);
+    IsLT((string)null, (string)null);
+    IsLE((string)null, (string)null);
+    IsGE((string)null, (string)null);
+    IsGT((string)null, (string)null);
+    FromInteger((integer)null);
+    FromReal((real)null);
+}
+end_body
+end_class
+class List
+member
+public: static void Nop();
+body
+{
+}
+end_body
+member
+public: static list Set(list a);
+body
+{
+    return a;
+}
+end_body
+member
+public: static list Set(AlObject a);
+body
+{
+    return a;
+}
+end_body
+member
+public: static list Head(list a);
+body
+{
+    return a.head;
+}
+end_body
+member
+public: static list Tail(list a);
+body
+{
+    return a.tail;
+}
+end_body
+member
+public: static list Cons(list a, list b);
+body
+{
+    return al_cons(a, b);
+}
+end_body
+member
+public: static list IsEQ(list a, list b);
+body
+{
+    return a == b;
+}
+end_body
+member
+public: static list IsNE(list a, list b);
+body
+{
+    return a != b;
+}
+end_body
+member
+public: static list IsNull(list a);
+body
+{
+    return a == null;
+}
+end_body
+member
+public: static list IsNotNull(list a);
+body
+{
+    return a != null;
+}
+end_body
+member
+public: static list FromInteger(integer i);
+body
+{
+    return i;
+}
+end_body
+member
+public: static list FromReal(real r);
+body
+{
+    return r;
+}
+end_body
+member
+public: static list FromString(string s);
+body
+{
+    return s;
+}
+end_body
+member
+public: static list FromObject(AlObject obj);
+body
+{
+    return obj;
+}
+end_body
+member
+public: static list List2(list a1, list a2);
+body
+{
+    return al_list2(a1, a2);
+}
+end_body
+member
+public: static list List3(list a1, list a2, list a3);
+body
+{
+    return al_list3(a1, a2, a3);
+}
+end_body
+member
+public: static list List4(list a1, list a2, list a3, list a4);
+body
+{
+    return al_list4(a1, a2, a3, a4);
+}
+end_body
+member
+public: static list List5(list a1, list a2, list a3, list a4, list a5);
+body
+{
+    return al_list5(a1, a2, a3, a4, a5);
+}
+end_body
+member
+public: static list List6(list a1, list a2, list a3, list a4, list a5, list a6);
+body
+{
+    return al_list6(a1, a2, a3, a4, a5, a6);
+}
+end_body
+member
+public: void public_func();
+body
+{
+    Nop();
+    Set(null);
+    Set((AlObject)null);
+    Head(null);
+    Tail(null);
+    Cons(null, null);
+    IsEQ(null, null);
+    IsNE(null, null);
+    IsNull(null);
+    IsNotNull(null);
+    FromInteger((integer)null);
+    FromReal((real)null);
+    FromString((string)null);
+    FromObject((AlObject)null);
+    List2(null, null);
+    List3(null, null, null);
+    List4(null, null, null, null);
+    List5(null, null, null, null, null);
+    List6(null, null, null, null, null, null);
+}
+end_body
+end_class
+class Graph
+member
+public: static void CreateArc(list src, list dst, string attr);
+body
+{
+    al_create_arc(src, dst, attr);
+}
+end_body
+member
+public: static void CreateArc(list src, AlObject dst, string attr);
+body
+{
+    al_create_arc(src, dst, attr);
+}
+end_body
+member
+public: static void CreateArc(AlObject src, list dst, string attr);
+body
+{
+    al_create_arc(src, dst, attr);
+}
+end_body
+member
+public: static void CreateArc(AlObject src, AlObject dst, string attr);
+body
+{
+    al_create_arc(src, dst, attr);
+}
+end_body
+member
+public: static list DstNode(list node, string attr);
+body
+{
+    return al_dst_node(node, attr);
+}
+end_body
+member
+public: static list DstNode(AlObject node, string attr);
+body
+{
+    return al_dst_node(node, attr);
+}
+end_body
+member
+public: static list SrcNode(list node, string attr);
+body
+{
+    al_src_node(node, attr);
+}
+end_body
+member
+public: static list SrcNode(AlObject node, string attr);
+body
+{
+    al_src_node(node, attr);
+}
+end_body
+member
+public: void public_func();
+body
+{
+    CreateArc(null, null, (string)null);
+    CreateArc(null, (AlObject)null, (string)null);
+    CreateArc((AlObject)null, null, (string)null);
+    CreateArc((AlObject)null, (AlObject)null, (string)null);
+    DstNode(null, (string)null);
+    DstNode((AlObject)null, (string)null);
+    SrcNode(null, (string)null);
+    SrcNode((AlObject)null, (string)null);
+}
+end_body
+end_class
+class File
+member
+public: static list MkDirs(string dir, list dirs);
+body
+{
+    var list err;
+    if (al_file_manip("does_exist", dir, null)) {
+    } else {
+        if (err = al_file_manip("mk_dir", dir, null)) {
+            return (list)("can\'t create " + dir + " error code = " + (string)err);
+        } else {
+        }
+    }
+    var list itr;
+    var string name;
+    itr = al_dst_itr(dirs);
+    loop {
+        if (name = al_next(itr)) {
+        } else {
+            break;
+        }
+        dir = dir + "/" + name;
+        if (al_file_manip("does_exist", dir, null)) {
+        } else {
+            if (err = al_file_manip("mk_dir", dir, null)) {
+                return (list)("can\'t create " + dir + " error code = " + (string)err);
+            } else {
+            }
+        }
+    }
+    return null;
+}
+end_body
+member
+public: static string DirsToPath(list dirs);
+body
+{
+    return DirsToPath(dirs, "/");
+}
+end_body
+member
+public: static string DirsToPath(list dirs, string delm);
+body
+{
+    var list itr;
+    var string path, name;
+    itr = al_dst_itr(dirs);
+    loop {
+        if (name = al_next(itr)) {
+        } else {
+            break;
+        }
+        if (path == null) {
+            path = name;
+        } else {
+            path = path + delm + name;
+        }
+    }
+    return path;
+}
+end_body
+member
+public: static list Copy(string path1, string path2);
+body
+{
+    var list err, datetime;
+    if (err = al_file_manip("copy", path1, path2)) {
+        return (list)("can\'t create " + path2 + " error code = " + (string)err);
+    } else {
+    }
+    datetime = al_file_manip("get_datetime", path1, null);
+    al_file_manip("set_datetime", path2, datetime);
+    return null;
+}
+end_body
+member
+public: static string ChangeFileExt(string path, string ext);
+body
+{
+    var string ext1;
+    ext1 = al_str_misc("file_ext", path, null);
+    return al_substr(path, 0, al_strlen(path) - al_strlen(ext1)) + ext;
+}
+end_body
+member
+public: static list IsNewer(string path1, string path2);
+body
+{
+    if (al_file_manip("does_exist", path2, null)) {
+    } else {
+        return 1;
+    }
+    var list dt1, dt2;
+    dt1 = al_file_manip("get_datetime", path1, null);
+    dt2 = al_file_manip("get_datetime", path2, null);
+    return IsNewer(dt1, dt2);
+}
+end_body
+member
+public: static list IsNewer(list dt1, list dt2);
+body
+{
+    var integer y1, m1, d1, h1, min1, sec1;
+    var integer y2, m2, d2, h2, min2, sec2;
+    y1 = dt1.head;
+    m1 = dt1.tail.head;
+    d1 = dt1.tail.tail.head;
+    h1 = dt1.tail.tail.tail.head;
+    min1 = dt1.tail.tail.tail.tail.head;
+    sec1 = dt1.tail.tail.tail.tail.tail.head;
+    y2 = dt2.head;
+    m2 = dt2.tail.head;
+    d2 = dt2.tail.tail.head;
+    h2 = dt2.tail.tail.tail.head;
+    min2 = dt2.tail.tail.tail.tail.head;
+    sec2 = dt2.tail.tail.tail.tail.tail.head;
+    if (y1 > y2) {
+        return 1;
+    } else {
+        if (y1 < y2) {
+            return null;
+        } else {
+        }
+    }
+    if (m1 > m2) {
+        return 1;
+    } else {
+        if (m1 < m2) {
+            return null;
+        } else {
+        }
+    }
+    if (d1 > d2) {
+        return 1;
+    } else {
+        if (d1 < d2) {
+            return null;
+        } else {
+        }
+    }
+    if (h1 > h2) {
+        return 1;
+    } else {
+        if (h1 < h2) {
+            return null;
+        } else {
+        }
+    }
+    if (min1 > min2) {
+        return 1;
+    } else {
+        if (min1 < min2) {
+            return null;
+        } else {
+        }
+    }
+    if (sec1 > sec2) {
+        return 1;
+    } else {
+        if (sec1 < sec2) {
+            return null;
+        } else {
+        }
+    }
+    return 1;
+}
+end_body
+member
+public: static list Delete(string path);
+body
+{
+    var list err;
+    if (err = al_file_manip("remove", path, null)) {
+        return (list)("can\'t delete " + path + " error code = " + (string)err);
+    } else {
+    }
+    return null;
+}
+end_body
+member
+public: static void Grep(file out, string dir, string str, list file_exts);
+body
+{
+    var list ls, itr;
+    var string name, path, ext, line;
+    var file in;
+    var integer lno;
+    ls = al_file_manip("find_file", dir, null);
+    itr = al_dst_itr(ls);
+    loop {
+        if (name = al_next(itr)) {
+        } else {
+            break;
+        }
+        if (name == "." || name == "..") {
+            continue;
+        } else {
+        }
+        path = dir + "/" + name;
+        if (al_file_manip("is_dir", path, null)) {
+            Grep(out, path, str, file_exts);
+            continue;
+        } else {
+        }
+        if (file_exts) {
+            ext = al_str_misc("file_ext", name, null);
+            if (al_dst_node(file_exts, ext)) {
+            } else {
+                continue;
+            }
+        } else {
+        }
+        if (in = al_file_open(path, "r")) {
+        } else {
+            continue;
+        }
+        loop {
+            if (line = al_file_read(in, "line")) {
+            } else {
+                break;
+            }
+            if (al_search_str(line, 0, str) < 0) {
+                continue;
+            } else {
+            }
+            lno = al_file_manip("line_no", in, null) - 1;
+            al_file_write(out, "string", path + "(" + (string)lno + ") " + line + "\n");
+        }
+    }
+}
+end_body
+member
+public: static list Copy(string path, string dir, list datetime, file f);
+body
+{
+    var list err, dirs, paths, itr;
+    var string name, dir2, path2;
+    // check wether src exists or not
+    if (al_file_manip("does_exist", path, null)) {
+    } else {
+        return (list)"src does not exist(" + path + ")";
+    }
+    // make dst direcory if necessary
+    if (al_file_manip("does_exist", dir, null)) {
+    } else {
+        dirs = al_str_misc("split", dir, '/');
+        dir2 = "";
+        itr = al_dst_itr(dirs);
+        loop {
+            if (name = al_next(itr)) {
+            } else {
+                break;
+            }
+            if (dir2 == "") {
+                dir2 = name;
+            } else {
+                dir2 = dir2 + "/" + name;
+            }
+            if (al_search_str(dir2, 0, "/") < 0) {
+                continue;
+            } else {
+            }
+            if (al_file_manip("does_exist", dir2, null)) {
+                if (al_file_manip("is_dir", dir2, null)) {
+                } else {
+                    return (list)"dst is not directory(" + dir2 + ")";
+                }
+            } else {
+                if (f) {
+                    al_file_write(f, "string", "make directory " + dir2 + "\n");
+                } else {
+                }
+                if (al_file_manip("mk_dir", dir2, null)) {
+                    return (list)"can\'t make direcotry(" + dir2 + ")";
+                } else {
+                }
+            }
+        }
+    }
+    if (al_file_manip("is_dir", path, null)) {
+        // copy file
+        dirs = al_str_misc("split", path, '/');
+        itr = al_dst_itr(dirs);
+        name = al_prev(itr);
+        dir2 = dir + "/" + name;
+        if (al_file_manip("does_exist", dir2, null)) {
+        } else {
+            if (f) {
+                al_file_write(f, "string", "make directory " + dir2 + "\n");
+            } else {
+            }
+            if (al_file_manip("mk_dir", dir2, null)) {
+                return (list)"can\'t make direcotry(" + dir2 + ")";
+            } else {
+            }
+        }
+        // recursive copy if src is directory
+        paths = al_file_manip("find_file", path, null);
+        itr = al_dst_itr(paths);
+        loop {
+            if (name = al_next(itr)) {
+            } else {
+                break;
+            }
+            if (name == "." || name == "..") {
+                continue;
+            } else {
+            }
+            path2 = path + "/" + name;
+            if (err = Copy(path2, dir2, datetime, f)) {
+                return err;
+            } else {
+            }
+        }
+    } else {
+        // copy file
+        dirs = al_str_misc("split", path, '/');
+        itr = al_dst_itr(dirs);
+        name = al_prev(itr);
+        path2 = dir + "/" + name;
+        if (f) {
+            al_file_write(f, "string", "copy " + path + " -> " + path2 + "\n");
+        } else {
+        }
+        if (err = al_file_manip("copy", path, path2)) {
+            return (list)"can\'t copy from (" + path + ") to (" + path2 + ")\n";
+        } else {
+        }
+        // set datetime
+        if (datetime) {
+            al_file_manip("set_datetime", path2, datetime);
+        } else {
+            var list dt;
+            dt = al_file_manip("get_datetime", path, null);
+            al_file_manip("set_datetime", path2, dt);
+        }
+    }
+}
+end_body
+end_class
+end_class
+$END_BODY

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header>
+    <eb:MessageHeader SOAP-ENV:mustUnderstand="1" eb:version="1.0" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader">
+      <eb:From>
+        <eb:PartyId>uri:nec</eb:PartyId>
+      </eb:From>
+      <eb:To>
+        <eb:PartyId>uri:nec_dummy</eb:PartyId>
+      </eb:To>
+      <eb:CPAId>dummy_CPA</eb:CPAId>
+      <eb:ConversationId>20020125-182256-89356</eb:ConversationId>
+      <eb:Service>catalogRcv</eb:Service>
+      <eb:Action>Begin</eb:Action>
+      <eb:MessageData>
+        <eb:MessageId>20020125-182256-87129@F163</eb:MessageId>
+        <eb:Timestamp>2002-01-25T18:23:01Z</eb:Timestamp>
+      </eb:MessageData>
+    </eb:MessageHeader>
+    <eb:TraceHeaderList SOAP-ENV:actor="http://schemas.xmlsoap.org/soap/actor/next" SOAP-ENV:mustUnderstand="1" eb:version="1.0" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader">
+      <eb:TraceHeader>
+        <eb:Sender>
+          <eb:PartyId eb:type="uri">my-company</eb:PartyId>
+          <eb:Location>http://ebxml.mycompany.co.jp/ebxml/servlet/ebXMLHandler</eb:Location>
+        </eb:Sender>
+        <eb:Receiver>
+          <eb:PartyId>uri:nec_dummy</eb:PartyId>
+          <eb:Location>http://localhost:7001/ebxml/servlet/ebXMLHandler</eb:Location>
+        </eb:Receiver>
+        <eb:Timestamp>2002-01-25T18:23:01Z</eb:Timestamp>
+      </eb:TraceHeader>
+    </eb:TraceHeaderList>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <eb:Manifest eb:id="Manifest" eb:version="1.0" xmlns:eb="http://www.ebxml.org/namespaces/messageHeader">
+      <eb:Reference eb:id="Reference0" xlink:href="cid:CatalogData_1011950576421@uri:nec" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"></eb:Reference>
+    </eb:Manifest>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

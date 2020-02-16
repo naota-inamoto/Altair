@@ -1,0 +1,138 @@
+$END_LIB
+TEXT
+AlException
+class Watcher
+end_class
+$END_CLASS
+TEXT
+AlException
+class Watcher
+member
+public: static void start();
+member
+public: static Watcher watcher;
+member
+public: void startWatcher();
+member
+public: string ap_server;
+member
+public: integer ap_server_addr;
+member
+public: integer ap_server_port;
+member
+public: string db_server;
+member
+public: integer db_server_addr;
+member
+public: integer db_server_port;
+member
+public: integer timer_id;
+member
+public: integer interval;
+member
+public: void watch();
+member
+public: integer ap_server_pid;
+end_class
+$END_MEMBER
+TEXT
+AlException
+class Watcher
+member
+public: static void start();
+body
+{
+	watcher = new Watcher;
+	watcher.startWatcher();
+}
+end_body
+member
+public: static Watcher watcher;
+member
+public: void startWatcher();
+body
+{
+	// ==== AP Server addr/port 
+	// ap_server name must be changed if required.
+	ap_server = "localhost";
+	ap_server_addr = al_socket("gethostbyname", ap_server, null, null);
+	ap_server_port = 80;
+	// ==== DB Server addr/port
+	// db_server name must be changed if required.
+	db_server = "vega";
+	db_server_addr = al_socket("gethostbyname", db_server, null, null);
+	var string platform;
+	platform = al_misc("platform", null, null);
+	if (al_misc("platform", null, null) == "windows") {
+		// -- oracle
+		db_server_port = 1521;
+	} else {
+	}
+	if (al_misc("platform", null, null) == "linux" || al_misc("platform", null, null) == "mac") {
+		// -- postgresql
+		db_server_port = 5432;
+	} else {
+	}
+	// ==== check interval (60 sec)
+	interval = 60000;
+	timer_id = al_get_id();
+	var list cb;
+	cb = al_list3(al_root_class(), this, Watcher::watch);
+	al_gui_misc("timer", al_list2(timer_id, interval), cb);
+}
+end_body
+member
+public: string ap_server;
+member
+public: integer ap_server_addr;
+member
+public: integer ap_server_port;
+member
+public: string db_server;
+member
+public: integer db_server_addr;
+member
+public: integer db_server_port;
+member
+public: integer timer_id;
+member
+public: integer interval;
+member
+public: void watch();
+body
+{
+	var integer socket;
+	socket = al_socket("socket", null, null, null);
+	// ---- check DB server
+	if (al_socket("connect", socket, al_list2(db_server_addr, db_server_port), null)) {
+		al_socket("close", socket, null, null);
+		// give up start server
+		return;
+	} else {
+		// db server is probably alive
+		al_socket("close", socket, null, null);
+	}
+	// ---- check Web server
+	socket = al_socket("socket", null, null, null);
+	if (al_socket("connect", socket, al_list2(ap_server_addr, ap_server_port), null)) {
+		al_socket("close", socket, null, null);
+	} else {
+		// ap server is probably alive
+		al_socket("close", socket, null, null);
+		return;
+	}
+	// wait exit ap server
+	if (ap_server_pid) {
+		al_misc("waitpid", ap_server_pid, null);
+	} else {
+	}
+	// start ap server
+	var string cmd;
+	cmd = "altair -d . -f server.apr -c AltairServer -m start";
+	ap_server_pid = al_exec(cmd, ".", 1, null);
+}
+end_body
+member
+public: integer ap_server_pid;
+end_class
+$END_BODY

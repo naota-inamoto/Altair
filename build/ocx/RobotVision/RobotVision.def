@@ -1,0 +1,9 @@
+; RobotVision.def : モジュール パラメータの宣言
+
+LIBRARY      "ROBOTVISION.OCX"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

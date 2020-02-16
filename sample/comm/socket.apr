@@ -1,0 +1,228 @@
+$END_LIB
+TEXT
+AlObject
+class TP
+end_class
+$END_CLASS
+TEXT
+AlObject
+class TP
+member
+public: static void init_server();
+member
+public: static void init_client();
+member
+public: static void tcp_server();
+member
+public: static void tcp_client();
+member
+public: static void udp_server();
+member
+public: static void udp_client();
+member
+public: static string hostname;
+member
+public: static integer hostaddr;
+member
+public: static integer port;
+member
+public: static integer ss_id;
+member
+public: static integer s_id;
+member
+public: static string msg;
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class TP
+member
+public: static void init_server();
+body
+{
+	port = 2037;
+	msg = "hello!";
+}
+end_body
+member
+public: static void init_client();
+body
+{
+	hostname = "localhost";
+	port = 2037;
+	hostaddr = al_socket("gethostbyname", hostname, null, null);
+	if (hostaddr == null) {
+		al_print("fail to get host ip address(" + hostname + ").\n");
+	} else {
+	}
+	msg = "hello!";
+}
+end_body
+member
+public: static void tcp_server();
+body
+{
+	init_server();
+	var list r, binary;
+	var string recv_msg;
+	var integer size;
+	ss_id = al_socket("socket", null, null, null);
+	if (ss_id == null) {
+		al_print("fail to create socket.\n");
+	} else {
+	}
+	r = al_socket("bind", ss_id, al_list2(0, port), null);
+	if (r) {
+		al_print("fail to bind.\n");
+		al_print("error = " + (string)al_socket("get_last_error", ss_id, null, null) + "\n");
+		al_socket("close", ss_id, null, null);
+		return;
+	} else {
+	}
+	r = al_socket("listen", ss_id, null, null);
+	if (r) {
+		al_print("fail to listen.\n");
+		al_print("error = " + (string)al_socket("get_last_error", ss_id, null, null) + "\n");
+		al_socket("close", ss_id, null, null);
+		return;
+	} else {
+	}
+	s_id = al_socket("accept", ss_id, null, null);
+	if (s_id == null) {
+		al_print("fail to accept.\n");
+		al_print("error = " + (string)al_socket("get_last_error", ss_id, null, null) + "\n");
+		al_socket("close", ss_id, null, null);
+		return;
+	} else {
+	}
+	binary = al_misc("binary", 1024, null);
+	size = al_socket("recv", s_id, al_list3(binary, 0, al_strlen(msg)), null);
+	if (size == null) {
+		al_print("fail to recv.\n");
+		al_print("error = " + (string)al_socket("get_last_error", s_id, null, null) + "\n");
+		al_socket("close", s_id, null, null);
+		al_socket("close", ss_id, null, null);
+		return;
+	} else {
+	}
+	recv_msg = al_misc("binary_to_string", al_list3(binary, 0, size), null);
+	al_print("recv_msg = " + msg + "\n");
+	al_socket("close", s_id, null, null);
+	al_socket("close", ss_id, null, null);
+}
+end_body
+member
+public: static void tcp_client();
+body
+{
+	init_client();
+	var list r, binary;
+	s_id = al_socket("socket", null, null, null);
+	if (s_id == null) {
+		al_print("fail to create socket.\n");
+	} else {
+	}
+	r = al_socket("connect", s_id, al_list2(hostaddr, port), null);
+	if (r) {
+		al_print("fail to connect.\n");
+		al_print("error = " + (string)al_socket("get_last_error", s_id, null, null) + "\n");
+		al_socket("close", s_id, null, null);
+		return;
+	} else {
+	}
+	binary = al_misc("binary", 1024, null);
+	al_misc("binary_copy", al_list2(binary, 0), msg);
+	r = al_socket("send", s_id, al_list3(binary, 0, al_strlen(msg)), null);
+	if (r) {
+		al_print("fail to send.\n");
+		al_print("error = " + (string)al_socket("get_last_error", s_id, null, null) + "\n");
+		al_socket("close", s_id, null, null);
+		return;
+	} else {
+	}
+	al_socket("close", s_id, null, null);
+}
+end_body
+member
+public: static void udp_server();
+body
+{
+	init_server();
+	var list r, binary;
+	var string recv_msg;
+	var integer size;
+	s_id = al_socket("dgram_socket", null, null, null);
+	if (s_id == null) {
+		al_print("fail to create socket.\n");
+	} else {
+	}
+	r = al_socket("bind", s_id, al_list2(0, port), null);
+	if (r) {
+		al_print("fail to bind.\n");
+		al_print("error = " + (string)al_socket("get_last_error", s_id, null, null) + "\n");
+		al_socket("close", s_id, null, null);
+		return;
+	} else {
+	}
+	binary = al_misc("binary", 1024, null);
+	size = al_socket("recvfrom", s_id, al_list3(binary, 0, al_strlen(msg)), null);
+	if (size == null) {
+		al_print("fail to recvfrom.\n");
+		al_print("error = " + (string)al_socket("get_last_error", s_id, null, null) + "\n");
+		al_socket("close", s_id, null, null);
+		return;
+	} else {
+	}
+	recv_msg = al_misc("binary_to_string", al_list3(binary, 0, size), null);
+	al_print("recv_msg = " + msg + "\n");
+	al_socket("close", s_id, null, null);
+}
+end_body
+member
+public: static void udp_client();
+body
+{
+	init_client();
+	var list r, binary;
+	var integer bcast_addr;
+	bcast_addr = al_socket("bcast_address", null, null, null);
+	s_id = al_socket("dgram_socket", null, null, null);
+	if (s_id == null) {
+		al_print("fail to create socket.\n");
+	} else {
+	}
+	r = al_socket("setsockopt", s_id, "SO_BROADCAST", 1);
+	if (r) {
+		al_print("fail to setsockopt.\n");
+		al_print("error = " + (string)al_socket("get_last_error", s_id, null, null) + "\n");
+		al_socket("close", s_id, null, null);
+		return;
+	} else {
+	}
+	binary = al_misc("binary", 1024, null);
+	al_misc("binary_copy", al_list2(binary, 0), msg);
+	r = al_socket("sendto", s_id, al_list2(bcast_addr, port), al_list3(binary, 0, al_strlen(msg)));
+	if (r) {
+		al_print("fail to sendto.\n");
+		al_print("error = " + (string)al_socket("get_last_error", s_id, null, null) + "\n");
+		al_socket("close", s_id, null, null);
+		return;
+	} else {
+	}
+	al_socket("close", s_id, null, null);
+}
+end_body
+member
+public: static string hostname;
+member
+public: static integer hostaddr;
+member
+public: static integer port;
+member
+public: static integer ss_id;
+member
+public: static integer s_id;
+member
+public: static string msg;
+end_class
+$END_BODY

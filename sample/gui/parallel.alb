@@ -1,0 +1,171 @@
+TEXT
+GUI
+class ParaPro
+class Channel
+end_class
+class Timer
+end_class
+end_class
+class ParaPro
+class Channel
+member
+public: void SendMessage(list msg);
+member
+public: list GetMessage();
+member
+public: list GetMessageNoWait();
+member
+public: list msg_queue;
+member
+public: void public_func();
+end_class
+class Timer
+member
+public: void Create(integer millisecond, GUI obj, GUIfunc func);
+member
+public: void Start();
+member
+public: void Stop();
+member
+public: void Close();
+member
+public: integer millisecond;
+member
+public: GUI obj;
+member
+public: GUIfunc func;
+member
+public: integer timer_id;
+member
+public: void Callback();
+end_class
+end_class
+class ParaPro
+class Channel
+member
+public: void SendMessage(list msg);
+body
+{
+	if (msg_queue) {
+	} else {
+		msg_queue = al_cons(null, null);
+	}
+	al_create_arc(msg_queue, msg, null);
+}
+end_body
+member
+public: list GetMessage();
+body
+{
+	var list msg;
+	loop {
+		if (msg_queue) {
+			break;
+		} else {
+		}
+		al_next_process();
+	}
+	loop {
+		msg = al_dst_node(msg_queue, null);
+		if (msg) {
+			break;
+		} else {
+		}
+		al_next_process();
+	}
+	al_remove_from(msg_queue, msg, null);
+	return msg;
+}
+end_body
+member
+public: list GetMessageNoWait();
+body
+{
+	var list msg;
+	if (msg_queue) {
+	} else {
+		return null;
+	}
+	msg = al_dst_node(msg_queue, null);
+	if (msg) {
+	} else {
+		return null;
+	}
+	return msg;
+}
+end_body
+member
+public: list msg_queue;
+member
+public: void public_func();
+body
+{
+	SendMessage((list)null);
+	GetMessage();
+	GetMessageNoWait();
+}
+end_body
+end_class
+class Timer
+member
+public: void Create(integer millisecond, GUI obj, GUIfunc func);
+body
+{
+	this.millisecond = millisecond;
+	this.obj = obj;
+	this.func = func;
+}
+end_body
+member
+public: void Start();
+body
+{
+	if (timer_id) {
+		return;
+	} else {
+	}
+	timer_id = al_get_id();
+	al_gui_misc("timer", al_list2(timer_id, millisecond), al_list3(al_root_class(), this, Timer::Callback));
+}
+end_body
+member
+public: void Stop();
+body
+{
+	if (timer_id) {
+	} else {
+		return;
+	}
+	al_gui_misc("timer", al_list2(timer_id, millisecond), null);
+	al_release_id(timer_id);
+	timer_id = null;
+}
+end_body
+member
+public: void Close();
+body
+{
+	Stop();
+	obj = func = null;
+}
+end_body
+member
+public: integer millisecond;
+member
+public: GUI obj;
+member
+public: GUIfunc func;
+member
+public: integer timer_id;
+member
+public: void Callback();
+body
+{
+	if (obj && func) {
+		obj.*func();
+	} else {
+	}
+}
+end_body
+end_class
+end_class

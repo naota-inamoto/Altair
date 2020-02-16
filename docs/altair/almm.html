@@ -1,0 +1,184 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>MultiMedia OLE Control</TITLE>
+</HEAD>
+
+<BODY>
+<H1>MultiMedia OLE Control</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.08版 1997年 2月11日<BR>
+
+<HR>
+<H3>概要</H3>
+AlMmコントロールは、AVIファイル、WAVEファイル、MIDIファイル、CDオーディオの<BR>
+再生等ができるOCXです。このOCXはalcore1.dllには依存しません。<BR>
+OCXを使うためにはRegsvr32.exeでOCXをレジストリに登録する必要があります。<BR>
+
+<HR>
+<H3><A NAME="name_prog_id">名前とProgID</A></H3>
+
+名前は、「AlMm Control」で、ProgIDは、「ALMM.AlMmCtrl.1」です。<BR>
+
+<HR>
+<H1>AlMmのメソッド</H1>
+
+<H3><A NAME="Open">short Open(LPCSTR fileName, LPCSTR aliasName);</A></H3>
+AlMmでは、異なったメディアの複数のファイルを扱うことができます。<BR>
+ファイルをオープンするときにaliasNameをつけてこれをIDとしてデバイスの<BR>
+管理を行っています。<BR>
+オープンできるファイルの拡張子は.avi、.wav、.midでCDオーディオに関しては<BR>
+".cda"とだけfileNameに書けばオープンできるようになっています。<BR>
+オープンに成功すると0が返ります。<BR>
+
+<H3><A NAME="Select">short Select(LPCSTR aliasName);</A></H3>
+AlMmには、カレントのデバイスという概念があります。<BR>
+Play等のメソッドを発行するとこれはカレントのデバイスに対して発行されます。<BR>
+Selectメソッドは、aliasNameのデバイスをカレントデバイスにするメソッドです。<BR>
+成功すると0が返ります。<BR>
+
+<H3><A NAME="GetAliasName">CString GetAliasName();</A></H3>
+現在のカレントのデバイスのaliasNameを返します。<BR>
+カレントのデバイスが指定されていないときは"no current device"という文字列が<BR>
+返ります。<BR>
+
+<H3><A NAME="Close">short Close();</A></H3>
+カレントのデバイスを閉じます。成功すると0が返ります。<BR>
+このメソッドに成功したらカレントのデバイスの指定がなくなります。<BR>
+
+<H3><A NAME="Length">long Length();</A></H3>
+カレントのデバイスの時間の長さをミリセカンド単位で返します。<BR>
+
+<H3><A NAME="StartPosition">long StartPosition();</A></H3>
+カレントのデバイスの開始位置を返します。<BR>
+
+<H3><A NAME="Position">long Position();</A></H3>
+カレントのデバイスの現在の位置を返します。<BR>
+
+<H3><A NAME="SeekTo">short SeekTo(long position);</A></H3>
+カレントのデバイスの位置をpositionで指定される位置に移動します。<BR>
+成功すると0が返ります。<BR>
+
+<H3><A NAME="SeekToStart">short SeekToStart();</A></H3>
+カレントのデバイスの位置を開始位置にします。<BR>
+成功すると0が返ります。<BR>
+
+<H3><A NAME="SeekToEnd">short SeekToEnd();</A></H3>
+カレントのデバイスの位置を終了位置にします。<BR>
+成功すると0が返ります。<BR>
+
+<H3><A NAME="Wait">short Wait(short flag);</A></H3>
+再生を行うとき、カレントのデバイスの再生が終わるまで待つかどうかを指定します。<BR>
+flagが0なら待たない、0以外なら待つです。デフォルトは待たないです。<BR>
+
+<H3><A NAME="SetDuration">short SetDuration(long duration);</A></H3>
+再生を行うときに再生時間の設定をミリセカンドの単位で行います。<BR>
+終了位置まで再生させるときは-1を指定します。<BR>
+デフォルトは-1です。<BR>
+
+<H3><A NAME="Play">short Play();</A></H3>
+メディアの再生を開始します。成功すると0が返ります。<BR>
+
+<H3><A NAME="Stop">short Stop();</A></H3>
+メディアの再生を中止します。成功すると0が返ります。<BR>
+
+<H3><A NAME="Pause">short Pause();</A></H3>
+メディアの再生を一時停止します。成功すると0が返ります。<BR>
+
+<H3><A NAME="Resume">short Resume();</A></H3>
+一時停止していたメディアの再生を再開します。成功すると0が返ります。<BR>
+
+<H3><A NAME="Mode">CString Mode();</A></H3>
+カレントのデバイスの状態を返します。<BR>
+返る文字列は次の中のどれかです。<BR>
+<PRE>
+   "not ready"
+   "pause"
+   "play"
+   "stop"
+   "record"
+   "seek"
+   "other status"
+   "device not selected"
+</PRE>
+
+<H3><A NAME="Cue">short Cue();</A></H3>
+WAVEサウンドの再生/録音の準備を行います。<BR>
+成功すると0が返ります。<BR>
+
+<H3><A NAME="Record">short Record();</A></H3>
+WAVEサウンドの録音を行います。データは現在の位置に挿入されます。<BR>
+成功すると0が返ります。<BR>
+
+<H3><A NAME="RecordOver">short RecordOver();</A></H3>
+WAVEサウンドの録音を行います。データは現在の位置に上書きされます。<BR>
+成功すると0が返ります。<BR>
+
+<H3><A NAME="Erase">short Erase();</A></H3>
+WAVEサウンドのデータの消去を行います。成功すると0が返ります。<BR>
+
+<H3><A NAME="Save">short Save(LPCSTR fileName);</A></H3>
+WAVEサウンドのデータをfileNameで指定されるファイルに保存します。<BR>
+成功すると0が返ります。<BR>
+
+<H3><A NAME="Eject">short Eject();</A></H3>
+CDオーディオで、CDをドライブからイジェクトします。<BR>
+成功すると0が返ります。<BR>
+
+<H3><A NAME="TrackIndex">short TrackIndex();</A></H3>
+CDオーディオで、現在のトラック番号を返します。<BR>
+
+<H3><A NAME="TrackNum">short TrackNum();</A></H3>
+CDオーディオで、CDにあるトラックの総数を返します。<BR>
+
+<H3><A NAME="SetTrackIndex">short SetTrackIndex(short index);</A></H3>
+CDオーディオで、トラック番号をindexで指定されるものにします。<BR>
+成功すると0が返ります。<BR>
+
+<H3><A NAME="AboutBox">void AboutBox();</A></H3>
+OCXのバージョン情報を含むダイアログを出します。<BR>
+
+<HR>
+<H1>AlMmのイベント</H1>
+
+<H3><A NAME="NotifySuccessful">void NotifySuccessful();</A></H3>
+再生が終わるのを待たないモードで再生を行っているとき、<BR>
+再生が正常に終了した場合に通知されるイベントです。<BR>
+
+<H3><A NAME="NotifySuperseded">void NotifySuperseded();</A></H3>
+再生が終わるのを待たないモードで再生を行っているとき、<BR>
+再生が後続されるときに通知されるイベントです。<BR>
+
+<H3><A NAME="NotifyAborted">void NotifyAborted();</A></H3>
+再生が終わるのを待たないモードで再生を行っているとき、<BR>
+再生が中断されたときに通知されるイベントです。<BR>
+
+<H3><A NAME="NotifyFailure">void NotifyFailure();</A></H3>
+再生が終わるのを待たないモードで再生を行っているとき、<BR>
+再生が正常に終了しなかったときに通知されるイベントです。<BR>
+
+<HR>
+<H1>サンプル</H1>
+
+<H3>前準備</H3>
+<A HREF="sample.html#prepare">Altairのサンプルの前準備</A>で、
+ライブラリgbgp.albが作成されていることを確認してください。<BR>
+
+<H3><A NAME="MediaPlayer">簡単なメディアプレーヤー</A></H3>
+プロジェクトgbgp.aprを開いてください。<BR>
+クラスGbGpをダブルクリックしてください。<BR>
+関数Runのところにキャレットをおいて<BR>
+メニューの「インタプリタ - 実行」を行ってください。<BR>
+これでGbGpサンプルが立ち上がります。<BR>
+「開く」ボタンでMMedia/MMedia.gprを開いてください。<BR>
+ここでコントロールパネルの「実行」を行ってください。<BR>
+目的の画面が現れます。<BR>
+通常のテープレコーダーやビデオと同じような使い方で<BR>
+マルチメディアのファイルを再生することができます。<BR>
+<BR>
+<IMG SRC="image/mmedia.jpg"><BR>
+
+<HR>
+</BODY>
+</HTML>

@@ -1,0 +1,16 @@
+<AltairServer>
+  <WebServer>
+    <Port>80</Port>
+    <DocumentRoot>./html</DocumentRoot>
+    <Debug>false</Debug>
+    <SessionTimeout>300</SessionTimeout>
+    <Servlet>
+      <Path>/servlet1</Path>
+      <Class>TestServlet1</Class>
+    </Servlet>
+    <Servlet>
+      <Path>/servlet2</Path>
+      <Class>TestServlet2</Class>
+    </Servlet>
+  </WebServer>
+</AltairServer>

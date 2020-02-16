@@ -1,0 +1,114 @@
+
+「DOS窓のアイコン上」で「左クリック」で
+出て来る「管理者として実行」で「DOS窓」が開く。
+
+Microsoft Windows [Version 6.0.6000]
+Copyright (c) 2006 Microsoft Corporation.  All rights reserved.
+
+C:\Windows\system32> bash
+cd ../../altair/sample/alsoftpro
+------------------------------------------------------------
+Microsoft Windows [Version 6.0.6000]
+Copyright (c) 2006 Microsoft Corporation.  All rights reserved.
+
+C:\altair>bash
+bash-3.2# cd sample/alsoftpro/
+bash-3.2# pwd
+/cygdrive/c/altair/sample/alsoftpro
+bash-3.2# ls *.bat
+dos-inamoto-window.bat   postgres-start.bat  startup.bat
+dos-postgres-window.bat  postgres-stop.bat
+bash-3.2# ./dos-postgres-window.bat &
+
+別ウインドウ
+
+bash-3.2# ./dos-postgres-window.bat &
+[1] 3092
+bash-3.2#
+C:\altair\sample\alsoftpro>runas /usr:postgres cmd
+postgres のパスワードを入力してください:
+cmd をユーザー "NEPTUNE\postgres" として開始しています...
+
+[1]+  Done                    ./dos-postgres-window.bat
+bash-3.2#
+C:\altair\sample\alsoftpro>runas /usr:inamoto cmd
+inamoto のパスワードを入力してください:
+cmd をユーザー "NEPTUNE\inamoto" として開始しています...
+
+[1]+  Done                    ./dos-inamoto-window.bat
+bash-3.2#
+------------------------------------------------------------
+別ウインドウ(/Users/nepture:postgres)
+
+Microsoft Windows [Version 6.0.6000]
+Copyright (c) 2006 Microsoft Corporation.  All rights reserved.
+
+C:\Windows\system32>bash
+bash-3.2# cd ../../altair/sample/alsoftpro
+bash-3.2# ./postgres-start.bat &
+[1] 224
+bash-3.2#
+C:\altair\sample\alsoftpro>pg_ctl -D "C:\Program Files\PostgreSQL\8.4\data" -l "
+C:\altair\sample\alsoftpro\log\sql_admin.log" start
+サーバは起動中です。
+
+[1]+  Done                    ./postgres-start.bat
+bash-3.2#
+
+bash-3.2# psql postgres
+パスワード:postgres
+psql (8.4.2)
+"help" でヘルプを表示します.
+
+postgres=# create user inamoto createdb createuser password 'naota';
+CREATE ROLE
+postgres=#
+postgres=# \q
+
+bash-3.2# pwd
+/cygdrive/c/altair/sample/alsoftpro
+bash-3.2# ./postgres-stop.bat &
+[1] 3592
+bash-3.2#
+C:\altair\sample\alsoftpro>pg_ctl -D "C:\Program Files\PostgreSQL\8.4\data" stop
+
+サーバ停止処理の完了を待っています....完了
+サーバは停止しました
+
+[1]+  Done                    ./postgres-stop.bat
+bash-3.2#
+
+------------------------------------------------------------
+別ウインドウ(/Users/nepture:inamoto)
+
+Microsoft Windows [Version 6.0.6000]
+Copyright (c) 2006 Microsoft Corporation.  All rights reserved.
+
+C:\Windows\system32>bash
+bash-3.2$ cd ../../altair/sample/alsoftpro
+bash-3.2$ pwd
+/cygdrive/c/altair/sample/alsoftpro
+bash-3.2$
+
+bash-3.2$ psql -U inamoto postgres
+ユーザ inamoto のパスワード:naota
+psql (8.4.2)
+"help" でヘルプを表示します.
+
+postgres=# \l
+postgres=# \z
+postgres=# \q
+
+bash-3.2$ createdb -U inamoto testdb
+パスワード:naota
+bash-3.2$ psql testdb
+パスワード:naota
+psql (8.4.2)
+"help" でヘルプを表示します.
+
+testdb=# \i c:/altair/sample/alsoftpro/sql/postgresql/create_table.sql;
+
+postgres=# \q
+
+bash-3.2$ ./startup.bat &
+

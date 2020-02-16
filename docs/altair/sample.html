@@ -1,0 +1,916 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Samples of Altair</TITLE>
+</HEAD>
+
+<BODY>
+<H1>Altairのサンプル</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.00版 1996年 2月11日<BR>
+
+<HR>
+<H3><A NAME="scribble">GUI基本サンプル</A></H3>
+● gui/scribble.apr<BR>
+GUIの基本動作の「描画」と「イベント処理」を理解するための非常に簡単な基本サンプルです。<BR>
+ウィンドウを作成し、al_set_draw_procで描画関数を登録し、<BR>
+al_set_event_procでイベント処理関数を登録します。<BR>
+描画関数は、画面クリアのため領域と、描画領域を表示します。<BR>
+描画領域でボタンプレスし、ドラッグすると、手書きの曲線が入力され、<BR>
+クリア領域をクリックすると、書いた曲線をクリアします。<BR>
+<IMG SRC="image/scrrible.jpg"><BR>
+
+<HR>
+<H3><A NAME="prepare">AltairのGUIサンプルの前準備</A></H3>
+テキスト形式で保存されているライブラリをグラフ形式に変換します。<BR>
+テキスト形式はサイズが小さいですがロードに非常に時間がかかります。<BR>
+グラフ形式はサイズがかなり大きいですが、Altairの内部形式に従った<BR>
+フォーマットでありロードを比較的高速に行うことができます。<BR>
+<BR>
+Windows版ならgui/gui_sample_setup.batを実行してください。<BR>
+テキスト形式ライブラリから自動的にグラフ形式のライブラリ<BR>
+gui/guicore.albとgui/gbgp.albが生成されます。<BR>
+altair.iniファイル中のLIBDIR,END_LIBDIRで囲まれた部分のパスを<BR>
+guicore.alb,gbgp.albがあるディレクトリに書き換えてください。<BR>
+<BR>
+gui_sample_setup.batは、Windows固有のOLE2機能を使用しているため、Linux版では動きません。<BR>
+Linux版では、以下を行ってください。<BR>
+<OL>
+<LI>altair.iniファイル中のLIBDIR,END_LIBDIRで囲まれた部分のパスを<BR>
+guicore.alb,gbgp.albを置くディレクトリに書き換える。<BR>
+<LI>Altairを起動し、プロジェクトウィンドウの「ファイル」-「開く」で guicore.apr を開く。<BR>
+<LI>クラスウィンドウのGUIにキャレットを置き、「ライブラリ」-「作成」-「グラフ形式」で、<BR>
+guicore.alb に保存。<BR>
+<LI>Altairを再起動し、プロジェクトウィンドウの「ファイル」-「開く」で gbgpt.apr を開く。<BR>
+<LI>クラスウィンドウのGUIにキャレットを置き、「ライブラリ」-「作成」-「グラフ形式」で、<BR>
+gbgp.alb に保存。<BR>
+</OL>
+
+<HR>
+<H3><A NAME="usage">サンプルの使い方</A></H3>
+はじめにプロジェクトウィンドウ上で「ファイル - 開くを」実行し<BR>
+プロジェクトを開きます。<BR>
+そうするとクラスウィンドウが現れます<BR>
+クラスウィンドウのあるクラス上で<ダブルクリックします。<BR>
+そうするとメンバーウィンドウ上に引数なしのstatic関数がいくつか現れます。<BR>
+それらの関数上にキャレットを置いて「インタプリタ - （テスト）実行」を<BR>
+行うとその関数が実行されます。<BR>
+実行中のウィンドウを閉じるには<BR>
+システムメニューの「閉じる」を実行してください。<BR>
+
+<HR>
+<H3><A NAME="gui">GUIクラスライブラリ</A></H3>
+プロジェクトgui/guitest.aprを開いてください。<BR>
+クラスウィンドウが現れますのでこの中のクラスTP上でダブルクリックしてください。<BR>
+するとメンバーウィンドウに引数なしのstatic関数がいくつか現れます。<BR>
+これらがそれぞれサンプルになっています。<BR>
+いくつかについて説明していきます。<BR>
+
+<DL>
+<DT>TP::drag()<DD>
+マルチビューの図形エディタのサンプルです。<BR>
+図形の入力はできませんが、マウスで図形を編集することができます。<BR>
+<IMG SRC="image/drag.jpg"><BR>
+
+<DT>TP::control_test()<DD>
+ボタン、スクロールバー、リストボックス、コンボボックスのテストです。<BR>
+<IMG SRC="image/control.jpg"><BR>
+
+<DT>TP::heavy()<DD>
+矩形を200個出しでそれらをドラッグできるというサンプルです。<BR>
+<IMG SRC="image/heavy.jpg"><BR>
+
+<DT>TP::label_test()<DD>
+編集可能なラベルのテストです。<BR>
+ダブルクリックでラベルの内容を変更することができます。<BR>
+
+<DT>TP::pict_ed_test()<DD>
+図形エディタのサンプルです。<BR>
+右ボタンプレスで現れるメニューで一通りの操作ができるようになっています。<BR>
+<IMG SRC="image/pict_ed.jpg"><BR>
+
+<DT>TP::graph_ed_test()<DD>
+グラフ構造エディタのサンプルです。<BR>
+右ボタンプレスで現れるメニューで一通りの操作ができるようになっています。<BR>
+<IMG SRC="image/graph_ed.jpg"><BR>
+
+<DT>TP::table_ed_test()<DD>
+表エディタのサンプルです。<BR>
+ダブルクリックでセル編集、罫線ドラッグで行の高さ、列の幅が変えられるように<BR>
+なっています。<BR>
+右ボタンプレスで現れるメニューで一通りの操作ができるようになっています。<BR>
+注: ヒット判定を高速にするための処理が入っているのと、1セル1図形要素に<BR>
+なっているため、この表の性能は非常に悪いです。<BR>
+<IMG SRC="image/tbl_ed.jpg"><BR>
+
+<DT>TP::hier_ed_test()<DD>
+階層構造エディタのサンプルです。<BR>
+右ボタンプレスで現れるメニューで一通りの操作ができるようになっています。<BR>
+<IMG SRC="image/hier_ed.jpg"><BR>
+
+<DT>TP::text_ed_test()<DD>
+テキストエディタのサンプルです。<BR>
+右ボタンプレスで現れるメニューで一通りの操作ができるようになっています。<BR>
+このテキストエディタは入力に必要な最小限の機能しか持っていません。<BR>
+
+<DT>TP::dialog_test1()<DD>
+文字列を入力するダイアログのサンプルです。<BR>
+<IMG SRC="image/input_dlg.jpg"><BR>
+
+<DT>TP::dialog_test2()<DD>
+コンボボックスで文字列を選択させるダイアログのサンプルです。<BR>
+<IMG SRC="image/select_dig.jpg"><BR>
+
+<DT>TP::dialog_test3()<DD>
+複数ボタンのひとつを選択させるダイアログのサンプルです。<BR>
+<IMG SRC="image/choice_dig.jpg"><BR>
+
+<DT>TP::bitmap_test()<DD>
+ビットマップを出すサンプルです。<BR>
+ダブルクリックで別のビットマップに変えることができます。<BR>
+圧縮ビットマップは読み込めません。<BR>
+
+<DT>TP::button200()<DD>
+ボタンを200個出したサンプルです。<BR>
+<IMG SRC="image/button200.jpg"><BR>
+
+<DT>TP::mdi_test()<DD>
+TP::drag()サンプルを、MDIフレームウィンドウで出すようにしたサンプルです。<BR>
+
+<DT>TP::sdi_test()<DD>
+TP::graph_ed_test()サンプルをSDIフレームウィンドウで出すようにしたサンプルです。<BR>
+
+<DT>TP::sdi_menu()<DD>
+TP:sdi_test()のメニューをSDIフレームウィンドウのメニューバーにしたサンプルです。<BR>
+
+<DT>TP::wnd_msg_test()<DD>
+Windowsのメッセージの送信と受信のサンプルです。<BR>
+
+<DT>TP::excel_auto<DD>
+EXCEL OLEオートメーションサーバーを使用するサンプルです。<BR>
+
+</DL>
+
+<HR>
+<H3><A NAME="gbgp">GUIビルダ&amp;結線プログラミング(GbGp)</A></H3>
+概略を簡単に説明します。<BR>
+<BR>
+● 起動、サンプルプロジェクトのオープン<BR>
+プロジェクトgui/gbgp.aprを開いてください。<BR>
+クラスGbGpをダブルクリックしてください。<BR>
+Run()というstatic関数がありますのでここにキャレットを置いて<BR>
+「インタプリタ - 実行」を行ってください。<BR>
+<IMG SRC="image/gbgp.jpg"><BR>
+コントロールパネルが現れます。<BR>
+このパネルを使用することでGbGpのプロジェクトの新規作成/オープン/保存<BR>
+等を行うとともにGbGpの中で使われるGUIビルダ画面/プログラム画面の<BR>
+制御を行います。<BR>
+上から2段目の列の左から2番目の「開く」ボタンを<BR>
+押してcolor2/color2.gbrを開いてください。<BR>
+これはGbGpのもっとも簡単なサンプルになっています。<BR>
+
+<BR>
+● GUIビルダーとそのソース生成<BR>
+上から3段目のコンボボックスでGUI画面とプログラム画面を切り換える<BR>
+ことができます。GUI画面を選択してください。<BR>
+下にリストボックスが現れ「画面１」という項目がリストボックス中にひとつ現れます。<BR>
+このcolor1/color2プロジェクトでは「画面１」というウィンドウを一つだけを<BR>
+使っていることを意味します。<BR>
+次にリストボックス上の「画面１」を選択し、<BR>
+最下段の「開く」ボタンを押してください。<BR>
+GUIビルダ画面が現れます。このGUIビルダ画面はボタン一つと<BR>
+図形一つを配置しただけの非常に簡単なものです。<BR>
+ボタンにはbutton1、図形にはcircle1という名前が付いています。<BR>
+この画面上で右ボタンプレスすればメニューが出てきますので<BR>
+その他のいろいろな部品を配置することができますし、<BR>
+この画面上でいろいろなプロパティを設定することができます。<BR>
+ソース生成というメニュー項目で画面を作成するソースの生成が行われます。<BR>
+<IMG SRC="image/guibuilder.jpg"><BR>
+
+
+<BR>
+● 結線プログラミング、クラス定義画面<BR>
+次にプログラム画面の方にいきましょう。<BR>
+コントロールパネルのコンボボックスでプログラム画面を選択してください。<BR>
+今度は「プログラム１」という項目の入ったリストボックスが現れます。<BR>
+さきほどと同じように「プログラム１」を選択し、<BR>
+最下段にある「開く」ボタンを押してください。<BR>
+そうするとクラス階層図のサブセットが現れます。<BR>
+このウィンドウで新たなクラスの定義ができます。<BR>
+ChgColor1App/ChgColor2Appというクラスは新たに定義したクラスです。<BR>
+ChgColor1Gamen1/ChgColor2Gamen1というクラスは画面作成でできたクラスです。<BR>
+
+<BR>
+● 結線プログラミング、メソッドインターフェース定義画面<BR>
+ChgColor1App/ChgColor2Appというクラスを表わすノードをダブルクリックしてください。<BR>
+ポートのついたノードがひとつ現れます。<BR>
+このノードはChgColor1App/ChgColor2Appという<BR>
+クラスにmainというメンバー関数が定義されていることを意味します。<BR>
+
+<BR>
+● 結線プログラミング、メソッド実装画面(メイン)<BR>
+mainというノードをダブルクリックしてください。<BR>
+プログラムを２次元的に表わした画面が現れます。<BR>
+この画面で丸はオブジェクト、ポートのついたノードはメンバー関数、<BR>
+実線はデータの流れ、点線はコントロールの流れです。<BR>
+この例では画面に相当するオブジェクトを作成し、<BR>
+button1にChgColor1Gamen1::callback/ChgColor2Gamen1::callbackを<BR>
+コールバック関数として設定しています。<BR>
+<IMG SRC="image/connect_prog1.jpg"><BR>
+
+<BR>
+● 結線プログラミング、メソッド実装画面(コールバック)<BR>
+少し戻って、ChgColor1Gamen1/ChgColor2Gamen1というクラスを表すノードを<BR>
+ダブルクリックしてください。<BR>
+callbackという名前のついたノードが現れます。<BR>
+callbackというノードをダブルクリックしてください。<BR>
+callback関数の中身を表すプログラム画面が現れます。<BR>
+この例では、circle1のfill_colorの値を反転させて<BR>
+その値を再度fill_colorに設定し再表示をかけています。<BR>
+以上の説明でわかると思いますが、このプログラムは、<BR>
+ボタンが押されると図形の色が反転するというものです。<BR>
+<IMG SRC="image/connect_prog2.jpg"><BR>
+
+<BR>
+● 結線プログラミングとそのソース生成<BR>
+ノード間を結線して作成したプログラムは、Altairのコードに落とされます。<BR>
+ソース生成するためには、mainやcallbackのノードを選択し、<BR>
+「ソース生成」を実行します。<BR>
+ソース生成された関数を実行する場合は、<BR>
+この例ではmainを選択し「実行に使用」を実行して、<BR>
+コントロールパネルの実行ボタンを押します。<BR>
+
+<BR>
+● 結線プログラミング、記述ではなく選択、ユーザ定義クラスの追加<BR>
+結線プログラム時に、クラスやメンバー関数を入力しなければなりませんが<BR>
+GbGpでは、クラスや関数の選択にコンボボックスを用いることにしていて、<BR>
+キーボードから直に入力させることは原則していません。<BR>
+このためにはどのクラスが公開クラスでどのメンバーが<BR>
+公開メンバーかを宣言しておく必要がありますが、GbGpでは、<BR>
+GbGpPanel::CreateClassList()の中に_Append("クラス名");を書くだけで<BR>
+クラスが公開され、各クラス::public_var()、各クラス::public_func()に<BR>
+メンバー変数/メンバー関数を書いておくだけでメンバーが公開されます。<BR>
+
+<BR>
+● GUIビルダー、アタッチメント、GUI画面のネスト<BR>
+GbGpサンプルは、GUI画面でのアタッチメントの機能と<BR>
+GUI画面をサブGUI画面として他のGUI画面に貼り付ける機能を持っています。<BR>
+gbgp/nestgui/nestgui.gprがこの例になっています。<BR>
+nestguiサンプルは表を含んでいますが、スクロールがすごく遅いです。<BR>
+これは表のセルひとつひとつが図形のラベルで構成されているからです。実用に足る<BR>
+表を使おうと思ったら図形要素の数の少ない表にするか、表のOCXを使うことが考えられます。<BR>
+<IMG SRC="image/nest_gui.jpg"><BR>
+
+<BR>
+● GUIビルダー、ユーザ定義部品の配置<BR>
+GbGpでは、ユーザが定義した部品をGUIビルダーに登録し配置することができます。<BR>
+gbgp/othello/othello.gprがこのサンプルになっています。<BR>
+(このサンプルはオセロゲームとして楽しむことができますが、<BR>
+あまり強くありません。)<BR>
+オセロ盤がユーザ定義部品になっています。<BR>
+このサンプルでは大まかな流れだけを結線プログラミングで行っていて細かいところは<BR>
+スクリプトでプログラムしています。<BR>
+結線プログラミングは細かいところの記述には向いていませんが、<BR>
+大まかな流れを表現するのには向いていると思われます。<BR>
+<IMG SRC="image/othello.jpg"><BR>
+
+<BR>
+注: このGbGpというサンプルはとりあえず必要な関数しか公開していません。<BR>
+GbGpでまともなアプリケーションを作成しようと思ったら、<BR>
+クラスライブラリの方に関数を追加してそれをGbGp上に公開したり、<BR>
+新たなクラスを作成してそれをGbGp上に公開する必要があります。<BR>
+<BR>
+注: このサンプルはタブ遷移をサポートしていません。<BR>
+また、文字列の入力はすべてダブルクリックから始まります。<BR>
+これらはベースにしているGUIクラスライブラリの実装からくる制限です。<BR>
+
+<HR>
+<H3><A NAME="para">並列処理のサンプル</A></H3>
+ここにあげる並列処理のサンプルでは、<BR>
+プロセス間の通信にChannelというクラスのオブジェクトを使っています。<BR>
+ChannelはUNIXのパイプ/Occamのchannelとほぼ同じものです。FIFOのバッファです。<BR>
+Channelをプロセス間で共有し、片方のプロセスがChannelに書き込んで<BR>
+もう片方のプロセスがChannelから読み込むという形です。<BR>
+
+<H3><A NAME="kaijo">並列処理による階乗計算</A></H3>
+プロジェクトgui/guitest.aprを開いてください。<BR>
+クラスTPをダブルクリックしてください。<BR>
+関数FactMainが階乗計算のメインプログラム、<BR>
+Factorialが再帰呼び出しを並列処理で表わした部分になっています。<BR>
+
+<H3><A NAME="sosu">並列処理によるエラトステネスのふるい</A></H3>
+プロジェクトgui/guitest.aprを開いてください。<BR>
+クラスTPをダブルクリックしてください。<BR>
+関数PNumMainが素数を得るメインプログラム、<BR>
+Integersは数列を発生する部分、<BR>
+ShiftAndFilterが数列をエラトステネスのふるいにかける部分になっています。<BR>
+
+<HR>
+<H3><A NAME="ocx">OCXサンプル</A></H3>
+サンプルGbGpはOCXのコンテナになっています。<BR>
+GUIビルダーで「配置-OCX」を選択するとOCXの一覧が出てきます。<BR>
+適当なOCXを選択してGUIビルダー上でクリックするとそこにOCXが<BR>
+配置されます。<BR>
+マウスで移動/リサイズすることができます。<BR>
+ダブルクリックするとOCXが持っているプロパティエディタが<BR>
+立ち上がりプロパティを設定することができます。<BR>
+設定したプロパティはプロジェクトの保存をすると保存され、<BR>
+実行のときに保存されたプロパティがロードされるようになっています。<BR>
+OLEオートメーションはOcxGlyph::object()で返るvariant型の<BR>
+オブジェクトを介して行います。<BR>
+プロパティのセット/ゲット、メソッド呼び出しが可能です。<BR>
+イベントコールバックを設定することができ、<BR>
+もちろんイベント引数も使えるようになっています。<BR>
+
+<DL>
+<DT>gbgp/treeview/treeview.gpr<DD>
+TreeViewコントロールのサンプルです。<BR>
+
+<DT>gbgp/htmlview/htmlview.gpr<DD>
+IE3.0以上についているWebブラウザコントロールのサンプルです。<BR>
+<IMG SRC="image/htmlview.jpg"><BR>
+
+<DT>mmedia/mmedia.gpr<DD>
+私が提供しているAlMMコントロール(マルチメディアOLEコントロール)のサンプルです。<BR>
+<IMG SRC="image/mmedia.jpg"><BR>
+
+</DL>
+
+<HR>
+<H3><A NAME="build">ビルドサンプル</A></H3>
+build/1/build.apr<BR>
+C/C++のソースファイルからexeを作成するサンプルです。<BR>
+ビルドを行うためにはMS VC++が必要です。<BR>
+
+<H3><A NAME="build2">ビルドサンプル2</A></H3>
+build/2/build.apr<BR>
+上記build/1/build.aprはプリコンパイル済みヘッダを使っていませんが<BR>
+これはプリコンパイル済みヘッダを使うようにしたものです。<BR>
+
+<HR>
+<H3><A NAME="stdio">起動EXEの標準入出力(パイプ)サンプル</A></H3>
+comm/stdio.apr, comm/stdio2.apr<BR>
+Altair.exeからAltair.exeを起動し、その間を標準入出力のパイプでつなぎ、<BR>
+EXE間でパイプにより通信を行うサンプルです。<BR>
+stdio.aprの親プロセスでは、Altairの並列処理機能を使っています。<BR>
+
+<HR>
+<H3><A NAME="mapfile">共有メモリサンプル</A></H3>
+comm/mapfile.apr (Windows版のみ)<BR>
+Altair.exeからAltair.exeを起動し、その間でメモリマップトファイル(共有メモリ)を<BR>
+介してデータを送受信するサンプルです。<BR>
+
+<BR>
+comm/mapfile2.apr (WindowsおよびLinux版)<BR>
+共有メモリを介してデータを受け渡すサンプルです。<BR>
+Altairの以下のWindows/Linux非互換APIを使います。<BR>
+al_wnd_message(... "create_map" ...),<BR> 
+al_wnd_message(... "get_map" ...),<BR> 
+al_wnd_message(... "close_map" ...)<BR> 
+
+<HR>
+<H3><A NAME="script">Altairスクリプトサンプル</A></H3>
+comm/script.apr<BR>
+<A HREF="sysfunc3.html#al_script">al_script関数</A>を使ったサンプルです。<BR>
+
+<HR>
+<H3><A NAME="orb">プロセス間プロシージャコールサンプル</A></H3>
+bank/orbt.apr<BR>
+メモリマッピングオブジェクトとウィンドウメッセージを使って<BR>
+プロセス間でリモートプロシージャコールを行うサンプルです。<BR>
+メモリマッピングオブジェクトとウィンドウメッセージの部分を<BR>
+Socketを使ったものに書き換え、ネーミングサーバを用意すれば<BR>
+CORBAやJava－RMIと同等のことができるようになります。<BR>
+
+<A HREF ="sample/orb.html">詳細</A><BR>
+
+<HR>
+<H3><A NAME="javaide">簡易JavaIDEサンプル</A></H3>
+gbgp/javaide/javaide.gpr<BR>
+Javaの簡易IDEです。<BR>
+プロジェクト管理、クラスブラウザ、ビルド、jdbをラップしたデバッガが使用できます。<BR>
+プロジェクトファイルのファイルフォーマットはXML形式のファイルを使用しています。<BR>
+ビルドはpackage分を抽出しパッケージに相当したディレクトリを自動的に掘ります。<BR>
+デバッガでは、簡単なパーサによってクラス名を抽出しています。<BR>
+JDKのソースにステップインすることが可能です。<BR>
+テキストエディタは秀丸等のエディタを使用することができます。<BR>
+GnuのRCSを使用してソースの版管理ができます。<BR>
+Javaとの連携ではおもに標準入出力をパイプにつないで行っています。<BR>
+<BR>
+シェアウェアのテキストエディタの秀丸は、
+<A HREF="http://www.forest.impress.co.jp/">窓の杜</A>の
+「ソフトライブラリ」-「エディタ」から<BR>
+入手できます。<BR>
+フリーウェアのGnuのRCSは、
+<A HREF="http://www.cyclic.com/cyclic-pages/rcs.html">Cyclic Software</A>
+等から入手できます。<BR>
+
+<A HREF ="sample/javaide.html">詳細</A><BR>
+
+<IMG SRC="image/ide_main.jpg"><BR>
+<IMG SRC="image/ide_proj.jpg"><BR>
+<IMG SRC="image/ide_edit.jpg"><BR>
+
+<HR>
+<H3><A NAME="xml">XMLプログラム</A></H3>
+● xml/xml.apr<BR>
+<DL>
+<DT>TP::parse_and_generate_xml<DD>
+XML形式ファイルを読み込んでパースツリーを作成し、<BR>
+そのパースツリーからXML形式ファイルを生成しそれをnotepadで<BR>
+表示するサンプルです。<BR>
+<BR>
+
+<DT>TP::parse_with_debug_outout<DD>
+XML形式ファイルを読み込んでパースツリーを作成するとき<BR>
+途中結果をアウトプットウィンドウに出力しながらパーズするサンプルです。<BR>
+<BR>
+
+<DT>TP::parse_without_parse_tree_generation<DD>
+パースツリーを作成せず、各構成要素を読み込む度に、<BR>
+読み込んだ構成要素をリスナーのメソッドを呼ぶこと通知するサンプルです。<BR>
+<BR>
+
+</DL>
+
+<HR>
+<H3><A NAME="socket">Socketサンプル</A></H3>
+● comm/socket.apr<BR>
+TCP/IP,UDPプロトコルの通信機能のもっとも簡単なテストサンプルです。<BR>
+<BR>
+TP::tcp_server()でTCP/IPのサーバが動き、<BR>
+別のプロセスでTP::tcp_client()を動かすとTCP/IPのクライアントが動き、<BR>
+クライアントからサーバへ"hello!"というメッセージが送られます。<BR>
+<BR>
+TP::udp_server()でUDPのサーバが動き、<BR>
+別のプロセスでTP::udp_client()を動かすとUDPのクライアントが動き、<BR>
+クライアントからサーバへ"hello!"というメッセージが送られます。<BR>
+<BR>
+注意:<BR>
+実際に動かす場合は、TP::init_client()中のhostnameという変数に<BR>
+実際にサーバを動かすマシン名を入れてください。<BR>
+<BR>
+
+● comm/socket2.apr<BR>
+socket.aprでは、accept/recv/recvfromでaccept/recv/recvfromされるまで<BR>
+制御が戻らないものを使っています。<BR>
+このため、accept/recv/recvfromでAPが凍ってしまいます。<BR>
+<BR>
+socket2.aprはaccept/recv/recvfromを別スレッドで行い、<BR>
+accept/recv/recvfromされたらウィンドウメッセージで通知するものに<BR>
+socket.aprを変えたものです。<BR>
+このようにすればaccept/recv/recvfromでAPが凍ることはなくなります。<BR>
+<BR>
+使い方はsocket.aprと同様です。<BR>
+<BR>
+
+● comm/simple_ft.apr<BR>
+accept_queue/send_queue/recv_queueを用い、<BR>
+TCP/IPプロトコルでファイル転送を行うテストサンプルです。<BR>
+<BR>
+TP::server()でファイル転送のサーバが動きます。<BR>
+TP::client()でファイル転送のクライアントが動きます。<BR>
+TP::put_file()でクライアントからサーバへファイルのPut、<BR>
+TP::get_file()でクライアントへサーバからファイルのGet、<BR>
+TP::cancel()でファイル転送のキャンセルができます。<BR>
+<BR>
+注意:<BR>
+実際に動かす場合は、TP::client()中のhostnameという変数に<BR>
+実際にサーバを動かすマシン名を入れてください。<BR>
+また、TP::file_put()中のlocalという変数に<BR>
+クライアントを動かすマシンに実際に存在するするファイルのパスを、<BR>
+remoteという変数にサーバを動かすマシンに作成できるファイルのパスを<BR>
+入れてください。<BR>
+また、TP::file_get()中のremoteという変数に<BR>
+サーバを動かすマシンに実際に存在するするファイルのパスを、<BR>
+localという変数にクライアントを動かすマシンに作成できるファイルのパスを<BR>
+入れてください。<BR>
+<BR>
+
+<HR>
+<H3><A NAME="dll">ダイナミックロードとネイティブ呼び出しサンプル</A></H3>
+● comm/dllcall.apr<BR>
+DLL/シェアドライブラリのネイティブ関数コールをするサンプルです。<BR>
+<BR>
+Windows版では、<BR>
+kernel32.dllの中の Beep、および<BR>
+kernel32.dllの中の GetWindowsDirecotry 、および<BR>
+user32.dllの中の MessageBox(MessageBoxA) という関数の<BR>
+ネイティブコールをします。<BR>
+<BR>
+Linux版では、<BR>
+libglib.soの中の g_get_current_directory, g_print, g_free、および<BR>
+libm.soの中の atan という関数の<BR>
+ネイティブコールをします。<BR>
+
+<HR>
+<H3><A NAME="httpd">簡易HTTPサーバ/簡単なHTTPクライアント</A></H3>
+● net/http/httpd.apr<BR>
+簡易HTTPサーバです。<BR>
+Windowsマシンを個人用HTTPサーバにすることができます。<BR>
+text/plan, text/html, image/gif, image/jpegに対応しています。<BR>
+wwwrootのディレクトリ設定は、HttpServer::Create()中の<BR>
+wwwrootという変数への代入文を書き換えてください。<BR>
+起動は、HttpServer::start()を実行すると起動します。<BR>
+HttpServer::stop()を実行すると終了します。<BR>
+<BR>
+ActivePerlと組み合わせることにより、それがサポートしている範囲で<BR>
+CGIの動作確認を使うことができます。<BR>
+フリーウェアのActivePerlは
+<A HREF="http://www.activestate.com/">ActiveState</A>
+から入手できます。<BR>
+<BR>
+
+● net/http/httpclnt.apr<BR>
+簡単なHTTPクライアントです。<BR>
+PerformHTTPClient::main();を実行すると、指定されたURLについて<BR>
+3回ずつGETを行い、レスポンスが何ミリ秒だったかを出力します。<BR>
+URLの指定は、PerformHTTPClient::SetURLs();で行っています。<BR>
+
+<HR>
+<H3><A NAME="mail">簡易STMPクライアント</A></H3>
+● net/smtp/mail.apr<BR>
+SMTPクライアントです。<BR>
+コマンドラインからテキストのメールを送ることができます。<BR>
+<BR>
+<PRE>
+使い方:
+&gt; altair [ -dir &lt;main.aprのディレクトリ&gt; ] -file main.apr -class STMPClient -method send\
+server &lt;stmp-servername&gt; from &lt;from-address&gt;\
+[to &lt;to-address&gt;]* [cc &lt;cc-address&gt;]* subject &lt;subject&gt;\
+text &lt;text-filename&gt; [error &lt;error-output-filename&gt;]
+
+&lt;stmp-servername&gt;        SMTPのサーバの名前
+&lt;from-address&gt;           送信者のメールアドレス（必須）
+&lt;to-address&gt;             Toのあて先のメールアドレス（複数可）
+&lt;cc-address&gt;             Ccのあて先のメールアドレス（複数可）
+&lt;subject&gt;                サブジェクト（「"」でくくった文字列）
+&lt;text-filename&gt;          送付する内容の入ったテキスト（「"」でくくったファイル名）
+&lt;error-output-filename&gt;  エラー出力先（「"」でくくったファイル名、省略可）
+
+終了コードは、送信に成功すると0、送信に失敗しすると1。
+</PRE>
+
+<HR>
+<H3><A NAME="crypt">暗号化/認証の基本機能テストサンプル</A></H3>
+● net/crypt/crypt.apr<BR>
+暗号化/認証の基本機能テストサンプルです。<BR>
+
+<DL>
+<DT>TP::generate_nrsa_keypair()<DD>
+RSAベースの公開鍵と秘密鍵のペアを生成します。<BR>
+
+<DT>TP::encrypt_by_nrsa_public_key()<DD>
+平文のファイルから公開鍵で暗号化したファイルを作成します。<BR>
+
+<DT>TP::decrypt_by_nrsa_secret_key()<DD>
+暗号化したファイルから秘密鍵で復号化したファイルを作成します。<BR>
+
+<DT>TP::encrypt_by_nrsa_secret_key()<DD>
+平文のファイルから秘密鍵で暗号化したファイルを作成します。<BR>
+
+<DT>TP::decrypt_by_nrsa_public_key()<DD>
+暗号化したファイルから公開鍵で復号化したファイルを作成します。<BR>
+
+<DT>TP::generate_common_key()<DD>
+共通鍵を生成します。<BR>
+
+<DT>TP::encrypt_by_common_key()<DD>
+平文のファイルから共通鍵で暗号化したファイルを作成します。<BR>
+
+<DT>TP::decrypt_by_common_key()<DD>
+暗号化したファイルから共通鍵で復号化したファイルを作成します。<BR>
+
+<DT>TP::print_md5_digest()<DD>
+ファイル内容の"MD5"のメッセージダイジェストを出力します。<BR>
+
+<DT>TP::print_sha1_digest()<DD>
+ファイル内容の"SHA-1"のメッセージダイジェストを出力します。<BR>
+
+</DL>
+
+<HR>
+<H3><A NAME="sql">DBアクセスの基本機能テストサンプル</A></H3>
+● rdb/sqltest.apr<BR>
+DBアクセスの基本機能テストサンプルです。<BR>
+
+<DL>
+<DT>SQLTest::test_create_table()/SQLTest2::test_create_table()<DD>
+テーブルを作成します。<BR>
+
+<DT>SQLTest::test_drop_table()/SQLTest2::test_drop_table()<DD>
+テーブルを削除します。<BR>
+
+<DT>SQLTest::test_insert()<DD>
+テーブルに整数、文字列、実数のレコードを挿入します。<BR>
+
+<DT>SQLTest::test_select()<DD>
+テーブルから整数、文字列、実数のレコードを検索します。<BR>
+
+<DT>SQLTest2::test_insert()<DD>
+テーブルに現在の日付、バイナリデータ(read.gif)のレコードを挿入します。<BR>
+
+<DT>SQLTest2::test_select()<DD>
+テーブルから日付、バイナリデータのレコードを検索し、<BR>
+バイナリデータはwrite.gifに書き込みます。<BR>
+
+</DL>
+Windows版では、SQLTest/SQLTest2のconnect()内で、<BR>
+db_name,user,passwdという変数に代入しているところを<BR>
+実際の環境のODBCの、データソース名、ユーザ名、パスワードに<BR>
+変えてください。<BR>
+
+<H3><A NAME="db2csv">DBテーブルの内容をCSVファイルにダンプするサンプル</A></H3>
+● rdb/db2csv.apr<BR>
+DBテーブルの内容をCSVファイルにダンプするサンプルです。<BR>
+
+<H3><A NAME="csv2db">CSVファイルの内容をDBテーブルにストアするサンプル</A></H3>
+● rdb/csv2db.apr<BR>
+CSVファイルの内容をDBテーブルにストアするサンプルです。<BR>
+
+<HR>
+<H3><A NAME="httpsd">簡易HTTPSサーバ/簡単なHTTPSクライアント</A></H3>
+● net/https/httpd.apr<BR>
+簡易HTTPSサーバです。<BR>
+簡易HTTPサーバのサーバソケットをSSLのソケットに置き換え、<BR>
+ポート番号を80から443にしたものです。<BR>
+以下のファイルを使います。<BR>
+<PRE>
+  server/cert.pem         サーバの公開鍵証明書
+  server/private/key.pem  サーバの秘密鍵
+  dh/param.pem            Diffie-Hellmanパラメータ
+</PRE>
+
+● net/https/httpclnt.apr<BR>
+簡単なHTTPSクライアントです。<BR>
+簡単なHTTPクライアントのクライアントソケットをSSLのソケットに置き換え、<BR>
+ポート番号を80から443にしたものです。<BR>
+Webブラウザからhttps://で始まるURLを入力すると、デモCAを受け入れるか聞いてきて<BR>
+受け入れるにすると、WebブラウザにSSL通信で取得したものが表示されます。<BR>
+<BR>
+
+● net/https/httpclnt_serverAuth.apr<BR>
+httpclnt.aprをサーバ認証するようにしたものです。<BR>
+<BR>
+
+● net/https/httpd_clientAuth.apr, net/https/httpclnt_clientAuth.apr<BR>
+httpd.apr, httpclnt.aprをクライアント認証するようにしたものです。<BR>
+<BR>
+
+● net/https/httpclnt_bothAuth.apr<BR>
+httpclnt.aprをサーバ認証とクライアント認証をするようにしたものです。<BR>
+<BR>
+
+● net/https/cert.bat, ca.conf, client.conf, server.conf<BR>
+OpenSSLのコマンド openssl を使って、デモCAと<BR>
+サーバの鍵ペアと、デモCAが署名したサーバの公開鍵証明書と<BR>
+クライアントの鍵ペアと、デモCAが署名したクライアントの公開鍵証明書を<BR>
+作成します。<BR>
+ca.confはデモCAを作るときの設定ファイル、<BR>
+server.confはサーバの鍵ペアを作るときの設定ファイルです。<BR>
+client.confはクライアントの鍵ペアを作るときの設定ファイルです。<BR>
+バッチを実行すると主に以下のファイルができます。
+<PRE>
+  dh/param.pem            Diffie-Hellmanパラメータ
+  ca/cert.pem             自分で署名したデモCAの公開鍵証明書
+  ca/private/key.pem      デモCAの秘密鍵
+  server/cert.pem         デモCAが署名したサーバの公開鍵証明書
+  server/private/key.pem  サーバの秘密鍵
+  client/cert.pem         デモCAが署名したクライアントの公開鍵証明書
+  client/private/key.pem  クライアントの秘密鍵
+</PRE>
+
+● net/https/httpd128.apr<BR>
+128bit以上の暗号しか許さない簡単なHTTPSクライアントです。<BR>
+<BR>
+128bitの暗号強度のブラウザならブラウズできますが、<BR>
+56bitの暗号強度のブラウザならブラウズができません。<BR>
+
+<HR>
+<H3><A NAME="smime">SMIME 暗号/署名サンプル</A></H3>
+● net/smime/smime.apr<BR>
+OpenSSLを使った SMIME 暗号/署名サンプルです。
+
+<DL>
+<DT>SMIME::smime_encrypt()<DD>
+SMIMEで暗号化を行います。<BR>
+
+<DT>SMIME::smime_decrypt()<DD>
+SMIMEで復号化を行います。<BR>
+
+<DT>SMIME::smime_sign()<DD>
+SMIMEで署名を行います。<BR>
+
+<DT>SMIME::smime_verify()<DD>
+SMIMEで署名検証を行います。<BR>
+
+<DT>SMIME::mime_multipart()<DD>
+MIME Multipartの分解と組み立てを行います。<BR>
+
+<DT>SMIME:base64_encode:()<DD>
+base64のエンコードを行います。<BR>
+
+<DT>SMIME:base64_decode:()<DD>
+base64のデコードを行います。<BR>
+
+</DL>
+
+● net/smime/cert.bat, ca.conf, server.conf<BR>
+OpenSSLのコマンド openssl を使って、デモCAと<BR>
+サーバの鍵ペアと、デモCAが署名したサーバの公開鍵証明書を作成します。<BR>
+バッチを実行すると主に以下のファイルができます。
+<PRE>
+  ca/cert.pem             自分で署名したデモCAの公開鍵証明書
+  ca/private/key.pem      デモCAの秘密鍵
+  server/cert.pem         デモCAが署名したサーバの公開鍵証明書
+  server/private/key.pem  サーバの秘密鍵
+</PRE>
+
+<HR>
+<H3><A NAME="prof">性能測定のためのプロファイリングサンプル</A></H3>
+● prof/prof.apr<BR>
+プロファイラの使い方をのサンプルです。<BR>
+これの結果を<A HREF="seino.html">性能について</A>に載せています。<BR>
+比較に使ったJavaプログラムなどもいっしょにあります。<BR>
+
+<HR>
+<H3><A NAME="servlet">簡易サーブレットエンジンサンプル</A></H3>
+● net/servlet/servlet.apr<BR>
+簡易サーブレットエンジンとその簡易HTTPサーバとサーブレットのサンプルです。<BR>
+net/servlet/config.xmlが設定ファイルになっています。<BR>
+<BR>
+３つのHTMLファイルとHttpServletクラスの派生クラスとして２つのServletを定義しています。<BR>
+<PRE>
+   TestServlet1 doGetで「Hello World」と表示するサーブレット
+   TestServlet2 Sessionを必要とするサンプル
+                sessionがないと no_session.html へリダイレクト
+                login.html からのポストでsession作成
+                セッションが有効な間、氏名と電話番号の組をInsert/Update/Deleteしたり、
+                その一覧を表示する。
+</PRE>
+このサンプルのServletエンジンのSession管理は、URLではなくCookieを使っています。<BR>
+
+</DL>
+
+<HR>
+<H3><A NAME="xslt">簡易XSLTプロセッサ</A></H3>
+● xml/xml.apr<BR>
+簡易XSLTプロセッサでXMLデータをXSLを使って変換するサンプルを含みます。
+
+<DL>
+<DT>TP::xslt_transform_1<DD>
+test.xmlをtest1.xslで変換したXMLをアウトプットウィンドウに出力。<BR>
+
+<DT>TP::xslt_transform_2<DD>
+test.xmlをtest2.xslで変換したXMLをアウトプットウィンドウに出力。<BR>
+
+<DT>TP::xslt_transform_3<DD>
+test.xmlをtest3.xslで変換したXMLをアウトプットウィンドウに出力。<BR>
+
+<DT>TP::xslt_transform_4<DD>
+test.xmlをtest4.xslで変換したXMLをアウトプットウィンドウに出力。<BR>
+
+<DT>TP::xslt_transform_5<DD>
+test.xmlをtest5.xslで変換したXMLをアウトプットウィンドウに出力。<BR>
+
+<DT>TP::xslt_transform_6<DD>
+test.xmlをtest6.xslで変換したXMLをアウトプットウィンドウに出力。<BR>
+
+<DT>TP::xslt_transform_7<DD>
+test.xmlをtest7.xslで変換したXMLをアウトプットウィンドウに出力。<BR>
+
+<DT>TP::xslt_transform_8<DD>
+test.xmlをtest8.xslで変換したXMLをアウトプットウィンドウに出力。<BR>
+
+<DT>TP::xslt_transform_9<DD>
+test.xmlをtest9.xslで変換したXMLをアウトプットウィンドウに出力。<BR>
+
+</DL>
+
+<HR>
+<H3><A NAME="solid">ソリッドモデリング</A></H3>
+● solid/solid1.apr<BR>
+立方体、円柱、円錐、球を表示。<BR>
+<IMG SRC="image/solid_primitive.jpg"><BR>
+<BR>
+
+● solid/solid2.apr<BR>
+２つの立方体の和（Union）、差（Minus）、積（Intersection）を表示。<BR>
+<IMG SRC="image/solid_setop.jpg"><BR>
+<BR>
+
+<HR>
+<H3><A NAME="account">財務会計ソフト</A></H3>
+簡易APサーバに財務会計ソフトをつけました。<BR>
+経理の簡易帳簿でない複式帳簿をつけることができます。<BR>
+Webブラウザから、伝票入力、決算書作成などができます。<BR>
+RDBを使っていますが、内部的にはほとんどすべてXMLベースの処理で<BR>
+XmlUtilityを使っていて、SQL文を直に使っているところはありません。<BR>
+Web画面の生成にはXSLを多用しています。<BR>
+
+<A HREF="account/account.html">簡単な説明</A><BR>
+
+<H3><A NAME="web_shop">Webショッピングサイトサンプル</A></H3>
+
+簡易APサーバに、財務会計ソフトと連動した、<BR>
+簡易Webショッピングシステムサンプルをつけました。<BR>
+やはり、RDBを使っていますが、内部的にはほとんどすべてXMLベースの処理で<BR>
+XmlUtilityを使っていて、SQL文を直に使っているところはありません。<BR>
+Web画面の生成にはXSLを多用しています。<BR>
+<BR>
+このWebシッピングサイトサンプルは、実用を考えてというよりも、<BR>
+アプリケーションの作り方を研究するためにとりあえず作ったものです。<BR>
+この研究は、<BR>
+煩わしいところはどこか、自動生成が可能なところはどこか、<BR>
+アプリケーションロジックの本質を表す必要最小限の情報は何か、<BR>
+その情報を元にアプリケーションを完全自動生成できるか、<BR>
+などを分析することです。<BR>
+
+<A HREF="web_shop/web_shop.html">簡単な説明</A><BR>
+
+<HR>
+<H3><A NAME="server">簡易APサーバ</A></H3>
+XMLメッセージを扱う簡易APサーバのサンプルです。<BR>
+この上にRosettaNetのRNIF2.0と代表的なPIPの実装を行っている簡易RosettaNetサーバでもあります。<BR>
+<BR>
+以下の特徴があります。
+<UL>
+<LI>
+DTDさえあれば、業務APの下位のXMLメッセージの格納と取り出しを行う部分の<BR>
+プログラムの作成が不要。
+<LI>
+業務フローの実行管理を行うシンプルなプロセスエンジンを提供。
+<LI>
+ランタイム時にサーバを動かしながら、画面のカスタマイズ<BR>
+(表の項目に何を表示するかの指定、表の項目の表示する順番の変更)が可能な<BR>
+メタWebUIを提供。
+</UL>
+
+<A HREF ="ap_server/ap_server.html">詳細</A><BR>
+
+<H3><A NAME="mapper">XMLマッパー</A></H3>
+● gbgp/xmp_mapper/xml_mapper.gpr<BR>
+２つのDTDを読み込んで、GUI上に表示し、<BR>
+矢印を引いてタグの値の対応関係情報を作成するマッパーのサンプルです。<BR>
+<IMG SRC="image/mapper_gui.jpg"><BR>
+対応関係情報は、以下のようなCSV形式ファイルで生成されます。<BR>
+<IMG SRC="image/mapping_info.jpg"><BR>
+
+<HR>
+<H3><A NAME="jp_nl">日本語自然言語処理</A></H3>
+● nl/juman_knp.apr<BR>
+JUMAN/KNPの日本語自然言語処理のサンプルです。<BR>
+（辞書の設定を行ってから実行して下さい。）
+<DL>
+<DT>JUMAN_KNP::juman<DD>
+例文 text.txt 形態素解析した結果を text-juman.txt に出力。<BR>
+
+<DT>JUMAN_KNP::knp<DD>
+形態素解析した結果 text-juman.txt を構文解析した結果を text-knp.txt に出力。<BR>
+
+</DL>
+
+<HR>
+<H3><A NAME="parser_generator">汎用パーサー＆汎用ジェネレーター</A></H3>
+● parser_and_generator/math-simple.apr<BR>
+文法 math-syntax.txt をコンパイルし、<BR>
+その文法に従って math-input.txt のパースツリーを作成し、<BR>
+その文法とそのパースツリーから 同じパースツリーが生成されるテキストを<BR>
+math-output.txt に出力します。<BR>
+
+● parser_and_generator/xml-simple.apr<BR>
+文法 xml-syntax.txt をコンパイルし、<BR>
+その文法に従って xml-input.txt のパースツリーを作成し、<BR>
+その文法とそのパースツリーから 同じパースツリーが生成されるテキストを<BR>
+xml-output.txt に出力します。<BR>
+
+<HR>
+<H3><A NAME="prolog">Prolog</A></H3>
+● prolog/prolog.apr がPrologプログラムを実行させるサンプルです。<BR>
+ファイル system.syntax でPrologの文法を定義しています。<BR>
+Prologのサンプルは以下です。<BR>
+<PRE>
+  prolog_test_01.prolog  リストのappendを行なう。
+  prolog_test_02.prolog  append結果のリストになるappend元の引数の組をすべて求める。
+  prolog_test_10.prolog  3人の宣教師と3人の土人が2人乗りのボートだけで
+                         宣教師が土人に食べられないようにして向こう岸に渡すすべての解を求める。
+  prolog_test_11.prolog  ハノイの塔。
+  prolog_test_12.prolog  ８クィーン。
+</PRE>
+
+<HR>
+<H3><A NAME="almath">数式処理システム</A></H3>
+● almath/almath.apr が数式処理システムを実行させるサンプルです。<BR>
+
+次の画面は入出力例です。<BR>
+１番目はシュワルツシルド空間の極座標での接続係数を求めています。<BR>
+２、３番目は多変数多項式の割り算を行っています。<BR>
+<IMG SRC="image/almath.png"><BR>
+シュワルツシルド空間の接続係数の計算の入力ファイルは以下です。<BR>
+<IMG SRC="image/schwarzshild.jpeg"><BR>
+<IMG SRC="image/christof.jpeg"><BR>
+<IMG SRC="image/christof_print.jpeg"><BR>
+
+</BODY>
+</HTML>

@@ -1,0 +1,14 @@
+<AltairServer>
+
+  <MaxLogSize>1000</MaxLogSize>
+  <SystemLog>./log/system.log</SystemLog>
+  <GcInterval>3600</GcInterval>
+
+  <ProxyServer name="ProxyServer">
+    <Port>8086</Port>
+    <ProxyLog>./log/proxy.log</ProxyLog>
+    <ConnectionTimeout>300</ConnectionTimeout>
+    <ConnectTimeout>30000</ConnectTimeout>
+  </ProxyServer>
+
+</AltairServer>

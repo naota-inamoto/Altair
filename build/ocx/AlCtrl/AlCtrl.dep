@@ -1,0 +1,91 @@
+# Microsoft Developer Studio Generated Dependency File, included by AlCtrl.mak
+
+..\..\Src\AlCtrl\AlCtrl.cpp : \
+	"..\..\include\alctrl\alctrl.h"\
+	"..\..\include\altair\docvdef.h"\
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\dev\socket.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	
+
+..\..\Src\AlCtrl\AlCtrl.rc : \
+	"..\..\Src\AlCtrl\AlCtrl.ico"\
+	"..\..\Src\AlCtrl\AlCtrlCtl.bmp"\
+	".\Release\AlCtrl.tlb"\
+	
+
+..\..\Src\AlCtrl\alctrlctl.cpp : \
+	"..\..\include\alctrl\alctrl.h"\
+	"..\..\include\alctrl\alctrlctl.h"\
+	"..\..\include\alctrl\alctrlppg.h"\
+	"..\..\include\altair\docvdef.h"\
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	
+
+..\..\Src\AlCtrl\AlCtrlPpg.cpp : \
+	"..\..\include\alctrl\alctrl.h"\
+	"..\..\include\alctrl\alctrlppg.h"\
+	"..\..\include\altair\docvdef.h"\
+	"..\..\include\altair\strres.h"\
+	"..\..\include\cui\body.h"\
+	"..\..\include\cui\class.h"\
+	"..\..\include\cui\cui.h"\
+	"..\..\include\cui\member.h"\
+	"..\..\include\cui\project.h"\
+	"..\..\include\dev\advcapp.h"\
+	"..\..\include\dev\advcvw.h"\
+	"..\..\include\dev\advwnd.h"\
+	"..\..\include\dev\file.h"\
+	"..\..\include\dev\ocx.h"\
+	"..\..\include\dev\olectrl.h"\
+	"..\..\include\dev\shell.h"\
+	"..\..\include\gdm\gdm.h"\
+	"..\..\include\gdm\pict.h"\
+	"..\..\include\gdm\vmkey.h"\
+	"..\..\include\interp\interp.h"\
+	"..\..\include\interp\prcsmgr.h"\
+	
+
+..\..\Src\AlCtrl\StdAfx.cpp : \
+	"..\..\..\program files\microsoft visual studio\vc98\include\basetsd.h"\
+	"..\..\..\program files\microsoft visual studio\vc98\mfc\src\occimpl.h"\
+	"..\..\..\program files\microsoft visual studio\vc98\mfc\src\ocdb.h"\
+	"..\..\..\program files\microsoft visual studio\vc98\mfc\src\ocdbid.h"\
+	"..\..\..\program files\microsoft visual studio\vc98\mfc\src\olebind.h"\
+	"..\..\include\altair\alext.h"\
+	"..\..\include\altair\libinc.h"\
+	"..\..\src\alctrl\stdafx.h"\
+	

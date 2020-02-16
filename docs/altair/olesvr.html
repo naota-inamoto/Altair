@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Altair OLE Server</TITLE>
+</HEAD>
+
+<BODY>
+<H1>Altair OLEサーバー</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.12版 1998年11月23日<BR>
+
+<HR>
+<H4>概要</H4>
+OLEオートメーションによって、Altairの機能の一部を外部から使用することができます。<BR>
+
+<HR>
+<H3><A NAME="Open">short Open(LPCSTR dir, LPCSTR name);</A></H3>
+ディレクトリdirにあるAltairプロジェクトファイルを開きます。<BR>
+開いたプロジェクトがカレントプロジェクトになります。<BR>
+成功すると0が返ります。<BR>
+
+<H3><A NAME="Run">short Run(LPCSTR className, LPCSTR methodName, LPCSTR cmdLine, short sync);</A></H3>
+カレントプロジェクトのclassNameで指定されるクラスの<BR>
+methodNameで指定される、引数なしのstaticメソッドを<BR>
+cmdLineをコマンド引数として呼び出します。<BR>
+syncは0のときはメソッド呼び出しは非同期になり、<BR>
+syncが1のときはメソッド呼び出しは同期になります。<BR>
+成功すると0が返ります。<BR>
+
+<H3><A NAME="Open">short MakeGraphLibrary(LPCSTR className, LPCSTR fileName);</A></H3>
+カレントプロジェクトのclassNameで指定されるクラスの<BR>
+グラフ形式のライブラリをfileNameで指定されるファイルパスに作成します。<BR>
+成功すると0が返ります。<BR>
+
+<HR>
+</BODY>
+</HTML>

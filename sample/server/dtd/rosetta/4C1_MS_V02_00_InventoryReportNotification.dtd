@@ -1,0 +1,267 @@
+<!--
+
+   RosettaNet XML Message Schema
+   4C1_MS_V02_00_InventoryReportNotification.dtd (28-Sep-2001 16:10)
+   This document has been prepared by RosettaNet (http://www.rosettanet.org)
+   from requirements gathered during the cluster/segment workshops and in
+   conformance with the RosettaNet methodology.
+
+-->
+
+
+<!ENTITY % common-attributes "id CDATA #IMPLIED" >
+
+<!ELEMENT Pip4C1InventoryReportNotification (
+          fromRole ,
+          GlobalDocumentFunctionCode ,
+          InventoryReport ,
+          thisDocumentGenerationDateTime ,
+          thisDocumentIdentifier ,
+          toRole ) >
+
+<!ELEMENT fromRole (
+          PartnerRoleDescription ) >
+
+<!ELEMENT PartnerRoleDescription (
+          ContactInformation? ,
+          GlobalPartnerRoleClassificationCode ,
+          PartnerDescription ) >
+
+<!ELEMENT ContactInformation (
+          contactName ,
+          EmailAddress? ,
+          facsimileNumber? ,
+          telephoneNumber ) >
+
+<!ELEMENT contactName (
+          FreeFormText ) >
+
+<!ELEMENT FreeFormText (
+          #PCDATA ) >
+<!ATTLIST FreeFormText
+          xml:lang CDATA #IMPLIED >
+
+<!ELEMENT EmailAddress (
+          #PCDATA ) >
+
+<!ELEMENT facsimileNumber (
+          CommunicationsNumber ) >
+
+<!ELEMENT CommunicationsNumber (
+          #PCDATA ) >
+
+<!ELEMENT telephoneNumber (
+          CommunicationsNumber ) >
+
+<!ELEMENT GlobalPartnerRoleClassificationCode (
+          #PCDATA ) >
+
+<!ELEMENT PartnerDescription (
+          BusinessDescription ,
+          ContactInformation? ,
+          GlobalPartnerClassificationCode ,
+          PhysicalLocation? ) >
+
+<!ELEMENT BusinessDescription (
+          BusinessIdentification ,
+          businessName? ,
+          GlobalSupplyChainCode? ) >
+
+<!ELEMENT BusinessIdentification (
+          GlobalBusinessIdentifier? ,
+          PartnerBusinessIdentification* ) >
+
+<!ELEMENT GlobalBusinessIdentifier (
+          #PCDATA ) >
+
+<!ELEMENT PartnerBusinessIdentification (
+          ProprietaryBusinessIdentifier ,
+          ProprietaryDomainIdentifier ,
+          ProprietaryIdentifierAuthority? ) >
+
+<!ELEMENT ProprietaryBusinessIdentifier (
+          #PCDATA ) >
+
+<!ELEMENT ProprietaryDomainIdentifier (
+          #PCDATA ) >
+
+<!ELEMENT ProprietaryIdentifierAuthority (
+          #PCDATA ) >
+
+<!ELEMENT businessName (
+          FreeFormText ) >
+
+<!ELEMENT GlobalSupplyChainCode (
+          #PCDATA ) >
+
+<!ELEMENT GlobalPartnerClassificationCode (
+          #PCDATA ) >
+
+<!ELEMENT PhysicalLocation (
+          GlobalLocationIdentifier? ,
+          PartnerLocationIdentification* ,
+          PhysicalAddress? ) >
+
+<!ELEMENT GlobalLocationIdentifier (
+          #PCDATA ) >
+
+<!ELEMENT PartnerLocationIdentification (
+          ProprietaryDomainIdentifier ,
+          ProprietaryIdentifierAuthority? ,
+          ProprietaryLocationIdentifier ) >
+
+<!ELEMENT ProprietaryLocationIdentifier (
+          #PCDATA ) >
+
+<!ELEMENT PhysicalAddress (
+          addressLine1? ,
+          addressLine2? ,
+          addressLine3? ,
+          cityName? ,
+          GlobalCountryCode? ,
+          NationalPostalCode? ,
+          postOfficeBoxIdentifier? ,
+          regionName? ) >
+
+<!ELEMENT addressLine1 (
+          FreeFormText ) >
+
+<!ELEMENT addressLine2 (
+          FreeFormText ) >
+
+<!ELEMENT addressLine3 (
+          FreeFormText ) >
+
+<!ELEMENT cityName (
+          FreeFormText ) >
+
+<!ELEMENT GlobalCountryCode (
+          #PCDATA ) >
+
+<!ELEMENT NationalPostalCode (
+          #PCDATA ) >
+
+<!ELEMENT postOfficeBoxIdentifier (
+          FreeFormText ) >
+
+<!ELEMENT regionName (
+          FreeFormText ) >
+
+<!ELEMENT GlobalDocumentFunctionCode (
+          #PCDATA ) >
+
+<!ELEMENT InventoryReport (
+          inventoryReportDateTime ,
+          InventoryReportLineItem+ ) >
+
+<!ELEMENT inventoryReportDateTime (
+          DateTimeStamp ) >
+
+<!ELEMENT DateTimeStamp (
+          #PCDATA ) >
+
+<!ELEMENT InventoryReportLineItem (
+          DocumentReference* ,
+          GlobalProductUnitOfMeasureCode ,
+          IntraCompanyTransfer* ,
+          inventoryLocation ,
+          inventoryOwner? ,
+          InventoryProductQuantity+ ,
+          ProductIdentification ) >
+
+<!ELEMENT DocumentReference (
+          DateTimeStamp? ,
+          GlobalDocumentReferenceTypeCode ,
+          LineItemNumber? ,
+          ProprietaryDocumentIdentifier ) >
+
+<!ELEMENT GlobalDocumentReferenceTypeCode (
+          #PCDATA ) >
+
+<!ELEMENT LineItemNumber (
+          #PCDATA ) >
+
+<!ELEMENT ProprietaryDocumentIdentifier (
+          #PCDATA ) >
+
+<!ELEMENT GlobalProductUnitOfMeasureCode (
+          #PCDATA ) >
+
+<!ELEMENT IntraCompanyTransfer (
+          inTransitFrom? ,
+          inTransitQuantity ,
+          inTransitTo? ) >
+
+<!ELEMENT inTransitFrom (
+          PartnerDescription ) >
+
+<!ELEMENT inTransitQuantity (
+          ProductQuantity ) >
+
+<!ELEMENT ProductQuantity (
+          #PCDATA ) >
+
+<!ELEMENT inTransitTo (
+          PartnerDescription ) >
+
+<!ELEMENT inventoryLocation (
+          PartnerDescription ) >
+
+<!ELEMENT inventoryOwner (
+          BusinessDescription ) >
+
+<!ELEMENT InventoryProductQuantity (
+          GlobalInventoryCode ,
+          InventoryItemIdentification* ,
+          ProductQuantity ) >
+
+<!ELEMENT GlobalInventoryCode (
+          #PCDATA ) >
+
+<!ELEMENT InventoryItemIdentification (
+          countryOfOrigin? ,
+          manufactureDate? ,
+          ProprietaryLotIdentifier? ,
+          SerialNumberIdentification? ) >
+
+<!ELEMENT countryOfOrigin (
+          GlobalCountryCode ) >
+
+<!ELEMENT manufactureDate (
+          DateTimeStamp ) >
+
+<!ELEMENT ProprietaryLotIdentifier (
+          #PCDATA ) >
+
+<!ELEMENT SerialNumberIdentification (
+          ProprietarySerialIdentifier ) >
+
+<!ELEMENT ProprietarySerialIdentifier (
+          #PCDATA ) >
+
+<!ELEMENT ProductIdentification (
+          GlobalProductIdentifier? ,
+          PartnerProductIdentification* ) >
+
+<!ELEMENT GlobalProductIdentifier (
+          #PCDATA ) >
+
+<!ELEMENT PartnerProductIdentification (
+          GlobalPartnerClassificationCode ,
+          ProprietaryProductIdentifier ,
+          revisionIdentifier? ) >
+
+<!ELEMENT ProprietaryProductIdentifier (
+          #PCDATA ) >
+
+<!ELEMENT revisionIdentifier (
+          FreeFormText ) >
+
+<!ELEMENT thisDocumentGenerationDateTime (
+          DateTimeStamp ) >
+
+<!ELEMENT thisDocumentIdentifier (
+          ProprietaryDocumentIdentifier ) >
+
+<!ELEMENT toRole (
+          PartnerRoleDescription ) >

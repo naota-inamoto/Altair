@@ -1,0 +1,91 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Altair XML</TITLE>
+</HEAD>
+
+<BODY>
+<H2>XML形式ファイルの読み込みと生成</H2>
+
+第0.43版 2016年10月23日<BR>
+第0.13版 1999年 5月 4日<BR>
+
+<BR>
+XML形式のファイルのパーズしてパースツリーを作成する機能と<BR>
+その形式のパースツリーからXML形式のファイルを生成する機能の説明をします。<BR>
+XML形式ファイルの生成機能はHTMLファイルの自動生成に利用することができます。<BR>
+
+<BR>
+注：SJISしか解釈しない、DTDはコメントとしてしか扱わない、という点で<BR>
+厳密にはXMLではありません。<BR>
+
+<UL>
+<LI><A HREF="#parse">parse</A>
+<LI><A HREF="#generate">generate</A>
+<LI><A HREF="#xslt">xslt</A>
+</UL>
+
+<HR>
+<H3><A NAME="parse">list al_xml("parse", file, opt1, opt2);</A></H3>
+XML形式ファイルfileをパーズします。<BR>
+このパーサーは、空白/タブ/改行だけしか含まないテキスト要素は要素として数えません。<BR>
+また、テキスト要素で頭から空白/タブ/改行以外の文字が現れるまでの空白/タブ/改行は<BR>
+無視されます。<BR>
+<BR>
+opt1がnulの場合は、パースツリーを作成して返します。<BR>
+(parse_tree, error)のリストが返り、パーズに成功していればerrorは<BR>
+nullになっています。パースツリーの構造は以下のようになっています。<BR>
+<PRE>
+パースツリーの構造
+
+○ 基本構造
+ &lt;body&gt; = (1)-/"!comment"/=>comment_text
+             -/tag_id/=&gt;&lt;tag&gt;
+             -/"!text"/=&gt;text
+
+ &lt;tag&gt; = (2)-/param_id/=&gt;(param_value)
+            -/"!body"/-&gt;&lt;body&gt;
+
+○ ネームスペース
+ tag_id-/namespace_prefix/-&gt;(namespace_url)
+ param_id-/namespace_prefix/-&gt;(namespace_url)
+</PRE>
+opt1が以下の形式の場合は、格要素を読み込んだ時点でメソッドが呼ばれ、<BR>
+パースツリーは作成されません。<BR>
+opt1の構造および各要素を読み込んだときに呼ばれるメソッドの構造は以下のようになっています。<BR>
+<PRE>
+   opt1 = (obj, objFunc1, objFunc2, objFunc3, ...)
+   objFunc1 = objのクラスのメンバー関数で list startElement(string tag_id, list params)
+   objFunc2 = objのクラスのメンバー関数で list endElement(string tag_id)
+   objFunc3 = objのクラスのメンバー関数で list characters(string text)
+   params = (2)-/param_id/=&gt;(param_value)
+
+   objFunc1,2,3の戻り値が非nullの場合は、エラーみなしてパースが中断されます。<BR>
+</PRE>
+
+opt2がbit0が1のintegerの場合はパースツリーを生成する場合に<BR>
+パーズの途中結果をアウトプットウィンドウに出力します。<BR>
+
+<HR>
+<H3><A NAME="generate">list al_xml("generate", file, parse_tree, opt);</A></H3>
+パースツリーparse_treeからファイルfileにXML形式ファイルを書き出します。<BR>
+<BR>
+オプションoptには通常nullを入れます。成功するとnullが返ります。<BR>
+<BR>
+optに flagがbit0が1のintegerの (flag, ...)-/tag_id/=>rep_end_tag を入れると &lt;/tag_id&gt; を<BR>
+文字列 rep_end_tag に置き換えます。<BR>
+たとえば、()-/"LI"/->"" というアークが opt に含まれていると<BR>
+&lt;/LI&gt;は出力されません。<BR>
+この機能をHTMLファイルの生成に用いることができます。<BR>
+<BR>
+出力XMLは通常はAltairが適当にインデントや改行を入れて整形しますが、<BR>
+optに bit1が1のintegerの(flag, ...)を入れるとインデントや改行を入れないXMLが生成されます。<BR>
+
+<HR>
+<H3><A NAME="xslt">list al_xml("xslt", xsl_parse_tree, xml_parse_tree, file);</A></H3>
+xml_parse_treeで表されるXMLデータを xsl_parse_treeで表されるXSLで変換し、<BR>
+結果をfileに出力します。<BR>
+
+<HR>
+</BODY>
+</HTML>

@@ -1,0 +1,19 @@
+
+N := 4
+
+u := { ct, x, y, z }
+
+coords(u)
+
+g := {
+       { -1-2*P+%i*2*p/%c^2, -%i*Ax/%c/%É«, -%i*Ay/%c/%É«, -%i*Az/%c/%É« },
+       { -%i*Ax/%c/%É«,       1,           0,           0           },
+       { -%i*Ay/%c/%É«,       0,           1,           0           },
+       { -%i*Az/%c/%É«,       0,           0,           1           }
+     }
+
+gi := inverse(g)
+
+//include "physics/christof.math"
+//include "physics/christof_print.math"
+

@@ -1,0 +1,20 @@
+TEXT
+ORB_Object
+class Account
+end_class
+class Account
+member
+public: integer balance;
+member
+public: integer diposit(integer amount);
+member
+public: integer withdraw(integer amount);
+end_class
+class Account
+member
+public: integer balance;
+member
+public: integer diposit(integer amount);
+member
+public: integer withdraw(integer amount);
+end_class

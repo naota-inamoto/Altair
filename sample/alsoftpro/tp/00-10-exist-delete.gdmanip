@@ -1,0 +1,53 @@
+
+g == cons(null, null), var("g1", g1) == 1, init(g, g1), modif(g1, g2), write(dump(g2, 1)) == 1 .
+
+init(g, g1) :- 
+ pm_rep(g, g1)
+
+  before := {
+    invariant,
+    g
+  }
+  after := {
+    g1:(null)-/1/->g12:("1"),
+                   g12 -/"opt"/-> ("opt")
+  }
+  common := {
+   where .
+  }
+  tail := {
+   where .
+  }
+
+  final := {
+   where .
+  }
+
+  .
+
+modif(g1, g2) :- 
+ pm_rep(g1, g2)
+
+  before := {
+    invariant,
+    g1:(null)-/1/->g12:("1"),
+                 ?1 g12 -/a:"opt"/-> ("opt")
+  }
+  after := {
+    g2:(null)-/1/->g22:("1"),
+                 ?1 g22 -/b:"opt"/-> ("opt")
+  }
+  common := {
+   where if_not_exist(a) == null, not_exist(b) == null .
+         if_exist(a) == null, not_exist(b) == null .
+  }
+  tail := {
+   where .
+  }
+
+  final := {
+   where .
+  }
+
+  .
+

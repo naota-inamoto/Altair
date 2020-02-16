@@ -1,0 +1,43 @@
+,,,Pip3A4PurchaseOrderAcceptance/PurchaseOrder/deliverTo/PhysicalAddress/GlobalLocationIdentifier,Pip3A4PurchaseOrderRequest/PurchaseOrder/deliverTo/PhysicalAddress/GlobalLocationIdentifier,,
+,,,Pip3A4PurchaseOrderAcceptance/PurchaseOrder/deliverTo/PhysicalAddress/cityName/FreeFormText,Pip3A4PurchaseOrderRequest/PurchaseOrder/deliverTo/PhysicalAddress/cityName/FreeFormText,,
+,,,Pip3A4PurchaseOrderAcceptance/PurchaseOrder/deliverTo/PhysicalAddress/addressLine1/FreeFormText,Pip3A4PurchaseOrderRequest/PurchaseOrder/deliverTo/PhysicalAddress/addressLine1/FreeFormText,,
+,,,Pip3A4PurchaseOrderAcceptance/PurchaseOrder/deliverTo/PhysicalAddress/addressLine2/FreeFormText,Pip3A4PurchaseOrderRequest/PurchaseOrder/deliverTo/PhysicalAddress/addressLine2/FreeFormText,,
+,,,Pip3A4PurchaseOrderAcceptance/PurchaseOrder/deliverTo/PhysicalAddress/addressLine3/FreeFormText,Pip3A4PurchaseOrderRequest/PurchaseOrder/deliverTo/PhysicalAddress/addressLine3/FreeFormText,,
+,,,Pip3A4PurchaseOrderAcceptance/PurchaseOrder/deliverTo/PhysicalAddress/GlobalCountryCode,Pip3A4PurchaseOrderRequest/PurchaseOrder/deliverTo/PhysicalAddress/GlobalCountryCode,,
+,,,Pip3A4PurchaseOrderAcceptance/PurchaseOrder/deliverTo/PhysicalAddress/NationalPostalCode,Pip3A4PurchaseOrderRequest/PurchaseOrder/deliverTo/PhysicalAddress/NationalPostalCode,,
+,,,Pip3A4PurchaseOrderAcceptance/PurchaseOrder/deliverTo/PhysicalAddress/regionName/FreeFormText,Pip3A4PurchaseOrderRequest/PurchaseOrder/deliverTo/PhysicalAddress/regionName/FreeFormText,,
+,,,Pip3A4PurchaseOrderAcceptance/PurchaseOrder/GlobalPurchaseOrderStatusCode,,Accept,
+,,,Pip3A4PurchaseOrderAcceptance/PurchaseOrder/GlobalShipmentTermsCode,,Return container freight paid by customer,
+,,,Pip3A4PurchaseOrderAcceptance/PurchaseOrder/RevisionNumber,,N/A,
+,,,Pip3A4PurchaseOrderAcceptance/PurchaseOrder/GlobalPurchaseOrderAcknowledgementReasonCode,,Pricing,
+,,,Pip3A4PurchaseOrderAcceptance/PurchaseOrder/purchaseOrderDate/DateStamp,,???,
+,,,Pip3A4PurchaseOrderAcceptance/PurchaseOrder/purchaseOrderNumber/ProprietaryDocumentIdentifier,,N/A,
+,,,Pip3A4PurchaseOrderAcceptance/PurchaseOrder/comment/FreeFormText,,The request is accepted.,
+,,,Pip3A4PurchaseOrderAcceptance/fromRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,,Seller,
+,,,Pip3A4PurchaseOrderAcceptance/fromRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,,???,MyInfo.Class
+,,,Pip3A4PurchaseOrderAcceptance/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,,???,MyInfo.BusinessId
+,,,Pip3A4PurchaseOrderAcceptance/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,,Information Technology,
+,,,Pip3A4PurchaseOrderAcceptance/fromRole/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,,Mr. xxx,
+,,,Pip3A4PurchaseOrderAcceptance/fromRole/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,,03-8765-4321,
+,,,Pip3A4PurchaseOrderAcceptance/fromRole/PartnerRoleDescription/ContactInformation/EmailAddress,,xxx@xxx.jp,
+,,,Pip3A4PurchaseOrderAcceptance/toRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,,Buyer,
+,,,Pip3A4PurchaseOrderAcceptance/toRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,,???,PartnerInfo.Class
+,,,Pip3A4PurchaseOrderAcceptance/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,,???,PartnerInfo.BusinessId
+,,,Pip3A4PurchaseOrderAcceptance/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,,Information Technology,
+,,,Pip3A4PurchaseOrderAcceptance/thisDocumentGenerationDateTime/DateTimeStamp,,???,DocGenDatetime
+,,,Pip3A4PurchaseOrderAcceptance/thisDocumentIdentifier/ProprietaryDocumentIdentifier,,???,DocId
+,,,Pip3A4PurchaseOrderAcceptance/requestingDocumentIdentifier/ProprietaryDocumentIdentifier,,???,ReqDocId
+,,,Pip3A4PurchaseOrderAcceptance/GlobalDocumentFunctionCode,,Response,
+,,,Pip3A4PurchaseOrderAcceptance/requestingDocumentDateTime/DateTimeStamp,,???,ReqDocGenDateTime
+ProductLineItem,ProductLineItem1,,Pip3A4PurchaseOrderAcceptance/PurchaseOrder/ProductLineItem,Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem,,
+,,ProductLineItem1,scheduledShipQuantity/ProductQuantity,ProductQuantity,???,
+,,ProductLineItem1,productUnit/ProductPackageDescription/unitPrice/FinancialAmount/GlobalCurrencyCode,requestedPrice/FinancialAmount/GlobalCurrencyCode,???,
+,,ProductLineItem1,productUnit/ProductPackageDescription/unitPrice/FinancialAmount/MonetaryAmount,requestedPrice/FinancialAmount/MonetaryAmount,???,
+,,ProductLineItem1,productUnit/ProductPackageDescription/ProductDescription/GlobalProductIdentifier,productUnit/ProductPackageDescription/ProductDescription/GlobalProductIdentifier,???,
+,,ProductLineItem1,GlobalShippingServiceLevelCode,,Standard Service,
+,,ProductLineItem1,scheduledShipDate/DateStamp,requestedShipDate/DateStamp,???,
+,,ProductLineItem1,GlobalPurchaseOrderStatusCode,,Accept,
+,,ProductLineItem1,GlobalPurchaseOrderAcknowledgementReasonCode,,Pricing,
+,,ProductLineItem1,LineNumber,LineNumber,???,
+ProductQuantity,ProductQuantity1,ProductLineItem1,ProductQuantity,,,
+,,ProductQuantity1,,ProductQuantity,???,

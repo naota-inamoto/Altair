@@ -1,0 +1,86 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Registory Manipulation OLE Control</TITLE>
+</HEAD>
+
+<BODY>
+<H1>Registry Manipulation OLE Control</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.12版 1998年11月23日<BR>
+
+<HR>
+<H3>概要</H3>
+AlRegコントロールは、<BR>
+Windowsでよく使われるレジストリ操作をするためのOCXです。<BR>
+このOCXはalcore1.dllには依存しません。<BR>
+OCXを使うためにはRegsvr32.exeでOCXをレジストリに登録する必要があります。<BR>
+注：Windowsのレジストリ操作のすべての機能はサポートしていません。<BR>
+
+<HR>
+<H3><A NAME="name_prog_id">名前とProgID</A></H3>
+
+名前は、「AlReg Control」で、ProgIDは、「ALReg.AlRegCtrl.1」です。<BR>
+
+<HR>
+<H3><A NAME="SetRegistryKey">short SetRegistryKey(LPCSTR hKey, LPCSTR subKey, LPCSTR accessMask);</A></H3>
+レジストリキーの設定をします。hKey/accessMaskに設定できる値は以下の通りです。<BR>
+<PRE>
+    hKey
+        HKEY_CLASSES_ROOT
+        HKEY_CURRENT_USER
+        HKEY_LOCAL_MACHINE
+        HKEY_USERS
+    accessMask
+        KEY_ALL_ACCESS
+        KEY_READ
+        KEY_WRITE
+</PRE>
+subKeyにはレジストリのサブキーを設定します。<BR>
+成功すると0が返ります。<BR>
+例: SetRegistryKey("HKEY_LOCAL_MACHINE", "SOFTWARE\\Altair", "KEY_ALL_ACCESS");
+
+<HR>
+<H3><A NAME="QueryInt">short QueryInt(LPCSTR name);</A></H3>
+nameで指定される変数から整数を取り出します。<BR>
+値はGetIntValue()で取得します。<BR>
+成功すると0が返ります。<BR>
+
+<HR>
+<H3><A NAME="GetIntValue">long GetIntValue();</A></H3>
+QueryInt()が成功したら、この関数で整数の値を取得します。<BR>
+
+<HR>
+<H3><A NAME="QueryString">short QueryString(LPCSTR name);</A></H3>
+nameで指定される変数から文字列を取り出します。<BR>
+値はGetStringValue()で取得します。<BR>
+成功すると0が返ります。<BR>
+
+<HR>
+<H3><A NAME="GetStringValue">CString GetStringValue();</A></H3>
+QueryStringに成功したら、この関数で文字列の値を取得します。<BR>
+
+<HR>
+<H3><A NAME="SetIntValue">short SetIntValue(LPCSTR name, long value);</A></H3>
+nameで指定される変数に整数valueを設定します。<BR>
+成功すると0が返ります。<BR>
+
+<HR>
+<H3><A NAME="SetStringValue">short SetStringValue(LPCSTR name, LPCSTR value);</A></H3>
+nameで指定される変数に文字列valueを設定します。<BR>
+成功すると0が返ります。<BR>
+
+<HR>
+<H3><A NAME="DeleteKey">short DeleteKey(LPCSTR name);</A></H3>
+nameで指定されるサブキーを削除します。<BR>
+成功すると0が返ります。<BR>
+
+<HR>
+<H3><A NAME="DeleteValue">short DeleteValue(LPCSTR name);</A></H3>
+nameで指定される変数を削除します。<BR>
+成功すると0が返ります。<BR>
+
+<HR>
+</BODY>
+</HTML>

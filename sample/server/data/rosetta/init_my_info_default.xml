@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MyInfo SYSTEM "MyInfo.dtd">
+<MyInfo>
+    <Target>rosetta</Target>
+    <Id>rosetta:-- default setting --</Id>
+    <BusinessId></BusinessId>
+    <MyRole>-- default setting --</MyRole>
+
+    <!-- domain -->
+    <Properties>
+        <Name>domain</Name>
+        <Value>foo.jp</Value>
+    </Properties>
+
+    <!-- message -->
+    <Properties>
+        <Name>msg.send.dir</Name>
+        <Value>./log/send</Value>
+    </Properties>
+    <Properties>
+        <Name>msg.recv.dir</Name>
+        <Value>./log/recv</Value>
+    </Properties>
+    <Properties>
+        <Name>msg.attach.dir</Name>
+        <Value>./log/attach</Value>
+    </Properties>
+    <Properties>
+        <Name>msg.tmp.dir</Name>
+        <Value>./tmp</Value>
+    </Properties>
+    <Properties>
+        <Name>backup.span</Name>
+        <Value>14d</Value>
+    </Properties>
+
+    <!-- encryption, SSL -->
+    <Properties>
+        <Name>cert</Name>
+        <Value>./keystore/server/cert.pem</Value>
+    </Properties>
+    <Properties>
+        <Name>key</Name>
+        <Value>./keystore/server/private/key.pem</Value>
+    </Properties>
+    <Properties>
+        <Name>ca.cert</Name>
+        <Value>./keystore/ca/cert.pem</Value>
+    </Properties>
+
+    <!-- SSL -->
+    <Properties>
+        <Name>receive.client.auth</Name>
+        <Value>false</Value>
+    </Properties>
+
+    <!-- Proxy -->
+    <Properties>
+        <Name>proxy.server</Name>
+        <Value></Value>
+    </Properties>
+    <Properties>
+        <Name>proxy.port</Name>
+        <Value></Value>
+    </Properties>
+
+    <Properties>
+        <Name>proxy.poll.url</Name>
+        <Value>http://proxy-host/proxyPollee</Value>
+    </Properties>
+    <Properties>
+        <Name>proxy.poll.interval</Name>
+        <Value></Value>
+    </Properties>
+    <Properties>
+        <Name>proxy.poll.password</Name>
+        <Value>proxy_pass</Value>
+    </Properties>
+
+    <!-- Mail -->
+    <Properties>
+        <Name>smtp.server</Name>
+        <Value></Value>
+    </Properties>
+    <Properties>
+        <Name>from.mail.address</Name>
+        <Value></Value>
+    </Properties>
+
+    <Properties>
+        <Name>pop.server</Name>
+        <Value></Value>
+    </Properties>
+    <Properties>
+        <Name>pop.poll.interval</Name>
+        <Value></Value>
+    </Properties>
+    <Properties>
+        <Name>pop.userid</Name>
+        <Value></Value>
+    </Properties>
+    <Properties>
+        <Name>pop.password</Name>
+        <Value></Value>
+    </Properties>
+
+</MyInfo>

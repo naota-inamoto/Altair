@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Debug Info | debug_pred</TITLE>
+</HEAD>
+
+<BODY>
+<PRE>
+apply:   AAA this = 000000000456f4d0, call_count = 10, syntax_id = member_p2, pred = loop1(1)
+back(2): AAA this = 000000000456f4d0, call_count = 10, syntax_id = member_p2, pred = loop1(1)
+apply:   AAA this = 000000000456f4d0, call_count = 10, syntax_id = member_p2, pred = loop1(2)
+apply:   AAA this = 000000000456f4d0, call_count = 11, syntax_id = member_p2, pred = loop2(1)
+back(2): AAA this = 000000000456f4d0, call_count = 11, syntax_id = member_p2, pred = loop2(1)
+apply:   AAA this = 000000000456f4d0, call_count = 11, syntax_id = member_p2, pred = loop2(2)
+manip [SUCCESS] call_count = 11
+apply:   AAA this = 000000000456f410, call_count = 8, syntax_id = member_p, pred = loop1(1)
+back(2): AAA this = 000000000456f410, call_count = 8, syntax_id = member_p, pred = loop1(1)
+apply:   AAA this = 000000000456f410, call_count = 8, syntax_id = member_p, pred = loop1(2)
+manip [SUCCESS] call_count = 8
+apply:   AAA this = 000000000456f350, call_count = 6, syntax_id = program, pred = loop3(1)
+back(2): AAA this = 000000000456f350, call_count = 6, syntax_id = program, pred = loop3(1)
+apply:   AAA this = 000000000456f350, call_count = 6, syntax_id = program, pred = loop3(2)
+apply:   AAA this = 000000000456f350, call_count = 7, syntax_id = program, pred = loop4(1)
+apply:   AAA this = 000000000456f410, call_count = 8, syntax_id = body_p, pred = if1(1)
+apply:   AAA this = 000000000456f410, call_count = 9, syntax_id = body_p, pred = loop1(1)
+apply:   AAA this = 000000000456f4d0, call_count = 10, syntax_id = body_p2, pred = if2(1)
+apply:   AAA this = 000000000456f4d0, call_count = 11, syntax_id = body_p2, pred = loop1(1)
+apply:   AAA this = 000000000456f590, call_count = 12, syntax_id = mem, pred = if1(1)
+apply:   AAA this = 000000000456f650, call_count = 13, syntax_id = mv_dcl, pred = if2(1)
+back(1): AAA this = 000000000456f650, call_count = 13, syntax_id = mv_dcl, pred = if2(1)
+manip [FAIL] call_count = 12
+back(2): AAA this = 000000000456f590, call_count = 12, syntax_id = mem, pred = if1(1)
+apply:   AAA this = 000000000456f590, call_count = 12, syntax_id = mem, pred = if1(2)
+apply:   AAA this = 000000000456f650, call_count = 13, syntax_id = mf_dcl, pred = if3(1)
+apply:   AAA this = 000000000456f650, call_count = 14, syntax_id = mf_dcl, pred = if1(1)
+apply:   AAA this = 000000000456f650, call_count = 15, syntax_id = mf_dcl, pred = if2(1)
+back(2): AAA this = 000000000456f650, call_count = 15, syntax_id = mf_dcl, pred = if2(1)
+apply:   AAA this = 000000000456f650, call_count = 15, syntax_id = mf_dcl, pred = if2(2)
+manip [SUCCESS] call_count = 15
+manip [SUCCESS] call_count = 12
+apply:   AAA this = 000000000456f4d0, call_count = 12, syntax_id = body_p2, pred = if1(1)
+apply:   AAA this = 000000000456f590, call_count = 13, syntax_id = s_block, pred = loop1(1)
+apply:   AAA this = 000000000456f650, call_count = 14, syntax_id = s_block, pred = loop1(1)
+back(1): AAA this = 000000000456f650, call_count = 14, syntax_id = s_block, pred = loop1(1)
+apply:   AAA this = 000000000456f650, call_count = 14, syntax_id = s_block, pred = loop1(2)
+back(1): AAA this = 000000000456f650, call_count = 14, syntax_id = s_block, pred = loop1(2)
+manip [FAIL] call_count = 13
+apply:   AAA this = 000000000456f650, call_count = 14, syntax_id = s_if, pred = if1(1)
+back(1): AAA this = 000000000456f650, call_count = 14, syntax_id = s_if, pred = if1(1)
+manip [FAIL] call_count = 13
+apply:   AAA this = 000000000456f650, call_count = 14, syntax_id = s_loop, pred = loop1(1)
+back(1): AAA this = 000000000456f650, call_count = 14, syntax_id = s_loop, pred = loop1(1)
+apply:   AAA this = 000000000456f650, call_count = 14, syntax_id = s_loop, pred = loop1(2)
+back(1): AAA this = 000000000456f650, call_count = 14, syntax_id = s_loop, pred = loop1(2)
+manip [FAIL] call_count = 13
+apply:   AAA this = 000000000456f650, call_count = 14, syntax_id = s_var, pred = if1(1)
+back(1): AAA this = 000000000456f650, call_count = 14, syntax_id = s_var, pred = if1(1)
+manip [FAIL] call_count = 13
+</PRE>
+
+</BODY>
+</HTML>

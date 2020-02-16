@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<R>
+  <Color>red</Color>
+  <A>
+    <B>
+      <Value>10</Value>
+      <C>A1-B1-C1</C> 
+      <C>A1-B1-C2</C> 
+    </B>
+    <B>
+      <Value>1000</Value>
+      <C>A1-B2-C1</C> 
+      <C>A1-B2-C2</C> 
+    </B>
+  </A>
+  <A>
+    <B>
+      <Value>10</Value>
+      <C>A2-B1-C1</C> 
+      <C>A2-B1-C2</C> 
+    </B>
+    <B>
+      <Value>1000</Value>
+      <C>A2-B2-C1</C> 
+      <C>A2-B2-C2</C> 
+    </B>
+  </A>
+</R>

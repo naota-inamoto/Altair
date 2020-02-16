@@ -1,0 +1,36 @@
+
+indent+ "    " "{" ;
+-indent "}" ;
+post newline indent "{" ;
+post newline indent "}" ;
+post newline indent ";" ;
+post space <for:1> ;
+pre  space <for:3> ;
+post space <for:3> ;
+pre  space <for:5> ;
+post space <for:5> ;
+post space <for:6> ;
+post space <if:1> ;
+post space <if:2> ;
+pre  space <assign:2> ;
+post space <assign:2> ;
+post space <print:1> ;
+
+<stat> = block "{" { block_stat <stat> }* "}" |
+         for "for" <name> "=" <add_exp> "to" <add_exp> <stat> |
+         if "if" <var_exp> <stat> |
+         assign <var_exp> ":=" <add_exp> ";" |
+         print "print" <var_exp> ";" ;
+
+<add_exp>   = add_1   <mul_exp>   { add_n { add "+" | sub "-" } <mul_exp>   }* ;
+<mul_exp>   = mul_1   <power_exp> { mul_n { mul "*" | div "/" } <power_exp> }* ;
+<power_exp> = power_1 <prim_exp>  { power_n               "^"   <prim_exp>  }? ;
+
+<prim_exp> = const <const> | func <func_exp> | var <var_exp> | braket "(" <add_exp> ")" ;
+
+<func_exp> = func_exp <name> "(" { arg_1 <add_exp> { arg_n "," <add_exp> }* }? ")" ;
+<var_exp>  = var_exp  <name> { index "[" <add_exp> "]" }* ;
+
+<const> = regex \-?[0-9]+ integer ;
+<name> = regex [A-Za-z_][A-Za-z0-9_]* string ;
+

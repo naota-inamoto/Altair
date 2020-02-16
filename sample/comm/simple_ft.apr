@@ -1,0 +1,857 @@
+$END_LIB
+TEXT
+AlObject
+class TP
+class FileSender
+end_class
+class FileReceiver
+end_class
+class ConnectionMgr
+end_class
+class Connection
+class ClientConnection
+end_class
+class ServerConnection
+end_class
+end_class
+end_class
+$END_CLASS
+TEXT
+AlObject
+class TP
+member
+public: static void server();
+member
+public: static void client();
+member
+public: static void file_put();
+member
+public: static void file_get();
+member
+public: static void cancel();
+member
+public: static ConnectionMgr conn_mgr;
+member
+public: static ClientConnection conn;
+member
+public: static list debug;
+class FileSender
+member
+public: static integer Completed;
+member
+public: static integer Canceled;
+member
+public: static integer SocketError;
+member
+public: static integer FileIOError;
+member
+public: list Start(string path, integer socket_id);
+member
+public: integer block_size;
+member
+public: list binary;
+member
+public: string path;
+member
+public: integer socket_id;
+member
+public: integer total_size;
+member
+public: integer transfered_size;
+member
+public: file in;
+member
+public: void Cancel();
+member
+public: list cancel;
+member
+public: list SendOneBlock();
+end_class
+class FileReceiver
+member
+public: static integer Completed;
+member
+public: static integer Canceled;
+member
+public: static integer FileIOError;
+member
+public: list Start(string path);
+member
+public: list SetTotalSize(integer total_size);
+member
+public: string path;
+member
+public: integer total_size;
+member
+public: integer transfered_size;
+member
+public: file out;
+member
+public: void Cancel();
+member
+public: list RecvOneBlock(list binary);
+end_class
+class ConnectionMgr
+member
+public: list start(integer port);
+member
+public: integer server_socket_id;
+member
+public: integer hwnd;
+member
+public: integer msg;
+member
+public: void accepted();
+end_class
+class Connection
+member
+public: list start();
+member
+public: integer socket_id;
+member
+public: integer hwnd;
+member
+public: integer msg;
+member
+public: void received();
+member
+public: list send(string command);
+member
+public: FileSender sender;
+member
+public: FileReceiver receiver;
+member
+public: void SendFile();
+class ClientConnection
+member
+public: list connect(string hostname, integer port);
+member
+public: integer ip_addr;
+member
+public: void received();
+member
+public: void SendFile();
+end_class
+class ServerConnection
+member
+public: void received();
+member
+public: void SendFile();
+member
+public: string remote;
+end_class
+end_class
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class TP
+member
+public: static void server();
+body
+{
+	debug = 1;
+	var ConnectionMgr m;
+	conn_mgr = m = new ConnectionMgr;
+	var list err;
+	if (err = m.start(2001)) {
+		al_print("can't open server socket: port = 2001.\n");
+		al_print("error = " + (string)err + "\n");
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: static void client();
+body
+{
+	var string hostname;
+	hostname = "altair";
+	debug = 1;
+	var ClientConnection c;
+	conn = c = new ClientConnection;
+	var list err;
+	if (err = c.connect(hostname, 2001)) {
+		al_print("can't open socket: host = " + hostname + ", port = 2001.\n");
+		al_print("error = " + (string)err + "\n");
+		return;
+	} else {
+	}
+	c.start();
+}
+end_body
+member
+public: static void file_put();
+body
+{
+	al_print("file put start: " + (string)al_file_manip("current_datetime", null, null) + "\n");
+	var string remote, local;
+	remote = "C:/altair/bin/put.dll";
+	local = "C:/altair/bin/alcore1.dll";
+	var integer file_size;
+	if (al_file_manip("does_exist", local, null)) {
+	} else {
+		al_print("local file does not exist: " + local + "\n");
+		return;
+	}
+	file_size = al_file_manip("get_size", local, null);
+	conn.sender = new FileSender;
+	var list err;
+	if (err = conn.sender.Start(local, conn.socket_id)) {
+		al_print("error = " + (string)err + "\n");
+		return;
+	} else {
+	}
+	var string command, path;
+	path = al_str_misc("to_quote_string", remote, null);
+	command = "put \"" + path + "\" " + (string)file_size;
+	conn.send(command);
+	para conn.SendFile();
+}
+end_body
+member
+public: static void file_get();
+body
+{
+	al_print("file get start: " + (string)al_file_manip("current_datetime", null, null) + "\n");
+	var string remote, local;
+	remote = "C:/altair/bin/alcore1.dll";
+	local = "C:/altair/bin/get.dll";
+	var list err;
+	conn.receiver = new FileReceiver;
+	if (err = conn.receiver.Start(local)) {
+		al_print("error = " + (string)err + "\n");
+		return;
+	} else {
+	}
+	var string command, path;
+	path = al_str_misc("to_quote_string", remote, null);
+	command = "get \"" + path + "\"";
+	conn.send(command);
+}
+end_body
+member
+public: static void cancel();
+body
+{
+	if (conn.sender) {
+		conn.sender.Cancel();
+		conn.sender = null;
+	} else {
+	}
+	if (conn.receiver) {
+		conn.receiver.Cancel();
+		conn.receiver = null;
+	} else {
+	}
+	conn.send("cancel");
+}
+end_body
+member
+public: static ConnectionMgr conn_mgr;
+member
+public: static ClientConnection conn;
+member
+public: static list debug;
+class FileSender
+member
+public: static integer Completed;
+member
+public: static integer Canceled;
+member
+public: static integer SocketError;
+member
+public: static integer FileIOError;
+member
+public: list Start(string path, integer socket_id);
+body
+{
+	Completed = 1;
+	Canceled = 2;
+	SocketError = 3;
+	FileIOError = 4;
+	block_size = 32768;
+	binary = al_misc("binary", block_size, 0);
+	this.path = path;
+	this.socket_id = socket_id;
+	total_size = al_file_manip("get_size", path, null);
+	al_print("total_size = " + (string)total_size + "\n");
+	transfered_size = 0;
+	if (in = al_file_open(path, "rb")) {
+	} else {
+		return FileIOError;
+	}
+	return null;
+}
+end_body
+member
+public: integer block_size;
+member
+public: list binary;
+member
+public: string path;
+member
+public: integer socket_id;
+member
+public: integer total_size;
+member
+public: integer transfered_size;
+member
+public: file in;
+member
+public: void Cancel();
+body
+{
+	cancel = 1;
+}
+end_body
+member
+public: list cancel;
+member
+public: list SendOneBlock();
+body
+{
+	if (cancel) {
+		in = null;
+		return Canceled;
+	} else {
+	}
+	var list block;
+	block = al_list3(binary, 0, block_size);
+	var list read_size;
+	if (read_size = al_file_read(in, block)) {
+		if (read_size < 0) {
+			in = null;
+			return FileIOError;
+		} else {
+		}
+		block = al_list3(binary, 0, read_size);
+		if (debug) {
+			al_print("send data: size = " + (string)read_size + "\n");
+		} else {
+		}
+		if (al_socket("put_msg", socket_id, block, null)) {
+			in = null;
+			return SocketError;
+		} else {
+		}
+		transfered_size = transfered_size + read_size;
+		if (transfered_size < total_size) {
+			in = null;
+			return FileIOError;
+		} else {
+			in = null;
+			return Completed;
+		}
+	} else {
+	}
+	if (debug) {
+		al_print("send data: size = " + (string)block_size + "\n");
+	} else {
+	}
+	if (al_socket("put_msg", socket_id, block, null)) {
+		in = null;
+		return SocketError;
+	} else {
+	}
+	transfered_size = transfered_size + block_size;
+	if (transfered_size >= total_size) {
+		in = null;
+		return Completed;
+	} else {
+	}
+	return null;
+}
+end_body
+end_class
+class FileReceiver
+member
+public: static integer Completed;
+member
+public: static integer Canceled;
+member
+public: static integer FileIOError;
+member
+public: list Start(string path);
+body
+{
+	Completed = 1;
+	Canceled = 2;
+	FileIOError = 4;
+	this.path = path;
+	transfered_size = 0;
+	if (out = al_file_open(path, "wb")) {
+	} else {
+		return FileIOError;
+	}
+	return null;
+}
+end_body
+member
+public: list SetTotalSize(integer total_size);
+body
+{
+	al_print("total_size = " + (string)total_size + "\n");
+	this.total_size = total_size;
+}
+end_body
+member
+public: string path;
+member
+public: integer total_size;
+member
+public: integer transfered_size;
+member
+public: file out;
+member
+public: void Cancel();
+body
+{
+	out = null;
+	al_file_manip("remove", path, null);
+}
+end_body
+member
+public: list RecvOneBlock(list binary);
+body
+{
+	if (out == null) {
+		return Canceled;
+	} else {
+	}
+	var integer write_size;
+	var list block;
+	write_size = al_misc("binary_size", binary, null);
+	block = al_list3(binary, 0, write_size);
+	if (al_file_write(out, block, null)) {
+		Cancel();
+		return FileIOError;
+	} else {
+	}
+	transfered_size = transfered_size + write_size;
+	if (total_size) {
+		if (transfered_size >= total_size) {
+			out = null;
+			return Completed;
+		} else {
+		}
+	} else {
+	}
+	return null;
+}
+end_body
+end_class
+class ConnectionMgr
+member
+public: list start(integer port);
+body
+{
+	if (server_socket_id = al_socket("socket", null, null, null)) {
+	} else {
+		return "socket error";
+	}
+	if (al_socket("bind", server_socket_id, al_list2(0, port), null)) {
+		return "bind error";
+	} else {
+	}
+	if (al_socket("listen", server_socket_id, null, null)) {
+		return "listen error";
+	} else {
+	}
+	hwnd = al_wnd_message(null, "hwnd", null, null);
+	msg = al_wnd_message(null, "register_msg", "ACCEPT", null);
+	var list cb;
+	cb = al_list3(al_root_class(), this, ConnectionMgr::accepted);
+	al_wnd_message(null, "msg_callback", msg, cb);
+	if (al_socket("accept_que", server_socket_id, al_list2(hwnd, msg), null)) {
+		return "accept error";
+	} else {
+	}
+	return null;
+}
+end_body
+member
+public: integer server_socket_id;
+member
+public: integer hwnd;
+member
+public: integer msg;
+member
+public: void accepted();
+body
+{
+	al_print("accepted.\n");
+	conn = new ServerConnection;
+	conn.socket_id = al_socket("get_socket", server_socket_id, null, null);
+	conn.start();
+}
+end_body
+end_class
+class Connection
+member
+public: list start();
+body
+{
+	var integer server_socket_id;
+	hwnd = al_wnd_message(null, "hwnd", null, null);
+	msg = al_wnd_message(null, "register_msg", "SEND_RECV", null);
+	var list cb;
+	cb = al_list3(al_root_class(), this, Connection::received);
+	al_wnd_message(null, "msg_callback", msg, cb);
+	if (al_socket("recv_que", socket_id, al_list2(hwnd, msg), null)) {
+		return "recv_queue error";
+	} else {
+	}
+	if (al_socket("send_que", socket_id, null, null)) {
+		return "send_queue error";
+	} else {
+	}
+	return null;
+}
+end_body
+member
+public: integer socket_id;
+member
+public: integer hwnd;
+member
+public: integer msg;
+member
+public: void received();
+body
+{
+}
+end_body
+member
+public: list send(string command);
+body
+{
+	if (debug) {
+		al_print("send command: command = " + command + "\n");
+	} else {
+	}
+	if (al_socket("put_msg", socket_id, command, null)) {
+		return "put_msg error";
+	} else {
+	}
+	return null;
+}
+end_body
+member
+public: FileSender sender;
+member
+public: FileReceiver receiver;
+member
+public: void SendFile();
+class ClientConnection
+member
+public: list connect(string hostname, integer port);
+body
+{
+	if (ip_addr = al_socket("gethostbyname", hostname, null, null)) {
+	} else {
+		return "gethostbyname error";
+	}
+	if (socket_id = al_socket("socket", null, null, null)) {
+	} else {
+		return "socket error";
+	}
+	if (al_socket("connect", socket_id, al_list2(ip_addr, port), null)) {
+		return "bind error";
+	} else {
+	}
+}
+end_body
+member
+public: integer ip_addr;
+member
+public: void received();
+body
+{
+	var list message;
+	loop {
+		if (message = al_socket("get_msg", socket_id, null, null)) {
+		} else {
+			break;
+		}
+		if (al_is_type(message, "string")) {
+			// command
+			if (debug) {
+				al_print("received command: command = " + message + "\n");
+			} else {
+			}
+			var file parse;
+			var string error;
+			parse = al_file_open(message, "sr");
+			if (al_file_match_str(parse, "completed")) {
+				al_print("file transfer completed.\n");
+				al_print((string)al_file_manip("current_datetime", null, null) + "\n");
+				receiver = null;
+				continue;
+			} else {
+			}
+			if (al_file_match_str(parse, "canceled")) {
+				al_print("file transfer canceled.\n");
+				al_print((string)al_file_manip("current_datetime", null, null) + "\n");
+				receiver = null;
+				continue;
+			} else {
+			}
+			if (al_file_match_str(parse, "error")) {
+				al_print("file transfer error.\n");
+				error = al_file_read(parse, "quote_string");
+				al_print("error = " + (string)error + ".\n");
+				al_print((string)al_file_manip("current_datetime", null, null) + "\n");
+				receiver = null;
+				continue;
+			} else {
+			}
+			if (al_file_match_str(parse, "file_size")) {
+				var integer size;
+				size = al_file_read(parse, "integer");
+				receiver.SetTotalSize(size);
+				send("data_request");
+				continue;
+			} else {
+			}
+		} else {
+			// data
+			if (debug) {
+				var integer size;
+				size = al_misc("binary_size", message, null);
+				al_print("received data: size = " + (string)size + "\n");
+			} else {
+			}
+			if (receiver) {
+			} else {
+				continue;
+			}
+			var integer code;
+			if (code = receiver.RecvOneBlock(message)) {
+			} else {
+				continue;
+			}
+			if (code == FileReceiver::Completed) {
+				al_print("file transfer completed.\n");
+				al_print((string)al_file_manip("current_datetime", null, null) + "\n");
+				receiver = null;
+			} else {
+			}
+			if (code == FileReceiver::Canceled) {
+				al_print("file transfer canceled.\n");
+				al_print((string)al_file_manip("current_datetime", null, null) + "\n");
+				receiver = null;
+			} else {
+			}
+			if (code == FileReceiver::FileIOError) {
+				al_print("file transfer error.\n");
+				al_print((string)al_file_manip("current_datetime", null, null) + "\n");
+				receiver = null;
+			} else {
+			}
+		}
+	}
+}
+end_body
+member
+public: void SendFile();
+body
+{
+	loop {
+		if (sender) {
+		} else {
+			break;
+		}
+		var integer code;
+		if (code = sender.SendOneBlock()) {
+		} else {
+			al_next_process();
+			continue;
+		}
+		if (code == FileSender::Completed) {
+			al_print("file send completed.\n");
+			sender = null;
+			break;
+		} else {
+		}
+		if (code == FileSender::Canceled) {
+			al_print("file send canceled.\n");
+			sender = null;
+			break;
+		} else {
+		}
+		if (code == FileSender::SocketError) {
+			al_print("file transfer error.\n");
+			al_print("file send aborted due to socket error.\n");
+			sender = null;
+			break;
+		} else {
+		}
+		if (code == FileSender::FileIOError) {
+			al_print("file transfer error.\n");
+			al_print("file send aborted du to file read error.\n");
+			send("error \"\"");
+			sender = null;
+			break;
+		} else {
+		}
+	}
+}
+end_body
+end_class
+class ServerConnection
+member
+public: void received();
+body
+{
+	var list message;
+	loop {
+		if (message = al_socket("get_msg", socket_id, null, null)) {
+		} else {
+			break;
+		}
+		if (al_is_type(message, "string")) {
+			// command
+			if (debug) {
+				al_print("received command: command = " + message + "\n");
+			} else {
+			}
+			var file parse;
+			var integer size;
+			parse = al_file_open(message, "sr");
+			if (al_file_match_str(parse, "put")) {
+				remote = al_file_read(parse, "quote_string");
+				size = al_file_read(parse, "integer");
+				receiver = new FileReceiver;
+				if (receiver.Start(remote)) {
+					var string path;
+					path = al_str_misc("to_quote_string", remote, null);
+					send("error \"can't open '" + remote + "'\"");
+					receiver = null;
+				} else {
+				}
+				receiver.SetTotalSize(size);
+				continue;
+			} else {
+			}
+			if (al_file_match_str(parse, "get")) {
+				remote = al_file_read(parse, "quote_string");
+				if (al_file_manip("does_exist", remote, null)) {
+				} else {
+					send("error \"not exist " + remote + "\"");
+					receiver = null;
+				}
+				size = al_file_manip("get_size", remote, null);
+				send("file_size " + (string)size);
+				continue;
+			} else {
+			}
+			if (al_file_match_str(parse, "data_request")) {
+				sender = new FileSender;
+				sender.Start(remote, socket_id);
+				para this.SendFile();
+				continue;
+			} else {
+			}
+			if (al_file_match_str(parse, "cancel")) {
+				if (receiver) {
+					receiver.Cancel();
+					receiver = null;
+				} else {
+				}
+				if (sender) {
+					sender.Cancel();
+					sender = null;
+				} else {
+				}
+				continue;
+			} else {
+			}
+		} else {
+			// data
+			if (debug) {
+				var integer size;
+				size = al_misc("binary_size", message, null);
+				al_print("received data: size = " + (string)size + "\n");
+			} else {
+			}
+			if (receiver) {
+			} else {
+				continue;
+			}
+			var integer code;
+			if (code = receiver.RecvOneBlock(message)) {
+			} else {
+				continue;
+			}
+			if (code == FileReceiver::Completed) {
+				send("completed");
+				receiver = null;
+			} else {
+			}
+			if (code == FileReceiver::Canceled) {
+				send("canceled");
+				receiver = null;
+			} else {
+			}
+			if (code == FileReceiver::FileIOError) {
+				send("error \"file write error\"");
+				receiver = null;
+			} else {
+			}
+		}
+	}
+}
+end_body
+member
+public: void SendFile();
+body
+{
+	loop {
+		if (sender) {
+		} else {
+			break;
+		}
+		var integer code;
+		if (code = sender.SendOneBlock()) {
+		} else {
+			al_next_process();
+			continue;
+		}
+		if (code == FileSender::Completed) {
+			al_print("file send completed.\n");
+			send("completed");
+			sender = null;
+			break;
+		} else {
+		}
+		if (code == FileSender::Canceled) {
+			al_print("file send canceled.\n");
+			send("canceled");
+			sender = null;
+			break;
+		} else {
+		}
+		if (code == FileSender::SocketError) {
+			al_print("file send aborted due to socket error.\n");
+			send("error \"socket error\"");
+			sender = null;
+			break;
+		} else {
+		}
+		if (code == FileSender::FileIOError) {
+			al_print("file send aborted du to file read error.\n");
+			send("error \"file read error\"");
+			sender = null;
+			break;
+		} else {
+		}
+	}
+}
+end_body
+member
+public: string remote;
+end_class
+end_class
+end_class
+$END_BODY

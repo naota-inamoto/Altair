@@ -1,0 +1,619 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Peformance of Altair</TITLE>
+</HEAD>
+
+<BODY>
+<H1>Altairの性能</H1>
+
+第0.43版 2016年10月23日<BR>
+第0.00版 1996年 2月11日<BR>
+
+<HR>
+<H3>プロファイリング機能のサンプルによる測定結果</H3>
+バージョン 0.25からプロファイリング機能を入れました。<BR>
+関数単位に関数が呼ばれた回数、関数から戻るまでの時間の統計を取ることができます。<BR>
+
+<HR>
+<H4><A NAME="basic">基本性能</A></H4>
+サンプルの prof/prof.apr の Test::main() は、以下にかかる時間を測定します。<BR>
+<PRE>
+    + 1000,000回の繰り返し (test_loop)
+    + 整数の足し算の1000,000回の繰り返し (test_int_add)
+    + 文字列の足し算の1000,000回の繰り返し (test_string_add)
+    + オブジェクトのnewの1000,000回の繰り返し (test_new)
+    + これらの総計 (test_all)
+</PRE>
+Javaプログラムの prof/Test.java はこれと同等の測定を行うものです。<BR>
+これらの結果を以下に示します。<BR>
+<PRE>
+● Windows版
+     測定マシン： NEC ValueStar VG10J
+     Altair：バージョン 0.25
+     Java: JDK1.2.2
+
+                    Altair       Java
+test_loop            3,616          0(注１)
+test_int_add         5,107          0(注１)
+test_string_add    240,286    461,454
+test_new             4,266        390
+test_all           253,275    461,844   単位 msec
+
+(注１) Windowsマシンは、msec単位の時間を取得しようとしても
+       10 msec間隔ぐらいの値が取れる。
+(注２) ここで測定された時間は、メソッドを呼び出してから
+       そのメソッドからリターンするまでの時間を測定しているため、
+       実際にOSが割り付けたCPUタイムより少し大きい。
+
+● Linux版
+     測定マシン：DELL PowerEdge 1300
+     Altair：バージョン 0.25
+     Java: JDK1.1.7
+
+                    Altair       Java
+test_loop            7,093          6
+test_int_add         9,835          9
+test_string_add    337,044    382,188
+test_new             8,385      2,519
+test_all           362,357    384,730   単位 msec
+
+(注) ここで測定された時間は、メソッドを呼び出してから
+     そのメソッドからリターンするまでの時間を測定しているため、
+     実際にOSが割り付けたCPUタイムより
+     少し大きい。
+</PRE>
+
+Altairでは、単純なループや変数へのアクセスはJavaと比較して約1000倍遅いです。<BR>
+この原因は、Altairでは、スタックフレームや変数領域をLISPのリストのような形式で<BR>
+表現していて、毎回そのリストをたどったり、操作するためです。<BR>
+しかし、文字列処理などのC++で組み込みの機能は、十分な速度が出ます。<BR>
+<BR>
+Altairは、アセンブラで書くことに向いているような非常にプリミティブな処理、<BR>
+たとえば整数やバイトデータを操作する処理を何回も繰り返すような処理を<BR>
+記述することには向いていないです。<BR>
+しかしながら、たいていの必要な機能はC++で組み込みのシステム関数になっており、<BR>
+たいていのプログラムでは、この部分にかかる時間がほとんどと思われます。<BR>
+C++で組み込みの機能に比較して、整数やバイトデータへのアクセスや繰り返しが<BR>
+少ないようなアプリケーションならば、かなりの性能が出ると思われます。<BR>
+
+<HR>
+<H4><A NAME="xml_parser">XMLパーサの性能</A></H4>
+サンプルの prof/prof.apr の Test::main2() は、以下にかかる時間を測定します。<BR>
+<PRE>
+    + test.xmlを百回パーズ
+</PRE>
+Javaプログラムの prof/Test2.java はこれと同等の測定を行うものです。<BR>
+<BR>
+prof/Test2XmlGenは、1000個の繰り返し項目がある約２MバイトのXMLデータを<BR>
+ファイル名 test.xmlで作成します。<BR>
+このXMLデータをの100回パーズしたとき(バリデーションなし)にかかる時間と<BR>
+おおよその消費メモリ量の結果を以下に示します。<BR>
+<PRE>
+● Windows版
+     測定マシン： NEC ValueStar VG10J
+     Altair：バージョン 0.25
+     Java: JDK1.2.2
+     Java XMLパーサー： Xerces 1.4.3
+
+             Altair   Java
+時間         44       23          単位  sec
+消費メモリ   24.8     40.2～44.2  単位  MByte
+
+(注１) ここで測定された時間は、メソッドを呼び出してから
+       そのメソッドからリターンするまでの時間を測定しているため、
+       実際にOSが割り付けたCPUタイムより
+       少し大きい。
+(注２) 消費メモリはWindows2000のタスクマネジャに表示されるメモリ使用量。
+
+</PRE>
+
+Altairでは、XMLパースツリーの表現にAltairのグラフ構造データを使っていますが、<BR>
+ツリー構造を表現するだけなら、グラフ構造が表せるデータ表現は冗長で、<BR>
+このデータの作成とその破壊のオーバーヘッドのため、Javaのパーサと比較して<BR>
+性能が2倍程度遅いようです。<BR>
+また、データの破壊はグラフ構造データのアークをたどるので<BR>
+これも性能を悪くしている原因のようです。<BR>
+<BR>
+Altairに組み込みのXMLパーサは、性能を重視するなら不向きかも知れませんが、<BR>
+統一されたグラフ構造データアクセス方法でパースツリーへのアクセスや作成が<BR>
+できるのでAltairのプログラミングに慣れていて、開発効率を重視する場合は<BR>
+使うことに向いていると言えるかも知れません。<BR>
+<BR>
+消費メモリに関してですが、Windows版Altairでは内部の文字列コードはSJISで<BR>
+ほとんどが１文字バイトと思われ、これに対しJavaでは内部の文字コードがUnicodeで<BR>
+１文字が２バイトなのでこの差が出たと思われます。<BR>
+
+<HR>
+<H4><A NAME="gui">スタンドアロンプログラムのGUIの性能</A></H4>
+スタンドアロンプログラムのGUIに関しては、使用に耐えうる反応速度を有しているという<BR>
+感触を得ています。これはスタンドアロンプログラムのGUIに必要な機能のほとんどが<BR>
+C++で実装されていて、この部分にかかる時間がこれを呼び出すところに比べて<BR>
+大きいからと思われます。<BR>
+<BR>
+サンプルの guitest.apr で TP::all() のプロファイル結果を以下に示します。<BR>
+<PRE>
+● Windows版
+     測定マシン： NEC ValueStar VG10J
+     Altair：バージョン 0.25
+     Java: JDK1.2.2
+
+count	total	average	class	func
+	(msec)	(msec)		
+1	761	761	TP	all
+1	130	130	TP	table_ed_test
+1	100	100	TP	heavy
+1	90	90	TP	label_test
+1	70	70	TP	control_test
+1	70	70	TP	drag
+1	51	51	TP	wm_size2
+1	50	50	TP	graph_ed_test
+1	50	50	TableEditor	Create
+1	40	40	TP	hier_ed_test
+1	40	40	TP	pict_ed_test
+1	40	40	TP	form_test
+1	40	40	TP	picture_test
+1	40	40	TP	wm_size
+13	441	33	Window	Create
+1	20	20	TableEditor	_DrawCells
+1	20	20	TableEditor	Draw
+5	30	6	FrameScrollGlyph	Draw
+5	30	6	ScrollGlyph	Draw
+15	100	6	Window	DrawProc
+2	10	5	AlListBox	Draw
+20	100	5	PolyGlyph	Draw
+7	30	4	GlyphEditor	Draw
+9	40	4	Editor	MoveControl
+18	60	3	PolyGlyph	MoveControl
+15	50	3	Window	MoveCtrlProc
+12	30	2	RootGlyph	Pick
+12	30	2	Window	EventProc
+12	30	2	GUI	Initialize
+19	20	1	AlListBox	AddItem
+6	10	1	AlHScrollBar	Draw
+6	10	1	AlHScrollBar	Create
+8	10	1	EllipseGlyph	Draw
+12	20	1	TargetInfo	Initialize
+13	20	1	Window	SetTitle
+60	30	0	TableEditor	DefaultCell
+15	10	0	Editor	Resize
+62	20	0	MLabel	Draw
+83	20	0	LabelGlyph	Create
+211	10	0	RectangleGlyph	Draw
+19	10	0	VBoxGlyph	_Insert
+19	10	0	VBoxGlyph	Insert
+12	10	0	FormGlyph	Resize
+14	10	0	SpIdxGlyph	Resize
+300	150	0	PolyGlyph	Append
+18	10	0	PolyGlyph	Resize
+19	10	0	ScrollGlyph	AllocationChanged
+340	170	0	TMGlyph	Body
+666	40	0	TMGlyph	child_tm
+38	20	0	TMGlyph	AllocationChanged
+349	150	0	TMGlyph	Draw
+317	60	0	TMGlyph	MoveControl
+377	10	0	TMGlyph	Move
+21	10	0	TMGlyph	Resize
+353	80	0	MonoGlyph	Body
+38	20	0	MonoGlyph	AllocationChanged
+364	220	0	MonoGlyph	Draw
+332	80	0	MonoGlyph	MoveControl
+84	10	0	Glyph	AllocationChanged
+308	10	0	Glyph	MoveControl
+732	40	0	Glyph	Width
+12	10	0	Event	Initialize
+
+(注１) Windowsマシンは、msec単位の時間を取得しようとしても
+       10 msec間隔ぐらいの値が取れる。
+       かかった時間が 0とみなされたものは表示していない。
+(注２) ここで測定された時間は、メソッドを呼び出してから
+       そのメソッドからリターンするまでの時間を測定しているため、
+       実際にOSが割り付けたCPUタイムより少し大きい。
+
+● Linux版
+     測定マシン：DELL PowerEdge 1300
+     Altair：バージョン 0.25
+
+count	total	average	class	func
+	(msec)	(msec)		
+1	3896	3896	TP	all
+1	872	872	TP	picture_test
+1	847	847	TP	table_ed_test
+1	527	527	TP	graph_ed_test
+1	476	476	TP	pict_ed_test
+1	392	392	TP	heavy
+1	311	311	TableEditor	Create
+1	197	197	TP	control_test
+1	157	157	TP	wm_size2
+1	147	147	TP	hier_ed_test
+1	134	134	TP	form_test
+12	1426	118	GUI	Initialize
+13	1302	100	Window	Create
+1	92	92	TP	label_test
+3	235	78	TableEditor	Draw
+3	230	76	TableEditor	_DrawCells
+12	828	69	TargetInfo	Initialize
+35	1658	47	GlyphEditor	Draw
+1	35	35	HierEditor	Create
+1	33	33	HierEditor	__CreateOneItem
+78	2622	33	Window	DrawProc
+86	2664	30	PolyGlyph	Draw
+1	28	28	TP	drag
+1	27	27	TP	wm_size
+14	281	20	FrameScrollGlyph	Draw
+14	276	19	ScrollGlyph	Draw
+27	436	16	AlHScrollBar	Draw
+6	34	5	AlHScrollBar	Create
+4	20	5	VBoxGlyph	Draw
+4	21	5	FormGlyph	FormWithScroll
+3	12	4	HierEditor	Draw
+60	270	4	TableEditor	DefaultCell
+1	3	3	AlComboBox	Create
+2	6	3	AlListBox	Create
+3	9	3	HierEditor	_DrawItems
+83	267	3	LabelGlyph	Create
+12	41	3	RootGlyph	Pick
+12	43	3	Window	EventProc
+19	41	2	AlListBox	AddItem
+11	29	2	AlListBox	Draw
+196	457	2	AlButton	DrawBase
+11	31	2	AlButton	Draw
+15	35	2	Editor	Resize
+34	69	2	EllipseGlyph	Draw
+14	32	2	SpIdxGlyph	Resize
+1	1	1	AlComboBox	Resize
+1	1	1	AlListBox	Resize
+31	59	1	AlVScrollBar	Draw
+3	3	1	TableEditor	_DrawLines
+1	1	1	GraphEditor	Create
+1	1	1	PathGlyph	_CalcBBox
+1	1	1	PathGlyph	Create
+5	5	1	PieGlyph	Draw
+2	2	1	PictureGlyph	Append
+19	20	1	VBoxGlyph	_Insert
+19	21	1	VBoxGlyph	Insert
+12	19	1	FormGlyph	Resize
+18	34	1	PolyGlyph	Resize
+19	19	1	ScrollGlyph	AllocationChanged
+2466	3129	1	TMGlyph	Draw
+353	367	1	MonoGlyph	Body
+2544	4827	1	MonoGlyph	Draw
+50	2	0	AlMenu	Append
+11	7	0	AlComboBox	Draw
+7	1	0	AlHScrollBar	Adjust
+4	1	0	AlHScrollBar	Resize
+31	2	0	AlVScrollBar	Adjust
+8	1	0	AlVScrollBar	Create
+18	3	0	AlControl	Create
+6	1	0	HierEditorNodeItr	ItrNext
+6	2	0	HierEditorNodeItr	ItrReset
+3	1	0	HierEditor	_DrawLines
+3	2	0	HierEditor	_DrawingArea
+9	1	0	TableEditor	HPosition
+3	2	0	TableEditor	_DrawingArea
+6	3	0	GlyphEditor	Create
+14	2	0	ArrowPath	Draw
+138	123	0	MLabel	Draw
+66	13	0	LabelGlyph	Draw
+4	1	0	EllipseGlyph	Create
+2074	360	0	RectangleGlyph	Draw
+207	192	0	RectangleGlyph	Create
+14	1	0	ArrowLine	Draw
+76	13	0	FormGlyph	Attach
+300	139	0	PolyGlyph	Append
+37	4	0	ScrollGlyph	Body
+12	10	0	ScrollGlyph	Resize
+340	129	0	TMGlyph	Body
+2466	423	0	TMGlyph	child_tm
+38	26	0	TMGlyph	AllocationChanged
+377	30	0	TMGlyph	Move
+21	15	0	TMGlyph	Resize
+38	22	0	MonoGlyph	AllocationChanged
+4	1	0	Glyph	child_tm
+84	15	0	Glyph	AllocationChanged
+796	38	0	Glyph	Height
+732	45	0	Glyph	Width
+26	9	0	Glyph	Move
+452	10	0	Glyph	Resize
+332	15	0	Glyph	Create
+12	1	0	Message	Initialize
+12	3	0	Status	Initialize
+12	2	0	Event	Initialize
+
+(注１) かかった時間が 0とみなされたもの(時間が 1msec未満のもの)は表示していない。
+(注２) ここで測定された時間は、メソッドを呼び出してから
+       そのメソッドからリターンするまでの時間を測定しているため、
+       実際にOSが割り付けたCPUタイムより
+       少し大きい。
+</PRE>
+WindowsではWindowsのMDIを使用しているのに対し、LinuxにはMDIがないので、<BR>
+一概には言えませんが、プロファイル結果を見ると<BR>
+スタンドアロンプログラムのGUIに関してはWindowsに分があると言えそうです。<BR>
+
+<HR>
+<H4><A NAME="socket">簡易HTTPサーバの性能</A></H4>
+サンプルの net/guitest.apr で Javaの言語仕様のHTMLドキュメントのページを<BR>
+７ページブラウズしたときのプロファイル結果を以下に示します。<BR>
+ここで性能が測定されるのは主にSocketへのWriteとSocketからのReadです。
+<PRE>
+● Windows版
+     測定マシン： NEC ValueStar VG10J
+     Altair：バージョン 0.25
+     Java: JDK1.2.2
+
+count	total	average	class	func
+	(msec)	(msec)		
+28	150	5	HttpConnection	DoGet
+223	70	0	HttpConnection	Send
+251	60	0	HttpConnection	received
+56	50	0	HttpConnection	Send
+251	40	0	HttpConnection	Start
+28	20	0	HttpConnection	GetAbsolutePath
+28	20	0	HttpConnectionMgr	accepted
+28	10	0	HttpConnection	Close
+1	10	10	HttpServer	Start
+1	10	10	HttpServer	start
+28	0	0	HttpConnection	Create
+1	0	0	HttpConnectionMgr	Close
+1	0	0	HttpConnectionMgr	Create
+28	0	0	HttpServer	GetContentType
+1	0	0	HttpServer	Close
+1	0	0	HttpServer	Create
+1	0	0	HttpServer	stop
+
+(注１) Windowsマシンは、msec単位の時間を取得しようとしても
+       10 msec間隔ぐらいの値が取れる。
+       かかった時間が 0とみなされたものは表示していない。
+(注２) ここで測定された時間は、メソッドを呼び出してから
+       そのメソッドからリターンするまでの時間を測定しているため、
+       実際にOSが割り付けたCPUタイムより少し大きい。
+
+● Linux版
+     測定マシン：DELL PowerEdge 1300
+     Altair：バージョン 0.25
+
+count	total	average	class	func
+	(msec)	(msec)		
+279	57	0	HttpConnection	received
+28	52	1	HttpConnection	DoGet
+223	17	0	HttpConnection	Send
+279	16	0	HttpConnection	Start
+28	12	0	HttpConnectionMgr	accepted
+56	4	0	HttpConnection	Send
+28	4	0	HttpConnection	Close
+28	3	0	HttpConnection	GetAbsolutePath
+28	2	0	HttpConnection	Create
+28	2	0	HttpServer	GetContentType
+1	0	0	HttpConnectionMgr	Close
+1	0	0	HttpConnectionMgr	Create
+1	0	0	HttpServer	Close
+1	0	0	HttpServer	Start
+1	0	0	HttpServer	Create
+1	0	0	HttpServer	stop
+1	0	0	HttpServer	start
+
+(注１) かかった時間が 0とみなされたもの(時間が 1msec未満のもの)は表示していない。
+(注２) ここで測定された時間は、メソッドを呼び出してから
+       そのメソッドからリターンするまでの時間を測定しているため、
+       実際にOSが割り付けたCPUタイムより
+       少し大きい。
+
+</PRE>
+ファイルをバイナリモードで読み込む処理があることや<BR>
+Windows版ではThreadを使っているがLinux版ではselectでpollingしているなどの違いが<BR>
+あるので一概には言えませんが、この結果を見る限りでは、Socket通信に関しては<BR>
+Linuxに分があるように見えます。<BR>
+
+<HR>
+<H4><A NAME="db">DBアクセスの性能</A></H4>
+サンプルの prof/sqlprof.apr で以下のDBアクセスにかかる時間を測定します。<BR>
+<PRE>
+  VARCHAR(255)のカラムが6つのPRIMARY KEYのカラムが1個あるDBテーブルについて
+  + 20000件のレコードのINSERT(100件毎にcommit)
+  + 20000件から100件SELECT(結果を取り出す時間を含む)
+  + 20000件から100件DELETE
+  + 19800件から全件DELETE
+  ++ INDEXのついたカラムを1個追加した場合
+  ++ INSERTを1000件毎にcommitした場合
+<PRE>
+
+● DBサーバマシン
+    マシン機種：DELL PowerEdge 1300 (CPU：550Hz メモリ： 896M)
+    OS：TurboLinux7.0
+    DB
+       Oracle：    Oracle 8.1.7 for Linux
+       PostgresQL：PostgresQL 7.1.2
+
+● ODBC
+     WindowsマシンからODBCでDBに接続
+     Windowsクライアントマシン： NEC ValueStar VG10J (CPU 1GHz メモリ 512M)
+     使用TP：  Windows版Altair バージョン0.26
+
+● Oracle-OCI、Postgres-libpq
+     DBサーバのLinuxマシンからOracleはOCIのクライアントライブラリで
+     PostgresQLはlibpqというクライアントライブラリで接続
+     使用TP：  Linux版Altair バージョン0.26
+</PRE>
+
+本来は、何回か測定して平均をとらなければなりませんが、
+以下は１回計った結果です。
+
+</PRE>
+(単位は msec)
+<TABLE BORDER="1" WITDH="30%">
+<TR>
+  <TD></TD>
+  <TD>total</TD>
+  <TD>insert20000</TD>
+  <TD>select200</TD>
+  <TD>delete200</TD>
+  <TD>delete19800</TD>
+  <TD>commit(total)</TD>
+  <TD>commit(average)</TD>
+</TR>
+<TR>
+  <TD>Oracle ODBC</TD>
+  <TD>73366</TD>
+  <TD>42380</TD>
+  <TD>91</TD>
+  <TD>370</TD>
+  <TD>28401</TD>
+  <TD>3825</TD>
+  <TD>18</TD>
+</TR>
+<TR>
+  <TD>Oracle ODBC INDEX</TD>
+  <TD>117339</TD>
+  <TD>62069</TD>
+  <TD>71</TD>
+  <TD>220</TD>
+  <TD>52275</TD>
+  <TD>5659</TD>
+  <TD>27</TD>
+</TR>
+<TR>
+  <TD>Oracle ODBC commit1000</TD>
+  <TD>70732</TD>
+  <TD>37363</TD>
+  <TD>100</TD>
+  <TD>381</TD>
+  <TD>31145</TD>
+  <TD>530</TD>
+  <TD>22</TD>
+</TR>
+<TR>
+  <TD>Oracle OCI</TD>
+  <TD>72440</TD>
+  <TD>38753</TD>
+  <TD>88</TD>
+  <TD>221</TD>
+  <TD>31391</TD>
+  <TD>4533</TD>
+  <TD>22</TD>
+</TR>
+<TR>
+  <TD>Oracle OCI INDEX</TD>
+  <TD>123386</TD>
+  <TD>63608</TD>
+  <TD>77</TD>
+  <TD>197</TD>
+  <TD>56949</TD>
+  <TD>5394</TD>
+  <TD>26</TD>
+</TR>
+<TR>
+  <TD>Oracle OCI commit1000</TD>
+  <TD>73682</TD>
+  <TD>40083</TD>
+  <TD>99</TD>
+  <TD>218</TD>
+  <TD>31648</TD>
+  <TD>573</TD>
+  <TD>23</TD>
+</TR>
+<TR>
+  <TD>PostgresQL ODBC</TD>
+  <TD>56111</TD>
+  <TD>55120</TD>
+  <TD>130</TD>
+  <TD>130</TD>
+  <TD>361</TD>
+  <TD>1942</TD>
+  <TD>9</TD>
+</TR>
+<TR>
+  <TD>PostgresQL ODBC INDEX</TD>
+  <TD>59195</TD>
+  <TD>57463</TD>
+  <TD>60</TD>
+  <TD>60</TD>
+  <TD>1412</TD>
+  <TD>2113</TD>
+  <TD>10</TD>
+</TR>
+<TR>
+  <TD>PostresQL ODBC commit1000</TD>
+  <TD>55790</TD>
+  <TD>55009</TD>
+  <TD>130</TD>
+  <TD>100</TD>
+  <TD>381</TD>
+  <TD>520</TD>
+  <TD>21</TD>
+</TR>
+<TR>
+  <TD>PostgresQL libpq</TD>
+  <TD>46811</TD>
+  <TD>45045</TD>
+  <TD>119</TD>
+  <TD>108</TD>
+  <TD>1329</TD>
+  <TD>1936</TD>
+  <TD>9</TD>
+</TR>
+<TR>
+  <TD>PostgresQL libpq INDEX</TD>
+  <TD>47792</TD>
+  <TD>47086</TD>
+  <TD>56</TD>
+  <TD>67</TD>
+  <TD>377</TD>
+  <TD>1787</TD>
+  <TD>8</TD>
+</TR>
+<TR>
+  <TD>PostgresQL libpq commit1000</TD>
+  <TD>44289</TD>
+  <TD>43475</TD>
+  <TD>142</TD>
+  <TD>164</TD>
+  <TD>360</TD>
+  <TD>457</TD>
+  <TD>19</TD>
+</TR>
+</TABLE>
+<BR>
+
+この結果から以下のようなことが推測されます。
+
+<PRE>
+レコードの件数が2万件程度の場合で単純なSQL文しか使わない場合:
+
+ + OracleはODBCを使ってもOCIネイティブを使っても差はあまりない。
+ + PostgresQLでは手に入りやすいODBCドライバはネイティブに比べ約２０%遅い。
+
+ + PostgresQLのINSERT(libpq)の速度はOracleのINSERTの速度に比べて同程度（誤差１０%以内）。
+ + INDEXをつけた場合、OracleのINSERTは約５０%遅くなるがPostgresQLでは約５%しか遅くならない。
+ + INDEXのある場合のINSERTは、PostgresQLの方がOracleに比べて約３０%速い。
+
+ + INDEXを使ったSELECT/部分DELETEは、INDEXを使わない場合に比べ
+   Oracleでは約２０%しか速くならないのにPostgresQLでは約５０%速くなる。
+
+ + INDEXのついていないSELECTは、Oracleの方が約40%速い。
+ + INDEXを使った場合のSELECTは、PostgresQLの方が約20%速い。
+
+ + 全件DELETEでは、PostgresQLの方がOracleに比べ約２８倍速い。
+ + INDEXがついている場合の全件DELETEでは、PostgresQLの方がOracleに比べ約１４１倍速い。
+   (INDEXがつくとOracleの場合全件DELETEが遅くなるのに対し
+    PostgresQLではINDEXがない場合に比べて速くなっている)
+ + 部分DELETEでは、Postgresの方が約２．５倍速い。
+ + INDEXを使った部分DELETEでは、Postgresの方が約３．５倍速い。
+
+ + commitにかかる時間はOracleに比べPostgresQLでは約半分。
+ + INSERT時に100件毎にcommitを1000件毎にcommitに変えた場合(commit回数約10倍にした場合)、
+   commitにかかる総時間は、Oracleでは約1/8になるのに対し、PostgresQLでは1/3にしかならない。
+   この場合commitにかかる総時間はOracleとPostgresQLで同程度。
+   (Oracleでは、更新データ量が多くても少なくてもcommitにかかる時間は一定であるのに対し、
+    PostgresQLでは、更新データ量が多くなるとcommitにかかる時間も多くなる。)
+
+推測：
+  Oracleはデータ量がが大規模でもSQL文が複雑でもRollback領域をたくさん使ってもコンスタントな性能が
+  でるようになっているがその反面、簡単なことにかかるオーバーヘッドが大きいのではないか？
+  これに対し、PostgresQLでは大規模データや複雑なSQL文の場合に性能が出ないかも知れないが、
+  データ量が少ない場合やSQL文が簡単な場合は、シンプルなだけその場合の性能がよいのではないか？
+  と思われます。
+</PRE>
+
+<HR>
+</BODY>
+</HTML>

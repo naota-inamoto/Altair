@@ -1,0 +1,139 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>Debug Info | debug_syn</TITLE>
+</HEAD>
+
+<BODY>
+<PRE>
+&lt;&lt;&lt;■■■ depth = 26
+&lt;&lt;&lt;■■■ Begin: id = "e_add"
+&lt;&lt;&lt;■■■ graph = ("binary")
+-/"op"/-&gt;"-"
+-/"exp2"/-&gt;("const")
+	-/"type"/-&gt;"integer"
+	-/"value"/-&gt;"2"
+-/"exp1"/-&gt;("const")
+	-/"type"/-&gt;"integer"
+	-/"value"/-&gt;"1"
+&lt;&lt;&lt;■■■ depth = 27
+&lt;&lt;&lt;■■■ Begin: id = "e_mul"
+&lt;&lt;&lt;■■■ graph = ("const")
+-/"type"/-&gt;"integer"
+-/"value"/-&gt;"2"
+&lt;&lt;&lt;■■■ depth = 28
+&lt;&lt;&lt;■■■ Begin: id = "e_or"
+&lt;&lt;&lt;■■■ graph = ("const")
+-/"type"/-&gt;"integer"
+-/"value"/-&gt;"2"
+&lt;&lt;&lt;■■■ depth = 29
+&lt;&lt;&lt;■■■ Begin: id = "e_xor"
+&lt;&lt;&lt;■■■ graph = ("const")
+-/"type"/-&gt;"integer"
+-/"value"/-&gt;"2"
+&lt;&lt;&lt;■■■ depth = 30
+&lt;&lt;&lt;■■■ Begin: id = "e_and"
+&lt;&lt;&lt;■■■ graph = ("const")
+-/"type"/-&gt;"integer"
+-/"value"/-&gt;"2"
+&lt;&lt;&lt;■■■ depth = 31
+&lt;&lt;&lt;■■■ Begin: id = "e_shift"
+&lt;&lt;&lt;■■■ graph = ("const")
+-/"type"/-&gt;"integer"
+-/"value"/-&gt;"2"
+&lt;&lt;&lt;■■■ depth = 32
+&lt;&lt;&lt;■■■ Begin: id = "e_unry_op"
+&lt;&lt;&lt;■■■ graph = ("const")
+-/"type"/-&gt;"integer"
+-/"value"/-&gt;"2"
+&lt;&lt;&lt;■■■ depth = 33
+&lt;&lt;&lt;■■■ Begin: id = "prim"
+&lt;&lt;&lt;■■■ graph = ("const")
+-/"type"/-&gt;"integer"
+-/"value"/-&gt;"2"
+&lt;&lt;&lt;■■■ depth = 34
+&lt;&lt;&lt;■■■ Begin: id = "const_real"
+&lt;&lt;&lt;■■■ graph = ("const")
+-/"type"/-&gt;"integer"
+-/"value"/-&gt;"2"
+&gt;&gt;&gt;■■■ depth = 34
+&gt;&gt;&gt;■■■ Fail: id = "const_real"
+&lt;&lt;&lt;■■■ depth = 34
+&lt;&lt;&lt;■■■ Begin: id = "const_hexa"
+&lt;&lt;&lt;■■■ graph = ("const")
+-/"type"/-&gt;"integer"
+-/"value"/-&gt;"2"
+&gt;&gt;&gt;■■■ depth = 34
+&gt;&gt;&gt;■■■ Fail: id = "const_hexa"
+&lt;&lt;&lt;■■■ depth = 34
+&lt;&lt;&lt;■■■ Begin: id = "const_integer"
+&lt;&lt;&lt;■■■ graph = ("const")
+-/"type"/-&gt;"integer"
+-/"value"/-&gt;"2"
+&gt;&gt;&gt;■■■ depth = 34
+&gt;&gt;&gt;■■■ Success: id = "const_integer"
+&gt;&gt;&gt;■■■ After ptree0 = ("const_integer", "2")
+&gt;&gt;&gt;■■■ depth = 33
+&gt;&gt;&gt;■■■ Success: id = "prim"
+&gt;&gt;&gt;■■■ After ptree0 = ("prim", ("{}", ("e_const", (("const_integer", "2")))), ("{}*"))
+&gt;&gt;&gt;■■■ depth = 32
+&gt;&gt;&gt;■■■ Success: id = "e_unry_op"
+&gt;&gt;&gt;■■■ After ptree0 = ("e_unry_op", ("{}", ("euop", (("{}?")))), ("prim", ("{}", ("e_const", (("const_integer", "2")))), ("{}*")))
+&gt;&gt;&gt;■■■ depth = 31
+&gt;&gt;&gt;■■■ Success: id = "e_shift"
+&gt;&gt;&gt;■■■ After ptree0 = ("e_shift", ("e_unry_op", ("{}", ("euop", (("{}?")))), ("prim", ("{}", ("e_const", (("const_integer", "2")))), ("{}*"))), ("{}?"))
+&gt;&gt;&gt;■■■ depth = 30
+&gt;&gt;&gt;■■■ Success: id = "e_and"
+&gt;&gt;&gt;■■■ After ptree0 = ("e_and", ("e_shift", ("e_unry_op", ("{}", ("euop", (("{}?")))), ("prim", ("{}", ("e_const", (("const_integer", "2")))), ("{}*"))), ("{}?")), ("{}*"))
+&gt;&gt;&gt;■■■ depth = 29
+&gt;&gt;&gt;■■■ Success: id = "e_xor"
+&gt;&gt;&gt;■■■ After ptree0 = (
+ "e_xor",
+ (
+  "e_and",
+  ("e_shift", ("e_unry_op", ("{}", ("euop", (("{}?")))), ("prim", ("{}", ("e_const", (("const_integer", "2")))), ("{}*"))), ("{}?")),
+  ("{}*")
+ ),
+ ("{}*")
+)
+&gt;&gt;&gt;■■■ depth = 28
+&gt;&gt;&gt;■■■ Success: id = "e_or"
+&gt;&gt;&gt;■■■ After ptree0 = (
+ "e_or",
+ (
+  "e_xor",
+  (
+   "e_and",
+   ("e_shift", ("e_unry_op", ("{}", ("euop", (("{}?")))), ("prim", ("{}", ("e_const", (("const_integer", "2")))), ("{}*"))), ("{}?")),
+   ("{}*")
+  ),
+  ("{}*")
+ ),
+ ("{}*")
+)
+&gt;&gt;&gt;■■■ depth = 27
+&gt;&gt;&gt;■■■ Success: id = "e_mul"
+&gt;&gt;&gt;■■■ After ptree0 = (
+ "e_mul",
+ (
+  "e_or",
+  (
+   "e_xor",
+   (
+    "e_and",
+    ("e_shift", ("e_unry_op", ("{}", ("euop", (("{}?")))), ("prim", ("{}", ("e_const", (("const_integer", "2")))), ("{}*"))), ("{}?")),
+    ("{}*")
+   ),
+   ("{}*")
+  ),
+  ("{}*")
+
+&lt;&lt;&lt;■■■ depth = 27
+&lt;&lt;&lt;■■■ Begin: id = "e_mul"
+&lt;&lt;&lt;■■■ graph = ("const")
+-/"type"/-&gt;"integer"
+-/"value"/-&gt;"1"
+</PRE>
+
+</BODY>
+</HTML>

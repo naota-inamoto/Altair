@@ -1,0 +1,1450 @@
+TEXT
+AlObject
+class ORB
+class ObjRef
+end_class
+class ReqResult
+end_class
+class ORB_Object
+end_class
+class MsgMgr
+class WaitObj
+end_class
+end_class
+class StartupTimer
+end_class
+end_class
+class ORB
+member
+public: static list start_deamon();
+member
+public: static list end_deamon();
+member
+public: static list init(string title);
+member
+public: static list _init(string title);
+member
+public: static list bind(ORB_Object obj, string name);
+member
+public: static ObjRef obj_to_ref(ORB_Object obj);
+member
+public: static ORB_Object ref_to_obj(ObjRef ref);
+member
+public: static list is_equal_ref(ObjRef ref1, ObjRef ref2);
+member
+public: static ObjRef resolve(string name);
+member
+public: static ReqResult request(ObjRef ref, string method, list arg_dcl, list arg_list);
+member
+public: static list want_notify(ORB_Object obj, string event, list remove);
+member
+public: static list notify(string event, list arg);
+member
+public: static MsgMgr mmgr;
+member
+public: static integer get_orb();
+member
+public: static integer hmap_orb;
+class ObjRef
+member
+public: integer network_address;
+member
+public: integer object_id;
+end_class
+class ReqResult
+member
+public: list ret_val;
+member
+public: list exception;
+end_class
+class ORB_Object
+end_class
+class MsgMgr
+member
+public: list Create(window wnd);
+member
+public: static integer get_id_msg;
+member
+public: static integer bind_msg;
+member
+public: static integer resolve_msg;
+member
+public: static integer resolved_msg;
+member
+public: static integer resolve_ack_msg;
+member
+public: static integer r_c_to_b_msg;
+member
+public: static integer r_b_to_s_msg;
+member
+public: static integer r_s_to_b_msg;
+member
+public: static integer r_b_to_c_msg;
+member
+public: static integer r_ack_to_b_msg;
+member
+public: static integer r_ack_to_s_msg;
+member
+public: static integer want_n_msg;
+member
+public: static integer n_c_to_b_msg;
+member
+public: static integer n_b_to_s_msg;
+member
+public: static integer n_ack_to_c_msg;
+member
+public: integer Get_ID();
+member
+public: integer Bind();
+member
+public: void Resolve();
+member
+public: void _Resolve();
+member
+public: void Resolved();
+member
+public: void Resolve_Ack();
+member
+public: void R_C_to_B();
+member
+public: void R_B_to_S();
+member
+public: void _R_B_to_S();
+member
+public: void R_S_to_B();
+member
+public: void R_B_to_C();
+member
+public: void R_Ack_to_B();
+member
+public: void R_Ack_to_S();
+member
+public: list Want_N();
+member
+public: void N_C_to_B();
+member
+public: void N_B_to_S();
+member
+public: void N_Ack_to_C();
+member
+public: integer mapfile_id;
+member
+public: list obj_map;
+member
+public: static integer GetID();
+member
+public: static integer CreateMapFile(string name, list data);
+member
+public: static list GetMapFileData(string name);
+member
+public: static void CloseMapFile(integer hmap);
+member
+public: integer GetLoopID();
+member
+public: void LocalLoop(integer id);
+member
+public: void ExitLoop(integer id);
+member
+public: integer seq;
+member
+public: static integer hWnd();
+member
+public: static integer Send(integer hwnd, integer msg, integer w, integer l);
+member
+public: static integer Post(integer hwnd, integer msg, integer w, integer l);
+member
+public: static integer wParam();
+member
+public: static integer lParam();
+member
+public: list notify_map;
+member
+public: list LoadBusProperties();
+member
+public: list bus_prop;
+member
+public: void Log(string s);
+class WaitObj
+member
+public: void wait();
+member
+public: void notify();
+member
+public: list obj;
+member
+public: integer id;
+end_class
+end_class
+class StartupTimer
+member
+public: void Reset();
+member
+public: integer GetTime();
+member
+public: list start_time;
+end_class
+end_class
+class ORB
+member
+public: static list start_deamon();
+body
+{
+	if (hmap_orb) {
+		return 1;
+	} else {
+	}
+	var integer err;
+	if (_init("deamon")) {
+		return err;
+	} else {
+	}
+	var integer hwnd;
+	hwnd = MsgMgr::hWnd();
+	if (hmap_orb = MsgMgr::CreateMapFile("ORB", (list)hwnd)) {
+	} else {
+		return 2;
+	}
+	return null;
+}
+end_body
+member
+public: static list end_deamon();
+body
+{
+	if (hmap_orb) {
+	} else {
+		return 1;
+	}
+	MsgMgr::CloseMapFile(hmap_orb);
+	hmap_orb = null;
+	mmgr = null;
+	return null;
+}
+end_body
+member
+public: static list init(string title);
+body
+{
+	var integer err;
+	if (err = _init(title)) {
+		return err;
+	} else {
+	}
+	if (get_orb()) {
+	} else {
+		return 1;
+	}
+	return null;
+}
+end_body
+member
+public: static list _init(string title);
+body
+{
+	var window wnd;
+	wnd = al_create_window(null);
+	al_set_title(wnd, title);
+	mmgr = new MsgMgr;
+	mmgr.Create(wnd);
+	var list cb;
+	cb = al_list3(al_root_class(), mmgr, MsgMgr::Get_ID);
+	al_wnd_message(null, "msg_callback", MsgMgr::get_id_msg, cb);
+	cb = al_list3(al_root_class(), mmgr, MsgMgr::Bind);
+	al_wnd_message(null, "msg_callback", MsgMgr::bind_msg, cb);
+	cb = al_list3(al_root_class(), mmgr, MsgMgr::Resolve);
+	al_wnd_message(null, "msg_callback", MsgMgr::resolve_msg, cb);
+	cb = al_list3(al_root_class(), mmgr, MsgMgr::Resolved);
+	al_wnd_message(null, "msg_callback", MsgMgr::resolved_msg, cb);
+	cb = al_list3(al_root_class(), mmgr, MsgMgr::Resolve_Ack);
+	al_wnd_message(null, "msg_callback", MsgMgr::resolve_ack_msg, cb);
+	cb = al_list3(al_root_class(), mmgr, MsgMgr::R_C_to_B);
+	al_wnd_message(null, "msg_callback", MsgMgr::r_c_to_b_msg, cb);
+	cb = al_list3(al_root_class(), mmgr, MsgMgr::R_B_to_S);
+	al_wnd_message(null, "msg_callback", MsgMgr::r_b_to_s_msg, cb);
+	cb = al_list3(al_root_class(), mmgr, MsgMgr::R_S_to_B);
+	al_wnd_message(null, "msg_callback", MsgMgr::r_s_to_b_msg, cb);
+	cb = al_list3(al_root_class(), mmgr, MsgMgr::R_B_to_C);
+	al_wnd_message(null, "msg_callback", MsgMgr::r_b_to_c_msg, cb);
+	cb = al_list3(al_root_class(), mmgr, MsgMgr::R_Ack_to_B);
+	al_wnd_message(null, "msg_callback", MsgMgr::r_ack_to_b_msg, cb);
+	cb = al_list3(al_root_class(), mmgr, MsgMgr::R_Ack_to_S);
+	al_wnd_message(null, "msg_callback", MsgMgr::r_ack_to_s_msg, cb);
+	cb = al_list3(al_root_class(), mmgr, MsgMgr::Want_N);
+	al_wnd_message(null, "msg_callback", MsgMgr::want_n_msg, cb);
+	cb = al_list3(al_root_class(), mmgr, MsgMgr::N_C_to_B);
+	al_wnd_message(null, "msg_callback", MsgMgr::n_c_to_b_msg, cb);
+	cb = al_list3(al_root_class(), mmgr, MsgMgr::N_B_to_S);
+	al_wnd_message(null, "msg_callback", MsgMgr::n_b_to_s_msg, cb);
+	cb = al_list3(al_root_class(), mmgr, MsgMgr::N_Ack_to_C);
+	al_wnd_message(null, "msg_callback", MsgMgr::n_ack_to_c_msg, cb);
+	return null;
+}
+end_body
+member
+public: static list bind(ORB_Object obj, string name);
+body
+{
+	var integer hwnd;
+	if (hwnd = get_orb()) {
+	} else {
+		return "no orb service";
+	}
+	var list data;
+	var ObjRef ref;
+	var integer id, hmap;
+	var string map_name;
+	ref = obj_to_ref(obj);
+	data = al_list2(ref, name);
+	if (id = MsgMgr::GetID()) {
+	} else {
+		return "fail to get mapfile id";
+	}
+	map_name = "al" + (string)id;
+	if (hmap = MsgMgr::CreateMapFile(map_name, data)) {
+	} else {
+		return "fail to create mapfile";
+	}
+	var integer err;
+	err = MsgMgr::Send(hwnd, MsgMgr::bind_msg, 0, id);
+	MsgMgr::CloseMapFile(hmap);
+	if (err != 0) {
+		return "fail to create mapfile2";
+	} else {
+	}
+	return null;
+}
+end_body
+member
+public: static ObjRef obj_to_ref(ORB_Object obj);
+body
+{
+	if (obj) {
+	} else {
+		return null;
+	}
+	var ObjRef ref;
+	ref = new ObjRef;
+	ref.network_address = MsgMgr::hWnd();
+	ref.object_id = al_misc("obj_to_addr", obj, null);
+	return ref;
+}
+end_body
+member
+public: static ORB_Object ref_to_obj(ObjRef ref);
+body
+{
+	return al_misc("addr_to_obj", ref.object_id, null);
+}
+end_body
+member
+public: static list is_equal_ref(ObjRef ref1, ObjRef ref2);
+body
+{
+	if (ref1) {
+		if (ref2) {
+			if (ref1.network_address == ref2.network_address) {
+			} else {
+				return null;
+			}
+			if (ref1.object_id == ref2.object_id) {
+			} else {
+				return null;
+			}
+			return 1;
+		} else {
+			return null;
+		}
+	} else {
+		if (ref2) {
+			return null;
+		} else {
+			return 1;
+		}
+	}
+}
+end_body
+member
+public: static ObjRef resolve(string name);
+body
+{
+	var integer hwnd;
+	if (hwnd = get_orb()) {
+	} else {
+		return "no orb service";
+	}
+	var list src, data;
+	var integer id, c_hwnd, id_loop, hmap;
+	var string map_name;
+	if (id = MsgMgr::GetID()) {
+	} else {
+		return "fail to get mapfile id";
+	}
+	map_name = "al" + (string)id;
+	c_hwnd = MsgMgr::hWnd();
+	id_loop = mmgr.GetLoopID();
+	src = al_list2(c_hwnd, id_loop);
+	data = al_list2(src, name);
+	var WaitObj wobj;
+	wobj = new WaitObj;
+	al_set_dst_node(mmgr, id_loop, wobj);
+	if (hmap = MsgMgr::CreateMapFile(map_name, data)) {
+	} else {
+		return "fail to create mapfile";
+	}
+	if (MsgMgr::Post(hwnd, MsgMgr::resolve_msg, 0, id)) {
+		return "fail to post to broker";
+	} else {
+	}
+	mmgr.LocalLoop(id_loop);
+	var ObjRef ref;
+	var list data2;
+	var integer id2, id_loop2;
+	var string map_name2, err_msg;
+	id2 = wobj.id;
+	map_name2 = "al" + (string)id2;
+	data2 = MsgMgr::GetMapFileData(map_name2);
+	// todo: error processing when data2 is null
+	id_loop2 = data2.head;
+	ref = data2.tail.head;
+	err_msg = data2.tail.tail.head;
+	var integer err;
+	err = MsgMgr::Post(hwnd, MsgMgr::resolve_ack_msg, id_loop2, 0);
+	// todo: error processing when err is not null
+	MsgMgr::CloseMapFile(hmap);
+	if (err_msg) {
+		mmgr.Log(err_msg);
+		return null;
+	} else {
+	}
+	al_set_dst_node(mmgr, id_loop, null);
+	return ref;
+}
+end_body
+member
+public: static ReqResult request(ObjRef ref, string method, list arg_dcl, list arg_list);
+body
+{
+	var ReqResult result;
+	result = new ReqResult;
+	var integer hwnd;
+	if (hwnd = get_orb()) {
+	} else {
+		result.exception = "no orb deamon";
+		return result;
+	}
+	var list src, data;
+	var integer id, c_hwnd, id_loop, hmap;
+	var string map_name;
+	if (id = MsgMgr::GetID()) {
+	} else {
+		result.exception = "fail to get mapfile id";
+		return result;
+	}
+	map_name = "al" + (string)id;
+	c_hwnd = MsgMgr::hWnd();
+	id_loop = mmgr.GetLoopID();
+	src = al_list2(c_hwnd, id_loop);
+	var list l;
+	l = al_gp("encode", arg_dcl, arg_list, null, null);
+	arg_dcl = l.head;
+	arg_list = l.tail.head;
+	data = al_list5(src, ref, method, arg_dcl, arg_list);
+	var WaitObj wobj;
+	wobj = new WaitObj;
+	al_set_dst_node(mmgr, id_loop, wobj);
+	if (hmap = MsgMgr::CreateMapFile(map_name, data)) {
+	} else {
+		result.exception = "fail to create mapfile";
+		return result;
+	}
+	if (MsgMgr::Post(hwnd, MsgMgr::r_c_to_b_msg, 0, id)) {
+		result.exception = "fail to post to broker";
+		return result;
+	} else {
+	}
+	mmgr.LocalLoop(id_loop);
+	var list ret_val;
+	var list src2, data2, err_msg;
+	var integer id2, s_hwnd, id_loop2;
+	var string map_name2;
+	id2 = wobj.id;
+	map_name2 = "al" + (string)id2;
+	data2 = MsgMgr::GetMapFileData(map_name2);
+	// todo: error processing when data2 is null
+	src2 = data2.head;
+	s_hwnd = src2.head;
+	id_loop2 = src2.tail.head;
+	ret_val = data2.tail.tail.head;
+	err_msg = data2.tail.tail.tail.head;
+	var integer err;
+	err = MsgMgr::Post(hwnd, MsgMgr::r_ack_to_b_msg, id_loop2, s_hwnd);
+	// todo: error processing when err is not null
+	MsgMgr::CloseMapFile(hmap);
+	if (err_msg) {
+		result.exception = err_msg;
+		return result;
+	} else {
+	}
+	al_set_dst_node(mmgr, id_loop, null);
+	result.ret_val = ret_val;
+	return result;
+}
+end_body
+member
+public: static list want_notify(ORB_Object obj, string event, list remove);
+body
+{
+	var integer hwnd;
+	if (hwnd = get_orb()) {
+	} else {
+		return "no orb service";
+	}
+	var list data;
+	var ObjRef ref;
+	var integer id, hmap;
+	var string map_name;
+	ref = obj_to_ref(obj);
+	data = al_list3(ref, event, remove);
+	if (id = MsgMgr::GetID()) {
+	} else {
+		return "fail to get mapfile id";
+	}
+	map_name = "al" + (string)id;
+	if (hmap = MsgMgr::CreateMapFile(map_name, data)) {
+	} else {
+		return "fail to create mapfile";
+	}
+	MsgMgr::Send(hwnd, MsgMgr::want_n_msg, 0, id);
+	MsgMgr::CloseMapFile(hmap);
+	return null;
+}
+end_body
+member
+public: static list notify(string event, list arg);
+body
+{
+	var string name;
+	var integer hwnd;
+	if (hwnd = get_orb()) {
+	} else {
+		return "no orb service";
+	}
+	var list src, data;
+	var integer id, c_hwnd, id_loop, hmap;
+	var string map_name;
+	if (id = MsgMgr::GetID()) {
+	} else {
+		return "fail to get mapfile id";
+	}
+	map_name = "al" + (string)id;
+	c_hwnd = MsgMgr::hWnd();
+	id_loop = mmgr.GetLoopID();
+	src = al_list2(c_hwnd, id_loop);
+	data = al_list3(src, event, arg);
+	var WaitObj wobj;
+	wobj = new WaitObj;
+	al_set_dst_node(mmgr, id_loop, wobj);
+	if (hmap = MsgMgr::CreateMapFile(map_name, data)) {
+	} else {
+		return "fail to create mapfile";
+	}
+	if (MsgMgr::Post(hwnd, MsgMgr::n_c_to_b_msg, 0, id)) {
+		return "fail to post to broker";
+	} else {
+	}
+	mmgr.LocalLoop(id_loop);
+	MsgMgr::CloseMapFile(hmap);
+	al_set_dst_node(mmgr, id_loop, null);
+}
+end_body
+member
+public: static MsgMgr mmgr;
+member
+public: static integer get_orb();
+body
+{
+	var integer orb;
+	if (orb = MsgMgr::GetMapFileData("ORB")) {
+	} else {
+		// auto start demon
+		var list prop, broker;
+		prop = mmgr.bus_prop;
+		if (prop && broker = al_dst_node(prop, "$broker")) {
+			var string cmd, dir;
+			var list show;
+			var integer timeout;
+			if (cmd = al_dst_node(broker, "command")) {
+			} else {
+				return null;
+			}
+			if (dir = al_dst_node(broker, "dir")) {
+			} else {
+				dir = ".";
+			}
+			if (show = al_dst_node(broker, "show") && show == "false") {
+				show = null;
+			} else {
+				show = 1;
+			}
+			if (timeout = al_dst_node(broker, "timeout")) {
+			} else {
+				timeout = 30;
+			}
+			var StartupTimer timer;
+			timer = new StartupTimer;
+			timer.Reset();
+			if (al_exec(cmd, dir, show, null)) {
+			} else {
+				mmgr.Log("can't start demon. (" + cmd + ")");
+				return null;
+			}
+			loop {
+				if (orb = MsgMgr::GetMapFileData("ORB")) {
+					break;
+				} else {
+				}
+				al_misc("sleep", 100, null);
+				if (timer.GetTime() > timeout) {
+					mmgr.Log("can't start demon within timeout " + (string)timeout + " .");
+					return null;
+				} else {
+				}
+			}
+		} else {
+			return null;
+		}
+	}
+	return orb;
+}
+end_body
+member
+public: static integer hmap_orb;
+class ObjRef
+member
+public: integer network_address;
+member
+public: integer object_id;
+end_class
+class ReqResult
+member
+public: list ret_val;
+member
+public: list exception;
+end_class
+class ORB_Object
+end_class
+class MsgMgr
+member
+public: list Create(window wnd);
+body
+{
+	get_id_msg = al_wnd_message(null, "register_msg", "GET_ID", null);
+	bind_msg = al_wnd_message(null, "register_msg", "BIND", null);
+	resolve_msg = al_wnd_message(null, "register_msg", "RESOLVE", null);
+	resolved_msg = al_wnd_message(null, "register_msg", "RESOLVED", null);
+	resolve_ack_msg = al_wnd_message(null, "register_msg", "RESOLVE_ACK", null);
+	r_c_to_b_msg = al_wnd_message(null, "register_msg", "R_C_TO_B", null);
+	r_b_to_s_msg = al_wnd_message(null, "register_msg", "R_B_TO_S", null);
+	r_s_to_b_msg = al_wnd_message(null, "register_msg", "R_S_TO_B", null);
+	r_b_to_c_msg = al_wnd_message(null, "register_msg", "R_B_TO_C", null);
+	r_ack_to_b_msg = al_wnd_message(null, "register_msg", "R_ACK_TO_B", null);
+	r_ack_to_s_msg = al_wnd_message(null, "register_msg", "R_ACK_TO_S", null);
+	want_n_msg = al_wnd_message(null, "register_msg", "WANT_N", null);
+	n_c_to_b_msg = al_wnd_message(null, "register_msg", "N_C_TO_B", null);
+	n_b_to_s_msg = al_wnd_message(null, "register_msg", "N_B_TO_S", null);
+	n_ack_to_c_msg = al_wnd_message(null, "register_msg", "N_ACK_TO_C", null);
+	mapfile_id = 0;
+	var list err;
+	if (err = LoadBusProperties()) {
+		Log("warnning: \"bus.prop\" is incorrect. error code = " + (string)err);
+	} else {
+	}
+	return null;
+}
+end_body
+member
+public: static integer get_id_msg;
+member
+public: static integer bind_msg;
+member
+public: static integer resolve_msg;
+member
+public: static integer resolved_msg;
+member
+public: static integer resolve_ack_msg;
+member
+public: static integer r_c_to_b_msg;
+member
+public: static integer r_b_to_s_msg;
+member
+public: static integer r_s_to_b_msg;
+member
+public: static integer r_b_to_c_msg;
+member
+public: static integer r_ack_to_b_msg;
+member
+public: static integer r_ack_to_s_msg;
+member
+public: static integer want_n_msg;
+member
+public: static integer n_c_to_b_msg;
+member
+public: static integer n_b_to_s_msg;
+member
+public: static integer n_ack_to_c_msg;
+member
+public: integer Get_ID();
+body
+{
+	mapfile_id = mapfile_id + 1;
+	Log("get_id: id = " + (string)mapfile_id);
+	return mapfile_id;
+}
+end_body
+member
+public: integer Bind();
+body
+{
+	if (obj_map) {
+	} else {
+		obj_map = al_cons(null, null);
+	}
+	var list data;
+	var integer id;
+	var string map_name;
+	id = lParam();
+	map_name = "al" + (string)id;
+	if (data = GetMapFileData(map_name)) {
+	} else {
+		return 1;
+	}
+	var ObjRef ref;
+	var string name;
+	ref = data.head;
+	name = data.tail.head;
+	al_set_dst_node(obj_map, name, ref);
+	if (ref) {
+		Log("bind: name = " + name);
+		Log("\tserver network address = " + (string)ref.network_address);
+		Log("\tserver object id = " + (string)ref.object_id);
+	} else {
+		Log("unbind: name = " + name);
+		// exit demon
+		var list itr;
+		itr = al_dst_itr(obj_map);
+		if (ref = al_next(itr)) {
+		} else {
+			itr = al_dst_itr(notify_map);
+			if (ref = al_next(itr)) {
+			} else {
+				al_misc("exit", 0, null);
+			}
+		}
+	}
+	return 0;
+}
+end_body
+member
+public: void Resolve();
+body
+{
+	para this._Resolve();
+}
+end_body
+member
+public: void _Resolve();
+body
+{
+	var list src, data;
+	var integer id, c_hwnd, id_loop;
+	var string map_name, name, err_msg;
+	id = lParam();
+	map_name = "al" + (string)id;
+	data = GetMapFileData(map_name);
+	// todo: error processing when data is null
+	src = data.head;
+	c_hwnd = src.head;
+	id_loop = src.tail.head;
+	name = data.tail.head;
+	var ObjRef ref;
+	if (obj_map && ref = al_dst_node(obj_map, name)) {
+		Log("resolve: name = " + name);
+		Log("\tserver network address = " + (string)ref.network_address);
+		Log("\tserver object id = " + (string)ref.object_id);
+	} else {
+		// auto start server
+		var list tool;
+		if (bus_prop && tool = al_dst_node(bus_prop, name)) {
+			var string cmd, dir;
+			var list show;
+			var integer timeout;
+			if (cmd = al_dst_node(tool, "command")) {
+			} else {
+				break;
+			}
+			if (dir = al_dst_node(tool, "dir")) {
+			} else {
+				dir = ".";
+			}
+			if (show = al_dst_node(tool, "show") && show == "false") {
+				show = null;
+			} else {
+				show = 1;
+			}
+			if (timeout = al_dst_node(tool, "timeout")) {
+			} else {
+				timeout = 30;
+			}
+			var StartupTimer timer;
+			timer = new StartupTimer;
+			timer.Reset();
+			if (al_exec(cmd, dir, show, null)) {
+			} else {
+				err_msg = "fail to start up server (" + name + ") (" + cmd + ")";
+				Log(err_msg);
+				break;
+			}
+			loop {
+				if (obj_map && ref = al_dst_node(obj_map, name)) {
+					Log("resolve: name = " + name);
+					Log("\tserver network address = " + (string)ref.network_address);
+					Log("\tserver object id = " + (string)ref.object_id);
+					break;
+				} else {
+				}
+				al_wnd_message(null, "do_events", null, null);
+				if (timer.GetTime() > timeout) {
+					err_msg = "fail to start up server(" + name + ") within " + (string)timeout + "sec.";
+					Log(err_msg);
+					break;
+				} else {
+				}
+			}
+		} else {
+		}
+	}
+	var list data2;
+	var integer id2, id_loop2, hmap2;
+	var string map_name2;
+	id2 = GetID();
+	// todo: error processing when id2 is null
+	map_name2 = "al" + (string)id2;
+	id_loop2 = GetLoopID();
+	data2 = al_list3(id_loop2, ref, err_msg);
+	var WaitObj wobj;
+	wobj = new WaitObj;
+	al_set_dst_node(this, id_loop2, wobj);
+	hmap2 = CreateMapFile(map_name2, data2);
+	// todo: error processing when hmap2 is null
+	var integer err;
+	err = Post(c_hwnd, resolved_msg, id_loop, id2);
+	// todo: error processing when err is not null
+	LocalLoop(id_loop2);
+	Log("resolve: exit_local_loop");
+	CloseMapFile(hmap2);
+	al_set_dst_node(this, id_loop2, null);
+}
+end_body
+member
+public: void Resolved();
+body
+{
+	var integer id_loop;
+	var WaitObj wobj;
+	id_loop = wParam();
+	wobj = al_dst_node(this, id_loop);
+	// todo: error processing when wobj is null
+	wobj.id = lParam();
+	ExitLoop(id_loop);
+}
+end_body
+member
+public: void Resolve_Ack();
+body
+{
+	var integer id_loop2;
+	id_loop2 = wParam();
+	ExitLoop(id_loop2);
+	Log("resolve_ack: loop_id = " + (string)id_loop2);
+}
+end_body
+member
+public: void R_C_to_B();
+body
+{
+	var list data, arg_list;
+	var integer id;
+	var string map_name, method;
+	id = lParam();
+	map_name = "al" + (string)id;
+	data = GetMapFileData(map_name);
+	// todo: error processing when wobj is null
+	var ObjRef ref;
+	var integer s_hwnd;
+	ref = data.tail.head;
+	s_hwnd = ref.network_address;
+	method = data.tail.tail.head;
+	arg_list = data.tail.tail.tail.tail.head;
+	Log("request: method = " + method + (string)arg_list);
+	var integer err;
+	err = Post(s_hwnd, r_b_to_s_msg, 0, id);
+	// todo: error processing when err is not null
+}
+end_body
+member
+public: void R_B_to_S();
+body
+{
+	para this._R_B_to_S();
+}
+end_body
+member
+public: void _R_B_to_S();
+body
+{
+	var integer hwnd;
+	hwnd = get_orb();
+	// todo: error processing hwnd is null
+	var list src, data;
+	var integer id, c_hwnd, id_loop;
+	var string map_name, method;
+	var list arg_dcl, arg_list;
+	id = lParam();
+	map_name = "al" + (string)id;
+	data = GetMapFileData(map_name);
+	// todo: error processing when data is null
+	var ObjRef ref;
+	src = data.head;
+	c_hwnd = src.head;
+	id_loop = src.tail.head;
+	ref = data.tail.head;
+	method = data.tail.tail.head;
+	arg_dcl = data.tail.tail.tail.head;
+	arg_list = data.tail.tail.tail.tail.head;
+	arg_dcl = al_gp("decode", arg_dcl, null, null, null);
+	var ORB_Object obj;
+	obj = ref_to_obj(ref);
+	var list ret_val;
+	ret_val = al_gp("run2", obj, arg_dcl, method, arg_list);
+	// todo: does not error occur here ? (method call)
+	var list src2, data2, err_msg;
+	var integer id2, s_hwnd, id_loop2, hmap2;
+	var string map_name2;
+	id2 = GetID();
+	// todo: error processing when id2 is null
+	map_name2 = "al" + (string)id2;
+	s_hwnd = hWnd();
+	id_loop2 = GetLoopID();
+	src2 = al_list2(s_hwnd, id_loop2);
+	data2 = al_list4(src2, c_hwnd, ret_val, err_msg);
+	var WaitObj wobj;
+	wobj = new WaitObj;
+	al_set_dst_node(this, id_loop2, wobj);
+	hmap2 = CreateMapFile(map_name2, data2);
+	// todo: error processing when hmap2 is null
+	var integer err;
+	err = Post(hwnd, r_s_to_b_msg, id_loop, id2);
+	// todo: error processing when err is not null
+	LocalLoop(id_loop2);
+	CloseMapFile(hmap2);
+	al_set_dst_node(this, id_loop2, null);
+}
+end_body
+member
+public: void R_S_to_B();
+body
+{
+	var list data2, ret_val;
+	var integer id_loop, id2, c_hwnd;
+	var string map_name2;
+	id_loop = wParam();
+	id2 = lParam();
+	map_name2 = "al" + (string)id2;
+	data2 = GetMapFileData(map_name2);
+	// todo: error processing when data2 is null
+	c_hwnd = data2.tail.head;
+	ret_val = data2.tail.tail.head;
+	Log("request return: ret_val = " + (string)ret_val);
+	var integer err;
+	err = Post(c_hwnd, r_b_to_c_msg, id_loop, id2);
+	// todo: error processing when err is not null
+}
+end_body
+member
+public: void R_B_to_C();
+body
+{
+	var integer id_loop;
+	var WaitObj wobj;
+	id_loop = wParam();
+	wobj = al_dst_node(this, id_loop);
+	// todo: error processing when wobj is null
+	wobj.id = lParam();
+	ExitLoop(id_loop);
+}
+end_body
+member
+public: void R_Ack_to_B();
+body
+{
+	var integer id_loop2, s_hwnd;
+	id_loop2 = wParam();
+	s_hwnd = lParam();
+	var integer err;
+	err = Post(s_hwnd, r_ack_to_s_msg, id_loop2, 0);
+	// todo: error processing when err is not null
+	Log("request_ack: loop_id = " + (string)id_loop2);
+}
+end_body
+member
+public: void R_Ack_to_S();
+body
+{
+	var integer id_loop2;
+	id_loop2 = wParam();
+	ExitLoop(id_loop2);
+}
+end_body
+member
+public: list Want_N();
+body
+{
+	if (notify_map) {
+	} else {
+		notify_map = al_cons(null, null);
+	}
+	var list data;
+	var integer id;
+	var string map_name;
+	id = lParam();
+	map_name = "al" + (string)id;
+	if (data = GetMapFileData(map_name)) {
+	} else {
+		return 1;
+	}
+	var string event;
+	var ObjRef ref;
+	var list remove;
+	ref = data.head;
+	event = data.tail.head;
+	remove = data.tail.tail.head;
+	var list itr;
+	var ObjRef ref2;
+	itr = al_dst_itr(notify_map);
+	loop {
+		if (ref2 = al_next_a(itr, event)) {
+		} else {
+			al_create_arc(notify_map, ref, event);
+			Log("want_notify: event = " + event);
+			Log("\tserver network address = " + (string)ref.network_address);
+			Log("\tserver object id = " + (string)ref.object_id);
+			break;
+		}
+		if (is_equal_ref(ref2, ref)) {
+			if (remove) {
+				al_remove(itr);
+				Log("want_notify(remove): event = " + event);
+				Log("\tserver network address = " + (string)ref.network_address);
+				Log("\tserver object id = " + (string)ref.object_id);
+				// auto exit demon
+				itr = al_dst_itr(obj_map);
+				if (ref = al_next(itr)) {
+				} else {
+					itr = al_dst_itr(notify_map);
+					if (ref = al_next(itr)) {
+					} else {
+						al_misc("exit", 0, null);
+					}
+				}
+			} else {
+			}
+			break;
+		} else {
+		}
+	}
+	return 0;
+}
+end_body
+member
+public: void N_C_to_B();
+body
+{
+	if (notify_map) {
+	} else {
+		return;
+	}
+	var list src, data;
+	var integer id, c_hwnd, id_loop;
+	var string map_name;
+	id = lParam();
+	map_name = "al" + (string)id;
+	data = GetMapFileData(map_name);
+	// todo: error processing when data is null
+	src = data.head;
+	c_hwnd = src.head;
+	id_loop = src.tail.head;
+	var integer s_hwnd, obj_id;
+	var list event_itr;
+	var ObjRef ref;
+	event_itr = al_dst_itr(notify_map);
+	loop {
+		if (ref = al_next(event_itr)) {
+		} else {
+			break;
+		}
+		s_hwnd = ref.network_address;
+		obj_id = ref.object_id;
+		Send(s_hwnd, n_b_to_s_msg, obj_id, id);
+	}
+	var integer err;
+	err = Post(c_hwnd, n_ack_to_c_msg, 0, id_loop);
+	// todo: error processing when err is not null
+}
+end_body
+member
+public: void N_B_to_S();
+body
+{
+	var ORB_Object obj;
+	var list src, data;
+	var integer id, addr;
+	var string map_name;
+	addr = wParam();
+	obj = al_misc("addr_to_obj", addr, null);
+	id = lParam();
+	map_name = "al" + (string)id;
+	data = GetMapFileData(map_name);
+	// todo: error processing when data is null
+	al_wnd_message(null, "reply", 0, null);
+	var string event, arg_name;
+	var list arg_dcl, arg_list, arg;
+	event = data.tail.head;
+	arg = data.tail.tail.head;
+	arg_dcl = al_gp("add_to_arg_dcl", null, "list", "arg", null);
+	arg_name = al_gp("unique_str", "arg", null, null, null);
+	arg_list = al_cons(al_list3(arg_name, arg, null), null);
+	al_gp("run2", obj, arg_dcl, event, arg_list);
+}
+end_body
+member
+public: void N_Ack_to_C();
+body
+{
+	var integer id_loop;
+	id_loop = lParam();
+	ExitLoop(id_loop);
+}
+end_body
+member
+public: integer mapfile_id;
+member
+public: list obj_map;
+member
+public: static integer GetID();
+body
+{
+	var integer hwnd;
+	if (hwnd = get_orb()) {
+	} else {
+		return null;
+	}
+	return Send(hwnd, get_id_msg, 0, 0);
+}
+end_body
+member
+public: static integer CreateMapFile(string name, list data);
+body
+{
+	var integer hmap;
+	var string s;
+	var file f;
+	s = al_copy("");
+	f = al_file_open(s, "sw");
+	if (al_file_write(f, "graph", data)) {
+		return null;
+	} else {
+	}
+	f = null;
+	if (hmap = al_wnd_message(null, "create_map", name, s)) {
+	} else {
+		return null;
+	}
+	return hmap;
+}
+end_body
+member
+public: static list GetMapFileData(string name);
+body
+{
+	var list data;
+	var string s;
+	var file f;
+	if (s = al_wnd_message(null, "get_map", name, null)) {
+	} else {
+		return null;
+	}
+	f = al_file_open(s, "sr");
+	data = al_file_read(f, "graph");
+	f = null;
+	return data;
+}
+end_body
+member
+public: static void CloseMapFile(integer hmap);
+body
+{
+	al_wnd_message(null, "close_map", hmap, null);
+}
+end_body
+member
+public: integer GetLoopID();
+body
+{
+	if (seq) {
+		seq = seq + 1;
+	} else {
+		seq = 1;
+	}
+	return seq;
+}
+end_body
+member
+public: void LocalLoop(integer id);
+body
+{
+	var WaitObj wobj;
+	if (wobj = al_dst_node(this, id)) {
+	} else {
+		Log("MsgMgr::LocalLoop: WaitObj == null. id = " + (string)id);
+		return;
+	}
+	wobj.wait();
+}
+end_body
+member
+public: void ExitLoop(integer id);
+body
+{
+	var WaitObj wobj;
+	if (wobj = al_dst_node(this, id)) {
+	} else {
+		Log("MsgMgr::ExitLoop: WaitObj == null. id = " + (string)id);
+		return;
+	}
+	wobj.notify();
+}
+end_body
+member
+public: integer seq;
+member
+public: static integer hWnd();
+body
+{
+	return al_wnd_message(null, "hwnd", null, null);
+}
+end_body
+member
+public: static integer Send(integer hwnd, integer msg, integer w, integer l);
+body
+{
+	return al_wnd_message(hwnd, "send_msg", msg, al_list2(w, l));
+}
+end_body
+member
+public: static integer Post(integer hwnd, integer msg, integer w, integer l);
+body
+{
+	return al_wnd_message(hwnd, "post_msg", msg, al_list2(w, l));
+}
+end_body
+member
+public: static integer wParam();
+body
+{
+	return al_wnd_message(null, "wParam", null, null);
+}
+end_body
+member
+public: static integer lParam();
+body
+{
+	return al_wnd_message(null, "lParam", null, null);
+}
+end_body
+member
+public: list notify_map;
+member
+public: list LoadBusProperties();
+body
+{
+	var file f;
+	var string s;
+	var list n, l;
+	var integer i;
+	if (f = al_file_open("bus.prop", "r")) {
+	} else {
+		return 1;
+	}
+	bus_prop = al_cons(null, null);
+	if (al_file_match_str(f, "begin_broker")) {
+		n = al_cons(null, null);
+		al_set_dst_node(bus_prop, "$broker", n);
+		loop {
+			if (s = al_file_read(f, "string")) {
+			} else {
+				return 2;
+			}
+			if (s == "end_broker") {
+				break;
+			} else {
+			}
+			if (s == "command:") {
+				s = al_file_read(f, "quote_string");
+				al_set_dst_node(n, "command", s);
+				continue;
+			} else {
+			}
+			if (s == "directory:") {
+				s = al_file_read(f, "quote_string");
+				al_set_dst_node(n, "dir", s);
+				continue;
+			} else {
+			}
+			if (s == "show:") {
+				l = al_file_read(f, "string");
+				al_set_dst_node(n, "show", l);
+				continue;
+			} else {
+			}
+			if (s == "timeout:") {
+				i = al_file_read(f, "integer");
+				al_set_dst_node(n, "timeout", i);
+				continue;
+			} else {
+			}
+			return 3;
+		}
+	} else {
+	}
+	loop {
+		if (s = al_file_read(f, "string")) {
+		} else {
+			return 4;
+		}
+		if (s == "end") {
+			break;
+		} else {
+		}
+		if (s == "begin_tool") {
+			n = al_cons(null, null);
+			loop {
+				if (s = al_file_read(f, "string")) {
+				} else {
+					return 5;
+				}
+				if (s == "end_tool") {
+					break;
+				} else {
+				}
+				if (s == "name:") {
+					s = al_file_read(f, "quote_string");
+					al_set_dst_node(bus_prop, s, n);
+					continue;
+				} else {
+				}
+				if (s == "command:") {
+					s = al_file_read(f, "quote_string");
+					al_set_dst_node(n, "command", s);
+					continue;
+				} else {
+				}
+				if (s == "directory:") {
+					s = al_file_read(f, "quote_string");
+					al_set_dst_node(n, "dir", s);
+					continue;
+				} else {
+				}
+				if (s == "show:") {
+					l = al_file_read(f, "string");
+					al_set_dst_node(n, "show", l);
+					continue;
+				} else {
+				}
+				if (s == "timeout:") {
+					i = al_file_read(f, "integer");
+					al_set_dst_node(n, "timeout", i);
+					continue;
+				} else {
+				}
+				return 6;
+			}
+		} else {
+		}
+	}
+	return null;
+}
+end_body
+member
+public: list bus_prop;
+member
+public: void Log(string s);
+body
+{
+	al_print(s);
+	al_print("\n");
+}
+end_body
+class WaitObj
+member
+public: void wait();
+body
+{
+	obj = al_wait(null);
+	al_wait(obj);
+}
+end_body
+member
+public: void notify();
+body
+{
+	if (obj) {
+		al_notify(obj);
+		obj = null;
+	} else {
+	}
+}
+end_body
+member
+public: list obj;
+member
+public: integer id;
+end_class
+end_class
+class StartupTimer
+member
+public: void Reset();
+body
+{
+	start_time = al_file_manip("current_datetime", null, null);
+}
+end_body
+member
+public: integer GetTime();
+body
+{
+	var list curr_time;
+	curr_time = al_file_manip("current_datetime", null, null);
+	var integer h0, m0, s0, h1, m1, s1;
+	h0 = start_time.tail.tail.tail.head;
+	m0 = start_time.tail.tail.tail.tail.head;
+	s0 = start_time.tail.tail.tail.tail.tail.head;
+	h1 = curr_time.tail.tail.tail.head;
+	m1 = curr_time.tail.tail.tail.tail.head;
+	s1 = curr_time.tail.tail.tail.tail.tail.head;
+	return (h1 - h0) * 3600 + (m1 - m0) * 60 + (s1 - s0);
+}
+end_body
+member
+public: list start_time;
+end_class
+end_class

@@ -1,0 +1,868 @@
+$END_LIB
+TEXT
+AlObject
+class SMTPClient
+end_class
+$END_CLASS
+TEXT
+AlObject
+class SMTPClient
+member
+public: static void send();
+member
+public: static list debug;
+member
+public: static SMTPClient client;
+member
+public: list close_exit;
+member
+public: list Init();
+member
+public: string stmp_server;
+member
+public: string mail_from;
+member
+public: list to;
+member
+public: list cc;
+member
+public: list rcpts;
+member
+public: list rcpts_itr;
+member
+public: string rcpt_to;
+member
+public: string date;
+member
+public: string message_id;
+member
+public: string subject;
+member
+public: string text;
+member
+public: string charset;
+member
+public: string err_out;
+member
+public: list Start();
+member
+public: void Close(string err);
+member
+public: integer hwnd;
+member
+public: integer wnd_msg;
+member
+public: string state;
+member
+public: integer s_id;
+member
+public: integer buffer_size;
+member
+public: list buffer;
+member
+public: list Receive();
+member
+public: void Received();
+member
+public: integer read_bytes;
+member
+public: string recv_msg;
+member
+public: list GetResponse();
+member
+public: list Send(string msg);
+member
+public: list GetDateAndMessageID();
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class SMTPClient
+member
+public: static void send();
+body
+{
+	debug = 1;
+	client = new SMTPClient;
+	client.close_exit = 1;
+	client.Init();
+	client.Start();
+}
+end_body
+member
+public: static list debug;
+member
+public: static SMTPClient client;
+member
+public: list close_exit;
+member
+public: list Init();
+body
+{
+	var string cmd_line, opt, addr, tmp;
+	var file f;
+	var integer size, read_size;
+	var list buff;
+	if (cmd_line = al_misc("get_cmd_line", null, null)) {
+	} else {
+		Close("command argument is null.");
+		return 1;
+	}
+	al_print(cmd_line + "\n");
+	f = al_file_open(cmd_line, "sr");
+	loop {
+		if (opt = al_file_read(f, "string")) {
+		} else {
+			break;
+		}
+		if (opt == "server") {
+			stmp_server = al_file_read(f, "string");
+			continue;
+		} else {
+		}
+		if (opt == "from") {
+			mail_from = al_file_read(f, "string");
+			continue;
+		} else {
+		}
+		if (opt == "to") {
+			if (addr = al_file_read(f, "string")) {
+			} else {
+				break;
+			}
+			if (to) {
+			} else {
+				to = al_cons(null, null);
+			}
+			al_create_arc(to, addr, null);
+			if (rcpts) {
+			} else {
+				rcpts = al_cons(null, null);
+			}
+			al_create_arc(rcpts, addr, null);
+			continue;
+		} else {
+		}
+		if (opt == "cc") {
+			if (addr = al_file_read(f, "string")) {
+			} else {
+				break;
+			}
+			if (cc) {
+			} else {
+				cc = al_cons(null, null);
+			}
+			al_create_arc(cc, addr, null);
+			if (rcpts) {
+			} else {
+				rcpts = al_cons(null, null);
+			}
+			al_create_arc(rcpts, addr, null);
+			continue;
+		} else {
+		}
+		if (opt == "subject") {
+			if (subject = al_file_read(f, "quote_string")) {
+			} else {
+				subject = al_file_read(f, "string");
+			}
+			continue;
+		} else {
+		}
+		if (opt == "text") {
+			if (text = al_file_read(f, "quote_string")) {
+			} else {
+				text = al_file_read(f, "string");
+			}
+			continue;
+		} else {
+		}
+		if (opt == "error") {
+			if (err_out = al_file_read(f, "quote_string")) {
+			} else {
+				err_out = al_file_read(f, "string");
+			}
+			continue;
+		} else {
+		}
+	}
+	if (stmp_server == null) {
+		Close("stmp_server is not specified.");
+		return 1;
+	} else {
+	}
+	if (mail_from == null) {
+		Close("mail_from is not specified.");
+		return 1;
+	} else {
+	}
+	if (rcpts == null) {
+		Close("rcpt_to is not specified.");
+		return 1;
+	} else {
+	}
+	if (subject == null) {
+		Close("subject is null.");
+		return 1;
+	} else {
+	}
+	if (text == null || al_file_manip("does_exist", text, null) == null) {
+		Close("content file is not specified or not exist.");
+		return 1;
+	} else {
+	}
+	buff = GetDateAndMessageID();
+	date = buff.head;
+	message_id = buff.tail.head;
+	if (debug) {
+		al_print("stmp server = " + stmp_server + "\n");
+		al_print("mail from = " + mail_from + "\n");
+		var list itr;
+		var string addr;
+		itr = al_dst_itr(rcpts);
+		loop {
+			if (addr = al_next(itr)) {
+			} else {
+				break;
+			}
+			al_print("rcpt to = " + addr + "\n");
+		}
+		al_print("subject = " + subject + "\n");
+		al_print("date = " + date + "\n");
+		al_print("message_id = " + message_id + "\n");
+		al_print("text filename = " + text + "\n");
+		al_print("error output filename = " + (string)err_out + "\n");
+	} else {
+	}
+	charset = "us_ascii";
+	if (tmp = al_str_misc("sjis_to_jis", subject, null)) {
+		subject = tmp;
+		charset = "iso-2022-jp";
+	} else {
+	}
+	f = al_file_open(text, "rb");
+	size = al_file_manip("get_size", text, null);
+	buff = al_misc("binary", size, null);
+	if (read_size = al_file_read(f, al_list3(buff, 0, size))) {
+		if (read_size < 0) {
+			Close("can't read text.");
+			return 1;
+		} else {
+			size = read_size;
+		}
+	} else {
+	}
+	text = al_misc("binary_to_string", al_list3(buff, 0, size), null);
+	if (tmp = al_str_misc("sjis_to_jis", text, null)) {
+		text = tmp;
+		charset = "iso-2022-jp";
+	} else {
+	}
+	return null;
+}
+end_body
+member
+public: string stmp_server;
+member
+public: string mail_from;
+member
+public: list to;
+member
+public: list cc;
+member
+public: list rcpts;
+member
+public: list rcpts_itr;
+member
+public: string rcpt_to;
+member
+public: string date;
+member
+public: string message_id;
+member
+public: string subject;
+member
+public: string text;
+member
+public: string charset;
+member
+public: string err_out;
+member
+public: list Start();
+body
+{
+	var string err;
+	var integer hostaddr, port;
+	if (hostaddr = al_socket("gethostbyname", stmp_server, null, null)) {
+	} else {
+		err = "fail to gethostbyname.";
+		Close(err);
+		return 1;
+	}
+	port = 25;
+	// --------
+	state = "AwaitConnection";
+	if (s_id = al_socket("socket", null, null, null)) {
+	} else {
+		err = "faile to create socket.";
+		Close(err);
+		return 1;
+	}
+	if (al_socket("connect", s_id, al_list2(hostaddr, port), null)) {
+		err = (string)al_socket("get_last_error", s_id, null, null);
+		Close("fail to connect socket.(" + err + ")");
+		return 1;
+	} else {
+	}
+	buffer_size = 4096;
+	buffer = al_misc("binary", buffer_size, null);
+	hwnd = al_wnd_message(null, "hwnd", null, null);
+	wnd_msg = al_wnd_message(null, "register_msg", "RECV", null);
+	var list cb;
+	cb = al_list3(al_root_class(), this, SMTPClient::Received);
+	al_wnd_message(null, "msg_callback", wnd_msg, cb);
+	// --------
+	state = "AwaitGreeting";
+	if (err = Receive()) {
+		Close(err);
+		return 1;
+	} else {
+	}
+	return null;
+}
+end_body
+member
+public: void Close(string err);
+body
+{
+	if (s_id) {
+		al_socket("close", s_id, null, null);
+	} else {
+	}
+	if (wnd_msg) {
+		al_wnd_message(null, "msg_callback", wnd_msg, null);
+	} else {
+	}
+	if (err != "null") {
+		var file f;
+		if (err_out) {
+			f = al_file_open(err_out, "w");
+		} else {
+		}
+		if (f) {
+		} else {
+			f = al_file_open("", "stderr");
+		}
+		al_file_write(f, "string", "[ERROR] " + err + ", state = " + (string)state + "\n");
+		al_file_manip("flush", f, null);
+		f = null;
+	} else {
+	}
+	if (close_exit) {
+		if (err != "null") {
+			al_misc("exit", 1, null);
+		} else {
+			al_misc("exit", 0, null);
+		}
+	} else {
+	}
+}
+end_body
+member
+public: integer hwnd;
+member
+public: integer wnd_msg;
+member
+public: string state;
+member
+public: integer s_id;
+member
+public: integer buffer_size;
+member
+public: list buffer;
+member
+public: list Receive();
+body
+{
+	var list buf;
+	var string err;
+	buf = al_list3(buffer, 0, buffer_size);
+	if (al_socket("recv", s_id, buf, al_list3(hwnd, wnd_msg, 1))) {
+		err = (string)al_socket("get_last_error", s_id, null, null);
+		return "Recv Error(" + err + ")";
+	} else {
+	}
+	return null;
+}
+end_body
+member
+public: void Received();
+body
+{
+	var list response;
+	var string err;
+	var integer code;
+	read_bytes = al_wnd_message(null, "lParam", null, null);
+	// --------
+	if (state == "AwaitGreeting") {
+		response = GetResponse();
+		err = response.head;
+		code = response.tail.head;
+		if (code / 10 != 22) {
+			Close(err);
+			return;
+		} else {
+		}
+		if (response.tail.tail.head) {
+			if (err = Receive()) {
+				Close(err);
+			} else {
+			}
+			return;
+		} else {
+		}
+		if (err = Send("HELO altair\n")) {
+			Close(err);
+			return;
+		} else {
+		}
+		state = "AwaitHelloResponse";
+		if (err = Receive()) {
+			Close(err);
+			return;
+		} else {
+		}
+		return;
+	} else {
+	}
+	// --------
+	if (state == "AwaitHelloResponse") {
+		response = GetResponse();
+		err = response.head;
+		code = response.tail.head;
+		if (code / 10 != 25) {
+			Close(err);
+			return;
+		} else {
+		}
+		if (response.tail.tail.head) {
+			if (err = Receive()) {
+				Close(err);
+			} else {
+			}
+			return;
+		} else {
+		}
+		if (err = Send("MAIL FROM:<" + mail_from + ">\n")) {
+			Close(err);
+			return;
+		} else {
+		}
+		state = "AwaitMailFromResponse";
+		if (err = Receive()) {
+			Close(err);
+			return;
+		} else {
+		}
+		return;
+	} else {
+	}
+	// --------
+	if (state == "AwaitMailFromResponse") {
+		response = GetResponse();
+		err = response.head;
+		code = response.tail.head;
+		if (code / 10 != 25) {
+			Close(err);
+			return;
+		} else {
+		}
+		if (response.tail.tail.head) {
+			if (err = Receive()) {
+				Close(err);
+			} else {
+			}
+			return;
+		} else {
+		}
+		rcpts_itr = al_dst_itr(rcpts);
+		rcpt_to = al_next(rcpts_itr);
+		if (err = Send("RCPT TO:<" + rcpt_to + ">\n")) {
+			Close(err);
+			return;
+		} else {
+		}
+		state = "AwaitRcptToResponse";
+		if (err = Receive()) {
+			Close(err);
+			return;
+		} else {
+		}
+		return;
+	} else {
+	}
+	// --------
+	if (state == "AwaitRcptToResponse") {
+		response = GetResponse();
+		err = response.head;
+		code = response.tail.head;
+		if (code / 10 != 25) {
+			Close(err);
+			return;
+		} else {
+		}
+		if (response.tail.tail.head) {
+			if (err = Receive()) {
+				Close(err);
+			} else {
+			}
+			return;
+		} else {
+		}
+		var string rcpt_to;
+		if (rcpt_to = al_next(rcpts_itr)) {
+			if (err = Send("RCPT TO:<" + rcpt_to + ">\n")) {
+				Close(err);
+				return;
+			} else {
+			}
+		} else {
+			if (err = Send("DATA\n")) {
+				Close(err);
+				return;
+			} else {
+			}
+			state = "AwaitDataResponse";
+		}
+		if (err = Receive()) {
+			Close(err);
+			return;
+		} else {
+		}
+		return;
+	} else {
+	}
+	// --------
+	if (state == "AwaitDataResponse") {
+		response = GetResponse();
+		err = response.head;
+		code = response.tail.head;
+		if (code / 10 != 35) {
+			Close(err);
+			return;
+		} else {
+		}
+		if (response.tail.tail.head) {
+			if (err = Receive()) {
+				Close(err);
+			} else {
+			}
+			return;
+		} else {
+		}
+		var list itr;
+		var string addr, send_msg;
+		send_msg = al_copy("");
+		itr = al_dst_itr(to);
+		loop {
+			if (addr = al_next(itr)) {
+			} else {
+				break;
+			}
+			send_msg = al_append_str(send_msg, "To: " + addr + "\n");
+		}
+		itr = al_dst_itr(cc);
+		loop {
+			if (addr = al_next(itr)) {
+			} else {
+				break;
+			}
+			send_msg = al_append_str(send_msg, "Cc: " + addr + "\n");
+		}
+		send_msg = al_append_str(send_msg, "From: " + mail_from + "\n");
+		send_msg = al_append_str(send_msg, "Date: " + date + "\n");
+		send_msg = al_append_str(send_msg, "Subject: " + subject + "\n");
+		send_msg = al_append_str(send_msg, "Message-ID: " + message_id + "\n");
+		send_msg = al_append_str(send_msg, "MIME-Version: 1.0\n");
+		send_msg = al_append_str(send_msg, "X-Mailer: Altair STMPClient 0.00\n");
+		send_msg = al_append_str(send_msg, "Context-Type: text/plain; charset = \"" + charset + "\"\n");
+		send_msg = al_append_str(send_msg, "Cotent-Transfer-Encoding: 7bit\n");
+		send_msg = al_append_str(send_msg, "\n");
+		var file f;
+		var string line;
+		f = al_file_open(text, "sr");
+		loop {
+			if (line = al_file_read(f, "line")) {
+			} else {
+				break;
+			}
+			if (al_strlen(line) > 0 && al_get_char(line, 0) == '.') {
+				send_msg = al_append_str(send_msg, "." + line + "\n");
+			} else {
+				send_msg = al_append_str(send_msg, line + "\n");
+			}
+		}
+		send_msg = al_append_str(send_msg, "\n.\n");
+		if (err = Send(send_msg)) {
+			Close(err);
+			return;
+		} else {
+		}
+		state = "AwaitDataTransferResponse";
+		if (err = Receive()) {
+			Close(err);
+			return;
+		} else {
+		}
+		return;
+	} else {
+	}
+	// --------
+	if (state == "AwaitDataTransferResponse") {
+		response = GetResponse();
+		err = response.head;
+		code = response.tail.head;
+		if (code / 10 != 25) {
+			Close(err);
+			return;
+		} else {
+		}
+		if (response.tail.tail.head) {
+			if (err = Receive()) {
+				Close(err);
+			} else {
+			}
+			return;
+		} else {
+		}
+		if (err = Send("QUIT\n")) {
+			Close(err);
+			return;
+		} else {
+		}
+		state = "AwaitQuitResponse";
+		if (err = Receive()) {
+			Close(err);
+			return;
+		} else {
+		}
+		return;
+	} else {
+	}
+	// --------
+	if (state == "AwaitQuitResponse") {
+		response = GetResponse();
+		err = response.head;
+		code = response.tail.head;
+		if (code / 10 != 22) {
+			Close(err);
+			return;
+		} else {
+		}
+		if (response.tail.tail.head) {
+			if (err = Receive()) {
+				Close(err);
+			} else {
+			}
+			return;
+		} else {
+		}
+		Close((string)null);
+		return;
+	} else {
+	}
+	Close("unknown state(" + state + ")");
+}
+end_body
+member
+public: integer read_bytes;
+member
+public: string recv_msg;
+member
+public: list GetResponse();
+body
+{
+	var string err;
+	if (read_bytes < 0) {
+		err = (string)al_socket("get_last_error", s_id, null, null);
+		return al_list3(err, 0, null);
+	} else {
+	}
+	recv_msg = al_misc("binary_to_string", al_list3(buffer, 0, read_bytes), null);
+	if (debug) {
+		al_print("Recv: " + recv_msg + "\n");
+	} else {
+	}
+	recv_msg = al_str_misc("d_to_u", recv_msg, null);
+	var file f;
+	var integer code, ch;
+	f = al_file_open(recv_msg, "sr");
+	if (code = al_file_read(f, "integer")) {
+	} else {
+		code = 0;
+	}
+	ch = al_file_read(f, "char");
+	if (ch == '-') {
+		ch = 1;
+	} else {
+		ch = null;
+	}
+	return al_list3("Response NG(" + (string)recv_msg + ")", code, ch);
+}
+end_body
+member
+public: list Send(string msg);
+body
+{
+	msg = al_str_misc("u_to_d", msg, null);
+	if (al_socket("send", s_id, msg, null)) {
+		var string err;
+		err = (string)al_socket("get_last_error", s_id, null, null);
+		return "Send Error(" + err + ")";
+	} else {
+	}
+	if (debug) {
+		al_print("Send: " + msg);
+	} else {
+	}
+	return null;
+}
+end_body
+member
+public: list GetDateAndMessageID();
+body
+{
+	var list dt;
+	var integer year, month, day, hour, min, sec, dayofweek;
+	dt = al_file_manip("current_datetime", null, null);
+	year = dt.head;
+	month = dt.tail.head;
+	day = dt.tail.tail.head;
+	hour = dt.tail.tail.tail.head;
+	min = dt.tail.tail.tail.tail.head;
+	sec = dt.tail.tail.tail.tail.tail.head;
+	dayofweek = al_file_manip("get_dayofweek", dt, null);
+	if (dayofweek == 1) {
+		date = "Sun";
+	} else {
+	}
+	if (dayofweek == 2) {
+		date = "Mon";
+	} else {
+	}
+	if (dayofweek == 3) {
+		date = "Tue";
+	} else {
+	}
+	if (dayofweek == 4) {
+		date = "Wed";
+	} else {
+	}
+	if (dayofweek == 5) {
+		date = "Thu";
+	} else {
+	}
+	if (dayofweek == 6) {
+		date = "Fri";
+	} else {
+	}
+	if (dayofweek == 7) {
+		date = "Sat";
+	} else {
+	}
+	date = date + ", " + (string)day + " ";
+	if (month == 1) {
+		date = date + "Jan";
+	} else {
+	}
+	if (month == 2) {
+		date = date + "Feb";
+	} else {
+	}
+	if (month == 3) {
+		date = date + "Mar";
+	} else {
+	}
+	if (month == 4) {
+		date = date + "April";
+	} else {
+	}
+	if (month == 5) {
+		date = date + "May";
+	} else {
+	}
+	if (month == 6) {
+		date = date + "June";
+	} else {
+	}
+	if (month == 7) {
+		date = date + "July";
+	} else {
+	}
+	if (month == 8) {
+		date = date + "Aug";
+	} else {
+	}
+	if (month == 9) {
+		date = date + "Sep";
+	} else {
+	}
+	if (month == 10) {
+		date = date + "Oct";
+	} else {
+	}
+	if (month == 11) {
+		date = date + "Nov";
+	} else {
+	}
+	if (month == 12) {
+		date = date + "Dec";
+	} else {
+	}
+	date = date + " " + (string)year + " ";
+	if (hour < 10) {
+		date = date + "0";
+	} else {
+	}
+	date = date + (string)hour + ":";
+	if (min < 10) {
+		date = date + "0";
+	} else {
+	}
+	date = date + (string)min + ":";
+	if (sec < 10) {
+		date = date + "0";
+	} else {
+	}
+	date = date + (string)sec + " JST";
+	if (month < 10) {
+		message_id = "0";
+	} else {
+	}
+	message_id = message_id + (string)month;
+	if (day < 10) {
+		message_id = message_id + "0";
+	} else {
+	}
+	message_id = message_id + (string)day;
+	message_id = message_id + (string)year;
+	if (hour < 10) {
+		message_id = message_id + "0";
+	} else {
+	}
+	message_id = message_id + (string)hour;
+	if (min < 10) {
+		message_id = message_id + "0";
+	} else {
+	}
+	message_id = message_id + (string)min;
+	if (sec < 10) {
+		message_id = message_id + "0";
+	} else {
+	}
+	message_id = message_id + (string)sec;
+	return al_list2(date, message_id);
+}
+end_body
+end_class
+$END_BODY

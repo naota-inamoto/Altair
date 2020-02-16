@@ -1,0 +1,9 @@
+; AlReg.def : モジュール パラメータの宣言
+
+LIBRARY      "ALREG.OCX"
+
+EXPORTS
+	DllCanUnloadNow PRIVATE
+	DllGetClassObject PRIVATE
+	DllRegisterServer PRIVATE
+	DllUnregisterServer PRIVATE

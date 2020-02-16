@@ -1,0 +1,99 @@
+B 53
+N 1 L
+N 2 L
+N 3 O TMGlyph
+N 4 S "tm"
+N 5 M 3 3 1. 0. 0. 0. 1. 0. 0. 0. 1.
+N 6 S "child"
+N 7 O HierIcon
+N 8 S "status"
+N 9 I 10
+N 10 S "left"
+N 11 I 0
+N 12 S "top"
+N 13 I 0
+N 14 S "right"
+N 15 I 40
+N 16 S "bottom"
+N 17 I 18
+N 18 S "icon_color"
+N 19 I 16777215
+N 20 R 0.
+N 21 R 0.
+N 22 R 40.
+N 23 R 18.
+N 24 L
+N 25 O TMGlyph
+N 26 M 3 3 1. 0. 40. 0. 1. 0. 0. 0. 1.
+N 27 O LabelGlyph
+N 28 I 0
+N 29 I 0
+N 30 I 1000
+N 31 I 18
+N 32 S "text"
+N 33 S ""
+N 34 S "font_name"
+N 35 S "ÇlÇr ÉSÉVÉbÉN"
+N 36 S "font_height"
+N 37 I 12
+N 38 S "font_width"
+N 39 I 0
+N 40 S "font_color"
+N 41 I 0
+N 42 S "top_margin"
+N 43 I 2
+N 44 S "left_margin"
+N 45 I 2
+N 46 R 40.
+N 47 R 0.
+N 48 R 1040.
+N 49 R 18.
+N 50 L
+N 51 L
+N 52 L
+N 53 O SpIdxGlyph
+h 1 2
+t 1 50
+h 2 3
+t 2 24
+a 3 5 4 0
+a 3 7 6 0
+a 7 9 8 0
+a 7 11 10 0
+a 7 13 12 0
+a 7 15 14 0
+a 7 17 16 0
+a 7 19 18 0
+a 3 20 10 0
+a 3 21 12 0
+a 3 22 14 0
+a 3 23 16 0
+h 24 25
+a 25 26 4 0
+a 25 27 6 0
+a 27 9 8 0
+a 27 28 10 0
+a 27 29 12 0
+a 27 30 14 0
+a 27 31 16 0
+a 27 33 32 0
+a 27 35 34 0
+a 27 37 36 0
+a 27 39 38 0
+a 27 41 40 0
+a 27 43 42 0
+a 27 45 44 0
+a 25 46 10 0
+a 25 47 12 0
+a 25 48 14 0
+a 25 49 16 0
+h 50 51
+t 50 52
+h 52 53
+a 53 3 6 0
+a 53 25 6 0
+a 53 20 10 0
+a 53 21 12 0
+a 53 48 14 0
+a 53 23 16 0
+E

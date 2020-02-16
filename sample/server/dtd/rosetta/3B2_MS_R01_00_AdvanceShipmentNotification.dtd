@@ -1,0 +1,426 @@
+<!--
+
+   RosettaNet XML Message Schema
+   3B2_MS_R01_00_AdvanceShipmentNotification.dtd (03-Jan-2001 14:49)
+   This document has been prepared by Edifecs (http://www.edifecs.com/)
+   based On the Business Collaboration Framework from requirements
+   in conformance with the RosettaNet methodology.
+
+-->
+
+
+<!ENTITY % common-attributes "id  CDATA #IMPLIED" >
+ 
+<!ELEMENT Pip3B2AdvanceShipmentNotification ( 
+          AdvancedShipmentNotification ,
+          fromRole ,
+          GlobalDocumentFunctionCode ,
+          thisDocumentGenerationDateTime ,
+          thisDocumentIdentifier ,
+          toRole ) > 
+
+<!ELEMENT AdvancedShipmentNotification ( 
+          BuyingPartner ,
+          OriginatingPartner ,
+          SellingPartner ,
+          Shipment ) > 
+
+<!ELEMENT BuyingPartner ( 
+          purchasedBy ) > 
+
+<!ELEMENT purchasedBy
+            ( PartnerDescription ) > 
+
+<!ELEMENT PartnerDescription ( 
+          BusinessDescription ,
+          ContactInformation? ,
+          GlobalPartnerClassificationCode? ) > 
+
+<!ELEMENT BusinessDescription ( 
+          GlobalBusinessIdentifier ,
+          NationalBusinessTaxIdentifier? ,
+          RegionalBusinessTaxIdentifier? ,
+          GlobalSupplyChainCode? ) > 
+
+<!ELEMENT GlobalBusinessIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT NationalBusinessTaxIdentifier ( 
+          BusinessTaxIdentifier ,
+          GlobalCountryCode ) > 
+
+<!ELEMENT BusinessTaxIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalCountryCode
+           ( #PCDATA ) >
+
+<!ELEMENT RegionalBusinessTaxIdentifier ( 
+          BusinessTaxIdentifier ,
+          regionName ) > 
+
+<!ELEMENT regionName
+           ( FreeFormText ) > 
+
+<!ELEMENT FreeFormText
+           ( #PCDATA ) >
+<!ATTLIST FreeFormText
+           xml:lang CDATA #IMPLIED >
+
+<!ELEMENT ContactInformation ( 
+          contactName ,
+          EmailAddress? ,
+          facsimileNumber? ,
+          PhysicalAddress? ,
+          telephoneNumber? ) > 
+
+<!ELEMENT contactName
+            ( FreeFormText ) > 
+
+<!ELEMENT EmailAddress
+           ( #PCDATA ) >
+
+<!ELEMENT facsimileNumber
+           ( CommunicationsNumber ) > 
+
+<!ELEMENT CommunicationsNumber
+           ( #PCDATA ) >
+
+<!ELEMENT PhysicalAddress ( 
+          addressLine1? ,
+          addressLine2? ,
+          addressLine3? ,
+          cityName? ,
+          GlobalCountryCode? ,
+          GlobalLocationIdentifier? ,
+          NationalPostalCode? ,
+          postOfficeBoxIdentifier? ,
+          regionName? ) > 
+
+<!ELEMENT addressLine1
+            ( FreeFormText ) > 
+
+<!ELEMENT addressLine2
+            ( FreeFormText ) > 
+
+<!ELEMENT addressLine3
+            ( FreeFormText ) > 
+
+<!ELEMENT cityName
+            ( FreeFormText ) > 
+
+<!ELEMENT GlobalLocationIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT NationalPostalCode
+           ( #PCDATA ) >
+
+<!ELEMENT postOfficeBoxIdentifier
+            ( FreeFormText ) > 
+
+<!ELEMENT telephoneNumber
+            ( CommunicationsNumber ) > 
+
+<!ELEMENT OriginatingPartner ( 
+          shipFrom ) > 
+
+<!ELEMENT shipFrom
+            ( PartnerDescription ) > 
+
+<!ELEMENT SellingPartner ( 
+          soldBy ) > 
+
+<!ELEMENT soldBy
+            ( PartnerDescription ) > 
+
+<!ELEMENT Shipment ( 
+          GlobalIncotermsCode? ,
+          GlobalShipmentChangeDispositionCode? ,
+          GlobalShipmentModeCode? ,
+          GlobalShippingServiceLevelCode ,
+          numberOfShippingContainers ,
+          ReceivingPartner ,
+          shipmentChangeReason? ,
+          shipmentIdentifier ,
+          ShipmentTransportationEvent? ,
+          ShippingContainer+ ,
+          TrackingReference* ,
+          transportedBy ) > 
+
+<!ELEMENT GlobalIncotermsCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalShipmentChangeDispositionCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalShipmentModeCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalShippingServiceLevelCode
+           ( #PCDATA ) >
+
+<!ELEMENT numberOfShippingContainers
+           ( CountableAmount ) > 
+
+<!ELEMENT CountableAmount
+           ( #PCDATA ) >
+
+<!ELEMENT ReceivingPartner ( 
+          shipto ) > 
+
+<!ELEMENT shipto
+            ( PartnerDescription ) > 
+
+<!ELEMENT shipmentChangeReason
+            ( FreeFormText ) > 
+
+<!ELEMENT shipmentIdentifier
+           ( ProprietaryReferenceIdentifier ) > 
+
+<!ELEMENT ProprietaryReferenceIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT ShipmentTransportationEvent ( 
+          confirmedEvent* ,
+          revisedScheduledEvent* ,
+          scheduledEvent* ) > 
+
+<!ELEMENT confirmedEvent
+            ( TransportationEvent ) > 
+
+<!ELEMENT TransportationEvent ( 
+          DateStamp ,
+          GlobalTransportEventCode ) > 
+
+<!ELEMENT DateStamp
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalTransportEventCode
+           ( #PCDATA ) >
+
+<!ELEMENT revisedScheduledEvent
+            ( TransportationEvent ) > 
+
+<!ELEMENT scheduledEvent
+            ( TransportationEvent ) > 
+
+<!ELEMENT ShippingContainer ( (
+          containerPhysicalDimension? ,
+          GlobalPackageTypeCode? ,
+          shippingContainerIdentifier ,
+          ShippingContainerItem+ ,
+          SubContainer* ) | Association ) > 
+<!ATTLIST ShippingContainer
+           %common-attributes; > 
+
+<!ELEMENT containerPhysicalDimension
+            ( PhysicalDimension ) > 
+
+<!ELEMENT PhysicalDimension ( 
+          HeightDimension? ,
+          LengthDimension? ,
+          VolumeDimension? ,
+          WeightDimension? ,
+          WidthDimension? ) > 
+
+<!ELEMENT HeightDimension
+           ( #PCDATA ) >
+<!ATTLIST HeightDimension
+           unit-of-measure    CDATA #REQUIRED>
+
+<!ELEMENT LengthDimension
+           ( #PCDATA ) >
+<!ATTLIST LengthDimension
+           unit-of-measure    CDATA #REQUIRED>
+
+<!ELEMENT VolumeDimension
+           ( #PCDATA ) >
+<!ATTLIST VolumeDimension
+           unit-of-measure    CDATA #REQUIRED>
+
+<!ELEMENT WeightDimension
+           ( #PCDATA ) >
+<!ATTLIST WeightDimension
+           unit-of-measure    CDATA #REQUIRED>
+
+<!ELEMENT WidthDimension
+           ( #PCDATA ) >
+<!ATTLIST WidthDimension
+           unit-of-measure    CDATA #REQUIRED>
+
+<!ELEMENT GlobalPackageTypeCode
+           ( #PCDATA ) >
+
+<!ELEMENT shippingContainerIdentifier
+           ( ProprietarySerialIdentifier ) > 
+
+<!ELEMENT ProprietarySerialIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT ShippingContainerItem ( 
+          DocumentSubLineReference+ ,
+          ExportLicense* ,
+          GlobalProductUnitOfMeasureCode ,
+          HazardousMaterialDescription* ,
+          isContainsHazardousMaterial ,
+          LotReference* ,
+          ManufacturerProfile* ,
+          NationalHarmonizedTariffScheduleCode? ,
+          numberOfItemPackages? ,
+          ProductIdentification ,
+          shippedQuantity ,
+          traceIdentifier* ) > 
+
+<!ELEMENT DocumentSubLineReference ( 
+          GlobalDocumentReferenceTypeCode ,
+          LineNumber? ,
+          ProprietaryDocumentIdentifier ,
+          subLineNumber? ) > 
+
+<!ELEMENT GlobalDocumentReferenceTypeCode
+           ( #PCDATA ) >
+
+<!ELEMENT LineNumber
+           ( #PCDATA ) >
+
+<!ELEMENT ProprietaryDocumentIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT subLineNumber
+            ( LineNumber ) > 
+
+<!ELEMENT ExportLicense ( 
+          NationalExportControlClassificationCode? ) > 
+
+<!ELEMENT NationalExportControlClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalProductUnitOfMeasureCode
+           ( #PCDATA ) >
+
+<!ELEMENT HazardousMaterialDescription ( 
+          NationalHazardousMaterialUnitedNationsClassificationCode ) > 
+
+<!ELEMENT NationalHazardousMaterialUnitedNationsClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT isContainsHazardousMaterial
+           ( AffirmationIndicator ) > 
+
+<!ELEMENT AffirmationIndicator
+           ( #PCDATA ) >
+
+<!ELEMENT LotReference ( 
+          expiryDate? ,
+          GlobalProductUnitOfMeasureCode ,
+          lotQuantity ,
+          ProprietaryLotIdentifier ) > 
+
+<!ELEMENT expiryDate
+            ( DateStamp ) > 
+
+<!ELEMENT lotQuantity
+           ( ProductQuantity ) > 
+
+<!ELEMENT ProductQuantity
+           ( #PCDATA ) >
+
+<!ELEMENT ProprietaryLotIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT ManufacturerProfile ( 
+          countryOfOrigin? ,
+          manufactureDate? ,
+          productSerialIdentifier? ) > 
+
+<!ELEMENT countryOfOrigin
+            ( GlobalCountryCode ) > 
+
+<!ELEMENT manufactureDate
+            ( DateStamp ) > 
+
+<!ELEMENT productSerialIdentifier
+            ( ProprietarySerialIdentifier ) > 
+
+<!ELEMENT NationalHarmonizedTariffScheduleCode
+           ( #PCDATA ) >
+
+<!ELEMENT numberOfItemPackages
+            ( CountableAmount ) > 
+
+<!ELEMENT ProductIdentification ( 
+          GlobalProductIdentifier? ,
+          PartnerProductIdentification* ) > 
+
+<!ELEMENT GlobalProductIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT PartnerProductIdentification ( 
+          GlobalPartnerClassificationCode ,
+          ProprietaryProductIdentifier ,
+          revisionIdentifier? ) > 
+
+<!ELEMENT GlobalPartnerClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT ProprietaryProductIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT revisionIdentifier
+            ( FreeFormText ) > 
+
+<!ELEMENT shippedQuantity
+            ( ProductQuantity ) > 
+
+<!ELEMENT traceIdentifier
+            ( ProprietaryLotIdentifier ) > 
+
+<!ELEMENT SubContainer ( 
+          ShippingContainer ) > 
+
+<!ELEMENT TrackingReference ( 
+          GlobalTrackingReferenceTypeCode ,
+          ProprietaryShipmentTrackingIdentifier ) > 
+
+<!ELEMENT GlobalTrackingReferenceTypeCode
+           ( #PCDATA ) >
+
+<!ELEMENT ProprietaryShipmentTrackingIdentifier
+           ( #PCDATA ) >
+
+<!ELEMENT transportedBy
+            ( PartnerDescription ) > 
+
+<!ELEMENT fromRole
+            ( PartnerRoleDescription ) > 
+
+<!ELEMENT PartnerRoleDescription ( 
+          ContactInformation? ,
+          GlobalPartnerRoleClassificationCode ,
+          PartnerDescription ) > 
+
+<!ELEMENT GlobalPartnerRoleClassificationCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalSupplyChainCode
+           ( #PCDATA ) >
+
+<!ELEMENT GlobalDocumentFunctionCode
+           ( #PCDATA ) >
+
+<!ELEMENT thisDocumentGenerationDateTime
+           ( DateTimeStamp ) > 
+
+<!ELEMENT DateTimeStamp
+           ( #PCDATA ) >
+
+<!ELEMENT thisDocumentIdentifier
+            ( ProprietaryDocumentIdentifier ) > 
+
+<!ELEMENT toRole
+            ( PartnerRoleDescription ) > 
+
+<!ELEMENT Association      EMPTY>
+<!ATTLIST Association
+          reference   ID  #REQUIRED>
+

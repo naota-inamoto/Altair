@@ -1,0 +1,414 @@
+/* -------- ‘½•Ï”‘½€Ž®‚ÌEZGCD‚É‚æ‚é–ñ•ª -------- */
+ezgcd(a) {
+  a == ("rat", m0, d0) -> {
+    m0 == d0 -> ("poly", (((1, 1), null, null)), null);
+    (m1, d1) == normalize2(m0, d0) -> {
+      is_zero(m1) -> ("poly", null, null);
+      is_one(d1) -> m1;
+      is_minus_one(d1) -> neg(m1);
+      ml == poly_length(m1), dl == poly_length(d1) -> {
+        dl == 1 -> ("rat", m1, d1);
+        ml == 1 -> ("rat", m1, d1);
+        (d, m) == divmod_poly(m1, d1), is_zero(m) -> d;
+        gcd == gcd_vn_poly(m1, d1) -> {
+          is_one(gcd) -> ("rat", m1, d1);
+debug("ezgcd: gcd = ", gcd),
+          (m2, m22) == divmod_poly(m1, gcd), is_zero(m22), 
+          (d2, d22) == divmod_poly(d1, gcd), is_zero(d22) -> {
+            is_one(d2) -> m2;
+            is_minus_one(d2) -> neg(m2);
+            true -> ("rat", m2, d2);
+          }
+        }
+      }
+    }
+  }
+  true -> a;
+}
+
+/* -------- ‘½•Ï”‘½€Ž®‚ÌEZGCD‚É‚æ‚éÅ¬Œö–ñ‘½€Ž®‚ÌŽæ“¾ -------- */
+gcd_vn_poly(p1, p2) {
+  p1 == ("poly", tl11, opt1), p2 == ("poly", tl22, opt2)
+    -> ("poly", gcd_vn_poly_tl(tl11, tl22), null);
+}
+gcd_vn_poly_tl(tl11, tl22) {
+  length(tl11) <= 1 -> const_tl(1);
+  length(tl22) <= 1 -> const_tl(1);
+  tl1 == math("normalize", tl11),
+  tl2 == math("normalize", tl22),
+  vl1 == poly_get_vars(tl11),
+  fl1 == poly_get_funcs(tl1),
+  vl2 == poly_get_vars(tl2),
+  fl2 == poly_get_funcs(tl2),
+  vs == set_union(vl1, vl2),
+  fs == set_union(fl1, fl2),
+  vars == set_union(vs, fs),
+  vs2 == set_intersection(vl1, vl2),
+  fs2 == set_intersection(fl1, fl2),
+  vars2 == set_union(vs2, fs2)
+   -> {
+    vars2 == null
+      -> const_tl(1);
+    vars2 == (("var", v, l))
+      -> gcd_v1_poly_tl(tl1, tl2, "var", v, l);
+    vars2 == (("func", v, l))
+      -> gcd_v1_poly_tl(tl1, tl2, "func", v, l);
+    vars == ((vf, v, l), varst...)
+      -> EZGCD(tl1, tl2, vf, v, l, varst);
+  }
+}
+poly_get_vars(tl) {
+  tl == null -> null;
+  tl == ((c, vl, *), tlt...)
+    -> set_union(
+         poly_get_vars2(vl),
+         poly_get_vars(tlt)
+       );
+}
+poly_get_vars2(vl) {
+  vl == null -> null;
+  vl == (("var", v, il, *), vlt...)
+    -> set_add_elem(poly_get_vars2(vlt), ("var", v, il));
+}
+poly_get_funcs(tl) {
+  tl == null -> null;
+  tl == ((c, *, fl), tlt...) 
+    -> set_union(
+         poly_get_funcs2(fl),
+         poly_get_funcs(tlt)
+       );
+}
+poly_get_funcs2(fl) {
+  fl == null -> null;
+  fl == (("func", v, al, *), flt...)
+    -> set_add_elem(poly_get_funcs2(flt), ("func", v, al));
+}
+
+EZGCD(tl1, tl2, vf, v, l, varst) prog {
+debug("EZGCD: tl1 = ", tl1);
+debug("EZGCD: tl2 = ", tl2);
+  tree = gcd_sign_tree(length(varst));
+  x1 = -1;
+  while (1) {
+    x1 = x1 + 1;
+debug("EZGCD: x1 = ", x1);
+    for t in tree {
+debug("EZGCD: t = ", t);
+
+      tl11 = to_v1_poly(tl1, varst, t, x1);
+debug("EZGCD: tl11 = ", tl11);
+      if (length(tl11) <= 1) continue;
+      tl11 = math("normalize", tl11);
+debug("EZGCD: tl11(2) = ", tl11);
+      if (degree_poly(tl11, vf, v, l) < degree_poly(tl1, vf, v, l)) continue;
+
+      tl12 = to_v1_poly(tl2, varst, t, x1);
+debug("EZGCD: tl12 = ", tl12);
+      if (length(tl12) <= 1) continue;
+      tl12 = math("normalize", tl12);
+debug("EZGCD: tl12(2) = ", tl12);
+      if (degree_poly(tl12, vf, v, l) < degree_poly(tl2, vf, v, l)) continue;
+
+      d0 = gcd_v1_poly_tl(tl11, tl12, vf, v, l);
+debug("EZGCD: d0 = ", d0);
+      if (is_one_tl(d0)) return const_tl(1);
+
+      f0 = div_poly_tl(tl11, d0);
+debug("EZGCD: f0(1) = ", f0);
+      chk_gcd = gcd_v1_poly_tl(d0, f0, vf, v, l);
+debug("EZGCD: chk_gcd(1) = ", chk_gcd);
+      if (is_one_tl(chk_gcd)) {
+        gcd2 = EZGCD2(tl1, tl2, d0, f0, vf, v, l, 2, varst, t, x1);
+debug("EZGCD: gcd2(1) = ", gcd2);
+        if (gcd2) return gcd2;
+      } else {
+
+        f0 = div_poly_tl(tl12, d0);
+debug("EZGCD: f0(2) = ", f0);
+        chk_gcd = gcd_v1_poly_tl(d0, f0, vf, v, l);
+debug("EZGCD: chk_gcd(2) = ", chk_gcd);
+        if (is_one_tl(chk_gcd)) {
+          gcd2 = EZGCD2(tl2, tl1, d0, f0, vf, v, l, 2, varst, t, x1);
+debug("EZGCD: gcd2(2) = ", gcd2);
+          if (gcd2) return gcd2;
+        } else {
+debug("EZGCD: TODO factorize ---------------- ", null);
+          return const_tl(1);
+        }
+      }
+    }
+  }
+}
+to_v1_poly(tl, vars, t, x1) {
+  tl == null -> null;
+  tl == (((c1, c2), vl, fl), tlt...)
+    -> add_poly_tl(
+         mul_poly_tl(
+           (((c1, c2), null, null)),
+           mul_poly_tl(
+             to_v1_poly_var (vl, vars, t, x1),
+             to_v1_poly_func(fl, vars, t, x1)
+           )
+         ),
+         to_v1_poly(tlt, vars, t, x1)
+       );
+}
+to_v1_poly_var(vl, vars, t, x1) {
+  vl == null -> const_tl(1);
+  vl == (("var", v, il, d), vlt...),
+  v1 == ("var", v, il) -> {
+    (s) == member_s(v1, vars, t, x1)
+      -> mul_poly_tl(
+           power_c_d(s, d),
+           to_v1_poly_var(vlt, vars, t, x1)
+         );
+    true
+      -> mul_poly_tl(
+           var_to_poly_tl(1, v, il, d),
+           to_v1_poly_var(vlt, vars, t, x1)
+         );
+  }
+}
+to_v1_poly_func(fl, vars, t, x1) {
+  fl == null -> const_tl(1);
+  fl == (("func", v, al, d), flt...),
+  f1 == ("func", v, al) -> {
+    (s) == member_s(f1, vars, t, x1)
+      -> mul_poly_tl(
+           power_c_d(s, d),
+           to_v1_poly_var(flt, vars, t, x1)
+         );
+    true
+      -> mul_poly_tl(
+           func_to_poly_tl(1, v, al, d),
+           to_v1_poly_var(flt, vars, t, x1)
+         );
+  }
+}
+member_s(v1, vars, t, x1) {
+  vars == null -> null;
+  vars == (var, varst...), t == (hh, tt...) -> {
+    v1 == var -> {
+      hh == 0 -> (x1);
+      true    -> (x1 + 1);
+    }
+    true -> member_s(v1, varst, tt, x1);
+  }
+}
+power_c_d(c, d) {
+  c == 0 -> null;
+  c == 1 -> const_tl(1);
+  true -> power_c_d_2(c, d);
+}
+power_c_d_2(c, d) prog {
+  ret = c;
+  for i in [1..d-1] {
+    ret = ret * c;
+  }
+  return const_tl(ret);
+}
+
+to_modSn_poly(tl, n, vars, t, x1) {
+  tl == null -> null;
+  tl == (((c1, c2), vl, fl), tlt...), t_deg == total_degree(vl, fl) -> {
+    t_deg >= n -> add_poly_tl(
+         mul_poly_tl(
+           (((c1, c2), null, null)),
+           mul_poly_tl(
+             to_v1_poly_var (vl, vars, t, x1),
+             to_v1_poly_func(fl, vars, t, x1)
+           )
+         ),
+         to_modSn_poly(tlt, n, vars, t, x1)
+       );
+    true -> add_poly_tl(
+         (((c1, c2), vl, fl)),
+         to_modSn_poly(tlt, n, vars, t, x1)
+       );
+  }
+}
+total_degree(vl, fl) {
+  true -> total_degree_var(vl) + total_degree_func(fl);
+}
+total_degree_var(vl) {
+  vl == null -> 0;
+  vl == (("var", n, l, d), vlt...) ->
+    d + total_degree_var(vlt);
+}
+total_degree_func(fl) {
+  fl == null -> 0;
+  fl == (("func", n, l, d), flt...) ->
+    d + total_degree_func(flt);
+}
+
+EZGCD2(tl1, tl2, d0, f0, vf, v, l, n, vars, t, x1) {
+debug("EZGCD2: tl1 = ", tl1),
+debug("EZGCD2: tl2 = ", tl2),
+debug("EZGCD2: d0 = ", d0),
+debug("EZGCD2: f0 = ", f0),
+debug("EZGCD2: vf = ", vf),
+debug("EZGCD2: v = ", v),
+debug("EZGCD2: l = ", l),
+// ai*d0 + bi*f0 = x^i
+// deg(ai) < deg(f0), deg(bi) <= deg(d0)
+ab == euclid_gcdex(d0, f0, vf, v, l)
+, debug("ab = ", ab)
+// Hensel lift
+  -> hensel_lift(tl1, tl2, d0, f0, vf, v, l, ab, n, vars, t, x1);
+}
+
+euclid_gcdex(d0, f0, vf, v, l) {
+  (a0, b0, deg) == euclid_gcdex2(d0, f0, vf, v, l) -> {
+    deg <= 1
+      -> x == vf_to_poly_tl(1, vf, v, l, 1),
+         a1 == mul_poly_tl(a0, x),
+         b1 == mul_poly_tl(b0, x),
+         ((a0, b0), (a1, b1));
+    true -> ((a0, b0), euclid_gcdex3(deg-1, a0, b0, d0, f0, vf, v, l, 1)...);
+  }
+}
+euclid_gcdex2(d0, f0, vf, v, l) prog {
+  r0 = d0; r1 = f0;
+  x0 = const_tl(1); x1 = null;
+  y0 = null; y1 = const_tl(1);
+debug("euclid_gcdex2: r0(ini) = ", r0);
+debug("euclid_gcdex2: r1(ini) = ", r1);
+  i = 2;
+  while (r1) {
+    deg0 = degree_poly(r0, vf, v, l);
+    deg1 = degree_poly(r1, vf, v, l);
+    if (i == 2) {
+      deg = deg0 + deg1;
+    }
+    q = div_poly_tl(r0, r1);
+    r2 = sub_poly_tl(r0, mul_poly_tl(r1, q));
+    x2 = sub_poly_tl(x0, mul_poly_tl(q, x1));
+    y2 = sub_poly_tl(y0, mul_poly_tl(q, y1));
+    r0 = r1; r1 = r2;
+    x0 = x1; x1 = x2;
+    y0 = y1; y1 = y2;
+debug("euclid_gcdex2: r0 = ", r0);
+debug("euclid_gcdex2: r1 = ", r1);
+debug("euclid_gcdex2: x0 = ", x0);
+debug("euclid_gcdex2: x1 = ", x1);
+debug("euclid_gcdex2: y0 = ", y0);
+debug("euclid_gcdex2: y1 = ", y1);
+    i = i + 1;
+  }
+debug("euclid_gcdex2: a0(1) = ", x0);
+debug("euclid_gcdex2: b0(1) = ", y0);
+  check = add_poly_tl(mul_poly_tl(x0, d0), mul_poly_tl(y0, f0));
+debug("euclid_gcdex2: check = ", check);
+  if (is_one_tl(check)) {
+    return (x0, y0, deg);
+  } else {
+    x0 = div_poly_tl(x0, check);
+    y0 = div_poly_tl(y0, check);
+debug("euclid_gcdex2: a0(2) = ", x0);
+debug("euclid_gcdex2: b0(2) = ", y0);
+    return (x0, y0, deg);
+  }
+}
+euclid_gcdex3(deg, a0, b0, d0, f0, vf, v, l, d) {
+  (ai, bi) == euclid_gcdex4(a0, b0, d0, f0, vf, v, l, d) -> {
+    deg <= 1
+      -> x == vf_to_poly_tl(1, vf, v, l, 1),
+         ai2 == mul_poly_tl(ai, x),
+         bi2 == mul_poly_tl(bi, x),
+         ((ai, bi), (ai2, bi2));
+    true -> ((ai, bi), euclid_gcdex3(deg-1, a0, b0, d0, f0, vf, v, l, d+1)...);
+  }
+}
+euclid_gcdex4(a0, b0, d0, f0, vf, v, l, d) prog {
+  xi = vf_to_poly_tl(1, vf, v, l, d);
+  ai = mod_poly_tl(mul_poly_tl(a0, xi), f0);
+  bi = mod_poly_tl(mul_poly_tl(b0, xi), d0);
+debug("euclid_gcdex4: ai = ", ai);
+debug("euclid_gcdex4: bi = ", bi);
+debug("euclid_gcdex4: check = ", add_poly_tl(mul_poly_tl(ai, d0), mul_poly_tl(bi, f0)));
+  return (ai, bi);
+}
+hensel_lift(tl1, tl2, d0, f0, vf, v, l, ab, n, vars, t, x1) prog {
+  d = degree_poly(tl1, vf, v, l);
+  f = hensel_lift2(tl1, tl2, d0, f0, vf, v, l, ab, d, n, vars, t, x1);
+  return f;
+}
+
+hensel_lift2(p1, pp2, d0, f0, vf, v, l, ab, d, n, vars, t, x1) prog {
+  p2 = sub_poly_tl(p1, mul_poly_tl(d0, f0));
+debug("hensel_lift2: d = ", d);
+debug("hensel_lift2: p1 = ", p1);
+debug("hensel_lift2: d0 = ", d0);
+debug("hensel_lift2: f0 = ", f0);
+debug("hensel_lift2: p2 = ", p2);
+  lc_p1 = coef_poly(p1, vf, v, l, degree_poly(p1, vf, v, l));
+  lc_p2 = coef_poly(p2, vf, v, l, degree_poly(p1, vf, v, l));
+debug("hensel_lift2: lc_p1 = ", lc_p1);
+debug("hensel_lift2: lc_p2 = ", lc_p2);
+  g = gcd_vn_poly_tl(lc_p1, lc_p2);
+debug("hensel_lift: g = ", g);
+  p1 = mul_poly_tl(p1, g);
+  d0 = rep_lc(d0, g, vf, v, l);
+  f0 = rep_lc(f0, lc_p1, vf, v, l);
+  return hensel_lift3(p1, pp2, d0, f0, vf, v, l, ab, d, n, vars, t, x1);
+}
+rep_lc(f, lc_new, vf, v, l) prog {
+  lc = coef_poly(f, vf, v, l, degree_poly(f, vf, v, l));
+  return div_poly_tl(mul_poly_tl(f, lc_new), lc);
+}
+
+hensel_lift3(p1, pp2, d0, f0, vf, v, l, ab, d, n, vars, t, x1) prog {
+debug("hensel_lift3: d = ", d);
+  for i in [0..d] {
+    p2 = sub_poly_tl(p1, mul_poly_tl(d0, f0));
+debug("hensel_lift3: p1 = ", p1);
+debug("hensel_lift3: d0 = ", d0);
+debug("hensel_lift3: f0 = ", f0);
+debug("hensel_lift3: p2 = ", p2);
+    d_s = get_d_s(p2, vf, v, l, d, n+i, vars, t, x1);
+    d0 = get_new_d0(d0, vf, v, l, d, ab, d_s);
+    f0 = get_new_f0(f0, vf, v, l, d, ab, d_s);
+debug("hensel_lift3: new_d0 = ", d0);
+debug("hensel_lift3: new_f0 = ", f0);
+    if (mod_poly_tl(p1, d0) == null && mod_poly_tl(pp2, d0) == null) {
+debug("hensel_lift3: return = ", d0);
+      return d0;
+    }
+  }
+debug("hensel_lift3: return = ", null);
+  return null;
+}
+get_d_s(p2, vf, v, l, d, n, vars, t, x1) prog {
+debug("get_d_s: n = ", n);
+  ret = null;
+  for i in [0..d] {
+    x = coef_poly(p2, vf, v, l, i);
+debug("get_d_s: coef = ", x);
+    x = to_modSn_poly(x, n, vars, t, x1);
+debug("get_d_s: to_modSn(coef) = ", x);
+    ret = append(ret, (x));
+  }
+debug("get_d_s: return = ", ret);
+  return ret;
+}
+get_new_d0(d0, vf, v, l, d, ab, d_s) prog {
+  ret = d0;
+  for i in [0..d] {
+    D = car(d_s);
+    B = car(cdr(car(ab)));
+    ret = add_poly_tl(ret, mul_poly_tl(D, B));
+    d_s = cdr(d_s); ab = cdr(ab);
+  }
+  return ret;
+}
+get_new_f0(f0, vf, v, l, d, ab, d_s) prog {
+  ret = f0;
+  for i in [0..d] {
+    D = car(d_s);
+    A = car(car(ab));
+    ret = add_poly_tl(ret, mul_poly_tl(D, A));
+    d_s = cdr(d_s); ab = cdr(ab);
+  }
+  return ret;
+}
+

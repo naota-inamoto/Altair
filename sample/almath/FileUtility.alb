@@ -1,0 +1,627 @@
+TEXT
+AlObject
+class FileUtility
+class FileItr
+end_class
+class RevFileItr
+end_class
+end_class
+class FileUtility
+member
+public: static string tempFile();
+member
+public: static list readBinary(string filename);
+member
+public: static string readString(string filename);
+member
+public: static void writeBinary(string filename, list bin);
+member
+public: static void writeBinary(string filename, list bin, integer from, integer size);
+member
+public: static void writeBinary(string filename, string str);
+member
+public: static void appendBinary(string filename, list bin);
+member
+public: static void appendBinary(string filename, list bin, integer from, integer size);
+member
+public: static void appendBinary(string filename, string str);
+member
+public: static void writeString(string filename, string str);
+member
+public: static void appendString(string filename, string str);
+member
+public: static list readGraphData(string filename);
+member
+public: static void writeGraphData(string filename, list data);
+member
+public: static list readTreeData(string filename);
+member
+public: static void writeTreeData(string filename, list data);
+member
+public: static void remove(string dir);
+member
+public: static void makeReadOnly(string dir);
+member
+public: static void makeWritable(string dir);
+class FileItr
+member
+public: void Reset(string root);
+member
+public: void Reset(string root, string root2);
+member
+public: list Next();
+member
+public: list stack;
+member
+public: string root;
+member
+public: string root2;
+member
+public: string path;
+member
+public: string name;
+member
+public: string abs_path;
+member
+public: string abs_path2;
+member
+public: list is_dir;
+end_class
+class RevFileItr
+member
+public: void Reset(string root);
+member
+public: void Reset(string root, string root2);
+member
+public: list Next();
+member
+public: list stack;
+member
+public: string root;
+member
+public: string root2;
+member
+public: string path;
+member
+public: string name;
+member
+public: string abs_path;
+member
+public: string abs_path2;
+member
+public: list is_dir;
+end_class
+end_class
+class FileUtility
+member
+public: static string tempFile();
+body
+{
+	var string dir;
+	dir = al_file_manip("tmp_dir", null, null);
+	return dir + "/" + al_file_manip("tmp_file", dir, null);
+}
+end_body
+member
+public: static list readBinary(string filename);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	var integer size;
+	var file in;
+	var list buffer;
+	if (al_file_manip("does_exist", filename, null)) {
+	} else {
+		ex.msg = "file '" + filename + "' not found.";
+		throw ex;
+	}
+	if (size = al_file_manip("get_size", filename, null)) {
+	} else {
+		ex.msg = "can't get file size of '" + filename + "'.";
+		throw ex;
+	}
+	if (in = al_file_open(filename, "rb")) {
+	} else {
+		ex.msg = "can't open read file '" + filename + "'.";
+		throw ex;
+	}
+	buffer = al_misc("binary", size, null);
+	if (al_file_read(in, al_list3(buffer, 0, size))) {
+		ex.msg = "file read error '" + (string)filename + "'.";
+		throw ex;
+	} else {
+	}
+	return buffer;
+}
+end_body
+member
+public: static string readString(string filename);
+body
+{
+	var list buffer;
+	var integer size;
+	var string str;
+	buffer = readBinary(filename);
+	size = al_misc("binary_size", buffer, null);
+	str = al_misc("binary_to_string", al_list3(buffer, 0, size), null);
+	return str;
+}
+end_body
+member
+public: static void writeBinary(string filename, list bin);
+body
+{
+	var integer size;
+	size = al_misc("binary_size", bin, null);
+	writeBinary(filename, bin, 0, size);
+}
+end_body
+member
+public: static void writeBinary(string filename, list bin, integer from, integer size);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	var file out;
+	if (out = al_file_open(filename, "wb")) {
+	} else {
+		ex.msg = "can't open write file '" + filename + "'.";
+		throw ex;
+	}
+	if (al_file_write(out, al_list3(bin, from, size), null)) {
+		ex.msg = "file write error '" + filename + "'.";
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: static void writeBinary(string filename, string str);
+body
+{
+	var integer size;
+	var list bin;
+	size = al_strlen(str);
+	bin = al_misc("binary", size, null);
+	al_misc("binary_copy", al_list2(bin, 0), str);
+	writeBinary(filename, bin, 0, size);
+}
+end_body
+member
+public: static void appendBinary(string filename, list bin);
+body
+{
+	var integer size;
+	size = al_misc("binary_size", bin, null);
+	appendBinary(filename, bin, 0, size);
+}
+end_body
+member
+public: static void appendBinary(string filename, list bin, integer from, integer size);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	var file out;
+	if (out = al_file_open(filename, "ab")) {
+	} else {
+		ex.msg = "can't open write file '" + filename + "'.";
+		throw ex;
+	}
+	if (al_file_write(out, al_list3(bin, from, size), null)) {
+		ex.msg = "file write error '" + filename + "'.";
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: static void appendBinary(string filename, string str);
+body
+{
+	var integer size;
+	var list bin;
+	size = al_strlen(str);
+	bin = al_misc("binary", size, null);
+	al_misc("binary_copy", al_list2(bin, 0), str);
+	appendBinary(filename, bin, 0, size);
+}
+end_body
+member
+public: static void writeString(string filename, string str);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	var file out;
+	if (out = al_file_open(filename, "w")) {
+	} else {
+		ex.msg = "can't open write file '" + filename + "'.";
+		throw ex;
+	}
+	if (al_file_write(out, "string", str)) {
+		ex.msg = "file write error '" + (string)filename + "'.";
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: static void appendString(string filename, string str);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	var file out;
+	if (out = al_file_open(filename, "a")) {
+	} else {
+		ex.msg = "can't open write file '" + filename + "'.";
+		throw ex;
+	}
+	if (al_file_write(out, "string", str)) {
+		ex.msg = "file write error '" + (string)filename + "'.";
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: static list readGraphData(string filename);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	var file in;
+	if (in = al_file_open(filename, "r")) {
+	} else {
+		ex.msg = "can't open read file '" + filename + "'.";
+		throw ex;
+	}
+	return al_file_read(in, "graph");
+}
+end_body
+member
+public: static void writeGraphData(string filename, list data);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	var file out;
+	if (out = al_file_open(filename, "w")) {
+	} else {
+		ex.msg = "can't open write file '" + filename + "'.";
+		throw ex;
+	}
+	if (al_file_write(out, "graph", data)) {
+		ex.msg = "file write error '" + filename + "'.";
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: static list readTreeData(string filename);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	var file in;
+	if (in = al_file_open(filename, "r")) {
+	} else {
+		ex.msg = "can't open read file '" + filename + "'.";
+		throw ex;
+	}
+	return al_file_read(in, "tree");
+}
+end_body
+member
+public: static void writeTreeData(string filename, list data);
+body
+{
+	var AlException ex;
+	ex = new AlException;
+	var file out;
+	if (out = al_file_open(filename, "w")) {
+	} else {
+		ex.msg = "can't open write file '" + filename + "'.";
+		throw ex;
+	}
+	if (al_file_write(out, "tree", data)) {
+		ex.msg = "file write error '" + filename + "'.";
+		throw ex;
+	} else {
+	}
+}
+end_body
+member
+public: static void remove(string dir);
+body
+{
+	var RevFileItr itr;
+	itr = new RevFileItr;
+	itr.Reset(dir);
+	loop {
+		if (itr.Next()) {
+		} else {
+			break;
+		}
+		al_file_manip("remove", itr.abs_path, null);
+	}
+}
+end_body
+member
+public: static void makeReadOnly(string dir);
+body
+{
+	var FileItr itr;
+	itr = new FileItr;
+	itr.Reset(dir);
+	loop {
+		if (itr.Next()) {
+		} else {
+			break;
+		}
+		al_file_manip("set_readonly", itr.abs_path, null);
+	}
+}
+end_body
+member
+public: static void makeWritable(string dir);
+body
+{
+	var FileItr itr;
+	itr = new FileItr;
+	itr.Reset(dir);
+	loop {
+		if (itr.Next()) {
+		} else {
+			break;
+		}
+		al_file_manip("set_readonly", itr.abs_path, 1);
+	}
+}
+end_body
+class FileItr
+member
+public: void Reset(string root);
+body
+{
+	if (al_file_manip("does_exist", root, null) && al_file_manip("is_dir", root, null)) {
+	} else {
+		return;
+	}
+	var list node, itr;
+	node = al_file_manip("find_file", root, null);
+	itr = al_dst_itr(node);
+	stack = al_cons(al_list2("", itr), stack);
+	this.root = root;
+	this.root2 = null;
+	abs_path = null;
+	abs_path2 = null;
+}
+end_body
+member
+public: void Reset(string root, string root2);
+body
+{
+	if (al_file_manip("does_exist", root, null) && al_file_manip("is_dir", root, null)) {
+	} else {
+		return;
+	}
+	var list node, itr;
+	node = al_file_manip("find_file", root, null);
+	itr = al_dst_itr(node);
+	stack = al_cons(al_list2("", itr), stack);
+	this.root = root;
+	this.root2 = root2;
+	abs_path = null;
+	abs_path2 = null;
+}
+end_body
+member
+public: list Next();
+body
+{
+	if (stack) {
+	} else {
+		return null;
+	}
+	var list itr, node;
+	if (abs_path) {
+	} else {
+		path = "";
+		name = "";
+		abs_path = root;
+		if (root2) {
+			abs_path2 = root2;
+		} else {
+		}
+		is_dir = al_file_manip("is_dir", abs_path, null);
+		return abs_path;
+	}
+	path = stack.head.head;
+	itr = stack.head.tail.head;
+	if (is_dir && name != "") {
+		node = al_file_manip("find_file", abs_path, null);
+		itr = al_dst_itr(node);
+		if (path == "") {
+			path = name;
+		} else {
+			path = path + "/" + name;
+		}
+		stack = al_cons(al_list2(path, itr), stack);
+	} else {
+	}
+	loop {
+		if (name = al_next(itr)) {
+		} else {
+			stack = stack.tail;
+			if (stack) {
+			} else {
+				return null;
+			}
+			path = stack.head.head;
+			itr = stack.head.tail.head;
+			continue;
+		}
+		if (name == "." || name == "..") {
+			continue;
+		} else {
+		}
+		if (path == "") {
+			abs_path = root + "/" + name;
+		} else {
+			abs_path = root + "/" + path + "/" + name;
+		}
+		if (root2) {
+			if (path == "") {
+				abs_path2 = root2 + "/" + name;
+			} else {
+				abs_path2 = root2 + "/" + path + "/" + name;
+			}
+		} else {
+		}
+		is_dir = al_file_manip("is_dir", abs_path, null);
+		return abs_path;
+	}
+}
+end_body
+member
+public: list stack;
+member
+public: string root;
+member
+public: string root2;
+member
+public: string path;
+member
+public: string name;
+member
+public: string abs_path;
+member
+public: string abs_path2;
+member
+public: list is_dir;
+end_class
+class RevFileItr
+member
+public: void Reset(string root);
+body
+{
+	if (al_file_manip("does_exist", root, null) && al_file_manip("is_dir", root, null)) {
+	} else {
+		return;
+	}
+	var list node, itr;
+	node = al_file_manip("find_file", root, null);
+	itr = al_dst_itr(node);
+	stack = al_cons(al_list2("", itr), stack);
+	this.root = root;
+	this.root2 = null;
+	abs_path = null;
+}
+end_body
+member
+public: void Reset(string root, string root2);
+body
+{
+	if (al_file_manip("does_exist", root, null) && al_file_manip("is_dir", root, null)) {
+	} else {
+		return;
+	}
+	var list node, itr;
+	node = al_file_manip("find_file", root, null);
+	itr = al_dst_itr(node);
+	stack = al_cons(al_list2("", itr), stack);
+	this.root = root;
+	this.root2 = root2;
+	abs_path = null;
+}
+end_body
+member
+public: list Next();
+body
+{
+	if (is_dir) {
+		stack = stack.tail;
+	} else {
+	}
+	if (stack) {
+	} else {
+		return null;
+	}
+	var list itr, node;
+	path = stack.head.head;
+	itr = stack.head.tail.head;
+	loop {
+		if (name = al_next(itr)) {
+		} else {
+			path = stack.head.head;
+			if (path == "") {
+				abs_path = root;
+			} else {
+				abs_path = root + "/" + path;
+			}
+			if (root2) {
+				if (path == "") {
+					abs_path2 = root2;
+				} else {
+					abs_path2 = root2 + "/" + path;
+				}
+			} else {
+			}
+			is_dir = 1;
+			return abs_path;
+		}
+		if (name == "." || name == "..") {
+			continue;
+		} else {
+		}
+		if (path == "") {
+			abs_path = root + "/" + name;
+		} else {
+			abs_path = root + "/" + path + "/" + name;
+		}
+		if (root2) {
+			if (path == "") {
+				abs_path2 = root2 + "/" + name;
+			} else {
+				abs_path2 = root2 + "/" + path + "/" + name;
+			}
+		} else {
+		}
+		is_dir = al_file_manip("is_dir", abs_path, null);
+		if (is_dir) {
+			node = al_file_manip("find_file", abs_path, null);
+			itr = al_dst_itr(node);
+			if (path == "") {
+				path = name;
+			} else {
+				path = path + "/" + name;
+			}
+			stack = al_cons(al_list2(path, itr), stack);
+		} else {
+			return abs_path;
+		}
+	}
+}
+end_body
+member
+public: list stack;
+member
+public: string root;
+member
+public: string root2;
+member
+public: string path;
+member
+public: string name;
+member
+public: string abs_path;
+member
+public: string abs_path2;
+member
+public: list is_dir;
+end_class
+end_class

@@ -1,0 +1,69 @@
+// RobotVision.odl : ActiveX コントロール プロジェクトのタイプ ライブラリのソース
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(C8422E3B-D05D-4BE4-B8E7-DAD5F332DC7A), version(1.0),
+  helpfile("RobotVision.hlp"),
+  helpstring("RobotVision ActiveX ｺﾝﾄﾛｰﾙ ﾓｼﾞｭｰﾙ"),
+  control ]
+library ROBOTVISIONLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	[ uuid(218A5B90-1DF3-4456-8160-D5407CF613D1),
+	  helpstring("RobotVision Control 用ﾃﾞｨｽﾊﾟｯﾁ ｲﾝﾀｰﾌｪｲｽ"), hidden ]
+	dispinterface _DRobotVision
+	{
+		properties:
+			//{{AFX_ODL_PROP(CRobotVisionCtrl)
+			[id(1)] BSTR DriverName;
+			[id(2)] BSTR DriverVersion;
+			[id(3)] long DeviceIndex;
+			[id(4)] short PreviewRate;
+			[id(5)] boolean Preview;
+			[id(6)] boolean Overlay;
+			[id(7)] boolean PreviewScale;
+			//}}AFX_ODL_PROP
+
+		methods:
+			//{{AFX_ODL_METHOD(CRobotVisionCtrl)
+			[id(8)] short Start();
+			[id(9)] void Stop();
+			[id(10)] boolean SaveBitmap(BSTR filename);
+			[id(11)] boolean DlgVideoFormat();
+			[id(12)] boolean StartCapture(BSTR filename);
+			[id(13)] void StopCapture();
+			[id(14)] boolean DlgVideoSource();
+			[id(15)] boolean DlgVideoCompression();
+			[id(16)] void ImageWindow();
+			//}}AFX_ODL_METHOD
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	[ uuid(7F1ECA08-01D1-49EF-8D75-6A3F9999F44D),
+	  helpstring("Event interface for RobotVision Control") ]
+	dispinterface _DRobotVisionEvents
+	{
+		properties:
+			//  イベント インターフェイスにプロパティはありません
+
+		methods:
+			//{{AFX_ODL_EVENT(CRobotVisionCtrl)
+			//}}AFX_ODL_EVENT
+	};
+
+	[ uuid(36292A29-AFF3-4F1D-B1E7-94D87556F725),
+	  helpstring("RobotVision Control"), control ]
+	coclass RobotVision
+	{
+		[default] dispinterface _DRobotVision;
+		[default, source] dispinterface _DRobotVisionEvents;
+	};
+
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};

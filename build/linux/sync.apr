@@ -1,0 +1,1007 @@
+$END_LIB
+TEXT
+AlObject
+class GUI
+class UnixToDos
+class UnixUtf8ToDos
+class UnixToDosPlain
+end_class
+end_class
+end_class
+class DosToUnix
+class DosToUnixUtf8
+class DosToUnixPlain
+end_class
+end_class
+end_class
+class FileItr
+end_class
+end_class
+TEXT
+AlObject
+class TP
+end_class
+$END_CLASS
+TEXT
+AlObject
+class GUI
+class UnixToDos
+member
+public: list exec();
+member
+public: string src_path;
+member
+public: string dst_path;
+member
+public: string rel_path;
+class UnixUtf8ToDos
+member
+public: list exec();
+class UnixToDosPlain
+member
+public: list exec();
+end_class
+end_class
+end_class
+class DosToUnix
+member
+public: list exec();
+member
+public: string src_path;
+member
+public: string dst_path;
+member
+public: string rel_path;
+class DosToUnixUtf8
+member
+public: list exec();
+class DosToUnixPlain
+member
+public: list exec();
+end_class
+end_class
+end_class
+class FileItr
+member
+public: void Reset(string root);
+member
+public: list Next();
+member
+public: string root;
+member
+public: list dir_list;
+member
+public: string path;
+member
+public: list stack;
+end_class
+end_class
+TEXT
+AlObject
+class TP
+member
+public: static void sync_d_to_u();
+member
+public: static void sync_d_to_u_utf8();
+member
+public: static void sync_u_to_d();
+member
+public: static void sync_u_utf8_to_d();
+member
+public: static void sync_doc_LF_to_CRLF();
+member
+public: static void sync_d_to_u(string src_root, string dst_root);
+member
+public: static void sync_d_to_u_utf8(string src_root, string dst_root);
+member
+public: static void sync_u_to_d(string src_root, string dst_root);
+member
+public: static void sync_u_utf8_to_d(string src_root, string dst_root);
+member
+public: static void sync_doc_LF_to_CRLF(string src_root, string dst_root);
+member
+public: static void d_to_u();
+member
+public: static void d_to_u_utf8();
+member
+public: static void u_to_d();
+member
+public: static void u_utf8_to_d();
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class GUI
+class UnixToDos
+member
+public: list exec();
+body
+{
+	var string fx;
+	fx = al_str_misc("file_ext", src_path, null);
+	if (fx == ".h" || fx == ".cpp" || fx == ".apr" || fx == ".alb" || fx == ".gpr" || fx == ".dtd" || fx == ".xml" || fx == ".xsl" || fx == ".syntax" || fx == ".math" || fx == ".rule") {
+		var file in, out;
+		if (in = al_file_open(src_path, "r")) {
+		} else {
+			return "can't open '" + src_path + "'.";
+		}
+		if (out = al_file_open(dst_path, "wb")) {
+		} else {
+			return "can't open '" + dst_path + "'.";
+		}
+		var string line, line2;
+		var integer len;
+		var list binary;
+		loop {
+			if (line = al_file_read(in, "line")) {
+			} else {
+				break;
+			}
+			if (line2 = al_str_misc("euc_to_sjis", line, null)) {
+				line = line2;
+			} else {
+			}
+			len = al_strlen(line);
+			binary = al_misc("binary", len + 2, null);
+			al_misc("binary_copy", al_list2(binary, 0), line);
+			al_misc("put_byte", al_list2(binary, len), 0x000000000000000d);
+			al_misc("put_byte", al_list2(binary, len + 1), 0x000000000000000a);
+			if (al_file_write(out, al_list3(binary, 0, len + 2), null)) {
+				return "disk may be full.";
+			} else {
+			}
+		}
+	} else {
+		al_file_manip("copy", src_path, dst_path);
+	}
+	if (rel_path) {
+		al_file_manip("copy", dst_path, rel_path);
+	} else {
+	}
+	return null;
+}
+end_body
+member
+public: string src_path;
+member
+public: string dst_path;
+member
+public: string rel_path;
+class UnixUtf8ToDos
+member
+public: list exec();
+body
+{
+	var string fx;
+	fx = al_str_misc("file_ext", src_path, null);
+	if (fx == ".h" || fx == ".cpp" || fx == ".apr" || fx == ".alb" || fx == ".gpr" || fx == ".dtd" || fx == ".xml" || fx == ".xsl" || fx == ".syntax" || fx == ".math" || fx == ".rule") {
+		var file in, out;
+		if (in = al_file_open(src_path, "r")) {
+		} else {
+			return "can't open '" + src_path + "'.";
+		}
+		if (out = al_file_open(dst_path, "wb")) {
+		} else {
+			return "can't open '" + dst_path + "'.";
+		}
+		var string line, line2;
+		var integer len;
+		var list binary;
+		loop {
+			if (line = al_file_read(in, "line")) {
+			} else {
+				break;
+			}
+			if (line2 = al_str_misc("utf8_to_sjis", line, null)) {
+				line = line2;
+			} else {
+			}
+			len = al_strlen(line);
+			binary = al_misc("binary", len + 2, null);
+			al_misc("binary_copy", al_list2(binary, 0), line);
+			al_misc("put_byte", al_list2(binary, len), 0x000000000000000d);
+			al_misc("put_byte", al_list2(binary, len + 1), 0x000000000000000a);
+			if (al_file_write(out, al_list3(binary, 0, len + 2), null)) {
+				return "disk may be full.";
+			} else {
+			}
+		}
+	} else {
+		al_file_manip("copy", src_path, dst_path);
+	}
+	if (rel_path) {
+		al_file_manip("copy", dst_path, rel_path);
+	} else {
+	}
+	return null;
+}
+end_body
+class UnixToDosPlain
+member
+public: list exec();
+body
+{
+	var string fx;
+	fx = al_str_misc("file_ext", src_path, null);
+	if (fx == ".html" || fx == ".h" || fx == ".cpp" || fx == ".apr" || fx == ".alb" || fx == ".gpr" || fx == ".dtd" || fx == ".xml" || fx == ".xsl" || fx == ".syntax" || fx == ".math" || fx == ".rule") {
+		var file in, out;
+		if (in = al_file_open(src_path, "r")) {
+		} else {
+			return "can't open '" + src_path + "'.";
+		}
+		if (out = al_file_open(dst_path, "wb")) {
+		} else {
+			return "can't open '" + dst_path + "'.";
+		}
+		var string line, line2;
+		var integer len;
+		var list binary;
+		loop {
+			if (line = al_file_read(in, "line")) {
+			} else {
+				break;
+			}
+			len = al_strlen(line);
+			binary = al_misc("binary", len + 2, null);
+			al_misc("binary_copy", al_list2(binary, 0), line);
+			al_misc("put_byte", al_list2(binary, len), 0x000000000000000d);
+			al_misc("put_byte", al_list2(binary, len + 1), 0x000000000000000a);
+			if (al_file_write(out, al_list3(binary, 0, len + 2), null)) {
+				return "disk may be full.";
+			} else {
+			}
+		}
+	} else {
+		al_file_manip("copy", src_path, dst_path);
+	}
+	if (rel_path) {
+		al_file_manip("copy", dst_path, rel_path);
+	} else {
+	}
+	return null;
+}
+end_body
+end_class
+end_class
+end_class
+class DosToUnix
+member
+public: list exec();
+body
+{
+	var string fx, name;
+	fx = al_str_misc("file_ext", src_path, null);
+	name = al_str_misc("name_of_path", src_path, null);
+	if (fx == ".h" || fx == ".cpp" || fx == ".apr" || fx == ".alb" || fx == ".gpr" || fx == ".dtd" || fx == ".xml" || fx == ".xsl" || fx == ".syntax" || fx == ".math" || fx == ".rule" || name == "Makefile" || name == "symlink" || name == "mksymlink" || name == "make_release") {
+		var file in, out;
+		if (in = al_file_open(src_path, "r")) {
+		} else {
+			return "can't open '" + src_path + "'.";
+		}
+		if (out = al_file_open(dst_path, "wb")) {
+		} else {
+			return "can't open '" + dst_path + "'.";
+		}
+		var string line, line2;
+		var integer len;
+		var list binary;
+		loop {
+			if (line = al_file_read(in, "line")) {
+			} else {
+				break;
+			}
+			if (line2 = al_str_misc("sjis_to_euc", line, null)) {
+				line = line2;
+			} else {
+			}
+			len = al_strlen(line);
+			binary = al_misc("binary", len + 1, null);
+			al_misc("binary_copy", al_list2(binary, 0), line);
+			al_misc("put_byte", al_list2(binary, len), 0x000000000000000a);
+			if (al_file_write(out, al_list3(binary, 0, len + 1), null)) {
+				return "disk may be full.";
+			} else {
+			}
+		}
+	} else {
+		al_file_manip("copy", src_path, dst_path);
+	}
+	if (rel_path) {
+		al_file_manip("copy", dst_path, rel_path);
+	} else {
+	}
+	return null;
+}
+end_body
+member
+public: string src_path;
+member
+public: string dst_path;
+member
+public: string rel_path;
+class DosToUnixUtf8
+member
+public: list exec();
+body
+{
+	var string fx, name;
+	fx = al_str_misc("file_ext", src_path, null);
+	name = al_str_misc("name_of_path", src_path, null);
+	if (fx == ".h" || fx == ".cpp" || fx == ".apr" || fx == ".alb" || fx == ".gpr" || fx == ".dtd" || fx == ".xml" || fx == ".xsl" || fx == ".syntax" || fx == ".math" || fx == ".rule" || name == "Makefile" || name == "symlink" || name == "mksymlink" || name == "make_release") {
+		var file in, out;
+		if (in = al_file_open(src_path, "r")) {
+		} else {
+			return "can't open '" + src_path + "'.";
+		}
+		if (out = al_file_open(dst_path, "wb")) {
+		} else {
+			return "can't open '" + dst_path + "'.";
+		}
+		var string line, line2;
+		var integer len;
+		var list binary;
+		loop {
+			if (line = al_file_read(in, "line")) {
+			} else {
+				break;
+			}
+			if (line2 = al_str_misc("sjis_to_utf8", line, null)) {
+				line = line2;
+			} else {
+			}
+			len = al_strlen(line);
+			binary = al_misc("binary", len + 1, null);
+			al_misc("binary_copy", al_list2(binary, 0), line);
+			al_misc("put_byte", al_list2(binary, len), 0x000000000000000a);
+			if (al_file_write(out, al_list3(binary, 0, len + 1), null)) {
+				return "disk may be full.";
+			} else {
+			}
+		}
+	} else {
+		al_file_manip("copy", src_path, dst_path);
+	}
+	if (rel_path) {
+		al_file_manip("copy", dst_path, rel_path);
+	} else {
+	}
+	return null;
+}
+end_body
+class DosToUnixPlain
+member
+public: list exec();
+body
+{
+	var string fx, name;
+	fx = al_str_misc("file_ext", src_path, null);
+	name = al_str_misc("name_of_path", src_path, null);
+	if (fx == ".h" || fx == ".cpp" || fx == ".apr" || fx == ".alb" || fx == ".gpr" || fx == ".dtd" || fx == ".xml" || fx == ".xsl" || fx == ".syntax" || fx == ".math" || fx == ".rule" || name == "Makefile" || name == "symlink" || name == "mksymlink" || name == "make_release") {
+		var file in, out;
+		if (in = al_file_open(src_path, "r")) {
+		} else {
+			return "can't open '" + src_path + "'.";
+		}
+		if (out = al_file_open(dst_path, "wb")) {
+		} else {
+			return "can't open '" + dst_path + "'.";
+		}
+		var string line, line2;
+		var integer len;
+		var list binary;
+		loop {
+			if (line = al_file_read(in, "line")) {
+			} else {
+				break;
+			}
+			len = al_strlen(line);
+			binary = al_misc("binary", len + 1, null);
+			al_misc("binary_copy", al_list2(binary, 0), line);
+			al_misc("put_byte", al_list2(binary, len), 0x000000000000000a);
+			if (al_file_write(out, al_list3(binary, 0, len + 1), null)) {
+				return "disk may be full.";
+			} else {
+			}
+		}
+	} else {
+		al_file_manip("copy", src_path, dst_path);
+	}
+	if (rel_path) {
+		al_file_manip("copy", dst_path, rel_path);
+	} else {
+	}
+	return null;
+}
+end_body
+end_class
+end_class
+end_class
+class FileItr
+member
+public: void Reset(string root);
+body
+{
+	var list node, itr;
+	this.root = root;
+	node = al_file_manip("find_file", root, null);
+	itr = al_dst_itr(node);
+	stack = al_cons(al_list2("", itr), null);
+	dir_list = al_cons(null, null);
+}
+end_body
+member
+public: list Next();
+body
+{
+	var list node, itr, name;
+	if (stack) {
+	} else {
+		return null;
+	}
+	path = stack.head.head;
+	itr = stack.head.tail.head;
+	loop {
+		if (name = al_next(itr)) {
+		} else {
+			stack = stack.tail;
+			if (stack) {
+			} else {
+				return null;
+			}
+			path = stack.head.head;
+			itr = stack.head.tail.head;
+			continue;
+		}
+		if (al_str_misc("starts_with", name, ".")) {
+			continue;
+		} else {
+		}
+		path = path + "/" + name;
+		if (al_file_manip("is_dir", root + path, null)) {
+		} else {
+			return root + path;
+		}
+		node = al_file_manip("find_file", root + path, null);
+		itr = al_dst_itr(node);
+		stack = al_cons(al_list2(path, itr), stack);
+		al_create_arc(dir_list, path, null);
+	}
+}
+end_body
+member
+public: string root;
+member
+public: list dir_list;
+member
+public: string path;
+member
+public: list stack;
+end_class
+end_class
+TEXT
+AlObject
+class TP
+member
+public: static void sync_d_to_u();
+body
+{
+	sync_d_to_u("C:/altair/src/include", "C:/vega/include");
+	sync_d_to_u("C:/altair/src/src", "C:/vega/src");
+	sync_d_to_u("C:/altair/sample", "C:/vega/sample");
+	// sync_d_to_u("C:/altair/util", "C:/vega/util");
+	al_print("done.\n");
+}
+end_body
+member
+public: static void sync_d_to_u_utf8();
+body
+{
+	sync_d_to_u_utf8("C:/altair/src/include", "C:/vega_utf8/include");
+	sync_d_to_u_utf8("C:/altair/src/src", "C:/vega_utf8/src");
+	sync_d_to_u_utf8("C:/altair/sample", "C:/vega_utf8/sample");
+	// sync_d_to_u_utf8("C:/altair/util", "C:/vega_utf8/util");
+	al_print("done.\n");
+}
+end_body
+member
+public: static void sync_u_to_d();
+body
+{
+	sync_u_to_d("C:/vega/include", "C:/altair/src/include");
+	sync_u_to_d("C:/vega/src", "C:/altair/src/src");
+	sync_u_to_d("C:/vega/sample", "C:/altair/sample");
+	// sync_u_to_d("C:/vega/util", "C:/altair/util");
+	al_print("done.\n");
+}
+end_body
+member
+public: static void sync_u_utf8_to_d();
+body
+{
+	sync_u_utf8_to_d("C:/vega_utf8/include", "C:/altair/src/include");
+	sync_u_utf8_to_d("C:/vega_utf8/src", "C:/altair/src/src");
+	sync_u_utf8_to_d("C:/vega_utf8/sample", "C:/altair/sample");
+	// sync_u__utf8_to_d("C:/vega_utf8/util", "C:/altair/util");
+	al_print("done.\n");
+}
+end_body
+member
+public: static void sync_doc_LF_to_CRLF();
+body
+{
+	sync_doc_LF_to_CRLF("D:/html/altair", "D:/html/html/altair");
+	al_print("done.\n");
+}
+end_body
+member
+public: static void sync_d_to_u(string src_root, string dst_root);
+body
+{
+	var DosToUnix dtou;
+	dtou = new DosToUnix;
+	var string err;
+	var FileItr itr;
+	var string src_file, dst_file, dir;
+	var list src_file_dt, dst_file_dt, itr2;
+	itr = new FileItr;
+	itr.Reset(src_root);
+	loop {
+		if (itr.Next()) {
+		} else {
+			break;
+		}
+		itr2 = al_dst_itr(itr.dir_list);
+		loop {
+			if (dir = al_next(itr2)) {
+			} else {
+				break;
+			}
+			al_remove(itr2);
+			if (al_file_manip("does_exist", dst_root + dir, null)) {
+			} else {
+				if (al_file_manip("mk_dir", dst_root + dir, null)) {
+					al_print("[ERROR] can't create directory '" + dst_root + dir + "'\n");
+					continue;
+				} else {
+				}
+				al_print("create directory: " + dst_root + dir + "\n");
+			}
+		}
+		src_file = src_root + itr.path;
+		src_file_dt = al_file_manip("get_datetime", src_file, null);
+		dst_file = dst_root + itr.path;
+		if (al_file_manip("does_exist", dst_file, null)) {
+		} else {
+			dtou.src_path = src_file;
+			dtou.dst_path = dst_file;
+			if (err = dtou.exec()) {
+				al_print("[ERROR] can't copy '" + dst_file + "'(" + err + ").\n");
+				continue;
+			} else {
+			}
+			al_file_manip("set_datetime", dst_file, src_file_dt);
+			al_print("create file: " + dst_file + "\n");
+			continue;
+		}
+		dst_file_dt = al_file_manip("get_datetime", dst_file, null);
+		if (src_file_dt <= dst_file_dt) {
+			continue;
+		} else {
+		}
+		dtou.src_path = src_file;
+		dtou.dst_path = dst_file;
+		if (err = dtou.exec()) {
+			al_print("[ERROR] can't copy '" + dst_file + "'(" + err + ").\n");
+			continue;
+		} else {
+		}
+		al_file_manip("set_datetime", dst_file, src_file_dt);
+		al_print("update file: " + dst_file + "\n");
+	}
+}
+end_body
+member
+public: static void sync_d_to_u_utf8(string src_root, string dst_root);
+body
+{
+	var DosToUnix dtou;
+	dtou = new DosToUnixUtf8;
+	var string err;
+	var FileItr itr;
+	var string src_file, dst_file, dir;
+	var list src_file_dt, dst_file_dt, itr2;
+	itr = new FileItr;
+	itr.Reset(src_root);
+	loop {
+		if (itr.Next()) {
+		} else {
+			break;
+		}
+		itr2 = al_dst_itr(itr.dir_list);
+		loop {
+			if (dir = al_next(itr2)) {
+			} else {
+				break;
+			}
+			al_remove(itr2);
+			if (al_file_manip("does_exist", dst_root + dir, null)) {
+			} else {
+				if (al_file_manip("mk_dir", dst_root + dir, null)) {
+					al_print("[ERROR] can't create directory '" + dst_root + dir + "'\n");
+					continue;
+				} else {
+				}
+				al_print("create directory: " + dst_root + dir + "\n");
+			}
+		}
+		src_file = src_root + itr.path;
+		src_file_dt = al_file_manip("get_datetime", src_file, null);
+		dst_file = dst_root + itr.path;
+		if (al_file_manip("does_exist", dst_file, null)) {
+		} else {
+			dtou.src_path = src_file;
+			dtou.dst_path = dst_file;
+			if (err = dtou.exec()) {
+				al_print("[ERROR] can't copy '" + dst_file + "'(" + err + ").\n");
+				continue;
+			} else {
+			}
+			al_file_manip("set_datetime", dst_file, src_file_dt);
+			al_print("create file: " + dst_file + "\n");
+			continue;
+		}
+		dst_file_dt = al_file_manip("get_datetime", dst_file, null);
+		if (src_file_dt <= dst_file_dt) {
+			continue;
+		} else {
+		}
+		dtou.src_path = src_file;
+		dtou.dst_path = dst_file;
+		if (err = dtou.exec()) {
+			al_print("[ERROR] can't copy '" + dst_file + "'(" + err + ").\n");
+			continue;
+		} else {
+		}
+		al_file_manip("set_datetime", dst_file, src_file_dt);
+		al_print("update file: " + dst_file + "\n");
+	}
+}
+end_body
+member
+public: static void sync_u_to_d(string src_root, string dst_root);
+body
+{
+	var UnixToDos utod;
+	utod = new UnixToDos;
+	var string err;
+	var FileItr itr;
+	var string src_file, dst_file, dir;
+	var list src_file_dt, dst_file_dt, itr2;
+	itr = new FileItr;
+	itr.Reset(src_root);
+	loop {
+		if (itr.Next()) {
+		} else {
+			break;
+		}
+		itr2 = al_dst_itr(itr.dir_list);
+		loop {
+			if (dir = al_next(itr2)) {
+			} else {
+				break;
+			}
+			al_remove(itr2);
+			if (al_file_manip("does_exist", dst_root + dir, null)) {
+			} else {
+				if (al_file_manip("mk_dir", dst_root + dir, null)) {
+					al_print("[ERROR] can't create directory '" + dst_root + dir + "'\n");
+					continue;
+				} else {
+				}
+				al_print("create directory: " + dst_root + dir + "\n");
+			}
+		}
+		src_file = src_root + itr.path;
+		src_file_dt = al_file_manip("get_datetime", src_file, null);
+		dst_file = dst_root + itr.path;
+		if (al_file_manip("does_exist", dst_file, null)) {
+		} else {
+			utod.src_path = src_file;
+			utod.dst_path = dst_file;
+			if (err = utod.exec()) {
+				al_print("[ERROR] can't copy '" + dst_file + "'(" + err + ").\n");
+				continue;
+			} else {
+			}
+			al_file_manip("set_datetime", dst_file, src_file_dt);
+			al_print("create file: " + dst_file + "\n");
+			continue;
+		}
+		dst_file_dt = al_file_manip("get_datetime", dst_file, null);
+		if (src_file_dt <= dst_file_dt) {
+			continue;
+		} else {
+		}
+		utod.src_path = src_file;
+		utod.dst_path = dst_file;
+		if (err = utod.exec()) {
+			if (err == 1) {
+				al_print("[Skip] '" + dst_file + ".'\n");
+				continue;
+			} else {
+				al_print("[ERROR] can't copy '" + dst_file + "'(" + err + ").\n");
+				continue;
+			}
+		} else {
+		}
+		al_file_manip("set_datetime", dst_file, src_file_dt);
+		al_print("update file: " + dst_file + "\n");
+	}
+}
+end_body
+member
+public: static void sync_u_utf8_to_d(string src_root, string dst_root);
+body
+{
+	var UnixToDos utod;
+	utod = new UnixUtf8ToDos;
+	var string err;
+	var FileItr itr;
+	var string src_file, dst_file, dir;
+	var list src_file_dt, dst_file_dt, itr2;
+	itr = new FileItr;
+	itr.Reset(src_root);
+	loop {
+		if (itr.Next()) {
+		} else {
+			break;
+		}
+		itr2 = al_dst_itr(itr.dir_list);
+		loop {
+			if (dir = al_next(itr2)) {
+			} else {
+				break;
+			}
+			al_remove(itr2);
+			if (al_file_manip("does_exist", dst_root + dir, null)) {
+			} else {
+				if (al_file_manip("mk_dir", dst_root + dir, null)) {
+					al_print("[ERROR] can't create directory '" + dst_root + dir + "'\n");
+					continue;
+				} else {
+				}
+				al_print("create directory: " + dst_root + dir + "\n");
+			}
+		}
+		src_file = src_root + itr.path;
+		src_file_dt = al_file_manip("get_datetime", src_file, null);
+		dst_file = dst_root + itr.path;
+		if (al_file_manip("does_exist", dst_file, null)) {
+		} else {
+			utod.src_path = src_file;
+			utod.dst_path = dst_file;
+			if (err = utod.exec()) {
+				al_print("[ERROR] can't copy '" + dst_file + "'(" + err + ").\n");
+				continue;
+			} else {
+			}
+			al_file_manip("set_datetime", dst_file, src_file_dt);
+			al_print("create file: " + dst_file + "\n");
+			continue;
+		}
+		dst_file_dt = al_file_manip("get_datetime", dst_file, null);
+		if (src_file_dt <= dst_file_dt) {
+			continue;
+		} else {
+		}
+		utod.src_path = src_file;
+		utod.dst_path = dst_file;
+		if (err = utod.exec()) {
+			if (err == 1) {
+				al_print("[Skip] '" + dst_file + ".'\n");
+				continue;
+			} else {
+				al_print("[ERROR] can't copy '" + dst_file + "'(" + err + ").\n");
+				continue;
+			}
+		} else {
+		}
+		al_file_manip("set_datetime", dst_file, src_file_dt);
+		al_print("update file: " + dst_file + "\n");
+	}
+}
+end_body
+member
+public: static void sync_doc_LF_to_CRLF(string src_root, string dst_root);
+body
+{
+	var UnixToDos utod;
+	utod = new UnixToDosPlain;
+	var string err;
+	var FileItr itr;
+	var string src_file, dst_file, dir;
+	var list src_file_dt, dst_file_dt, itr2;
+	itr = new FileItr;
+	itr.Reset(src_root);
+	loop {
+		if (itr.Next()) {
+		} else {
+			break;
+		}
+		itr2 = al_dst_itr(itr.dir_list);
+		loop {
+			if (dir = al_next(itr2)) {
+			} else {
+				break;
+			}
+			al_remove(itr2);
+			if (al_file_manip("does_exist", dst_root + dir, null)) {
+			} else {
+				if (al_file_manip("mk_dir", dst_root + dir, null)) {
+					al_print("[ERROR] can't create directory '" + dst_root + dir + "'\n");
+					continue;
+				} else {
+				}
+				al_print("create directory: " + dst_root + dir + "\n");
+			}
+		}
+		src_file = src_root + itr.path;
+		src_file_dt = al_file_manip("get_datetime", src_file, null);
+		dst_file = dst_root + itr.path;
+		if (al_file_manip("does_exist", dst_file, null)) {
+		} else {
+			utod.src_path = src_file;
+			utod.dst_path = dst_file;
+			if (err = utod.exec()) {
+				al_print("[ERROR] can't copy '" + dst_file + "'(" + err + ").\n");
+				continue;
+			} else {
+			}
+			al_file_manip("set_datetime", dst_file, src_file_dt);
+			al_print("create file: " + dst_file + "\n");
+			continue;
+		}
+		dst_file_dt = al_file_manip("get_datetime", dst_file, null);
+		if (src_file_dt <= dst_file_dt) {
+			continue;
+		} else {
+		}
+		utod.src_path = src_file;
+		utod.dst_path = dst_file;
+		if (err = utod.exec()) {
+			if (err == 1) {
+				al_print("[Skip] '" + dst_file + ".'\n");
+				continue;
+			} else {
+				al_print("[ERROR] can't copy '" + dst_file + "'(" + err + ").\n");
+				continue;
+			}
+		} else {
+		}
+		al_file_manip("set_datetime", dst_file, src_file_dt);
+		al_print("update file: " + dst_file + "\n");
+	}
+}
+end_body
+member
+public: static void d_to_u();
+body
+{
+	var DosToUnix inst;
+	inst = new DosToUnix;
+	var list dir_name;
+	var string dir, name;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	inst.src_path = dir + "/" + name;
+	if (dir_name = al_get_write_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	inst.dst_path = dir + "/" + name;
+	var list err;
+	if (err = inst.exec()) {
+		al_print("[ERROR] " + err + "\n");
+	} else {
+		al_print("done.\n");
+	}
+}
+end_body
+member
+public: static void d_to_u_utf8();
+body
+{
+	var DosToUnix inst;
+	inst = new DosToUnixUtf8;
+	var list dir_name;
+	var string dir, name;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	inst.src_path = dir + "/" + name;
+	if (dir_name = al_get_write_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	inst.dst_path = dir + "/" + name;
+	var list err;
+	if (err = inst.exec()) {
+		al_print("[ERROR] " + err + "\n");
+	} else {
+		al_print("done.\n");
+	}
+}
+end_body
+member
+public: static void u_to_d();
+body
+{
+	var UnixToDos inst;
+	inst = new UnixToDos;
+	var list dir_name;
+	var string dir, name;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	inst.src_path = dir + "/" + name;
+	if (dir_name = al_get_write_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	inst.dst_path = dir + "/" + name;
+	var list err;
+	if (err = inst.exec()) {
+		al_print("[ERROR] " + err + "\n");
+	} else {
+		al_print("done.\n");
+	}
+}
+end_body
+member
+public: static void u_utf8_to_d();
+body
+{
+	var UnixToDos inst;
+	inst = new UnixUtf8ToDos;
+	var list dir_name;
+	var string dir, name;
+	if (dir_name = al_get_read_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	inst.src_path = dir + "/" + name;
+	if (dir_name = al_get_write_filename("All Files(*.*)|*.*||", null)) {
+	} else {
+		return;
+	}
+	dir = dir_name.head;
+	name = dir_name.tail.head;
+	inst.dst_path = dir + "/" + name;
+	var list err;
+	if (err = inst.exec()) {
+		al_print("[ERROR] " + err + "\n");
+	} else {
+		al_print("done.\n");
+	}
+}
+end_body
+end_class
+$END_BODY

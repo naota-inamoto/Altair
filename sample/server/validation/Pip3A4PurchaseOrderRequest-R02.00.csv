@@ -1,0 +1,2292 @@
+dic-1,Buyer,  An employee or organization that buys products for a partner type in the supply chain.
+end-dic-1,,
+dic,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-1
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-6
+dic,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,dic-80
+dic-2,Electronic Components,  The electronic components supply chain.
+dic-2,Information Technology,  The information technology supply chain.
+end-dic-2,,
+dic,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,dic-2
+dic-3,Broker,  Representative of a third party.
+dic-3,Carrier,  Product carrier for transporting goods in supply chain.
+dic-3,Contract Manufacturer,  The party responsible for the services rendered.
+dic-3,Customs Broker,  Product customs broker in supply chain.
+dic-3,Distribution Center,  Product distributor in supply chain.
+dic-3,Distributor,  Product distributor in supply chain.
+dic-3,End User,  Product end user in supply chain.
+dic-3,End User Government,  End user government.
+dic-3,Financier,  Financial service provider in supply chain
+dic-3,Freight Forwarder,  Product freight forwarder for transporting goods in supply chain.
+dic-3,Manufacturer,  Product manufacturer in supply chain.
+dic-3,Original Equipment Manufacturer,  Product manufacturer of original equipment in the supply chain.
+dic-3,Reseller,  The party who buys goods from a manufacturer and resells them to customers unchanged.
+dic-3,Retailer,  Product retailer in supply chain.
+dic-3,Shopper,  Product shopper in supply chain.
+dic-3,Warehouser,  Product warehouser in supply chain.
+end-dic-3,,
+dic,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/GlobalPartnerClassificationCode,dic-8
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductIdentification/PartnerProductIdentification/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,dic-3
+dic-4,Request,  The business document is a request for a business action to be performed by a partner.
+end-dic-4,,
+dic,/Pip3A4PurchaseOrderRequest/GlobalDocumentFunctionCode,dic-4
+dic-5,AD,  ANDORRA
+dic-5,AE,  UNITED ARAB EMIRATES
+dic-5,AF,  AFGHANISTAN
+dic-5,AG,  ANTIGUA AND BARBUDA
+dic-5,AI,  ANGUILLA
+dic-5,AL,  ALBANIA
+dic-5,AM,  ARMENIA
+dic-5,AN,  NETHERLANDS ANTILLES
+dic-5,AO,  ANGOLA
+dic-5,AQ,  ANTARCTICA
+dic-5,AR,  ARGENTINA
+dic-5,AS,  AMERICAN SAMOA
+dic-5,AT,  AUSTRIA
+dic-5,AU,  AUSTRALIA
+dic-5,AW,  ARUBA
+dic-5,AZ,  AZERBAIJAN
+dic-5,BA,  BOSNIA AND HERZEGOVINA
+dic-5,BB,  BARBADOS
+dic-5,BD,  BANGLADESH
+dic-5,BE,  BELGIUM
+dic-5,BF,  BURKINA FASO
+dic-5,BG,  BULGARIA
+dic-5,BH,  BAHRAIN
+dic-5,BI,  BURUNDI
+dic-5,BJ,  BENIN
+dic-5,BM,  BERMUDA
+dic-5,BN,  BRUNEI DARUSSALAM
+dic-5,BO,  BOLIVIA
+dic-5,BR,  BRAZIL
+dic-5,BS,  BAHAMAS
+dic-5,BT,  BHUTAN
+dic-5,BV,  BOUVET ISLAND
+dic-5,BW,  BOTSWANA
+dic-5,BY,  BELARUS
+dic-5,BZ,  BELIZE
+dic-5,CA,  CANADA
+dic-5,CC,  COCOS (KEELING) ISLANDS
+dic-5,CF,  CENTRAL AFRICAN REPUBLIC
+dic-5,CG,  CONGO
+dic-5,CH,  SWITZERLAND
+dic-5,CI,  CÔTE D'IVOIRE
+dic-5,CK,  COOK ISLANDS
+dic-5,CL,  CHILE
+dic-5,CM,  CAMEROON
+dic-5,CN,  CHINA
+dic-5,CO,  COLOMBIA
+dic-5,CR,  COSTA RICA
+dic-5,CU,  CUBA
+dic-5,CV,  CAPE VERDE
+dic-5,CX,  CHRISTMAS ISLAND
+dic-5,CY,  CYPRUS
+dic-5,CZ,  CZECH REPUBLIC
+dic-5,DE,  GERMANY
+dic-5,DJ,  DJIBOUTI
+dic-5,DK,  DENMARK
+dic-5,DM,  DOMINICA
+dic-5,DO,  DOMINICAN REPUBLIC
+dic-5,DZ,  ALGERIA
+dic-5,EC,  ECUADOR
+dic-5,EE,  ESTONIA
+dic-5,EG,  EGYPT
+dic-5,EH,  WESTERN SAHARA
+dic-5,ER,  ERITREA
+dic-5,ES,  SPAIN
+dic-5,ET,  ETHIOPIA
+dic-5,FI,  FINLAND
+dic-5,FJ,  FIJI
+dic-5,FK,  FALKLAND ISLANDS (MALVINAS)
+dic-5,FM,"  MICRONESIA, FEDERATED STATES"
+dic-5,FO,  FAROE ISLANDS
+dic-5,FR,  FRANCE
+dic-5,GA,  GABON
+dic-5,GB,  UNITED KINGDOM
+dic-5,GD,  GRENADA
+dic-5,GE,  GEORGIA
+dic-5,GF,  FRENCH GUIANA
+dic-5,GH,  GHANA
+dic-5,GI,  GIBRALTAR
+dic-5,GL,  GREENLAND
+dic-5,GM,  GAMBIA
+dic-5,GN,  GUINEA
+dic-5,GP,  GUADELOUPE
+dic-5,GQ,  EQUATORIAL GUINEA
+dic-5,GR,  GREECE
+dic-5,GS,  SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS
+dic-5,GT,  GUATEMALA
+dic-5,GU,  GUAM
+dic-5,GW,  GUINEA-BISSAU
+dic-5,GY,  GUYANA
+dic-5,HK,  HONG KONG
+dic-5,HM,  HEARD ISLAND AND MCDONALD ISLANDS
+dic-5,HN,  HONDURAS
+dic-5,HR,  CROATIA
+dic-5,HT,  HAITI
+dic-5,HU,  HUNGARY
+dic-5,ID,  INDONESIA
+dic-5,IE,  IRELAND
+dic-5,IL,  ISRAEL
+dic-5,IN,  INDIA
+dic-5,IO,  BRITISH INDIAN OCEAN TERRITORY
+dic-5,IQ,  IRAQ
+dic-5,IR,"  IRAN, ISLAMIC REPUBLIC OF"
+dic-5,IS,  ICELAND
+dic-5,IT,  ITALY
+dic-5,JM,  JAMAICA
+dic-5,JO,  JORDAN
+dic-5,JP,  JAPAN
+dic-5,KE,  KENYA
+dic-5,KG,  KYRGYSTAN
+dic-5,KH,  CAMBODIA
+dic-5,KI,  KIRIBATI
+dic-5,KM,  COMOROS
+dic-5,KN,  SAINT KITTS AND NEVIS
+dic-5,KP,"  KOREA, DEMOCRATIC PEOPLE'S REP. OF"
+dic-5,KR,"  KOREA, REPUBLIC OF"
+dic-5,KW,  KUWAIT
+dic-5,KY,  CAYMAN ISLANDS
+dic-5,KZ,  KAZAKSTAN
+dic-5,LA,  LAO PEOPLE'S DEMOCRATIC REPUBLIC
+dic-5,LB,  LEBANON
+dic-5,LC,  SAINT LUCIA
+dic-5,LI,  LIECHTENSTEIN
+dic-5,LK,  SRI LANKA
+dic-5,LR,  LIBERIA
+dic-5,LS,  LESOTHO
+dic-5,LT,  LITHUANIA
+dic-5,LU,  LUXEMBOURG
+dic-5,LV,  LATVIA
+dic-5,LY,  LIBYAN ARAB JAMAHIRIYA
+dic-5,MA,  MOROCCO
+dic-5,MC,  MONACO
+dic-5,MD,"  MOLDOVA, REPUBLIC OF"
+dic-5,MG,  MADAGASCAR
+dic-5,MH,  MARSHALL ISLANDS
+dic-5,MK,"  MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF"
+dic-5,ML,  MALI
+dic-5,MM,  MYANMAR
+dic-5,MN,  MONGOLIA
+dic-5,MO,  MACAU
+dic-5,MP,  NORTHERN MARIANA ISLANDS
+dic-5,MQ,  MARTINIQUE
+dic-5,MR,  MAURITANIA
+dic-5,MS,  MONTSERRAT
+dic-5,MT,  MALTA
+dic-5,MU,  MAURITIUS
+dic-5,MV,  MALDIVES
+dic-5,MW,  MALAWI
+dic-5,MX,  MEXICO
+dic-5,MY,  MALAYSIA
+dic-5,MZ,  MOZAMBIQUE
+dic-5,NA,  NAMIBIA
+dic-5,NC,  NEW CALEDONIA
+dic-5,NE,  NIGER
+dic-5,NF,  NORFOLK ISLAND
+dic-5,NG,  NIGERIA
+dic-5,NI,  NICARAGUA
+dic-5,NL,  NETHERLANDS
+dic-5,NO,  NORWAY
+dic-5,NP,  NEPAL
+dic-5,NR,  NAURU
+dic-5,NT,  NEUTRAL ZONE
+dic-5,NU,  NIUE
+dic-5,NZ,  NEW ZEALAND
+dic-5,OM,  OMAN
+dic-5,PA,  PANAMA
+dic-5,PE,  PERU
+dic-5,PF,  FRENCH POLYNESIA
+dic-5,PG,  PAPUA NEW GUINEA
+dic-5,PH,  PHILIPPINES
+dic-5,PK,  PAKISTAN
+dic-5,PL,  POLAND
+dic-5,PM,  SAINT PIERRE AND MIQUELON
+dic-5,PN,  PITCAIRN
+dic-5,PR,  PUERTO RICO
+dic-5,PT,  PORTUGAL
+dic-5,PW,  PALAU
+dic-5,PY,  PARAGUAY
+dic-5,QA,  QATAR
+dic-5,RE,  REUNION
+dic-5,RO,  ROMANIA
+dic-5,RU,  RUSSIAN FEDERATION
+dic-5,RW,  RWANDA
+dic-5,SA,  SAUDI ARABIA
+dic-5,SB,  SOLOMON ISLANDS
+dic-5,SC,  SEYCHELLES
+dic-5,SD,  SUDAN
+dic-5,SE,  SWEDEN
+dic-5,SG,  SINGAPORE
+dic-5,SH,  SAINT HELENA
+dic-5,SI,  SLOVENIA
+dic-5,SJ,  SVALBARD AND JAN MAYEN ISLANDS
+dic-5,SK,  SLOVAKIA
+dic-5,SL,  SIERRA LEONE
+dic-5,SM,  SAN MARINO
+dic-5,SN,  SENEGAL
+dic-5,SO,  SOMALIA
+dic-5,SR,  SURINAME
+dic-5,ST,  SAO TOME AND PRINCIPE
+dic-5,SV,  EL SALVADOR
+dic-5,SY,  SYRIAN ARAB REPUBLIC
+dic-5,SZ,  SWAZILAND
+dic-5,TC,  TURKS AND CAICOS ISLANDS
+dic-5,TD,  CHAD
+dic-5,TF,  FRENCH SOUTHERN TERRITORIES
+dic-5,TG,  TOGO
+dic-5,TH,  THAILAND
+dic-5,TJ,  TAJIKISTAN
+dic-5,TK,  TOKELAU
+dic-5,TM,  TURKMENISTAN
+dic-5,TN,  TUNISIA
+dic-5,TO,  TONGA
+dic-5,TP,  EAST TIMOR
+dic-5,TR,  TURKEY
+dic-5,TT,  TRINIDAD AND TOBAGO
+dic-5,TV,  TUVALU
+dic-5,TW,"  TAIWAN, PROVINCE OF CHINA"
+dic-5,TZ,"  TANZANIA, UNITED REPUBLIC OF"
+dic-5,UA,  UKRAINE
+dic-5,UG,  UGANDA
+dic-5,UM,  UNITED STATES MINOR OUTLYING ISLANDS
+dic-5,US,  UNITED STATES
+dic-5,UY,  URUGUAY
+dic-5,UZ,  UZBEKISTAN
+dic-5,VA,  HOLY SEE (VATICAN CITY STATE)
+dic-5,VC,  SAINT VINCENT AND THE GRENADINES
+dic-5,VE,  VENEZUELA
+dic-5,VG,  VIRGIN ISLANDS (BRITISH)
+dic-5,VI,  VIRGIN ISLANDS (U.S.)
+dic-5,VN,  VIET NAM
+dic-5,VU,  VANUATU
+dic-5,WF,  WALLIS AND FUTUNA ISLANDS
+dic-5,WS,  SAMOA
+dic-5,YE,  YEMEN
+dic-5,YT,  MAYOTTE
+dic-5,YU,  YUGOSLAVIA
+dic-5,ZA,  SOUTH AFRICA
+dic-5,ZM,  ZAMBIA
+dic-5,ZR,  ZAIRE
+dic-5,ZW,  ZIMBABWE
+end-dic-5,,
+dic,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/countryOfOrigin/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/countryOfOrigin/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/requestedShipFrom/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/requestedShipFrom/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/requestedShipFrom/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalCountryCode,dic-5
+dic,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,dic-5
+dic-6,Account Supplier,  Any trading partner that buys or sells products/services from customers and/or vendors.
+dic-6,Account User,  Any trading partner that requires an account to buy or sell products/services.
+dic-6,Anonymous Buyer,  A requestor of information that chooses to remain anonymous.
+dic-6,Appointment Provider,  The stakeholder(s) in the shipment delivery activity.
+dic-6,Authorizer,"  The partner role that provides product authorization, from a product owner or manufacturer, for a reselling organization to resell a product."
+dic-6,Buyer,  An employee or organization that buys products for a partner type in the supply chain.
+dic-6,Catalog Distributor,  The partner role that distributes catalog information to catalog producers and buyers.
+dic-6,Catalog Producer,  The partner role that produces catalog information for a partner type in the supply chain.
+dic-6,Change Requester,  A party who has an interest in requesting a review of a possible change to the component.  The requester may be any party including customers and suppliers.
+dic-6,Change Review Forum,  A party who has responsibility for the review of Engineering Change Requests and the drafting and review of Engineering Change Orders.  The Change Review Forum is assumed to be at the company that has responsibility for the engineering aspects of the component affected by the change.
+dic-6,Claim Requester,  The owner of the shipments who is responsible for the intact delivery.
+dic-6,Consignee,  The receiver of the shipment.
+dic-6,Credit Provider,  This partner role is responsible for providing credit information about potential customers.
+dic-6,Credit Reference Requester,  This partner role is responsible for requesting credit information about potential customers.
+dic-6,Customer,  This partner role creates a demand for a product or service.
+dic-6,Customer Manager,  This partner role manages the relationship with the business customers.
+dic-6,Decision Stakeholder,"  The party (such as suppliers, customers and others) who is responsible for the review and approval of the Engineering Change Approval Request.  The stakeholders may be from multiple organizations."
+dic-6,Delivery Appointment Provider,  A party that receives a request for a change to a previously scheduled delivery appointment.
+dic-6,Delivery Appointment Requester,  A party that requests a change to a previously scheduled delivery appointment.
+dic-6,Demand Creator,"  The partner role that identifies the opportunity, submits design registration, provides engineering support to advance the opportunity towards design win, and generates revenue by satisfying customer demand for a product."
+dic-6,Failure Report Administrator,  An employee or organizational entity that receives and processes PIP Failure Notifications.
+dic-6,Financing Processor,  The organization that processes the request for financing.
+dic-6,Forecast Owner,  The party that creates a sales or order forecast and is ultimately responsible for it.
+dic-6,Forecast Recipient,  The party that receives a sales or order forecast.
+dic-6,Forecast Reply Recipient,  The party that receives a forecast reply. The Recipient can be the original forecast owner or other forecast partner (Please refer to the GlobalPartnerClassificationCode).
+dic-6,Implementation Plan Creator,"  The partner role that creates, maintains and manages an implementation plan associated with an Engineering Change Order."
+dic-6,In-transit Information User,  The party who receives shipment status information.
+dic-6,Invoice Provider,  The organization that generates the invoice.
+dic-6,Invoice Receiver,  The organization being invoiced.
+dic-6,Invoice Reject Provider,  The organization that rejects an invoice.
+dic-6,Invoice Reject Receiver,  The organization being issued an Invoice Reject Notification.
+dic-6,Marketing Activity Information User,"  The party who uses information about Marketing Activities.  This party might include distributors, and retail operations."
+dic-6,Marketing Activity Initiator,  The partner role that distributes information about marketing activities being sponsored by the organization.
+dic-6,PIP Failure Notifier,  An organizational process that automatically notifies the appropriate Failure Report Administrator of a PIP process failure.
+dic-6,Payee,  The party receiving a payment.
+dic-6,Payer,  The party issuing a payment.
+dic-6,Product Distributor,  The party authorized by a Product Supplier to purchase goods and services from the Product Supplier and resell to customers.
+dic-6,Product Information Distributor,  The partner role that distributes new product information to product information users and buyers.
+dic-6,Product Information Subscriber,  The business partner that subscribes to product information from other business partners.
+dic-6,Product Information User,  The partner role that uses product information to create or update enterprise systems and online promotion systems such as electronic catalog systems.
+dic-6,Product Provider,"  The partner role that creates a differentiated product, owns the registration process and creates a list of eligible products for use in design registration."
+dic-6,Product Supplier,  This partner role supplies product to customers in the supply chain.
+dic-6,Receiver,  The intended recipient of products or business information. The Receiver may verify receipt if prescribed.
+dic-6,Return Provider,  The party responsible for authorizing and/or processing the return.
+dic-6,Return Receiver,"  A third-party or warehousing operation responsible for receiving returns, inspecting the package contents and comparing to the issued RMA to assure the contents are what was authorized on the RMA."
+dic-6,Return Requester,"  Any party wishing to return a product.  This role could be played by a large end-user such as the Government Services Administration (GSA), a distributor, or a reseller."
+dic-6,Sales Facilitator,  This partner role facilitates the sale of product between partners in the supply chain.
+dic-6,Sales Lead Originator,  The party assigning a sales lead to another party.
+dic-6,Sales Lead Processor,"  The party who receives the sales lead.  This party is responsible for accepting or rejecting the lead, and if accepted, reports the status of the lead."
+dic-6,Sales Marketing Claim Processor,  The partner role that processes the claim and/or remits compensation to the Sales Marketing Claimant.
+dic-6,Sales Marketing Claimant,  The partner role that requests reimbursement from a Sales Marketing Claim Processor.
+dic-6,Sales Marketing Program Reimbursement Recipient,"  The partner role that receives status on a previously submitted sales marketing claim, or who receives reimbursement without submitting a claim."
+dic-6,Sales Marketing Program Reimburser,"  The partner role that is currently processing a sales marketing claim, (or providing a payment without a claim submitted) and who provides information on the status of the claim processing."
+dic-6,Seller,  An organization that sells products to partners in the supply chain.
+dic-6,Shipment Information User,  The party who receives shipment status information.
+dic-6,Shipment Requester,  The party requesting transportation services.
+dic-6,ShipmentController,  The party who is authorized to make decisions regarding a shipment while in-transit.
+dic-6,Shipper,  The party who relinquishes (assigns) a shipment to a transport service provider.
+dic-6,Solution Provider,"  The party that may architect, configure, engineer, sell, or determine the fulfillment of the configured solution to partners in the supply chain."
+dic-6,Solution Requester,"  This party that creates a demand for a product or service, or has contracted with a Solution Provider for the manufacture or fulfillment of a product(s)."
+dic-6,Specification Provider,"  The partner role that creates or passes on manufacturing specifications.  This may be a Solution Provider, an OEM who is sub-contracting manufacturing tasks like fabrication or assembly, or another party."
+dic-6,Specification User,  The partner role that uses a manufacturing specification.  This might be a sub-contract assembler or fabricator.
+dic-6,Stakeholder,"  The party that is required to implement an Engineering Change Order. The Stakeholder may include all levels of suppliers, customers or other parties.  The Stakeholder may represent multiple organizations.  The Stakeholder may draft and/or be responsible for completing tasks in an implementation plan."
+dic-6,Status Requester,"  The functional partner role, that could be a Product Provider, that creates a differentiated product, owns the registration process and creates a list of eligible products, or who is responsible for identifying the opportunity (that is, it could be a Demand Creator)."
+dic-6,Status Responder,"  The organizational partner role, that could be a Product Provider, that creates a differentiated product, owns the registration process and creates a list of eligible products, or who is responsible for identifying the opportunity (that is, it could be a Demand Creator)."
+dic-6,Supplier,  This partner role supplies product to customers in the supply chain.
+dic-6,Tender Information User,  The stakeholder(s) in the tendering activity.
+dic-6,Transport Service Provider,  The party that provides transportation services for a Shipment Requester.
+end-dic-6,,
+dic-7,American Express,
+dic-7,Discover,
+dic-7,EuroCard,
+dic-7,Japanese Credit Union,
+dic-7,Master Card,
+dic-7,Procurement,
+dic-7,Visa,
+end-dic-7,,
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/CreditCard/GlobalCreditCardClassificationCode,dic-7
+dic-8,Financier,  Financial service provider in supply chain
+end-dic-8,,
+dic-10,Checking,
+dic-10,Credit card,
+dic-10,Savings,
+end-dic-10,,
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/GlobalAccountClassificationCode,dic-10
+dic-13,Contract,
+dic-13,Delivery Note,
+dic-13,Invoice,
+dic-13,Purchase Order,
+dic-13,Quote,
+dic-13,Sales Order,
+dic-13,Waybill,
+dic-13,Work Order,
+end-dic-13,,
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/DocumentReference/GlobalDocumentReferenceTypeCode,dic-13
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/DocumentLineReference/GlobalDocumentReferenceTypeCode,dic-13
+dic-14,Bank transfer,
+dic-14,Basic discount offered,
+dic-14,Consignment,
+dic-14,Credit card,
+dic-14,Electronic payment system,
+dic-14,In kind payment,
+dic-14,Lease agreement,
+dic-14,Letter of credit,
+dic-14,Mutually defined/determined by TPA,
+dic-14,Net month following invoice,
+dic-14,Pay by check,
+dic-14,Prepay check,
+dic-14,Prepay credit card,
+dic-14,Prepay wire,
+dic-14,Previously charged,
+dic-14,Private netting,
+dic-14,Terms established/determined by TPA,
+dic-14,Waived,
+dic-14,Wire transfer,
+end-dic-14,,
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/FinancingTerms/GlobalFinanceTermsCode,dic-14
+dic-15,Acceptance,  Acceptance by buyer of tool/machine to be in working order per spec/contract.
+dic-15,Consumption,
+dic-15,Receipt of goods,
+dic-15,Shipment,
+end-dic-15,,
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/FinancingTerms/PaymentTerms/GlobalPaymentConditionCode,dic-15
+dic-16,Atomic energy,
+dic-16,Defense,
+dic-16,Domestic energy,
+dic-16,Energy & related programs,
+dic-16,Other defense,
+end-dic-16,,
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/GlobalGovernmentPriorityRatingCode,dic-16
+dic-17,High,
+dic-17,Low,
+dic-17,Medium,
+end-dic-17,,
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/GlobalPurchaseOrderFillPriorityCode,dic-17
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/GlobalPurchaseOrderFillPriorityCode,dic-17
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/GlobalPurchaseOrderFillPriorityCode,dic-17
+dic-18,Blanket,  Order quantity for blanket type purchase order is understood to be a blanket quantity maximum.
+dic-18,Consigned order,
+dic-18,Do not ship/invoice only,
+dic-18,ESD,
+dic-18,Evaluation,
+dic-18,Fulfillment,
+dic-18,Government,
+dic-18,Non-cancelable/non-returnable,
+dic-18,Packaged product,
+dic-18,Quote to order,
+dic-18,Repair,
+dic-18,Rework,
+dic-18,Sample,
+dic-18,Service,
+dic-18,Standard,
+dic-18,Warranty repair,
+dic-18,Warranty replacement,
+end-dic-18,,
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/GlobalPurchaseOrderTypeCode,dic-18
+dic-21,SCAC codes to be used.,
+end-dic-21,,
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/OrderShippingInformation/CarrierInformation/GlobalCarrierCode,dic-21
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/OrderShippingInformation/CarrierInformation/GlobalCarrierCode,dic-21
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/OrderShippingInformation/CarrierInformation/GlobalCarrierCode,dic-21
+dic-22,Destination,
+dic-22,Origin,
+end-dic-22,,
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/OrderShippingInformation/GlobalFreeOnBoardCode,dic-22
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/OrderShippingInformation/GlobalFreeOnBoardCode,dic-22
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/OrderShippingInformation/GlobalFreeOnBoardCode,dic-22
+dic-23,Advance collect,
+dic-23,Advance prepaid,
+dic-23,Cash in advance,
+dic-23,Cash on delivery,
+dic-23,Collect,
+dic-23,"Collect, freight credited to payment customer",
+dic-23,Credit card,
+dic-23,Customer pick-up/backhaul,
+dic-23,Letter of credit,
+dic-23,Not specified,
+dic-23,Payable elsewhere,
+dic-23,Pickup,
+dic-23,Prepaid (by seller),
+dic-23,Prepaid but charged to customer,
+dic-23,Prepaid only,
+dic-23,Return container freight free,
+dic-23,Return container freight paid by customer,
+dic-23,Return container freight paid by supplier,
+dic-23,Third party pay,
+end-dic-23,,
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/OrderShippingInformation/GlobalShipmentTermsCode,dic-23
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/OrderShippingInformation/GlobalShipmentTermsCode,dic-23
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/OrderShippingInformation/GlobalShipmentTermsCode,dic-23
+dic-24,9 A.M.,
+dic-24,A.M.,
+dic-24,Air Cargo,
+dic-24,Air Charter,
+dic-24,Air Economy,
+dic-24,Authorized Return Service,
+dic-24,Bulk Commodity Train,
+dic-24,Business Class,
+dic-24,Consignee Billing Service,
+dic-24,Courier Express,
+dic-24,Deferred Service,
+dic-24,Delivery Confirmation,
+dic-24,Delivery Confirmation Return,
+dic-24,Delivery Notification Only,
+dic-24,Delivery scheduled next day by cartage agent
+dic-24,Delivery scheduled second day by cartage agent
+dic-24,Delivery scheduled third day by cartage agent
+dic-24,Door Service
+dic-24,Expedited Service
+dic-24,Expedited Service - Worldwide
+dic-24,Express Service
+dic-24,Express Service - Worldwide
+dic-24,Express Service Plus
+dic-24,First Class
+dic-24,Ground
+dic-24,Manifest Freight
+dic-24,Metro
+dic-24,Multiweight
+dic-24,Next Day Air
+dic-24,Next Day Hundred Weight
+dic-24,Next Flight Out,
+dic-24,Next Morning,
+dic-24,Not Served,
+dic-24,Other Intermodal and Stack Service,
+dic-24,Overnight,
+dic-24,P.O. Box/Zip Code,
+dic-24,PM,
+dic-24,Passenger Service,
+dic-24,Pickup,
+dic-24,Premium Surface,
+dic-24,Primary Service Area - Next Day By 9,30 AM
+dic-24,Primary Service Area - Next Day by 10,30 A.M.
+dic-24,Primary Service Area - Next Day by 5,00 P.M.
+dic-24,Primary Service Area - Next Day by Noon,
+dic-24,Primary Service Area - Second Day by Noon,
+dic-24,Priority Mail,
+dic-24,Priority Mail Insured
+dic-24,Proof of Delivery (POD) with Signature
+dic-24,Regular
+dic-24,Same Day
+dic-24,Saturday
+dic-24,Saturday Pickup
+dic-24,Scheduled
+dic-24,Second Day
+dic-24,Second Day Air
+dic-24,Second Day Hundred Weight
+dic-24,Second Morning
+dic-24,Standard Class
+dic-24,Standard Ground
+dic-24,Standard Ground Hundred Weight
+dic-24,Standard Service
+dic-24,Sunday and Holidays
+dic-24,Three Day Service,
+dic-24,Time Critical,
+dic-24,Tracking - Ground,
+end-dic-24,,
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/OrderShippingInformation/GlobalShippingServiceLevelCode,dic-24
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/OrderShippingInformation/GlobalShippingServiceLevelCode,dic-24
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/OrderShippingInformation/GlobalShippingServiceLevelCode,dic-24
+dic-25,Add quantity to make minimum weight requirement,
+dic-25,Back order if items are out of stock or not yet published,
+dic-25,Back order if out of stock,
+dic-25,Back order only if new item,
+dic-25,Bid guarantee,
+dic-25,Combined small  disadvantaged business and labor surplus area set-aside,
+dic-25,Consignment,
+dic-25,Consolidate delivery,
+dic-25,Do not preship,
+dic-25,Do not ship/invoice only
+dic-25,Equal product allowed
+dic-25,Exclude Import Quota in First Cost
+dic-25,Factory ship
+dic-25,Fill or kill
+dic-25,Guaranteed sale
+dic-25,Include Import Quota in First Cost
+dic-25,Labor surplus area set-Aside
+dic-25,Large purchase set-aside for small business
+dic-25,May preship
+dic-25,Multi-year award
+dic-25,Mutually defined
+dic-25,No back order
+dic-25,No substitutes
+dic-25,Notify prior to shipment if quantity specified is not available
+dic-25,On Qualified Bidders List
+dic-25,On Qualified Manufacturers List
+dic-25,Other Unlisted Sales Condition
+dic-25,Partial labor surplus area set aside
+dic-25,Restricted to Qualified Products List (QPL) Products
+dic-25,Restricted to U.S. and Canadian Sources
+dic-25,Restricted to Young Investigator Program
+dic-25,Restricted to approved sources
+dic-25,Restricted to educational institutions
+dic-25,Restricted to historically black college or university or minority institution
+dic-25,Restricted to industrial preparedness program participants
+dic-25,Section (8a) set-aside
+dic-25,Set-aside for american indian-owned business
+dic-25,Ship Complete
+dic-25,Ship In-Place
+dic-25,Ship Partial - Balance Cancel
+dic-25,Ship Partial - Balance Substitute
+dic-25,Ship Partial - Carload Lots Only
+dic-25,Ship Partial - Item Qty Proportional To Total Order
+dic-25,Ship Partial - Truckload Lots Only
+dic-25,Ship Per Release
+dic-25,Ship Per Release or Buyer Authorization
+dic-25,Ship Per Schedule
+dic-25,Ship as soon as possible
+dic-25,Ship full truck only
+dic-25,Ship partial - balance back order
+dic-25,Small Remaining Balance Cancellation Allowed
+dic-25,Small Remaining Balance Cancellation Not Allowed
+dic-25,Small business with small  disadvantaged business consideration set-aside
+dic-25,Small disadvantaged business set-aside
+dic-25,Small purchase set aside for small businesses
+dic-25,Substitute item allowed
+dic-25,Unrestricted procurement
+dic-25,Warehouse ship,
+dic-25,Warranty,
+end-dic-25,,
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/OrderShippingInformation/GlobalSpecialFulfillmentRequestCode,dic-25
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/OrderShippingInformation/GlobalSpecialFulfillmentRequestCode,dic-25
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/OrderShippingInformation/GlobalSpecialFulfillmentRequestCode,dic-25
+dic-26,15 Minute Window,
+dic-26,24 Hour Availability,
+dic-26,A.M. Delivery Requirement,
+dic-26,Accepted by Carrier at Owner's Risk of Freezing,
+dic-26,Accessible Hazardous Material,
+dic-26,Additional Copy of Shipping Papers for Proof of Delivery,
+dic-26,Advance Loading,
+dic-26,Advanced Fee,
+dic-26,Aggregate Tender Discount,
+dic-26,Air Conditioning Disconnect and Connect,
+dic-26,Air Ride Tractor Service
+dic-26,Air Ride Truck Service
+dic-26,Anchoring and Unanchoring
+dic-26,Annual Volume
+dic-26,Apply a Uniform Code Council/International Article Numbering Association (UCC/EAN) Serial Shipping Container Label to the Shipping Containers
+dic-26,Armed Guard Service
+dic-26,Assembly Service Requested
+dic-26,Attachment - Customer's Document
+dic-26,Attachment - Prepaid Waybill
+dic-26,Attachment - Shipper's Export Document
+dic-26,Attachment - Shipper's Manifest
+dic-26,Attachment - Shipper's Packing Instructions
+dic-26,Attachments - Advance Only Waybill
+dic-26,Auxiliary Service
+dic-26,Barge Freight All Kinds Service
+dic-26,Bill Consignee for Weigh Charges
+dic-26,Bill Shipper for Weigh Charge
+dic-26,Blind Shipment
+dic-26,Block Stowage
+dic-26,Blocking and Bracing
+dic-26,"Bolster Load, Do Not Switch"
+dic-26,Bulky Article
+dic-26,Bunker Adjustment
+dic-26,Bunker Adjustment - 20 Foot Container
+dic-26,Bunker Adjustment - 40 Foot Container
+dic-26,Bunker Surcharge Authorized
+dic-26,Bypass Consolidation Point
+dic-26,Cargo Aboard
+dic-26,Cargo Taxes
+dic-26,Cargo on Board Certification Required
+dic-26,Carrier
+dic-26,Carrier Caboose
+dic-26,Carrier Guard Car Service
+dic-26,Carrier Load and Carrier Unload
+dic-26,Carrier Load and Consignee Unload
+dic-26,Certificate of Origin
+dic-26,Certification
+dic-26,Certification That the Newsprint Winding Cores Being Returned Empty Were Received Filled by Rail Freight Service
+dic-26,Certification that the Containers Being Returned Empty Were Received Filled by Rail Freight Service
+dic-26,Certification that this Shipment is for Recycling as Defined in Applicable Tariffs Containing Such Provisions
+dic-26,Chain and Binders
+dic-26,Circuitous Routing
+dic-26,Class Rates Applied
+dic-26,Cleaning
+dic-26,Cleared for Border Crossing
+dic-26,Cleared for Export
+dic-26,Clearinghouse Balance
+dic-26,Comb. Rates over Detroit
+dic-26,Commercial Invoice Preparation
+dic-26,Commodity Loaded Less Than or Equal To the Car Ordered
+dic-26,Completing Shipment
+dic-26,Conductivity/Anti-static Additive
+dic-26,Consignee Unload
+dic-26,Consolidation
+dic-26,Consolidation and Line Haul
+dic-26,Constant Surveillance
+dic-26,Container Diversion
+dic-26,Container Lease
+dic-26,Container Mounting
+dic-26,"Container, Consolidator Load"
+dic-26,"Container, Factory Load"
+dic-26,Contract Rates Apply
+dic-26,Controlled Atmosphere
+dic-26,Convert Commercial Bill of Lading (BOL) to Government BOL
+dic-26,"Courier, Overnight"
+dic-26,"Courier, Same Day"
+dic-26,Cross Town
+dic-26,Currency Adjustment - 20 Foot Container
+dic-26,Currency Adjustment - 40 Foot Container
+dic-26,Customer Required Appointment Number
+dic-26,Customer Required PRO Number
+dic-26,Customer Required Packing List
+dic-26,Customs Fees - Container Level
+dic-26,Customs Fees - Lift Level
+dic-26,Customs Inspection
+dic-26,Customs Papers Mailed
+dic-26,DOD Constant Surveillance Service
+dic-26,Dangerous
+dic-26,Delivery Only on Surrender of Written Order
+dic-26,Delivery Service
+dic-26,Delivery Verification Not Required
+dic-26,Demurrage
+dic-26,Destination Weights Apply
+dic-26,Detention (Vehicle)
+dic-26,Detention With Power Units (30 minute periods)
+dic-26,Detention With Power Units (60 minute periods)
+dic-26,Detention of Conveying Equipment Excluding the Power Unit
+dic-26,Detention of Conveying Equipment and the Power Unit
+dic-26,Direct Delivery
+dic-26,Distribution Service Requested
+dic-26,Do Not Couple to Double Shelf Couples
+dic-26,Do Not Divert
+dic-26,Do Not Freeze
+dic-26,Do Not Hump
+dic-26,Do Not Pool
+dic-26,Do Not Transfer Contents
+dic-26,Do Not Uncouple
+dic-26,Do not Hump or Hump into
+dic-26,Documentation - Special
+dic-26,Domestic
+dic-26,Drayage at Port of Debarkation (Rate Zone)
+dic-26,Drayage at Port of Embarkation (Rate Zone)
+dic-26,Drop and Run
+dic-26,Drop-Off Delivery
+dic-26,Electronic Equipment Transfer
+dic-26,Emergency Service
+dic-26,Empty Movement
+dic-26,Empty Return
+dic-26,Endorsed as Hazardous Material
+dic-26,Endorsement
+dic-26,Equipment
+dic-26,Escort
+dic-26,Escort Service with Overnight Subsistence
+dic-26,Escort Services (Telephone)
+dic-26,Escort/Courier Service
+dic-26,Excessive Valuation Authorized
+dic-26,Excessive Weight
+dic-26,Exclusive Use
+dic-26,Exclusive Use of Vehicle
+dic-26,Exempt Commodity
+dic-26,Expand Remove and Install
+dic-26,Expedite
+dic-26,Expedited Rates Applied
+dic-26,Expedited Service
+dic-26,Export
+dic-26,Export Preparation
+dic-26,Extra Driver
+dic-26,Extra Labor
+dic-26,Extra Lights
+dic-26,Filtration Service
+dic-26,Flatrack Surcharge
+dic-26,For Processing in Transit
+dic-26,For Storage in Transit
+dic-26,Fragile - Handle with Care
+dic-26,Full Service
+dic-26,Government Caboose
+dic-26,Government Guard Car
+dic-26,Government-Owned Containers
+dic-26,Greater Security Service
+dic-26,Handling
+dic-26,Harmless
+dic-26,Hazardous Cargo On Deck
+dic-26,Hazardous Materials Surcharge
+dic-26,Heat
+dic-26,Heat - Special
+dic-26,Heat in Transit
+dic-26,Heater or Refrigeration
+dic-26,High Cube Trailer Rates
+dic-26,High Value Load
+dic-26,Hold at Location
+dic-26,Hold for Orders
+dic-26,Home for Repair
+dic-26,If Bad Ordered Notify Shipper
+dic-26,Impactographs
+dic-26,Import Shipment
+dic-26,In Case of Fire Do Not Use Water
+dic-26,In-bond
+dic-26,Inaccessible Hazardous Material
+dic-26,Inside Delivery
+dic-26,Inside Pickup
+dic-26,Inspect Hourly if Car Stopped
+dic-26,Insulated
+dic-26,Interline Transfer Service
+dic-26,Intermodal Shipment Service
+dic-26,Intra-Plant Move
+dic-26,Joint Line Exception
+dic-26,Just-In-Time (JIT)
+dic-26,Keep From Freezing Percent Differential
+dic-26,Keep Material Dry
+dic-26,Labor Associated with Detention of Conveying Equipment
+dic-26,Labor Disturbance
+dic-26,Land Bridge (Import/Export)
+dic-26,Land Currency Adjustment - 40 Foot Container
+dic-26,Land Currency Adjustment Factor - 20 Foot Container
+dic-26,Layover
+dic-26,Layover Service
+dic-26,Less Than Container
+dic-26,"Less Than Container, Consolidator Load"
+dic-26,"Less Than Container, Factory Load"
+dic-26,Less Than Full Carload
+dic-26,Less Than Truckload
+dic-26,Liability of Carrier
+dic-26,Light Bar Service
+dic-26,Linehaul Percent Differential
+dic-26,Linehaul Service
+dic-26,Linehaul To Port of Embarkation
+dic-26,Linehaul from Port of Debarkation
+dic-26,Liner Terms at Port of Debarkation
+dic-26,Liner Terms at Port of Embarkation
+dic-26,Live Unload
+dic-26,Loaded to Full Visible Capacity
+dic-26,Loading Devices
+dic-26,Local Service Only
+dic-26,Low Boy Trailer/Flat Bed
+dic-26,Manifest Must Accompany Waybill
+dic-26,Mechanical Refrigeration
+dic-26,Modified Atmosphere
+dic-26,Motor Surveillance Service
+dic-26,Moving Under 
+dic-26,Multi-Tank Surveillance Service
+dic-26,Multiple Pickup
+dic-26,New Equipment First Transborder Movement
+dic-26,No Marshalling Required for Hazardous Materials
+dic-26,No Placards Required
+dic-26,No Special Entrainment Required
+dic-26,Nontransit Flat Shipment
+dic-26,Not Restricted Cargo
+dic-26,Not for Export
+dic-26,Notify Consignee Before Delivery
+dic-26,Notify Shipper Before Reconsignment
+dic-26,Notify Shipper Immediately if Shipment is Delayed en Route
+dic-26,Offshore - Alaska/Hawaii Service
+dic-26,On Deck Stowage
+dic-26,One Way Rates Applied
+dic-26,Other
+dic-26,Over Height Container
+dic-26,Overflow
+dic-26,Oversized Premium
+dic-26,Overweight
+dic-26,P.M. Delivery Requirement
+dic-26,PUP Trailer Rates Apply
+dic-26,Pack and Unpack
+dic-26,Pallets/Skids/Platforms
+dic-26,Partial Shipment
+dic-26,Per Hour Rates Applied
+dic-26,Per Mile Rates Apply
+dic-26,Percent Differential - Less Than Container
+dic-26,Pickup
+dic-26,Pickup and Delivery
+dic-26,Pickup and Delivery Beyond Service Area
+dic-26,Pickup and Delivery From Storage in Transit
+dic-26,Pickup of Shipments Requiring Same Day Delivery Service
+dic-26,Pickup of Shipments Requiring Same Day Delivery Service and/or Delivery at a Specified Time
+dic-26,"Pickup of Shipments on Saturday, Sunday, and/or Holidays Requiring Absolute Next Day Delivery"
+dic-26,Pier Time
+dic-26,Port Changes
+dic-26,Preparation of Air Waybill - Origin
+dic-26,Preparation of Canadian Customs Invoice
+dic-26,Preparation of Export Entry
+dic-26,Preparation of Insurance Certificate
+dic-26,Preparation of U.S. Export Documentation
+dic-26,Priority Service
+dic-26,Product Protection Service
+dic-26,Protect From Heat
+dic-26,Protect Lowest Through Rate
+dic-26,Protective Security Service
+dic-26,ROEE Van Type Truck
+dic-26,Radioactive Material
+dic-26,Railhead Handling
+dic-26,Railroad Controlled Private Equipment Subject to Demurrage
+dic-26,Reconsignment
+dic-26,Record for Transit
+dic-26,Redelivery
+dic-26,Reefer Cargo Percent Differential
+dic-26,Reefer Maintenance
+dic-26,Refrigerated
+dic-26,Released Value Charge in Excess of Carrier Maximum Liability
+dic-26,Render Bill for Charges
+dic-26,Requires Shelf Couplers
+dic-26,Reservations
+dic-26,Reshipment
+dic-26,Residential Delivery
+dic-26,Respotting
+dic-26,Return Authorization
+dic-26,Return Carrier Guard Car Service
+dic-26,Return Movement of Pallet
+dic-26,Return of Empty Container
+dic-26,Reweight Requested
+dic-26,Roadrailer Service
+dic-26,Roadway Easy Rates Applied
+dic-26,Round Trip Service
+dic-26,Rush Order
+dic-26,Satellite Surveillance Service
+dic-26,Satisfactory Service Standards
+dic-26,Saturday Delivery
+dic-26,Saturday Pick-Up
+dic-26,Saturday Pickup or Delivery
+dic-26,Security Signature Service
+dic-26,Service Charge Applies
+dic-26,Shiftable Load
+dic-26,Shipment Holdover for Holidays
+dic-26,Shipment Holdover for Weekends
+dic-26,Shipment Holdover on Holidays
+dic-26,Shipment Holdover on Weekdays
+dic-26,Shipment Holdover on Weekends
+dic-26,Shipment from Non-Temp Storage
+dic-26,Shipment to be Inspected at Destination and Disposition Instructions will be Furnished
+dic-26,Shipper Authorization Required for Diversion or Consignment
+dic-26,"Shipper Certifies Gross Weight under 240,000 pounds"
+dic-26,Shipper Export Declaration Required
+dic-26,Shipper Load
+dic-26,Shipper Load and Carrier Unload
+dic-26,Shipper Load and Consignee Unload
+dic-26,Shipper Load and Count
+dic-26,Shipper Load/Carrier Count
+dic-26,Shove to Rest and Cover
+dic-26,Signature and Tally Record
+dic-26,Single Driver
+dic-26,Single Factor Origination/Destination
+dic-26,Single Factor Origination/Port of Debarkation
+dic-26,Single Factor Port of Embarkation/Destination
+dic-26,Single Shipment
+dic-26,Small Package
+dic-26,Special Containers
+dic-26,Special Dromedary Service
+dic-26,Special Equipment Charge
+dic-26,Special Motor Surveillance
+dic-26,Special Permit
+dic-26,Special Permits
+dic-26,Special Train Movement
+dic-26,Speed Restricted
+dic-26,Speed Restricted to 15 Miles per Hour
+dic-26,Speed Restricted to 25 Miles per Hour
+dic-26,Speed Restricted to 35 Miles per Hour
+dic-26,Speed Restricted to 45 Miles per Hour
+dic-26,Split Delivery
+dic-26,Split Pickup
+dic-26,Spot for Storage - No Shipment
+dic-26,Stack Train
+dic-26,"Stairs, Elevator, Excess Carry"
+dic-26,Stop-off
+dic-26,Stop-off at Destination
+dic-26,Stop-off at Origination
+dic-26,Storage
+dic-26,Stow Away from Heat
+dic-26,Stowage
+dic-26,Stretch Wrap
+dic-26,"Stripping, Sorting & Consolidation"
+dic-26,Subject to Special Detention Rules/Charges
+dic-26,Substitute Service Not to be Used
+dic-26,Sunday or Holiday Pickup or Delivery
+dic-26,Supervisor Requested
+dic-26,Surveying Routes
+dic-26,Team Track Delivery
+dic-26,Temperature Control
+dic-26,Tendered as Truckload (Truckload Service Requested)
+dic-26,Tendering of Multiple Vehicles
+dic-26,Terminal Handling Charges
+dic-26,Termination
+dic-26,Third Party Service
+dic-26,Time Volume Rates Only
+dic-26,Time of Delivery and Signature Required
+dic-26,Top Load Only
+dic-26,Total Shipment
+dic-26,Trade Show
+dic-26,Trailer Preparation - Special
+dic-26,"Trailer, Consolidator Load"
+dic-26,"Trailer, Factory Load"
+dic-26,Transfer Product
+dic-26,Transit Shipment
+dic-26,Transmit a Ship Notice/Manifest Transaction Set
+dic-26,Truck Rates Applicable
+dic-26,Truckload-Double Operator-Common Carrier
+dic-26,Truckload-Double Operator-Padded Van
+dic-26,Unitized
+dic-26,Unload as Placarded
+dic-26,Unload from Left Side of Car
+dic-26,Unload from Right Side of Car
+dic-26,Unloading or Reloading
+dic-26,Unpacking
+dic-26,Unprotected Perishable
+dic-26,Use No Hooks
+dic-26,Use of Alternate Terminal
+dic-26,Ventilation Instructions
+dic-26,Verification Weigh
+dic-26,Waiting Time Authorized
+dic-26,Waive Inspection
+dic-26,Waived Inspection - Set Direct
+dic-26,Weigh Empty,
+dic-26,Weigh to Check for Overload,
+dic-26,Weight Verification,
+dic-26,Written Proof of Delivery,
+end-dic-26,,
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/OrderShippingInformation/SpecialHandlingInstruction/GlobalSpecialHandlingCode,dic-26
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/OrderShippingInformation/SpecialHandlingInstruction/GlobalSpecialHandlingCode,dic-26
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/OrderShippingInformation/SpecialHandlingInstruction/GlobalSpecialHandlingCode,dic-26
+dic-30,End Customer,
+dic-30,Ultimate Customer,
+end-dic-30,,
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/GlobalCustomerTypeCode,dic-30
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/GlobalCustomerTypeCode,dic-30
+dic-35,10 Kilogram Drum,
+dic-35,"10,000 Gallon Tankcar",
+dic-35,100 Board Feet,
+dic-35,100 Pound Drum
+dic-35,100-Pack
+dic-35,115 Kilogram Drum
+dic-35,15 Kilogram Drum
+dic-35,20 Foot Container
+dic-35,"20,000 Gallon Tankcar"
+dic-35,20-Pack
+dic-35,25 Kilogram Bulk Bag
+dic-35,300 Kilogram Bulk Bag
+dic-35,40 Foot Container
+dic-35,50 Pound Bag
+dic-35,500 Kilogram Bulk Bag
+dic-35,55 Gallon Drum
+dic-35,Actual Pounds
+dic-35,Aluminum Pounds Only
+dic-35,Bag
+dic-35,Bale
+dic-35,Ball
+dic-35,Band
+dic-35,Bar
+dic-35,Barrel
+dic-35,"Barrel, Imperial"
+dic-35,Barrels Per Day
+dic-35,Barrels Per Minute
+dic-35,Base Box
+dic-35,Base Weight
+dic-35,Basket
+dic-35,Batch
+dic-35,Batt
+dic-35,Batting Pound
+dic-35,Beam
+dic-35,Belt
+dic-35,Billet
+dic-35,Bin
+dic-35,Block
+dic-35,Board
+dic-35,Board Feet
+dic-35,Bolt
+dic-35,Bottle
+dic-35,Box
+dic-35,British Thermal Unit (BTU)
+dic-35,British Thermal Units (BTUs) Per Cubic Foot
+dic-35,British Thermal Units (BTUs) Per Pound
+dic-35,Bucket
+dic-35,Bulk
+dic-35,Bulk Car Load
+dic-35,Bulk Pack
+dic-35,Bundle
+dic-35,Bunks
+dic-35,Bushel
+dic-35,"Bushel, Dry Imperial"
+dic-35,Calorie
+dic-35,Can
+dic-35,Car
+dic-35,Carat
+dic-35,Card
+dic-35,Carload
+dic-35,Carton
+dic-35,Cartridge
+dic-35,Case
+dic-35,Cask
+dic-35,Cassette
+dic-35,Catchweight
+dic-35,Cell
+dic-35,Centipoise (CPS)
+dic-35,Chains (Land Survey)
+dic-35,Chest
+dic-35,Coil
+dic-35,Coil Group
+dic-35,Composite Product Pounds (Total Weight)
+dic-35,Cone
+dic-35,Connector
+dic-35,Container
+dic-35,Cover
+dic-35,Crate
+dic-35,Cup
+dic-35,Cycles
+dic-35,Cylinder
+dic-35,Deal
+dic-35,Disk (Disc)
+dic-35,Dispenser
+dic-35,Display
+dic-35,Dozen
+dic-35,Dram
+dic-35,Drum
+dic-35,Dry Pounds
+dic-35,Each
+dic-35,Fluid Ounce
+dic-35,Fluid Ounce (Imperial)
+dic-35,Fuel Usage (Gallons)
+dic-35,Gage Systems
+dic-35,Gallon
+dic-35,Gigajoules
+dic-35,Gill (Imperial)
+dic-35,Grain
+dic-35,Gram
+dic-35,Grams Per 100 Centimeters
+dic-35,Grams Per 100 Grams
+dic-35,Grams Per Cubic Centimeter
+dic-35,Grams Per Kilogram
+dic-35,Grams Per Liter
+dic-35,Grams Per Milliliter
+dic-35,Grams Per Square Centimeter
+dic-35,Grams Per Square Meter
+dic-35,Great Gross (Dozen Gross)
+dic-35,Gross
+dic-35,Gross Barrels
+dic-35,Gross Gallons
+dic-35,Gross Kilogram
+dic-35,Gross Ton
+dic-35,Gross Yard
+dic-35,Group
+dic-35,Half Gallon
+dic-35,Half Hour
+dic-35,Half Liter
+dic-35,Hank
+dic-35,Heat lots
+dic-35,Hours
+dic-35,Hundred Boxes
+dic-35,Hundred Count
+dic-35,Hundred Sheets
+dic-35,Hundredth of a Carat
+dic-35,Imperial Gallons
+dic-35,Jar
+dic-35,Joint
+dic-35,Lifts
+dic-35,Link
+dic-35,Liquid Pounds
+dic-35,Load
+dic-35,Lot
+dic-35,Lug
+dic-35,Mat
+dic-35,Megagram
+dic-35,Megagrams Per Hour
+dic-35,Micrograms Per Cubic Meter
+dic-35,Milligrams Per Cubic Meter
+dic-35,Milligrams Per Square Meter
+dic-35,Millimeter H20
+dic-35,Million BTU's
+dic-35,Net Barrels
+dic-35,Net Gallons
+dic-35,Net Imperial Gallons
+dic-35,Net Liters
+dic-35,Pack (PAK)
+dic-35,Package
+dic-35,Packet
+dic-35,Pad
+dic-35,Pail
+dic-35,Pallet (Lift)
+dic-35,Pallet/Unit Load
+dic-35,Panel
+dic-35,Pennyweight
+dic-35,Percent
+dic-35,Percent Per 1000 Hours
+dic-35,Percent Weight
+dic-35,Piece
+dic-35,Pint U.S. Dry
+dic-35,Plate
+dic-35,Pound
+dic-35,Pounds Per 1000 Square Feet
+dic-35,Pounds Per Foot
+dic-35,Pounds Per Gallon
+dic-35,Pounds Per Piece of Product
+dic-35,Pounds Per Pound of Product
+dic-35,Pounds Per Thousand
+dic-35,Rack
+dic-35,Reel
+dic-35,Ring
+dic-35,Rod
+dic-35,Sack
+dic-35,Sheet
+dic-35,Sheet-Metric  measure
+dic-35,Shipment
+dic-35,Shot
+dic-35,Skein
+dic-35,Skid
+dic-35,Sleeve
+dic-35,Slip Sheet
+dic-35,Spool
+dic-35,Square
+dic-35,Statute Mile
+dic-35,Stick
+dic-35,Strip
+dic-35,Super Bulk Bag
+dic-35,Tablet
+dic-35,Tank
+dic-35,Tank Truck
+dic-35,Torr
+dic-35,Tote
+dic-35,Track Foot
+dic-35,Trailer
+dic-35,Train
+dic-35,Tray,
+dic-35,Truckload,
+dic-35,Tube,
+dic-35,Vial,
+dic-35,Wrap,
+end-dic-35,,
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/GlobalProductUnitOfMeasureCode,dic-35
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/GlobalProductUnitOfMeasureCode,dic-35
+dic-63,Dock,  The event representing when the product should arrive on the recipient's dock.
+dic-63,Pickup,  The event representing when the product is scheduled to be picked up from the shipper's dock.
+dic-63,Ship,  The event representing when the product is requested to ship.
+end-dic-63,,
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/requestedEvent/TransportationEvent/GlobalTransportEventCode,dic-63
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/requestedEvent/TransportationEvent/GlobalTransportEventCode,dic-63
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/requestedEvent/TransportationEvent/GlobalTransportEventCode,dic-63
+dic-64,ADP,  ANDORRA (multiple)
+dic-64,AED,  UNITED ARAB EMIRATES
+dic-64,AFA,  AFGHANISTAN
+dic-64,ALL,  ALBANIA
+dic-64,AMD,  ARMENIA
+dic-64,ANG,  NETHERLANDS ANTILLES
+dic-64,AON,  ANGOLA (multiple)
+dic-64,AOR,  ANGOLA (multiple)
+dic-64,ARS,  ARGENTINA
+dic-64,ATS,  AUSTRIA
+dic-64,AUD,  AUSTRALIA
+dic-64,AUD,  CHRISTMAS ISLAND
+dic-64,AUD,  COCOS (KEELING) ISLANDS
+dic-64,AUD,  KIRIBATI
+dic-64,AUD,  HEARD AND MCDONALD ISLANDS
+dic-64,AUD,  NAURU
+dic-64,AUD,  NORFOLK ISLAND
+dic-64,AUD,  TUVALU
+dic-64,AWG,  ARUBA
+dic-64,AZM,  AZERBAIJAN
+dic-64,BAM,  BOSNIA AND HERZEGOVINA
+dic-64,BBD,  BARBADOS
+dic-64,BDT,  BANGLADESH
+dic-64,BEF,  BELGIUM
+dic-64,BGL,  BULGARIA
+dic-64,BHD,  BAHRAIN
+dic-64,BIF,  BURUNDI
+dic-64,BMD,  BERMUDA
+dic-64,BND,  BRUNEI DARUSSALAM
+dic-64,BOB,  BOLIVIA (multiple)
+dic-64,BOV,  BOLIVIA (multiple)
+dic-64,BRL,  BRAZIL
+dic-64,BSD,  BAHAMAS
+dic-64,BTN,  BHUTAN (multiple)
+dic-64,BWP,  BOTSWANA
+dic-64,BYB,  BELARUS
+dic-64,BZD,  BELIZE
+dic-64,CAD,  CANADA
+dic-64,CHF,  LIECHTENSTEIN
+dic-64,CHF,  SWITZERLAND
+dic-64,CLP,  CHILE
+dic-64,CNY,  CHINA
+dic-64,COP,  COLOMBIA
+dic-64,CRC,  COSTA RICA
+dic-64,CUP,  CUBA
+dic-64,CVE,  CAPE VERDE
+dic-64,CYP,  CYPRUS
+dic-64,CZK,  CZECH REPUBLIC
+dic-64,DEM,  GERMANY
+dic-64,DJF,  DJIBOUTI
+dic-64,DKK,  DENMARK
+dic-64,DKK,  FAEROE ISLANDS
+dic-64,DKK,  GREENLAND
+dic-64,DOP,  DOMINICAN REPUBLIC
+dic-64,DZD,  ALGERIA
+dic-64,ECS,  ECUADOR
+dic-64,EEK,  ESTONIA
+dic-64,EGP,  EGYPT
+dic-64,ERN,  ERITREA
+dic-64,ESP,  ANDORRA (multiple)
+dic-64,ESP,  SPAIN
+dic-64,ETB,  ETHIOPIA
+dic-64,EUR,  EUROPEAN UNION
+dic-64,FIM,  FINLAND
+dic-64,FJD,  FIJI
+dic-64,FKP,  FALKLAND ISLANDS(MALVINAS)
+dic-64,FRF,  ANDORRA (multiple)
+dic-64,FRF,  MARTINIQUE
+dic-64,FRF,  FRANCE
+dic-64,FRF,  FRENCH GUIANA
+dic-64,FRF,  FRENCH SOUTHERN TERRITORIES
+dic-64,FRF,  GUADELOUPE
+dic-64,FRF,  MONACO
+dic-64,FRF,  REUNION
+dic-64,FRF,  SAINT PIERRE AND MIQUELON
+dic-64,GBP,  UNITED KINGDOM
+dic-64,GEL,  GEORGIA
+dic-64,GHC,  GHANA
+dic-64,GIP,  GIBRALTAR
+dic-64,GMD,  GAMBIA
+dic-64,GNF,  GUINEA
+dic-64,GRD,  GREECE
+dic-64,GTQ,  GUATEMALA
+dic-64,GWP,  GUINEA-BISSAU
+dic-64,GYD,  GUYANA
+dic-64,HKD,  HONG KONG
+dic-64,HNL,  HONDURAS
+dic-64,HRK,  CROATIA
+dic-64,HTG,  HAITI
+dic-64,HUF,  HUNGARY
+dic-64,IDR,  INDONESIA
+dic-64,IEP,  IRELAND
+dic-64,ILS,  ISRAEL
+dic-64,INR,  BHUTAN (multiple)
+dic-64,INR,  INDIA
+dic-64,IQD,  IRAQ
+dic-64,IRR,  IRAN (ISLAMIC REPUBLIC OF)
+dic-64,ISK,  ICELAND
+dic-64,ITL,  ITALY
+dic-64,ITL,  SAN MARINO
+dic-64,ITL,  VATICAN CITY STATE (HOLY SEE)
+dic-64,JMD,  JAMAICA
+dic-64,JOD,  JORDAN
+dic-64,JPY,  JAPAN
+dic-64,KES,  KENYA
+dic-64,KGS,  KYRGYZSTAN
+dic-64,KHR,  CAMBODIA
+dic-64,KMF,  COMOROS
+dic-64,KPW,"  KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF"
+dic-64,KRW,"  KOREA, REPUBLIC OF"
+dic-64,KWD,  KUWAIT
+dic-64,KYD,  CAYMAN ISLANDS
+dic-64,KZT,  KAZAKHSTAN
+dic-64,LAK,  LAO PEOPLE'S DEMOCRATIC REPUBLIC
+dic-64,LBP,  LEBANON
+dic-64,LKR,  SRI LANKA
+dic-64,LRD,  LIBERIA
+dic-64,LTL,  LITHUANIA
+dic-64,LUF,  LUXEMBOURG
+dic-64,LVL,  LATVIA
+dic-64,LYD,  LIBYAN ARAB JAMAHIRIYA
+dic-64,MAD,  MOROCCO
+dic-64,MAD,  WESTERN SAHARA
+dic-64,MDL,"  MOLDOVA, REPUBLIC OF"
+dic-64,MGF,  MADAGASCAR
+dic-64,MKD,"  MACEDONIA, THE FORMER  YUGOSLAV REPUBLIC OF"
+dic-64,MMK,  MYANMAR
+dic-64,MNT,  MONGOLIA
+dic-64,MOP,  MACAU
+dic-64,MRO,  MAURITANIA
+dic-64,MTL,  MALTA
+dic-64,MUR,  MAURITIUS
+dic-64,MVR,  MALDIVES
+dic-64,MWK,  MALAWI
+dic-64,MXN,  MEXICO
+dic-64,MYR,  MALAYSIA
+dic-64,MZM,  MOZAMBIQUE
+dic-64,NGN,  NIGERIA
+dic-64,NIO,  NICARAGUA
+dic-64,NLG,  NETHERLANDS
+dic-64,NOK,  BOUVET ISLAND
+dic-64,NOK,  NORWAY
+dic-64,NOK,  SVALBARD AND JAN MAYEN ISLANDS
+dic-64,NPR,  NEPAL
+dic-64,NZD,  COOK ISLANDS
+dic-64,NZD,  NEW ZEALAND
+dic-64,NZD,  NIUE
+dic-64,NZD,  PITCAIRN
+dic-64,NZD,  TOKELAU
+dic-64,OMR,  OMAN
+dic-64,PAB,  PANAMA
+dic-64,PEN,  PERU
+dic-64,PGK,  PAPUA NEW GUINEA
+dic-64,PHP,  PHILIPPINES
+dic-64,PKR,  PAKISTAN
+dic-64,PLN,  POLAND
+dic-64,PTE,  PORTUGAL
+dic-64,PYG,  PARAGUAY
+dic-64,QAR,  QATAR
+dic-64,ROL,  ROMANIA
+dic-64,RUR,  RUSSIAN FEDERATION
+dic-64,RWF,  RWANDA
+dic-64,SAR,  SAUDI ARABIA
+dic-64,SBD,  SOLOMON ISLANDS
+dic-64,SCR,  SEYCHELLES
+dic-64,SDD,  SUDAN
+dic-64,SEK,  SWEDEN
+dic-64,SGD,  SINGAPORE
+dic-64,SHP,  SAINT HELENA
+dic-64,SIT,  SLOVENIA
+dic-64,SKK,  SLOVAKIA
+dic-64,SLL,  SIERRA LEONE
+dic-64,SOS,  SOMALIA
+dic-64,SRG,  SURINAME
+dic-64,STD,  SAO TOME AND PRINCIPE
+dic-64,SVC,  EL SALVADOR
+dic-64,SYP,  SYRIAN ARAB REPUBLIC
+dic-64,SZL,  SWAZILAND
+dic-64,THB,  THAILAND
+dic-64,TJR,  TAJIKISTAN
+dic-64,TMM,  TURKMENISTAN
+dic-64,TND,  TUNISIA
+dic-64,TOP,  TONGA
+dic-64,TPE,  EAST TIMOR
+dic-64,TRL,  TURKEY
+dic-64,TTD,  TRINIDAD AND TOBAGO
+dic-64,TWD,"  TAIWAN, PROVINCE OF CHINA"
+dic-64,TZS,"  TANZANIA, UNITED REPUBLIC OF"
+dic-64,UAH,  UKRAINE
+dic-64,UGX,  UGANDA
+dic-64,USD,  AMERICAN SAMOA
+dic-64,USD,  BRITISH INDIAN OCEAN TERRITORY
+dic-64,USD,  MARSHALL ISLANDS
+dic-64,USD,  GUAM
+dic-64,USD,  MICRONESIA
+dic-64,USD,  NORTHERN MARIANA ISLANDS
+dic-64,USD,  PALAU
+dic-64,USD,  PUERTO RICO
+dic-64,USD,  TURKS AND CAICOS ISLANDS
+dic-64,USD,  UNITED STATES
+dic-64,USD,  UNITED STATES MINOR  OUTLYING ISLANDS
+dic-64,USD,  VIRGIN ISLANDS (BRITISH)
+dic-64,USD,  VIRGIN ISLANDS (U.S.)
+dic-64,UYU,  URUGUAY
+dic-64,UZS,  UZBEKISTAN
+dic-64,VEB,  VENEZUELA
+dic-64,VND,  VIETNAM
+dic-64,VUV,  VANUATU
+dic-64,WST,  SAMOA
+dic-64,XAF,  CAMEROON
+dic-64,XAF,  CENTRAL AFRICAN REP.
+dic-64,XAF,  CHAD
+dic-64,XAF,  CONGO
+dic-64,XAF,  EQUATORIAL GUINEA
+dic-64,XAF,  GABON
+dic-64,XCD,  ANGUILLA
+dic-64,XCD,  ANTIGUA AND BARBUDA
+dic-64,XCD,  DOMINICA
+dic-64,XCD,  GRENADA
+dic-64,XCD,  MONTSERRAT
+dic-64,XCD,  SAINT KITTS AND NEVIS
+dic-64,XCD,  SAINT LUCIA
+dic-64,XCD,  SAINT VINCENT AND THE GRENADINES
+dic-64,XDR,  INTERNATIONAL MONETARY FUND
+dic-64,XOF,  BENIN
+dic-64,XOF,  BURKINA FASO
+dic-64,XOF,  COTE D IVOIRE
+dic-64,XOF,  MALI
+dic-64,XOF,  NIGER
+dic-64,XOF,  SENEGAL
+dic-64,XOF,  TOGO
+dic-64,XPF,  NEW CALEDONIA
+dic-64,XPF,  WALLIS AND FUTUNA ISLANDS
+dic-64,XPR,  FRENCH POLYNESIA
+dic-64,YER,  YEMEN
+dic-64,YUM,  YUGOSLAVIA
+dic-64,ZAR,  LESOTHO
+dic-64,ZAR,  NAMIBIA
+dic-64,ZAR,  SOUTH AFRICA
+dic-64,ZMK,  ZAMBIA
+dic-64,ZRN,  ZAIRE
+dic-64,ZWD,  ZIMBABWE
+end-dic-64,,
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/requestedUnitPrice/FinancialAmount/GlobalCurrencyCode,dic-64
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/requestedUnitPrice/FinancialAmount/GlobalCurrencyCode,dic-64
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/totalLineItemAmount/FinancialAmount/GlobalCurrencyCode,dic-64
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/totalAmount/FinancialAmount/GlobalCurrencyCode,dic-64
+dic-71,Agriculture,
+dic-71,Direct pay ID,
+dic-71,Disabled,
+dic-71,Disabled veteran,
+dic-71,Exempt - Provincial sales tax,
+dic-71,Exempt - for export,
+dic-71,Exempt - for resale,
+dic-71,Exempt - from county property tax,
+dic-71,Exempt - from local property tax,
+dic-71,Exempt - from school property tax,
+dic-71,Exempt - from state property tax
+dic-71,Exempt - goods and services tax
+dic-71,Exempt - letter on file
+dic-71,Exempt - local service
+dic-71,Exempt - not for resale
+dic-71,Exempt - per State law
+dic-71,Exempt - sale to U.S. government
+dic-71,Exempt - toll service
+dic-71,Homestead
+dic-71,Labor taxable - material exempt
+dic-71,Material taxable - labor exempt
+dic-71,Non-homestead
+dic-71,Not exempt - for resale
+dic-71,Not exempt - not for resale
+dic-71,Not taxable
+dic-71,Open space
+dic-71,Other property tax exemption,,
+dic-71,Over 65,,
+dic-71,Recurring exempt,,
+dic-71,Totally exempt,,
+dic-71,Usage exempt,,
+dic-71,Working farm,,
+end-dic-71,,,
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/TaxExemptStatus/TaxExemption/GlobalTaxExemptionCode,dic-71,
+dic,/Pip3A4PurchaseOrderRequest/PurchaseOrder/TaxExemptStatus/TaxExemption/GlobalTaxExemptionCode,dic-71,
+dic-80,Seller,  An organization that sells products to partners in the supply chain.,
+end-dic-80,,,
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/accountName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/CreditCard/cardHolderName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/comments/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/OrderShippingInformation/packListRequirements/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/OrderShippingInformation/SpecialHandlingInstruction/specialHandlingText/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/comments/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/OrderShippingInformation/packListRequirements/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/OrderShippingInformation/SpecialHandlingInstruction/specialHandlingText/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductIdentification/PartnerProductIdentification/revisionIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/comments/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/OrderShippingInformation/packListRequirements/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/OrderShippingInformation/SpecialHandlingInstruction/specialHandlingText/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/requestedShipFrom/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/requestedShipFrom/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/requestedShipFrom/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/requestedShipFrom/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/requestedShipFrom/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/requestedShipFrom/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/proprietaryInformation/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/requestedShipFrom/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/requestedShipFrom/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/requestedShipFrom/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/requestedShipFrom/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/requestedShipFrom/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/requestedShipFrom/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/proprietaryInformation/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/requestedShipFrom/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/requestedShipFrom/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/requestedShipFrom/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/requestedShipFrom/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/requestedShipFrom/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/requestedShipFrom/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/businessName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/contactName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/addressLine1/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/addressLine2/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/addressLine3/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/cityName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/postOfficeBoxIdentifier/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/regionName/FreeFormText,String,1
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/EmailAddress,String,1
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/facsimileNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/telephoneNumber/CommunicationsNumber,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/GlobalPartnerRoleClassificationCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalBusinessIdentifier,Integer,9,9,9(9)
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/GlobalSupplyChainCode,String,1
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/GlobalPartnerClassificationCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/GlobalPartnerClassificationCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/GlobalPartnerClassificationCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/GlobalPartnerClassificationCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/GlobalPartnerClassificationCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/GlobalPartnerClassificationCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/GlobalPartnerClassificationCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/GlobalPartnerClassificationCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductIdentification/PartnerProductIdentification/GlobalPartnerClassificationCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/GlobalPartnerClassificationCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/GlobalDocumentFunctionCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/AccountNumber,String,1,35,X(35)
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/countryOfOrigin/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/countryOfOrigin/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/requestedShipFrom/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/requestedShipFrom/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/requestedShipFrom/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/GlobalCountryCode,String,2,2,X(2)
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/requestedShipFrom/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/requestedShipFrom/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/requestedShipFrom/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/GlobalLocationIdentifier,Integer,13,13,9(13)
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/requestedShipFrom/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/requestedShipFrom/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/requestedShipFrom/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/ContactInformation/PhysicalAddress/NationalPostalCode,String,1,9,X(9)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/CreditCard/creditCardIdentifier/ProprietaryReferenceIdentifier,String,1,255,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/OrderShippingInformation/CarrierInformation/accountIdentifier/ProprietaryReferenceIdentifier,String,1,255,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/customerProjectIdentifier/ProprietaryReferenceIdentifier,String,1,255,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/expediteReferenceIdentifier/ProprietaryReferenceIdentifier,String,1,255,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/OrderShippingInformation/CarrierInformation/accountIdentifier/ProprietaryReferenceIdentifier,String,1,255,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/customerProjectIdentifier/ProprietaryReferenceIdentifier,String,1,255,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/OrderShippingInformation/CarrierInformation/accountIdentifier/ProprietaryReferenceIdentifier,String,1,255,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/TaxExemptStatus/TaxExemption/taxExemptionCertificationIdentifier/ProprietaryReferenceIdentifier,String,1,255,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/TaxExemptStatus/TaxExemption/taxExemptionCertificationIdentifier/ProprietaryReferenceIdentifier,String,1,255,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/CreditCard/expiryDate/DateStamp,Date,9,9,9(8)X
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/requestedEvent/TransportationEvent/DateStamp,Date,9,9,9(8)X
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/requestedEvent/TransportationEvent/DateStamp,Date,9,9,9(8)X
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/requestedEvent/TransportationEvent/DateStamp,Date,9,9,9(8)X
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/CreditCard/GlobalCreditCardClassificationCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/CreditCard/ProprietaryCIDIdentifier,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/GlobalAccountClassificationCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/prePaymentCheckNumber/CheckNumber,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/WireTransferIdentifier,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/contractIdentifier/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/DocumentReference/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/generalServicesAdministrationNumber/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/governmentContractIdentifier/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/contractIdentifier/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/DocumentLineReference/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/contractIdentifier/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/purchaseOrderIdentifier/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/secondaryBuyerPurchaseOrderIdentifier/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip3A4PurchaseOrderRequest/thisDocumentIdentifier/ProprietaryDocumentIdentifier,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/DocumentReference/DateTimeStamp,DateTime,13,20,9(8)X9(6)V9(3)X
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/DocumentLineReference/DateTimeStamp,DateTime,13,20,9(8)X9(6)V9(3)X
+type,/Pip3A4PurchaseOrderRequest/thisDocumentGenerationDateTime/DateTimeStamp,DateTime,13,20,9(8)X9(6)V9(3)X
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/DocumentReference/GlobalDocumentReferenceTypeCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/DocumentLineReference/GlobalDocumentReferenceTypeCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/FinancingTerms/GlobalFinanceTermsCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/FinancingTerms/PaymentTerms/Discounts/discountDay/DayOfMonth,PositiveInteger <=31,1,2,9(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/FinancingTerms/PaymentTerms/netTermsDay/DayOfMonth,PositiveInteger <=31,1,2,9(2)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/FinancingTerms/PaymentTerms/Discounts/discountDays/CountableAmount,PositiveInteger,1,15,9(15)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/FinancingTerms/PaymentTerms/netTermsDays/CountableAmount,PositiveInteger,1,15,9(15)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/FinancingTerms/PaymentTerms/Discounts/discountPercent/PercentAmount,NaturalNumber,1,3,9(3)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/FinancingTerms/PaymentTerms/percentDue/PercentAmount,NaturalNumber,1,3,9(3)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/FinancingTerms/PaymentTerms/GlobalPaymentConditionCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/GlobalGovernmentPriorityRatingCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/GlobalPurchaseOrderFillPriorityCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/GlobalPurchaseOrderFillPriorityCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/GlobalPurchaseOrderFillPriorityCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/GlobalPurchaseOrderTypeCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/OrderShippingInformation/CarrierInformation/GlobalCarrierCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/OrderShippingInformation/CarrierInformation/GlobalCarrierCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/OrderShippingInformation/CarrierInformation/GlobalCarrierCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/OrderShippingInformation/GlobalFreeOnBoardCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/OrderShippingInformation/GlobalFreeOnBoardCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/OrderShippingInformation/GlobalFreeOnBoardCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/OrderShippingInformation/GlobalShipmentTermsCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/OrderShippingInformation/GlobalShipmentTermsCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/OrderShippingInformation/GlobalShipmentTermsCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/OrderShippingInformation/GlobalShippingServiceLevelCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/OrderShippingInformation/GlobalShippingServiceLevelCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/OrderShippingInformation/GlobalShippingServiceLevelCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/OrderShippingInformation/GlobalSpecialFulfillmentRequestCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/OrderShippingInformation/GlobalSpecialFulfillmentRequestCode,String,1
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/OrderShippingInformation/GlobalSpecialFulfillmentRequestCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/OrderShippingInformation/SpecialHandlingInstruction/GlobalSpecialHandlingCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/OrderShippingInformation/SpecialHandlingInstruction/GlobalSpecialHandlingCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/OrderShippingInformation/SpecialHandlingInstruction/GlobalSpecialHandlingCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/GlobalCustomerTypeCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/GlobalCustomerTypeCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/fromRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/billTo/PartnerRoleDescription/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/AccountDescription/financedBy/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/primaryContractWith/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ContractInformation/secondaryContractWith/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/installAt/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/primaryContractWith/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ContractInformation/secondaryContractWith/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/CustomerInformation/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/installAt/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/primaryContractWith/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/ContractInformation/secondaryContractWith/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/CustomerInformation/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/installAt/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/shipTo/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/shipTo/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/SecondaryBuyer/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/shipTo/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/toRole/PartnerRoleDescription/PartnerDescription/BusinessDescription/NationalBusinessTaxIdentifier/BusinessTaxIdentifier,String,1,30,X(30)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/DocumentLineReference/LineNumber,String,1,6,X(6)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/LineNumber,String,1,6,X(6)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/LineNumber,String,1,6,X(6)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/productLineItemNumber/LineNumber,String,1,6,X(6)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/GlobalProductUnitOfMeasureCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/GlobalProductUnitOfMeasureCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/isDropShip/AffirmationIndicator,String,2,3,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/isDropShip/AffirmationIndicator,String,2,3,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/TaxExemptStatus/isTaxExempt/AffirmationIndicator,String,2,3,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/TaxExemptStatus/isTaxExempt/AffirmationIndicator,String,2,3,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/OrderQuantity/requestedQuantity/ProductQuantity,Real,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/OrderQuantity/requestedQuantity/ProductQuantity,Real,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductIdentification/GlobalProductIdentifier,String,14,14,9(14)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductIdentification/PartnerProductIdentification/ProprietaryProductIdentifier,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/requestedEvent/TransportationEvent/GlobalTransportEventCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/requestedEvent/TransportationEvent/GlobalTransportEventCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/requestedEvent/TransportationEvent/GlobalTransportEventCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/requestedUnitPrice/FinancialAmount/GlobalCurrencyCode,String,3,3,X(3)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/requestedUnitPrice/FinancialAmount/GlobalCurrencyCode,String,3,3,X(3)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/totalLineItemAmount/FinancialAmount/GlobalCurrencyCode,String,3,3,X(3)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/totalAmount/FinancialAmount/GlobalCurrencyCode,String,3,3,X(3)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/ProductSubLineItem/requestedUnitPrice/FinancialAmount/MonetaryAmount,Real,1,19,9(13)V9(5)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/requestedUnitPrice/FinancialAmount/MonetaryAmount,Real,1,19,9(13)V9(5)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/totalLineItemAmount/FinancialAmount/MonetaryAmount,Real,1,19,9(13)V9(5)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/totalAmount/FinancialAmount/MonetaryAmount,Real,1,19,9(13)V9(5)
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/ProductLineItem/TaxExemptStatus/TaxExemption/GlobalTaxExemptionCode,String,1,,
+type,/Pip3A4PurchaseOrderRequest/PurchaseOrder/TaxExemptStatus/TaxExemption/GlobalTaxExemptionCode,String,1,,

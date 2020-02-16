@@ -1,0 +1,13 @@
+
+<!ELEMENT ストック (日付, 状態?, 項目+)>
+<!ELEMENT 日付 #PCDATA>
+<!ELEMENT 状態 #PCDATA>
+
+<!ELEMENT 項目 (大分類, 中分類?, 小分類?, 勘定科目?, 金額)>
+
+<!ELEMENT 大分類 #PCDATA>
+<!ELEMENT 中分類 #PCDATA>
+<!ELEMENT 小分類 #PCDATA>
+<!ELEMENT 勘定科目 #PCDATA>
+<!ELEMENT 金額 #PCDATA>
+

@@ -1,0 +1,109 @@
+$END_LIB
+TEXT
+AlObject
+class TP
+end_class
+$END_CLASS
+TEXT
+AlObject
+class TP
+member
+public: static void naota();
+member
+public: static void recv();
+member
+public: static void chiaki();
+member
+public: static file pipe;
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class TP
+member
+public: static void naota();
+body
+{
+	var string cmd;
+	pipe = al_file_open("", "pipe");
+	cmd = "altair -file stdio.apr -class TP -method chiaki";
+	al_exec(cmd, ".", 1, pipe);
+	para recv();
+	al_file_write(pipe, "string", "Hello.\n");
+	al_file_write(pipe, "string", "I love you.\n");
+	al_file_write(pipe, "string", "Would you marry with me?\n");
+	al_file_write(pipe, "string", "See you later.\n");
+	al_file_manip("flush", pipe, null);
+}
+end_body
+member
+public: static void recv();
+body
+{
+	var string s;
+	loop {
+		if (s = al_file_read(pipe, "line")) {
+			if (s == 0x0000000080000000) {
+				al_next_process();
+				continue;
+			} else {
+			}
+			al_print(s);
+			al_print("\n");
+			if (s == "See you later.") {
+				al_print("Happy end.\n");
+				break;
+			} else {
+			}
+		} else {
+		}
+	}
+}
+end_body
+member
+public: static void chiaki();
+body
+{
+	pipe = al_file_open("", "stdin");
+	var file out;
+	out = al_file_open("", "stdout");
+	var string s;
+	loop {
+		if (s = al_file_read(pipe, "line")) {
+			if (s == 0x0000000080000000) {
+				al_next_process();
+				continue;
+			} else {
+			}
+			al_print(s);
+			al_print("\n");
+			if (s == "Hello.") {
+				al_file_write(out, "string", "Hello.\n");
+				al_file_manip("flush", out, null);
+			} else {
+			}
+			if (s == "I love you.") {
+				al_file_write(out, "string", "Me too.\n");
+				al_file_manip("flush", out, null);
+			} else {
+			}
+			if (s == "Would you marry with me?") {
+				al_file_write(out, "string", "Yes.\n");
+				al_file_manip("flush", out, null);
+			} else {
+			}
+			if (s == "See you later.") {
+				al_file_write(out, "string", "See you later.\n");
+				al_file_manip("flush", out, null);
+				break;
+			} else {
+			}
+		} else {
+		}
+	}
+}
+end_body
+member
+public: static file pipe;
+end_class
+$END_BODY

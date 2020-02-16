@@ -1,0 +1,538 @@
+$END_LIB
+TEXT
+AlObject
+class SQLTestBase
+class SQLTest
+end_class
+end_class
+$END_CLASS
+TEXT
+AlObject
+class SQLTestBase
+member
+public: static void oracle_ODBC();
+member
+public: static void postgresQL_ODBC();
+member
+public: static void oracle_OCI();
+member
+public: static void postgresQL_libpq();
+member
+public: static string db_type;
+class SQLTest
+member
+public: static void main();
+member
+public: static void main_idx();
+member
+public: integer start;
+member
+public: integer end;
+member
+public: void connect();
+member
+public: void commit();
+member
+public: void create_table();
+member
+public: void create_index();
+member
+public: void drop_table();
+member
+public: void insert20000();
+member
+public: void insert100(integer i);
+member
+public: void select200();
+member
+public: void delete200();
+member
+public: void delete19800();
+member
+public: static SQLTest inst;
+member
+public: list connection;
+member
+public: string host;
+member
+public: string port;
+member
+public: string db_name;
+member
+public: string user;
+member
+public: string passwd;
+member
+public: list stat;
+member
+public: static void main3_1();
+end_class
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class SQLTestBase
+member
+public: static void oracle_ODBC();
+body
+{
+	db_type = "oracle_ODBC";
+}
+end_body
+member
+public: static void postgresQL_ODBC();
+body
+{
+	db_type = "postgresQL_ODBC";
+}
+end_body
+member
+public: static void oracle_OCI();
+body
+{
+	db_type = "oracle_OCI";
+}
+end_body
+member
+public: static void postgresQL_libpq();
+body
+{
+	db_type = "postgresQL_libpq";
+}
+end_body
+member
+public: static string db_type;
+class SQLTest
+member
+public: static void main();
+body
+{
+	inst = new SQLTest;
+	inst.start = al_misc("time_stamp", null, null);
+	al_prof("set", "prof_db", null);
+	al_prof("start", "prof_db", al_list2(1, null));
+	// al_prof("start", "prof_db", al_list2(2, "trace.txt"));
+	inst.connect();
+	if (inst.connection) {
+		inst.create_table();
+		inst.insert20000();
+		inst.select200();
+		inst.delete200();
+		inst.delete19800();
+		inst.drop_table();
+	} else {
+	}
+	inst.end = al_misc("time_stamp", null, null);
+	var integer total;
+	total = inst.end - inst.start;
+	inst = null;
+	al_prof("stop", "prof_db", null);
+	var list result, itr, rec;
+	result = al_prof("result", "prof_db", null);
+	var file out;
+	out = al_file_open("prof_db.txt", "w");
+	al_file_write(out, "string", "total = " + (string)total + "\n");
+	al_file_write(out, "string", "count\ttotal\taverage\tclass\tfunc\n");
+	al_file_write(out, "string", "\t(msec)\t(msec)\t\t\n");
+	itr = al_dst_itr(result);
+	loop {
+		if (rec = al_next(itr)) {
+		} else {
+			break;
+		}
+		al_file_write(out, "string", (string)rec.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.tail.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.head + "\n");
+	}
+	al_prof("clear", "prof_db", null);
+	al_print("end\n");
+}
+end_body
+member
+public: static void main_idx();
+body
+{
+	inst = new SQLTest;
+	inst.start = al_misc("time_stamp", null, null);
+	al_prof("set", "prof_db", null);
+	al_prof("start", "prof_db", al_list2(1, null));
+	// al_prof("start", "prof_db", al_list2(2, "trace.txt"));
+	inst.connect();
+	if (inst.connection) {
+		inst.create_table();
+		inst.create_index();
+		inst.insert20000();
+		inst.select200();
+		inst.delete200();
+		inst.delete19800();
+		inst.drop_table();
+	} else {
+	}
+	inst.end = al_misc("time_stamp", null, null);
+	var integer total;
+	total = inst.end - inst.start;
+	inst = null;
+	al_prof("stop", "prof_db", null);
+	var list result, itr, rec;
+	result = al_prof("result", "prof_db", null);
+	var file out;
+	out = al_file_open("prof_db.txt", "w");
+	al_file_write(out, "string", "total = " + (string)total + "\n");
+	al_file_write(out, "string", "count\ttotal\taverage\tclass\tfunc\n");
+	al_file_write(out, "string", "\t(msec)\t(msec)\t\t\n");
+	itr = al_dst_itr(result);
+	loop {
+		if (rec = al_next(itr)) {
+		} else {
+			break;
+		}
+		al_file_write(out, "string", (string)rec.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.tail.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.head + "\n");
+	}
+	al_prof("clear", "prof_db", null);
+	al_print("end\n");
+}
+end_body
+member
+public: integer start;
+member
+public: integer end;
+member
+public: void connect();
+body
+{
+	if (db_type == "oracle_ODBC" || db_type == "oracle_OCI") {
+		host = null;
+		port = null;
+		db_name = "ORCL";
+		user = "scott";
+		passwd = "tiger";
+		var list conn_info;
+		conn_info = al_list5(host, port, db_name, user, passwd);
+		connection = al_sql("connect", conn_info, "oracle", null, null);
+	} else {
+		host = "vega";
+		port = null;
+		db_name = "testdb";
+		user = "inamoto";
+		passwd = "naota";
+		var list conn_info;
+		conn_info = al_list5(host, port, db_name, user, passwd);
+		connection = al_sql("connect", conn_info, "postgresql", null, null);
+	}
+	if (al_is_type(connection, "string")) {
+		al_print(connection + "\n");
+		connection = null;
+	} else {
+	}
+}
+end_body
+member
+public: void commit();
+body
+{
+	var string result_set;
+	result_set = al_sql("commit", connection, null, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+}
+end_body
+member
+public: void create_table();
+body
+{
+	var string sql;
+	if (db_type == "oracle_ODBC" || db_type == "oracle_OCI") {
+		sql = "create table prof_table(";
+		sql = sql + "column1 varchar2(255),";
+		sql = sql + "column2 varchar2(255),";
+		sql = sql + "column3 varchar2(255),";
+		sql = sql + "column4 varchar2(255),";
+		sql = sql + "column5 varchar2(255),";
+		sql = sql + "column6 varchar2(255),";
+		sql = sql + "constraint pk_prof_table primary key (column1))";
+	} else {
+		sql = "create table prof_table(";
+		sql = sql + "column1 varchar(255),";
+		sql = sql + "column2 varchar(255),";
+		sql = sql + "column3 varchar(255),";
+		sql = sql + "column4 varchar(255),";
+		sql = sql + "column5 varchar(255),";
+		sql = sql + "column6 varchar(255),";
+		sql = sql + "constraint pk_prof_table primary key (column1))";
+	}
+	var list statement, result_set;
+	statement = al_sql("statement", connection, null, null, null);
+	if (al_is_type(statement, "string")) {
+		al_print(statement + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("execute", statement, sql, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	commit();
+}
+end_body
+member
+public: void create_index();
+body
+{
+	var string sql;
+	sql = "create index idx_prof_table_column2 on prof_table (column2)";
+	var list statement, result_set;
+	statement = al_sql("statement", connection, null, null, null);
+	if (al_is_type(statement, "string")) {
+		al_print(statement + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("execute", statement, sql, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	commit();
+}
+end_body
+member
+public: void drop_table();
+body
+{
+	var string sql;
+	sql = "drop table prof_table";
+	var list statement, result_set;
+	statement = al_sql("statement", connection, null, null, null);
+	if (al_is_type(statement, "string")) {
+		al_print(statement + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("execute", statement, sql, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	commit();
+}
+end_body
+member
+public: void insert20000();
+body
+{
+	var integer i;
+	i = 0;
+	loop {
+		if (i < 200) {
+		} else {
+			break;
+		}
+		insert100(i);
+		i = i + 1;
+	}
+}
+end_body
+member
+public: void insert100(integer i);
+body
+{
+	var string sql;
+	sql = "insert into prof_table values(?, ?, ?, ? ,?, ?)";
+	var list statement, values, result_set;
+	statement = al_sql("statement", connection, null, null, null);
+	if (al_is_type(statement, "string")) {
+		al_print(statement + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("prepare", statement, sql, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	var integer j, v;
+	j = 0;
+	loop {
+		if (j < 100) {
+		} else {
+			break;
+		}
+		v = i * 100 + j;
+		values = al_cons(null, null);
+		al_create_arc(values, v, null);
+		al_create_arc(values, v % 100, null);
+		al_create_arc(values, v << 1, null);
+		al_create_arc(values, v << 2, null);
+		al_create_arc(values, v << 3, null);
+		al_create_arc(values, v << 4, null);
+		result_set = al_sql("execute", statement, null, values, null);
+		if (al_is_type(result_set, "string")) {
+			al_print(result_set + "\n");
+			return;
+		} else {
+		}
+		j = j + 1;
+	}
+	commit();
+}
+end_body
+member
+public: void select200();
+body
+{
+	var string sql;
+	sql = "select column1,column2,column3,column4,column5,column6 from prof_table where column2='0'";
+	var list statement, types, result_set;
+	statement = al_sql("statement", connection, null, null, null);
+	if (al_is_type(statement, "string")) {
+		al_print(statement + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("execute", statement, sql, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	types = al_cons(null, null);
+	al_create_arc(types, "string", null);
+	al_create_arc(types, "string", null);
+	al_create_arc(types, "string", null);
+	al_create_arc(types, "string", null);
+	al_create_arc(types, "string", null);
+	al_create_arc(types, "string", null);
+	result_set = al_sql("result", statement, types, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	if (result_set) {
+		var list itr;
+		itr = al_dst_itr(result_set);
+		al_print("selected record count = " + (string)al_count(itr) + "\n");
+	} else {
+	}
+}
+end_body
+member
+public: void delete200();
+body
+{
+	var string sql;
+	sql = "delete from prof_table where column2='0'";
+	var list statement, types, result_set;
+	statement = al_sql("statement", connection, null, null, null);
+	if (al_is_type(statement, "string")) {
+		al_print(statement + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("execute", statement, sql, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	commit();
+}
+end_body
+member
+public: void delete19800();
+body
+{
+	var string sql;
+	sql = "delete from prof_table";
+	var list statement, types, result_set;
+	statement = al_sql("statement", connection, null, null, null);
+	if (al_is_type(statement, "string")) {
+		al_print(statement + "\n");
+		return;
+	} else {
+	}
+	result_set = al_sql("execute", statement, sql, null, null);
+	if (al_is_type(result_set, "string")) {
+		al_print(result_set + "\n");
+		return;
+	} else {
+	}
+	commit();
+}
+end_body
+member
+public: static SQLTest inst;
+member
+public: list connection;
+member
+public: string host;
+member
+public: string port;
+member
+public: string db_name;
+member
+public: string user;
+member
+public: string passwd;
+member
+public: list stat;
+member
+public: static void main3_1();
+body
+{
+	inst = new SQLTest;
+	inst.start = al_misc("time_stamp", null, null);
+	al_prof("set", "prof_db", null);
+	al_prof("start", "prof_db", al_list2(1, null));
+	inst.connect();
+	if (inst.connection) {
+		inst.create_table();
+		inst.insert20000();
+		inst.drop_table();
+	} else {
+	}
+	inst.end = al_misc("time_stamp", null, null);
+	var integer total;
+	total = inst.end - inst.start;
+	inst = null;
+	al_prof("stop", "prof_db", null);
+	var list result, itr, rec;
+	result = al_prof("result", "prof_db", null);
+	var file out;
+	out = al_file_open("prof_db.txt", "w");
+	al_file_write(out, "string", "total = " + (string)total + "\n");
+	al_file_write(out, "string", "count\ttotal\taverage\tclass\tfunc\n");
+	al_file_write(out, "string", "\t(msec)\t(msec)\t\t\n");
+	itr = al_dst_itr(result);
+	loop {
+		if (rec = al_next(itr)) {
+		} else {
+			break;
+		}
+		al_file_write(out, "string", (string)rec.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.tail.tail.tail.head + "\t");
+		al_file_write(out, "string", (string)rec.head + "\t");
+		al_file_write(out, "string", (string)rec.tail.head + "\n");
+	}
+	al_prof("clear", "prof_db", null);
+	al_print("end\n");
+}
+end_body
+end_class
+end_class
+$END_BODY

@@ -1,0 +1,175 @@
+$END_LIB
+TEXT
+AlObject
+class Solid
+end_class
+$END_CLASS
+TEXT
+AlObject
+class Solid
+member
+public: static void main();
+member
+public: static void block2();
+member
+public: static void DrawProc(Solid solid, window wnd);
+member
+public: static void EventProc(Solid solid, window wnd, list event);
+member
+public: void Block2(list geom);
+member
+public: integer LeftButtonDown;
+member
+public: integer LeftButtonUp;
+member
+public: integer MouseMove;
+member
+public: void Draw(window wnd);
+member
+public: void Event(window wnd, list event);
+member
+public: void Damage(window wnd);
+member
+public: integer bg_color;
+member
+public: integer fg_color;
+member
+public: list shape1;
+member
+public: list shape2;
+member
+public: list shape;
+member
+public: list view;
+end_class
+$END_MEMBER
+TEXT
+AlObject
+class Solid
+member
+public: static void main();
+body
+{
+	block2();
+}
+end_body
+member
+public: static void block2();
+body
+{
+	var window wnd;
+	var list geom, poly;
+	wnd = al_create_window(al_list3(0, null, al_list4(50, 50, 400, 400)));
+	geom = al_get_window_rect(wnd, 1);
+	var Solid solid;
+	solid = new Solid;
+	solid.Block2(geom);
+	al_set_window_arg(wnd, "solid", solid);
+	al_set_window_arg(wnd, "wnd", wnd);
+	al_set_draw_proc(wnd, Solid::DrawProc);
+	al_set_event_proc(wnd, Solid::EventProc);
+	poly = al_create_poly_poly();
+	al_add_rect_to_poly(poly, geom.head, geom.tail.head, geom.tail.tail.head, geom.tail.tail.tail.head);
+	al_damage(wnd, poly);
+}
+end_body
+member
+public: static void DrawProc(Solid solid, window wnd);
+body
+{
+	solid.Draw(wnd);
+}
+end_body
+member
+public: static void EventProc(Solid solid, window wnd, list event);
+body
+{
+	solid.Event(wnd, event);
+}
+end_body
+member
+public: void Block2(list geom);
+body
+{
+	LeftButtonDown = 0;
+	LeftButtonUp = 1;
+	MouseMove = 6;
+	bg_color = al_get_sys_color(0);
+	fg_color = al_get_sys_color(1);
+	shape1 = al_solid("block", 100, 100, 100, null);
+	shape2 = al_solid("block", 50, 50, 50, null);
+	shape = al_solid("union", shape1, shape2, null, null);
+	// shape = al_solid("intersection", shape1, shape2, null, null);
+	// shape = al_solid("minus", shape1, shape2, null, null);
+	view = al_solid("view", null, null, null, null);
+	var integer x, y, w, h;
+	x = geom.head;
+	y = geom.tail.head;
+	w = geom.tail.tail.head / 2;
+	h = geom.tail.tail.tail.head / 2;
+	al_solid("view_org", view, al_list2(w, h), null, null);
+	al_solid("view_lookfrom", view, al_list3(3, 2, 1), null, null);
+}
+end_body
+member
+public: integer LeftButtonDown;
+member
+public: integer LeftButtonUp;
+member
+public: integer MouseMove;
+member
+public: void Draw(window wnd);
+body
+{
+	al_push_pen(wnd, "Solid", 1, fg_color);
+	var list mat;
+	mat = al_solid("view_T", view, null, null, null);
+	// al_solid("draw", wnd, mat, shape1, 1);
+	// al_solid("draw", wnd, mat, shape2, 1);
+	al_solid("draw", wnd, mat, shape, 0);
+	al_pop_pen(wnd);
+}
+end_body
+member
+public: void Event(window wnd, list event);
+body
+{
+	var integer msg, x, y;
+	msg = event.head;
+	x = event.tail.head;
+	y = event.tail.tail.head;
+	if (msg == LeftButtonDown) {
+	} else {
+	}
+	if (msg == LeftButtonUp) {
+	} else {
+	}
+	if (msg == MouseMove) {
+	} else {
+	}
+}
+end_body
+member
+public: void Damage(window wnd);
+body
+{
+	var list poly;
+	poly = al_create_poly_poly();
+	al_add_rect_to_poly(poly, 10, 40, 360, 320);
+	al_damage(wnd, poly);
+}
+end_body
+member
+public: integer bg_color;
+member
+public: integer fg_color;
+member
+public: list shape1;
+member
+public: list shape2;
+member
+public: list shape;
+member
+public: list view;
+end_class
+$END_BODY

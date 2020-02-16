@@ -1,0 +1,526 @@
+program:
+(("{}*", ("sql_stat_n", (("{}", ("sql_create"), ("sql_drop"), ("sql_insert"), ("sql_update"), ("sql_delete"), ("sql_select"))))))
+attr_grmr {
+  loop1(p, n) :- for($[1]) == 1   , ("program") == p [ -/n/-> $[1][1] ], loop1(p, n + 1) .
+  loop1(p, n) :- for($[1]) == null, ("program") == p, must_be(dst_node(p, n), null) == 1 .
+
+  loop1($$, 1) .
+}
+
+sql_stat:
+(("{}", ("sql_create"), ("sql_drop"), ("sql_insert"), ("sql_update"), ("sql_delete"), ("sql_select")))
+attr_grmr {
+  $$ == $[1] .
+}
+
+sql_create:
+(("{}", ("create_tbl"), ("create_idx"), ("create_seq")))
+attr_grmr {
+  $$ == $[1];
+}
+
+sql_drop:
+(("{}", ("drop_table"), ("drop_index"), ("drop_seq")))
+attr_grmr {
+  $$ == $[1] .
+}
+
+sql_insert:
+(("insert"))
+attr_grmr {
+  $$ == $[1] .
+}
+
+sql_update:
+(("update"))
+attr_grmr {
+  $$ == $[1] .
+}
+
+sql_delete:
+(("delete"))
+attr_grmr {
+  $$ == $[1] .
+}
+
+sql_select:
+(("select"))
+attr_grmr {
+  $$ == $[1] .
+}
+
+/* ================================================================================ */
+create_tbl:
+(
+ "$value",
+ ("{}", ("ct_constraint", (("tbl_constraint"))), ("ct_col", (("tbl_column")))),
+ ("{}*", ("ct_constraint_n", (("tbl_constraint"))), ("ct_col_n", (("tbl_column"))))
+)
+attr_grmr {
+  if1(p, c) :- switch($[2]) == "ct_constraint", ("constraints") == p [ -/1/-> $[2][1] ] .
+  if1(p, c) :- switch($[2]) == "ct_col",        ("columns")     == c [ -/1/-> $[2][1] ] .
+
+  loop1(p, c, n) :- for ($[3]) == 1,    if2(p, c, n), loop1(p, c, n+1) .
+  loop1(p, c, *) :- for ($[3]) == null, ("constraints") == p, ("columns") == c .
+
+  if2(p, c, n) :- switch ($[3]) == "ct_constraint_n", ("constraints") == p [ -/n/-> $[3][1] ] .
+  if2(p, c, n) :- switch ($[3]) == "ct_col_n",        ("columns")     == c [ -/n/-> $[3][1] ] .
+
+  if1(cnstrnts, columns), ("create") == $$ [ -/"kind"/-> "table" ]
+                                           [ -/"name"/-> $[1] ]
+                                           [ -/"constraints"/-> cnstrnts ]
+                                           [ -/"columns"/-> columns ], loop1(cnstrnts, columns, 2) .
+}
+
+tbl_constraint:
+(
+ ("{}?", ("tbl_constraint_name", ("$value"))),
+ ("{}", ("ct_pkey", (("ident_ls"))), ("ct_fkey", (("ident_ls"), "$value", ("ident_ls"))), ("ct_uniq", (("ident_ls"))))
+)
+attr_grmr {
+  if1(cnstrnt) :- if($[1]) == 1,      ("constraint") == cnstrnt [ -/"name"/-> $[1][1] ] .
+  if1(cnstrnt) :- if($[1]) == null,   ("constraint") == cnstrnt .
+
+  if2(cnstrnt) :- switch($[2]) == "ct_pkey", ("constraint") == cnstrnt [ -/"pkey_cols"/-> $[2][1] ] .
+  if2(cnstrnt) :- switch($[2]) == "ct_fkey", ("constraint") == cnstrnt [ -/"fkeys_cols"/-> $[2][1] ]
+                                                                       [ -/"fkey_ref_tbl"/-> $[2][2] ]
+                                                                       [ -/"fkey_ref_cols"/-> $[2][3] ] .
+  if2(cnstrnt) :- switch($[2]) == "ct_uniq", ("constraint") == cnstrnt [ -/"ukey_cols"/-> $[2][1] ] .
+
+  if1($$), if2($$) .
+}
+
+tbl_column:
+("$value", "$value", ("{}?", ("col_size", (("exp_ls")))), ("{}?", ("default", (("exp")))), ("{}?", ("nullable", (("{}", ("null"), ("not_null"))))))
+attr_grmr {
+  if1(col) :- if($[3]) == 1,    ("column") == col [ -/"size"/-> $[3][1] ] .
+  if1(col) :- if($[3]) == null, ("column") == col .
+
+  if2(col) :- if($[4]) == 1,    ("column") == col [ -/"default"/-> $[4][1] ] .
+  if2(col) :- if($[4]) == null, ("column") == col .
+
+  if3(col) :- if($[5]) == 1, switch($[5]) == "not_null", ("column") == col [ -/"nullable"/-> 1 ] .
+  if3(col) :- if($[5]) == 1, switch($[5]) == "null",     ("column") == col, $gen == null .
+  if3(col) :- if($[5]) == null, ("column") == col .
+
+  ("column") == $$ [ -/"name"/-> $[1] ]
+                   [ -/"type"/-> $[2] ], if1($$), if2($$), if3($$) .
+}
+
+create_idx:
+("$value", "$value", ("ident_ls"))
+attr_grmr {
+  ("create") == $$ [ -/"kind"/-> "index" ]
+                   [ -/"name"/-> $[1] ]
+                   [ -/"table"/-> $[2] ]
+                   [ -/"columns"/-> $[3] ] .
+}
+
+create_seq:
+("$value")
+attr_grmr {
+  ("create") == $$ [ -/"kind"/-> "seq" ]
+                   [ -/"name"/-> $[1] ] .
+}
+
+drop_table:
+("$value")
+attr_grmr {
+  ("drop") == $$ [ -/"kind"/-> "table" ]
+                 [ -/"name"/-> $[1] ] .
+}
+
+drop_index:
+("$value")
+attr_grmr {
+  ("drop") == $$ [ -/"kind"/-> "index" ]
+                 [ -/"name"/-> $[1] ] .
+}
+
+drop_seq:
+("$value")
+attr_grmr {
+  ("drop") == $$ [ -/"kind"/-> "seq" ]
+                 [ -/"name"/-> $[1] ] .
+}
+
+/* ================================================================================ */
+insert:
+(("{}?", ("ins_into")), "$value", ("ident_ls"), ("{}", ("ins_val", (("exp_ls"))), ("ins_sel", (("exp")))))
+attr_grmr {
+  if1(stat) :- if($[1]) == 1,    ("insert") == stat, switch($[1]) == "ins_into" .
+  if1(stat) :- if($[1]) == null, ("insert") == stat .
+
+  if2(stat) :- switch($[4]) == "ins_val", ("insert") == stat [ -/"values"/-> $[4][1] ] .
+  if2(stat) :- switch($[4]) == "ins_sel", ("insert") == stat [ -/"select"/-> $[4][1] ] .
+
+  if1($$), ("insert") == $$ [ -/"table"/-> $[2] ]
+                            [ -/"cols"/-> $[3] ], if2($$) .
+}
+
+delete:
+(("{}?", ("del_from")), "$value", ("{}?", ("del_wh", (("exp")))))
+attr_grmr {
+  if1(stat) :- if($[1]) == 1,    ("insert") == stat, switch($[1]) == "del_from" .
+  if1(stat) :- if($[1]) == null, ("insert") == stat .
+
+  if2(stat) :- if($[3]) == 1,    ("insert") == stat [ -/"where"/-> $[3][1] ] .
+  if2(stat) :- if($[3]) == null, ("insert") == stat .
+
+  if1($$), ("delete") == $$ [ -/"table"/-> $[2] ], if2($$) .
+}
+
+update:
+("$value", ("exp_ls"), ("{}?", ("upd_wh", (("exp")))))
+attr_grmr {
+  if1(stat) :- if($[3]) == 1,    ("insert") == stat [ -/"where"/-> $[3][1] ] .
+  if1(stat) :- if($[3]) == null, ("insert") == stat .
+
+  ("update") == $$ [ -/"table"/-> $[1] ]
+                   [ -/"set"/->   $[2] ], if1($$) .
+}
+
+select:
+(
+ ("{}?", ("sel_all"), ("sel_distinct")),
+ ("exp_ls"),
+ ("exp_ls"),
+ ("{}*", ("sel_join", (("{}?", ("j_cross"), ("j_left"), ("j_right"), ("j_full")), ("exp_ls"), ("{}?", ("j_on", (("exp"))))))),
+ ("{}?", ("sel_wh", (("exp")))),
+ ("{}?", ("sel_grp", (("exp_ls")))),
+ ("{}?", ("sel_hv", (("exp")))),
+ ("{}?", ("sel_odrby", (("exp_ls"))))
+)
+attr_grmr {
+  if1(stat) :- if($[1]) == 1, switch ($[1]) == "sel_distinct", ("select") == stat [ -/"distinct"/-> 1 ].
+  if1(stat) :- if($[1]) == 1, switch ($[1]) == "sel_all",      ("select") == stat, $gen == null .
+  if1(stat) :- if($[1]) == null,                               ("select") == stat . 
+
+  loop1(stat, n) :- for($[4]) == 1,    ("select") == stat [ -/n/-> join ], if2(join), if4(join), loop1(stat, n+1) .
+  loop1(stat, n) :- for($[4]) == null, ("select") == stat, must_be(dst_node(stat, n), null) == 1.
+
+  if2(join) :- if($[4][1]) == 1, if3(join), ("join") == join [ -/"join_tbls"/-> $[4][2] ] . 
+  if2(join) :- if($[4][1]) == null,         ("join") == join [ -/"join_tbls"/-> $[4][2] ] . 
+
+  if3(join) :- switch($[4][1]) == "j_cross", ("join") == join [ -/"join_type"/-> "cross" ] .
+  if3(join) :- switch($[4][1]) == "j_left",  ("join") == join [ -/"join_type"/-> "left"  ] .
+  if3(join) :- switch($[4][1]) == "j_right", ("join") == join [ -/"join_type"/-> "right" ] .
+  if3(join) :- switch($[4][1]) == "j_full",  ("join") == join [ -/"join_type"/-> "full"  ] .
+
+  if4(join) :- if($[4][3]) == 1,    ("join") == join [ -/"join_on"/-> $[4][3][1] ] .
+  if4(join) :- if($[4][3]) == null, ("join") == join .
+
+
+  if5(stat) :- if($[5]) == 1,    ("select") == stat [ -/"where"/-> $[5][1] ] .
+  if5(stat) :- if($[5]) == null, ("select") == stat .
+
+  if6(stat) :- if($[6]) == 1,    ("select") == stat [ -/"group_by"/-> $[6][1] ] .
+  if6(stat) :- if($[6]) == null, ("select") == stat .
+
+  if7(stat) :- if($[7]) == 1,    ("select") == stat [ -/"having"/-> $[7][1] ] .
+  if7(stat) :- if($[7]) == null, ("select") == stat .
+
+  if8(stat) :- if($[8]) == 1,    ("select") == stat [ -/"order_by"/-> $[8][1] ] .
+  if8(stat) :- if($[8]) == null, ("select") == stat .
+
+  if1($$),
+  ("select") == $$ [ -/"cols"/-> $[2] ]
+                   [ -/"tables"/-> $[3] ],
+  loop1($$, 1),
+  if5($$), if6($$), if7($$), if8($$) .
+}
+
+/* ================================================================================ */
+exp:
+(("e_or"))
+attr_grmr {
+  $$ == $[1] .
+}
+
+e_or:
+(("e_and"), ("{}*", ("e_or_n", (("e_and")))))
+attr_grmr {
+  loop1(exp, exp1, tr) :- for($[2]) == 1   , ("binary") == tr [ -/"op"/-> "or"  ]
+                                                              [ -/"exp1"/-> tr1 ],
+                                  ("binary") == exp2 [ -/"op"/-> "or" ]
+                                                     [ -/"exp1"/-> exp1    ]
+                                                     [ -/"exp2"/-> $[2][1] ], loop1(exp, exp2, tr1) .
+  loop1(exp, exp, *) :- for($[2]) == null .
+
+  if1(exp, * ) :- $gen == 1, ("binary") == exp [ -/"op"/-> op ], op != "or", for($[2]) == null, exp === $[1] .
+  if1(exp, tr) :- loop1(exp, $[1], tr) .
+
+  if1($$, $$) .
+}
+
+e_and:
+(("e_not"), ("{}*", ("e_and_n", (("e_not")))))
+attr_grmr {
+  loop1(exp, exp1, tr) :- for($[2]) == 1   , ("binary") == tr [ -/"op"/-> "and"  ]
+                                                              [ -/"exp1"/-> tr1 ],
+                                  ("binary") == exp2 [ -/"op"/-> "and" ]
+                                                     [ -/"exp1"/-> exp1    ]
+                                                     [ -/"exp2"/-> $[2][1] ], loop1(exp, exp2, tr1) .
+  loop1(exp, exp, * ) :- for($[2]) == null .
+
+  if1(exp, * ) :- $gen == 1, ("binary") == exp [ -/"op"/-> op ], op != "and", for($[2]) == null, exp === $[1] .
+  if1(exp, tr) :- loop1(exp, $[1], tr) .
+
+  if1($$, $$) .
+}
+
+e_not:
+(("{}?", ("e_not_1")), ("e_cmp"))
+attr_grmr {
+  if1(exp, exp1) :- if($[1]) == 1   , op(op), ("unary") == exp [ -/"op"/-> "not" ]
+                                                               [ -/"exp"/-> exp1 ] .
+  if1(exp, exp ) :- if($[1]) == null . 
+
+  if2(exp) :- $gen == 1, ("unary") == exp [ -/"op"/-> op ], op != "not", if($[1]) == null, exp === $[2] .
+  if2(exp) :- if1(exp, $[2]) .
+
+  if2($$) .
+}
+
+e_cmp:
+(("e_add"), ("{}?", ("e_cmp_n", (("{}", ("eq"), ("ne"), ("ge"), ("gt"), ("le"), ("lt"), ("like"), ("in")), ("e_add")))))
+attr_grmr {
+  op("=" )   :- switch($[2][1]) == "eq" .
+  op("<>")   :- switch($[2][1]) == "ne" .
+  op("#" )   :- switch($[2][1]) == "ne" .
+  op(">=")   :- switch($[2][1]) == "ge" .
+  op(">" )   :- switch($[2][1]) == "gt" .
+  op("<=")   :- switch($[2][1]) == "le" .
+  op("<" )   :- switch($[2][1]) == "lt" .
+  op("like") :- switch($[2][1]) == "like" .
+  op("in")   :- switch($[2][1]) == "in" .
+
+  if1(exp, exp1) :- if($[2]) == 1   , op(op), ("binary") == exp [ -/"op"/-> op ]
+                                                                [ -/"exp1"/-> exp1 ]
+                                                                [ -/"exp2"/-> $[2][2] ] .
+  if1(exp, exp ) :- if($[2]) == null .
+
+  if2(exp) :- $gen == 1, ("binary") == exp [ -/"op"/-> op ],
+      op != "=", op != "<>", op != "#", op != ">=", op != ">", op != "<=", op != "<",
+      op != "like", op != "in", if($[2]) == null, exp === $[1] .
+  if2(exp) :- if1(exp, $[1]) .
+
+  if2($$) .
+}
+
+ne:
+(("{}", ("ne_1"), ("ne_2")))
+attr_grmr {
+  if1(op) :- $gen == null, switch($[1]) == "ne_1", op == $[1] .
+  if1(op) :- $gen == null, switch($[1]) == "ne_2", op == $[1] .
+  if1(op) :- $gen == 1, switch($[1]) == "ne_1", op == $[1] .
+
+  if1($$) .
+}
+
+e_add:
+(("e_mul"), ("{}*", ("e_add_n", (("{}", ("add"), ("sub")), ("e_mul")))))
+attr_grmr {
+  op("+") :- switch($[2][1]) == "add" .
+  op("-") :- switch($[2][1]) == "sub" .
+
+  top("+") :- .
+  top("-") :- .
+
+  loop1(exp, exp1, tr) :- for($[2]) == 1, op(op), top(top), ("binary") == tr [ -/"op"/-> top  ]
+                                                                             [ -/"exp1"/-> tr1 ],
+                                  ("binary") == exp2 [ -/"op"/-> op ]
+                                                     [ -/"exp1"/-> exp1 ]
+                                                     [ -/"exp2"/-> $[2][2] ], loop1(exp, exp2, tr1) .
+  loop1(exp, exp,  * ) :- for($[2]) == null .
+
+  if1(exp, * ) :- $gen == 1, ("binary") == exp [ -/"op"/-> op ], op != "+", op != "-", for($[2]) == null, exp === $[1] .
+  if1(exp, tr) :- loop1(exp, $[1], tr) .
+
+  if1($$, $$) .
+}
+
+e_mul:
+(
+ (
+  "{}",
+  ("e_list"),
+  ("e_bracket"),
+  ("e_wc"),
+  ("e_question"),
+  ("e_select"),
+  ("e_default"),
+  ("e_null"),
+  ("e_func"),
+  ("e_var"),
+  ("e_string"),
+  ("e_real"),
+  ("e_integer")
+ ),
+ (
+  "{}*",
+  (
+   "e_mul_n",
+   (
+    ("{}", ("mul"), ("div"), ("mod")),
+    (
+     "{}",
+     ("e_list"),
+     ("e_bracket"),
+     ("e_wc"),
+     ("e_question"),
+     ("e_select"),
+     ("e_default"),
+     ("e_null"),
+     ("e_func"),
+     ("e_var"),
+     ("e_string"),
+     ("e_real"),
+     ("e_integer")
+    )
+   )
+  )
+ )
+)
+attr_grmr {
+  op("*") :- switch($[2][1]) == "mul" .
+  op("/") :- switch($[2][1]) == "div" .
+  op("%") :- switch($[2][1]) == "mod" .
+
+  top("*") :- .
+  top("/") :- .
+  top("%") :- .
+
+  expr1(e, e)  :- switch($[1]) == "e_list" .
+  expr1(e, e)  :- switch($[1]) == "e_bracket" .
+  expr1(e, ex) :- switch($[1]) == "e_wc",       e == ("wc") .
+  expr1(e, ex) :- switch($[1]) == "e_question", e == ("question") .
+  expr1(e, e)  :- switch($[1]) == "e_select" .
+  expr1(e, ex) :- switch($[1]) == "e_default",  e == ("default") .
+  expr1(e, ex) :- switch($[1]) == "e_null",     e == ("null");
+  expr1(e, e)  :- switch($[1]) == "e_func" .
+  expr1(e, e)  :- switch($[1]) == "e_var" .
+  expr1(e, e)  :- switch($[1]) == "e_string" .
+  expr1(e, e)  :- switch($[1]) == "e_real" .
+  expr1(e, e)  :- switch($[1]) == "e_integer" .
+
+  expr2(e, e)  :- switch($[2][2]) == "e_list" .
+  expr2(e, e)  :- switch($[2][2]) == "e_bracket" .
+  expr2(e, ex) :- switch($[2][2]) == "e_wc",       e == ("wc") .
+  expr2(e, ex) :- switch($[2][2]) == "e_question", e == ("question") .
+  expr2(e, e)  :- switch($[2][2]) == "e_select" .
+  expr2(e, ex) :- switch($[2][2]) == "e_default",  e == ("default") .
+  expr2(e, ex) :- switch($[2][2]) == "e_null",     e == ("null");
+  expr2(e, e)  :- switch($[2][2]) == "e_func" .
+  expr2(e, e)  :- switch($[2][2]) == "e_var" .
+  expr2(e, e)  :- switch($[2][2]) == "e_string" .
+  expr2(e, e)  :- switch($[2][2]) == "e_real" .
+  expr2(e, e)  :- switch($[2][2]) == "e_integer" .
+
+  loop1(exp, exp1, tr) :- for($[2]) == 1, op(op), top(top), ("binary") == tr [ -/"op"/-> top  ]
+                                                                             [ -/"exp1"/-> tr1 ],
+                                  ("binary") == exp2 [ -/"op"/-> op ]
+                                                     [ -/"exp1"/-> exp1 ]
+                                                     [ -/"exp2"/-> $[2][2] ],
+                                  expr2(e, $[2][2]), loop1(exp, e, tr1) .
+
+  loop1(exp, exp,  * ) :- for($[2]) == null .
+
+  if1(exp, * ) :- $gen == 1, ("binary") == exp [ -/"op"/-> op ], op != "*", op != "/", op != "%", for($[2]) == null, exp === $[1] .
+  if1(exp, tr) :- expr1(e, $[1]), loop1(exp, e, tr) .
+
+  if1($$, $$) .
+}
+
+/* ================================================================================ */
+e_list:
+(("exp"), ("{}+", ("e_list_n", (("exp")))))
+attr_grmr {
+  loop1(exp, n) :- for($[2]) == 1   , ("set") == exp [ -/n/-> $[2][1] ], loop1(exp, n + 1) .
+  loop1(exp, n) :- for($[2]) == null, ("set") == exp, must_be(dst_node(exp, n), null) == 1 .
+
+  ("set") == $$ [ -/1/-> $[1] ], loop1($$, 2) .
+}
+
+e_bracket:
+(("exp"))
+attr_grmr {
+  $$ == $[1] .
+}
+
+e_select:
+(("select"))
+attr_grmr {
+  $$ == $[1] .
+}
+
+e_func:
+("$value", ("{}?", ("func_arg_ls", (("exp_ls")))))
+attr_grmr {
+  if1(f) :- if($[2]) == 1,    ("func") == f [ -/"name"/-> $[1] ]
+                                            [ -/"arg_ls"/-> $[2][1] ]  .
+  if1(f) :- if($[2]) == null, ("func") == f [ -/"name"/-> $[1] ] .
+
+  if1($$) .
+}
+
+e_var:
+(("{}?", ("tbl_name", ("$value"))), "$value", ("{}?", ("e_asc"), ("e_desc")), ("{}?", ("e_alias", (("{}?", ("e_as")), "$value"))))
+attr_grmr {
+  if1(v) :- if($[1]) == 1,    ("var") == v [ -/"table"/-> $[1][1] ] .
+  if1(v) :- if($[1]) == null, ("var") == v .
+
+  if2(v) :- if($[3]) == 1, switch($[3]) == "e_asc",  ("var") == v [ -/"order"/->"asc" ], $gen == null .
+  if2(v) :- if($[3]) == 1, switch($[3]) == "e_desc", ("var") == v [ -/"order"/->"desc" ] .
+  if2(v) :- if($[3]) == null,                        ("var") == v .
+
+  if3(v) :- if($[4]) == 1,    ("var") == v [ -/"alias"/-> $[4][2] ], if4(v) .
+  if3(v) :- if($[4]) == null, ("var") == v .
+
+  if4(v) :- if($[4][1]) == 1, $gen == null .
+  if4(v) :- if($[4][1]) == null .
+
+  ("var") == if1(v), ("var") == $$ [ -/"name"/-> $[2] ], if2(v), if3(v) .
+}
+
+/* ================================================================================ */
+e_string:
+("$value")
+attr_grmr {
+  ("const") == $$ [ -/"type"/-> "string" ]
+                  [ -/"value"/-> $[1] ] .
+}
+
+e_real:
+("$value")
+attr_grmr {
+  ("const") == $$ [-/"type"/-> "real" ]
+                  [ -/"value"/-> $[1] ] .
+}
+
+e_integer:
+("$value")
+attr_grmr {
+  ("const") == $$ [ -/"type"/-> "integer"]
+                  [ -/"value"/-> $[1] ] .
+}
+
+/* ================================================================================ */
+exp_ls:
+(("exp"), ("{}*", ("exp_ls_n", (("exp")))))
+attr_grmr {
+  loop1(exp, n) :- for($[2]) == 1   , ("exp_ls") == exp [ -/n/-> $[2][1] ], loop1(exp, n + 1) .
+  loop1(exp, n) :- for($[2]) == null, ("exp_ls") == exp, must_be(dst_node(exp, n), null) == 1 .
+
+  ("exp_ls") == $$ [ -/1/-> $[1] ], loop1($$, 2) .
+}
+
+ident_ls:
+("$value", ("{}*", ("ident_ls_n", ("$value"))))
+attr_grmr {
+  loop1(id, n) :- for($[2]) == 1   , ("ident_ls") == id [ -/n/-> $[2][1] ], loop1(id, n + 1) .
+  loop1(id, n) :- for($[2]) == null, ("ident_ls") == id, must_be(dst_node(id, n), null) == 1 .
+
+  ("ident_ls") == $$ [ -/1/-> $[1] ], loop1($$, 2) .
+}
+
